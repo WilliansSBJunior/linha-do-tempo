@@ -13124,36 +13124,6 @@
   {
    "d": "2019-10-14",
    "y": 2019,
-   "t": "BC aprova controle do Máxima por Vorcaro",
-   "x": "No voto 218/2019 (out/2019), o BC aprovou a aquisição do Máxima por Vorcaro após documentação revisada, depois de um veto em fev/2019 por falta de comprovação da origem dos recursos e da capacidade econômica. O Valor, citado pelo Let's Money, registra o relator inclinado a rejeitar e o rombo potencial do FGC, que crescera de R$ 827 mi (2016) para R$ 3,224 bi.",
-   "p": 4,
-   "f": [
-    [
-     "letsmoney.com.br",
-     "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro"
-    ],
-    [
-     "jornalgrandebahia.com.br",
-     "https://jornalgrandebahia.com.br/2026/04/banco-central-rejeitou-e-depois-aprovou-controle-do-banco-master-por-daniel-vorcaro-apos-revisao-de-capacidade-economica"
-    ]
-   ],
-   "n": [
-    1,
-    33,
-    78,
-    95
-   ],
-   "ids": [
-    "daniel-vorcaro",
-    "bcb",
-    "fgc",
-    "banco-maxima"
-   ],
-   "id": "ev-2019-10-14-bc-aprova-controle-do-maxima-por-vorcaro"
-  },
-  {
-   "d": "2019-10-14",
-   "y": 2019,
    "t": "BC aprova a mudança de controle (voto 218/2019, 14/10/2019)",
    "x": "O voto BCB 218/2019, do diretor João Manoel Pinho de Mello, de 14/10/2019, já na gestão de Roberto Campos Neto no BC, aprovou a operação, segundo Let's Money, Times Brasil e Brasil 247. Segundo o Let's Money, o voto diz que 'a origem dos recursos foi regularmente demonstrada por todos os novos acionistas'; segundo o Times Brasil, Pinho de Mello registrou que o veto não considerara projeções de fluxo de caixa nem laudos de valor de mercado. Houve aportes de R$ 100 milhões entre março e junho de 2019 (R$ 70 mi de Vorcaro e R$ 30 mi dos demais sócios, segundo o Jornal de Brasília). O Valor/Let's Money estima o rombo potencial do FGC em R$ 3,224 bilhões em 2019. Marco: a entrada do grupo de Daniel Vorcaro encerra a história do banco antigo.",
    "p": 4,
@@ -13173,19 +13143,25 @@
     [
      "jornaldebrasilia.com.br",
      "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc"
+    ],
+    [
+     "jornalgrandebahia.com.br",
+     "https://jornalgrandebahia.com.br/2026/04/banco-central-rejeitou-e-depois-aprovou-controle-do-banco-master-por-daniel-vorcaro-apos-revisao-de-capacidade-economica"
     ]
    ],
    "n": [
     1,
     33,
     35,
-    78
+    78,
+    95
    ],
    "ids": [
     "daniel-vorcaro",
     "bcb",
     "roberto-campos-neto",
-    "fgc"
+    "fgc",
+    "banco-maxima"
    ],
    "id": "max17",
    "st": "doc"
@@ -13512,32 +13488,6 @@
   {
    "d": "2021-08-02",
    "y": 2021,
-   "t": "Máxima relança-se como Banco Master digital",
-   "x": "A InvestNews reportou a adoção do nome Master após quase 50 anos, com posicionamento de banco digital, índice de Basileia perto de 14% e meta de R$ 1 bilhão de patrimônio até o fim de 2022.",
-   "p": 4,
-   "f": [
-    [
-     "investnews.com.br",
-     "https://investnews.com.br/negocios/banco-maxima-muda-nome-para-master-e-busca-pulverizar-servicos-financeiros/amp"
-    ],
-    [
-     "dieese.org.br",
-     "https://www.dieese.org.br/notatecnica/2026/notaTec291BancoMaster.pdf"
-    ]
-   ],
-   "n": [
-    0,
-    95
-   ],
-   "ids": [
-    "banco-master",
-    "banco-maxima"
-   ],
-   "id": "ev-2021-08-02-maxima-relanca-se-como-banco-master"
-  },
-  {
-   "d": "2021-08-02",
-   "y": 2021,
    "t": "Máxima passa a se chamar Banco Master (reportagem de 02/08/2021)",
    "x": "A InvestNews (02/08/2021) relata a troca de marca para Banco Master, que Daniel Vorcaro descreveu como 'basicamente, mudança de razão social': 'mesmo CNPJ, mesma equipe, mesmos processos'. Segundo o próprio Vorcaro, o banco tem 'quase 50 anos de história' e a receita foi de cerca de R$ 180 milhões em 2018 e quase R$ 1 bilhão em 2020. Fim do recorte do banco antigo.",
    "p": 4,
@@ -13549,6 +13499,14 @@
     [
      "maisgoias.com.br",
      "https://www.maisgoias.com.br/brasil/economia/pobre-menino-rico-quem-e-e-de-onde-veio-a-fortuna-de-daniel-vorcaro"
+    ],
+    [
+     "investnews.com.br",
+     "https://investnews.com.br/negocios/banco-maxima-muda-nome-para-master-e-busca-pulverizar-servicos-financeiros/amp"
+    ],
+    [
+     "dieese.org.br",
+     "https://www.dieese.org.br/notatecnica/2026/notaTec291BancoMaster.pdf"
     ]
    ],
    "n": [
@@ -13621,7 +13579,8 @@
     "cvm",
     "fgc"
    ],
-   "id": "ev-2022-02-fgc-denuncia-grupo-master-a-cvm-caso-e"
+   "id": "ev-2022-02-fgc-denuncia-grupo-master-a-cvm-caso-e",
+   "st": "inv"
   },
   {
    "d": "2022-03",
@@ -13935,6 +13894,10 @@
     [
      "gazetadopovo.com.br",
      "https://www.gazetadopovo.com.br/republica/compliance-zero-alvos-pf-envolvimento-banco-master"
+    ],
+    [
+     "Times Brasil",
+     "https://timesbrasil.com.br/brasil/operacoes-da-pf/mensagens-vorcaro-brb-bancou-master-2024"
     ]
    ],
    "n": [
@@ -13949,7 +13912,8 @@
     "pf",
     "brb"
    ],
-   "id": "ev-2024-07-brb-comeca-a-comprar-carteiras-de"
+   "id": "ev-2024-07-brb-comeca-a-comprar-carteiras-de",
+   "st": "rep"
   },
   {
    "d": "2024-09",
@@ -14057,6 +14021,10 @@
     [
      "band.com.br",
      "https://www.band.com.br/radio-bandeirantes/noticias/reportagens-revelam-reuniao-fora-da-agenda-entre-lula-e-daniel-vorcaro-202605180851"
+    ],
+    [
+     "Gazeta do Povo",
+     "https://www.gazetadopovo.com.br/republica/lula-aconselhou-vorcaro-a-recusar-venda-do-master-para-o-btg"
     ]
    ],
    "n": [
@@ -14073,7 +14041,8 @@
     "guido-mantega",
     "gabriel-galipolo"
    ],
-   "id": "ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da"
+   "id": "ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da",
+   "st": "doc"
   },
   {
    "d": "2024-12-24",
@@ -14190,6 +14159,10 @@
     [
      "poder360.com.br",
      "https://poder360.com.br/poder-economia/banco-central-decreta-liquidacao-extrajudicial-do-banco-master"
+    ],
+    [
+     "Metrópoles",
+     "https://www.metropoles.com/colunas/grande-angular/o-que-se-sabe-sobre-a-compra-do-master-pelo-brb"
     ]
    ],
    "n": [
@@ -14204,7 +14177,8 @@
     "bcb",
     "brb"
    ],
-   "id": "ev-2025-03-28-brb-anuncia-compra-de-58-do-master"
+   "id": "ev-2025-03-28-brb-anuncia-compra-de-58-do-master",
+   "st": "doc"
   },
   {
    "d": "2025-03",
@@ -14357,6 +14331,10 @@
     [
      "poder360.com.br",
      "https://www.poder360.com.br/poder-economia/btg-compra-r-15-bi-em-ativos-do-dono-do-banco-master"
+    ],
+    [
+     "Brazil Journal",
+     "https://braziljournal.com/exclusivo-btg-compra-r-15-bi-em-ativos-de-vorcaro-que-vai-capitalizar-o-master"
     ]
    ],
    "n": [
@@ -14369,7 +14347,8 @@
     "daniel-vorcaro",
     "btg-pactual"
    ],
-   "id": "ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro"
+   "id": "ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro",
+   "st": "rep"
   },
   {
    "d": "2025-07-15",
@@ -14395,7 +14374,8 @@
     "bcb",
     "brb"
    ],
-   "id": "ev-2025-07-15-bc-comunica-ao-mpf-indicios-de-crimes-na"
+   "id": "ev-2025-07-15-bc-comunica-ao-mpf-indicios-de-crimes-na",
+   "st": "rep"
   },
   {
    "d": "2025-07",
@@ -14488,7 +14468,8 @@
     "operacao-carbono-oculto",
     "reag-investimentos"
    ],
-   "id": "ev-2025-08-28-reag-e-alvo-de-buscas-na-carbono-oculto"
+   "id": "ev-2025-08-28-reag-e-alvo-de-buscas-na-carbono-oculto",
+   "st": "inv"
   },
   {
    "d": "2025-08",
@@ -14532,27 +14513,7 @@
     [
      "moneytimes.com.br",
      "https://www.moneytimes.com.br/master-o-melhor-e-o-pior-cenario-para-banco-apos-negativa-do-bc-rnda"
-    ]
-   ],
-   "n": [
-    0,
-    33,
-    80
-   ],
-   "ids": [
-    "banco-master",
-    "bcb",
-    "brb"
-   ],
-   "id": "ev-2025-09-03-bc-veta-a-compra-do-master-pelo-brb"
-  },
-  {
-   "d": "2025-09-03",
-   "y": 2025,
-   "t": "Banco Central rejeita a compra do Master pelo BRB",
-   "x": "Segundo o BC, a decisão foi unânime e o parecer contrário veio da área de organização do sistema financeiro, por falta de solidez da operação.",
-   "p": 5,
-   "f": [
+    ],
     [
      "sbtnews.sbt.com.br",
      "https://sbtnews.sbt.com.br/noticia/economia/decisoes-de-liquidacao-do-master-e-reprovacao-da-compra-pelo-brb-foram-unanimes-no-bc"
@@ -14560,6 +14521,10 @@
     [
      "timesbrasil.com.br",
      "https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb"
+    ],
+    [
+     "Poder360",
+     "https://www.poder360.com.br/poder-economia/bc-nega-compra-do-banco-master-pelo-brb"
     ]
    ],
    "n": [
@@ -14572,7 +14537,8 @@
     "bcb",
     "brb"
    ],
-   "id": "ev-2025-09-03-banco-central-rejeita-a-compra-do-master"
+   "id": "ev-2025-09-03-bc-veta-a-compra-do-master-pelo-brb",
+   "st": "doc"
   },
   {
    "d": "2025-09-12",
@@ -14604,7 +14570,8 @@
     "operacao-sem-desconto",
     "mauricio-camisotti"
    ],
-   "id": "ev-2025-09-12-pf-prende-careca-do-inss-e-mauricio"
+   "id": "ev-2025-09-12-pf-prende-careca-do-inss-e-mauricio",
+   "st": "doc"
   },
   {
    "d": "2025-09-21",
@@ -14700,6 +14667,10 @@
     [
      "maisgoias.com.br",
      "https://www.maisgoias.com.br/brasil/master-stf-forma-maioria-para-manter-vorcaro-preso"
+    ],
+    [
+     "Bloomberg Línea",
+     "https://www.bloomberglinea.com.br/negocios/banco-master-de-daniel-vorcaro-e-vendido-para-consorcio-com-fictor-e-grupo-arabe"
     ]
    ],
    "n": [
@@ -14714,7 +14685,8 @@
     "bcb",
     "grupo-fictor"
    ],
-   "id": "ev-2025-11-17-fictor-anuncia-compra-do-master-vorcaro"
+   "id": "ev-2025-11-17-fictor-anuncia-compra-do-master-vorcaro",
+   "st": "doc"
   },
   {
    "d": "2025-11-17",
@@ -14742,7 +14714,8 @@
     "pf",
     "operacao-compliance-zero"
    ],
-   "id": "ev-2025-11-17-pf-prende-daniel-vorcaro-em-sao-paulo"
+   "id": "ev-2025-11-17-pf-prende-daniel-vorcaro-em-sao-paulo",
+   "st": "doc"
   },
   {
    "d": "2025-11-17",
@@ -14798,17 +14771,54 @@
     [
      "metropoles.com",
      "https://www.metropoles.com/brasil/liquidacoes-ligadas-ao-master-sobem-para-nove-com-processo-do-multiplo"
+    ],
+    [
+     "timesbrasil.com.br",
+     "https://timesbrasil.com.br/brasil/master-repassou-r-14-bilhao-em-precatorios-a-entre-investimentos-empresa-de-mineiro-um-mes-antes-do-banco-ser-liquidado"
+    ],
+    [
+     "infomoney.com.br",
+     "https://www.infomoney.com.br/politica/justica-afasta-presidente-brb-investigacao-prendeu-dono-banco-master/amp"
+    ],
+    [
+     "sbtnews.sbt.com.br",
+     "https://sbtnews.sbt.com.br/noticia/economia/decisoes-de-liquidacao-do-master-e-reprovacao-da-compra-pelo-brb-foram-unanimes-no-bc"
+    ],
+    [
+     "infomoney.com.br",
+     "https://www.infomoney.com.br/?p=3107708"
+    ],
+    [
+     "borainvestir.b3.com.br",
+     "https://borainvestir.b3.com.br/noticias/o-que-disse-o-bc-ao-decretar-a-liquidacao-do-banco-master-grave-crise-de-liquidez"
+    ],
+    [
+     "revistaoeste.com",
+     "https://revistaoeste.com/economia/bc-liquida-banco-master-e-bloqueia-bens-de-controladores"
+    ],
+    [
+     "Poder360",
+     "https://www.poder360.com.br/poder-economia/fictor-suspende-compra-do-banco-master-apos-liquidacao-pelo-bc"
     ]
    ],
    "n": [
     0,
-    33
+    33,
+    40,
+    80,
+    81,
+    41
    ],
    "ids": [
     "banco-master",
-    "bcb"
+    "bcb",
+    "pf",
+    "brb",
+    "paulo-henrique-costa",
+    "operacao-compliance-zero"
    ],
-   "id": "ev-2025-11-18-bc-decreta-a-liquidacao-extrajudicial-do"
+   "id": "ev-2025-11-18-bc-decreta-a-liquidacao-extrajudicial-do",
+   "st": "doc"
   },
   {
    "d": "2025-11-18",
@@ -14842,73 +14852,8 @@
     "brb",
     "paulo-henrique-costa"
    ],
-   "id": "ev-2025-11-18-1a-fase-da-compliance-zero-7-prisoes-e"
-  },
-  {
-   "d": "2025-11-18",
-   "y": 2025,
-   "t": "BC liquida o Banco Master; PF faz buscas no BRB e Justiça afasta o presidente",
-   "x": "O BC decretou a liquidação extrajudicial; a PF cumpriu mandados na sede do BRB e a Justiça afastou Paulo Henrique Costa.",
-   "p": 5,
-   "f": [
-    [
-     "infomoney.com.br",
-     "https://www.infomoney.com.br/politica/justica-afasta-presidente-brb-investigacao-prendeu-dono-banco-master/amp"
-    ],
-    [
-     "sbtnews.sbt.com.br",
-     "https://sbtnews.sbt.com.br/noticia/economia/decisoes-de-liquidacao-do-master-e-reprovacao-da-compra-pelo-brb-foram-unanimes-no-bc"
-    ]
-   ],
-   "n": [
-    0,
-    33,
-    40,
-    80,
-    81
-   ],
-   "ids": [
-    "banco-master",
-    "bcb",
-    "pf",
-    "brb",
-    "paulo-henrique-costa"
-   ],
-   "id": "ev-2025-11-18-bc-liquida-o-banco-master-pf-faz-buscas"
-  },
-  {
-   "d": "2025-11-18",
-   "y": 2025,
-   "t": "BC liquida o Master; PF deflagra a Compliance Zero",
-   "x": "O BC decretou liquidação de Master, Master de Investimento, Letsbank e Master Corretora, com indisponibilidade de bens dos controladores; o Master Múltiplo ficou em regime especial. Segundo o BC, havia grave crise de liquidez e violações normativas.",
-   "p": 5,
-   "f": [
-    [
-     "infomoney.com.br",
-     "https://www.infomoney.com.br/?p=3107708"
-    ],
-    [
-     "borainvestir.b3.com.br",
-     "https://borainvestir.b3.com.br/noticias/o-que-disse-o-bc-ao-decretar-a-liquidacao-do-banco-master-grave-crise-de-liquidez"
-    ],
-    [
-     "revistaoeste.com",
-     "https://revistaoeste.com/economia/bc-liquida-banco-master-e-bloqueia-bens-de-controladores"
-    ]
-   ],
-   "n": [
-    0,
-    33,
-    40,
-    41
-   ],
-   "ids": [
-    "banco-master",
-    "bcb",
-    "pf",
-    "operacao-compliance-zero"
-   ],
-   "id": "ev-2025-11-18-bc-liquida-o-master-pf-deflagra-a"
+   "id": "ev-2025-11-18-1a-fase-da-compliance-zero-7-prisoes-e",
+   "st": "inv"
   },
   {
    "d": "2025-11-25",
@@ -15097,7 +15042,8 @@
     "daniel-vorcaro",
     "alexandre-de-moraes"
    ],
-   "id": "ev-2025-12-09-revelado-contrato-de-r-129-mi-com"
+   "id": "ev-2025-12-09-revelado-contrato-de-r-129-mi-com",
+   "st": "rep"
   },
   {
    "d": "2025-12-19",
@@ -15129,7 +15075,8 @@
     "operacao-carbono-oculto",
     "operacao-quasar"
    ],
-   "id": "ev-2025-12-19-justica-nega-enviar-carbono-oculto-e"
+   "id": "ev-2025-12-19-justica-nega-enviar-carbono-oculto-e",
+   "st": "doc"
   },
   {
    "d": "2025-12",
@@ -15168,10 +15115,18 @@
   {
    "d": "2026-01-14",
    "y": 2026,
-   "t": "2ª fase: buscas, bloqueio de R$ 5,7 bi e prisão de Zettel",
-   "x": "A PF cumpriu 42 mandados de busca em cinco estados, com bloqueio de mais de R$ 5,7 bilhões determinado por Toffoli; foram alvos Fabiano Zettel (preso), Nelson Tanure e João Carlos Mansur, entre outros. Tanure nega relação societária com o Master.",
-   "p": 4,
+   "t": "2ª fase da Compliance Zero bloqueia R$ 5,7 bilhões",
+   "x": "Com 42 mandados expedidos por Toffoli, a PF obteve o bloqueio de mais de R$ 5,7 bilhões; investiga se recursos do Master foram desviados por fundos para o patrimônio pessoal de Vorcaro e ligados. Zettel foi preso ao tentar embarcar (prisão de curta duração, segundo a PF), e Tanure afirmou ter tido o celular apreendido.",
+   "p": 5,
    "f": [
+    [
+     "mercadoeconsumo.com.br",
+     "https://mercadoeconsumo.com.br/14/01/2026/economia/banco-master-pf-bloqueia-r-57-bilhoes-e-apreende-carros-de-luxo-dinheiro-e-arma"
+    ],
+    [
+     "monitormercantil.com.br",
+     "https://monitormercantil.com.br/bc-liquida-reag-ligada-as-suspeitas-de-fraude-no-banco-master"
+    ],
     [
      "agenciagov.ebc.com.br",
      "https://agenciagov.ebc.com.br/noticias/202601/policia-federal-deflagra-segunda-fase-da-operacao-compliance-zero"
@@ -15187,46 +15142,13 @@
    ],
    "n": [
     0,
-    25,
-    40,
-    64,
-    84,
-    100
-   ],
-   "ids": [
-    "banco-master",
-    "dias-toffoli",
-    "pf",
-    "joao-carlos-mansur",
-    "nelson-tanure",
-    "fabiano-zettel"
-   ],
-   "id": "ev-2026-01-14-2a-fase-buscas-bloqueio-de-r-5-7-bi-e"
-  },
-  {
-   "d": "2026-01-14",
-   "y": 2026,
-   "t": "2ª fase da Compliance Zero bloqueia R$ 5,7 bilhões",
-   "x": "Com 42 mandados expedidos por Toffoli, a PF obteve o bloqueio de mais de R$ 5,7 bilhões; investiga se recursos do Master foram desviados por fundos para o patrimônio pessoal de Vorcaro e ligados. Zettel foi preso ao tentar embarcar (prisão de curta duração, segundo a PF), e Tanure afirmou ter tido o celular apreendido.",
-   "p": 5,
-   "f": [
-    [
-     "mercadoeconsumo.com.br",
-     "https://mercadoeconsumo.com.br/14/01/2026/economia/banco-master-pf-bloqueia-r-57-bilhoes-e-apreende-carros-de-luxo-dinheiro-e-arma"
-    ],
-    [
-     "monitormercantil.com.br",
-     "https://monitormercantil.com.br/bc-liquida-reag-ligada-as-suspeitas-de-fraude-no-banco-master"
-    ]
-   ],
-   "n": [
-    0,
     1,
     25,
     40,
     41,
     84,
-    100
+    100,
+    64
    ],
    "ids": [
     "banco-master",
@@ -15235,35 +15157,11 @@
     "pf",
     "operacao-compliance-zero",
     "nelson-tanure",
-    "fabiano-zettel"
+    "fabiano-zettel",
+    "joao-carlos-mansur"
    ],
-   "id": "ev-2026-01-14-2a-fase-da-compliance-zero-bloqueia-r-5"
-  },
-  {
-   "d": "2026-01-15",
-   "y": 2026,
-   "t": "BC liquida a Reag (CBSF DTVM)",
-   "x": "O BC decretou a liquidação da antiga Reag Investimentos (hoje CBSF DTVM), suspeita de administrar fundos ligados ao Master numa 'ciranda' de depósitos e retiradas que ocultaria o beneficiário final; segundo as investigações, as fraudes podem superar R$ 11 bilhões.",
-   "p": 4,
-   "f": [
-    [
-     "monitormercantil.com.br",
-     "https://monitormercantil.com.br/bc-liquida-reag-ligada-as-suspeitas-de-fraude-no-banco-master"
-    ]
-   ],
-   "n": [
-    0,
-    33,
-    62,
-    63
-   ],
-   "ids": [
-    "banco-master",
-    "bcb",
-    "reag-investimentos",
-    "reag-trust-dtvm"
-   ],
-   "id": "ev-2026-01-15-bc-liquida-a-reag-cbsf-dtvm"
+   "id": "ev-2026-01-14-2a-fase-da-compliance-zero-bloqueia-r-5",
+   "st": "inv"
   },
   {
    "d": "2026-01-15",
@@ -15287,13 +15185,18 @@
    ],
    "n": [
     33,
-    63
+    63,
+    0,
+    62
    ],
    "ids": [
     "bcb",
-    "reag-trust-dtvm"
+    "reag-trust-dtvm",
+    "banco-master",
+    "reag-investimentos"
    ],
-   "id": "ev-2026-01-15-bc-decreta-liquidacao-da-reag-trust-cbsf"
+   "id": "ev-2026-01-15-bc-decreta-liquidacao-da-reag-trust-cbsf",
+   "st": "doc"
   },
   {
    "d": "2026-01-15",
@@ -15386,52 +15289,6 @@
   {
    "d": "2026-01-17",
    "y": 2026,
-   "t": "FGC inicia pagamento a cerca de 800 mil credores",
-   "x": "O FGC começou a pagar a garantia de até R$ 250 mil por CPF/CNPJ, em projeção de R$ 40,6 bilhões; até 16/03/2026 haviam sido pagos cerca de R$ 38,9 bilhões a 686 mil clientes, segundo o DIEESE.",
-   "p": 4,
-   "f": [
-    [
-     "poder360.com.br",
-     "https://www.poder360.com.br/poder-economia/fgc-inicia-pagamento-a-investidores-do-banco-master"
-    ],
-    [
-     "dieese.org.br",
-     "https://www.dieese.org.br/notatecnica/2026/notaTec291BancoMaster.pdf"
-    ]
-   ],
-   "n": [
-    78
-   ],
-   "ids": [
-    "fgc"
-   ],
-   "id": "ev-2026-01-17-fgc-inicia-pagamento-a-cerca-de-800-mil"
-  },
-  {
-   "d": "2026-01-17",
-   "y": 2026,
-   "t": "FGC começa a pagar garantia a credores do Master (desembolso projetado de ~R$ 40,6 bi)",
-   "x": "Maior operação de pagamento da história do fundo, para cerca de 800 mil credores.",
-   "p": 4,
-   "f": [
-    [
-     "poder360.com.br",
-     "https://www.poder360.com.br/poder-economia/fgc-inicia-pagamento-a-investidores-do-banco-master"
-    ]
-   ],
-   "n": [
-    0,
-    78
-   ],
-   "ids": [
-    "banco-master",
-    "fgc"
-   ],
-   "id": "ev-2026-01-17-fgc-comeca-a-pagar-garantia-a-credores"
-  },
-  {
-   "d": "2026-01-17",
-   "y": 2026,
    "t": "FGC inicia o maior ressarcimento de sua história",
    "x": "O FGC começou a pagar em 17/01/2026, projetando R$ 40,6 bilhões. Até 29/01 havia pago R$ 32,5 bilhões a cerca de 580 mil investidores; em maio de 2026, quase R$ 40 bilhões a mais de 915 mil credores.",
    "p": 5,
@@ -15447,13 +15304,19 @@
     [
      "portaltela.com",
      "https://www.portaltela.com/noticias/economia/2026/05/21/mais-de-r-2-bilhoes-ligados-ao-master-nao-foram-resgatados-do-fgc"
+    ],
+    [
+     "dieese.org.br",
+     "https://www.dieese.org.br/notatecnica/2026/notaTec291BancoMaster.pdf"
     ]
    ],
    "n": [
-    78
+    78,
+    0
    ],
    "ids": [
-    "fgc"
+    "fgc",
+    "banco-master"
    ],
    "id": "ev-2026-01-17-fgc-inicia-o-maior-ressarcimento-de-sua"
   },
@@ -15485,7 +15348,8 @@
     "fgc",
     "will-financeira"
    ],
-   "id": "ev-2026-01-21-bc-liquida-a-will-financeira-fgc-estima"
+   "id": "ev-2026-01-21-bc-liquida-a-will-financeira-fgc-estima",
+   "st": "doc"
   },
   {
    "d": "2026-01-23",
@@ -15497,25 +15361,7 @@
     [
      "poder360.com.br",
      "https://www.poder360.com.br/poder-brasil/castro-demite-presidente-do-rioprevidencia-apos-operacao-da-pf"
-    ]
-   ],
-   "n": [
-    40,
-    85
-   ],
-   "ids": [
-    "pf",
-    "rioprevidencia"
-   ],
-   "id": "ev-2026-01-23-pf-deflagra-barco-de-papel-castro"
-  },
-  {
-   "d": "2026-01-23",
-   "y": 2026,
-   "t": "PF faz a operação Barco de Papel no Rioprevidência",
-   "x": "Quatro mandados de busca no Rio. A PF apura se as aplicações foram aprovadas de forma irregular; o Rioprevidência diz que seguiram o plano anual de investimentos e que as aposentadorias estão garantidas.",
-   "p": 4,
-   "f": [
+    ],
     [
      "mercadoeconsumo.com.br",
      "https://mercadoeconsumo.com.br/23/01/2026/economia/rioprevidencia-alvo-da-pf-foi-o-fundo-de-pensao-que-mais-investiu-no-master/amp"
@@ -15529,7 +15375,7 @@
     "pf",
     "rioprevidencia"
    ],
-   "id": "ev-2026-01-23-pf-faz-a-operacao-barco-de-papel-no"
+   "id": "ev-2026-01-23-pf-deflagra-barco-de-papel-castro"
   },
   {
    "d": "2026-01-27",
@@ -15710,7 +15556,8 @@
     "banco-pleno",
     "augusto-ferreira-lima"
    ],
-   "id": "ev-2026-02-18-bc-liquida-o-banco-pleno-ex-voiter"
+   "id": "ev-2026-02-18-bc-liquida-o-banco-pleno-ex-voiter",
+   "st": "doc"
   },
   {
    "d": "2026-02-24",
@@ -15736,7 +15583,8 @@
     "cvm",
     "reag-investimentos"
    ],
-   "id": "ev-2026-02-24-cvm-lista-18-procedimentos-sobre-os"
+   "id": "ev-2026-02-24-cvm-lista-18-procedimentos-sobre-os",
+   "st": "doc"
   },
   {
    "d": "2026-03-04",
@@ -15756,6 +15604,18 @@
     [
      "timesbrasil.com.br",
      "https://timesbrasil.com.br/empresas-e-negocios/quem-e-paulo-sergio-neves-souza-ex-diretor-banco-central-preso-caso-master"
+    ],
+    [
+     "forbes.com.br",
+     "https://forbes.com.br/geral/2026/03/vorcaro-volta-a-ser-preso-em-nova-fase-de-operacao-sobre-master-ex-diretor-do-bc-usara-tornozeleira"
+    ],
+    [
+     "jornaldebrasilia.com.br",
+     "https://jornaldebrasilia.com.br/noticias/brasil/pf-aponta-que-ex-diretor-e-ex-servidor-do-bc-receberam-dinheiro-para-ajudar-vorcaro"
+    ],
+    [
+     "conjur.com.br",
+     "https://www.conjur.com.br/2026-mar-04/daniel-vorcaro-dono-do-banco-master-e-preso-novamente-pela-pf"
     ]
    ],
    "n": [
@@ -15766,7 +15626,10 @@
     36,
     40,
     100,
-    102
+    102,
+    37,
+    41,
+    62
    ],
    "ids": [
     "daniel-vorcaro",
@@ -15776,73 +15639,12 @@
     "paulo-sergio-neves-de-souza",
     "pf",
     "fabiano-zettel",
-    "a-turma"
+    "a-turma",
+    "belline-santana",
+    "operacao-compliance-zero",
+    "reag-investimentos"
    ],
    "id": "ev-2026-03-04-3a-fase-vorcaro-e-preso-de-novo"
-  },
-  {
-   "d": "2026-03-04",
-   "y": 2026,
-   "t": "Vorcaro é preso de novo; PF mira ex-diretores do BC",
-   "x": "Terceira fase da Compliance Zero: prisão preventiva de Vorcaro, prisão de Zettel, tornozeleira para Paulo Sérgio Neves de Souza e Belline Santana, bloqueio de até R$ 22 bi.",
-   "p": 5,
-   "f": [
-    [
-     "forbes.com.br",
-     "https://forbes.com.br/geral/2026/03/vorcaro-volta-a-ser-preso-em-nova-fase-de-operacao-sobre-master-ex-diretor-do-bc-usara-tornozeleira"
-    ],
-    [
-     "jornaldebrasilia.com.br",
-     "https://jornaldebrasilia.com.br/noticias/brasil/pf-aponta-que-ex-diretor-e-ex-servidor-do-bc-receberam-dinheiro-para-ajudar-vorcaro"
-    ]
-   ],
-   "n": [
-    1,
-    33,
-    36,
-    37,
-    40,
-    41,
-    100
-   ],
-   "ids": [
-    "daniel-vorcaro",
-    "bcb",
-    "paulo-sergio-neves-de-souza",
-    "belline-santana",
-    "pf",
-    "operacao-compliance-zero",
-    "fabiano-zettel"
-   ],
-   "id": "ev-2026-03-04-vorcaro-e-preso-de-novo-pf-mira-ex"
-  },
-  {
-   "d": "2026-03-04",
-   "y": 2026,
-   "t": "Vorcaro é preso; decisão cita R$ 2,2 bi na Reag",
-   "x": "Por ordem de Mendonça, a PF prendeu Vorcaro preventivamente. Segundo a PF, ele teria tentado ocultar mais de R$ 2 bilhões em patrimônio, e a decisão cita transferências de mais de R$ 2,2 bilhões por Vorcaro e Zettel a conta do pai de Vorcaro na Reag, achado da PF em janeiro; a decisão não indica as datas. A defesa nega categoricamente.",
-   "p": 5,
-   "f": [
-    [
-     "conjur.com.br",
-     "https://www.conjur.com.br/2026-mar-04/daniel-vorcaro-dono-do-banco-master-e-preso-novamente-pela-pf"
-    ]
-   ],
-   "n": [
-    1,
-    27,
-    40,
-    62,
-    100
-   ],
-   "ids": [
-    "daniel-vorcaro",
-    "andre-mendonca",
-    "pf",
-    "reag-investimentos",
-    "fabiano-zettel"
-   ],
-   "id": "ev-2026-03-04-vorcaro-e-preso-decisao-cita-r-2-2-bi-na"
   },
   {
    "d": "2026-03-10",
@@ -16094,34 +15896,6 @@
    "st": "rep"
   },
   {
-   "d": "2026-03-28",
-   "y": 2026,
-   "t": "CPMI do INSS termina sem relatório final",
-   "x": "O parecer do relator Alfredo Gaspar, com pedido de indiciamento de 216 pessoas (incluindo Vorcaro), foi rejeitado por 19 votos a 12. O texto alternativo da base do governo, que também pedia o indiciamento de Vorcaro e Zettel, não foi votado.",
-   "p": 4,
-   "f": [
-    [
-     "www12.senado.leg.br",
-     "https://www12.senado.leg.br/noticias/materias/2026/03/28/cpmi-do-inss-termina-sem-relatorio-final"
-    ],
-    [
-     "diariodepernambuco.com.br",
-     "https://www.diariodepernambuco.com.br/politica/2026/03/11710930-cpmi-do-inss-relator-pede-indiciamento-de-lulinha-vorcaro-e-mais-214.html"
-    ]
-   ],
-   "n": [
-    1,
-    56,
-    100
-   ],
-   "ids": [
-    "daniel-vorcaro",
-    "cpmi-do-inss",
-    "fabiano-zettel"
-   ],
-   "id": "ev-2026-03-28-cpmi-do-inss-termina-sem-relatorio-final"
-  },
-  {
    "d": "2026-04-08",
    "y": 2026,
    "t": "Receita mostra pagamentos do Master a ex-ministros e políticos",
@@ -16162,10 +15936,14 @@
   {
    "d": "2026-04-16",
    "y": 2026,
-   "t": "4ª fase: ex-presidente do BRB é preso",
-   "x": "Paulo Henrique Costa foi preso por ordem de Mendonça; segundo a PF, recebeu imóveis como propina ligada à venda do Master ao BRB. A defesa o considera desnecessário e o BRB afirma ter atuado em conformidade.",
-   "p": 4,
+   "t": "Ex-presidente do BRB, Paulo Henrique Costa, é preso",
+   "x": "4ª fase da Compliance Zero. A decisão cita vantagem indevida ligada a seis imóveis de luxo.",
+   "p": 5,
    "f": [
+    [
+     "poder360.com.br",
+     "https://www.poder360.com.br/poder-justica/ex-presidente-do-brb-e-preso-na-operacao-compliance-zero"
+    ],
     [
      "timesbrasil.com.br",
      "https://timesbrasil.com.br/brasil/operacoes-da-pf/pf-prende-paulo-henrique-costa-ex-presidente-do-brb-em-nova-fase-da-compliance-zero"
@@ -16173,55 +15951,11 @@
     [
      "gazetadopovo.com.br",
      "https://www.gazetadopovo.com.br/republica/compliance-zero-alvos-pf-envolvimento-banco-master"
-    ]
-   ],
-   "n": [
-    0,
-    27,
-    40,
-    80,
-    81
-   ],
-   "ids": [
-    "banco-master",
-    "andre-mendonca",
-    "pf",
-    "brb",
-    "paulo-henrique-costa"
-   ],
-   "id": "ev-2026-04-16-4a-fase-ex-presidente-do-brb-e-preso"
-  },
-  {
-   "d": "2026-04-16",
-   "y": 2026,
-   "t": "Ex-presidente do BRB, Paulo Henrique Costa, é preso",
-   "x": "4ª fase da Compliance Zero. A decisão cita vantagem indevida ligada a seis imóveis de luxo.",
-   "p": 4,
-   "f": [
+    ],
     [
-     "poder360.com.br",
-     "https://www.poder360.com.br/poder-justica/ex-presidente-do-brb-e-preso-na-operacao-compliance-zero"
-    ]
-   ],
-   "n": [
-    41,
-    80,
-    81
-   ],
-   "ids": [
-    "operacao-compliance-zero",
-    "brb",
-    "paulo-henrique-costa"
-   ],
-   "id": "ev-2026-04-16-ex-presidente-do-brb-paulo-henrique"
-  },
-  {
-   "d": "2026-04-16",
-   "y": 2026,
-   "t": "Ex-presidente do BRB é preso; PF cita imóveis de R$ 74 a 146 mi",
-   "x": "Paulo Henrique Costa foi preso preventivamente. Segundo a PF, teria recebido seis imóveis de Vorcaro em troca de facilitar negócios sem lastro; os valores citados variam de R$ 74 milhões a R$ 146,5 milhões. A defesa nega.",
-   "p": 5,
-   "f": [
+     "Gazeta do Povo",
+     "https://www.gazetadopovo.com.br/republica/ex-presidente-do-brb-e-preso-em-nova-fase-da-compliance-zero"
+    ],
     [
      "letsmoney.com.br",
      "https://www.letsmoney.com.br/noticias/pf-prende-ex-presidente-brb-esquema-master"
@@ -16236,18 +15970,25 @@
     ]
    ],
    "n": [
-    1,
-    40,
+    41,
     80,
-    81
+    81,
+    0,
+    27,
+    40,
+    1
    ],
    "ids": [
-    "daniel-vorcaro",
-    "pf",
+    "operacao-compliance-zero",
     "brb",
-    "paulo-henrique-costa"
+    "paulo-henrique-costa",
+    "banco-master",
+    "andre-mendonca",
+    "pf",
+    "daniel-vorcaro"
    ],
-   "id": "ev-2026-04-16-ex-presidente-do-brb-e-preso-pf-cita"
+   "id": "ev-2026-04-16-ex-presidente-do-brb-paulo-henrique",
+   "st": "inv"
   },
   {
    "d": "2026-04-20",
@@ -16332,34 +16073,6 @@
   {
    "d": "2026-05-07",
    "y": 2026,
-   "t": "5ª fase: senador Ciro Nogueira é alvo",
-   "x": "A PF afirma que o senador atuou em favor de interesses de Vorcaro, incluindo a 'Emenda Master' (sobre a cobertura do FGC), em troca de vantagens. Nogueira atribui as acusações a interesses político-eleitorais.",
-   "p": 4,
-   "f": [
-    [
-     "gazetadopovo.com.br",
-     "https://www.gazetadopovo.com.br/republica/compliance-zero-alvos-pf-envolvimento-banco-master"
-    ]
-   ],
-   "n": [
-    0,
-    1,
-    2,
-    40,
-    78
-   ],
-   "ids": [
-    "banco-master",
-    "daniel-vorcaro",
-    "ciro-nogueira",
-    "pf",
-    "fgc"
-   ],
-   "id": "ev-2026-05-07-5a-fase-senador-ciro-nogueira-e-alvo"
-  },
-  {
-   "d": "2026-05-07",
-   "y": 2026,
    "t": "PF faz buscas contra o senador Ciro Nogueira (5ª fase)",
    "x": "A decisão de Mendonça cita mesada de R$ 300-500 mil e a 'emenda Master'; a defesa nega ilicitude.",
    "p": 5,
@@ -16375,21 +16088,30 @@
     [
      "gazetadopovo.com.br",
      "https://www.gazetadopovo.com.br/republica/proposta-de-ciro-que-multiplicaria-lucros-do-master-foi-redigida-pela-assessoria-do-banco"
+    ],
+    [
+     "gazetadopovo.com.br",
+     "https://www.gazetadopovo.com.br/republica/compliance-zero-alvos-pf-envolvimento-banco-master"
     ]
    ],
    "n": [
     0,
     2,
     27,
-    40
+    40,
+    1,
+    78
    ],
    "ids": [
     "banco-master",
     "ciro-nogueira",
     "andre-mendonca",
-    "pf"
+    "pf",
+    "daniel-vorcaro",
+    "fgc"
    ],
-   "id": "ev-2026-05-07-pf-faz-buscas-contra-o-senador-ciro"
+   "id": "ev-2026-05-07-pf-faz-buscas-contra-o-senador-ciro",
+   "st": "inv"
   },
   {
    "d": "2026-05-26",
@@ -16431,6 +16153,10 @@
     [
      "bemparana.com.br",
      "https://www.bemparana.com.br/noticias/economia/brb-completa-1-ano-sem-divulgar-resultado-e-se-aproxima-de-prazo-limite-para-resolver-crise-pos-master"
+    ],
+    [
+     "Correio da Manhã",
+     "https://www.correiodamanha.com.br/nacional/centro-oeste/2026/05/289442-gdf-fecha-acordo-bilionario-com-a-uniao-para-salvar-brb.html"
     ]
    ],
    "n": [
@@ -16441,7 +16167,8 @@
     "fgc",
     "brb"
    ],
-   "id": "ev-2026-05-28-uniao-e-gdf-acordam-emprestimo-de-ate-r"
+   "id": "ev-2026-05-28-uniao-e-gdf-acordam-emprestimo-de-ate-r",
+   "st": "doc"
   },
   {
    "d": "2026-06-09",
@@ -16491,14 +16218,15 @@
     "gold-style-fidc",
     "super-empreendimentos"
    ],
-   "id": "ev-2026-06-11-folha-liga-o-gold-style-a-bk-bank-aster"
+   "id": "ev-2026-06-11-folha-liga-o-gold-style-a-bk-bank-aster",
+   "st": "rep"
   },
   {
    "d": "2026-06-18",
    "y": 2026,
    "t": "9ª fase: Jaques Wagner e Augusto Lima são alvos",
    "x": "A PF cumpriu 18 mandados de busca na BA, SP e DF; Wagner é investigado por suposta atuação pró-Vorcaro no Congresso em troca de vantagens, segundo a PF. Segundo a Gazeta do Povo, ele atribui a ação a interesses político-eleitorais; o Poder360 diz que ele não havia respondido, e o presidente do PT, Edinho Silva, afirmou confiança nele.",
-   "p": 4,
+   "p": 5,
    "f": [
     [
      "poder360.com.br",
@@ -16511,32 +16239,6 @@
     [
      "gazetadopovo.com.br",
      "https://www.gazetadopovo.com.br/republica/compliance-zero-alvos-pf-envolvimento-banco-master"
-    ]
-   ],
-   "n": [
-    1,
-    3,
-    40,
-    99
-   ],
-   "ids": [
-    "daniel-vorcaro",
-    "jaques-wagner",
-    "pf",
-    "augusto-ferreira-lima"
-   ],
-   "id": "ev-2026-06-18-9a-fase-jaques-wagner-e-augusto-lima-sao"
-  },
-  {
-   "d": "2026-06-18",
-   "y": 2026,
-   "t": "9ª fase da Compliance Zero tem Jaques Wagner como alvo",
-   "x": "18 mandados na BA, SP e DF; a PF apreendeu cerca de US$ 49 mil e 13 relógios e apura apartamento em Salvador e pagamentos à família. Wagner nega.",
-   "p": 5,
-   "f": [
-    [
-     "poder360.com.br",
-     "https://www.poder360.com.br/poder-justica/pf-deflagra-9a-fase-da-operacao-compliance-zero"
     ],
     [
      "correiodamanha.com.br",
@@ -16544,16 +16246,21 @@
     ]
    ],
    "n": [
+    1,
     3,
     40,
+    99,
     41
    ],
    "ids": [
+    "daniel-vorcaro",
     "jaques-wagner",
     "pf",
+    "augusto-ferreira-lima",
     "operacao-compliance-zero"
    ],
-   "id": "ev-2026-06-18-9a-fase-da-compliance-zero-tem-jaques"
+   "id": "ev-2026-06-18-9a-fase-jaques-wagner-e-augusto-lima-sao",
+   "st": "inv"
   },
   {
    "d": "2026-07-14",
@@ -16585,7 +16292,8 @@
     "operacao-sem-desconto",
     "conafer"
    ],
-   "id": "ev-2026-07-14-pf-indicia-48-pessoas-na-sem-desconto"
+   "id": "ev-2026-07-14-pf-indicia-48-pessoas-na-sem-desconto",
+   "st": "inv"
   },
   {
    "d": "2026-07-17",
@@ -16663,7 +16371,8 @@
     "operacao-carbono-oculto",
     "pcc"
    ],
-   "id": "ev-2026-08-18-mp-sp-denuncia-16-pessoas-da-carbono"
+   "id": "ev-2026-08-18-mp-sp-denuncia-16-pessoas-da-carbono",
+   "st": "inv"
   },
   {
    "d": "2026-08-26",
@@ -16692,10 +16401,22 @@
   {
    "d": "2026-09-01",
    "y": 2026,
-   "t": "Mendonça tira sigilo de relatório da PF sobre mensagens a Moraes",
-   "x": "O relatório cita 52 mensagens que os investigadores atribuem a Vorcaro e dirigidas a Alexandre de Moraes entre 2023 e 17/11/2025; as respostas não foram recuperadas. Moraes nega ter mantido diálogo e diz ser falsa a leitura de que atuou a favor do banqueiro. A decisão de Mendonça não nomeia Moraes nem atribui crime a ele.",
+   "t": "Mendonça levanta sigilo de relatório da PF com 52 mensagens a número atribuído a Moraes",
+   "x": "O relatório aponta 52 mensagens de Vorcaro a número atribuído a Moraes (2023 a 17/11/2025); a PGR pediu a anulação do relatório e Moraes nega contato com Vorcaro e diz que Mendonça age contra desafetos.",
    "p": 5,
    "f": [
+    [
+     "mais.opovo.com.br",
+     "https://mais.opovo.com.br/jornal/politica/2026/09/18/stf-fachin-tira-de-pauta-julgamento-sobre-atuacao-de-mendonca-no-caso-master.html"
+    ],
+    [
+     "jornaldocomercio.com",
+     "https://www.jornaldocomercio.com/politica/2026/09/1262997-mendonca-derruba-sigilo-do-caso-master-a-pedido-de-fachin.html"
+    ],
+    [
+     "dgabc.com.br",
+     "https://www.dgabc.com.br/Noticia/4346819/pf-envia-a-gilmar-e-zanin-integra-de-material-do-celular-de-vorcaro"
+    ],
     [
      "congressoemfoco.com.br",
      "https://www.congressoemfoco.com.br/noticia/121852/mendonca-retira-sigilo-de-apuracao-sobre-mensagens-de-vorcaro-e-moraes"
@@ -16721,41 +16442,8 @@
     "andre-mendonca",
     "pf"
    ],
-   "id": "ev-2026-09-01-mendonca-tira-sigilo-de-relatorio-da-pf"
-  },
-  {
-   "d": "2026-09-01",
-   "y": 2026,
-   "t": "Mendonça levanta sigilo de relatório da PF com 52 mensagens a número atribuído a Moraes",
-   "x": "O relatório aponta 52 mensagens de Vorcaro a número atribuído a Moraes (2023 a 17/11/2025); a PGR pediu a anulação do relatório e Moraes nega contato com Vorcaro e diz que Mendonça age contra desafetos.",
-   "p": 5,
-   "f": [
-    [
-     "mais.opovo.com.br",
-     "https://mais.opovo.com.br/jornal/politica/2026/09/18/stf-fachin-tira-de-pauta-julgamento-sobre-atuacao-de-mendonca-no-caso-master.html"
-    ],
-    [
-     "jornaldocomercio.com",
-     "https://www.jornaldocomercio.com/politica/2026/09/1262997-mendonca-derruba-sigilo-do-caso-master-a-pedido-de-fachin.html"
-    ],
-    [
-     "dgabc.com.br",
-     "https://www.dgabc.com.br/Noticia/4346819/pf-envia-a-gilmar-e-zanin-integra-de-material-do-celular-de-vorcaro"
-    ]
-   ],
-   "n": [
-    1,
-    23,
-    27,
-    40
-   ],
-   "ids": [
-    "daniel-vorcaro",
-    "alexandre-de-moraes",
-    "andre-mendonca",
-    "pf"
-   ],
-   "id": "ev-2026-09-01-mendonca-levanta-sigilo-de-relatorio-da"
+   "id": "ev-2026-09-01-mendonca-levanta-sigilo-de-relatorio-da",
+   "st": "doc"
   },
   {
    "d": "2026-09-02",
@@ -16829,7 +16517,8 @@
     "cvm",
     "pf"
    ],
-   "id": "ev-2026-09-08-mendonca-afasta-o-diretor-geral-da-pf"
+   "id": "ev-2026-09-08-mendonca-afasta-o-diretor-geral-da-pf",
+   "st": "doc"
   },
   {
    "d": "2026-09-09",
@@ -16867,7 +16556,8 @@
     "pf",
     "antonio-carlos-freixo-junior"
    ],
-   "id": "ev-2026-09-09-fachin-suspende-decisoes-de-mendonca-e"
+   "id": "ev-2026-09-09-fachin-suspende-decisoes-de-mendonca-e",
+   "st": "doc"
   },
   {
    "d": "2026-09-13",
@@ -16937,42 +16627,6 @@
   {
    "d": "2026-09-15",
    "y": 2026,
-   "t": "Plenário do STF discute Moraes e Mendonça; Dino pede vista",
-   "x": "Por 4 a 3, o plenário rejeitava a união dos casos quando Flávio Dino pediu vista; o julgamento pode voltar em até 90 dias. Não houve decisão de mérito sobre abrir investigação contra Moraes. Em 10/09, a pedido de Fachin, Mendonça havia levantado o sigilo de 15 procedimentos; em 17/09 Fachin retirou da pauta de 23/09 o julgamento sobre a atuação de Mendonça, sem nova data.",
-   "p": 4,
-   "f": [
-    [
-     "poder360.com.br",
-     "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias"
-    ],
-    [
-     "movimentoeconomico.com.br",
-     "https://movimentoeconomico.com.br/economia/justica/2026/09/17/fachin-desmarca-julgamento-do-stf-sobre-atuacao-de-mendonca-no-caso-master"
-    ],
-    [
-     "poder360.com.br",
-     "https://www.poder360.com.br/poder-justica/fachin-pede-e-mendonca-tira-sigilo-de-processos-do-master"
-    ]
-   ],
-   "n": [
-    22,
-    23,
-    27,
-    29,
-    30
-   ],
-   "ids": [
-    "stf",
-    "alexandre-de-moraes",
-    "andre-mendonca",
-    "edson-fachin",
-    "flavio-dino"
-   ],
-   "id": "ev-2026-09-15-plenario-do-stf-discute-moraes-e"
-  },
-  {
-   "d": "2026-09-15",
-   "y": 2026,
    "t": "Plenário do STF começa a analisar questão de ordem sobre pedido de investigar Moraes; Dino pede vista",
    "x": "Moraes e Mendonça trocaram acusações em plenário; placar de 4 a 3 pela análise separada dos pedidos envolvendo Moraes e Mendonça. Em manifestação ao STF, Gonet disse ter visto Vorcaro uma vez, em Londres.",
    "p": 5,
@@ -16988,6 +16642,18 @@
     [
      "gazetadopovo.com.br",
      "https://www.gazetadopovo.com.br/republica/gonet-nega-proximidade-com-vorcaro-e-diz-que-unico-contato-foi-breve-e-banal"
+    ],
+    [
+     "poder360.com.br",
+     "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias"
+    ],
+    [
+     "movimentoeconomico.com.br",
+     "https://movimentoeconomico.com.br/economia/justica/2026/09/17/fachin-desmarca-julgamento-do-stf-sobre-atuacao-de-mendonca-no-caso-master"
+    ],
+    [
+     "poder360.com.br",
+     "https://www.poder360.com.br/poder-justica/fachin-pede-e-mendonca-tira-sigilo-de-processos-do-master"
     ]
    ],
    "n": [
@@ -16996,7 +16662,8 @@
     23,
     27,
     30,
-    31
+    31,
+    29
    ],
    "ids": [
     "daniel-vorcaro",
@@ -17004,7 +16671,8 @@
     "alexandre-de-moraes",
     "andre-mendonca",
     "flavio-dino",
-    "paulo-gonet"
+    "paulo-gonet",
+    "edson-fachin"
    ],
    "id": "ev-2026-09-15-plenario-do-stf-comeca-a-analisar"
   },
@@ -17038,7 +16706,8 @@
     "pf",
     "fgc"
    ],
-   "id": "ev-2026-09-24-dino-manda-a-pf-investigar-a-atuacao-da"
+   "id": "ev-2026-09-24-dino-manda-a-pf-investigar-a-atuacao-da",
+   "st": "doc"
   },
   {
    "d": "2026-09-24",
@@ -17112,7 +16781,8 @@
     "pcc",
     "reag-investimentos"
    ],
-   "id": "ev-2026-10-01-pf-indicia-13-executivos-na-quasar-e"
+   "id": "ev-2026-10-01-pf-indicia-13-executivos-na-quasar-e",
+   "st": "inv"
   },
   {
    "d": "2026-10-02",
@@ -18396,18 +18066,6 @@
    "t": "Master cede R$ 1,44 bi em direitos à Entre Investimentos",
    "x": "Cessão de 7 a 9/10/2025, com preço de R$ 1,28 bi, a empresa de Freixo Júnior ('Mineiro'), um mês antes da liquidação. Seis usinas: Sumaúma, Catende, São João, Paraíso, Outeiro e Baixa Grande. São frentes distintas dos 16 precatórios cancelados pelo CNJ.",
    "st": "rep",
-   "f": [
-    [
-     "timesbrasil.com.br",
-     "https://timesbrasil.com.br/brasil/master-repassou-r-14-bilhao-em-precatorios-a-entre-investimentos-empresa-de-mineiro-um-mes-antes-do-banco-ser-liquidado"
-    ]
-   ]
-  },
-  {
-   "d": "2025-11-18",
-   "t": "Banco Central liquida o Master",
-   "x": "A PF apreende o celular de Vorcaro na mesma data.",
-   "st": "doc",
    "f": [
     [
      "timesbrasil.com.br",

@@ -6,6 +6,7 @@ from urllib.parse import urlsplit, urlunsplit
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 RAW = DATA / "raw"
+CURADORIA = DATA / "curadoria"
 SCRIPTS = ROOT / "scripts"
 SQLITE = DATA / "linha-do-tempo.sqlite"
 DUMP = DATA / "dump.sql"
@@ -14,11 +15,12 @@ DUMP = DATA / "dump.sql"
 TS_MIGRACAO = "2026-10-16T00:00:00Z"
 
 # Tabelas na ordem de dependência (FK) usada no dump. natureza/natureza_mapa vêm no schema.sql.
-TABELAS = ["meta", "categoria", "entidade", "entidade_alias", "evidencia", "relacao", "evento",
+TABELAS = ["meta", "categoria", "entidade", "entidade_alias", "evidencia", "relacao", "evento", "evento_alias",
            "evento_entidade", "evento_relacao", "relacao_evidencia", "evento_evidencia",
            "video", "trecho", "trecho_entidade", "trecho_ano", "trecho_valor", "trecho_relacao",
            "corte", "corte_trecho", "relacao_corte", "nota", "nota_entidade", "indicador", "serie",
-           "ranking_empresa", "mandato", "bancada", "aresta_legado"]
+           "ranking_empresa", "mandato", "bancada", "aresta_legado",
+           "dossie_par", "dossie_par_evidencia", "previdencia_ente", "pagamento", "indicio_maquina", "limite", "forum"]
 TABELAS_NO_SCHEMA = {"natureza", "natureza_mapa"}
 
 

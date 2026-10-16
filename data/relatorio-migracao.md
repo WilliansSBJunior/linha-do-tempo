@@ -29,20 +29,20 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 386 |
+| entidade | 390 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 188 |
-| entidade_alias | 492 |
+|   extras (timeline/pares) | 192 |
+| entidade_alias | 504 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
 | relacao total | 367 |
-| evento total | 537 |
-| evidencia | 760 |
+| evento total | 505 |
+| evidencia | 1116 |
 | relacao_evidencia | 729 |
-| evento_evidencia | 518 |
-| evento_entidade | 560 |
-| nota | 319 |
+| evento_evidencia | 2907 |
+| evento_entidade | 937 |
+| nota | 254 |
 | indicador | 83 |
 | serie | 6837 |
 | ranking_empresa | 397 |
@@ -55,11 +55,11 @@ Eventos por canal:
 |---|---|
 | banco | 27 |
 | brasil | 280 |
-| brb | 30 |
+| brb | 18 |
 | familia | 22 |
 | ida | 22 |
-| precatorios | 36 |
-| teia | 92 |
+| precatorios | 35 |
+| teia | 73 |
 | violencia | 10 |
 | volta | 18 |
 
@@ -71,7 +71,7 @@ Eventos por canal:
 | teia | 92 |
 | violencia | 10 |
 
-Os eventos da timeline Brasil (`brasil`) e os marcos legais (`violencia`) nunca tiveram `st`; os da teia são os 92 abaixo (todos canal `teia`, nenhum casa com origens). Lista completa dos 92 da teia:
+Situação na carga bruta, antes da curadoria (seções 9 e 10 dizem o que mudou). Os eventos da timeline Brasil (`brasil`) e os marcos legais (`violencia`) nunca tiveram `st`; os da teia são os 92 abaixo (todos canal `teia`, nenhum casa com origens). Lista completa dos 92 da teia:
 
 | id | d | título |
 |---|---|---|
@@ -289,12 +289,12 @@ nenhum.
 
 Regra: strip de `#fragment`, barra final e parâmetros `utm_*`. Nada mais (host e esquema intactos).
 
-- URLs normalizadas distintas (linhas em `evidencia`): 760
-- URLs originais distintas: 760
-- Normalizações que alteraram a URL: 371
+- URLs normalizadas distintas (linhas em `evidencia`): 1116
+- URLs originais distintas: 1116
+- Normalizações que alteraram a URL: 375
 - Colisões (2+ URLs originais → 1 normalizada): 0
 
-Alteradas sem colisão: 371 só pela barra final (não listadas) e 0 por `#fragment`/`utm_*`/outros:
+Alteradas sem colisão: 375 só pela barra final (não listadas) e 0 por `#fragment`/`utm_*`/outros:
 
 
 Quase-colisões (mesma URL base, queries diferentes; mantidas distintas): 8
@@ -317,14 +317,234 @@ URLs repetidas dentro da mesma relação/evento após normalização (descartada
 - Pseudo-partidos de `N.p` ("Ex-ministros e consultores", "Órgãos e partidos") foram para `entidade.grupo`; `partido` guarda só siglas reais. O exportador reconstrói `p` quando `grupo` é um pseudo-partido, senão `sg`.
 - `E.a/E.b` do `teia.json` exportado reproduz a orientação ORIGINAL de cada par (tabela `aresta_legado`; a cor da aresta na página depende dela). A direção semântica vem de `relacao.de/para` (`r.a→r.b`). Índices `E[i]` e `r[j]` preservados.
 - Eventos de origens com `r` vazio gravam `resposta` NULL (exportam de volta como ""); `v` vai para `evento.valor_brl` (a proposta mapeava `r`→`contexto` e `v`→`resposta`, o que invertia o significado).
-- Eventos da timeline Brasil (280): `data` = ano do agrupamento, sem fonte, sem natureza, canal `brasil` (subcanal `pol`/`intl` em `origem_ref`).
+- Eventos da timeline Brasil (280): `data` = ano do agrupamento, canal `brasil` (subcanal `pol`/`intl` em `origem_ref`); na carga bruta sem fonte e sem natureza (as fontes entram pela curadoria, seção 11).
 - `pares.notas`: linhas de log de coleta descartadas (1): "Cota: 39 buscas/fetches usados."
 - `pares.indicadores`: valores `null` explícitos (ex.: IDH) não viram linha em `serie`; só os pontos não nulos.
-- `pares.foruns` e as seções estruturadas do dossiê (mercado, previdência, dinheiro, limites, máquina) estão em `nota.texto` como JSON (sem modelagem relacional ainda); a seção `brb.eventos` virou 30 eventos canal `brb`.
-- URLs dentro de `nota.texto` do dossiê não passam por `evidencia`.
+- `pares.foruns` e as seções estruturadas do dossiê (mercado, previdência, dinheiro, limites, máquina) deixaram de ir para `nota.texto`: viraram tabelas relacionais (seção 13); a seção `brb.eventos` virou 30 eventos canal `brb`.
+- URLs dentro de `nota.texto` do dossiê (`previdencia.fonte`, `dinheiro.fonte`) não passam por `evidencia`; as fontes de `mercado.pares` e `brb.eventos` passam.
 - `mandato`: presidentes/vices/presidentes das casas são agregados por anos consecutivos (granularidade de ano; Dilma/Temer em 2016 usam 12/5); `partido` = valor do primeiro ano do período. Parlamentares em destaque (`pol.parl`) viram `mandato` de um ano (`inicio=fim=ano`) com `motivo` e `votos`.
 - `ranking_empresa.posicao` = posição na lista do ano (a lista original não traz posição explícita).
 - Países em `pares` viram entidades `pais` (alias sigla = ISO3); `serie.dimensao` usa `pais=<ISO3>`. Destinos de exportação usam `pais=<nome>` (sem ISO na fonte).
 - `serie` de pares = pontos não nulos dos 18 indicadores (4.806) + PISA (leitura/matemática/ciências e matemática por estado da Índia).
 - Desvios do DDL proposto (marcados `-- DESVIO:` em `scripts/schema.sql`): o DDL original roda sem erro no SQLite 3.45 (incl. STRICT, colunas geradas e FTS5); acrescentados `entidade.ind_legado`, `evento.valor_brl`, `evento.canal='brb'`, `evento.origem='dossie'`, `ordem` em `relacao_evidencia`/`evento_evidencia`/`evento_entidade`/`nota_entidade`, `mandato.motivo`/`mandato.votos`; `evento.contexto`/`resposta` passam a significar o que os dados dizem (ver acima).
-- Não feito: ligação de eventos de origens a entidades por `indice_alias` (passo 3 do plano) e extração de eventos de datas internas de `N.d`/`desc`.
+- Passo 3 do plano (ligar eventos a entidades por alias): feito pela curadoria, seção 12. Continua não feita a extração de eventos a partir de datas internas de `N.d`/`desc`.
+- `evento_evidencia.rotulo` (desvio) guarda o rótulo da fonte como veio no original; `evidencia.veiculo` guarda só o do primeiro uso da URL. O exportador usa o rótulo.
+
+## 9. Eventos quase-duplicados fundidos (`data/curadoria/eventos-fusoes.json`)
+
+23 fusões, 32 eventos absorvidos: 537 -> 505 eventos. Regra: mesma `data` e mesmo fato. O evento `manter` conserva o id e recebe a união de fontes (`evento_evidencia`) e entidades (`evento_entidade`), `peso` máximo, a natureza mais forte entre os que têm natureza e descrição/contexto/resposta/valor do mantido (ou do primeiro fundido que tenha). Os ids fundidos viram `evento_alias(alias, evento_id)` e guardam o evento original em `original_json` (título, descrição, data, natureza, fontes com rótulo, entidades). `mapa_indices.json` aponta os índices antigos de `teia.EV` (e `evento_alias`) para o id mantido. Os candidatos duvidosos estão em `data/curadoria/eventos-candidatos.md`.
+
+| data | mantido | fundidos | natureza resultante | fontes novas | entidades novas |
+|---|---|---|---|---|---|
+| 2019-02-13 | `max16` | `ev-2019-02-13-bc-nega-a-compra-do-maxima-por-vorcaro` | documentada | 0 | 0 |
+| 2019-10-14 | `max17` | `ev-2019-10-14-bc-aprova-a-compra-ja-com-nova-diretoria`, `ev-2019-10-14-bc-aprova-controle-do-maxima-por-vorcaro` | documentada | 1 | 1 |
+| 2021-08-02 | `max22` | `ev-2021-08-02-maxima-relanca-se-como-banco-master` | documentada | 2 | 0 |
+| 2024-07 | `ev-2024-07-brb-comeca-a-comprar-carteiras-de` | `ev-2024-07-brb-comeca-a-comprar-carteiras-do-master` | reportada | 1 | 0 |
+| 2024-12-04 | `ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da` | `ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da-2` | documentada | 1 | 0 |
+| 2025-03-28 | `ev-2025-03-28-brb-anuncia-compra-de-58-do-master` | `ev-2025-03-28-conselho-do-brb-aprova-comprar-58-do` | documentada | 1 | 0 |
+| 2025-05-27 | `ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro` | `ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro-2` | reportada | 1 | 0 |
+| 2025-07-15 | `ev-2025-07-15-bc-comunica-ao-mpf-indicios-de-crimes-na` | `ev-2025-07-15-bc-comunica-ao-ministerio-publico` | reportada | 0 | 0 |
+| 2025-09-03 | `ev-2025-09-03-bc-veta-a-compra-do-master-pelo-brb` | `ev-2025-09-03-banco-central-rejeita-a-compra-do-master`, `ev-2025-09-03-banco-central-veta-a-compra-por` | documentada | 3 | 0 |
+| 2025-11-17 | `ev-2025-11-17-fictor-anuncia-compra-do-master-vorcaro` | `ev-2025-11-17-fictor-e-investidores-dos-emirados` | documentada | 1 | 0 |
+| 2025-11-18 | `ev-2025-11-18-bc-decreta-a-liquidacao-extrajudicial-do` | `ev-2025-11-18-banco-central-liquida-o-master`, `ev-2025-11-18-bc-liquida-o-banco-master-pf-faz-buscas`, `ev-2025-11-18-bc-liquida-o-master-pf-deflagra-a`, `ev-2025-11-18-bc-liquida-o-master-vorcaro-e-preso` | documentada | 7 | 4 |
+| 2026-01-14 | `ev-2026-01-14-2a-fase-da-compliance-zero-bloqueia-r-5` | `ev-2026-01-14-2a-fase-buscas-bloqueio-de-r-5-7-bi-e` | - | 3 | 1 |
+| 2026-01-15 | `ev-2026-01-15-bc-decreta-liquidacao-da-reag-trust-cbsf` | `ev-2026-01-15-bc-liquida-a-reag-cbsf-dtvm` | - | 0 | 2 |
+| 2026-01-17 | `ev-2026-01-17-fgc-inicia-o-maior-ressarcimento-de-sua` | `ev-2026-01-17-fgc-comeca-a-pagar-garantia-a-credores`, `ev-2026-01-17-fgc-inicia-pagamento-a-cerca-de-800-mil` | - | 1 | 1 |
+| 2026-01-23 | `ev-2026-01-23-pf-deflagra-barco-de-papel-castro` | `ev-2026-01-23-pf-faz-a-operacao-barco-de-papel-no` | - | 1 | 0 |
+| 2026-03-04 | `ev-2026-03-04-3a-fase-vorcaro-e-preso-de-novo` | `ev-2026-03-04-vorcaro-e-preso-de-novo-pf-mira-ex`, `ev-2026-03-04-vorcaro-e-preso-decisao-cita-r-2-2-bi-na` | - | 3 | 3 |
+| 2026-03-28 | `vol24` | `ev-2026-03-28-cpmi-do-inss-termina-sem-relatorio-final` | documentada | 2 | 3 |
+| 2026-04-16 | `ev-2026-04-16-ex-presidente-do-brb-paulo-henrique` | `ev-2026-04-16-4a-fase-ex-presidente-do-brb-e-preso`, `ev-2026-04-16-ex-presidente-do-brb-e-preso`, `ev-2026-04-16-ex-presidente-do-brb-e-preso-pf-cita` | investigacao | 6 | 4 |
+| 2026-05-07 | `ev-2026-05-07-pf-faz-buscas-contra-o-senador-ciro` | `ev-2026-05-07-5a-fase-senador-ciro-nogueira-e-alvo` | - | 1 | 2 |
+| 2026-05-28 | `ev-2026-05-28-uniao-e-gdf-acordam-emprestimo-de-ate-r` | `ev-2026-05-28-acordo-no-stf-abre-caminho-para` | documentada | 1 | 0 |
+| 2026-06-18 | `ev-2026-06-18-9a-fase-jaques-wagner-e-augusto-lima-sao` | `ev-2026-06-18-9a-fase-da-compliance-zero-tem-jaques` | - | 1 | 1 |
+| 2026-09-01 | `ev-2026-09-01-mendonca-levanta-sigilo-de-relatorio-da` | `ev-2026-09-01-mendonca-tira-sigilo-de-relatorio-da-pf` | - | 3 | 0 |
+| 2026-09-15 | `ev-2026-09-15-plenario-do-stf-comeca-a-analisar` | `ev-2026-09-15-plenario-do-stf-discute-moraes-e` | - | 3 | 1 |
+
+Eventos absorvidos por canal de origem: brb 12, precatorios 1, teia 19.
+
+## 10. Natureza dos eventos da teia sem `st` (`data/curadoria/eventos-natureza.json`)
+
+Regras determinísticas (`scripts/curadoria.py`, `classificar_natureza`; o arquivo é regenerado por `scripts/gerar_curadoria.py`). Só atribui onde `natureza_id IS NULL`; nada é inventado.
+
+```
+R1  todas as fontes do evento são documento oficial (domínios .gov.br/gov.br, .jus.br, .leg.br, okai.com.br; PDFs em static.poder360.com.br) -> documentada
+R2  o título começa por verbo de autoridade sobre ato formal consumado (BC liquida/decreta/veta/rejeita/aprova/nega/autoriza; STF torna pública/decide/julga/suspende/homologa;
+    PF prende; Justiça homologa/nega/decreta/reconhece/afasta/bloqueia; CVM multa/condena; Câmara/Senado/CLDF/Congresso aprova/rejeita/promulga;
+    Mendonça/Toffoli/Fachin/Dino/Moraes/Gilmar/Nunes Marques/Fux/Zanin autoriza/afasta/levanta/tira/suspende/determina/manda/concede/nega/decreta/homologa)
+    e há 2 ou mais fontes de imprensa (ato público noticiado por 2+ veículos) -> documentada
+R3  o título tem 'PF aponta/diz/suspeita', 'relatório da PF', 'indicia', 'alvo(s)', 'busca(s)' ou 'denúncia/denuncia(r)' -> investigacao
+R4  o título começa por 'Folha liga' ou tem 'revelado/revelada', 'mensagens', 'teria', 'segundo' -> reportada
+--  nenhuma das anteriores: continua NULL (nada é inventado)
+Precedência: R1, R2, R3, R4. Só se aplica a eventos do canal 'teia' com natureza_id NULL.
+```
+
+- Atribuídas por regra: 22 (arquivo com 22). Por regra: R1 1, R2 10, R3 9, R4 2. Por natureza: documentada 11, investigacao 9, reportada 2.
+- Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 22 ganharam natureza pelas regras acima, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 41 seguem NULL.
+- **Ficaram NULL por nenhuma regra servir: 41 eventos do canal `teia`** (lista abaixo). Eventos `brasil` (280) e `violencia` (10) continuam sem natureza: nunca tiveram `st` e as regras não se aplicam a eles.
+
+| id | data | título | fontes |
+|---|---|---|---|
+| ev-2023-10-comecam-as-aplicacoes-de-rpps-em-letras | 2023-10 | Começam as aplicações de RPPS em letras do Master | 2 |
+| ev-2023-10-rioprevidencia-inicia-aportes-em-letras | 2023-10 | Rioprevidência inicia aportes em letras financeiras do Master | 2 |
+| ev-2024-05-27-bc-aprova-a-compra-da-will-no-dia | 2024-05-27 | BC aprova a compra da Will; no dia seguinte, exigência de capital | 1 |
+| ev-2024-10-fundos-hans-95-e-reag-growth-aportam | 2024-10 | Fundos Hans 95 e Reag Growth aportam mais de R$ 1 bi no Master | 1 |
+| ev-2025-03-brb-e-master-fecham-acordo-para-venda-de | 2025-03 | BRB e Master fecham acordo para venda de 58% por R$ 2 bilhões | 2 |
+| ev-2025-04-balanco-2024-ativo-de-r-63-bi-e-r-8-7-bi | 2025-04 | Balanço 2024: ativo de R$ 63 bi e R$ 8,7 bi em precatórios | 2 |
+| ev-2025-04-23-operacao-sem-desconto-pf-e-cgu-miram | 2025-04-23 | Operação Sem Desconto: PF e CGU miram descontos no INSS | 2 |
+| ev-2025-05-05-fgc-comeca-a-dar-assistencia-financeira | 2025-05-05 | FGC começa a dar assistência financeira ao Master | 2 |
+| ev-2025-08-cldf-aprova-em-uma-semana-compra-do | 2025-08 | CLDF aprova em uma semana compra do Master pelo BRB; Ibaneis sanciona | 1 |
+| ev-2025-08-28-carbono-oculto-quasar-e-tank-operacoes | 2025-08-28 | Carbono Oculto, Quasar e Tank: operações miram suposto esquema do PCC no setor de combustíveis | 3 |
+| ev-2025-09-21-master-apresenta-ao-bc-plano-de | 2025-09-21 | Master apresenta ao BC plano de salvamento | 1 |
+| ev-2025-10-10-inss-nao-renova-acordo-consignado-do | 2025-10-10 | INSS não renova acordo consignado do Master | 2 |
+| ev-2025-10-14-gaeco-aponta-executivos-da-reag-e-fundo | 2025-10-14 | Gaeco aponta executivos da Reag e fundo Mabruk II na Usina Itajobi | 2 |
+| ev-2025-11-relatorio-do-inss-aponta-251-718 | 2025-11 | Relatório do INSS aponta 251.718 consignados do Master sem prova | 1 |
+| ev-2025-11-17-bc-comunica-ao-mpf-indicios-de-fraude | 2025-11-17 | BC comunica ao MPF indícios de fraude entre Master e fundos da Reag | 3 |
+| ev-2025-12-caso-chega-ao-stf-toffoli-e-relator-e | 2025-12 | Caso chega ao STF; Toffoli é relator e impõe sigilo | 3 |
+| ev-2025-12-04-cpmi-do-inss-aprova-convocacao-e-quebra | 2025-12-04 | CPMI do INSS aprova convocação e quebra de sigilo de Vorcaro | 1 |
+| ev-2026-01-16-inss-bloqueia-repasses-ao-master-r-2-bi | 2026-01-16 | INSS bloqueia repasses ao Master: R$ 2 bi e 254 mil contratos | 1 |
+| ev-2026-01-17-fgc-inicia-o-maior-ressarcimento-de-sua | 2026-01-17 | FGC inicia o maior ressarcimento de sua história | 4 |
+| ev-2026-01-23-pf-deflagra-barco-de-papel-castro | 2026-01-23 | PF deflagra Barco de Papel; Castro exonera chefe do Rioprevidência | 2 |
+| ev-2026-02-06-pf-mira-a-amprev-brb-entrega-plano-de | 2026-02-06 | PF mira a Amprev; BRB entrega plano de capital ao BC | 2 |
+| ev-2026-02-09-pf-entrega-a-fachin-relatorio-sobre | 2026-02-09 | PF entrega a Fachin relatório sobre Toffoli e arguição de suspeição | 2 |
+| ev-2026-02-10-fgc-aprova-plano-emergencial-para | 2026-02-10 | FGC aprova plano emergencial para recompor o caixa | 2 |
+| ev-2026-02-12-toffoli-deixa-a-relatoria-mendonca | 2026-02-12 | Toffoli deixa a relatoria; Mendonça assume | 3 |
+| ev-2026-03-04-3a-fase-vorcaro-e-preso-de-novo | 2026-03-04 | 3ª fase: Vorcaro é preso de novo | 6 |
+| ev-2026-03-11-mansur-na-cpi-master-era-cliente-da-reag | 2026-03-11 | Mansur na CPI: Master era cliente da Reag e nega vínculo com PCC | 2 |
+| ev-2026-03-17-master-multiplo-e-liquidado-liquidante | 2026-03-17 | Master Múltiplo é liquidado; liquidante move ação em SP | 2 |
+| ev-2026-04-08-receita-mostra-pagamentos-do-master-a-ex | 2026-04-08 | Receita mostra pagamentos do Master a ex-ministros e políticos | 2 |
+| ev-2026-04-20-brb-e-quadra-fecham-memorando-para | 2026-04-20 | BRB e Quadra fecham memorando para vender ativos do Master | 2 |
+| ev-2026-05-04-cvm-acusa-reag-trust-e-ex-diretor-por | 2026-05-04 | CVM acusa Reag Trust e ex-diretor por ocultar cotistas e liquidez | 1 |
+| ev-2026-05-05-defesa-de-vorcaro-oferece-delacao-e | 2026-05-05 | Defesa de Vorcaro oferece delação e devolução de R$ 40 bi | 3 |
+| ev-2026-05-26-justica-das-bahamas-reconhece-a | 2026-05-26 | Justiça das Bahamas reconhece a liquidação do Master | 2 |
+| ev-2026-06-09-presidente-do-brb-fala-em-corrida-de | 2026-06-09 | Presidente do BRB fala em corrida de liquidez e provisão de R$ 8,8 bi | 1 |
+| ev-2026-07-17-brb-encerra-o-memorando-com-a-quadra | 2026-07-17 | BRB encerra o memorando com a Quadra | 3 |
+| ev-2026-07-23-mendonca-autoriza-inquerito-sobre | 2026-07-23 | Mendonça autoriza inquérito sobre repasses de Vorcaro ao Dark Horse | 1 |
+| ev-2026-08-26-mansur-entrega-a-pgr-proposta-de-delacao | 2026-08-26 | Mansur entrega à PGR proposta de delação com 17 anexos | 1 |
+| ev-2026-09-02-pgr-fecha-acordo-de-delacao-com-mansur | 2026-09-02 | PGR fecha acordo de delação com Mansur; homologação pendente | 3 |
+| ev-2026-09-13-stf-torna-publica-decisao-que-bloqueou | 2026-09-13 | STF torna pública decisão que bloqueou bens de Vorcaro | 1 |
+| ev-2026-09-15-plenario-do-stf-comeca-a-analisar | 2026-09-15 | Plenário do STF começa a analisar questão de ordem sobre pedido de investigar Moraes; Dino pede vista | 6 |
+| ev-2026-09-24-credito-oculto-3a-fase-da-carbono-oculto | 2026-09-24 | Crédito Oculto: 3ª fase da Carbono Oculto mira Freixo, apontado pela PF como operador de Vorcaro | 3 |
+| ev-2026-10-02-fachin-pede-a-pf-lista-de-ministros | 2026-10-02 | Fachin pede à PF lista de ministros citados nas conversas de Vorcaro | 1 |
+
+## 11. Fontes da timeline Brasil (`data/curadoria/brasil-fontes.json`, de `data/raw/dados-brutos-31-anos.json`)
+
+`data/raw/dados-brutos-31-anos.json` entrou em `data/raw/` com hash em `hashes.txt` (única exceção à regra de não mexer no raw: cópia de `projeto-json/`, sem alteração). Cada evento da timeline foi casado com o item do bruto de mesmo ano e seção (`pol`: blocos `v2_pol_eventos_*` e `v4_pol_*`; `intl`: `v2_intl_eventos_*`) por título igual (Jaccard >= 0,6 era o plano B; nenhum caso precisou). **O bruto só tem a lista `fontes` por ano e bloco, não por evento**: por isso toda URL do bloco-ano entra em `evento_evidencia`, como `contexto`; entra como `sustenta` só quando um termo distintivo do slug da URL aparece no título/descrição do evento (heurística conservadora; `url_toca_evento`).
+
+- Eventos casados: 221 de 280; sem fonte: 59.
+- Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
+- Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): 1995 (8), 2000 (8), 2005 (8), 2010 (8), 2015 (9), 2020 (9), 2025 (9). Ficam sem fonte.
+- URLs de `evidencia` agora: 1116 (todas ligadas a alguma coisa; `validar.py` confere).
+- `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
+- `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
+- **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
+
+## 12. Ligação evento -> entidade por alias (`data/curadoria/evento-entidade-auto.json`)
+
+Candidatos: eventos sem nenhuma linha em `evento_entidade` (origens, PREC, brb, brasil, violência). Casamento de `titulo + descricao` com `entidade_alias` (só `alias_norm` único no banco), palavra inteira, normalizado sem acento, alias mais longo primeiro e sem sobreposição, `papel='citado'`. Regras em `data/curadoria/evento-entidade-regras.json`:
+
+- alias de pessoa com um só token só vale se estiver em `pessoa_um_token_ok` (lula, dilma, fhc, temer); sobrenomes ambíguos barrados sozinhos: costa, silva, mendonca, nunes, santos, souza, oliveira, lima, pereira, alves, rocha, moraes, neto, filho, junior, ferreira, ribeiro, carvalho, gomes, barbosa, martins, campos, fernandes, sousa, dias, castro, cunha.
+- siglas (alias em maiúsculas ou `tipo_alias='sigla'`) só em maiúsculas e não seguidas de número (evita 'PL 2338' e 'pl').
+- entidades excluídas: brasil (aparece em tudo). Exigem inicial maiúscula: vale, rede, caixa, senado, camara. Contextos barrados: 'camara' seguido de do/legislativa/municipal/distrital; 'vale' seguido de do/da/de; 'caixa' seguido de de; 'senado' precedido de radio; 'camara' precedido de radio.
+
+- Resultado: 207 eventos receberam ligação, 428 linhas novas em `evento_entidade`.
+- Eventos ainda sem entidade por canal: banco 2, brasil 123, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
+
+Aliases com mais de 15 ligações (suspeitos por volume; são nomes de órgãos e partidos que aparecem muito nos textos da timeline; a amostra abaixo não achou falso positivo entre eles, mas vale conferir os eventos):
+
+| ligações | entidade | alias casado |
+|---|---|---|
+| 38 | `senado-federal` (Senado Federal) | Senado |
+| 36 | `camara-dos-deputados` (Câmara dos Deputados) | Câmara |
+| 32 | `stf` (Supremo Tribunal Federal) | STF |
+| 18 | `pt` (PT) | PT |
+
+Amostra de 30 ligações para conferência (a cada k-ésima, em ordem de evento):
+
+| evento | título | alias -> entidade |
+|---|---|---|
+| `max23` | CRSFN pauta recurso de Sabbá e das empresas Máxima em processo da CVM | CVM -> `cvm` |
+| `ev-1997-novas-mesas-da-camara-e-do-senado` | Novas Mesas da Câmara e do Senado | Senado -> `senado-federal` |
+| `ev-1998-privatizacao-do-sistema-telebras` | Privatização do Sistema Telebrás | Telebrás -> `telebras` |
+| `ev-2000-eleicoes-municipais` | Eleições municipais | PT -> `pt` |
+| `ev-2001-jader-barbalho-deixa-a-presidencia-do` | Jader Barbalho deixa a presidência do Senado | Senado -> `senado-federal` |
+| `ev-2002-lula-e-eleito-presidente` | Lula é eleito presidente | PT -> `pt` |
+| `ev-2003-sarney-volta-a-presidencia-do-senado` | Sarney volta à presidência do Senado | José Sarney -> `jose-sarney` |
+| `ev-2005-denuncia-do-mensalao` | Denúncia do mensalão | José Dirceu -> `jose-dirceu` |
+| `ev-2006-reeleicao-de-lula` | Reeleição de Lula | PSDB -> `psdb` |
+| `ev-2008-marina-silva-deixa-o-ministerio-do-meio` | Marina Silva deixa o Ministério do Meio Ambiente | Senado -> `senado-federal` |
+| `ev-2009-sarney-e-temer-assumem-as-presidencias` | Sarney e Temer assumem as presidências do Congresso | Câmara -> `camara-dos-deputados` |
+| `ev-2012-argentina-reestatiza-a-petroleira-ypf` | Argentina reestatiza a petroleira YPF | Senado -> `senado-federal` |
+| `ev-2013-alves-e-renan-sao-eleitos-presidentes` | Alves e Renan são eleitos presidentes das Casas | Senado -> `senado-federal` |
+| `ev-2014-reeleicao-de-dilma-rousseff` | Reeleição de Dilma Rousseff | Dilma Rousseff -> `dilma-rousseff` |
+| `ev-2015-eduardo-cunha-assume-a-camara` | Eduardo Cunha assume a Câmara | PT -> `pt` |
+| `ev-2016-opep-faz-seu-primeiro-corte-de-producao` | Opep faz seu primeiro corte de produção desde 2008 | Rússia -> `russia` |
+| `ev-2017-moro-condena-lula-no-caso-do-triplex` | Moro condena Lula no caso do tríplex | Lula -> `luiz-inacio-lula-da-silva` |
+| `ev-2018-tse-barra-lula-e-pt-lanca-haddad` | TSE barra Lula e PT lança Haddad | PT -> `pt` |
+| `ev-2020-saida-de-sergio-moro-do-governo` | Saída de Sergio Moro do governo | Polícia Federal -> `pf` |
+| `ev-2021-lira-e-pacheco-sao-eleitos-presidentes` | Lira e Pacheco são eleitos presidentes das Casas | Arthur Lira -> `arthur-lira` |
+| `ev-2022-ec-123-cria-estado-de-emergencia-e` | EC 123 cria estado de emergência e amplia benefícios | Câmara -> `camara-dos-deputados` |
+| `ev-2023-ataques-de-8-de-janeiro-em-brasilia` | Ataques de 8 de janeiro em Brasília | Jair Bolsonaro -> `jair-bolsonaro` |
+| `ev-2023-stf-e-congresso-divergem-sobre-o-marco` | STF e Congresso divergem sobre o marco temporal | Senado -> `senado-federal` |
+| `ev-2024-presos-por-suposto-plano-de-golpe-pf` | Presos por suposto plano de golpe; PF indicia Bolsonaro | PF -> `pf` |
+| `ev-2025-stf-torna-bolsonaro-reu-e-o-condena` | STF torna Bolsonaro réu e o condena | Jair Bolsonaro -> `jair-bolsonaro` |
+| `ev-2025-08-19-camara-do-df-aprova-a-compra-em-urgencia` | Câmara do DF aprova a compra em urgência, 14 a 7 | Ibaneis Rocha -> `ibaneis-rocha` |
+| `fam28` | Pai e irmã constam como responsáveis por cerca de R$ 8 mi em dívida ativa da Uni | Henrique Moura Vorcaro -> `henrique-vorcaro` |
+| `ev-2023-03-21-master-ingressa-na-acao-da-usina` | Master ingressa na ação da usina Cansanção de Sinimbu | Newton Ramos -> `newton-ramos` |
+| `ev-2024-10-01-data-disputada-do-julgamento-da-alcidia` | Data disputada do julgamento da Alcídia (ARE 1.327.995) | Alessandro Vieira -> `alessandro-vieira` |
+| `ev-2026-09-24-gilmar-leva-o-caso-raizen-ao-plenario` | Gilmar leva o caso Raízen ao plenário; CNJ faz correição em Newton Ramos; Vieira | PF -> `pf` |
+
+## 13. Dossiê e fóruns relacionais (`scripts/dossie_rel.py`)
+
+`mercado.pares`, `previdencia.entes`, `dinheiro.{contratos,midia,doacoes}`, `maquina.indicios`, `limites.*` e `pares.foruns` deixaram de ir para `nota.texto`. Tabelas (cada uma guarda também o texto original, para exportar igual ao embutido):
+
+| tabela | linhas | observação |
+|---|---|---|
+| dossie_par | 14 | 13 pares; 'Antônio Rueda e ACM Neto' vira 2 linhas (mesma `ordem`, `sub` 0 e 1); `liga` sim/apura/nao |
+| dossie_par_evidencia | 14 | fontes de cada par (`rotulo` = veículo como no original) |
+| previdencia_ente | 11 | 11 entes (inclui a linha agregada 'Outros oito'); soma R$ 1.867,45 mi |
+| pagamento | 14 | contratos 8, mídia 3, doações 3 (`ano` extraído do texto das doações; valores em R$ mi, como no dossiê) |
+| indicio_maquina | 5 | 5 indícios (`forca` 1-2) |
+| limite | 13 | derrubado 6, aberto 4, agenda 3 (`data` ISO quando reconhecível, `data_texto` original) |
+| forum | 50 | 10 países x (G20, BRICS, OCDE, CSNU, nuclear); CSNU com lista vira `anos` (JSON); nuclear: `status_texto` sim/nao e `primeiro_teste` |
+
+Entidades criadas (tipo `fundo_previdencia`, origem `manual`, sem nó na teia, com alias): `rpps-cajamar`, `rpps-itaguai`, `rpps-araras`, `rpps-congonhas`.
+
+Vínculo texto -> entidade (41 textos): 22 pelo mapa manual (`data/curadoria/dossie-entidades.json`), 17 por alias único exato, 2 sem entidade.
+
+Textos sem entidade (ficam só como texto):
+
+- mercado.pares: Dois ex-chefes da supervisão do BC
+- previdencia.entes: Outros oito
+
+Vinculados pelo mapa manual (as aproximações estão justificadas em `justificativas` no JSON; as mais discutíveis: Amazonprev, escritórios -> pessoa, Metrópoles):
+
+- mercado.pares: Três dirigentes da Amazonprev -> `amazonprev`
+- mercado.pares: Escritório de Viviane Barci de Moraes -> `viviane-barci-de-moraes`
+- mercado.pares: Antônio Rueda e ACM Neto -> `antonio-rueda`, `acm-neto`
+- previdencia.entes: Rioprevidência -> `rioprevidencia`
+- previdencia.entes: Amprev -> `amprev`
+- previdencia.entes: Maceió -> `iprev-maceio`
+- previdencia.entes: São Roque -> `sao-roque-prev`
+- previdencia.entes: Cajamar -> `rpps-cajamar`
+- previdencia.entes: Itaguaí -> `rpps-itaguai`
+- previdencia.entes: Amazonprev -> `amazonprev`
+- previdencia.entes: Aparecida de Goiânia -> `aparecidaprev`
+- previdencia.entes: Araras -> `rpps-araras`
+- previdencia.entes: Congonhas -> `rpps-congonhas`
+- dinheiro.contratos: Escritório de Viviane Barci de Moraes -> `viviane-barci-de-moraes`
+- dinheiro.contratos: Escritório de Michel Temer -> `michel-temer`
+- dinheiro.contratos: Escritórios de Antônio Rueda -> `antonio-rueda`
+- dinheiro.contratos: Escritório da família Lewandowski -> `lewandowski-advocacia`
+- dinheiro.midia: Metrópoles e empresas de Luiz Estevão -> `metropoles-marketing-e-propaganda`
+- dinheiro.midia: Grupo Massa, de Ratinho -> `grupo-massa-ratinho`
+- dinheiro.doacoes: Jair Bolsonaro (PL), 2022 -> `jair-bolsonaro`
+- dinheiro.doacoes: Tarcísio de Freitas (Republicanos), 2022 -> `tarcisio-de-freitas`
+- dinheiro.doacoes: Diretório do Novo, 2022 -> `partido-novo-diretorio-de-minas-gerais`
+
+`exportar_json.py` gera `data/dossie.json` e `data/pares.json` a partir dessas tabelas e `validar.py` os compara com `data/raw/dossie.json` e `data/raw/pares.json`. Diferenças aceitas e documentadas:
+
+- URLs em `src` saem normalizadas (sem barra final): 29 URLs; a comparação normaliza os dois lados.
+- `pares.json`: 230 valores `null` explícitos dos indicadores e 18 do PISA não viram linha em `serie` (já era assim); e a linha de log "Cota: 39 buscas/fetches usados." de `pares.notas` continua descartada.
+- `meta.paginas` do dossiê fica em `nota` (chave `meta.paginas`, JSON) e as `meta` do banco ganham `pares.gerado_em`, `pares.anos` e `pares.ordem_paises`.
+- `dossie.json` inclui os 30 eventos BRB como no original (os fundidos saem de `evento_alias.original_json`); `teia.json` e `origens.json` refletem a curadoria (eventos fundidos saem da lista; `mapa_indices.json` ainda resolve os índices antigos).
+

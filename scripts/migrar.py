@@ -8,7 +8,9 @@ import json
 import re
 import sys
 
-from comum import (DATA, RAW, SCRIPTS, SQLITE, DUMP, TS_MIGRACAO, conectar, dominio_de, gerar_dump,
+import curadoria
+import dossie_rel
+from comum import (CURADORIA, DATA, RAW, SCRIPTS, SQLITE, DUMP, TS_MIGRACAO, conectar, dominio_de, gerar_dump,
                    normalizar_url, popular_fts, sha256)
 from slug import (ALIASES_EXTRA, SLUG_FIXO, alias_norm, analisar_nome, slugify)
 
@@ -59,17 +61,20 @@ def slug_curto(titulo, limite=40):
 
 
 # ---------------------------------------------------------------- main
-def main():
+def main(destino=SQLITE, pular=(), escrever=True):
+    """destino: caminho do sqlite. pular: etapas de curadoria geradas a ignorar ({'natureza','ligacoes','fontes_brasil','complementos'});
+    usado por gerar_curadoria.py. escrever=False não grava dump.sql nem o relatório."""
+    destino = type(SQLITE)(destino)
     hashes = verificar_hashes()
     teia, origens, dossie = J("dados-caso-master-v2.json"), J("origens.json"), J("dossie.json")
     pares, brasil, viol = J("pares.json"), J("brasil.json"), J("violencia.json")
     fusoes = json.loads((SCRIPTS / "fusoes.json").read_text(encoding="utf-8"))
     FUSAO = {f["de"]: f["para"] for f in fusoes}
 
-    for p in (SQLITE, SQLITE.with_name(SQLITE.name + "-wal"), SQLITE.with_name(SQLITE.name + "-shm")):
+    for p in (destino, destino.with_name(destino.name + "-wal"), destino.with_name(destino.name + "-shm")):
         if p.exists():
             p.unlink()
-    con = conectar(SQLITE)
+    con = conectar(destino)
     con.executescript((SCRIPTS / "schema.sql").read_text(encoding="utf-8"))
     con.execute("PRAGMA foreign_keys = ON")
     nat_map = {r["codigo_externo"]: r["natureza_id"] for r in con.execute("SELECT * FROM natureza_mapa WHERE sistema='teia'")}
@@ -266,6 +271,15 @@ def main():
         add_alias(s, iso, "sigla", LT)
         pais_slug[iso] = s
 
+    # entidades novas pedidas pela curadoria do dossiê (fundo_previdencia sem nó próprio)
+    cfg_dossie = curadoria.ler_json("dossie-entidades.json", {})
+    for n in cfg_dossie.get("entidades_novas", []):
+        assert n["id"] not in ENTS, n["id"]
+        criar(n["id"], n["nome"], n["tipo"], "manual", "curadoria:dossie-entidades.json", descricao=n.get("descricao"), uf=n.get("uf"))
+        add_alias(n["id"], n["nome"], "alias", "curadoria")
+        for a in n.get("aliases", []):
+            add_alias(n["id"], a, "alias", "curadoria")
+
     # ================================================================ INSERÇÃO: categoria, entidade, alias
     cats = [(c, n, i + 1) for i, (c, n) in enumerate(teia["cats"])] + [("hub", "Centro do caso", 0)]
     con.executemany("INSERT INTO categoria(id,nome,ordem) VALUES(?,?,?)", cats)
@@ -314,7 +328,10 @@ def main():
                 dup_na_mesma.append((rotulo, url))
                 continue
             vistos[eid] = ordem
-            con.execute(f"INSERT INTO {tabela}({col},evidencia_id,ordem) VALUES(?,?,?)", (dono, eid, ordem))
+            if tabela == "evento_evidencia":
+                con.execute(f"INSERT INTO {tabela}({col},evidencia_id,ordem,rotulo) VALUES(?,?,?,?)", (dono, eid, ordem, dom))
+            else:
+                con.execute(f"INSERT INTO {tabela}({col},evidencia_id,ordem) VALUES(?,?,?)", (dono, eid, ordem))
 
     # ================================================================ RELAÇÕES (teia)
     rel_ids = {}
@@ -472,6 +489,8 @@ def main():
         return None
 
     def walk(prefixo, v, tipo):
+        if prefixo in dossie_rel.RELACIONAIS:
+            return  # vira tabela relacional (dossie_rel.carregar)
         if isinstance(v, str):
             nota("dossie", tipo, prefixo, None, v, 0)
         elif isinstance(v, list):
@@ -498,6 +517,7 @@ def main():
         walk(sec, v, "narrativa")
     for k in ("titulo", "data_base"):
         con.execute("INSERT INTO meta(chave,valor) VALUES(?,?)", (f"dossie.{k}", dossie["meta"][k]))
+    nota("dossie", "aviso", "meta.paginas", None, json.dumps(dossie["meta"]["paginas"], ensure_ascii=False), 0)
     # pares.notas (descarta linhas de log de coleta), foruns (JSON)
     descartadas = []
     for grp, lst in pares["notas"].items():
@@ -506,8 +526,9 @@ def main():
                 descartadas.append(t)
                 continue
             nota("pares", "aviso", f"notas.{grp}", None, t, o)
-    for iso, f in pares["foruns"].items():
-        nota("pares", "narrativa", f"foruns.{iso}", pares["paises"][iso], json.dumps(f, ensure_ascii=False), 0)
+    con.execute("INSERT INTO meta(chave,valor) VALUES('pares.gerado_em',?)", (pares["gerado_em"],))
+    con.execute("INSERT INTO meta(chave,valor) VALUES('pares.anos',?)", (json.dumps(pares["anos"]),))
+    con.execute("INSERT INTO meta(chave,valor) VALUES('pares.ordem_paises',?)", (json.dumps(list(pares["paises"])),))
     R["pares_notas_descartadas"] = descartadas
 
     # ================================================================ INDICADORES / SÉRIES
@@ -705,6 +726,22 @@ def main():
                 eid = id_evento(ano, ev["titulo"], f"Y[{ano}].{sec}.eventos[{i}]")
                 inserir_evento(eid, ev["titulo"], ev["descricao"], ano, None, ev["peso"], "brasil", "linha_do_tempo", f"Y[{ano}].{sec}.eventos[{i}]")
 
+    # ================================================================ DOSSIÊ RELACIONAL e FÓRUNS (data/curadoria/dossie-entidades.json)
+    dossie_rel.carregar(con, dossie, pares, evid, nat_map, IDX_ALIAS, pais_slug, R)
+
+    # ================================================================ CURADORIA (data/curadoria/*.json), depois da carga bruta
+    n_antes_fusao = con.execute("SELECT count(*) FROM evento").fetchone()[0]
+    R["fusoes"] = curadoria.aplicar_fusoes(con)
+    R["n_eventos_antes_fusao"] = n_antes_fusao
+    if "natureza" not in pular:
+        R["natureza"] = curadoria.aplicar_natureza(con)
+    if "ligacoes" not in pular:
+        R["ligacoes"] = curadoria.aplicar_ligacoes(con)
+    if "fontes_brasil" not in pular:
+        R["fontes_brasil"] = curadoria.aplicar_fontes_brasil(con, evid)
+    if "complementos" not in pular:
+        R["complementos"] = curadoria.aplicar_complementos_brasil(con)
+
     # ================================================================ META, FTS, DUMP
     meta = {"schema_versao": "1", "migrado_em": TS_MIGRACAO, "migrar_py": "scripts/migrar.py"}
     for n, h in hashes.items():
@@ -713,13 +750,135 @@ def main():
     con.commit()
     popular_fts(con)
     con.commit()
-    gerar_dump(con)
+    if escrever:
+        gerar_dump(con)
 
-    # ================================================================ RELATÓRIO
-    escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, mapa, n_rel_teia, n_fam, n_lig, sem_f,
-                       n_so_origens, ENTS, IDX_ALIAS, EV_ID_TEIA, hashes)
+        # ================================================================ RELATÓRIO
+        escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, mapa, n_rel_teia, n_fam, n_lig, sem_f,
+                           n_so_origens, ENTS, IDX_ALIAS, EV_ID_TEIA, hashes)
+        print("migração concluída:", destino)
     con.close()
-    print("migração concluída:", SQLITE)
+    return destino
+
+
+def secoes_curadoria(con, R, w):
+    """Seções 9 a 13: o que a curadoria (data/curadoria/*.json) e a carga relacional do dossiê fizeram."""
+    q = lambda s, *a: con.execute(s, a).fetchall()
+    ent = {r["id"]: r["nome"] for r in q("SELECT id, nome FROM entidade")}
+    # ---------------------------------------------------------------- 9
+    fus = R["fusoes"]
+    w("\n## 9. Eventos quase-duplicados fundidos (`data/curadoria/eventos-fusoes.json`)\n")
+    w(f"{len(fus)} fusões, {sum(len(f['fundir']) for f in fus)} eventos absorvidos: {R['n_eventos_antes_fusao']} -> {R['n_eventos_antes_fusao'] - sum(len(f['fundir']) for f in fus)} eventos. "
+      "Regra: mesma `data` e mesmo fato. O evento `manter` conserva o id e recebe a união de fontes (`evento_evidencia`) e entidades (`evento_entidade`), "
+      "`peso` máximo, a natureza mais forte entre os que têm natureza e descrição/contexto/resposta/valor do mantido (ou do primeiro fundido que tenha). "
+      "Os ids fundidos viram `evento_alias(alias, evento_id)` e guardam o evento original em `original_json` (título, descrição, data, natureza, fontes com rótulo, entidades). "
+      "`mapa_indices.json` aponta os índices antigos de `teia.EV` (e `evento_alias`) para o id mantido. Os candidatos duvidosos estão em `data/curadoria/eventos-candidatos.md`.\n")
+    w("| data | mantido | fundidos | natureza resultante | fontes novas | entidades novas |\n|---|---|---|---|---|---|")
+    for f in fus:
+        w(f"| {f['data']} | `{f['manter']}` | " + ", ".join(f"`{i}`" for i in f["fundir"]) + f" | {f['natureza'] or '-'} | {f['fontes_novas']} | {f['entidades_novas']} |")
+    w("")
+    por_canal = collections.Counter(c for f in fus for i, c in f["canais"].items() if i != f["manter"])
+    w("Eventos absorvidos por canal de origem: " + ", ".join(f"{c} {n}" for c, n in sorted(por_canal.items())) + ".\n")
+    # ---------------------------------------------------------------- 10
+    n = R.get("natureza", {"arquivo": 0, "aplicados": 0, "por_regra": {}, "por_natureza": {}})
+    w("## 10. Natureza dos eventos da teia sem `st` (`data/curadoria/eventos-natureza.json`)\n")
+    w("Regras determinísticas (`scripts/curadoria.py`, `classificar_natureza`; o arquivo é regenerado por `scripts/gerar_curadoria.py`). Só atribui onde `natureza_id IS NULL`; nada é inventado.\n")
+    w("```\n" + curadoria.REGRAS_NATUREZA_TEXTO + "\n```\n")
+    w(f"- Atribuídas por regra: {n['aplicados']} (arquivo com {n['arquivo']}). Por regra: " + ", ".join(f"{k} {v}" for k, v in sorted(n["por_regra"].items()))
+      + ". Por natureza: " + ", ".join(f"{k} {v}" for k, v in sorted(n["por_natureza"].items())) + ".")
+    ficou = q("SELECT id, data, titulo FROM evento WHERE canal='teia' AND natureza_id IS NULL ORDER BY data, id")
+    fus_nat = sum(1 for f in fus if f["natureza"])
+    n_teia = q("SELECT count(*) FROM evento WHERE canal='teia'")[0][0]
+    abs_teia = sum(1 for f in fus for i, c in f["canais"].items() if i != f["manter"] and c == "teia")
+    w(f"- Dos 92 eventos da teia sem `st`: {abs_teia} foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os {n_teia} eventos `teia` atuais. "
+      f"Destes, {n['aplicados']} ganharam natureza pelas regras acima, {n_teia - n['aplicados'] - len(ficou)} ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e {len(ficou)} seguem NULL.")
+    w(f"- **Ficaram NULL por nenhuma regra servir: {len(ficou)} eventos do canal `teia`** (lista abaixo). Eventos `brasil` (280) e `violencia` (10) continuam sem natureza: nunca tiveram `st` e as regras não se aplicam a eles.\n")
+    w("| id | data | título | fontes |\n|---|---|---|---|")
+    for r in ficou:
+        nf = q("SELECT count(*) FROM evento_evidencia WHERE evento_id=?", r["id"])[0][0]
+        w(f"| {r['id']} | {r['data']} | {r['titulo'].replace('|', '/')} | {nf} |")
+    w("")
+    # ---------------------------------------------------------------- 11
+    fb = R.get("fontes_brasil", {"eventos": 0, "ligacoes": 0, "sustenta": 0, "contexto": 0})
+    comp = R.get("complementos", {"receita": 0, "mandato_periodo": 0, "descartes": {}})
+    sem = q("SELECT ano, count(*) c FROM evento e WHERE canal='brasil' AND NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id) GROUP BY ano ORDER BY ano")
+    w("## 11. Fontes da timeline Brasil (`data/curadoria/brasil-fontes.json`, de `data/raw/dados-brutos-31-anos.json`)\n")
+    w("`data/raw/dados-brutos-31-anos.json` entrou em `data/raw/` com hash em `hashes.txt` (única exceção à regra de não mexer no raw: cópia de `projeto-json/`, sem alteração). "
+      "Cada evento da timeline foi casado com o item do bruto de mesmo ano e seção (`pol`: blocos `v2_pol_eventos_*` e `v4_pol_*`; `intl`: `v2_intl_eventos_*`) por título igual "
+      "(Jaccard >= 0,6 era o plano B; nenhum caso precisou). **O bruto só tem a lista `fontes` por ano e bloco, não por evento**: por isso toda URL do bloco-ano entra em `evento_evidencia`, "
+      "como `contexto`; entra como `sustenta` só quando um termo distintivo do slug da URL aparece no título/descrição do evento (heurística conservadora; `url_toca_evento`).\n")
+    w(f"- Eventos casados: {fb['eventos']} de 280; sem fonte: {280 - fb['eventos']}.")
+    w(f"- Ligações novas em `evento_evidencia`: {fb['ligacoes']} ({fb['sustenta']} `sustenta`, {fb['contexto']} `contexto`).")
+    w("- Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): " + ", ".join(f"{r['ano']} ({r['c']})" for r in sem) + ". Ficam sem fonte.")
+    w(f"- URLs de `evidencia` agora: {q('SELECT count(*) FROM evidencia')[0][0]} (todas ligadas a alguma coisa; `validar.py` confere).")
+    w(f"- `ranking_empresa.receita_brl_bi`: {comp['receita']} de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; "
+      f"conflito de dois valores diferentes: {len(comp['descartes'].get('receita_ambigua', []))}. As outras {comp['descartes'].get('empresas_sem_receita_no_bruto', 0)} linhas têm `receita_liquida_brl_bi` nulo no bruto.")
+    w(f"- `mandato.periodo_texto`: {comp['mandato_periodo']} mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: {len(comp['descartes'].get('mandatos_sem_periodo', []))}.")
+    w("- **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); "
+      "`notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; "
+      "e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).\n")
+    # ---------------------------------------------------------------- 12
+    lg = curadoria.ler_json("evento-entidade-auto.json", [])
+    por_alias = collections.defaultdict(list)
+    for it in lg:
+        for e in it["entidades"]:
+            por_alias[(e["id"], e["alias"])].append(it["evento_id"])
+    rg = curadoria.regras_ligacao()
+    w("## 12. Ligação evento -> entidade por alias (`data/curadoria/evento-entidade-auto.json`)\n")
+    w("Candidatos: eventos sem nenhuma linha em `evento_entidade` (origens, PREC, brb, brasil, violência). Casamento de `titulo + descricao` com `entidade_alias` (só `alias_norm` único no banco), "
+      "palavra inteira, normalizado sem acento, alias mais longo primeiro e sem sobreposição, `papel='citado'`. Regras em `data/curadoria/evento-entidade-regras.json`:\n")
+    w("- alias de pessoa com um só token só vale se estiver em `pessoa_um_token_ok` (" + ", ".join(rg.get("pessoa_um_token_ok", [])) + "); sobrenomes ambíguos barrados sozinhos: " + ", ".join(rg.get("sobrenomes_ambiguos", [])) + ".")
+    w("- siglas (alias em maiúsculas ou `tipo_alias='sigla'`) só em maiúsculas e não seguidas de número (evita 'PL 2338' e 'pl').")
+    w("- entidades excluídas: " + ", ".join(rg.get("excluir_entidades", [])) + " (aparece em tudo). Exigem inicial maiúscula: " + ", ".join(rg.get("exigir_inicial_maiuscula", []))
+      + ". Contextos barrados: " + "; ".join(f"'{k}' seguido de {'/'.join(v)}" for k, v in rg.get("nao_seguido_por", {}).items())
+      + "; " + "; ".join(f"'{k}' precedido de {'/'.join(v)}" for k, v in rg.get("nao_precedido_por", {}).items()) + ".\n")
+    lig = R.get("ligacoes", {"eventos": 0, "ligacoes": 0})
+    w(f"- Resultado: {lig['eventos']} eventos receberam ligação, {lig['ligacoes']} linhas novas em `evento_entidade`.")
+    w("- Eventos ainda sem entidade por canal: " + ", ".join(f"{r['canal']} {r['c']}" for r in q("SELECT canal, count(*) c FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_entidade x WHERE x.evento_id=e.id) GROUP BY canal ORDER BY canal")) + ".")
+    sus = sorted(((len(v), k) for k, v in por_alias.items() if len(v) > 15), reverse=True)
+    w("\nAliases com mais de 15 ligações (suspeitos por volume; são nomes de órgãos e partidos que aparecem muito nos textos da timeline; a amostra abaixo não achou falso positivo entre eles, mas vale conferir os eventos):\n")
+    w("| ligações | entidade | alias casado |\n|---|---|---|")
+    for n_, (e, a) in sus:
+        w(f"| {n_} | `{e}` ({ent.get(e, e)}) | {a} |")
+    w("\nAmostra de 30 ligações para conferência (a cada k-ésima, em ordem de evento):\n")
+    w("| evento | título | alias -> entidade |\n|---|---|---|")
+    flat = [(it["evento_id"], e) for it in lg for e in it["entidades"]]
+    passo = max(1, len(flat) // 30)
+    tit = {r["id"]: r["titulo"] for r in q("SELECT id, titulo FROM evento")}
+    for ev_id, e in flat[::passo][:30]:
+        w(f"| `{ev_id}` | {tit[ev_id].replace('|', '/')[:80]} | {e['alias']} -> `{e['id']}` |")
+    w("")
+    # ---------------------------------------------------------------- 13
+    w("## 13. Dossiê e fóruns relacionais (`scripts/dossie_rel.py`)\n")
+    w("`mercado.pares`, `previdencia.entes`, `dinheiro.{contratos,midia,doacoes}`, `maquina.indicios`, `limites.*` e `pares.foruns` deixaram de ir para `nota.texto`. Tabelas (cada uma guarda também o texto original, para exportar igual ao embutido):\n")
+    w("| tabela | linhas | observação |\n|---|---|---|")
+    obs = {"dossie_par": "13 pares; 'Antônio Rueda e ACM Neto' vira 2 linhas (mesma `ordem`, `sub` 0 e 1); `liga` sim/apura/nao",
+           "dossie_par_evidencia": "fontes de cada par (`rotulo` = veículo como no original)",
+           "previdencia_ente": "11 entes (inclui a linha agregada 'Outros oito'); soma R$ 1.867,45 mi",
+           "pagamento": "contratos 8, mídia 3, doações 3 (`ano` extraído do texto das doações; valores em R$ mi, como no dossiê)",
+           "indicio_maquina": "5 indícios (`forca` 1-2)", "limite": "derrubado 6, aberto 4, agenda 3 (`data` ISO quando reconhecível, `data_texto` original)",
+           "forum": "10 países x (G20, BRICS, OCDE, CSNU, nuclear); CSNU com lista vira `anos` (JSON); nuclear: `status_texto` sim/nao e `primeiro_teste`"}
+    for t, o in obs.items():
+        w(f"| {t} | {q(f'SELECT count(*) FROM {t}')[0][0]} | {o} |")
+    w("")
+    novas = curadoria.ler_json("dossie-entidades.json", {}).get("entidades_novas", [])
+    w("Entidades criadas (tipo `fundo_previdencia`, origem `manual`, sem nó na teia, com alias): " + ", ".join(f"`{n['id']}`" for n in novas) + ".\n")
+    por = collections.Counter(c for _, _, es, c in R["dossie_vinculos"] if es)
+    n_sem = sum(1 for _, _, es, _ in R["dossie_vinculos"] if not es)
+    w(f"Vínculo texto -> entidade ({len(R['dossie_vinculos'])} textos): {por['manual']} pelo mapa manual (`data/curadoria/dossie-entidades.json`), {por['alias']} por alias único exato, {n_sem} sem entidade.")
+    w("\nTextos sem entidade (ficam só como texto):\n")
+    for sec, t, es, c in R["dossie_vinculos"]:
+        if not es:
+            w(f"- {sec}: {t}")
+    w("\nVinculados pelo mapa manual (as aproximações estão justificadas em `justificativas` no JSON; as mais discutíveis: Amazonprev, escritórios -> pessoa, Metrópoles):\n")
+    for sec, t, es, c in R["dossie_vinculos"]:
+        if c == "manual" and es:
+            w(f"- {sec}: {t} -> " + ", ".join(f"`{e}`" for e in es))
+    w("\n`exportar_json.py` gera `data/dossie.json` e `data/pares.json` a partir dessas tabelas e `validar.py` os compara com `data/raw/dossie.json` e `data/raw/pares.json`. Diferenças aceitas e documentadas:\n")
+    w("- URLs em `src` saem normalizadas (sem barra final): 29 URLs; a comparação normaliza os dois lados.")
+    w("- `pares.json`: 230 valores `null` explícitos dos indicadores e 18 do PISA não viram linha em `serie` (já era assim); e a linha de log \"Cota: 39 buscas/fetches usados.\" de `pares.notas` continua descartada.")
+    w("- `meta.paginas` do dossiê fica em `nota` (chave `meta.paginas`, JSON) e as `meta` do banco ganham `pares.gerado_em`, `pares.anos` e `pares.ordem_paises`.")
+    w("- `dossie.json` inclui os 30 eventos BRB como no original (os fundidos saem de `evento_alias.original_json`); `teia.json` e `origens.json` refletem a curadoria (eventos fundidos saem da lista; `mapa_indices.json` ainda resolve os índices antigos).\n")
 
 
 def tokens(s):
@@ -783,7 +942,7 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
     w("| canal | n |\n|---|---|")
     for c, l in sorted(sem_natureza.items()):
         w(f"| {c} | {len(l)} |")
-    w(f"\nOs eventos da timeline Brasil (`brasil`) e os marcos legais (`violencia`) nunca tiveram `st`; os da teia são os 92 abaixo "
+    w(f"\nSituação na carga bruta, antes da curadoria (seções 9 e 10 dizem o que mudou). Os eventos da timeline Brasil (`brasil`) e os marcos legais (`violencia`) nunca tiveram `st`; os da teia são os 92 abaixo "
       f"(todos canal `teia`, nenhum casa com origens). Lista completa dos {len(sem_natureza.get('teia', []))} da teia:\n")
     w("| id | d | título |\n|---|---|---|")
     for eid, d, t, ref in sem_natureza.get("teia", []):
@@ -869,11 +1028,11 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
     w("- Pseudo-partidos de `N.p` (\"Ex-ministros e consultores\", \"Órgãos e partidos\") foram para `entidade.grupo`; `partido` guarda só siglas reais. O exportador reconstrói `p` quando `grupo` é um pseudo-partido, senão `sg`.")
     w("- `E.a/E.b` do `teia.json` exportado reproduz a orientação ORIGINAL de cada par (tabela `aresta_legado`; a cor da aresta na página depende dela). A direção semântica vem de `relacao.de/para` (`r.a→r.b`). Índices `E[i]` e `r[j]` preservados.")
     w("- Eventos de origens com `r` vazio gravam `resposta` NULL (exportam de volta como \"\"); `v` vai para `evento.valor_brl` (a proposta mapeava `r`→`contexto` e `v`→`resposta`, o que invertia o significado).")
-    w("- Eventos da timeline Brasil (280): `data` = ano do agrupamento, sem fonte, sem natureza, canal `brasil` (subcanal `pol`/`intl` em `origem_ref`).")
+    w("- Eventos da timeline Brasil (280): `data` = ano do agrupamento, canal `brasil` (subcanal `pol`/`intl` em `origem_ref`); na carga bruta sem fonte e sem natureza (as fontes entram pela curadoria, seção 11).")
     w(f"- `pares.notas`: linhas de log de coleta descartadas ({len(R['pares_notas_descartadas'])}): " + "; ".join(f"\"{t}\"" for t in R["pares_notas_descartadas"]))
     w("- `pares.indicadores`: valores `null` explícitos (ex.: IDH) não viram linha em `serie`; só os pontos não nulos.")
-    w("- `pares.foruns` e as seções estruturadas do dossiê (mercado, previdência, dinheiro, limites, máquina) estão em `nota.texto` como JSON (sem modelagem relacional ainda); a seção `brb.eventos` virou 30 eventos canal `brb`.")
-    w("- URLs dentro de `nota.texto` do dossiê não passam por `evidencia`.")
+    w("- `pares.foruns` e as seções estruturadas do dossiê (mercado, previdência, dinheiro, limites, máquina) deixaram de ir para `nota.texto`: viraram tabelas relacionais (seção 13); a seção `brb.eventos` virou 30 eventos canal `brb`.")
+    w("- URLs dentro de `nota.texto` do dossiê (`previdencia.fonte`, `dinheiro.fonte`) não passam por `evidencia`; as fontes de `mercado.pares` e `brb.eventos` passam.")
     w("- `mandato`: presidentes/vices/presidentes das casas são agregados por anos consecutivos (granularidade de ano; Dilma/Temer em 2016 usam 12/5); `partido` = valor do primeiro ano do período. Parlamentares em destaque (`pol.parl`) viram `mandato` de um ano (`inicio=fim=ano`) com `motivo` e `votos`.")
     w("- `ranking_empresa.posicao` = posição na lista do ano (a lista original não traz posição explícita).")
     w("- Países em `pares` viram entidades `pais` (alias sigla = ISO3); `serie.dimensao` usa `pais=<ISO3>`. Destinos de exportação usam `pais=<nome>` (sem ISO na fonte).")
@@ -881,9 +1040,11 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
     w("- Desvios do DDL proposto (marcados `-- DESVIO:` em `scripts/schema.sql`): o DDL original roda sem erro no SQLite 3.45 (incl. STRICT, colunas geradas e FTS5); "
       "acrescentados `entidade.ind_legado`, `evento.valor_brl`, `evento.canal='brb'`, `evento.origem='dossie'`, `ordem` em `relacao_evidencia`/`evento_evidencia`/`evento_entidade`/`nota_entidade`, "
       "`mandato.motivo`/`mandato.votos`; `evento.contexto`/`resposta` passam a significar o que os dados dizem (ver acima).")
-    w("- Não feito: ligação de eventos de origens a entidades por `indice_alias` (passo 3 do plano) e extração de eventos de datas internas de `N.d`/`desc`.")
+    w("- Passo 3 do plano (ligar eventos a entidades por alias): feito pela curadoria, seção 12. Continua não feita a extração de eventos a partir de datas internas de `N.d`/`desc`.")
+    w("- `evento_evidencia.rotulo` (desvio) guarda o rótulo da fonte como veio no original; `evidencia.veiculo` guarda só o do primeiro uso da URL. O exportador usa o rótulo.")
     for a in R["aviso"]:
         w(f"- AVISO: {a}")
+    secoes_curadoria(con, R, w)
     (DATA / "relatorio-migracao.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 
 

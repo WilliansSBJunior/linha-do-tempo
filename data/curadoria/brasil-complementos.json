@@ -1,0 +1,973 @@
+{
+ "receita": [
+  {
+   "ano": 1997,
+   "entidade_id": "vale",
+   "receita_brl_bi": 3.101,
+   "bruto": [
+    "v2_emp_1995/Vale (CVRD)",
+    "v3_emp_a/Vale (CVRD)",
+    "v4_emp_9597/Vale (CVRD)"
+   ]
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "embratel",
+   "receita_brl_bi": 2.68,
+   "bruto": [
+    "v2_emp_1995/Embratel",
+    "v3_emp_a/Embratel",
+    "v4_emp_9597/Embratel"
+   ]
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "vale",
+   "receita_brl_bi": 3.274,
+   "bruto": [
+    "v2_emp_1995/Vale (CVRD)",
+    "v3_emp_a/Vale (CVRD)"
+   ]
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "embratel",
+   "receita_brl_bi": 4.0,
+   "bruto": [
+    "v2_emp_1995/Embratel",
+    "v3_emp_a/Embratel"
+   ]
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "vale",
+   "receita_brl_bi": 4.272,
+   "bruto": [
+    "v2_emp_1995/Vale (CVRD)",
+    "v3_emp_a/Vale (CVRD)"
+   ]
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "telesp-celular-participacoes",
+   "receita_brl_bi": 2.2116,
+   "bruto": [
+    "v3_emp_a/Telesp Celular Participações (TCP)"
+   ]
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "telemar",
+   "receita_brl_bi": 8.1,
+   "bruto": [
+    "v3_emp_a/Telemar (Tele Norte Leste)"
+   ]
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "embratel",
+   "receita_brl_bi": 6.938,
+   "bruto": [
+    "v3_emp_a/Embratel"
+   ]
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 5.2504,
+   "bruto": [
+    "v3_emp_a/Ambev"
+   ]
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 6.5256,
+   "bruto": [
+    "v3_emp_a/Ambev"
+   ]
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "telemar",
+   "receita_brl_bi": 10.1,
+   "bruto": [
+    "v3_emp_a/Telemar (Tele Norte Leste)"
+   ]
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "telesp-celular-participacoes",
+   "receita_brl_bi": 2.9661,
+   "bruto": [
+    "v3_emp_a/Telesp Celular Participações (TCP)"
+   ]
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "embratel",
+   "receita_brl_bi": 7.735,
+   "bruto": [
+    "v3_emp_a/Embratel"
+   ]
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 7.3253,
+   "bruto": [
+    "v3_emp_a/Ambev"
+   ]
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "telesp-celular-participacoes",
+   "receita_brl_bi": 3.415,
+   "bruto": [
+    "v3_emp_a/Telesp Celular Participações (TCP)"
+   ]
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "embratel",
+   "receita_brl_bi": 7.372,
+   "bruto": [
+    "v3_emp_a/Embratel"
+   ]
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "telemar",
+   "receita_brl_bi": 11.9,
+   "bruto": [
+    "v3_emp_a/Telemar (Tele Norte Leste)"
+   ]
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 95.743,
+   "bruto": [
+    "v3_emp_a/Petrobras"
+   ]
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 11.805,
+   "bruto": [
+    "v3_emp_a/Telesp (Telecomunicações de São Paulo)"
+   ]
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 8.6838,
+   "bruto": [
+    "v3_emp_a/Ambev"
+   ]
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "embratel",
+   "receita_brl_bi": 7.043,
+   "bruto": [
+    "v3_emp_a/Embratel"
+   ]
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "telemar",
+   "receita_brl_bi": 14.0,
+   "bruto": [
+    "v3_emp_a/Telemar (Tele Norte Leste)"
+   ]
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "telesp-celular-participacoes",
+   "receita_brl_bi": 6.0463,
+   "bruto": [
+    "v3_emp_a/Telesp Celular Participações (TCP)"
+   ]
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "brasil-telecom-participacoes",
+   "receita_brl_bi": 7.915,
+   "bruto": [
+    "v3_emp_a/Brasil Telecom Participações"
+   ]
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 108.202,
+   "bruto": [
+    "v3_emp_a/Petrobras"
+   ]
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 13.309,
+   "bruto": [
+    "v3_emp_a/Telesp (Telecomunicações de São Paulo)"
+   ]
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 12.0068,
+   "bruto": [
+    "v3_emp_a/Ambev"
+   ]
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "telemar",
+   "receita_brl_bi": 15.8,
+   "bruto": [
+    "v3_emp_a/Telemar (Tele Norte Leste)"
+   ]
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 136.605,
+   "bruto": [
+    "v2_emp_2005/Petrobras",
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 14.395,
+   "bruto": [
+    "v3_emp_b/Telesp (Telefônica fixa SP)"
+   ]
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 15.959,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 158.239,
+   "bruto": [
+    "v2_emp_2005/Petrobras",
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "gerdau",
+   "receita_brl_bi": 25.884,
+   "bruto": [
+    "v3_emp_b/Gerdau"
+   ]
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 14.643,
+   "bruto": [
+    "v3_emp_b/Telesp (Telefônica fixa SP)"
+   ]
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 17.614,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 170.578,
+   "bruto": [
+    "v2_emp_2005/Petrobras",
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "vale",
+   "receita_brl_bi": 64.764,
+   "bruto": [
+    "v2_emp_2005/Vale",
+    "v3_emp_b/Vale"
+   ]
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 19.58,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "gerdau",
+   "receita_brl_bi": 30.614,
+   "bruto": [
+    "v3_emp_b/Gerdau"
+   ]
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "csn",
+   "receita_brl_bi": 11.441,
+   "bruto": [
+    "v3_emp_b/CSN"
+   ]
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 14.727,
+   "bruto": [
+    "v3_emp_b/Telesp (Telefônica fixa SP)"
+   ]
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 215.118,
+   "bruto": [
+    "v2_emp_2005/Petrobras",
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "vale",
+   "receita_brl_bi": 70.541,
+   "bruto": [
+    "v2_emp_2005/Vale",
+    "v3_emp_b/Vale"
+   ]
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "csn",
+   "receita_brl_bi": 14.003,
+   "bruto": [
+    "v3_emp_b/CSN"
+   ]
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 20.713,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "gerdau",
+   "receita_brl_bi": 41.908,
+   "bruto": [
+    "v3_emp_b/Gerdau"
+   ]
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 15.979,
+   "bruto": [
+    "v3_emp_b/Telesp (Telefônica fixa SP)"
+   ]
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "sadia",
+   "receita_brl_bi": 10.7286,
+   "bruto": [
+    "v3_emp_b/Sadia"
+   ]
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 182.71,
+   "bruto": [
+    "v2_emp_2005/Petrobras",
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "vale",
+   "receita_brl_bi": 48.496,
+   "bruto": [
+    "v2_emp_2005/Vale",
+    "v3_emp_b/Vale"
+   ]
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 23.194,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 15.796,
+   "bruto": [
+    "v3_emp_b/Telesp (Telefônica fixa SP)"
+   ]
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 213.274,
+   "bruto": [
+    "v2_emp_2010/Petrobras"
+   ]
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 25.23,
+   "bruto": [
+    "v2_emp_2010/Ambev"
+   ]
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "vale",
+   "receita_brl_bi": 105.5,
+   "bruto": [
+    "v2_emp_2010/Vale"
+   ]
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 244.176,
+   "bruto": [
+    "v2_emp_2010/Petrobras"
+   ]
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 27.1,
+   "bruto": [
+    "v2_emp_2010/Ambev"
+   ]
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 281.379,
+   "bruto": [
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 32.231,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 33.931,
+   "bruto": [
+    "v3_emp_b/Telefônica Brasil"
+   ]
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "eletrobras",
+   "receita_brl_bi": 28.014,
+   "bruto": [
+    "v3_emp_b/Eletrobras"
+   ]
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 304.89,
+   "bruto": [
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 34.791,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "eletrobras",
+   "receita_brl_bi": 23.836,
+   "bruto": [
+    "v3_emp_b/Eletrobras"
+   ]
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 38.08,
+   "bruto": [
+    "v3_emp_b/Ambev"
+   ]
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 337.26,
+   "bruto": [
+    "v3_emp_b/Petrobras"
+   ]
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "eletrobras",
+   "receita_brl_bi": 30.138,
+   "bruto": [
+    "v3_emp_b/Eletrobras"
+   ]
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "jbs",
+   "receita_brl_bi": 162.9,
+   "bruto": [
+    "v2_emp_2015/JBS",
+    "v3_emp_c/JBS"
+   ]
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "cielo",
+   "receita_brl_bi": 11.122,
+   "bruto": [
+    "v3_emp_c/Cielo"
+   ]
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 321.638,
+   "bruto": [
+    "v2_emp_2015/Petrobras",
+    "v3_emp_c/Petrobras"
+   ]
+  },
+  {
+   "ano": 2016,
+   "entidade_id": "oi",
+   "receita_brl_bi": 25.996,
+   "bruto": [
+    "v3_emp_c/Oi"
+   ]
+  },
+  {
+   "ano": 2018,
+   "entidade_id": "telefonica-brasil",
+   "receita_brl_bi": 43.5,
+   "bruto": [
+    "v3_emp_c/Telefônica Brasil"
+   ]
+  },
+  {
+   "ano": 2020,
+   "entidade_id": "ambev",
+   "receita_brl_bi": 58.3,
+   "bruto": [
+    "v2_emp_2020/Ambev",
+    "v3_emp_c/Ambev"
+   ]
+  },
+  {
+   "ano": 2020,
+   "entidade_id": "oi",
+   "receita_brl_bi": 10.93,
+   "bruto": [
+    "v3_emp_c/Oi"
+   ]
+  },
+  {
+   "ano": 2021,
+   "entidade_id": "vale",
+   "receita_brl_bi": 293.524,
+   "bruto": [
+    "v3_emp_c/Vale"
+   ]
+  },
+  {
+   "ano": 2021,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 452.668,
+   "bruto": [
+    "v2_emp_2020/Petrobras",
+    "v3_emp_c/Petrobras"
+   ]
+  },
+  {
+   "ano": 2021,
+   "entidade_id": "jbs",
+   "receita_brl_bi": 350.696,
+   "bruto": [
+    "v2_emp_2020/JBS",
+    "v3_emp_c/JBS"
+   ]
+  },
+  {
+   "ano": 2021,
+   "entidade_id": "oi",
+   "receita_brl_bi": 10.483,
+   "bruto": [
+    "v3_emp_c/Oi"
+   ]
+  },
+  {
+   "ano": 2021,
+   "entidade_id": "americanas",
+   "receita_brl_bi": 22.521,
+   "bruto": [
+    "v3_emp_c/Americanas"
+   ]
+  },
+  {
+   "ano": 2022,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 641.256,
+   "bruto": [
+    "v2_emp_2020/Petrobras",
+    "v3_emp_c/Petrobras"
+   ]
+  },
+  {
+   "ano": 2022,
+   "entidade_id": "jbs",
+   "receita_brl_bi": 374.852,
+   "bruto": [
+    "v2_emp_2020/JBS",
+    "v3_emp_c/JBS"
+   ]
+  },
+  {
+   "ano": 2022,
+   "entidade_id": "americanas",
+   "receita_brl_bi": 25.821,
+   "bruto": [
+    "v3_emp_c/Americanas"
+   ]
+  },
+  {
+   "ano": 2023,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 511.994,
+   "bruto": [
+    "v2_emp_2020/Petrobras",
+    "v3_emp_c/Petrobras"
+   ]
+  },
+  {
+   "ano": 2023,
+   "entidade_id": "oi",
+   "receita_brl_bi": 4.258,
+   "bruto": [
+    "v3_emp_c/Oi"
+   ]
+  },
+  {
+   "ano": 2023,
+   "entidade_id": "braskem",
+   "receita_brl_bi": 70.569,
+   "bruto": [
+    "v3_emp_c/Braskem"
+   ]
+  },
+  {
+   "ano": 2023,
+   "entidade_id": "casas-bahia",
+   "receita_brl_bi": 28.847,
+   "bruto": [
+    "v3_emp_c/Casas Bahia"
+   ]
+  },
+  {
+   "ano": 2024,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 490.829,
+   "bruto": [
+    "v2_emp_2020/Petrobras",
+    "v3_emp_c/Petrobras"
+   ]
+  },
+  {
+   "ano": 2024,
+   "entidade_id": "braskem",
+   "receita_brl_bi": 77.411,
+   "bruto": [
+    "v3_emp_c/Braskem"
+   ]
+  },
+  {
+   "ano": 2024,
+   "entidade_id": "cosan",
+   "receita_brl_bi": 43.951,
+   "bruto": [
+    "v3_emp_c/Cosan"
+   ]
+  },
+  {
+   "ano": 2024,
+   "entidade_id": "azul",
+   "receita_brl_bi": 19.526,
+   "bruto": [
+    "v3_emp_c/Azul"
+   ]
+  },
+  {
+   "ano": 2025,
+   "entidade_id": "petrobras",
+   "receita_brl_bi": 497.5,
+   "bruto": [
+    "v2_emp_2020/Petrobras"
+   ]
+  }
+ ],
+ "mandato_periodo": [
+  {
+   "entidade_id": "luis-eduardo-magalhaes",
+   "cargo": "presidente_camara",
+   "inicio": "1995",
+   "fim": "1997",
+   "periodo_texto": "eleito em 1/2/1995; biênio 1995-1997 | biênio 1995-1997 | até a eleição de Michel Temer, em fev/1997"
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "presidente_camara",
+   "inicio": "1997",
+   "fim": "2001",
+   "periodo_texto": "eleito em 5/2/1997 (257 votos); biênio 1997-1999 | biênio 1997-1999 | reeleito em fev/1999 (422 votos); biênio 1999-2001 | biênio 1999-2001 | até a eleição de Aécio Neves, em fev/2001"
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "presidente_camara",
+   "inicio": "2009",
+   "fim": "2011",
+   "periodo_texto": "eleito em 2/2/2009 (304 votos); biênio 2009-2011 | biênio 2009-2011; eleito vice-presidente da República em out/2010 | até 1/2/2011"
+  },
+  {
+   "entidade_id": "aecio-neves",
+   "cargo": "presidente_camara",
+   "inicio": "2001",
+   "fim": "2002",
+   "periodo_texto": "eleito em 14/2/2001 (283 votos no 1º turno); biênio 2001-2003 | biênio 2001-2003; a Wikipédia en indica término em 17/12/2002, a pt diz biênio 2001-2002 | 14/2/2001 a 17/12/2002, quando renunciou por ter sido eleito governador de Minas Gerais (biografia oficial da Câmara)"
+  },
+  {
+   "entidade_id": "efraim-morais",
+   "cargo": "presidente_camara",
+   "inicio": "2002",
+   "fim": "2002",
+   "periodo_texto": "presidente em exercício (1º vice-presidente da Mesa) de 17/12/2002 até a eleição de João Paulo Cunha em fev/2003 (Wikipédia pt indica 2/2/2003). CONFIANÇA MÉDIA: a 1ª vice-presidência em 2001 vem do relatório oficial da Câmara, e a atuação como 'presidente-tampão por 45 dias, no final de 2002' vem de coluna do Diário do Poder; não achei registro da Câmara sobre o exercício."
+  },
+  {
+   "entidade_id": "joao-paulo-cunha",
+   "cargo": "presidente_camara",
+   "inicio": "2003",
+   "fim": "2005",
+   "periodo_texto": "eleito em fev/2003 (434 votos); biênio 2003-2005 | biênio 2003-2005 | até fev/2005 (eleição de Severino Cavalcanti; dia exato não verificado)"
+  },
+  {
+   "entidade_id": "severino-cavalcanti",
+   "cargo": "presidente_camara",
+   "inicio": "2005",
+   "fim": "2005",
+   "periodo_texto": "eleito em fev/2005; renunciou em set/2005"
+  },
+  {
+   "entidade_id": "aldo-rebelo",
+   "cargo": "presidente_camara",
+   "inicio": "2005",
+   "fim": "2007",
+   "periodo_texto": "eleito em 28/9/2005 (258 votos a 243 no 2º turno); mandato até fev/2007 | mandato até fev/2007 | até fev/2007"
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "presidente_camara",
+   "inicio": "2007",
+   "fim": "2009",
+   "periodo_texto": "eleito em 1/2/2007; biênio 2007-2009 | biênio 2007-2009 | até 2/2/2009"
+  },
+  {
+   "entidade_id": "marco-maia",
+   "cargo": "presidente_camara",
+   "inicio": "2011",
+   "fim": "2013",
+   "periodo_texto": "eleito em 1/2/2011; biênio 2011-2013 | biênio 2011-2013 | até fev/2013"
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "presidente_camara",
+   "inicio": "2013",
+   "fim": "2015",
+   "periodo_texto": "eleito em fev/2013; biênio 2013-2015 | biênio 2013-2015 | até 1/2/2015"
+  },
+  {
+   "entidade_id": "eduardo-cunha",
+   "cargo": "presidente_camara",
+   "inicio": "2015",
+   "fim": "2016",
+   "periodo_texto": "eleito em 1/2/2015; afastado pelo STF em 5/5/2016 | até 5/5/2016 (afastado pelo STF); renunciou em 7/7/2016"
+  },
+  {
+   "entidade_id": "waldir-maranhao",
+   "cargo": "presidente_camara",
+   "inicio": "2016",
+   "fim": "2016",
+   "periodo_texto": "presidente em exercício de 5/5 a 14/7/2016"
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "presidente_camara",
+   "inicio": "2016",
+   "fim": "2021",
+   "periodo_texto": "eleito em 14/7/2016 (mandato-tampão); presidiu até fev/2021 | reeleito em fev/2017; biênio 2017-2019 | biênio 2017-2019 | reeleito em 1/2/2019; biênio 2019-2021 | biênio 2019-2021 | até 1/2/2021"
+  },
+  {
+   "entidade_id": "arthur-lira",
+   "cargo": "presidente_camara",
+   "inicio": "2021",
+   "fim": "2025",
+   "periodo_texto": "eleito em 1/2/2021; biênio 2021-2023 | biênio 2021-2023 | reeleito em 1/2/2023; biênio 2023-2025 | biênio 2023-2025 | até 1/2/2025"
+  },
+  {
+   "entidade_id": "hugo-motta",
+   "cargo": "presidente_camara",
+   "inicio": "2025",
+   "fim": "2025",
+   "periodo_texto": "eleito em 1/2/2025 com 444 votos de 513"
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "presidente_senado",
+   "inicio": "1995",
+   "fim": "1997",
+   "periodo_texto": "eleito em 1/2/1995 (61 votos); biênio 1995-1997 | biênio 1995-1997 | até a eleição de ACM, em fev/1997"
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "presidente_senado",
+   "inicio": "2003",
+   "fim": "2005",
+   "periodo_texto": "eleito em 1/2/2003 (76 votos); biênio 2003-2005 | biênio 2003-2005 | até 14/2/2005"
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "presidente_senado",
+   "inicio": "2009",
+   "fim": "2013",
+   "periodo_texto": "eleito em 2/2/2009 (49 votos); biênio 2009-2011 | biênio 2009-2011 | reeleito em 1/2/2011 (70 votos); biênio 2011-2013 | biênio 2011-2013 | até 1/2/2013"
+  },
+  {
+   "entidade_id": "antonio-carlos-magalhaes",
+   "cargo": "presidente_senado",
+   "inicio": "1997",
+   "fim": "2001",
+   "periodo_texto": "eleito em 4/2/1997 (52 votos); biênio 1997-1999 | biênio 1997-1999 | reeleito em 1/2/1999 (70 votos); biênio 1999-2001 | biênio 1999-2001 | até a eleição de Jader Barbalho, em fev/2001"
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "presidente_senado",
+   "inicio": "2001",
+   "fim": "2001",
+   "periodo_texto": "eleito em 14/2/2001 (41 votos); renunciou à presidência em set/2001"
+  },
+  {
+   "entidade_id": "ramez-tebet",
+   "cargo": "presidente_senado",
+   "inicio": "2001",
+   "fim": "2003",
+   "periodo_texto": "eleito em 20/9/2001 (41 votos); presidiu até 1/2/2003 | até 1/2/2003"
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "presidente_senado",
+   "inicio": "2005",
+   "fim": "2007",
+   "periodo_texto": "eleito em 14/2/2005 (72 votos); biênio 2005-2007 | biênio 2005-2007 | até 11/10/2007, quando se afastou por 45 dias; renúncia formal em 4/12/2007 | biênio 2005-2007; licenciou-se da presidência por 45 dias em 11/10/2007 (Conjur e Congresso em Foco), manteve o mandato e renunciou à presidência em 4/12/2007 (carta lida em plenário, segundo Conjur)"
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "presidente_senado",
+   "inicio": "2013",
+   "fim": "2017",
+   "periodo_texto": "eleito em 1/2/2013 (56 votos); biênio 2013-2015 | biênio 2013-2015 | reeleito em 1/2/2015 (49 votos); biênio 2015-2017 | biênio 2015-2017 | até 1/2/2017"
+  },
+  {
+   "entidade_id": "tiao-viana",
+   "cargo": "presidente_senado",
+   "inicio": "2007",
+   "fim": "2007",
+   "periodo_texto": "presidente em exercício de 15/10 a 11/12/2007 | 1º vice-presidente, assumiu a presidência em exercício com o afastamento de Renan em 11/10/2007 e presidiu até a eleição de Garibaldi (o início do exercício em 15/10 citado no arquivo anterior não foi reconfirmado)"
+  },
+  {
+   "entidade_id": "garibaldi-alves-filho",
+   "cargo": "presidente_senado",
+   "inicio": "2007",
+   "fim": "2009",
+   "periodo_texto": "eleito em 12/12/2007 (68 votos); presidiu até 2/2/2009 | eleito em 12/12/2007 (68 votos a favor, 8 contra, 2 abstenções; candidato único); presidiu até 2/2/2009 | presidiu até 2/2/2009 | até 2/2/2009"
+  },
+  {
+   "entidade_id": "eunicio-oliveira",
+   "cargo": "presidente_senado",
+   "inicio": "2017",
+   "fim": "2019",
+   "periodo_texto": "eleito em 2/2/2017 (61 votos); biênio 2017-2019 | biênio 2017-2019 | até 1/2/2019"
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "presidente_senado",
+   "inicio": "2019",
+   "fim": "2021",
+   "periodo_texto": "eleito em 2/2/2019 (42 votos); biênio 2019-2021 | biênio 2019-2021 | até 1/2/2021"
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "presidente_senado",
+   "inicio": "2025",
+   "fim": "2025",
+   "periodo_texto": "eleito em 1/2/2025; biênio 2025-2027"
+  },
+  {
+   "entidade_id": "rodrigo-pacheco",
+   "cargo": "presidente_senado",
+   "inicio": "2021",
+   "fim": "2025",
+   "periodo_texto": "eleito em 1/2/2021 (57 votos); biênio 2021-2023 | biênio 2021-2023 | reeleito em 1/2/2023; biênio 2023-2025 | biênio 2023-2025 | até 1/2/2025"
+  }
+ ],
+ "_descartes": {
+  "receita_ambigua": [],
+  "empresas_sem_receita_no_bruto": 306,
+  "mandatos_sem_periodo": []
+ }
+}

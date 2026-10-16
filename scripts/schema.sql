@@ -163,8 +163,21 @@ CREATE TABLE evento_evidencia (
   evidencia_id INTEGER NOT NULL REFERENCES evidencia(id),
   papel TEXT NOT NULL DEFAULT 'sustenta' CHECK (papel IN ('sustenta','contesta','contexto')),
   ordem INTEGER NOT NULL DEFAULT 0,              -- DESVIO: preserva a ordem de EV.f
+  rotulo TEXT,                                   -- DESVIO: rótulo da fonte como no original ([rótulo, url]); evidencia.veiculo guarda só o do primeiro uso da URL
   PRIMARY KEY (evento_id, evidencia_id)
 ) STRICT;
+
+-- Curadoria (data/curadoria/eventos-fusoes.json): ids fundidos continuam resolvendo para o evento mantido.
+-- original_json guarda o evento como era antes da fusão (colunas, fontes com rótulo, entidades) para exportar o dossiê/PREC fielmente.
+CREATE TABLE evento_alias (
+  alias TEXT PRIMARY KEY,
+  evento_id TEXT NOT NULL REFERENCES evento(id) ON DELETE CASCADE,
+  motivo TEXT,
+  canal_original TEXT NOT NULL,
+  origem_ref_original TEXT,
+  original_json TEXT NOT NULL
+) STRICT;
+CREATE INDEX ix_evento_alias_evento ON evento_alias(evento_id);
 
 -- Vídeo / trecho / corte (saída do classificador)
 CREATE TABLE video (
@@ -259,7 +272,8 @@ CREATE TABLE mandato (
   cargo TEXT NOT NULL CHECK (cargo IN ('presidente','vice_presidente','presidente_camara','presidente_senado','ministro','senador','deputado','governador','outro')),
   orgao_id TEXT REFERENCES entidade(id), partido TEXT, uf TEXT,
   inicio TEXT NOT NULL, fim TEXT, evidencia_id INTEGER REFERENCES evidencia(id),
-  motivo TEXT, votos INTEGER                     -- DESVIO: parlamentares em destaque (timeline pol.parl): motivo do destaque e votos
+  motivo TEXT, votos INTEGER,                    -- DESVIO: parlamentares em destaque (timeline pol.parl): motivo do destaque e votos
+  periodo_texto TEXT                             -- DESVIO: texto de `periodo` de dados-brutos-31-anos (presidentes da Câmara/Senado), via curadoria
 ) STRICT;
 CREATE TABLE bancada (
   legislatura INTEGER NOT NULL, ano INTEGER NOT NULL,
@@ -279,3 +293,68 @@ CREATE TABLE aresta_legado (
 
 -- Busca textual (FTS5 antes do sqlite-vec)
 CREATE VIRTUAL TABLE busca_fts USING fts5(origem_tabela, origem_id, texto, tokenize='unicode61 remove_diacritics 2');
+
+-- Dossiê "mercado ou máquina" e fóruns de pares, antes em nota.texto como JSON.
+-- Cada tabela guarda o texto original (ator_texto, nome_texto...) além do vínculo opcional com entidade, para exportar data/dossie.json igual ao embutido.
+CREATE TABLE dossie_par (
+  id INTEGER PRIMARY KEY,
+  ordem INTEGER NOT NULL,                        -- posição em mercado.pares
+  sub INTEGER NOT NULL DEFAULT 0,                -- 2+ linhas por par quando o ator é mais de uma entidade (ex.: 'Antônio Rueda e ACM Neto')
+  ator_texto TEXT NOT NULL,                      -- texto original de `ator`
+  ator_entidade_id TEXT REFERENCES entidade(id), -- NULL quando não há entidade (ex.: 'Dois ex-chefes da supervisão do BC')
+  campo TEXT, partido TEXT, alavanca TEXT, recebeu TEXT, ato TEXT,
+  liga TEXT NOT NULL CHECK (liga IN ('sim','apura','nao')),
+  liga_x TEXT,
+  natureza_id TEXT REFERENCES natureza(id),
+  estagio TEXT, resposta TEXT,
+  UNIQUE (ordem, sub)
+) STRICT;
+CREATE TABLE dossie_par_evidencia (
+  par_id INTEGER NOT NULL REFERENCES dossie_par(id) ON DELETE CASCADE,
+  evidencia_id INTEGER NOT NULL REFERENCES evidencia(id),
+  ordem INTEGER NOT NULL DEFAULT 0, rotulo TEXT,
+  PRIMARY KEY (par_id, evidencia_id)
+) STRICT;
+CREATE TABLE previdencia_ente (
+  id INTEGER PRIMARY KEY,
+  ordem INTEGER NOT NULL UNIQUE,
+  nome_texto TEXT NOT NULL,                      -- texto original de `n`
+  entidade_id TEXT REFERENCES entidade(id),      -- NULL na linha agregada 'Outros oito'
+  uf TEXT, valor_mi REAL, governante TEXT, partido TEXT, obs TEXT,
+  natureza_id TEXT REFERENCES natureza(id)
+) STRICT;
+CREATE TABLE pagamento (
+  id INTEGER PRIMARY KEY,
+  categoria TEXT NOT NULL CHECK (categoria IN ('contrato','midia','doacao')),
+  ordem INTEGER NOT NULL,                        -- posição em dinheiro.contratos / midia / doacoes
+  nome_texto TEXT NOT NULL,                      -- texto original de `n`
+  para_entidade_id TEXT REFERENCES entidade(id),
+  valor_mi REAL NOT NULL,
+  grupo TEXT,                                    -- `g` (só contratos)
+  de_texto TEXT,                                 -- `de` (só doações)
+  de_entidade_id TEXT REFERENCES entidade(id),
+  ano INTEGER,                                   -- doações: ano extraído de `n` ('..., 2022')
+  UNIQUE (categoria, ordem)
+) STRICT;
+CREATE TABLE indicio_maquina (
+  id INTEGER PRIMARY KEY, ordem INTEGER NOT NULL UNIQUE,
+  titulo TEXT NOT NULL, texto TEXT NOT NULL, contra TEXT NOT NULL, forca INTEGER NOT NULL
+) STRICT;
+CREATE TABLE limite (
+  id INTEGER PRIMARY KEY,
+  tipo TEXT NOT NULL CHECK (tipo IN ('derrubado','aberto','agenda')),
+  ordem INTEGER NOT NULL,
+  titulo TEXT,                                   -- derrubado: afirmação; agenda: NULL
+  texto TEXT NOT NULL,
+  data TEXT,                                     -- agenda: ISO parcial quando reconhecível ('2026-10-13', '2026-12')
+  data_texto TEXT,                               -- agenda: texto original ('13/10/2026', 'dez/2026')
+  UNIQUE (tipo, ordem)
+) STRICT;
+CREATE TABLE forum (
+  pais_entidade_id TEXT NOT NULL REFERENCES entidade(id),
+  forum TEXT NOT NULL CHECK (forum IN ('G20','BRICS','OCDE','CSNU','nuclear')),
+  status_texto TEXT,                             -- texto livre do original; nuclear: 'sim'/'nao'; CSNU com lista de anos: NULL
+  anos TEXT,                                     -- JSON (lista de anos de mandato rotativo no CSNU)
+  primeiro_teste INTEGER,                        -- nuclear: primeiro_teste_nuclear
+  PRIMARY KEY (pais_entidade_id, forum)
+) STRICT;

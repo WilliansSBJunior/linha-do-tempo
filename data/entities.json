@@ -5672,6 +5672,78 @@
    "aliases": []
   },
   {
+   "id": "rpps-araras",
+   "nome": "RPPS de Araras (SP)",
+   "tipo": "fundo_previdencia",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Regime próprio de previdência dos servidores de Araras (SP); aplicou R$ 29 mi em letras do Master (dossiê, seção previdência).",
+   "uf": "SP",
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Previdência de Araras",
+    "RPPS de Araras"
+   ]
+  },
+  {
+   "id": "rpps-cajamar",
+   "nome": "RPPS de Cajamar (SP)",
+   "tipo": "fundo_previdencia",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Regime próprio de previdência dos servidores de Cajamar (SP); aplicou R$ 87 mi em letras do Master (dossiê, seção previdência).",
+   "uf": "SP",
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Previdência de Cajamar",
+    "RPPS de Cajamar"
+   ]
+  },
+  {
+   "id": "rpps-congonhas",
+   "nome": "RPPS de Congonhas (MG)",
+   "tipo": "fundo_previdencia",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Regime próprio de previdência dos servidores de Congonhas (MG); aplicou R$ 14 mi em letras do Master (dossiê, seção previdência).",
+   "uf": "MG",
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Previdência de Congonhas",
+    "RPPS de Congonhas"
+   ]
+  },
+  {
+   "id": "rpps-itaguai",
+   "nome": "RPPS de Itaguaí (RJ)",
+   "tipo": "fundo_previdencia",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Regime próprio de previdência dos servidores de Itaguaí (RJ); aplicou R$ 59,6 mi em letras do Master (dossiê, seção previdência).",
+   "uf": "RJ",
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Previdência de Itaguaí",
+    "RPPS de Itaguaí"
+   ]
+  },
+  {
    "id": "russia",
    "nome": "Rússia",
    "tipo": "pais",
@@ -6404,6 +6476,10 @@
   "pps": "pps",
   "pr": "pl",
   "prb": "republicanos",
+  "previdencia de araras": "rpps-araras",
+  "previdencia de cajamar": "rpps-cajamar",
+  "previdencia de congonhas": "rpps-congonhas",
+  "previdencia de itaguai": "rpps-itaguai",
   "prime aviation": "prime-aviation",
   "primeiro comando da capital": "pcc",
   "professor luizinho": "professor-luizinho",
@@ -6453,6 +6529,14 @@
   "romero juca": "romero-juca",
   "ronaldo bento": "ronaldo-bento",
   "ronivon santiago": "ronivon-santiago",
+  "rpps de araras": "rpps-araras",
+  "rpps de araras sp": "rpps-araras",
+  "rpps de cajamar": "rpps-cajamar",
+  "rpps de cajamar sp": "rpps-cajamar",
+  "rpps de congonhas": "rpps-congonhas",
+  "rpps de congonhas mg": "rpps-congonhas",
+  "rpps de itaguai": "rpps-itaguai",
+  "rpps de itaguai rj": "rpps-itaguai",
   "rui costa": "rui-costa",
   "rus": "russia",
   "russia": "russia",

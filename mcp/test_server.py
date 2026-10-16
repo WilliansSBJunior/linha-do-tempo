@@ -276,6 +276,156 @@ class TestInserirVideo(Base):
         self.assertEqual(self.sql("SELECT periodo_fim FROM relacao WHERE id=?", r["relacoes_criadas"][0])[0]["periodo_fim"], None)
 
 
+class TestRAG(Base):
+    """RAG com o provedor 'hash' (determinístico, sem rede) para os testes não dependerem de modelo instalado."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls._env_antigo = os.environ.get("LDT_EMBED_PROVIDER")
+        os.environ["LDT_EMBED_PROVIDER"] = "hash"
+        sys.path.insert(0, str(RAIZ / "scripts"))
+        import embeddings as E
+        cls.E = E
+        assert E.main(["--db", str(cls.tmp / "base.sqlite")]) == 0  # indexa a cópia-base (nunca o banco real)
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls._env_antigo is None:
+            os.environ.pop("LDT_EMBED_PROVIDER", None)
+        else:
+            os.environ["LDT_EMBED_PROVIDER"] = cls._env_antigo
+        super().tearDownClass()
+
+    def test_provedor_e_idempotencia(self):
+        info = self.E.provedor_ativo()
+        self.assertEqual((info["provedor"], info["dim"]), ("hash", 256))
+        n0 = self.n("embedding")
+        self.assertGreater(n0, 2000)
+        self.assertEqual(self.E.main(["--db", str(self.db)]), 0)  # nada mudou => nada regerado
+        self.assertEqual(self.n("embedding"), n0)
+        self.assertEqual(len(self.E.embed(["a venda do banco"])[0]), 256)
+
+    def test_buscar_semantica_banco_brb(self):
+        r = S.buscar_semantica("venda do banco ao BRB", limite=10)
+        self.assertTrue(r["ok"], r)
+        self.assertEqual(r["metodo"], "rrf(fts5, vetorial)")
+        top5 = r["resultados"][:5]
+        self.assertTrue(any(h["origem_tabela"] == "relacao" and {h["de"], h["para"]} == {"banco-master", "brb"} for h in top5),
+                        [(h["origem_tabela"], h["origem_id"], h["titulo"]) for h in top5])
+        h = r["resultados"][0]
+        for campo in ("origem_tabela", "origem_id", "titulo", "trecho", "score"):
+            self.assertIn(campo, h)
+        # filtro de tabelas e entrada inválida
+        so_rel = S.buscar_semantica("compra do BRB", tabelas=["relacao"], limite=5)
+        self.assertTrue(so_rel["resultados"] and all(x["origem_tabela"] == "relacao" for x in so_rel["resultados"]))
+        self.assertFalse(S.buscar_semantica("x", tabelas=["usuario"])["ok"])
+        self.assertFalse(S.buscar_semantica("  ")["ok"])
+
+    def test_buscar_semantica_sem_vetores_cai_para_fts(self):
+        con = sqlite3.connect(str(self.db)); con.execute("DELETE FROM embedding"); con.commit(); con.close()
+        r = S.buscar_semantica("compra do BRB", limite=5)
+        self.assertTrue(r["ok"] and r["metodo"] == "fts5" and r["resultados"], r)
+        self.assertTrue(any("embeddings" in a for a in r["avisos"]))
+
+    def test_relacoes_similares_mesada(self):
+        # par real (a relação 59 tem de=ciro-nogueira, para=daniel-vorcaro: a consulta vem na direção oposta => invertida)
+        r = S.relacoes_similares("Mesada mensal de R$ 300 mil", de="daniel-vorcaro", para="ciro-nogueira")
+        self.assertTrue(r["ok"], r)
+        self.assertEqual([x["id"] for x in r["similares"]], [59])
+        self.assertTrue(r["similares"][0]["invertida"])
+        self.assertIn("Mesada", r["similares"][0]["rotulo"])
+        self.assertFalse(r["similares"][0]["reutilizaria_na_insercao"])  # direção oposta: a inserção não reutiliza
+        # paráfrase sem palavra em comum com "Mesada": o fallback hash só a acha baixando o limiar (modelo real passaria no padrão)
+        sem = S.relacoes_similares("pagamento mensal de 300 mil a Ciro", de="daniel-vorcaro", para="ciro-nogueira")
+        self.assertEqual(sem["similares"], [])
+        com = S.relacoes_similares("pagamento mensal de 300 mil a Ciro", de="daniel-vorcaro", para="ciro-nogueira", cos_min=0.2)
+        self.assertEqual(com["similares"][0]["id"], 59)
+        # rótulo sem parentesco: nada acima do limiar
+        self.assertEqual(S.relacoes_similares("Viagem de jatinho a Dubai", de="daniel-vorcaro", para="ciro-nogueira")["similares"], [])
+        self.assertFalse(S.relacoes_similares("x", de="entidade-que-nao-existe")["ok"])
+
+    def test_video_rotulo_parafraseado_reutiliza_relacao(self):
+        v = video_ficticio()
+        v["trechos"] = v["trechos"][:1]
+        v["cortes_sugeridos"] = []
+        v["trechos"][0]["entidades"] = ["ciro-nogueira", "daniel-vorcaro"]
+        v["trechos"][0]["relacoes"] = [dict(de="ciro-nogueira", para="daniel-vorcaro", tipo="politica", rotulo="Mesada de R$ 300 mil", periodo="2024")]
+        antes = self.n("relacao")
+        r = S.inserir_video(**v)
+        self.assertTrue(r["ok"], r)
+        self.assertEqual(r["relacoes_criadas"], [])
+        self.assertEqual(r["relacoes_existentes_reutilizadas"], [59])
+        self.assertEqual(r["dedup"][0]["dedup_por"], "embedding")
+        self.assertGreaterEqual(r["dedup"][0]["cos"], 0.6)
+        self.assertEqual(self.n("relacao"), antes)
+        self.assertEqual(self.sql("SELECT relacao_id FROM trecho_relacao")[0]["relacao_id"], 59)
+        self.assertEqual(r["embeddings"]["status"], "ok")
+        self.assertEqual(r["embeddings"]["gerados"]["trecho"], 1)
+        self.assertTrue(self.sql("SELECT 1 FROM embedding WHERE origem_tabela='trecho'"))
+
+    def test_video_rotulo_diferente_cria_e_dedup_entre_trechos_do_mesmo_video(self):
+        v = video_ficticio()
+        v["cortes_sugeridos"] = []
+        rel = lambda rot: [dict(de="daniel-vorcaro", para="cvm", tipo="politica", rotulo=rot, periodo="2024")]
+        v["trechos"][1]["relacoes"] = rel("Reunião sigilosa com diretoria da CVM")
+        t3 = dict(v["trechos"][1], ordem=3, inicio_s=95, fim_s=120, relacoes=rel("Reunião sigilosa com a diretoria da CVM"))
+        v["trechos"].append(t3)
+        r = S.inserir_video(**v)
+        self.assertTrue(r["ok"], r)
+        self.assertEqual(len(r["relacoes_criadas"]), 1)  # só a da CVM: o trecho 3 reutiliza a recém-criada; o do Valadão reutiliza a existente
+        self.assertEqual([d["trecho"] for d in r["dedup"]], [3])
+        nova = r["relacoes_criadas"][0]
+        self.assertEqual(self.sql("SELECT count(*) c FROM trecho_relacao WHERE relacao_id=?", nova)[0]["c"], 2)
+        self.assertTrue(self.sql("SELECT 1 FROM embedding WHERE origem_tabela='relacao_rotulo' AND origem_id=?", str(nova)))
+
+    def test_inserir_relacao_dedup_e_reindexacao(self):
+        ex = self.sql("SELECT * FROM relacao WHERE id=59")[0]
+        antes = self.n("relacao")
+        r = S.inserir_relacao(de=ex["de"], para=ex["para"], tipo=ex["tipo"], rotulo="Mesada de R$ 300 mil", natureza="inv",
+                              periodo_inicio="2024", descricao="descrição nova")
+        self.assertTrue(r["ok"], r)
+        self.assertEqual((r["acao"], r["relacao_id"], r["dedup_por"]), ("atualizada", 59, "embedding"))
+        self.assertEqual(self.n("relacao"), antes)
+        self.assertEqual(self.sql("SELECT status FROM relacao WHERE id=59")[0]["status"], "publicada")
+        # descrição mudou => vetor da relação 59 regerado no mesmo commit
+        h = self.sql("SELECT texto_hash FROM embedding WHERE origem_tabela='relacao' AND origem_id='59'")[0]["texto_hash"]
+        con = sqlite3.connect(str(self.db))
+        try:
+            self.assertEqual(h, self.E._h(self.E.textos_de(con, "relacao", ["59"])["59"]))
+        finally:
+            con.close()
+        # rótulo realmente novo no mesmo par: cria e já indexa
+        r2 = S.inserir_relacao(de=ex["de"], para=ex["para"], tipo=ex["tipo"], rotulo="Viagem de jatinho a Dubai", natureza="rep")
+        self.assertEqual(r2["acao"], "criada")
+        self.assertNotIn("dedup_por", r2)
+        self.assertTrue(self.sql("SELECT 1 FROM embedding WHERE origem_tabela='relacao_rotulo' AND origem_id=?", str(r2["relacao_id"])))
+        # desligável
+        os.environ["LDT_DEDUP_EMBEDDING"] = "0"
+        try:
+            r3 = S.inserir_relacao(de=ex["de"], para=ex["para"], tipo=ex["tipo"], rotulo="Mesada de R$ 300 mil", natureza="inv", periodo_inicio="2024")
+        finally:
+            os.environ.pop("LDT_DEDUP_EMBEDDING")
+        self.assertEqual(r3["acao"], "criada")
+
+    def test_sem_provedor_a_escrita_segue_e_anota(self):
+        os.environ["LDT_EMBED_PROVIDER"] = "openai"  # sem chave => indisponível (sem rede)
+        chave = {k: os.environ.pop(k, None) for k in ("LDT_EMBED_API_KEY", "OPENAI_API_KEY")}
+        try:
+            v = video_ficticio()
+            r = S.inserir_video(**v)
+            self.assertTrue(r["ok"], r)
+            self.assertEqual(r["embeddings"]["status"], "ignorado")
+            self.assertIn("chave ausente", r["embeddings"]["motivo"])
+            self.assertEqual(len(r["relacoes_criadas"]), 1)
+            self.assertFalse(S.relacoes_similares("x", de="cvm")["ok"])
+        finally:
+            os.environ["LDT_EMBED_PROVIDER"] = "hash"
+            for k, val in chave.items():
+                if val is not None:
+                    os.environ[k] = val
+
+
 class TestExtras(Base):
     def test_resumo(self):
         r = S.resumo_banco()

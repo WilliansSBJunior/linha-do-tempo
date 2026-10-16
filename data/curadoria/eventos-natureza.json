@@ -1,0 +1,112 @@
+[
+ {
+  "id": "ev-2022-02-fgc-denuncia-grupo-master-a-cvm-caso-e",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'denuncia'"
+ },
+ {
+  "id": "ev-2025-08-28-reag-e-alvo-de-buscas-na-carbono-oculto",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'alvo'"
+ },
+ {
+  "id": "ev-2025-09-12-pf-prende-careca-do-inss-e-mauricio",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'pf prende' e 2 fontes de imprensa"
+ },
+ {
+  "id": "ev-2025-11-17-pf-prende-daniel-vorcaro-em-sao-paulo",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'pf prende' e 2 fontes de imprensa"
+ },
+ {
+  "id": "ev-2025-11-18-1a-fase-da-compliance-zero-7-prisoes-e",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'buscas'"
+ },
+ {
+  "id": "ev-2025-12-09-revelado-contrato-de-r-129-mi-com",
+  "natureza": "reportada",
+  "regra": "R4: título com 'revelado'"
+ },
+ {
+  "id": "ev-2025-12-19-justica-nega-enviar-carbono-oculto-e",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'justica nega' e 2 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-01-14-2a-fase-da-compliance-zero-bloqueia-r-5",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'buscas' (título de evento fundido)"
+ },
+ {
+  "id": "ev-2026-01-15-bc-decreta-liquidacao-da-reag-trust-cbsf",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'bc decreta' e 3 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-01-21-bc-liquida-a-will-financeira-fgc-estima",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'bc liquida' e 2 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-02-18-bc-liquida-o-banco-pleno-ex-voiter",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'bc liquida' e 2 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-02-24-cvm-lista-18-procedimentos-sobre-os",
+  "natureza": "documentada",
+  "regra": "R1: 1 fonte(s), todas documento oficial"
+ },
+ {
+  "id": "ev-2026-05-07-pf-faz-buscas-contra-o-senador-ciro",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'buscas'"
+ },
+ {
+  "id": "ev-2026-06-11-folha-liga-o-gold-style-a-bk-bank-aster",
+  "natureza": "reportada",
+  "regra": "R4: título com 'folha liga'"
+ },
+ {
+  "id": "ev-2026-06-18-9a-fase-jaques-wagner-e-augusto-lima-sao",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'alvos'"
+ },
+ {
+  "id": "ev-2026-07-14-pf-indicia-48-pessoas-na-sem-desconto",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'indicia'"
+ },
+ {
+  "id": "ev-2026-08-18-mp-sp-denuncia-16-pessoas-da-carbono",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'denuncia'"
+ },
+ {
+  "id": "ev-2026-09-01-mendonca-levanta-sigilo-de-relatorio-da",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'mendonca levanta' e 6 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-09-08-mendonca-afasta-o-diretor-geral-da-pf",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'mendonca afasta' e 3 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-09-09-fachin-suspende-decisoes-de-mendonca-e",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'fachin suspende' e 3 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-09-24-dino-manda-a-pf-investigar-a-atuacao-da",
+  "natureza": "documentada",
+  "regra": "R2: verbo de autoridade 'dino manda' e 2 fontes de imprensa"
+ },
+ {
+  "id": "ev-2026-10-01-pf-indicia-13-executivos-na-quasar-e",
+  "natureza": "investigacao",
+  "regra": "R3: título com 'indicia'"
+ }
+]

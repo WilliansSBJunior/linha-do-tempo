@@ -5,6 +5,9 @@ Variáveis de ambiente (todas opcionais):
   LDT_DB           caminho do sqlite            (padrão data/linha-do-tempo.sqlite)
   LDT_DUMP         caminho do dump.sql          (padrão data/dump.sql)
   LDT_EXPORT_JSON  "1" => após cada escrita roda scripts/exportar_json.py (padrão: não)
+  LDT_EMBED_PROVIDER / LDT_EMBED_MODEL / LDT_EMBED_API_KEY / LDT_EMBED_URL  provedor de embeddings (ver scripts/embeddings.py)
+  LDT_DEDUP_EMBEDDING  "0" => não reutiliza relações semanticamente iguais em inserir_relacao/inserir_video (padrão: ligado)
+  LDT_SIM_MIN / LDT_SIM_DEDUP  limiares de cosseno (padrão depende do provedor: 0.80/0.90 modelos reais, 0.45/0.60 fallback hash)
 
 Toda ferramenta de escrita: lock de arquivo -> BEGIN IMMEDIATE -> ... -> foreign_key_check -> COMMIT -> regrava o dump.
 O commit no git é manual.
@@ -26,6 +29,11 @@ RAIZ = AQUI.parent
 sys.path.insert(0, str(RAIZ / "scripts"))
 from comum import DUMP, SQLITE, dominio_de, gerar_dump, normalizar_url  # noqa: E402
 from slug import alias_norm, slugify  # noqa: E402
+try:  # RAG: precisa de numpy; sem ele as ferramentas semânticas respondem erro e a escrita segue sem embeddings
+    import embeddings as EMB  # noqa: E402
+except ImportError as _e:  # pragma: no cover
+    EMB = None
+    _EMB_ERRO = str(_e)
 
 try:  # SDK 1.x
     from mcp.server.fastmcp import FastMCP as _Server
@@ -71,7 +79,8 @@ def abrir():
 
 
 def agora():
-    return sqlite3.connect(":memory:").execute("SELECT strftime('%Y-%m-%dT%H:%M:%SZ','now')").fetchone()[0]
+    with contextlib.closing(sqlite3.connect(":memory:")) as c:
+        return c.execute("SELECT strftime('%Y-%m-%dT%H:%M:%SZ','now')").fetchone()[0]
 
 
 @contextlib.contextmanager
@@ -432,9 +441,10 @@ def _achar_relacao(con, de, para, tipo, rotulo, inicio):
                        (de, para, tipo, rotulo, inicio or "")).fetchone()
 
 
-def _inserir_relacao_tx(con, d):
-    """d já validado/normalizado. -> (id, 'criada'|'atualizada')."""
-    ex = _achar_relacao(con, d["de"], d["para"], d["tipo"], d["rotulo"], d["periodo_inicio"])
+def _inserir_relacao_tx(con, d, existente=None):
+    """d já validado/normalizado. `existente`: linha já escolhida (dedup por embedding) que substitui a busca pela chave.
+    -> (id, 'criada'|'atualizada')."""
+    ex = existente or _achar_relacao(con, d["de"], d["para"], d["tipo"], d["rotulo"], d["periodo_inicio"])
     t = agora()
     if ex:
         sets, vals = [], []
@@ -482,11 +492,18 @@ def inserir_relacao_core(de, para, tipo, rotulo, natureza, descricao=None, subti
                  periodo_fim=_periodo_val(periodo_fim, "periodo_fim"), valor_brl=valor_brl, valor_texto=valor_texto,
                  resposta=resposta, origem=origem, status=status)
         evs = list(evidencias or [])
-        rid, acao = _inserir_relacao_tx(con, d)
+        nota, extra, existente = _nota_emb(), {}, None
+        if not _achar_relacao(con, d["de"], d["para"], d["tipo"], d["rotulo"], d["periodo_inicio"]):
+            sim = _achar_similar(con, d["de"], d["para"], d["tipo"], d["rotulo"], d["periodo_inicio"], nota)
+            if sim:
+                existente = con.execute("SELECT * FROM relacao WHERE id=?", (sim["id"],)).fetchone()
+                extra = {"dedup_por": "embedding", "cos": sim["cos"], "rotulo_enviado": d["rotulo"], "rotulo_existente": sim["rotulo"]}
+        rid, acao = _inserir_relacao_tx(con, d, existente)
         novas = 0
         for ev in evs:
             novas += _ligar_evidencia(con, rid, _upsert_evidencia(con, ev), "sustenta")
-        return {"acao": acao, "relacao_id": rid, "evidencias_novas_ligadas": novas}
+        _emb_gravar(con, nota, {"relacao": [rid], "relacao_rotulo": [rid]})
+        return {"acao": acao, "relacao_id": rid, "evidencias_novas_ligadas": novas, **extra, "embeddings": nota}
 
     return operacao_escrita(tx)
 
@@ -658,6 +675,7 @@ def inserir_video_core(video, trechos, cortes_sugeridos=None):
         ev_video = _upsert_evidencia(con, {"url": v["url"], "veiculo": v["canal"] or v["plataforma"], "titulo": v["titulo"],
                                            "data": v["publicado_em"], "tipo": "video"})
         tid_por_ordem, criadas, existentes, rel_por_trecho = {}, [], [], {}
+        nota_emb, dedups = _nota_emb(), []
         for t in sorted(trechos, key=lambda x: x["ordem"]):
             cur = con.execute("""INSERT INTO trecho(video_id, ordem, inicio_s, fim_s, texto_original, afirmacao, natureza_id, confianca, potencial_corte)
                                  VALUES(?,?,?,?,?,?,?,?,?)""",
@@ -690,6 +708,12 @@ def inserir_video_core(video, trechos, cortes_sugeridos=None):
                                 confianca=t["confianca"], periodo_inicio=r["periodo_inicio"], periodo_fim=r["periodo_fim"],
                                 origem="classificador", origem_ref=f"trecho:{tid}", status="revisar")
                     ex = _achar_relacao(con, r["de"], r["para"], r["tipo"], r["rotulo"], r["periodo_inicio"])
+                    if not ex:
+                        sim = _achar_similar(con, r["de"], r["para"], r["tipo"], r["rotulo"], r["periodo_inicio"], nota_emb)
+                        if sim:
+                            ex = con.execute("SELECT * FROM relacao WHERE id=?", (sim["id"],)).fetchone()
+                            dedups.append({"trecho": t["ordem"], "dedup_por": "embedding", "cos": sim["cos"], "relacao_id": sim["id"],
+                                           "rotulo_enviado": r["rotulo"], "rotulo_existente": sim["rotulo"]})
                     if ex:  # existente: não altera natureza/status/confiança (decisão editorial já tomada); só completa fim do período
                         rid = ex["id"]
                         if r["periodo_fim"] and not ex["periodo_fim"]:
@@ -698,6 +722,7 @@ def inserir_video_core(video, trechos, cortes_sugeridos=None):
                     else:
                         rid, _ = _inserir_relacao_tx(con, novo)
                         criadas.append(rid)
+                        _emb_gravar(con, nota_emb, {"relacao": [rid], "relacao_rotulo": [rid]})  # já vale para o dedup dos próximos trechos
                         _ligar_evidencia(con, rid, ev_video, "sustenta", t["afirmacao"])
                 else:
                     existentes.append(rid)
@@ -722,11 +747,209 @@ def inserir_video_core(video, trechos, cortes_sugeridos=None):
                     avisos.append(f"corte '{c['titulo']}': relacao coberta {de}->{para} ({tipo}) não existe; ignorada")
                 for rid in alvo:
                     con.execute("INSERT OR IGNORE INTO relacao_corte(relacao_id, corte_id) VALUES(?,?)", (rid, cid))
+        if EMB is not None:
+            EMB.limpar_orfaos(con)  # trechos antigos apagados na reinserção
+        _emb_gravar(con, nota_emb, {"trecho": list(tid_por_ordem.values()), "evidencia": [ev_video]})
         return {"video_id": v["id"], "trechos": len(trechos), "cortes": n_cortes, "relacoes_criadas": sorted(set(criadas)),
-                "relacoes_existentes_reutilizadas": sorted(set(existentes) - set(criadas)),
-                "substituiu_insercao_anterior": substituiu, "avisos": avisos}
+                "relacoes_existentes_reutilizadas": sorted(set(existentes) - set(criadas)), "dedup": dedups,
+                "substituiu_insercao_anterior": substituiu, "avisos": avisos, "embeddings": nota_emb}
 
     return operacao_escrita(tx)
+
+
+# --------------------------------------------------------------------------- RAG (embeddings)
+def _nota_emb():
+    return {"status": "ok", "gerados": {}}
+
+
+def _emb_gravar(con, nota, ids_por_tabela):
+    """Gera embeddings das linhas novas/alteradas dentro da transação. Sem provedor: pula e anota (nada falha)."""
+    if nota.get("status") != "ok":
+        return
+    if EMB is None:
+        nota.update(status="ignorado", motivo=f"numpy/embeddings indisponível: {_EMB_ERRO}")
+        return
+    try:
+        for t, ids in ids_por_tabela.items():
+            s = EMB.atualizar(con, t, ids)
+            g = nota["gerados"].setdefault(t, 0)
+            nota["gerados"][t] = g + s["novos"] + s["atualizados"]
+        nota["modelo"] = EMB.provedor_ativo()["modelo"]
+    except sqlite3.Error:
+        raise
+    except Exception as e:  # provedor fora do ar, sem chave, etc.
+        nota.update(status="ignorado", motivo=f"{type(e).__name__}: {e}; embeddings não gerados (rode scripts/embeddings.py depois)")
+
+
+def _achar_similar(con, de, para, tipo, rotulo, periodo_inicio, nota):
+    """Relação existente no MESMO (de, para, tipo) com cosseno(rótulo) >= limiar de dedup e período compatível. -> dict|None."""
+    if EMB is None or os.environ.get("LDT_DEDUP_EMBEDDING") == "0" or nota.get("status") != "ok":
+        return None
+    try:
+        rows = con.execute("SELECT id, rotulo, periodo_inicio FROM relacao WHERE de=? AND para=? AND tipo=?", (de, para, tipo)).fetchall()
+        if not rows:
+            return None
+        vs = EMB.vetores_de(con, "relacao_rotulo", [r["id"] for r in rows])
+        q = np_vec(EMB.embed([str(rotulo)], "query")[0])
+        _, lim = EMB.limiares()
+        melhor = None
+        for r in rows:
+            if periodo_inicio and r["periodo_inicio"] and r["periodo_inicio"][:4] != str(periodo_inicio)[:4]:
+                continue  # períodos diferentes = relações diferentes
+            v = vs.get(str(r["id"]))
+            if v is None:
+                continue
+            c = float(v @ q)
+            if c >= lim and (melhor is None or c > melhor["cos"]):
+                melhor = {"id": r["id"], "rotulo": r["rotulo"], "cos": round(c, 4)}
+        return melhor
+    except sqlite3.Error:
+        raise
+    except Exception as e:
+        nota.update(status="ignorado", motivo=f"dedup por embedding pulado: {type(e).__name__}: {e}")
+        return None
+
+
+def np_vec(v):
+    import numpy as np
+    return np.asarray(v, dtype=np.float32)
+
+
+_STOP = {"de", "da", "do", "das", "dos", "a", "o", "as", "os", "e", "em", "no", "na", "nos", "nas", "ao", "aos", "um", "uma", "por",
+         "para", "com", "que", "se", "ou"}
+
+
+def _fts_or(texto):
+    toks = [t for t in re.findall(r"\w+", texto, flags=re.UNICODE) if len(t) > 1 and t.lower() not in _STOP]
+    return " OR ".join('"' + t.replace('"', '') + '"' for t in toks) or None
+
+
+def _resumo_hit(con, tabela, oid):
+    """-> (titulo, trecho, extra) legível da linha de origem."""
+    cut = lambda s, n=260: (s or "")[:n] + ("…" if s and len(s) > n else "")
+    if tabela == "relacao":
+        r = con.execute("SELECT r.*, d.nome dn, p.nome pn FROM relacao r JOIN entidade d ON d.id=r.de JOIN entidade p ON p.id=r.para WHERE r.id=?", (oid,)).fetchone()
+        return (f"{r['rotulo']} ({r['dn']} → {r['pn']})", cut(r["descricao"]), {"de": r["de"], "para": r["para"], "tipo": r["tipo"], "status": r["status"]}) if r else None
+    if tabela == "entidade":
+        r = con.execute("SELECT * FROM entidade WHERE id=?", (oid,)).fetchone()
+        return (r["nome"], cut(r["descricao"]), {"tipo": r["tipo"]}) if r else None
+    if tabela == "evento":
+        r = con.execute("SELECT * FROM evento WHERE id=?", (oid,)).fetchone()
+        return (r["titulo"], cut(r["descricao"]), {"data": r["data"]}) if r else None
+    if tabela == "evidencia":
+        r = con.execute("SELECT * FROM evidencia WHERE id=?", (oid,)).fetchone()
+        return (r["titulo"] or r["veiculo"], cut(r["resumo"] or r["url"]), {"url": r["url"], "veiculo": r["veiculo"]}) if r else None
+    if tabela == "trecho":
+        r = con.execute("SELECT t.*, v.titulo vt, v.url vu FROM trecho t JOIN video v ON v.id=t.video_id WHERE t.id=?", (oid,)).fetchone()
+        return (f"{r['vt']} #{r['ordem']} ({r['inicio_s']:.0f}s)", cut(r["afirmacao"]), {"video_id": r["video_id"], "video_url": r["vu"]}) if r else None
+    if tabela == "nota":
+        r = con.execute("SELECT * FROM nota WHERE id=?", (oid,)).fetchone()
+        return (r["titulo"] or r["tipo"], cut(r["texto"]), {"pagina": r["pagina"]}) if r else None
+    return None
+
+
+def buscar_semantica_core(texto, tabelas=None, limite=20, k_fts=50):
+    if not texto or not str(texto).strip():
+        raise Rejeitado("texto vazio")
+    if EMB is None:
+        raise Rejeitado(f"RAG indisponível (numpy ausente?): {_EMB_ERRO}")
+    tabelas = list(tabelas) if tabelas else list(EMB.TABELAS_PADRAO)
+    ruins = [t for t in tabelas if t not in EMB.TABELAS_PADRAO + ["nota"]]
+    if ruins:
+        raise Rejeitado(f"tabelas inválidas: {ruins}", validas=EMB.TABELAS_PADRAO + ["nota"])
+    limite, k_fts = max(1, int(limite)), max(1, int(k_fts))
+    avisos = []
+    if "trecho" in tabelas:
+        with leitura() as con:
+            defasado = _fts_trechos_defasado(con)
+        if defasado:
+            with escrita() as (con, _):
+                sincronizar_fts(con)
+    with leitura() as con:
+        fts = {}
+        expr = _fts_or(texto)
+        if expr:
+            ph = ",".join("?" * len(tabelas))
+            try:
+                for i, r in enumerate(con.execute(
+                        f"SELECT origem_tabela, origem_id FROM busca_fts WHERE origem_tabela IN ({ph}) AND busca_fts MATCH ? ORDER BY rank LIMIT ?",
+                        [*tabelas, expr, k_fts])):
+                    fts[(r[0], r[1])] = i + 1
+            except sqlite3.OperationalError as e:
+                avisos.append(f"FTS falhou: {e}")
+        info = EMB.provedor_ativo()
+        vec, cos = {}, {}
+        if info["disponivel"]:
+            try:
+                q = EMB.embed([str(texto)], "query")[0]
+                for i, (t, oid, c) in enumerate(EMB.top_k(con, q, tabelas, k_fts, info["modelo"])):
+                    vec[(t, oid)], cos[(t, oid)] = i + 1, c
+                if not vec:
+                    avisos.append(f"sem embeddings do modelo {info['modelo']} nessas tabelas: só FTS. Rode scripts/embeddings.py")
+            except Exception as e:
+                avisos.append(f"busca vetorial indisponível ({type(e).__name__}: {e}); só FTS")
+        else:
+            avisos.append(f"provedor de embedding indisponível ({info.get('motivo')}); só FTS")
+        RRF_K = 60
+        chaves = set(fts) | set(vec)
+        pont = {k: (1 / (RRF_K + fts[k]) if k in fts else 0) + (1 / (RRF_K + vec[k]) if k in vec else 0) for k in chaves}
+        out = []
+        for k in sorted(chaves, key=lambda k: (-pont[k], k))[:limite]:
+            h = _resumo_hit(con, *k)
+            if not h:
+                continue
+            out.append({"origem_tabela": k[0], "origem_id": k[1], "titulo": h[0], "trecho": h[1], "score": round(pont[k], 5),
+                        "cos": round(cos[k], 4) if k in cos else None, "rank_fts": fts.get(k), "rank_vetorial": vec.get(k), **h[2]})
+        return {"ok": True, "provedor": info.get("modelo"), "metodo": "rrf(fts5, vetorial)" if vec else "fts5", "avisos": avisos,
+                "n_candidatos": len(chaves), "resultados": out}
+
+
+def relacoes_similares_core(rotulo, de=None, para=None, limite=10, cos_min=None, tipo=None):
+    if not rotulo or not str(rotulo).strip():
+        raise Rejeitado("rotulo é obrigatório")
+    if EMB is None:
+        raise Rejeitado(f"RAG indisponível (numpy ausente?): {_EMB_ERRO}")
+    info = EMB.provedor_ativo()
+    if not info["disponivel"]:
+        raise Rejeitado(f"provedor de embedding indisponível: {info.get('motivo')}")
+    smin, sdedup = EMB.limiares()
+    cos_min = smin if cos_min is None else float(cos_min)
+    with leitura() as con:
+        d = _resolver_ref(con, de, "de") if de else None
+        p = _resolver_ref(con, para, "para") if para else None
+        w, a = [], []
+        if d and p:
+            w.append("((de=? AND para=?) OR (de=? AND para=?))"); a += [d, p, p, d]
+        elif d or p:
+            w.append("(de=? OR para=?)"); a += [d or p, d or p]
+        if tipo:
+            w.append("tipo=?"); a.append(tipo)
+        rows = con.execute("SELECT * FROM relacao" + (" WHERE " + " AND ".join(w) if w else "") + " ORDER BY id", a).fetchall()
+        avisos = []
+        if not (d or p) and len(rows) > 2000:
+            raise Rejeitado("informe de e/ou para para restringir a busca")
+        vs = EMB.vetores_de(con, "relacao_rotulo", [r["id"] for r in rows], info["modelo"])
+        q = np_vec(EMB.embed([str(rotulo)], "query")[0])
+        cand = []
+        for r in rows:
+            v = vs.get(str(r["id"]))
+            if v is None:
+                continue
+            c = float(v @ q)
+            if c >= cos_min:
+                cand.append((c, r))
+        cand.sort(key=lambda x: (-x[0], x[1]["id"]))
+        out = []
+        for c, r in cand[:max(1, int(limite))]:
+            nm = lambda i: con.execute("SELECT nome FROM entidade WHERE id=?", (i,)).fetchone()[0]
+            out.append({"id": r["id"], "de": {"id": r["de"], "nome": nm(r["de"])}, "para": {"id": r["para"], "nome": nm(r["para"])},
+                        "tipo": r["tipo"], "rotulo": r["rotulo"], "descricao": (r["descricao"] or "")[:200], "natureza": r["natureza_id"],
+                        "status": r["status"], "periodo_inicio": r["periodo_inicio"], "periodo_fim": r["periodo_fim"], "cos": round(c, 4),
+                        "invertida": bool(d and p and r["de"] == p and r["para"] == d),
+                        "reutilizaria_na_insercao": bool(c >= sdedup and (not d or r["de"] == d) and (not p or r["para"] == p)
+                                                         and (not tipo or r["tipo"] == tipo))})
+        return {"ok": True, "modelo": info["modelo"], "limiar_cos": cos_min, "limiar_dedup": sdedup, "avisos": avisos,
+                "n_relacoes_comparadas": len(rows), "similares": out}
 
 
 # --------------------------------------------------------------------------- extras
@@ -814,6 +1037,29 @@ def inserir_video(video: dict, trechos: list[dict], cortes_sugeridos: list[dict]
     return inserir_video_core(video, trechos, cortes_sugeridos)
 
 
+def buscar_semantica(texto: str, tabelas: list[str] | None = None, limite: int = 20, k_fts: int = 50) -> dict:
+    """Busca híbrida: candidatos do FTS5 (busca_fts) ∪ top-k vetorial (embeddings), reordenados por RRF (1/(60+rank) somado).
+    `tabelas` ⊂ trecho, evidencia, relacao, evento, entidade (+nota, só FTS); padrão: as cinco. Retorna origem_tabela, origem_id, titulo,
+    trecho, score (RRF) e cos/rank_fts/rank_vetorial. Sem provedor de embedding ou sem vetores, cai para só FTS e diz em `avisos`.
+    Qualidade depende do provedor (o fallback 'hash' é lexical; ver mcp/README.md)."""
+    try:
+        return buscar_semantica_core(texto, tabelas, limite, k_fts)
+    except Rejeitado as r:
+        return r.payload
+
+
+def relacoes_similares(rotulo: str, de: str | None = None, para: str | None = None, limite: int = 10, cos_min: float | None = None,
+                       tipo: str | None = None) -> dict:
+    """Relações existentes com rótulo semanticamente próximo (cosseno >= cos_min; padrão 0,80 com modelo real, 0,45 no fallback hash).
+    Com `de` e `para`: só o mesmo par (qualquer direção; `invertida` avisa). `reutilizaria_na_insercao`=true quando inserir_relacao/inserir_video
+    reutilizariam essa relação (mesmo de,para,tipo na mesma direção e cosseno >= limiar de dedup, 0,90 / 0,60 hash). Use antes de inserir
+    para evitar duplicatas."""
+    try:
+        return relacoes_similares_core(rotulo, de, para, limite, cos_min, tipo)
+    except Rejeitado as r:
+        return r.payload
+
+
 def resumo_banco() -> dict:
     """Contagens do banco (entidades, relações por status/origem/natureza, vídeos, trechos, cortes...)."""
     return resumo_banco_core()
@@ -828,7 +1074,8 @@ def criar_servidor():
     srv = _Server("linha-do-tempo", instructions=(
         "Banco da Linha do Tempo política brasileira. Este servidor é o único escritor do SQLite. Nunca cria entidades: "
         "use buscar_entidade antes de inserir. Relações novas entram com status 'revisar'."))
-    for f in (buscar_entidade, buscar_relacoes, buscar_trechos, inserir_relacao, inserir_video, resumo_banco, exportar):
+    for f in (buscar_entidade, buscar_relacoes, buscar_trechos, buscar_semantica, relacoes_similares, inserir_relacao, inserir_video,
+              resumo_banco, exportar):
         srv.tool()(f)
     return srv
 
@@ -840,6 +1087,8 @@ def preparar():
         con.execute("SELECT 1 FROM entidade LIMIT 1")
         con.execute("BEGIN IMMEDIATE")
         sincronizar_fts(con)
+        if EMB is not None:
+            EMB.garantir_schema(con)  # tabela `embedding` (derivada; não entra no dump). Vazia até rodar scripts/embeddings.py
         con.execute("COMMIT")
     finally:
         con.close()

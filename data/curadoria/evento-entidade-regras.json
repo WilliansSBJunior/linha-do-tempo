@@ -1,0 +1,73 @@
+{
+ "descricao": "Regras do casamento evento -> entidade por alias (scripts/curadoria.py: casar_texto). Texto = título + descrição, palavra inteira, normalizado sem acento; alias_norm tem de ser único no banco; o alias mais longo vence e não há sobreposição; papel 'citado'. Palavras comuns usadas como alias (Vale, Rede, Caixa, Senado, Câmara) exigem inicial maiúscula; 'nao_seguido_por' e 'nao_precedido_por' barram contextos conhecidos de falso positivo (Vale do Curu, Caixa de Pandora, Rádio Senado, Câmara do DF).",
+ "pessoa_um_token_ok": [
+  "lula",
+  "dilma",
+  "fhc",
+  "temer"
+ ],
+ "sobrenomes_ambiguos": [
+  "costa",
+  "silva",
+  "mendonca",
+  "nunes",
+  "santos",
+  "souza",
+  "oliveira",
+  "lima",
+  "pereira",
+  "alves",
+  "rocha",
+  "moraes",
+  "neto",
+  "filho",
+  "junior",
+  "ferreira",
+  "ribeiro",
+  "carvalho",
+  "gomes",
+  "barbosa",
+  "martins",
+  "campos",
+  "fernandes",
+  "sousa",
+  "dias",
+  "castro",
+  "cunha"
+ ],
+ "excluir_entidades": [
+  "brasil"
+ ],
+ "excluir_alias_um_token": [],
+ "nao_precedido_por": {
+  "senado": [
+   "radio"
+  ],
+  "camara": [
+   "radio"
+  ]
+ },
+ "nao_seguido_por": {
+  "camara": [
+   "do",
+   "legislativa",
+   "municipal",
+   "distrital"
+  ],
+  "vale": [
+   "do",
+   "da",
+   "de"
+  ],
+  "caixa": [
+   "de"
+  ]
+ },
+ "exigir_inicial_maiuscula": [
+  "vale",
+  "rede",
+  "caixa",
+  "senado",
+  "camara"
+ ]
+}

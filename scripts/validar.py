@@ -6,12 +6,13 @@ Se data/*.json e data/dump.sql existirem, confere também que estão iguais ao q
 """
 import argparse
 import json
+import re
 import sys
 import tempfile
 from pathlib import Path
 
 import exportar_json as ex
-from comum import DATA, DUMP, RAW, SQLITE, conectar, gerar_dump, normalizar_url
+from comum import CURADORIA, DATA, DUMP, RAW, SQLITE, conectar, gerar_dump, normalizar_url
 from slug import slug_para_nome
 
 FALHAS = []
@@ -82,12 +83,16 @@ def contagens(con, raw, orig):
     esperar("entidade da teia", q(con, "SELECT count(*) FROM entidade WHERE origem='teia'")[0][0], len(raw["N"]))
     chaves_t = {(e["d"], e["t"]) for e in raw["EV"]}
     chaves_o = {(e["d"], e["t"]) for e in orig["EV"]}
-    esperar("eventos teia ∪ origens (dedup por (d,t))", q(con, "SELECT count(*) FROM evento WHERE canal IN ('teia','banco','familia','ida','volta')")[0][0], len(chaves_t | chaves_o))
+    fund_t = q(con, "SELECT count(*) FROM evento_alias WHERE canal_original IN ('teia','banco','familia','ida','volta')")[0][0]
+    fund_p = q(con, "SELECT count(*) FROM evento_alias WHERE canal_original='precatorios'")[0][0]
+    fund_b = q(con, "SELECT count(*) FROM evento_alias WHERE canal_original='brb'")[0][0]
+    esperar("eventos teia ∪ origens (dedup por (d,t)) menos fundidos pela curadoria", q(con, "SELECT count(*) FROM evento WHERE canal IN ('teia','banco','familia','ida','volta')")[0][0], len(chaves_t | chaves_o) - fund_t)
     esperar("eventos de origens (89) preservados com id", q(con, "SELECT count(*) FROM evento WHERE origem_ref LIKE '%origens:EV[%'")[0][0], len(orig["EV"]))
-    esperar("eventos PREC", q(con, "SELECT count(*) FROM evento WHERE canal='precatorios'")[0][0], len(raw["PREC"]))
+    esperar("eventos PREC (+ fundidos)", q(con, "SELECT count(*) FROM evento WHERE canal='precatorios'")[0][0] + fund_p, len(raw["PREC"]))
+    esperar("eventos brb do dossiê (+ fundidos)", q(con, "SELECT count(*) FROM evento WHERE canal='brb'")[0][0] + fund_b, 30)
     ids_o = {e["id"] for e in orig["EV"]}
     esperar("ids de origens presentes", len({r[0] for r in q(con, "SELECT id FROM evento")} & ids_o), len(ids_o))
-    # evidência: todas as URLs normalizadas de E+EV da teia existem e são exatamente as ligadas a relações/eventos da teia
+    # evidência: todas as URLs normalizadas de E+EV da teia continuam ligadas (EV fundido: ao evento mantido, via mapa_indices/evento_alias)
     raw_urls = set()
     for e in raw["E"]:
         for r in e["r"]:
@@ -96,7 +101,8 @@ def contagens(con, raw, orig):
         raw_urls |= urls(e["f"])
     ligadas = {r[0] for r in q(con, """SELECT e.url FROM evidencia e JOIN relacao_evidencia x ON x.evidencia_id=e.id""")}
     ligadas |= {r[0] for r in q(con, """SELECT e.url FROM evidencia e JOIN evento_evidencia x ON x.evidencia_id=e.id JOIN evento v ON v.id=x.evento_id
-                                         WHERE v.origem_ref LIKE '%teia:EV[%'""")}
+                                         WHERE v.origem_ref LIKE '%teia:EV[%'
+                                            OR v.id IN (SELECT evento_id FROM evento_alias WHERE origem_ref_original LIKE '%teia:EV[%')""")}
     esperar("URLs normalizadas únicas em E+EV da teia", len(ligadas & raw_urls), len(raw_urls))
     ev_url = {r[0] for r in q(con, "SELECT url FROM evidencia")}
     for e in orig["EV"]:
@@ -118,6 +124,7 @@ def orfaos(con):
                   AND NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM serie s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM ranking_empresa s WHERE s.evidencia_id=e.id)
+                  AND NOT EXISTS (SELECT 1 FROM dossie_par_evidencia s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM mandato s WHERE s.evidencia_id=e.id)""")[0][0]
     esperar("evidências sem nenhum uso", n, 0)
     n = q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id) AND canal IN ('teia','banco','familia','ida','volta','precatorios','brb')")[0][0]
@@ -132,7 +139,11 @@ def orfaos(con):
                         AND NOT EXISTS (SELECT 1 FROM mandato m WHERE m.entidade_id=e.id OR m.orgao_id=e.id)
                         AND NOT EXISTS (SELECT 1 FROM bancada b WHERE b.partido_id=e.id)
                         AND NOT EXISTS (SELECT 1 FROM ranking_empresa b WHERE b.entidade_id=e.id)
-                        AND NOT EXISTS (SELECT 1 FROM nota_entidade b WHERE b.entidade_id=e.id)""")
+                        AND NOT EXISTS (SELECT 1 FROM nota_entidade b WHERE b.entidade_id=e.id)
+                        AND NOT EXISTS (SELECT 1 FROM dossie_par b WHERE b.ator_entidade_id=e.id)
+                        AND NOT EXISTS (SELECT 1 FROM previdencia_ente b WHERE b.entidade_id=e.id)
+                        AND NOT EXISTS (SELECT 1 FROM pagamento b WHERE b.para_entidade_id=e.id OR b.de_entidade_id=e.id)
+                        AND NOT EXISTS (SELECT 1 FROM forum b WHERE b.pais_entidade_id=e.id)""")
     print(f"  info: entidades sem nenhuma referência estrutural (aviso, não falha): {len(sem_ref)}"
           + (" -> " + ", ".join(f"{r['id']}({r['tipo']})" for r in sem_ref[:20]) if sem_ref else ""))
     nao_pais = [r["id"] for r in sem_ref if r["tipo"] != "pais"]
@@ -143,7 +154,7 @@ def orfaos(con):
     esperar("aliases sem entidade", n, 0)
 
 
-def comparar_teia(exp, raw, idx_slug):
+def comparar_teia(exp, raw, idx_slug, con):
     """Round-trip: exp (do banco) contra raw. Retorna lista de diferenças."""
     dif = []
     N_raw, N_exp = raw["N"], exp["N"]
@@ -191,21 +202,6 @@ def comparar_teia(exp, raw, idx_slug):
             dif.append(f"E[{ei}].a/b difere da orientação original: ({a['a']},{a['b']}) != ({b['a']},{b['b']})")
     if len(raw["E"]) != len(exp["E"]):
         dif.append(f"E: {len(raw['E'])} != {len(exp['E'])}")
-    # eventos
-    if len(raw["EV"]) != len(exp["EV"]):
-        dif.append(f"EV: {len(raw['EV'])} != {len(exp['EV'])}")
-    for i, (a, b) in enumerate(zip(raw["EV"], exp["EV"])):
-        for c in ("d", "y", "t", "x", "p", "n"):
-            if a[c] != b[c]:
-                dif.append(f"EV[{i}].{c}: {a[c]!r} != {b[c]!r}")
-        if a.get("st") != b.get("st"):
-            dif.append(f"EV[{i}].st: {a.get('st')!r} != {b.get('st')!r}")
-        if b["ids"] != [idx_slug[k] for k in a["n"]]:
-            dif.append(f"EV[{i}].ids")
-        ua, ub = urls(a["f"]), urls(b["f"])
-        fundido = not b["id"].startswith("ev-")
-        if (fundido and not ua <= ub) or (not fundido and ua != ub):
-            dif.append(f"EV[{i}].f difere ({'fundido' if fundido else 'só-teia'}): {ua ^ ub}")
     for c in ("SINT", "LAC"):
         if raw[c] != exp[c]:
             dif.append(f"{c} difere")
@@ -226,10 +222,12 @@ def comparar_teia(exp, raw, idx_slug):
             dif.append(f"NUM[{ano}].fonte")
         if [normalizar_url(u) for u in a.get("fontes_adicionais", [])] != [normalizar_url(u) for u in b.get("fontes_adicionais", [])]:
             dif.append(f"NUM[{ano}].fontes_adicionais")
-    # PREC
-    if len(raw["PREC"]) != len(exp["PREC"]):
-        dif.append("PREC: tamanho")
-    for i, (a, b) in enumerate(zip(raw["PREC"], exp["PREC"])):
+    # PREC: os fundidos pela curadoria saem da lista (conferidos em comparar_eventos_teia)
+    fund = fundidos_por_ref(con, r"PREC\[(\d+)\]")
+    prec_raw = [p for i, p in enumerate(raw["PREC"]) if i not in fund]
+    if len(prec_raw) != len(exp["PREC"]):
+        dif.append(f"PREC: {len(prec_raw)} != {len(exp['PREC'])}")
+    for i, (a, b) in enumerate(zip(prec_raw, exp["PREC"])):
         for c in ("d", "t", "x", "st"):
             if a[c] != b[c]:
                 dif.append(f"PREC[{i}].{c}")
@@ -238,20 +236,205 @@ def comparar_teia(exp, raw, idx_slug):
     return dif
 
 
-def comparar_origens(exp, raw):
+def fundidos_por_ref(con, regex):
+    """índices (do raw) cujo evento foi fundido pela curadoria, por origem_ref_original."""
+    out = set()
+    for r in con.execute("SELECT origem_ref_original FROM evento_alias"):
+        m = re.search(regex, r[0] or "")
+        if m:
+            out.add(int(m.group(1)))
+    return out
+
+
+def comparar_eventos_teia(con, exp, raw, mapa, idx_slug):
+    """EV da teia: cada EV[i] do raw ou ainda existe igual (id preservado), ou foi fundido (alias com o original intacto) e o evento
+    mantido contém a união (fontes, entidades, peso >= e natureza >= a mais forte)."""
     dif = []
+    peso_nat = {r["id"]: r["peso"] for r in con.execute("SELECT id, peso FROM natureza")}
+    cod = {r["codigo_externo"]: r["natureza_id"] for r in con.execute("SELECT * FROM natureza_mapa WHERE sistema='teia'")}
+    ev_exp = {e["id"]: e for e in exp["EV"]}
+    alias_i = {}
+    for r in con.execute("SELECT alias, evento_id, origem_ref_original, original_json FROM evento_alias"):
+        m = re.search(r"teia:EV\[(\d+)\]", r["origem_ref_original"] or "")
+        if m:
+            alias_i[int(m.group(1))] = (r["alias"], r["evento_id"], json.loads(r["original_json"]))
+    absorvem = {r[0] for r in con.execute("SELECT DISTINCT evento_id FROM evento_alias")}
+    esperar("EV exportados na teia.json (167 - fundidos)", len(exp["EV"]), len(raw["EV"]) - len(alias_i))
+    for i, a in enumerate(raw["EV"]):
+        sid = mapa["EV"].get(str(i))
+        if sid is None:
+            dif.append(f"EV[{i}] sem entrada em mapa_indices")
+            continue
+        row = con.execute("SELECT * FROM evento WHERE id=?", (sid,)).fetchone()
+        if row is None:
+            dif.append(f"EV[{i}] -> {sid} não existe")
+            continue
+        ub = {r[0] for r in con.execute("SELECT e.url FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.evento_id=?", (sid,))}
+        nb = {r[0] for r in con.execute("SELECT entidade_id FROM evento_entidade WHERE evento_id=?", (sid,))}
+        ua, na = urls(a["f"]), {idx_slug[k] for k in a["n"]}
+        if i in alias_i:
+            _, mantido, o = alias_i[i]
+            if mantido != sid:
+                dif.append(f"EV[{i}]: alias aponta para {mantido}, mapa para {sid}")
+            for c_raw, c_o in (("t", "titulo"), ("x", "descricao")):
+                if a[c_raw] != o[c_o]:
+                    dif.append(f"EV[{i}] fundido: {c_raw} do original diverge do raw")
+            if (o["data_texto"] or o["data"]) != a["d"] or o["peso"] != a["p"]:
+                dif.append(f"EV[{i}] fundido: d/p do original diverge do raw")
+            if (cod.get(a.get("st")) if "st" in a else None) != o["natureza_id"]:
+                dif.append(f"EV[{i}] fundido: natureza do original diverge do raw")
+            if {normalizar_url(f[1]) for f in o["fontes"]} != ua or [x[0] for x in o["entidades"]] != [idx_slug[k] for k in a["n"]]:
+                dif.append(f"EV[{i}] fundido: fontes/entidades do original divergem do raw")
+        else:
+            if row["titulo"] != a["t"] or row["descricao"] != a["x"] or (row["data_texto"] or row["data"]) != a["d"] or row["ano"] != a["y"]:
+                dif.append(f"EV[{i}]: t/x/d/y diferem")
+        # mantido/preservado: contém a união
+        if not ua <= ub:
+            dif.append(f"EV[{i}]: fontes ausentes no evento {sid}: {ua - ub}")
+        if not na <= nb:
+            dif.append(f"EV[{i}]: entidades ausentes no evento {sid}: {na - nb}")
+        if a["p"] is not None and (row["peso"] is None or row["peso"] < a["p"]):
+            dif.append(f"EV[{i}]: peso do evento {sid} menor que o original")
+        if "st" in a and (row["natureza_id"] is None or peso_nat[row["natureza_id"]] < peso_nat[cod[a["st"]]]):
+            dif.append(f"EV[{i}]: natureza do evento {sid} mais fraca que a original")
+        if i not in alias_i and sid not in absorvem and sid in ev_exp:
+            b = ev_exp[sid]
+            for c in ("d", "y", "t", "x", "p", "n"):
+                if a[c] != b[c]:
+                    dif.append(f"EV[{i}].{c}: {a[c]!r} != {b[c]!r}")
+            # st ausente no raw pode ter sido atribuído pela curadoria (eventos-natureza.json); presente tem de ser igual
+            if ("st" in a and a["st"] != b.get("st")) or b["ids"] != [idx_slug[k] for k in a["n"]]:
+                dif.append(f"EV[{i}].st/ids")
+            if ua != urls(b["f"]) and not str(row["origem_ref"]).count("origens"):
+                dif.append(f"EV[{i}].f difere: {ua ^ urls(b['f'])}")
+    # PREC fundidos: original intacto no alias
+    for i, (alias, mantido, o) in sorted(((i, v) for i, v in ((int(m.group(1)), (r["alias"], r["evento_id"], json.loads(r["original_json"])))
+                                                              for r in con.execute("SELECT alias, evento_id, origem_ref_original, original_json FROM evento_alias")
+                                                              for m in [re.fullmatch(r"PREC\[(\d+)\]", r["origem_ref_original"] or "")] if m))):
+        a = raw["PREC"][i]
+        if (a["t"], a["x"], a["d"]) != (o["titulo"], o["descricao"], o["data_texto"] or o["data"]) or cod[a["st"]] != o["natureza_id"]:
+            dif.append(f"PREC[{i}] fundido: original diverge do raw")
+    return dif
+
+
+def comparar_origens(exp, raw, con):
+    dif = []
+    fundido = {r[0] for r in con.execute("SELECT DISTINCT evento_id FROM evento_alias")}
     if len(raw["EV"]) != len(exp["EV"]):
         dif.append("EV tamanho")
     for i, (a, b) in enumerate(zip(raw["EV"], exp["EV"])):
         for c in ("id", "ch", "d", "y", "t", "x", "st", "r", "v"):
-            if a[c] != b[c]:
+            if a[c] != b[c] and not (c in ("st", "r", "v") and b["id"] in fundido and (c != "st" or b["st"] in ("doc", "inv", "rep", "ale"))):
                 dif.append(f"origens EV[{i}].{c}: {a[c]!r} != {b[c]!r}")
-        if urls(a["f"]) != urls(b["f"]):
+        if (b["id"] in fundido and not urls(a["f"]) <= urls(b["f"])) or (b["id"] not in fundido and urls(a["f"]) != urls(b["f"])):
             dif.append(f"origens EV[{i}].f: {urls(a['f']) ^ urls(b['f'])}")
     for c in ("NARR", "SINT", "SEM", "LAC"):
         if raw[c] != exp[c]:
             dif.append(f"origens {c} difere")
     return dif
+
+
+def _norm_json(o, soltar_vazios=False):
+    """URLs inteiras passam por normalizar_url; opcionalmente descarta None e {} (pares: nulls explícitos não viram linha em serie)."""
+    if isinstance(o, dict):
+        r = {k: _norm_json(v, soltar_vazios) for k, v in o.items()}
+        return {k: v for k, v in r.items() if not (soltar_vazios and (v is None or v == {}))}
+    if isinstance(o, list):
+        return [_norm_json(x, soltar_vazios) for x in o]
+    if isinstance(o, str) and o.startswith("http") and " " not in o:
+        return normalizar_url(o)
+    return o
+
+
+def dif_json(a, b, caminho=""):
+    out = []
+    if type(a) is not type(b) and not (isinstance(a, (int, float)) and isinstance(b, (int, float)) and not isinstance(a, bool) and not isinstance(b, bool)):
+        return [f"{caminho}: tipo {type(a).__name__} != {type(b).__name__}"]
+    if isinstance(a, dict):
+        for k in sorted(a.keys() | b.keys()):
+            if k not in a:
+                out.append(f"{caminho}/{k}: só no export")
+            elif k not in b:
+                out.append(f"{caminho}/{k}: só no raw")
+            else:
+                out += dif_json(a[k], b[k], f"{caminho}/{k}")
+    elif isinstance(a, list):
+        if len(a) != len(b):
+            out.append(f"{caminho}: tamanho {len(a)} != {len(b)}")
+        for i, (x, y) in enumerate(zip(a, b)):
+            out += dif_json(x, y, f"{caminho}[{i}]")
+    elif a != b:
+        out.append(f"{caminho}: {str(a)[:60]!r} != {str(b)[:60]!r}")
+    return out
+
+
+def dossie_e_pares(con, exp):
+    secao("Dossiê e pares (data/dossie.json e data/pares.json == data/raw, URLs normalizadas)")
+    raw_d = json.loads((RAW / "dossie.json").read_text(encoding="utf-8"))
+    d = dif_json(_norm_json(raw_d), _norm_json(json.loads(json.dumps(exp["dossie.json"]))))
+    print(f"  diferenças dossie.json: {len(d)}")
+    for x in d[:20]:
+        print("   -", x)
+    if d:
+        falha(f"dossie.json difere do raw em {len(d)} pontos")
+    raw_p = json.loads((RAW / "pares.json").read_text(encoding="utf-8"))
+    cota = sum(1 for v in raw_p["notas"].values() for t in v if re.match(r"^\s*Cota:", t))
+    raw_p["notas"] = {k: [t for t in v if not re.match(r"^\s*Cota:", t)] for k, v in raw_p["notas"].items()}
+    nulos = sum(1 for i in raw_p["indicadores"].values() for s in i["dados"].values() for v in s.values() if v is None)
+    p = dif_json(_norm_json(raw_p, True), _norm_json(json.loads(json.dumps(exp["pares.json"])), True))
+    print(f"  diferenças pares.json: {len(p)} (ignorados de propósito: {cota} linha de log 'Cota:' em notas e valores null explícitos, {nulos} só nos indicadores)")
+    for x in p[:20]:
+        print("   -", x)
+    if p:
+        falha(f"pares.json difere do raw em {len(p)} pontos")
+    esperar("dossie_par: pares distintos (13)", q(con, "SELECT count(DISTINCT ordem) FROM dossie_par")[0][0], 13)
+    esperar("dossie_par: linhas (13 + 1 do par com 2 atores)", q(con, "SELECT count(*) FROM dossie_par")[0][0], 14)
+    esperar("previdencia_ente", q(con, "SELECT count(*) FROM previdencia_ente")[0][0], 11)
+    esperar("previdencia_ente: soma valor_mi (R$ mi)", round(q(con, "SELECT sum(valor_mi) FROM previdencia_ente")[0][0], 2), 1867.45)
+    esperar("pagamento por categoria", {r["categoria"]: r["c"] for r in q(con, "SELECT categoria, count(*) c FROM pagamento GROUP BY categoria")},
+            {"contrato": 8, "doacao": 3, "midia": 3})
+    esperar("indicio_maquina", q(con, "SELECT count(*) FROM indicio_maquina")[0][0], 5)
+    esperar("limite por tipo", {r["tipo"]: r["c"] for r in q(con, "SELECT tipo, count(*) c FROM limite GROUP BY tipo")}, {"aberto": 4, "agenda": 3, "derrubado": 6})
+    esperar("forum (10 países x 5 fóruns)", q(con, "SELECT count(*) FROM forum")[0][0], 50)
+    n = q(con, "SELECT count(*) FROM nota WHERE pagina='dossie' AND chave IN ('mercado.pares','previdencia.entes','dinheiro.contratos','dinheiro.midia','dinheiro.doacoes','maquina.indicios','limites.derrubado','limites.aberto','limites.agenda')")[0][0]
+    esperar("seções relacionais não estão mais em nota", n, 0)
+
+
+def curadoria(con):
+    secao("Curadoria (data/curadoria/*.json aplicada)")
+    fusoes = json.loads((CURADORIA / "eventos-fusoes.json").read_text(encoding="utf-8"))
+    fundir = [i for f in fusoes for i in f["fundir"]]
+    esperar("evento_alias == ids fundidos em eventos-fusoes.json (nº)", len(q(con, "SELECT alias FROM evento_alias")), len(fundir))
+    esperar("evento_alias: mesmos ids", sorted(r[0] for r in q(con, "SELECT alias FROM evento_alias")) == sorted(fundir), True)
+    esperar("ids fundidos não existem mais como evento", q(con, "SELECT count(*) FROM evento WHERE id IN (SELECT alias FROM evento_alias)")[0][0], 0)
+    esperar("ids mantidos existem", q(con, f"SELECT count(*) FROM evento WHERE id IN ({','.join('?' * len(fusoes))})", *[f['manter'] for f in fusoes])[0][0], len(fusoes))
+    for f in fusoes:
+        for i in f["fundir"]:
+            o = json.loads(q(con, "SELECT original_json FROM evento_alias WHERE alias=?", i)[0][0])
+            ub = {r[0] for r in q(con, "SELECT e.url FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.evento_id=?", f["manter"])}
+            if not {normalizar_url(x[1]) for x in o["fontes"]} <= ub:
+                falha(f"fusão {f['manter']}: fontes de {i} não estão no evento mantido")
+            nb = {r[0] for r in q(con, "SELECT entidade_id FROM evento_entidade WHERE evento_id=?", f["manter"])}
+            if not {x[0] for x in o["entidades"]} <= nb:
+                falha(f"fusão {f['manter']}: entidades de {i} não estão no evento mantido")
+    nat = json.loads((CURADORIA / "eventos-natureza.json").read_text(encoding="utf-8"))
+    ok = sum(1 for n in nat if (q(con, "SELECT natureza_id FROM evento WHERE id=?", n["id"]) or [[None]])[0][0] is not None)
+    esperar("eventos-natureza.json: itens com natureza no banco", ok, len(nat))
+    lig = json.loads((CURADORIA / "evento-entidade-auto.json").read_text(encoding="utf-8"))
+    ok = sum(1 for it in lig for e in it["entidades"] if q(con, "SELECT 1 FROM evento_entidade WHERE evento_id=? AND entidade_id=? AND papel='citado'", it["evento_id"], e["id"]))
+    esperar("evento-entidade-auto.json: ligações presentes", ok, sum(len(it["entidades"]) for it in lig))
+    fon = json.loads((CURADORIA / "brasil-fontes.json").read_text(encoding="utf-8"))
+    ok = sum(1 for it in fon if q(con, "SELECT count(*) FROM evento_evidencia WHERE evento_id=?", it["evento_id"])[0][0] == len(it["sustenta"]) + len(it["contexto"]))
+    esperar("brasil-fontes.json: eventos com todas as fontes ligadas", ok, len(fon))
+    n_sem = q(con, "SELECT count(*) FROM evento e WHERE canal='brasil' AND NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)")[0][0]
+    print(f"  info: eventos da timeline Brasil sem fonte (sem item no bruto): {n_sem}")
+    n_nat = q(con, "SELECT count(*) FROM evento WHERE canal='teia' AND natureza_id IS NULL")[0][0]
+    print(f"  info: eventos da teia ainda sem natureza (nenhuma regra serviu): {n_nat}")
+    comp = json.loads((CURADORIA / "brasil-complementos.json").read_text(encoding="utf-8"))
+    esperar("ranking_empresa com receita == brasil-complementos.json", q(con, "SELECT count(*) FROM ranking_empresa WHERE receita_brl_bi IS NOT NULL")[0][0], len(comp["receita"]))
+    esperar("mandato com periodo_texto == brasil-complementos.json", q(con, "SELECT count(*) FROM mandato WHERE periodo_texto IS NOT NULL")[0][0], len(comp["mandato_periodo"]))
+    n = q(con, "SELECT count(*) FROM evento_entidade WHERE papel='citado' AND entidade_id NOT IN (SELECT id FROM entidade)")[0][0]
+    esperar("evento_entidade citado com entidade inexistente", n, 0)
 
 
 def main():
@@ -270,14 +453,15 @@ def main():
     secao("Round-trip (exportar_json -> teia.json vs data/raw/dados-caso-master-v2.json)")
     idx_slug = {i: slug_para_nome(n["n"]) for i, n in enumerate(raw["N"])}
     exp = ex.todos(con)
-    dif = comparar_teia(exp["teia.json"], raw, idx_slug)
+    dif = comparar_teia(exp["teia.json"], raw, idx_slug, con)
+    dif += comparar_eventos_teia(con, exp["teia.json"], raw, exp["mapa_indices.json"], idx_slug)
     print(f"  relações comparadas pela chave (slug(r.a), slug(r.b), rot): {sum(len(e['r']) for e in raw['E'])}")
     print(f"  diferenças na teia: {len(dif)}")
     for d in dif[:30]:
         print("   -", d)
     if dif:
         falha(f"round-trip teia: {len(dif)} diferenças")
-    dif_o = comparar_origens(exp["origens.json"], orig)
+    dif_o = comparar_origens(exp["origens.json"], orig, con)
     print(f"  diferenças em origens: {len(dif_o)}")
     for d in dif_o[:30]:
         print("   -", d)
@@ -286,6 +470,9 @@ def main():
     mapa = exp["mapa_indices.json"]
     esperar("mapa_indices.N cobre todos os nós", len(mapa["N"]), len(raw["N"]))
     esperar("slugs únicos no mapa", len(set(mapa["N"].values())), len(raw["N"]))
+    esperar("mapa_indices.EV cobre os 167 EV (fundidos apontam para o mantido)", len(mapa["EV"]), len(raw["EV"]))
+    dossie_e_pares(con, exp)
+    curadoria(con)
 
     secao("Arquivos exportados em disco")
     for nome, obj in exp.items():

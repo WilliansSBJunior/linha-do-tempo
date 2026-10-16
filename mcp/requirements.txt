@@ -1,4 +1,11 @@
 # SDK oficial do MCP (FastMCP em 1.x, MCPServer em 2.x: server.py aceita os dois).
 mcp>=1.2,<3
+# RAG (buscar_semantica, relacoes_similares, dedup por embedding). Sem numpy o servidor sobe, mas as ferramentas semanticas respondem erro.
+numpy>=1.24
+# Opcionais, por ordem de preferencia do provedor de embedding (scripts/embeddings.py, LDT_EMBED_PROVIDER=auto escolhe sozinho):
+#   sentence-transformers   modelo multilingue local (intfloat/multilingual-e5-small); baixa ~120 MB do Hugging Face na 1a vez
+#   (openai|voyage|ollama   sem pacote: usam urllib + chave/URL por env)
+#   sqlite-vec              NAO usado: a busca vetorial e numpy sobre BLOB (ver README, secao RAG)
+# sentence-transformers
 # Só para rodar os testes com pytest (opcional; test_server.py usa unittest da stdlib).
 # pytest

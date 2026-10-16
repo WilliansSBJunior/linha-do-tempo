@@ -1,0 +1,2956 @@
+[
+ {
+  "evento_id": "max23",
+  "entidades": [
+   {
+    "id": "cvm",
+    "alias": "CVM"
+   },
+   {
+    "id": "saul-dutra-sabba",
+    "alias": "Saul Dutra Sabbá"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "max26",
+  "entidades": [
+   {
+    "id": "mpf",
+    "alias": "MPF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1995-mercosul-vira-uniao-aduaneira",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1995-posse-de-fernando-henrique-cardoso",
+  "entidades": [
+   {
+    "id": "fernando-henrique-cardoso",
+    "alias": "Fernando Henrique Cardoso"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1996-chile-assina-acordo-de-associacao-ao",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1996-eleicoes-municipais-com-urna-eletronica",
+  "entidades": [
+   {
+    "id": "pp",
+    "alias": "PPB"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1997-denuncia-de-compra-de-votos-pela",
+  "entidades": [
+   {
+    "id": "ronivon-santiago",
+    "alias": "Ronivon Santiago"
+   },
+   {
+    "id": "joao-maia",
+    "alias": "João Maia"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1997-emenda-da-reeleicao-ec-16",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1997-lei-geral-de-telecomunicacoes",
+  "entidades": [
+   {
+    "id": "telebras",
+    "alias": "Telebrás"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1997-novas-mesas-da-camara-e-do-senado",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "michel-temer",
+    "alias": "Michel Temer"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "luis-eduardo-magalhaes",
+    "alias": "Luís Eduardo Magalhães"
+   },
+   {
+    "id": "antonio-carlos-magalhaes",
+    "alias": "Antonio Carlos Magalhães"
+   },
+   {
+    "id": "dem",
+    "alias": "PFL"
+   },
+   {
+    "id": "jose-sarney",
+    "alias": "José Sarney"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1997-privatizacao-da-vale-do-rio-doce",
+  "entidades": [
+   {
+    "id": "vale",
+    "alias": "Vale"
+   },
+   {
+    "id": "csn",
+    "alias": "CSN"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1998-fhc-e-reeleito-no-primeiro-turno",
+  "entidades": [
+   {
+    "id": "fernando-henrique-cardoso",
+    "alias": "FHC"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   },
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "pps",
+    "alias": "PPS"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1998-privatizacao-do-sistema-telebras",
+  "entidades": [
+   {
+    "id": "telebras",
+    "alias": "Telebrás"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1998-russia-desvaloriza-o-rublo-e-declara",
+  "entidades": [
+   {
+    "id": "russia",
+    "alias": "Rússia"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1999-cpis-do-judiciario-e-do-sistema",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1999-fim-da-banda-cambial-e-cambio-flutuante",
+  "entidades": [
+   {
+    "id": "bcb",
+    "alias": "Banco Central"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1999-reeleicao-de-temer-e-antonio-carlos",
+  "entidades": [
+   {
+    "id": "michel-temer",
+    "alias": "Temer"
+   },
+   {
+    "id": "antonio-carlos-magalhaes",
+    "alias": "Antonio Carlos Magalhães"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "dem",
+    "alias": "PFL"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-1999-segundo-mandato-de-fhc",
+  "entidades": [
+   {
+    "id": "fernando-henrique-cardoso",
+    "alias": "FHC"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2000-argentina-em-recessao",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2000-cassacao-do-senador-luiz-estevao",
+  "entidades": [
+   {
+    "id": "luiz-estevao",
+    "alias": "Luiz Estevão"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2000-eleicoes-municipais",
+  "entidades": [
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2000-emenda-constitucional-29-saude",
+  "entidades": [
+   {
+    "id": "estados-e-municipios",
+    "alias": "Estados e municípios"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2000-lei-de-responsabilidade-fiscal",
+  "entidades": [
+   {
+    "id": "pedro-novais",
+    "alias": "Pedro Novais"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "jefferson-peres",
+    "alias": "Jefferson Peres"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2001-aecio-neves-eleito-presidente-da-camara",
+  "entidades": [
+   {
+    "id": "aecio-neves",
+    "alias": "Aécio Neves"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   },
+   {
+    "id": "inocencio-oliveira",
+    "alias": "Inocêncio Oliveira"
+   },
+   {
+    "id": "aloizio-mercadante",
+    "alias": "Aloizio Mercadante"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2001-argentina-suspende-pagamento-da-divida",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2001-china-entra-na-omc",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2001-jader-barbalho-deixa-a-presidencia-do",
+  "entidades": [
+   {
+    "id": "jader-barbalho",
+    "alias": "Jader Barbalho"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2001-violacao-do-painel-do-senado-e-renuncia",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "luiz-estevao",
+    "alias": "Luiz Estevão"
+   },
+   {
+    "id": "jose-roberto-arruda",
+    "alias": "José Roberto Arruda"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2002-argentina-abandona-a-conversibilidade-do",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2002-carta-ao-povo-brasileiro",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2002-eneas-e-o-deputado-federal-mais-votado",
+  "entidades": [
+   {
+    "id": "eneas-carneiro",
+    "alias": "Enéas Carneiro"
+   },
+   {
+    "id": "prona",
+    "alias": "PRONA"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2002-jader-barbalho-e-preso-pela-policia",
+  "entidades": [
+   {
+    "id": "jader-barbalho",
+    "alias": "Jader Barbalho"
+   },
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2002-lula-e-eleito-presidente",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2002-tse-impoe-a-verticalizacao-das",
+  "entidades": [
+   {
+    "id": "miro-teixeira",
+    "alias": "Miro Teixeira"
+   },
+   {
+    "id": "pdt",
+    "alias": "PDT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2003-cancun-e-o-g20-de-paises-em",
+  "entidades": [
+   {
+    "id": "india",
+    "alias": "Índia"
+   },
+   {
+    "id": "africa-do-sul",
+    "alias": "África do Sul"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2003-emendas-41-e-42-previdencia-e-reforma",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2003-estatuto-do-desarmamento",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2003-posse-de-lula",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "ramez-tebet",
+    "alias": "Ramez Tebet"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2003-pt-expulsa-heloisa-helena-e-tres",
+  "entidades": [
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "heloisa-helena",
+    "alias": "Heloísa Helena"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2003-sarney-volta-a-presidencia-do-senado",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "jose-sarney",
+    "alias": "José Sarney"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2004-eleicoes-municipais-de-2004",
+  "entidades": [
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2004-fundacao-do-psol",
+  "entidades": [
+   {
+    "id": "heloisa-helena",
+    "alias": "Heloísa Helena"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2004-reforma-do-judiciario-ec-45",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2005-cassacoes-de-roberto-jefferson-e-jose",
+  "entidades": [
+   {
+    "id": "roberto-jefferson",
+    "alias": "Roberto Jefferson"
+   },
+   {
+    "id": "jose-dirceu",
+    "alias": "José Dirceu"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2005-china-encerra-a-paridade-fixa-com-o",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2005-denuncia-do-mensalao",
+  "entidades": [
+   {
+    "id": "roberto-jefferson",
+    "alias": "Roberto Jefferson"
+   },
+   {
+    "id": "ptb",
+    "alias": "PTB"
+   },
+   {
+    "id": "jose-dirceu",
+    "alias": "José Dirceu"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2005-eleicao-e-renuncia-de-severino",
+  "entidades": [
+   {
+    "id": "severino-cavalcanti",
+    "alias": "Severino Cavalcanti"
+   },
+   {
+    "id": "pp",
+    "alias": "PP"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "aldo-rebelo",
+    "alias": "Aldo Rebelo"
+   },
+   {
+    "id": "pcdob",
+    "alias": "PCdoB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2006-bolivia-nacionaliza-os-hidrocarbonetos",
+  "entidades": [
+   {
+    "id": "petrobras",
+    "alias": "Petrobras"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2006-caso-do-dossie-contra-candidatos-do-psdb",
+  "entidades": [
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   },
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2006-operacao-sanguessuga-e-cpmi-das",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2006-reeleicao-de-lula",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "geraldo-alckmin",
+    "alias": "Geraldo Alckmin"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2006-sancionada-a-lei-maria-da-penha",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2006-stf-derruba-a-clausula-de-barreira",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2007-brasil-e-eua-assinam-memorando-sobre",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2007-fidelidade-partidaria-mandato-pertence",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2007-petrobras-anuncia-a-descoberta-de-tupi",
+  "entidades": [
+   {
+    "id": "petrobras",
+    "alias": "Petrobras"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2007-renan-calheiros-renuncia-a-presidencia",
+  "entidades": [
+   {
+    "id": "renan-calheiros",
+    "alias": "Renan Calheiros"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2007-senado-rejeita-a-prorrogacao-da-cpmf",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2007-stf-recebe-a-denuncia-do-mensalao",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2008-eleicoes-municipais-de-2008",
+  "entidades": [
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2008-fed-abre-linha-de-swap-de-us-30-bilhoes",
+  "entidades": [
+   {
+    "id": "mexico",
+    "alias": "México"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2008-marina-silva-deixa-o-ministerio-do-meio",
+  "entidades": [
+   {
+    "id": "marina-silva",
+    "alias": "Marina Silva"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2008-operacao-satiagraha-prende-daniel-dantas",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "gilmar-mendes",
+    "alias": "Gilmar Mendes"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2009-china-ultrapassa-os-eua-como-maior",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2009-crise-dos-atos-secretos-no-senado",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2009-operacao-caixa-de-pandora-no-distrito",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   },
+   {
+    "id": "jose-roberto-arruda",
+    "alias": "José Roberto Arruda"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2009-sarney-e-temer-assumem-as-presidencias",
+  "entidades": [
+   {
+    "id": "michel-temer",
+    "alias": "Temer"
+   },
+   {
+    "id": "jose-sarney",
+    "alias": "José Sarney"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "tiao-viana",
+    "alias": "Tião Viana"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2009-stf-mantem-a-demarcacao-da-raposa-serra",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2010-china-a-frente-do-japao-e-principal",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2010-eleicao-de-dilma-rousseff",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2010-lei-da-ficha-limpa",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "jose-eduardo-cardozo",
+    "alias": "José Eduardo Cardozo"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2010-prisao-do-governador-do-distrito-federal",
+  "entidades": [
+   {
+    "id": "jose-roberto-arruda",
+    "alias": "José Roberto Arruda"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2011-novo-codigo-florestal-avanca-no",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2011-palocci-deixa-a-casa-civil",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2011-sancionada-a-lei-da-comissao-nacional-da",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2011-stf-reconhece-a-uniao-estavel",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2012-argentina-reestatiza-a-petroleira-ypf",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2012-instalada-a-comissao-nacional-da-verdade",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2012-julgamento-do-mensalao-no-stf",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "jose-dirceu",
+    "alias": "José Dirceu"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2012-sancionado-o-novo-codigo-florestal",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2012-senado-cassa-demostenes-torres",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "demostenes-torres",
+    "alias": "Demóstenes Torres"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2012-stf-valida-a-ficha-limpa-eleicoes",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-alves-e-renan-sao-eleitos-presidentes",
+  "entidades": [
+   {
+    "id": "henrique-eduardo-alves",
+    "alias": "Henrique Eduardo Alves"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "renan-calheiros",
+    "alias": "Renan Calheiros"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-camara-mantem-o-mandato-de-natan-donadon",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-china-cresce-7-8-e-minerio-fica-acima-de",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-espionagem-da-nsa-leva-dilma-a-cancelar",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-governo-lanca-o-programa-mais-medicos",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-jornadas-de-junho",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-prisao-dos-condenados-do-mensalao",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "jose-dirceu",
+    "alias": "José Dirceu"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2014-argentina-entra-em-default-seletivo",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2014-inicio-da-operacao-lava-jato",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   },
+   {
+    "id": "petrobras",
+    "alias": "Petrobras"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2014-morte-de-eduardo-campos",
+  "entidades": [
+   {
+    "id": "psb",
+    "alias": "PSB"
+   },
+   {
+    "id": "marina-silva",
+    "alias": "Marina Silva"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2014-reeleicao-de-dilma-rousseff",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "aecio-neves",
+    "alias": "Aécio Neves"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2014-sancionado-o-marco-civil-da-internet",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "alessandro-molon",
+    "alias": "Alessandro Molon"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2015-abertura-do-processo-de-impeachment",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "eduardo-cunha",
+    "alias": "Eduardo Cunha"
+   },
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2015-eduardo-cunha-assume-a-camara",
+  "entidades": [
+   {
+    "id": "eduardo-cunha",
+    "alias": "Eduardo Cunha"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "arlindo-chinaglia",
+    "alias": "Arlindo Chinaglia"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2015-manifestacoes-contra-o-governo",
+  "entidades": [
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2015-prisao-do-senador-delcidio-do-amaral",
+  "entidades": [
+   {
+    "id": "delcidio-do-amaral",
+    "alias": "Delcídio do Amaral"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2015-stf-proibe-doacoes-de-empresas-a",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2015-turbulencia-na-china-bolsa-e-yuan",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   },
+   {
+    "id": "bcb",
+    "alias": "Banco Central"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2016-camara-autoriza-o-processo-de",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2016-cunha-tem-o-mandato-cassado-pela-camara",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "eduardo-cunha",
+    "alias": "Eduardo Cunha"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2016-opep-faz-seu-primeiro-corte-de-producao",
+  "entidades": [
+   {
+    "id": "russia",
+    "alias": "Rússia"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2016-pec-do-teto-de-gastos-vira-a-emenda",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2016-senado-afasta-dilma-e-temer-assume",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma"
+   },
+   {
+    "id": "michel-temer",
+    "alias": "Temer"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2016-senado-aprova-o-impeachment-de-dilma",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "dilma-rousseff",
+    "alias": "Dilma Rousseff"
+   },
+   {
+    "id": "michel-temer",
+    "alias": "Michel Temer"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2017-camara-barra-denuncias-contra-temer",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "michel-temer",
+    "alias": "Temer"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2017-delacao-da-jbs-e-gravacao-envolvendo",
+  "entidades": [
+   {
+    "id": "jbs",
+    "alias": "JBS"
+   },
+   {
+    "id": "michel-temer",
+    "alias": "Temer"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2017-moro-condena-lula-no-caso-do-triplex",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2017-primeira-greve-geral-em-cerca-de-20-anos",
+  "entidades": [
+   {
+    "id": "michel-temer",
+    "alias": "Temer"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2017-reforma-trabalhista-e-aprovada-e",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2018-bolsonaro-e-eleito-presidente",
+  "entidades": [
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "psl",
+    "alias": "PSL"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2018-fmi-aprova-us-50-bi-para-a-argentina",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2018-greve-dos-caminhoneiros",
+  "entidades": [
+   {
+    "id": "michel-temer",
+    "alias": "Michel Temer"
+   },
+   {
+    "id": "petrobras",
+    "alias": "Petrobras"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2018-guerra-comercial-eua-china-tarifas-sobre",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2018-intervencao-federal-na-seguranca-do-rio",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2018-lula-e-preso-em-curitiba",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2018-tse-barra-lula-e-pt-lanca-haddad",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2019-alberto-fernandez-derrota-macri-na",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2019-bolsonaro-anuncia-novo-partido-o-alianca",
+  "entidades": [
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2019-bolsonaro-toma-posse-como-presidente",
+  "entidades": [
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "psl",
+    "alias": "PSL"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2019-congresso-promulga-a-reforma-da",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2019-lula-e-solto-apos-580-dias-preso",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2019-temer-e-preso-e-solto-dias-depois",
+  "entidades": [
+   {
+    "id": "michel-temer",
+    "alias": "Temer"
+   },
+   {
+    "id": "moreira-franco",
+    "alias": "Moreira Franco"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2020-china-cresce-e-compra-um-terco-das",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2020-guerra-de-precos-do-petroleo",
+  "entidades": [
+   {
+    "id": "russia",
+    "alias": "Rússia"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2020-novo-fundeb",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2020-saida-de-sergio-moro-do-governo",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "Polícia Federal"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2021-atos-de-7-de-setembro-e-carta-de",
+  "entidades": [
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "alexandre-de-moraes",
+    "alias": "Alexandre de Moraes"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "michel-temer",
+    "alias": "Michel Temer"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2021-condenacoes-de-lula-anuladas-moro",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "edson-fachin",
+    "alias": "Edson Fachin"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2021-cpi-da-covid-instalacao-e-relatorio",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "renan-calheiros",
+    "alias": "Renan Calheiros"
+   },
+   {
+    "id": "mdb",
+    "alias": "MDB"
+   },
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2021-lei-complementar-179-da-autonomia-ao",
+  "entidades": [
+   {
+    "id": "bcb",
+    "alias": "Banco Central"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2021-lira-e-pacheco-sao-eleitos-presidentes",
+  "entidades": [
+   {
+    "id": "arthur-lira",
+    "alias": "Arthur Lira"
+   },
+   {
+    "id": "pp",
+    "alias": "PP"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "mdb",
+    "alias": "MDB"
+   },
+   {
+    "id": "rodrigo-pacheco",
+    "alias": "Rodrigo Pacheco"
+   },
+   {
+    "id": "dem",
+    "alias": "DEM"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2021-pec-dos-precatorios-e-aprovada-e",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "fernando-bezerra-coelho",
+    "alias": "Fernando Bezerra Coelho"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-acordo-de-graos-do-mar-negro",
+  "entidades": [
+   {
+    "id": "russia",
+    "alias": "Rússia"
+   },
+   {
+    "id": "turquia",
+    "alias": "Turquia"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-ec-123-cria-estado-de-emergencia-e",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "fernando-bezerra-coelho",
+    "alias": "Fernando Bezerra Coelho"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-lula-derrota-bolsonaro-na-eleicao",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "pl",
+    "alias": "PL"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-pec-da-transicao-vira-a-emenda",
+  "entidades": [
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "alexandre-silveira",
+    "alias": "Alexandre Silveira"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-russia-invade-a-ucrania",
+  "entidades": [
+   {
+    "id": "russia",
+    "alias": "Rússia"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-stf-condena-o-deputado-daniel-silveira",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "daniel-silveira",
+    "alias": "Daniel Silveira"
+   },
+   {
+    "id": "ptb",
+    "alias": "PTB"
+   },
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-stf-declara-inconstitucional-o-orcamento",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-ataques-de-8-de-janeiro-em-brasilia",
+  "entidades": [
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "alexandre-de-moraes",
+    "alias": "Alexandre de Moraes"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "ibaneis-rocha",
+    "alias": "Ibaneis Rocha"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-brics-convida-seis-paises-a-aderir",
+  "entidades": [
+   {
+    "id": "argentina",
+    "alias": "Argentina"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-congresso-promulga-a-reforma-tributaria",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "eduardo-braga",
+    "alias": "Eduardo Braga"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-cpmi-do-8-de-janeiro-instalacao-e",
+  "entidades": [
+   {
+    "id": "eliziane-gama",
+    "alias": "Eliziane Gama"
+   },
+   {
+    "id": "psd",
+    "alias": "PSD"
+   },
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-lei-complementar-200-cria-o-novo",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "claudio-cajado",
+    "alias": "Claudio Cajado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-stf-e-congresso-divergem-sobre-o-marco",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-tse-torna-bolsonaro-inelegivel-por-oito",
+  "entidades": [
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "pdt",
+    "alias": "PDT"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-china-cresce-4-96-em-2024",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-congresso-aprova-a-regulamentacao-da",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "eduardo-braga",
+    "alias": "Eduardo Braga"
+   },
+   {
+    "id": "reginaldo-lopes",
+    "alias": "Reginaldo Lopes"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-dino-suspende-emendas-parlamentares-stf",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "flavio-dino",
+    "alias": "Flávio Dino"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-pacote-de-corte-de-gastos-e-a-ec-135",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-plataforma-x-e-bloqueada-no-brasil",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-presos-por-suposto-plano-de-golpe-pf",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   },
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-china-amplia-compras-e-eua-perdem-espaco",
+  "entidades": [
+   {
+    "id": "china",
+    "alias": "China"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-eleicao-das-mesas-da-camara-e-do-senado",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   },
+   {
+    "id": "hugo-motta",
+    "alias": "Hugo Motta"
+   },
+   {
+    "id": "republicanos",
+    "alias": "Republicanos"
+   },
+   {
+    "id": "davi-alcolumbre",
+    "alias": "Davi Alcolumbre"
+   },
+   {
+    "id": "uniao-brasil",
+    "alias": "União Brasil"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-isencao-do-ir-ate-r-5-mil",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   },
+   {
+    "id": "arthur-lira",
+    "alias": "Arthur Lira"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-tarifas-dos-eua-sobre-o-brasil",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "alexandre-de-moraes",
+    "alias": "Alexandre de Moraes"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-06-comeca-segundo-a-pf-a-mesada-a-ciro",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "ciro-nogueira",
+    "alias": "Ciro Nogueira"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-08-13-ciro-nogueira-apresenta-a-emenda-que",
+  "entidades": [
+   {
+    "id": "ciro-nogueira",
+    "alias": "Ciro Nogueira"
+   },
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "psdb",
+    "alias": "PSDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-11-bc-da-seis-meses-ao-master-e-busca",
+  "entidades": [
+   {
+    "id": "itau-unibanco",
+    "alias": "Itaú"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-02-10-brb-assina-termo-de-ajuste-com-o-bc",
+  "entidades": [
+   {
+    "id": "brb",
+    "alias": "BRB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-07-19-hugo-motta-liga-para-vorcaro-as-7h-as-9h",
+  "entidades": [
+   {
+    "id": "hugo-motta",
+    "alias": "Hugo Motta"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-07-23-advogado-propoe-buscar-mantega-em",
+  "entidades": [
+   {
+    "id": "luiz-inacio-lula-da-silva",
+    "alias": "Lula"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-08-19-camara-do-df-aprova-a-compra-em-urgencia",
+  "entidades": [
+   {
+    "id": "pt",
+    "alias": "PT"
+   },
+   {
+    "id": "psb",
+    "alias": "PSB"
+   },
+   {
+    "id": "ibaneis-rocha",
+    "alias": "Ibaneis Rocha"
+   },
+   {
+    "id": "mdb",
+    "alias": "MDB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-08-28-voo-no-jato-de-vorcaro-com-ciro-nogueira",
+  "entidades": [
+   {
+    "id": "ciro-nogueira",
+    "alias": "Ciro Nogueira"
+   },
+   {
+    "id": "fabio-faria",
+    "alias": "Fábio Faria"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-09-02-lideres-de-seis-partidos-assinam",
+  "entidades": [
+   {
+    "id": "pp",
+    "alias": "PP"
+   },
+   {
+    "id": "mdb",
+    "alias": "MDB"
+   },
+   {
+    "id": "pl",
+    "alias": "PL"
+   },
+   {
+    "id": "psb",
+    "alias": "PSB"
+   },
+   {
+    "id": "republicanos",
+    "alias": "Republicanos"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-10-brb-ainda-paga-r-1-9-bi-ao-master-depois",
+  "entidades": [
+   {
+    "id": "brb",
+    "alias": "BRB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-12-18-ministro-do-tcu-da-72-horas-ao-bc-e-fala",
+  "entidades": [
+   {
+    "id": "tcu",
+    "alias": "TCU"
+   },
+   {
+    "id": "republicanos",
+    "alias": "Republicanos"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-06-11-camara-do-df-aprova-o-socorro-ao-brb-por",
+  "entidades": [
+   {
+    "id": "brb",
+    "alias": "BRB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-09-23-tribunal-de-contas-do-df-bloqueia-bens",
+  "entidades": [
+   {
+    "id": "brb",
+    "alias": "BRB"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "fam28",
+  "entidades": [
+   {
+    "id": "henrique-vorcaro",
+    "alias": "Henrique Moura Vorcaro"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "fam29",
+  "entidades": [
+   {
+    "id": "cvm",
+    "alias": "CVM"
+   },
+   {
+    "id": "banco-master",
+    "alias": "Banco Master"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ida21",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "henrique-vorcaro",
+    "alias": "Henrique Vorcaro"
+   },
+   {
+    "id": "andre-mendonca",
+    "alias": "André Mendonça"
+   },
+   {
+    "id": "a-turma",
+    "alias": "A Turma"
+   },
+   {
+    "id": "reag-trust-dtvm",
+    "alias": "CBSF DTVM"
+   },
+   {
+    "id": "grupo-multipar",
+    "alias": "Grupo Multipar"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2012-uniao-condenada-a-indenizar-a-caig-usina",
+  "entidades": [
+   {
+    "id": "usina-santa-tereza",
+    "alias": "Caig"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2013-08-28-stj-comeca-a-julgar-o-repetitivo-das",
+  "entidades": [
+   {
+    "id": "agu",
+    "alias": "AGU"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2020-08-stf-fixa-o-tema-826",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2022-06-22-presidencia-do-trf-1-suspende-pagamentos",
+  "entidades": [
+   {
+    "id": "trf-1",
+    "alias": "TRF-1"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-03-21-master-ingressa-na-acao-da-usina",
+  "entidades": [
+   {
+    "id": "usina-cansancao-de-sinimbu",
+    "alias": "Usina Cansanção de Sinimbu"
+   },
+   {
+    "id": "newton-ramos",
+    "alias": "Newton Ramos"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-08-29-agu-pede-suspensao-no-caso-tabu-stp-976",
+  "entidades": [
+   {
+    "id": "agu",
+    "alias": "AGU"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-10-05-banco-central-publica-regra-prudencial",
+  "entidades": [
+   {
+    "id": "bcb",
+    "alias": "Banco Central"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2023-12-valores-de-16-precatorios-depositados-em",
+  "entidades": [
+   {
+    "id": "agu",
+    "alias": "AGU"
+   },
+   {
+    "id": "cnj",
+    "alias": "CNJ"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-01-22-11a-turma-do-trf-1-acolhe-recurso-da",
+  "entidades": [
+   {
+    "id": "trf-1",
+    "alias": "TRF-1"
+   },
+   {
+    "id": "newton-ramos",
+    "alias": "Newton Ramos"
+   },
+   {
+    "id": "a-turma",
+    "alias": "A Turma"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-03-oficio-do-bc-cobra-comprovacao-dos",
+  "entidades": [
+   {
+    "id": "camilla-ramos",
+    "alias": "Camilla Ramos"
+   },
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "queiroga-vieira-queiroz-e-ramos-advocacia",
+    "alias": "QVQR"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-04-11-gilmar-recebe-vorcaro-e-advogados-do",
+  "entidades": [
+   {
+    "id": "stf",
+    "alias": "STF"
+   },
+   {
+    "id": "chiquinho-feitosa",
+    "alias": "Chiquinho Feitosa"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-06-11a-turma-do-trf-1-rejeita-recursos-da",
+  "entidades": [
+   {
+    "id": "trf-1",
+    "alias": "TRF-1"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2024-10-01-data-disputada-do-julgamento-da-alcidia",
+  "entidades": [
+   {
+    "id": "alessandro-vieira",
+    "alias": "Alessandro Vieira"
+   },
+   {
+    "id": "stf",
+    "alias": "STF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-01-presidencia-do-trf-1-nega-levantar-a",
+  "entidades": [
+   {
+    "id": "trf-1",
+    "alias": "TRF-1"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-06-03-alcidia-2a-turma-decide-3x2-pelo",
+  "entidades": [
+   {
+    "id": "camilla-ramos",
+    "alias": "Camilla Ramos"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-10-07-master-cede-r-1-44-bi-em-direitos-a",
+  "entidades": [
+   {
+    "id": "cnj",
+    "alias": "CNJ"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2025-12-18-newton-ramos-concede-liminar-em-causa-da",
+  "entidades": [
+   {
+    "id": "newton-ramos",
+    "alias": "Newton Ramos"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-04-estadao-revela-o-contrato-de-r-427-mi",
+  "entidades": [
+   {
+    "id": "camilla-ramos",
+    "alias": "Camilla Ramos"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-09-11-piaui-publica-relatorio-da-pf-sobre-o",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "PF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-09-22-cnj-manda-cancelar-16-precatorios-r-4-74",
+  "entidades": [
+   {
+    "id": "cnj",
+    "alias": "CNJ"
+   },
+   {
+    "id": "newton-ramos",
+    "alias": "Newton Ramos"
+   },
+   {
+    "id": "benedito-goncalves",
+    "alias": "Benedito Gonçalves"
+   },
+   {
+    "id": "agu",
+    "alias": "AGU"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-09-24-gilmar-leva-o-caso-raizen-ao-plenario",
+  "entidades": [
+   {
+    "id": "cnj",
+    "alias": "CNJ"
+   },
+   {
+    "id": "newton-ramos",
+    "alias": "Newton Ramos"
+   },
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "senado-federal",
+    "alias": "Senado"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-09-28-segunda-cautelar-do-cnj-e-oficios-de",
+  "entidades": [
+   {
+    "id": "cnj",
+    "alias": "CNJ"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-09-29-fachin-responde-a-gilmar",
+  "entidades": [
+   {
+    "id": "tcu",
+    "alias": "TCU"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-10-08-agu-pede-suspensao-nacional-de-execucoes",
+  "entidades": [
+   {
+    "id": "agu",
+    "alias": "AGU"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2026-10-14-sem-decisao-sobre-a-suspensao",
+  "entidades": [
+   {
+    "id": "cnj",
+    "alias": "CNJ"
+   },
+   {
+    "id": "newton-ramos",
+    "alias": "Newton Ramos"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "ev-2004-07-15-campanha-de-entrega",
+  "entidades": [
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "vol1",
+  "entidades": [
+   {
+    "id": "fabiano-zettel",
+    "alias": "Fabiano Zettel"
+   },
+   {
+    "id": "jair-bolsonaro",
+    "alias": "Jair Bolsonaro"
+   },
+   {
+    "id": "tarcisio-de-freitas",
+    "alias": "Tarcísio de Freitas"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "vol11",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "dias-toffoli",
+    "alias": "Dias Toffoli"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "vol15",
+  "entidades": [
+   {
+    "id": "cpi-do-crime-organizado",
+    "alias": "CPI do Crime Organizado"
+   },
+   {
+    "id": "andre-mendonca",
+    "alias": "André Mendonça"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "vol16",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "a-turma",
+    "alias": "A Turma"
+   },
+   {
+    "id": "bcb",
+    "alias": "Banco Central"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "vol26",
+  "entidades": [
+   {
+    "id": "pf",
+    "alias": "PF"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
+  "evento_id": "vol27",
+  "entidades": [
+   {
+    "id": "credcesta",
+    "alias": "Credcesta"
+   },
+   {
+    "id": "pf",
+    "alias": "PF"
+   },
+   {
+    "id": "psd",
+    "alias": "PSD"
+   }
+  ],
+  "papel": "citado"
+ }
+]

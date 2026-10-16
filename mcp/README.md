@@ -24,7 +24,7 @@ Funciona com o SDK 1.x (`FastMCP`) e 2.x (`MCPServer`). Rode scripts por caminho
 (a pasta `mcp/` do repo sombrearia o pacote do SDK).
 
 Variáveis opcionais: `LDT_DB` (sqlite), `LDT_DUMP` (dump.sql), `LDT_EXPORT_JSON=1` (após cada escrita roda também `scripts/exportar_json.py`;
-mais lento, ~1 s extra).
+mais lento, ~1 s extra). Variáveis do RAG: ver a seção "RAG" abaixo.
 
 ## Registro
 
@@ -80,6 +80,22 @@ Naturezas aceitas: `doc inv rep ale nc` · `fato_documentado alegacao opiniao` �
 
 **`inserir_video(video, trechos, cortes_sugeridos)`** — ver contrato abaixo.
 
+**`buscar_semantica(texto, tabelas=None, limite=20, k_fts=50)`** — busca híbrida: candidatos do FTS5 (`busca_fts`, consulta OR sem stopwords, top `k_fts`) ∪ top-`k_fts`
+vetorial; reordenação por RRF (`Σ 1/(60+posição)`). `tabelas` ⊂ `trecho evidencia relacao evento entidade` (+`nota`, só FTS). Cada resultado:
+`origem_tabela, origem_id, titulo, trecho, score` (+ `cos, rank_fts, rank_vetorial` e, conforme a tabela, `de/para/tipo/status`, `url`, `video_id`...).
+Envelope: `{"ok","provedor","metodo":"rrf(fts5, vetorial)"|"fts5","avisos":[…],"n_candidatos","resultados":[…]}`. Sem provedor ou sem vetores: só FTS e um aviso.
+```json
+{"texto": "venda do banco ao BRB", "tabelas": ["relacao","evento"], "limite": 5}
+```
+
+**`relacoes_similares(rotulo, de=None, para=None, limite=10, cos_min=None, tipo=None)`** — relações existentes cujo **rótulo** é próximo do informado.
+Com `de` e `para`: só aquele par (qualquer direção; `invertida:true` avisa). `cos_min` padrão = limiar do provedor (0,80 modelo real / 0,45 hash).
+Cada item traz `cos` e `reutilizaria_na_insercao` (mesmo `de,para,tipo` na mesma direção e `cos` ≥ limiar de dedup). Chame antes de inserir.
+```json
+{"rotulo": "Mesada mensal de R$ 300 mil", "de": "daniel-vorcaro", "para": "ciro-nogueira"}
+→ {"ok":true,"modelo":"hash-ngram-256-v1","limiar_cos":0.45,"limiar_dedup":0.6,"similares":[{"id":59,"rotulo":"Mesada de R$ 300-500 mil (segundo a PF)","cos":0.5497,"invertida":true,"reutilizaria_na_insercao":false,…}]}
+```
+
 **`resumo_banco()`** — contagens por tabela e distribuição de relações/cortes. **`exportar()`** — roda `scripts/exportar_json.py` e `scripts/validar.py` no banco
 configurado e devolve a saída e os códigos de saída (esses scripts gravam em `data/` do repo).
 
@@ -132,8 +148,34 @@ Comportamento:
   `relacoes_cobertas` casa por `(de, para, tipo)`, preferindo relações ligadas aos trechos deste vídeo.
 - **Entidade desconhecida** (em `entidades`, `relacoes` ou `relacoes_cobertas`): o vídeo inteiro é rejeitado, nada é gravado. Resposta:
   `{"ok":false,"erro":…,"nao_resolvidas":[{"id":"x","usado_em":["trechos[1].entidades"],"sugestoes":[{"id","nome","tipo","casou_por"}×≤3]}],"outros_erros":[…]}`.
+- **Dedup por embedding** (`dedup_por='embedding'`): quando o rótulo enviado não coincide exatamente com nenhuma relação, mas existe, no **mesmo `(de, para, tipo)` e mesma
+  direção**, uma relação com `cos(rótulo) ≥` limiar de dedup (0,90 modelo real / 0,60 hash; períodos de início em anos diferentes nunca se fundem), ela é **reutilizada**
+  (tratada como "relação existente": só ganha o vínculo com o trecho). A resposta lista `dedup:[{trecho, dedup_por, cos, relacao_id, rotulo_enviado, rotulo_existente}]`.
+  Vale também para `inserir_relacao` (campos `dedup_por`, `cos`, `rotulo_existente`; atualiza a relação existente em vez de criar). `LDT_DEDUP_EMBEDDING=0` desliga.
 - **Idempotente por `video.id`**: reenviar substitui trechos e cortes anteriores daquele vídeo (ids novos), sem duplicar relações; `status` do vídeo é preservado.
-- Sucesso: `{"ok":true,"video_id","trechos","cortes","relacoes_criadas":[ids],"relacoes_existentes_reutilizadas":[ids],"substituiu_insercao_anterior":null|{trechos,cortes},"avisos":[…],"dump":{…}}`.
+- Sucesso: `{"ok":true,"video_id","trechos","cortes","relacoes_criadas":[ids],"relacoes_existentes_reutilizadas":[ids],"dedup":[…],"substituiu_insercao_anterior":null|{trechos,cortes},"avisos":[…],"embeddings":{"status":"ok"|"ignorado","gerados":{…},"modelo"|"motivo"},"dump":{…}}`.
+
+## RAG (embeddings, `buscar_semantica`, dedup)
+
+- **Tabela** `embedding(origem_tabela, origem_id, modelo, dim, texto_hash, vetor BLOB float32)` (`scripts/schema_rag.sql`, idempotente; o servidor a cria na subida).
+  É **derivada**: não entra em `data/dump.sql` e some quando o banco é reconstruído por `importar.py` → rode `python3 scripts/embeddings.py` depois de importar.
+- **Caminho de busca ativo: numpy, não sqlite-vec.** `sqlite-vec` não pôde ser instalado no ambiente onde isto foi desenvolvido (PyPI inacessível pelo proxy); o código usa
+  o fallback puro previsto: vetores normalizados em BLOB e cosseno por produto escalar em numpy (tudo em memória a cada consulta; ~2 mil vetores × 256 dim < 1 ms).
+  Trocar por `vec0` só exigiria reescrever `scripts/embeddings.py:top_k` — a tabela `embedding` e as ferramentas continuam iguais.
+- **Provedor** (`LDT_EMBED_PROVIDER`, ver `scripts/embeddings.py`): `auto` (padrão) = `sentence-transformers` local se instalado e o modelo carregar
+  (`LDT_EMBED_MODEL`, padrão `intfloat/multilingual-e5-small`), senão `hash`. Explícitos: `st`, `openai`, `voyage`, `ollama` (chave em `LDT_EMBED_API_KEY` ou `OPENAI_API_KEY`/`VOYAGE_API_KEY`;
+  `LDT_EMBED_URL` para endpoint compatível/ollama) — **não testados contra a rede real**. `hash` = feature hashing de n-gramas de caracteres (3–5) + palavras + bigramas,
+  256 dim, determinístico, sem rede: **só captura sobreposição lexical** (sinônimos como "pagamento mensal" ↔ "mesada" não aproximam).
+  Cada vetor é guardado com o nome do modelo; trocar de provedor cria um segundo conjunto de vetores (reindexe; os antigos ficam até `--rebuild`/limpeza).
+- **Limiares de cosseno** (`LDT_SIM_MIN`, `LDT_SIM_DEDUP` sobrescrevem): modelo real 0,80/0,90; hash 0,45/0,60 (calibrado nos 367 rótulos atuais: nenhuma relação distinta do mesmo
+  `(de,para,tipo)` passa de 0,60; ver "Limitações"). Com e5, cosseno de textos não relacionados já costuma ficar em 0,7–0,8: **recalibre ao trocar para e5** (rode
+  `relacoes_similares` em pares conhecidos e ajuste `LDT_SIM_*`).
+- **Reindexar**: `python3 scripts/embeddings.py [--db …] [--rebuild] [--tabelas trecho,evidencia,relacao,evento,entidade]`. Pula linhas com mesmo modelo + mesmo hash do texto;
+  remove vetores órfãos. Referência (hash, 2 050 linhas + 367 rótulos = 2 417 vetores): ~1,1 s na primeira passada, ~0,04 s sem mudanças. Com modelo local/remoto o custo é
+  proporcional ao nº de linhas novas ou alteradas (e5-small em CPU: dezenas de ms por linha; API: 1 chamada por lote de 64).
+- **Na escrita**: `inserir_relacao`/`inserir_video` gravam, na mesma transação, os vetores de `relacao`, `relacao_rotulo` (só o rótulo, usado no dedup), `trecho` e da evidência do vídeo.
+  Sem provedor disponível a escrita **continua**, o dedup por embedding é pulado e a resposta traz `embeddings:{status:"ignorado", motivo}`; a linha fica sem vetor até
+  `scripts/embeddings.py`. `buscar_semantica` sem provedor/vetores cai para FTS; `relacoes_similares` sem provedor devolve `{ok:false}`.
 
 ## Limitações e o que acontece em falhas
 
@@ -149,5 +191,10 @@ Comportamento:
   Atenção: `validar.py` compara `data/*.json` com o export do banco; se a inserção criou um `tipo` de relação inédito, `tipos_relacao` de `entities.json` muda — rode `exportar()`.
 - Reinserir um vídeo apaga seus cortes anteriores, inclusive os já `aprovado`/`publicado` (a resposta traz um aviso). Relações criadas por uma versão anterior do mesmo vídeo
   permanecem (com `status='revisar'`) mesmo que a nova versão não as repita.
+- **Qualidade do fallback `hash`**: busca "venda do banco ao BRB" coloca a relação Banco Master↔BRB em 5º (entidades "Banco …" vêm antes por casarem em "banco"); dedup só
+  funde rótulos com palavras em comum (ex.: "Mesada de R$ 300 mil" ↔ "Mesada de R$ 300-500 mil (segundo a PF)": 0,66). Paráfrases reais exigem modelo de verdade.
+  Risco inverso no hash: rótulos curtos com mesmos números ("Carteiras inexistentes? (R$ 12,2 bi)" × "Carteiras negociadas (R$ 12,76 bi)": 0,48) ficam abaixo de 0,60, mas
+  isso é margem estreita. Relações fundidas por dedup continuam `status='revisar'` se novas; as existentes não mudam de natureza/status.
+- Evidências não estão no FTS (`busca_fts` não as indexa): em `buscar_semantica` elas só entram pelo lado vetorial.
 - `busca_fts` não é preenchida para `trecho` por `importar.py`; o servidor a sincroniza na subida e a cada escrita.
 - Entidades novas só entram por migração/script editorial, não por este servidor.

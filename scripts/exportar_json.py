@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exporta o banco para JSON (e regenera data/dump.sql). Só lê o banco.
 
-Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dump.sql.
+Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, dump.sql.
 Uso: python3 scripts/exportar_json.py [--db caminho.sqlite]
 """
 import argparse
@@ -29,7 +29,8 @@ def _st_inverso(con):
 
 def _fontes(con, tabela, col):
     out = defaultdict(list)
-    for r in con.execute(f"""SELECT x.{col} AS dono, e.veiculo, e.url FROM {tabela} x JOIN evidencia e ON e.id=x.evidencia_id
+    rot = "COALESCE(x.rotulo, e.veiculo)" if tabela == "evento_evidencia" else "e.veiculo"
+    for r in con.execute(f"""SELECT x.{col} AS dono, {rot} AS veiculo, e.url FROM {tabela} x JOIN evidencia e ON e.id=x.evidencia_id
                              ORDER BY x.{col}, x.ordem"""):
         out[r["dono"]].append([r["veiculo"], r["url"]])
     return out
@@ -41,10 +42,14 @@ def mapa_indices(con):
     ev = OrderedDict()
     for r in con.execute("SELECT id, origem_ref FROM evento WHERE origem_ref LIKE '%teia:EV[%'"):
         ev[int(re.search(r"teia:EV\[(\d+)\]", r["origem_ref"]).group(1))] = r["id"]
+    for r in con.execute("SELECT evento_id, origem_ref_original FROM evento_alias WHERE origem_ref_original LIKE '%teia:EV[%'"):
+        ev[int(re.search(r"teia:EV\[(\d+)\]", r["origem_ref_original"]).group(1))] = r["evento_id"]  # fundido: aponta para o evento mantido
+    alias = OrderedDict((r["alias"], r["evento_id"]) for r in con.execute("SELECT alias, evento_id FROM evento_alias ORDER BY alias"))
     return OrderedDict([
         ("versao", VERSAO),
-        ("descricao", "N: índice antigo (posição em teia.N) -> slug de entidade. EV: índice antigo em teia.EV -> id de evento."),
-        ("N", n), ("EV", OrderedDict((str(k), ev[k]) for k in sorted(ev)))])
+        ("descricao", "N: índice antigo (posição em teia.N) -> slug de entidade. EV: índice antigo em teia.EV -> id de evento "
+                      "(vários índices podem apontar para o mesmo id: eventos fundidos pela curadoria). evento_alias: id fundido -> id mantido."),
+        ("N", n), ("EV", OrderedDict((str(k), ev[k]) for k in sorted(ev))), ("evento_alias", alias)])
 
 
 def montar_teia(con):
@@ -184,11 +189,11 @@ def montar_series(con):
             del d["qualidade"]
         series.setdefault(r["indicador_id"], []).append(d)
     rank = [OrderedDict(_sem_nulos(dict(r))) for r in con.execute(
-        """SELECT r.ano, r.entidade_id, r.posicao, r.setor, r.setor_k, r.lucro_brl_bi, r.pct_total, r.controle, r.holding, r.derivado,
+        """SELECT r.ano, r.entidade_id, r.posicao, r.setor, r.setor_k, r.lucro_brl_bi, r.receita_brl_bi, r.pct_total, r.controle, r.holding, r.derivado,
                   r.cobertura, r.obs, e.url AS evidencia FROM ranking_empresa r LEFT JOIN evidencia e ON e.id=r.evidencia_id
            ORDER BY r.ano, r.posicao""")]
     mand = [OrderedDict(_sem_nulos(dict(r))) for r in con.execute(
-        "SELECT entidade_id, cargo, orgao_id, partido, uf, inicio, fim, motivo, votos FROM mandato ORDER BY id")]
+        "SELECT entidade_id, cargo, orgao_id, partido, uf, inicio, fim, motivo, votos, periodo_texto FROM mandato ORDER BY id")]
     banc = [OrderedDict(_sem_nulos(dict(r))) for r in con.execute(
         "SELECT legislatura, ano, casa, partido_id, nome_epoca, cadeiras, campo FROM bancada ORDER BY ano, casa, cadeiras DESC, partido_id")]
     return OrderedDict([("versao", VERSAO), ("gerado_em", TS_MIGRACAO), ("indicadores", inds), ("series", series),
@@ -219,13 +224,166 @@ def montar_entities(con):
         ("entidades", ents), ("indice_alias", indice)])
 
 
+# ---------------------------------------------------------------- dossiê e pares (formato embutido nas páginas)
+def _meta(con, chave):
+    r = con.execute("SELECT valor FROM meta WHERE chave=?", (chave,)).fetchone()
+    return r[0] if r else None
+
+
+def _notas(con, pagina, chave):
+    return con.execute("SELECT * FROM nota WHERE pagina=? AND chave=? ORDER BY ordem, id", (pagina, chave)).fetchall()
+
+
+def _texto(con, pagina, chave):
+    r = _notas(con, pagina, chave)
+    return r[0]["texto"] if r else ""
+
+
+def _lista(con, pagina, chave):
+    return [r["texto"] for r in _notas(con, pagina, chave)]
+
+
+def _pares_txt(con, pagina, chave):
+    """Listas de [a, b] guardadas como titulo=a, texto='a | b'."""
+    return [[r["titulo"], r["texto"][len(r["titulo"]) + 3:]] for r in _notas(con, pagina, chave)]
+
+
+def _eventos_brb(con, st_inv):
+    """30 eventos do dossiê.brb.eventos na ordem original: os que ainda existem + os fundidos (evento_alias.original_json)."""
+    itens = []
+    fontes = _fontes(con, "evento_evidencia", "evento_id")
+    for r in con.execute("SELECT * FROM evento WHERE canal='brb'"):
+        itens.append((int(re.fullmatch(r"dossie\.brb\.eventos\[(\d+)\]", r["origem_ref"]).group(1)),
+                      dict(r), fontes.get(r["id"], [])))
+    for r in con.execute("SELECT original_json FROM evento_alias WHERE canal_original='brb'"):
+        o = json.loads(r["original_json"])
+        itens.append((int(re.fullmatch(r"dossie\.brb\.eventos\[(\d+)\]", o["origem_ref"]).group(1)), o, [[f[0], f[1]] for f in o["fontes"]]))
+    out = []
+    for _, r, src in sorted(itens, key=lambda x: x[0]):
+        ctx = r["contexto"] or ""
+        ev = OrderedDict([("d", r["data_texto"] or r["data"]), ("t", r["titulo"]), ("x", r["descricao"] or ""),
+                          ("st", st_inv[r["natureza_id"]]), ("lado", re.match(r"lado: (\w+)", ctx).group(1))])
+        if "; crítico" in ctx:
+            ev["critico"] = True
+        ev["src"] = src
+        out.append(ev)
+    return out
+
+
+def montar_dossie(con):
+    st_inv = _st_inverso(con)
+    urls_par = defaultdict(list)
+    for r in con.execute("""SELECT x.par_id, x.rotulo, e.url FROM dossie_par_evidencia x JOIN evidencia e ON e.id=x.evidencia_id ORDER BY x.par_id, x.ordem"""):
+        urls_par[r["par_id"]].append([r["rotulo"], r["url"]])
+    pares = []
+    for r in con.execute("SELECT * FROM dossie_par WHERE sub=0 ORDER BY ordem"):
+        pares.append(OrderedDict([
+            ("ator", r["ator_texto"]), ("campo", r["campo"] or ""), ("partido", r["partido"] or ""), ("alavanca", r["alavanca"] or ""),
+            ("recebeu", r["recebeu"] or ""), ("ato", r["ato"] or ""), ("liga", r["liga"]), ("liga_x", r["liga_x"] or ""),
+            ("st", st_inv[r["natureza_id"]]), ("estagio", r["estagio"] or ""), ("resp", r["resposta"] or ""), ("src", urls_par[r["id"]])]))
+    entes = [OrderedDict([("n", r["nome_texto"]), ("uf", r["uf"] or ""), ("v", _num(r["valor_mi"])), ("gov", r["governante"] or ""),
+                          ("p", r["partido"] or ""), ("x", r["obs"] or ""), ("st", st_inv[r["natureza_id"]])])
+             for r in con.execute("SELECT * FROM previdencia_ente ORDER BY ordem")]
+
+    def pagamentos(cat):
+        out = []
+        for r in con.execute("SELECT * FROM pagamento WHERE categoria=? ORDER BY ordem", (cat,)):
+            d = OrderedDict([("n", r["nome_texto"]), ("v", _num(r["valor_mi"]))])
+            if cat == "contrato":
+                d["g"] = r["grupo"] or ""
+            if cat == "doacao":
+                d["de"] = r["de_texto"] or ""
+            out.append(d)
+        return out
+
+    def limites(tipo):
+        return list(con.execute("SELECT * FROM limite WHERE tipo=? ORDER BY ordem", (tipo,)))
+
+    placar = []
+    for r in _notas(con, "dossie", "tese.placar"):
+        arena, resultado = r["titulo"].split(": ", 1)
+        placar.append(OrderedDict([("arena", arena), ("resultado", resultado), ("x", r["texto"])]))
+    status = OrderedDict((k, _texto(con, "dossie", f"meta.status.{k}")) for k in ("doc", "inv", "rep", "ale", "nc"))
+    return OrderedDict([
+        ("meta", OrderedDict([("titulo", _meta(con, "dossie.titulo")), ("data_base", _meta(con, "dossie.data_base")),
+                              ("aviso", _texto(con, "dossie", "meta.aviso")), ("status", status),
+                              ("paginas", json.loads(_texto(con, "dossie", "meta.paginas")))])),
+        ("tese", OrderedDict([("pergunta", _texto(con, "dossie", "tese.pergunta")), ("resposta", _texto(con, "dossie", "tese.resposta")),
+                              ("placar", placar)])),
+        ("brb", OrderedDict([("hipotese", _texto(con, "dossie", "brb.hipotese")), ("sustenta", _lista(con, "dossie", "brb.sustenta")),
+                             ("nao_sustenta", _lista(con, "dossie", "brb.nao_sustenta")),
+                             ("valores", _pares_txt(con, "dossie", "brb.valores")), ("eventos", _eventos_brb(con, st_inv)),
+                             ("alternativas", _pares_txt(con, "dossie", "brb.alternativas"))])),
+        ("mercado", OrderedDict([("intro", _texto(con, "dossie", "mercado.intro")), ("pares", pares)])),
+        ("maquina", OrderedDict([("intro", _texto(con, "dossie", "maquina.intro")),
+                                 ("indicios", [OrderedDict([("t", r["titulo"]), ("x", r["texto"]), ("contra", r["contra"]), ("forca", r["forca"])])
+                                               for r in con.execute("SELECT * FROM indicio_maquina ORDER BY ordem")])])),
+        ("previdencia", OrderedDict([("intro", _texto(con, "dossie", "previdencia.intro")), ("entes", entes),
+                                     ("intermediarios", _pares_txt(con, "dossie", "previdencia.intermediarios")),
+                                     ("contraprova", _lista(con, "dossie", "previdencia.contraprova")),
+                                     ("fonte", _pares_txt(con, "dossie", "previdencia.fonte"))])),
+        ("dinheiro", OrderedDict([("intro", _texto(con, "dossie", "dinheiro.intro")), ("contratos", pagamentos("contrato")),
+                                  ("midia", pagamentos("midia")), ("doacoes", pagamentos("doacao")),
+                                  ("notas", _lista(con, "dossie", "dinheiro.notas")), ("fonte", _pares_txt(con, "dossie", "dinheiro.fonte"))])),
+        ("limites", OrderedDict([("derrubado", [[r["titulo"], r["texto"]] for r in limites("derrubado")]),
+                                 ("aberto", [r["texto"] for r in limites("aberto")]),
+                                 ("agenda", [[r["data_texto"], r["texto"]] for r in limites("agenda")])]))])
+
+
+def montar_pares(con):
+    iso_de = {r["entidade_id"]: r["alias"] for r in con.execute(
+        "SELECT a.entidade_id, a.alias FROM entidade_alias a JOIN entidade e ON e.id=a.entidade_id WHERE e.tipo='pais' AND a.tipo_alias='sigla'")}
+    nome_de = {r["id"]: r["nome"] for r in con.execute("SELECT id, nome FROM entidade WHERE tipo='pais'")}
+    ordem = json.loads(_meta(con, "pares.ordem_paises"))
+    paises = OrderedDict((iso, next(nome_de[e] for e, i in iso_de.items() if i == iso)) for iso in ordem)
+    inds = OrderedDict()
+    pisa_ids = {"pares.pisa_leitura", "pares.pisa_matematica", "pares.pisa_ciencias", "pares.pisa_matematica_estado"}
+    for r in con.execute("SELECT * FROM indicador WHERE dominio='pares' ORDER BY rowid"):
+        if r["id"] in pisa_ids:
+            continue
+        m = re.fullmatch(r"grupo=(.*); fmt=(.*)", r["descricao"])
+        inds[r["id"][len("pares."):]] = OrderedDict([("grupo", m.group(1)), ("nome", r["nome"]), ("unidade", r["unidade"]),
+                                                       ("fonte", r["fonte_padrao"]), ("fmt", m.group(2)), ("dados", OrderedDict())])
+    pisa = OrderedDict()
+    for r in con.execute("SELECT s.indicador_id, s.ano, s.dimensao, s.valor, s.obs FROM serie s JOIN indicador i ON i.id=s.indicador_id WHERE i.dominio='pares' ORDER BY s.indicador_id, s.dimensao, s.ano"):
+        iso = re.match(r"pais=([A-Z]{3})", r["dimensao"]).group(1)
+        if r["indicador_id"] in pisa_ids:
+            d = pisa.setdefault(iso, OrderedDict()).setdefault(str(r["ano"]), OrderedDict())
+            if r["indicador_id"] == "pares.pisa_matematica_estado":
+                d.setdefault("matematica_por_estado", OrderedDict())[r["dimensao"].split("estado=", 1)[1]] = _num(r["valor"])
+            else:
+                d[r["indicador_id"].split("pisa_", 1)[1]] = _num(r["valor"])
+            if r["obs"]:
+                d["cobertura"] = r["obs"]
+        else:
+            inds[r["indicador_id"][len("pares."):]]["dados"].setdefault(iso, OrderedDict())[str(r["ano"])] = _num(r["valor"])
+    pi = con.execute("SELECT * FROM indicador WHERE id='pares.pisa_leitura'").fetchone()
+    foruns = OrderedDict()
+    for iso in ordem:
+        pais = next(e for e, i in iso_de.items() if i == iso)
+        rows = {r["forum"]: r for r in con.execute("SELECT * FROM forum WHERE pais_entidade_id=?", (pais,))}
+        f = OrderedDict([("G20", rows["G20"]["status_texto"]), ("BRICS", rows["BRICS"]["status_texto"]), ("OCDE", rows["OCDE"]["status_texto"]),
+                         ("CSNU", json.loads(rows["CSNU"]["anos"]) if rows["CSNU"]["anos"] else rows["CSNU"]["status_texto"]),
+                         ("nuclear", rows["nuclear"]["status_texto"] == "sim")])
+        if rows["nuclear"]["primeiro_teste"] is not None:
+            f["primeiro_teste_nuclear"] = rows["nuclear"]["primeiro_teste"]
+        foruns[iso] = f
+    notas = OrderedDict()
+    for grp in ("pib_idh", "educacao", "peso_economico", "influencia_inovacao"):
+        notas[grp] = _lista(con, "pares", f"notas.{grp}")
+    return OrderedDict([("gerado_em", _meta(con, "pares.gerado_em")), ("anos", json.loads(_meta(con, "pares.anos"))), ("paises", paises),
+                        ("indicadores", inds), ("pisa", OrderedDict([("nome", pi["descricao"]), ("fonte", pi["fonte_padrao"]), ("dados", pisa)])),
+                        ("foruns", foruns), ("notas", notas)])
+
+
 def salvar(nome, obj):
     (DATA / nome).write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 def todos(con):
     return {"entities.json": montar_entities(con), "teia.json": montar_teia(con), "origens.json": montar_origens(con),
-            "series.json": montar_series(con), "mapa_indices.json": mapa_indices(con)}
+            "series.json": montar_series(con), "mapa_indices.json": mapa_indices(con),
+            "dossie.json": montar_dossie(con), "pares.json": montar_pares(con)}
 
 
 def main():
