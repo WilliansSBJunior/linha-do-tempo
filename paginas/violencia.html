@@ -1,0 +1,1813 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ritmo da violência</title>
+<meta name="description" content="Ritmo da violência: o total anual de homicídios no Brasil convertido em tempo, um ano por vez ou todos lado a lado.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23171c1a'/%3E%3Cg stroke='%23f3f4f1' stroke-width='1.6' opacity='.7'%3E%3Cpath d='M16 16 7 8M16 16l9-7M16 16l-9 9M16 16l10 8M7 8l18 1M7 25l19-1'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='4.5' fill='%23eb6834'/%3E%3Ccircle cx='7' cy='8' r='2.6' fill='%231baf7a'/%3E%3Ccircle cx='25' cy='9' r='2.6' fill='%232a78d6'/%3E%3Ccircle cx='7' cy='25' r='2.6' fill='%23eda100'/%3E%3Ccircle cx='26' cy='24' r='2.6' fill='%23e87ba4'/%3E%3C/svg%3E">
+<script src="comum.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root{color-scheme:light;box-sizing:border-box}
+body{margin:0;padding:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]:not([hidden=until-found i]){display:none!important}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: uma coluna estreita; o anel é o centro de gravidade, controles abaixo, fontes no fim. */
+:root {
+  --bg: #eef0f2;
+  --surface: #e3e6ea;
+  --line: #c3c9d0;
+  --ink: #1d232b;
+  --muted: #5a636e;
+  --ring: #3b4654;
+  --glow: #8a7a5c;
+  --track: #d3d8de;
+  --figure: #2f3945;
+  --eye: #eef0f2;
+  --mark: #6d6247;
+  /* grupos (paleta categórica validada para daltonismo): 1 azul, 2 laranja, 0 neutro */
+  --g1: #2a78d6;
+  --g2: #eb6834;
+  --g0: #a2a8b0;
+  --g3: #1baf7a;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --step--1: 0.8125rem;
+  --step-0: 0.9375rem;
+  --step-1: 1.125rem;
+  --step-2: 1.5rem;
+  --step-3: 2.125rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101317;
+    --surface: #171b21;
+    --line: #2d343d;
+    --ink: #dde1e6;
+    --muted: #8d96a1;
+    --ring: #c9ccd0;
+    --glow: #e6d9b8;
+    --track: #232931;
+    --figure: #c9ced5;
+    --eye: #101317;
+    --mark: #d8c9a4;
+    --g1: #3987e5;
+    --g2: #d95926;
+    --g0: #737b86;
+    --g3: #199e70;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101317;
+  --surface: #171b21;
+  --line: #2d343d;
+  --ink: #dde1e6;
+  --muted: #8d96a1;
+  --ring: #c9ccd0;
+  --glow: #e6d9b8;
+  --track: #232931;
+  --figure: #c9ced5;
+  --eye: #101317;
+  --mark: #d8c9a4;
+  --g1: #3987e5;
+  --g2: #d95926;
+  --g0: #737b86;
+  --g3: #199e70;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+.page {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding-inline: 16px;
+  padding-block: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow-x: clip;
+}
+header { display: flex; flex-direction: column; gap: 6px; }
+.eyebrow {
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-3);
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+.lede { margin: 0; color: var(--muted); max-width: 60ch; }
+
+/* Modo (fica acima do anel, porque muda o que o anel significa) */
+.seg { display: flex; gap: 6px; }
+.seg button {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 6px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 4px;
+  font: inherit;
+  font-size: var(--step--1);
+  line-height: 1.2;
+  cursor: pointer;
+}
+.seg button[aria-pressed="true"] { border-color: var(--ring); background: var(--surface); font-weight: 600; }
+button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* Ritmo */
+.rhythm { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.ring-wrap {
+  position: relative;
+  width: min(80vw, 300px);
+  aspect-ratio: 1;
+  max-width: 100%;
+}
+.ring-wrap svg.ring { width: 100%; height: 100%; display: block; overflow: visible; }
+.ring .track { fill: none; stroke: var(--track); stroke-width: 6; }
+.ring .bar { fill: none; stroke: var(--ring); stroke-width: 6; stroke-linecap: butt; }
+.ring .tick { stroke: var(--line); stroke-width: 1; }
+.ring .tick.major { stroke: var(--muted); }
+.ring .marks circle { fill: var(--mark); }
+.ring .hour-label { fill: var(--muted); font-family: var(--font-body); font-size: 8px; text-anchor: middle; dominant-baseline: middle; }
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  pointer-events: none;
+  text-align: center;
+}
+.center .small { font-size: var(--step--1); color: var(--muted); line-height: 1.3; font-variant-numeric: tabular-nums; }
+.center .clock { font-family: var(--font-display); font-size: 2.5rem; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; }
+.center .clock .u { font-family: var(--font-body); font-size: 0.9rem; color: var(--muted); margin-left: 2px; }
+.center .count { font-size: var(--step-0); font-variant-numeric: tabular-nums; }
+.center .flash { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.center .flash .clock { font-size: 2.125rem; }
+.fig-slot { width: 56px; height: 64px; position: relative; }
+.figure { position: absolute; left: 50%; top: 50%; width: 44px; height: 52px; transform: translate(-50%, -50%); }
+.figure svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.ghost-body { fill: var(--fig-color, var(--figure)); fill-opacity: 0.82; }
+.ghost-eye { fill: var(--eye); }
+.light-dot {
+  position: absolute; left: 50%; top: 50%;
+  width: 32%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--fig-color, var(--glow));
+  box-shadow: 0 0 10px 3px color-mix(in srgb, var(--glow) 55%, transparent), 0 0 24px 8px color-mix(in srgb, var(--glow) 20%, transparent);
+}
+.figure.resting { opacity: 1; transition: opacity 600ms ease; }
+.figure.resting.dim { opacity: 0; transition: none; }
+
+/* Figuras que sobem. Tamanho e distância dependem do modo. */
+.floater {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: rise var(--dur, 2600ms) cubic-bezier(.33,0,.4,1) forwards;
+  will-change: transform, opacity;
+}
+.floater svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.floater.sz-l { width: 44px; height: 52px; --rise: -190px; --dur: 2600ms; }
+.floater.sz-m { width: 24px; height: 28px; --rise: -84px; --dur: 2400ms; }
+.floater.sz-s { width: 11px; height: 13px; --rise: -40px; --dur: 1500ms; }
+.floater.sz-s .light-dot { box-shadow: 0 0 4px 1px color-mix(in srgb, var(--glow) 55%, transparent); }
+.floater.sz-s .ghost-body { fill-opacity: 0.9; }
+@keyframes rise {
+  0%   { transform: translate(-50%, -50%) translate(0, 0); opacity: 0.95; }
+  70%  { opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) translate(var(--dx, 0px), var(--rise, -190px)) scale(0.85); opacity: 0; }
+}
+
+.ring-caption { margin: 0; font-size: var(--step--1); color: var(--muted); text-align: center; }
+.statement {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.25;
+  text-align: center;
+  margin: 0;
+  text-wrap: balance;
+  font-variant-numeric: tabular-nums;
+}
+.total { margin: 0; color: var(--muted); text-align: center; font-variant-numeric: tabular-nums; font-size: var(--step--1); }
+
+.notice {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 12px 14px;
+  font-size: var(--step--1);
+  color: var(--ink);
+  margin: 0;
+  border-radius: 4px;
+}
+.notice strong { font-weight: 600; }
+
+/* Contadores */
+.counters { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.counter { display: flex; flex-direction: column; gap: 4px; min-width: 0; padding-top: 10px; border-top: 1px solid var(--line); }
+.counter .label { font-size: var(--step--1); color: var(--muted); line-height: 1.35; }
+.counter .value { font-family: var(--font-display); font-size: var(--step-3); line-height: 1; font-variant-numeric: tabular-nums; }
+.counter .sub { font-size: var(--step--1); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Controles */
+.controls { display: flex; flex-direction: column; gap: 22px; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+legend { padding: 0; margin-bottom: 8px; font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.hint { margin: 0; font-size: var(--step--1); color: var(--muted); }
+
+/* Seletor de ano: gráfico de barras arrastável */
+.yp-head { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 8px; }
+.yp-step {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: 4px;
+  background: transparent; color: var(--ink); cursor: pointer; padding: 0;
+}
+.yp-step svg { width: 18px; height: 18px; display: block; }
+.yp-step path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.yp-step:disabled { opacity: 0.35; cursor: default; }
+.yp-current { display: flex; flex-direction: column; align-items: center; line-height: 1.15; min-width: 0; }
+.yp-current .y { font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; font-variant-numeric: tabular-nums; }
+.yp-current .v { font-size: var(--step--1); color: var(--muted); font-variant-numeric: tabular-nums; }
+.yp-chart {
+  position: relative;
+  height: 84px;
+  padding-top: 6px;
+  touch-action: pan-y;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  border-bottom: 1px solid var(--line);
+}
+.yp-bars { position: absolute; inset: 6px 0 0 0; display: grid; align-items: end; gap: 1px; }
+.yp-bar { display: block; height: 100%; position: relative; }
+.yp-bar i { position: absolute; left: 0; right: 0; bottom: 0; background: var(--line); }
+.yp-bar.sel i { background: var(--ring); }
+.yp-bar.sel::after {
+  content: ""; position: absolute; left: 50%; bottom: 100%; margin-bottom: -2px;
+  width: 0; height: 0; transform: translateX(-50%);
+}
+.yp-bar.gap i { background: transparent; border: 1px dashed var(--line); border-bottom: 0; height: 30% !important; }
+.yp-break { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--muted); opacity: 0.7; }
+.yp-axis { position: relative; height: 18px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.yp-axis span { position: absolute; top: 2px; transform: translateX(-50%); white-space: nowrap; }
+.yp-axis span::before { content: ""; position: absolute; left: 50%; top: -4px; height: 4px; border-left: 1px solid var(--line); }
+
+footer { display: flex; flex-direction: column; gap: 10px; font-size: var(--step--1); color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+footer p { margin: 0; }
+footer a { color: var(--ink); }
+.src-wrap { overflow-x: auto; }
+.src { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.src th, .src td { text-align: left; padding: 6px 10px 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.src th { font-weight: 600; color: var(--ink); }
+.src td:first-child { white-space: nowrap; }
+.src td a { overflow-wrap: anywhere; }
+
+/* Recorte por grupo */
+.cuts { display: flex; flex-direction: column; gap: 6px; }
+.cuts .label { font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.ring-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; font-size: var(--step--1); color: var(--ink); margin: 0; padding: 0; list-style: none; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.comp { display: flex; flex-direction: column; gap: 14px; border-top: 1px solid var(--line); padding-top: 16px; min-width: 0; }
+.comp h2 { margin: 0; font-family: var(--font-display); font-size: var(--step-1); font-weight: 600; }
+.cbar { display: flex; gap: 2px; height: 22px; width: 100%; }
+.cbar span { display: block; height: 100%; min-width: 2px; }
+.cbar span:first-child { border-radius: 4px 0 0 4px; }
+.cbar span:last-child { border-radius: 0 4px 4px 0; }
+.clist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-variant-numeric: tabular-nums; }
+.clist li { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.clist .pct { font-weight: 600; }
+.clist .n { color: var(--muted); font-size: var(--step--1); }
+.c100 { margin: 0; font-family: var(--font-display); font-size: var(--step-1); line-height: 1.35; }
+.dots { display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px; max-width: 320px; }
+.dots i { display: block; aspect-ratio: 1; border-radius: 50%; }
+.cnote { margin: 0; font-size: var(--step--1); color: var(--muted); }
+.cnote strong { color: var(--ink); font-weight: 600; }
+.cnote a { color: var(--ink); }
+.crhythm { margin: 0; }
+.evo-head { display: flex; justify-content: space-between; gap: 8px; font-size: var(--step--1); color: var(--muted); flex-wrap: wrap; }
+.evo-head b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.evo { width: 100%; height: auto; display: block; touch-action: pan-y; cursor: pointer; user-select: none; -webkit-user-select: none; }
+.evo text { fill: var(--muted); font-family: var(--font-body); font-size: 10px; }
+.evo .gap { fill: none; stroke: var(--line); stroke-dasharray: 2 2; }
+.evo .selbox { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.evo .axis { stroke: var(--line); }
+.evo .brk { stroke: var(--muted); stroke-dasharray: 3 3; }
+.cell .mbar { display: flex; gap: 1px; width: 80%; height: 5px; margin-top: 2px; }
+.cell .mbar span { display: block; height: 100%; }
+.cell.nodata canvas, .cell.nodata .cr { opacity: 0.45; }
+.cell .cp { font-size: 11px; line-height: 1.25; font-variant-numeric: tabular-nums; color: var(--ink); text-align: center; }
+
+.marcos { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.marcos details { border-bottom: 1px solid var(--line); }
+.marcos summary { min-height: 44px; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: var(--step--1); list-style: none; padding: 6px 0; }
+.marcos summary::-webkit-details-marker { display: none; }
+.marcos .mnum { width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--muted); display: inline-grid; place-items: center; font-size: 11px; flex: none; }
+.marcos details[open] .mnum { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.marcos .mdate { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 6.5em; }
+.marcos p { margin: 0 0 10px 30px; font-size: var(--step--1); color: var(--ink); }
+.marcos a, .rate-box a { color: var(--ink); }
+.marcos-box, .rate-box { display: flex; flex-direction: column; gap: 8px; }
+.evo .marco-l { stroke: var(--ink); stroke-opacity: 0.35; stroke-width: 1; }
+.evo .marco-l.sel { stroke-opacity: 1; stroke-width: 1.6; }
+.evo .marco-t { fill: var(--ink); font-size: 10px; font-weight: 600; }
+.evo .rl { fill: var(--ink); font-size: 10px; }
+
+[hidden] { display: none !important; }
+.view-one, .view-all { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.page.wide { max-width: 76rem; }
+.page.wide .notice, .page.wide footer > p { max-width: 70ch; }
+.views { max-width: 22rem; margin-top: 8px; }
+
+/* Barra de modo: fica visível ao rolar */
+.toolbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  padding-block: 8px;
+  margin-block: -8px;
+  display: flex; flex-direction: column; gap: 6px;
+  border-bottom: 1px solid transparent;
+}
+.page.wide .toolbar { border-bottom-color: var(--line); }
+.status { margin: 0; font-size: var(--step--1); color: var(--ink); font-variant-numeric: tabular-nums; text-align: center; min-height: 1.5em; }
+.status .muted { color: var(--muted); }
+.all-caption { margin: 0; color: var(--muted); font-size: var(--step--1); }
+
+/* Grade de todos os anos */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 14px 10px; }
+.cell {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  min-width: 0; padding: 4px 2px 6px;
+  border: 1px solid transparent; border-radius: 4px;
+  background: transparent; color: var(--ink); font: inherit; cursor: pointer;
+}
+.cell:hover { border-color: var(--line); }
+.cell .cy { font-family: var(--font-display); font-weight: 600; font-size: var(--step-1); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.cell canvas { width: 100%; aspect-ratio: 1; max-width: 140px; display: block; }
+.cell .cr { font-size: 12px; color: var(--ink); line-height: 1.25; text-align: center; font-variant-numeric: tabular-nums; }
+.cell .ct { font-size: 11px; color: var(--muted); line-height: 1.25; font-variant-numeric: tabular-nums; }
+.grid-break {
+  grid-column: 1 / -1;
+  border-top: 1px dashed var(--muted);
+  padding-top: 6px;
+  font-size: 11px; color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .figure.resting { transition: none; }
+}
+</style>
+<style>
+:root{--site-max:76rem}
+/* Site: barra de volta e rodapé (só quando a página abre sozinha) */
+.sitenav{background:var(--surface);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.sitenav-in{max-width:var(--site-max,1360px);margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
+.sn-back{font-size:13.5px;text-decoration:none;color:var(--ink);font-weight:600;white-space:nowrap}
+.sn-back:hover{text-decoration:underline}
+.sn-brand{font-size:12.5px;color:var(--ink2,var(--muted,var(--ink3)));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sitefoot{border-top:1px solid var(--line);background:var(--surface);color:var(--ink2,var(--muted,var(--ink3)));font-size:13px;line-height:1.55}
+.sitefoot-in{max-width:var(--site-max,1360px);margin:0 auto;padding:18px 16px 28px;display:flex;flex-direction:column;gap:8px}
+.sitefoot b{color:var(--ink);font-weight:600}
+.sitefoot p{margin:0;max-width:110ch}
+.sitefoot a{color:var(--ink)}
+html.embutida{overflow:hidden}
+html.embutida .sitenav,html.embutida .sitefoot{display:none}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Projeto"><div class="sitenav-in"><a class="sn-back" href="../index.html#violencia">← Página completa</a><span class="sn-brand">Linha do tempo política do Brasil</span></div></nav>
+<main class="page">
+  <header>
+    <p class="eyebrow">Linha do tempo do Brasil · Mapa da violência</p>
+    <h1>Ritmo da violência</h1>
+    <p class="lede">O total anual de homicídios no Brasil convertido em tempo. Veja um ano por vez ou todos lado a lado.</p>
+    <div class="seg views" id="views" role="group" aria-label="Visão">
+      <button type="button" id="view-one" data-view="one" aria-pressed="true">Um ano</button>
+      <button type="button" id="view-all" data-view="all" aria-pressed="false">Todos os anos</button>
+    </div>
+  </header>
+
+  <div class="toolbar" id="toolbar">
+    <div class="seg" id="modes" role="group" aria-label="Modo de leitura">
+      <button type="button" id="mode-real" data-mode="real" aria-pressed="true">Tempo real</button>
+      <button type="button" id="mode-hour" data-mode="hour" aria-pressed="false">1 hora em 1 minuto</button>
+      <button type="button" id="mode-day" data-mode="day" aria-pressed="false">1 dia em 1 minuto</button>
+    </div>
+    <p class="status" id="allStatus" hidden>&nbsp;</p>
+  </div>
+
+  <div class="cuts">
+    <span class="label">Recorte das vítimas</span>
+    <div class="seg" id="cuts" role="group" aria-label="Recorte">
+      <button type="button" id="cut-total" data-cut="total" aria-pressed="true">Total</button>
+      <button type="button" id="cut-sexo" data-cut="sexo" aria-pressed="false">Sexo</button>
+      <button type="button" id="cut-idade" data-cut="idade" aria-pressed="false">Idade</button>
+      <button type="button" id="cut-raca" data-cut="raca" aria-pressed="false">Raça/cor</button>
+      <button type="button" id="cut-arma" data-cut="arma" aria-pressed="false">Arma de fogo</button>
+    </div>
+    <div class="seg" id="ages" role="group" aria-label="Faixa etária" hidden>
+      <button type="button" id="age-1529" data-age="1529" aria-pressed="true">15 a 29 anos</button>
+      <button type="button" id="age-019" data-age="019" aria-pressed="false">0 a 19 anos</button>
+      <button type="button" id="age-F" data-age="F" aria-pressed="false">0 a 19, por faixa</button>
+      <button type="button" id="age-60" data-age="60" aria-pressed="false">60 anos ou mais</button>
+    </div>
+  </div>
+
+  <div class="view-all" id="viewAll" hidden>
+    <p class="all-caption" id="allCaption">&nbsp;</p>
+    <p class="notice"><strong>Média estatística de cada ano, não mortes acontecendo agora.</strong> Todos os anéis partem do mesmo instante. Com um recorte ativo, a cor de cada marca segue a proporção do grupo no ano, não um caso real. Toque num ano para abri-lo sozinho.</p>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="view-one" id="viewOne">
+  <section class="rhythm" aria-label="Ritmo do ano escolhido">
+    <div class="ring-wrap" id="ringWrap">
+      <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+        <g id="ticks"></g>
+        <g id="hourLabels"></g>
+        <circle class="track" cx="100" cy="100" r="84"></circle>
+        <circle class="bar" id="bar" cx="100" cy="100" r="84" transform="rotate(-90 100 100)"></circle>
+        <g class="marks" id="marks"></g>
+      </svg>
+      <div class="center">
+        <div id="cReal">
+          <div class="fig-slot" id="figSlot"><div class="figure resting" id="restFig"></div></div>
+          <div class="small" id="cNext">&nbsp;</div>
+        </div>
+        <div id="cClock" hidden>
+          <div class="small" id="cPeriod">&nbsp;</div>
+          <div class="clock" id="cTime">00:00</div>
+          <div class="count" id="cCount">&nbsp;</div>
+        </div>
+        <div class="flash" id="cFlash" hidden>
+          <div class="small" id="fTitle">&nbsp;</div>
+          <div class="clock" id="fValue">&nbsp;</div>
+          <div class="count" id="fSub">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+    <p class="ring-caption" id="ringCaption">&nbsp;</p>
+    <ul class="ring-legend" id="ringLegend" hidden></ul>
+    <p class="statement" id="statement" aria-live="polite">&nbsp;</p>
+    <p class="total" id="total">&nbsp;</p>
+  </section>
+
+  <section class="comp" id="comp" hidden aria-label="Composição das vítimas">
+    <h2 id="compTitle">&nbsp;</h2>
+    <div id="compBody">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="cbar" id="cbar" aria-hidden="true"></div>
+        <ul class="clist" id="clist"></ul>
+        <p class="c100" id="c100">&nbsp;</p>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+        <p class="crhythm" id="crhythm">&nbsp;</p>
+        <p class="cnote" id="crates" hidden>&nbsp;</p>
+      </div>
+    </div>
+    <p class="cnote" id="compEmpty" hidden>&nbsp;</p>
+    <div>
+      <div class="evo-head"><span id="evoTitle">&nbsp;</span><span id="evoRead">&nbsp;</span></div>
+      <svg class="evo" id="evo" viewBox="0 0 460 132" role="img" aria-label="Evolução da composição ao longo dos anos"></svg>
+    </div>
+    <div class="marcos-box" id="marcosBox" hidden>
+      <p class="cnote"><strong>Marcos legais sobre armas.</strong> As linhas finas no gráfico marcam as datas. Elas aparecem ao lado da curva só como referência; a página não afirma relação de causa e efeito. Toque num marco para ver o que ele estabeleceu.</p>
+      <div class="marcos" id="marcos"></div>
+    </div>
+    <div class="rate-box" id="rateBox" hidden>
+      <div class="evo-head"><span>Taxa de homicídio por 100 mil habitantes do próprio grupo <span class="sw" style="background:var(--g1);margin-left:6px"></span>negros <span class="sw" style="background:var(--g2);margin-left:6px"></span>não negros</span><span id="rateRead">&nbsp;</span></div>
+      <svg class="evo" id="rateSvg" viewBox="0 0 460 140" role="img" aria-label="Taxas de homicídio de negros e não negros por ano"></svg>
+      <p class="cnote">A taxa compara o risco de cada grupo, independentemente do tamanho da população. Valores de 2004 a 2024 de várias edições do Atlas da Violência (tabelas 5.1 e 5.2 de 2016 e 2017, infográficos e imprensa nos demais anos); anos sem taxa publicada ficam sem ponto.</p>
+    </div>
+    <p class="cnote" id="compSrc">&nbsp;</p>
+  </section>
+
+  <p class="notice"><strong>Média estatística, não tempo real dos fatos.</strong> O ritmo vem do total de homicídios registrados no ano escolhido, dividido igualmente pela duração desse ano. Nada aqui indica que alguém está sendo morto neste instante. Com um recorte ativo, a cor de cada marca é atribuída na proporção do grupo naquele ano; não corresponde a um caso real.</p>
+
+  <section class="counters" aria-label="Contadores">
+    <div class="counter">
+      <span class="label">Desde que você abriu esta página</span>
+      <span class="value" id="realCount">0</span>
+      <span class="sub" id="realSub">&nbsp;</span>
+    </div>
+    <div class="counter">
+      <span class="label" id="simLabel">&nbsp;</span>
+      <span class="value" id="simCount">0</span>
+      <span class="sub" id="simSub">&nbsp;</span>
+    </div>
+  </section>
+
+  <section class="controls" aria-label="Controles">
+    <fieldset>
+      <legend>Ano</legend>
+      <div class="yp-head">
+        <button type="button" class="yp-step" id="prevYear" aria-label="Ano anterior"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6"></path></svg></button>
+        <div class="yp-current" aria-live="polite"><span class="y" id="ypYear">&nbsp;</span><span class="v" id="ypVal">&nbsp;</span></div>
+        <button type="button" class="yp-step" id="nextYear" aria-label="Próximo ano"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4l6 6-6 6"></path></svg></button>
+      </div>
+      <div class="yp-chart" id="ypChart" role="slider" tabindex="0" aria-label="Ano">
+        <div class="yp-bars" id="ypBars"></div>
+      </div>
+      <div class="yp-axis" id="ypAxis"></div>
+      <p class="hint">Toque ou arraste sobre as barras. A altura de cada barra é o total de homicídios do ano. A linha tracejada marca a troca de fonte entre 2003 e 2004.</p>
+    </fieldset>
+  </section>
+  </div>
+
+  <fieldset>
+    <legend>Figura</legend>
+    <div class="seg" id="figures">
+      <button type="button" id="fig-ghost" data-fig="ghost" aria-pressed="true">Fantasminha</button>
+      <button type="button" id="fig-light" data-fig="light" aria-pressed="false">Ponto de luz</button>
+    </div>
+  </fieldset>
+
+  <footer>
+    <p>Dados do Sistema de Informações sobre Mortalidade (SIM/DataSUS, Ministério da Saúde). De 1980 a 2003, a série publicada no Mapa da Violência 2012 (J. J. Waiselfisz). De 2004 em diante, as tabelas do Atlas da Violência (Ipea e Fórum Brasileiro de Segurança Pública), usando para cada ano a edição mais recente conferida. O Atlas soma agressões e intervenções legais (CID-10 X85–Y09 e Y35–Y36); por isso a passagem de 2003 para 2004 não é estritamente comparável.</p>
+    <div class="src-wrap">
+      <table class="src">
+        <thead><tr><th>Anos</th><th>Publicação e tabela</th></tr></thead>
+        <tbody id="srcBody"></tbody>
+      </table>
+    </div>
+    <p>Recortes por grupo. O percentual é o número do grupo dividido pelo total de homicídios da mesma publicação; a parcela restante é a diferença exata para esse total. Raça/cor só passou a ser registrada no SIM em 1996, com muitos casos sem informação nos primeiros anos. O percentual mostra a parcela entre as vítimas, não o risco: um grupo pode ser maioria das vítimas e também maioria da população. Por isso, quando a fonte traz, a página mostra a taxa por 100 mil habitantes de cada grupo. Homicídios de mulheres incluem todos os assassinatos de mulheres, não apenas feminicídios.</p>
+    <p>Arma de fogo: a contagem é de homicídios (agressões) com arma de fogo, o que não é o mesmo que todas as mortes por arma de fogo (que somam acidentes, suicídios e intenção indeterminada). Não foi confirmado se a contagem inclui mortes por intervenção legal. De 1980 a 2021 o percentual usa o total do contador, porque as tabelas de armas não trazem o total de homicídios; em 2023 e 2024 a página mostra também o percentual publicado. Para 2014 há outro valor publicado: 42.291 no Mapa da Violência 2016 (71,7% de 58.946), contra 42.755 no Atlas 2023, usado aqui. Em 2022 só o percentual (72,4%) foi publicado na fonte lida.</p>
+    <p>Quebras de série: em 15 a 29 anos, 1980–2003 vêm do Mapa da Violência (SIM, sem intervenção legal) e 2004 em diante do Atlas; em 0 a 19 anos e arma de fogo a troca é em 2010/2011; em mulheres, em 2013/2015. Divergência de totais: para 1991, 1992, 1993 e 1995 o Mapa 2014 (tabela de jovens) soma 30.750, 28.435, 30.610 e 37.129, contra 30.566, 28.387, 30.586 e 37.128 no Mapa 2012 usado no contador; o contador não foi alterado.</p>
+    <div class="src-wrap">
+      <table class="src">
+        <thead><tr><th>Recorte</th><th>Anos</th><th>Publicação</th><th>Tipo</th></tr></thead>
+        <tbody id="cutSrcBody"></tbody>
+      </table>
+    </div>
+    <p>Protótipo. Nenhum dado é salvo; tudo é recalculado quando a página é aberta.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- Dados (somente valores conferidos nas tabelas citadas) ----------
+  var SOURCES = {
+    mapa2012: { nome: "Mapa da Violência 2012: os novos padrões da violência homicida no Brasil, Tabela 2.1.1", curto: "Mapa da Violência 2012", url: "https://andi.org.br/wp-content/uploads/2020/10/mapa2012.pdf" },
+    atlas2016: { nome: "Atlas da Violência 2016, Tabela 1.3", curto: "Atlas da Violência 2016", url: "https://publicacoes.forumseguranca.org.br/items/7a6fc773-c196-4d63-b380-fc8463f958a6" },
+    atlas2017: { nome: "Atlas da Violência 2017, Tabela 1.3", curto: "Atlas da Violência 2017", url: "https://publicacoes.forumseguranca.org.br/items/155b3df2-3cf5-46ee-b58f-cc96c56dbfda" },
+    atlas2018: { nome: "Atlas da Violência 2018, Tabela 2.3", curto: "Atlas da Violência 2018", url: "https://publicacoes.forumseguranca.org.br/items/0a152323-6190-4331-b2a9-c5a19c2a9704" },
+    atlas2021: { nome: "Atlas da Violência 2021, Tabela 2.2", curto: "Atlas da Violência 2021", url: "https://publicacoes.forumseguranca.org.br/items/2e5e66c1-655e-4751-b7fd-d29017d6b1d1" },
+    atlas2023: { nome: "Atlas da Violência 2023, Tabela 2", curto: "Atlas da Violência 2023", url: "https://publicacoes.forumseguranca.org.br/items/f0c6ddee-5347-47da-9374-1bf491b0aff6" },
+    atlas2024: { nome: "Atlas da Violência 2024, Tabela 2.2", curto: "Atlas da Violência 2024", url: "https://publicacoes.forumseguranca.org.br/items/81f69453-baf0-4e6a-9f61-f4f6950b1317" },
+    atlas2025: { nome: "Atlas da Violência 2025, Tabela 2.2", curto: "Atlas da Violência 2025", url: "https://publicacoes.forumseguranca.org.br/items/ecd3f9ce-d774-46f6-9a17-21802a469a09" },
+    atlas2026: { nome: "Atlas da Violência 2026, Tabela 2.2", curto: "Atlas da Violência 2026", url: "https://publicacoes.forumseguranca.org.br/items/e9c64cd8-f18c-4448-94e7-dc0190efa6ae" }
+  };
+
+  var DATA = [
+    { ano: 1980, homicidios: 13910, fonte: "mapa2012" },
+    { ano: 1981, homicidios: 15213, fonte: "mapa2012" },
+    { ano: 1982, homicidios: 15550, fonte: "mapa2012" },
+    { ano: 1983, homicidios: 17408, fonte: "mapa2012" },
+    { ano: 1984, homicidios: 19767, fonte: "mapa2012" },
+    { ano: 1985, homicidios: 19747, fonte: "mapa2012" },
+    { ano: 1986, homicidios: 20481, fonte: "mapa2012" },
+    { ano: 1987, homicidios: 23087, fonte: "mapa2012" },
+    { ano: 1988, homicidios: 23357, fonte: "mapa2012" },
+    { ano: 1989, homicidios: 28757, fonte: "mapa2012" },
+    { ano: 1990, homicidios: 31989, fonte: "mapa2012" },
+    { ano: 1991, homicidios: 30566, fonte: "mapa2012" },
+    { ano: 1992, homicidios: 28387, fonte: "mapa2012" },
+    { ano: 1993, homicidios: 30586, fonte: "mapa2012" },
+    { ano: 1994, homicidios: 32603, fonte: "mapa2012" },
+    { ano: 1995, homicidios: 37128, fonte: "mapa2012" },
+    { ano: 1996, homicidios: 38894, fonte: "mapa2012" },
+    { ano: 1997, homicidios: 40507, fonte: "mapa2012" },
+    { ano: 1998, homicidios: 41950, fonte: "mapa2012" },
+    { ano: 1999, homicidios: 42914, fonte: "mapa2012" },
+    { ano: 2000, homicidios: 45360, fonte: "mapa2012" },
+    { ano: 2001, homicidios: 47943, fonte: "mapa2012" },
+    { ano: 2002, homicidios: 49695, fonte: "mapa2012" },
+    { ano: 2003, homicidios: 51043, fonte: "mapa2012" },
+    { ano: 2004, homicidios: 48909, fonte: "atlas2016" },
+    { ano: 2005, homicidios: 48136, fonte: "atlas2017" },
+    { ano: 2006, homicidios: 49704, fonte: "atlas2018" },
+    { ano: 2007, homicidios: 48219, fonte: "atlas2018" },
+    { ano: 2008, homicidios: 50659, fonte: "atlas2018" },
+    { ano: 2009, homicidios: 52043, fonte: "atlas2021" },
+    { ano: 2010, homicidios: 53016, fonte: "atlas2021" },
+    { ano: 2011, homicidios: 52807, fonte: "atlas2023" },
+    { ano: 2012, homicidios: 57045, fonte: "atlas2024" },
+    { ano: 2013, homicidios: 57396, fonte: "atlas2025" },
+    { ano: 2014, homicidios: 60474, fonte: "atlas2026" },
+    { ano: 2015, homicidios: 59080, fonte: "atlas2026" },
+    { ano: 2016, homicidios: 62517, fonte: "atlas2026" },
+    { ano: 2017, homicidios: 65602, fonte: "atlas2026" },
+    { ano: 2018, homicidios: 57956, fonte: "atlas2026" },
+    { ano: 2019, homicidios: 45503, fonte: "atlas2026" },
+    { ano: 2020, homicidios: 49868, fonte: "atlas2026" },
+    { ano: 2021, homicidios: 47847, fonte: "atlas2026" },
+    { ano: 2022, homicidios: 46409, fonte: "atlas2026" },
+    { ano: 2023, homicidios: 45747, fonte: "atlas2026" },
+    { ano: 2024, homicidios: 42590, fonte: "atlas2026" }
+  ];
+  var SOURCE_BREAK_AFTER = 2003; // última linha do Mapa da Violência
+
+  // ---------- Recortes por grupo (somente valores conferidos) ----------
+  // Cada ano: tot = total de homicídios usado como denominador; segs = grupos publicados;
+  // o restante (tot - soma dos grupos) vira o grupo residual do recorte.
+  // pct = percentual publicado sem número absoluto (não derivamos o número).
+  var GROUPS = {
+    mulheres:     { nome: "Mulheres", um: "uma mulher", cor: "g1" },
+    demaisSexo:   { nome: "Homens e sexo não informado", um: "um homem (ou vítima sem sexo informado)", cor: "g0" },
+    jovens:       { nome: "15 a 29 anos", um: "uma pessoa de 15 a 29 anos", cor: "g1" },
+    demais1529:   { nome: "Outras idades e idade não informada", um: "uma pessoa de outra idade", cor: "g0" },
+    ate19:        { nome: "0 a 19 anos", um: "uma pessoa de 0 a 19 anos", cor: "g1" },
+    demais019:    { nome: "20 anos ou mais e idade não informada", um: "uma pessoa de 20 anos ou mais", cor: "g0" },
+    f04:          { nome: "0 a 4 anos", um: "uma criança de 0 a 4 anos", cor: "g2" },
+    f514:         { nome: "5 a 14 anos", um: "uma criança de 5 a 14 anos", cor: "g3" },
+    f1519:        { nome: "15 a 19 anos", um: "um adolescente de 15 a 19 anos", cor: "g1" },
+    idosos:       { nome: "60 anos ou mais", um: "uma pessoa de 60 anos ou mais", cor: "g1" },
+    demais60:     { nome: "Menos de 60 anos e idade não informada", um: "uma pessoa com menos de 60 anos", cor: "g0" },
+    negros:       { nome: "Negros (pretos e pardos)", um: "uma pessoa negra", cor: "g1" },
+    naoNegros:    { nome: "Não negros", um: "uma pessoa não negra", cor: "g2" },
+    ignRaca:      { nome: "Raça/cor não informada", um: "uma vítima sem raça/cor informada", cor: "g0" },
+    naoNegrosIgn: { nome: "Não negros e raça/cor não informada", um: "uma pessoa não negra ou sem raça/cor informada", cor: "g0" },
+    armaFogo:     { nome: "Arma de fogo", um: "uma pessoa morta com arma de fogo", cor: "g1" },
+    outrosMeios:  { nome: "Outros meios", um: "uma pessoa morta por outros meios", cor: "g0" }
+  };
+
+  // tipo: "tabela" = tabela publicada; "imprensa" = número divulgado, via imprensa;
+  // "sintese" = texto ou infográfico oficial da publicação (não tabela).
+  var CSRC = {
+    mapa2015m: { tipo: "tabela", nome: "Mapa da Violência 2015: Homicídio de mulheres no Brasil, Tabela 2.1", url: "https://www12.senado.leg.br/institucional/omv/menu/entenda-a-violencia/files/pdfs/mapa-da-violencia-2015" },
+    mapa2014j: { tipo: "tabela", nome: "Mapa da Violência: Homicídios e juventude no Brasil, atualização 2014, Tabelas 2.2.2 e 2.2.3", url: "https://siac.fpabramo.org.br/uploads/acaoinstitucional/WAISELFISZ_Homicidios_e_juventude_no_Brasil-atualizacao_2014.pdf" },
+    mapa2012ca: { tipo: "tabela", nome: "Mapa da Violência 2012: Crianças e adolescentes do Brasil, Tabela 2.1", url: "https://www.conjur.com.br/wp-content/uploads/2023/09/mapa-violencia-jovens.pdf" },
+    mapa2012cor: { tipo: "sintese", nome: "Mapa da Violência 2012: A cor dos homicídios no Brasil (número citado no texto)", url: "https://flacso.org.br/files/2020/03/mapa2012_cor.pdf" },
+    mapa2015af: { tipo: "tabela", nome: "Mapa da Violência 2015: Mortes matadas por armas de fogo, Tabelas 2.1 e 2.2 (coluna homicídio)", url: "https://flacso.org.br/files/2020/03/mapaViolencia2015.pdf" },
+    atlas2016t: { tipo: "tabela", nome: "Atlas da Violência 2016, Tabelas 4.1, 4.2 e 1.3", url: "https://publicacoes.forumseguranca.org.br/items/7a6fc773-c196-4d63-b380-fc8463f958a6" },
+    atlas2017t: { tipo: "tabela", nome: "Atlas da Violência 2017, Tabelas 4.1, 4.2 e 1.3", url: "https://publicacoes.forumseguranca.org.br/items/155b3df2-3cf5-46ee-b58f-cc96c56dbfda" },
+    atlas2017i: { tipo: "sintese", nome: "Atlas da Violência 2017, infográfico", url: "https://forumseguranca.org.br/wp-content/uploads/2017/06/FBSP_atlas_da_violencia_2017_infografico.pdf" },
+    atlas2018t: { tipo: "tabela", nome: "Atlas da Violência 2018, Tabelas 4.1 e 2.3", url: "https://publicacoes.forumseguranca.org.br/items/0a152323-6190-4331-b2a9-c5a19c2a9704" },
+    atlas2018n: { tipo: "imprensa", nome: "Atlas da Violência 2018 (Jornal do Brasil)", url: "https://www.jb.com.br/pais/noticias/2018/06/06/amp/atlas-da-violencia-30-de-cada-100-mil-sao-mortos-no-brasil.html" },
+    atlas2019t: { tipo: "tabela", nome: "Atlas da Violência 2019, Tabelas 3.1 e 2.2", url: "https://publicacoes.forumseguranca.org.br/items/57099e69-8888-4647-8b7b-1efe33e517ff" },
+    atlas2019n: { tipo: "imprensa", nome: "Atlas da Violência 2019 (O Imparcial)", url: "https://oimparcial.com.br/noticias/2019/06/atlas-da-violencia-2019-brasil-registra-indices-ineditos/" },
+    atlas2019cc: { tipo: "imprensa", nome: "Atlas da Violência 2019 (CartaCapital)", url: "https://www.cartacapital.com.br/?p=79516" },
+    atlas2020n: { tipo: "imprensa", nome: "Atlas da Violência 2020 (Jovem Pan)", url: "https://jovempan.com.br/brasil/atlas-da-violencia-aponta-queda-em-homicidios-em-2018-mas-alta-em-crimes-contra-negros/" },
+    atlas2021t: { tipo: "tabela", nome: "Atlas da Violência 2021, Tabelas 4.1, 4.2 e 2.2", url: "https://publicacoes.forumseguranca.org.br/items/2e5e66c1-655e-4751-b7fd-d29017d6b1d1" },
+    atlas2021n: { tipo: "sintese", nome: "Atlas da Violência 2021, síntese Ipea Em Questão n. 8", url: "https://repositorio.ipea.gov.br/bitstream/11058/11128/1/EmQuestao_n8_Atlas.pdf" },
+    atlas2023s: { tipo: "tabela", nome: "Atlas da Violência 2023, sumário executivo, Tabela 1 (0 a 19 anos por faixa)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download" },
+    atlas2023st: { tipo: "sintese", nome: "Atlas da Violência 2023, sumário executivo (texto, p. 9)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download" },
+    atlas2023af: { tipo: "tabela", nome: "Atlas da Violência 2023, sumário executivo, Tabela 50 (homicídios por arma de fogo)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download" },
+    atlas2023neg: { tipo: "imprensa", nome: "Atlas da Violência 2023 (Poder360)", url: "https://www.poder360.com.br/brasil/8-em-cada-10-assassinados-no-brasil-sao-negros-indica-atlas-da-violencia/" },
+    atlas2024t: { tipo: "tabela", nome: "Atlas da Violência 2024, Tabelas 4.1, 4.2 e 2.2", url: "https://publicacoes.forumseguranca.org.br/bitstreams/9cb4616a-b635-468e-aa16-61a7ff6aee21/download" },
+    atlas2024n: { tipo: "imprensa", nome: "Atlas da Violência 2024 (SBT News)", url: "https://sbtnews.sbt.com.br/noticia/brasil/brasil-registrou-127-homicidios-por-dia-em-2022-diz-atlas-da-violencia" },
+    atlas2024af: { tipo: "sintese", nome: "Atlas da Violência 2024, infográfico (percentual publicado)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/c4331098-0692-4966-b0b2-1a090a08747a/download" },
+    atlas2025m: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Diario de Pernambuco)", url: "https://www.diariodepernambuco.com.br/brasil/2025/05/3893436-atlas-da-violencia-brasil-tem-dez-mulheres-assassinadas-por-dia.html" },
+    atlas2025j: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Poder360, CNN Brasil, Correio Braziliense)", url: "https://www.poder360.com.br/poder-brasil/brasil-teve-60-jovens-assassinados-por-dia-em-2023-diz-relatorio/" },
+    atlas2025r: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Poder360)", url: "https://www.poder360.com.br/poder-pesquisas/pessoas-negras-sao-77-dos-homicidios-no-brasil/" },
+    atlas2025af: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Jornal Opção)", url: "https://www.jornalopcao.com.br/ultimas-noticias/atlas-da-violencia-goias-tem-queda-de-mais-de-10-em-homicidios-por-arma-de-fogo-705984/" },
+    atlas2026r: { tipo: "imprensa", nome: "Atlas da Violência 2026 (Jornal do Brasil, Poder360)", url: "https://www.jb.com.br/brasil/direitos-humanos/2026/05/amp/1059754-atlas-da-violencia-2026-expoe-desigualdades-e-letalidade-contra-grupos-vulneraveis-no-brasil.html" },
+    atlas2026m: { tipo: "imprensa", nome: "Atlas da Violência 2026 (Brasil de Fato, Bem Paraná)", url: "https://www.brasildefato.com.br/2026/05/26/homicidios-de-pessoas-negras-representam-77-do-total-de-assassinatos-no-brasil-aponta-atlas-da-violencia/" },
+    atlas2026j: { tipo: "imprensa", nome: "Atlas da Violência 2026 (TVT News)", url: "https://tvtnews.com.br/?p=789133" },
+    atlas2026af: { tipo: "imprensa", nome: "Atlas da Violência 2026 (boca.com.br; 70,1% confirmado no infográfico oficial)", url: "https://boca.com.br/justica/homicidios-com-armas-de-fogo-caem-mas-ainda-sao-70-no-brasil" }
+  };
+  var TIPO_TXT = { tabela: "tabela", imprensa: "número divulgado, via imprensa", sintese: "texto ou infográfico oficial" };
+
+  // Taxas por 100 mil de negros e não negros (para o gráfico de risco). [negros, não negros]
+  var RACE_RATES = {
+    2004: [31.7, 18.3], 2005: [31.8, 17.2], 2006: [32.7, 17.0], 2007: [32.4, 15.3], 2008: [33.7, 15.7],
+    2009: [34.3, 15.8], 2010: [36.5, 15.2], 2011: [35.1, 14.6], 2012: [36.7, 15.5], 2013: [36.8, 15.6],
+    2014: [38.5, 15.6], 2015: [37.7, 15.3], 2016: [40.2, 16.0], 2017: [43.1, 16.0], 2018: [37.8, 13.9],
+    2019: [29.2, 11.2], 2021: [31.0, 10.8], 2022: [29.7, 10.8], 2023: [28.9, 10.6], 2024: [27.3, 10.1]
+  };
+
+  // Marcos legais sobre armas (datas e fatos; sem relação de causa sugerida).
+  var MARCOS = [
+    { data: "2003-12-22", curto: "Estatuto do Desarmamento", titulo: "Estatuto do Desarmamento (Lei 10.826)", texto: "Sancionada a Lei 10.826, que trata de registro, posse e comercialização de armas de fogo e munição, cria o Sinarm e define crimes. Publicada no Diário Oficial em 23/12/2003. O art. 35 condicionava a proibição da venda a um referendo.", url: "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.826.htm" },
+    { data: "2004-07-01", curto: "Decreto 5.123", titulo: "Decreto 5.123 regulamenta o Estatuto", texto: "O Decreto 5.123, de 1/7/2004, regulamenta a Lei 10.826.", url: "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/decreto/d5123.htm" },
+    { data: "2004-07-15", curto: "Campanha de entrega", titulo: "Início da Campanha Nacional do Desarmamento (entrega voluntária)", texto: "Reportagem da TV Câmara (10/12/2004) data o início da campanha em 15 de julho de 2004. A data não foi confirmada em fonte oficial do governo. A Agência Brasil registra cerca de 704 mil armas devolvidas desde a criação da campanha.", url: "https://www.camara.leg.br/tv/157682-campanha-pelo-desarmamento-supera-expectativas/" },
+    { data: "2005-10-23", curto: "Referendo", titulo: "Referendo sobre a proibição do comércio de armas", texto: "Referendo sobre proibir o comércio de armas de fogo e munição (art. 35 do Estatuto). O TSE registra que a proposta foi rejeitada; a Rádio Senado informa 63% de votos “não”. O percentual exato não foi confirmado em página oficial.", url: "https://www.tse.jus.br/eleicoes/plebiscitos-e-referendos/referendo-2005/referendo-2005-1" },
+    { data: "2019-01-15", curto: "Decreto 9.685", titulo: "Decreto 9.685 (posse de arma)", texto: "Altera o Decreto 5.123/2004 e define categorias com efetiva necessidade presumida para a posse de arma de fogo, com limite de 4 armas. Depois revogado pelo Decreto 9.785/2019.", url: "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2019/Decreto/D9685.htm" },
+    { data: "2019-05-07", curto: "Decreto 9.785", titulo: "Decreto 9.785", texto: "Regulamenta a Lei 10.826, fixa o limite de 1.200 libras-pé (1.620 joules) para armas de uso permitido e amplia limites de aquisição (colecionador até 5 por modelo, caçador até 15, atirador até 30).", url: "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9785.htm" },
+    { data: "2019-06-25", curto: "Decreto 9.847", titulo: "Decreto 9.847", texto: "Regulamenta a Lei 10.826 quanto a aquisição, cadastro, registro, porte e comercialização de armas e munição (Sinarm e Sigma) e exige idade mínima de 25 anos para adquirir.", url: "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9847.htm" },
+    { data: "2021-02-12", curto: "Decretos 10.629 e 10.630", titulo: "Decretos 10.629 e 10.630", texto: "Alteram os Decretos 9.846 e 9.847/2019. O 10.629 fixa limites de munição para caçadores e atiradores (até 5.000 unidades por ano para armas de uso permitido); o 10.630 autoriza o porte simultâneo de até duas armas e muda procedimentos no Sinarm e no Sigma.", url: "http://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/decreto/d10630.htm" },
+    { data: "2023-01-01", curto: "Decreto 11.366", titulo: "Decreto 11.366 (restrições)", texto: "Suspende registros de aquisição e transferência de armas de uso restrito por caçadores, colecionadores e atiradores, limita armas e munição de uso permitido (até 3 armas por pessoa; 50 munições por ano), suspende novos registros de clubes e escolas de tiro e cria grupo de trabalho para nova regulamentação.", url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11366.htm" },
+    { data: "2023-07-21", curto: "Decreto 11.615", titulo: "Decreto 11.615 (nova regulamentação)", texto: "Regulamenta a Lei 10.826 com novos limites: idade mínima de 25 anos para colecionadores, exigência de comprovar efetiva necessidade e limites anuais por nível de atirador (nível 1: 4 armas e 4.000 cartuchos).", url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11615.htm" }
+  ];
+
+  var CUTS = (function () {
+    var mapaTot = [13910,15213,15550,17408,19767,19747,20481,23087,23357,28757,31989,30566,28387,30586,32603,37128,38894,40507,41950,42914,45360,47943,49695,51043,48374,47578,49145,47707,50113,51434,49932];
+    var mulheres = [1353,1487,1497,1700,1736,1766,1799,1935,2025,2344,2585,2727,2399,2622,2838,3325,3682,3587,3503,3536,3743,3851,3867,3937,3830,3884,4022,3772,4023,4260,4465];
+    var taxaMulheres = [2.3,2.4,2.4,2.7,2.7,2.7,2.7,2.8,2.9,3.3,3.5,3.7,3.2,3.4,3.6,4.2,4.6,4.4,4.3,4.3,4.3,4.4,4.4,4.4,4.2,4.2,4.2,3.9,4.2,4.4,4.6];
+    var ate19 = [1825,1920,1899,2266,2596,2908,3134,3396,3422,4456,5004,4674,4165,4782,5168,5925,6170,6645,7181,7355,8132,8480,8817,8787,8309,8361,8414,8166,8433,8393,8686];
+    var TOT_MAPA = "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM).";
+    var TOT_CONT = "Total: o mesmo do contador, porque a publicação do grupo não traz o total do ano.";
+    var sexo = {}, i019 = {}, faixas = {};
+    for (var i = 0; i < mapaTot.length; i++) {
+      var ano = 1980 + i;
+      sexo[ano] = { tot: mapaTot[i], segs: [["mulheres", mulheres[i]]], rates: { mulheres: taxaMulheres[i] }, src: "mapa2015m", totNote: TOT_MAPA };
+      i019[ano] = { tot: mapaTot[i], segs: [["ate19", ate19[i]]], src: "mapa2012ca", totNote: TOT_MAPA };
+    }
+    sexo[2011] = { tot: 52807, segs: [["mulheres", 4512]], rates: { mulheres: 4.6 }, src: "mapa2015m", totNote: TOT_CONT };
+    sexo[2012] = { tot: 57045, segs: [["mulheres", 4719]], rates: { mulheres: 4.8 }, src: "mapa2015m", totNote: TOT_CONT };
+    sexo[2013] = { tot: 57396, segs: [["mulheres", 4762]], rates: { mulheres: 4.8 }, src: "mapa2015m", totNote: TOT_CONT };
+    sexo[2015] = { tot: 59080, segs: [["mulheres", 4621]], rates: { mulheres: 4.5 }, src: "atlas2017i" };
+    sexo[2016] = { tot: 62517, segs: [["mulheres", 4645]], rates: { mulheres: 4.5 }, src: "atlas2018n" };
+    sexo[2017] = { tot: 65602, segs: [["mulheres", 4936]], src: "atlas2019n" };
+    sexo[2018] = { tot: 57956, segs: [["mulheres", 4519]], src: "atlas2020n" };
+    sexo[2019] = { tot: 45503, segs: [["mulheres", 3737]], src: "atlas2021n" };
+    sexo[2021] = { tot: 47847, segs: [["mulheres", 3858]], src: "atlas2023st" };
+    sexo[2022] = { tot: 46409, segs: [["mulheres", 3806]], rates: { mulheres: 3.5 }, src: "atlas2024n" };
+    sexo[2023] = { tot: 45747, segs: [["mulheres", 3903]], rates: { mulheres: 3.5 }, src: "atlas2025m" };
+    sexo[2024] = { tot: 42590, segs: [["mulheres", 3642]], rates: { mulheres: 3.4 }, src: "atlas2026m" };
+
+    // 0 a 19 anos por faixa (Atlas 2023 sumário, Tabela 1; 2022 e 2024 via imprensa)
+    var F = {
+      2011: [160, 744, 8144], 2012: [199, 861, 9337], 2013: [253, 821, 9649], 2014: [210, 869, 10348],
+      2015: [210, 758, 9988], 2016: [204, 733, 10707], 2017: [204, 745, 11152], 2018: [213, 605, 9249],
+      2019: [188, 461, 6538], 2020: [173, 427, 6780], 2021: [152, 372, 6002], 2022: [147, 348, 5220], 2024: [179, 320, 4570]
+    };
+    var TOT_ATLAS = { 2011: 52807, 2012: 57045, 2013: 57396, 2014: 60474, 2015: 59080, 2016: 62517, 2017: 65602, 2018: 57956, 2019: 45503, 2020: 49868, 2021: 47847, 2022: 46409, 2024: 42590 };
+    Object.keys(F).forEach(function (y) {
+      var f = F[y], s = y === "2022" ? "atlas2024n" : y === "2024" ? "atlas2026j" : "atlas2023s";
+      var soma = f[0] + f[1] + f[2];
+      var note = y === "2022" || y === "2024" ? "O número de 0 a 19 anos é a soma exata das três faixas publicadas." : "";
+      i019[y] = { tot: TOT_ATLAS[y], segs: [["ate19", soma]], src: s, note: note };
+      faixas[y] = { tot: TOT_ATLAS[y], segs: [["f04", f[0]], ["f514", f[1]], ["f1519", f[2]]], src: s };
+    });
+    i019[2024].rateNote = faixas[2024].rateNote = "Taxas por 100 mil: 0 a 4 anos, 1,4; 5 a 14 anos, 1,1; 15 a 19 anos, 30,5.";
+
+    // 15 a 29 anos. 1980-2003: Mapa 2014 (jovens + não jovens = total da própria tabela).
+    var j = {};
+    [[1980,6759,7151,19.6],[1981,7378,7835,21.0],[1982,7264,8286,20.3],[1983,8273,9135,22.8],[1984,9737,10030,26.3],[1985,10069,9678,26.8],[1986,10526,9955,27.5],[1987,11779,11308,30.3],[1988,11774,11583,29.9],[1989,15046,13711,37.6],[1990,16730,15259,41.2],[1991,15622,15128,37.9],[1992,14101,14334,33.8],[1993,15410,15200,36.3],[1994,16979,15624,39.4],[1995,18912,18217,43.3],[1996,19744,19150,44.8],[1997,21084,19423,47.1],[1998,22510,19440,49.5],[1999,23056,19858,50.1],[2000,25058,20302,52.3],[2001,26298,21645,54.0],[2002,27655,22040,56.1],[2003,28494,22549,57.0]].forEach(function (r) {
+      j[r[0]] = { tot: r[1] + r[2], segs: [["jovens", r[1]]], rates: { jovens: r[3] }, src: "mapa2014j", totNote: "Total: jovens + não jovens da própria tabela." };
+    });
+    j[2004] = { tot: 48909, segs: [["jovens", 27003]], rates: { jovens: 52.7 }, src: "atlas2016t" };
+    j[2005] = { tot: 48136, segs: [["jovens", 26793]], rates: { jovens: 51.9 }, src: "atlas2017t" };
+    j[2006] = { tot: 49704, segs: [["jovens", 27251]], src: "atlas2018t" };
+    j[2007] = { tot: 48219, segs: [["jovens", 26489]], src: "atlas2019t" };
+    j[2008] = { tot: 50659, segs: [["jovens", 27880]], src: "atlas2019t" };
+    var jv = [28267,28562,27930,30609,30689,32436,31264,33590,35783,30873,23327];
+    var jt = [54.0,54.6,53.5,58.9,59.3,62.9,60.9,65.5,69.9,60.4,45.8];
+    var tt = [52043,53016,52807,57045,57396,60474,59080,62517,65602,57956,45503];
+    for (var y = 0; y < jv.length; y++) j[2009 + y] = { tot: tt[y], segs: [["jovens", jv[y]]], rates: { jovens: jt[y] }, src: "atlas2021t" };
+    j[2020] = { tot: 49868, segs: [["jovens", 25814]], rates: { jovens: 51.8 }, src: "atlas2024t" };
+    j[2021] = { tot: 47847, segs: [["jovens", 24217]], rates: { jovens: 49.0 }, src: "atlas2024t" };
+    j[2022] = { tot: 46409, segs: [["jovens", 22864]], rates: { jovens: 46.6 }, src: "atlas2024t" };
+    j[2023] = { tot: 45747, segs: [["jovens", 21856]], rates: { jovens: 45.1 }, src: "atlas2025j" };
+    j[2024] = { tot: 42590, segs: [["jovens", 19801]], rates: { jovens: 42.2 }, src: "atlas2026j" };
+
+    var r = {};
+    r[2002] = { tot: 49695, segs: [["negros", 26952]], src: "mapa2012cor", totNote: TOT_MAPA };
+    r[2009] = { tot: 52043, segs: [["negros", 33929], ["naoNegros", 15249]], src: "atlas2021n", note: "Ressalva: negros + não negros ficam 2.865 (5,5%) abaixo do total, sem explicação na fonte; a diferença aparece como raça/cor não informada." };
+    r[2017] = { tot: 65602, segs: [["negros", 49524], ["naoNegros", 14734]], src: "atlas2019cc" };
+    r[2018] = { tot: 57956, segs: [["negros", 43890]], src: "atlas2020n" };
+    r[2019] = { tot: 45503, segs: [["negros", 34466], ["naoNegros", 10217]], src: "atlas2021n" };
+    r[2021] = { tot: 47847, segs: [["negros", 36922]], src: "atlas2023neg" };
+    r[2022] = { tot: 46409, segs: [["negros", 35531]], src: "atlas2024n" };
+    r[2023] = { tot: 45747, segs: [["negros", 35213]], src: "atlas2025r" };
+    r[2024] = { tot: 42590, segs: [["negros", 32820], ["naoNegros", 9234]], src: "atlas2026r" };
+    Object.keys(r).forEach(function (y) {
+      var rr = RACE_RATES[y];
+      if (rr) r[y].rates = { negros: rr[0], naoNegros: rr[1] };
+    });
+
+    var i60 = {};
+    i60[2024] = { tot: 42590, segs: [["idosos", 2007]], rates: { idosos: 5.9 }, src: "atlas2026r" };
+
+    // Arma de fogo (homicídios por agressão com arma de fogo).
+    var af = {};
+    var AF = [[1980,6104,5.1],[1981,6452,5.3],[1982,6313,5.1],[1983,6413,5.1],[1984,7947,6.2],[1985,8349,6.3],[1986,8803,6.6],[1987,10717,7.8],[1988,10735,7.7],[1989,13480,9.5],[1990,16588,11.5],[1991,15759,10.7],[1992,14785,9.9],[1993,17002,11.2],[1994,18889,12.3],[1995,22306,14.3],[1996,22976,14.6],[1997,24445,15.3],[1998,25674,15.9],[1999,26902,16.4],[2000,30865,18.2],[2001,33401,19.4],[2002,34160,19.6],[2003,36115,20.4],[2004,34187,19.1],[2005,33419,18.1],[2006,34921,18.7],[2007,34147,18.0],[2008,35676,18.8],[2009,36624,19.3],[2010,36792,19.3],[2011,36737,19.1],[2012,40077,20.7],[2013,40369,null],[2014,42755,null],[2015,41817,null],[2016,44475,null],[2017,47510,null],[2018,41179,null],[2019,30825,null],[2020,33994,null],[2021,33039,null]];
+    AF.forEach(function (a) {
+      var tot = DATA[a[0] - 1980].homicidios;
+      af[a[0]] = { tot: tot, segs: [["armaFogo", a[1]]], src: a[0] <= 2010 ? "mapa2015af" : "atlas2023af", totNote: "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano." };
+      if (a[2] != null) af[a[0]].rates = { armaFogo: a[2] };
+    });
+    af[2011].note = af[2012].note = "Contagem idêntica no Mapa da Violência 2015; a taxa vem do Mapa.";
+    af[2022] = { tot: 46409, pct: { armaFogo: 0.724 }, src: "atlas2024af", note: "Só o percentual publicado (72,4%); o número absoluto não foi publicado na fonte lida e não é calculado aqui." };
+    af[2023] = { tot: 45747, segs: [["armaFogo", 32749]], rates: { armaFogo: 15.2 }, pub: 71.6, src: "atlas2025af" };
+    af[2024] = { tot: 42590, segs: [["armaFogo", 29870]], pub: 70.1, src: "atlas2026af" };
+
+    return {
+      sexo:      { nome: "Sexo", resto: "demaisSexo", years: sexo },
+      idade1529: { nome: "Idade: 15 a 29 anos", resto: "demais1529", years: j, breakAfter: 2003 },
+      idade019:  { nome: "Idade: 0 a 19 anos", resto: "demais019", years: i019, breakAfter: 2010 },
+      idadeF:    { nome: "Idade: 0 a 19 anos, por faixa", resto: "demais019", years: faixas },
+      idade60:   { nome: "Idade: 60 anos ou mais", resto: "demais60", years: i60 },
+      raca:      { nome: "Raça/cor", resto: null, years: r },
+      arma:      { nome: "Arma de fogo", resto: "outrosMeios", years: af, breakAfter: 2010 }
+    };
+  })();
+
+  // Linha do tempo contínua; um ano sem valor conferido vira lacuna (null).
+  var FIRST = DATA[0].ano, LAST = DATA[DATA.length - 1].ano;
+  var YEARS = [];
+  (function () {
+    var byYear = {};
+    DATA.forEach(function (d) { byYear[d.ano] = d; });
+    for (var y = FIRST; y <= LAST; y++) YEARS.push(byYear[y] || null);
+  })();
+
+  // ---------- Modos ----------
+  var MODES = {
+    real: { speed: 1, period: 0 },
+    hour: { speed: 60, period: 3600, unit: "hora", unitPl: "horas", este: "nesta hora", Titulo: "Hora", size: "sz-m", maxFloat: 8, label: "1 hora em 1 minuto" },
+    day:  { speed: 1440, period: 86400, unit: "dia", unitPl: "dias", este: "neste dia", Titulo: "Dia", size: "sz-s", maxFloat: 40, label: "1 dia em 1 minuto" }
+  };
+  var REAL_MAX_FLOAT = 8, REAL_MAX_QUEUE = 4, REAL_GAP_MS = 180;
+  var TIP_BURST_MAX = 4;   // ao voltar do segundo plano, animar no máximo estas últimas
+  var FLASH_MS = 2200;
+
+  var reduceMotion = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false };
+
+  // ---------- Utilidades ----------
+  function isLeap(y) { return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0; }
+  function secondsInYear(y) { return (isLeap(y) ? 366 : 365) * 86400; }
+  function intervalFor(d) { return secondsInYear(d.ano) / d.homicidios; }
+  function nf(n, frac) { return n.toLocaleString("pt-BR", { minimumFractionDigits: frac || 0, maximumFractionDigits: frac || 0 }); }
+  function pad2(n) { return (n < 10 ? "0" : "") + n; }
+  function minSec(s) {
+    var total = Math.round(s);
+    var m = Math.floor(total / 60), r = total % 60;
+    if (m === 0) return r + " s";
+    return nf(m) + " min " + r + " s";
+  }
+  function duration(s) {
+    s = Math.max(0, Math.floor(s));
+    var d = Math.floor(s / 86400); s -= d * 86400;
+    var h = Math.floor(s / 3600); s -= h * 3600;
+    var m = Math.floor(s / 60); var sec = s - m * 60;
+    var parts = [];
+    if (d) parts.push(nf(d) + (d === 1 ? " dia" : " dias"));
+    if (h) parts.push(h + " h");
+    if (!d && (m || h)) parts.push(m + " min");
+    if (!d && !h) parts.push(sec + " s");
+    return parts.join(" ");
+  }
+  function plural(n, um, varios) { return nf(n) + " " + (n === 1 ? um : varios); }
+
+  // ---------- Figuras ----------
+  var GHOST_SVG = '<svg viewBox="0 0 44 52" aria-hidden="true"><path class="ghost-body" d="M5 22 A17 17 0 0 1 39 22 V47 L34.75 43 L30.5 47 L26.25 43 L22 47 L17.75 43 L13.5 47 L9.25 43 L5 47 Z"></path><ellipse class="ghost-eye" cx="16.5" cy="22.5" rx="2" ry="3"></ellipse><ellipse class="ghost-eye" cx="27.5" cy="22.5" rx="2" ry="3"></ellipse></svg>';
+  var GHOST_SMALL = '<svg viewBox="0 0 44 52" aria-hidden="true"><path class="ghost-body" d="M5 22 A17 17 0 0 1 39 22 V47 L30.5 41 L22 47 L13.5 41 L5 47 Z"></path></svg>';
+  var LIGHT_HTML = '<span class="light-dot" aria-hidden="true"></span>';
+  function figureMarkup(size) {
+    if (state.fig === "light") return LIGHT_HTML;
+    return size === "sz-s" ? GHOST_SMALL : GHOST_SVG;
+  }
+
+  // ---------- Estado (somente em memória) ----------
+  var state = {
+    yi: YEARS.length - 1,     // índice em YEARS
+    mode: "real",
+    fig: "ghost",
+    openedAt: Date.now(),
+    anchor: performance.now(),
+    lastK: 0,
+    lastPeriod: 0,
+    queue: 0,
+    lastLaunch: 0,
+    floaters: 0,
+    flashUntil: 0,
+    view: "one",
+    modeChosen: false,
+    skipAnimOnce: false,
+    allStarted: false,
+    allAnchor: performance.now(),
+    allLastPeriod: 0,
+    allFlashUntil: 0,
+    allStatusText: ""
+  };
+  // começa no ano mais recente com dado
+  while (state.yi > 0 && !YEARS[state.yi]) state.yi--;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var el = {
+    wrap: $("ringWrap"), bar: $("bar"), ticks: $("ticks"), hourLabels: $("hourLabels"), marks: $("marks"),
+    slot: $("figSlot"), rest: $("restFig"),
+    cReal: $("cReal"), cNext: $("cNext"), cClock: $("cClock"), cPeriod: $("cPeriod"), cTime: $("cTime"), cCount: $("cCount"),
+    cFlash: $("cFlash"), fTitle: $("fTitle"), fValue: $("fValue"), fSub: $("fSub"),
+    caption: $("ringCaption"), statement: $("statement"), total: $("total"),
+    realCount: $("realCount"), realSub: $("realSub"), simLabel: $("simLabel"), simCount: $("simCount"), simSub: $("simSub"),
+    ypYear: $("ypYear"), ypVal: $("ypVal"), ypChart: $("ypChart"), ypBars: $("ypBars"), ypAxis: $("ypAxis"),
+    prev: $("prevYear"), next: $("nextYear"), srcBody: $("srcBody")
+  };
+
+  var NS = "http://www.w3.org/2000/svg";
+  var R = 84, CIRC = 2 * Math.PI * R, MARK_R = 74;
+  el.bar.setAttribute("stroke-dasharray", CIRC.toFixed(3));
+  el.bar.setAttribute("stroke-dashoffset", CIRC.toFixed(3));
+
+  function polar(frac, r) {
+    var a = frac * Math.PI * 2 - Math.PI / 2;
+    return { x: 100 + r * Math.cos(a), y: 100 + r * Math.sin(a) };
+  }
+
+  function buildDial() {
+    // marcas: 60 (minutos/segundos) no tempo real e na hora; 24 (horas) no dia
+    el.ticks.textContent = "";
+    el.hourLabels.textContent = "";
+    var n = state.mode === "day" ? 24 : 60;
+    var majorEvery = state.mode === "day" ? 6 : 5;
+    for (var i = 0; i < n; i++) {
+      var major = i % majorEvery === 0;
+      var p1 = polar(i / n, major ? 91 : 93.5), p2 = polar(i / n, 98);
+      var ln = document.createElementNS(NS, "line");
+      ln.setAttribute("x1", p1.x.toFixed(2)); ln.setAttribute("y1", p1.y.toFixed(2));
+      ln.setAttribute("x2", p2.x.toFixed(2)); ln.setAttribute("y2", p2.y.toFixed(2));
+      ln.setAttribute("class", major ? "tick major" : "tick");
+      el.ticks.appendChild(ln);
+    }
+    if (state.mode === "day" || state.mode === "hour") {
+      var labels = state.mode === "day" ? ["0h", "6h", "12h", "18h"] : ["0", "15", "30", "45"];
+      labels.forEach(function (t, j) {
+        var p = polar(j / 4, 106);
+        var tx = document.createElementNS(NS, "text");
+        tx.setAttribute("x", p.x.toFixed(2)); tx.setAttribute("y", p.y.toFixed(2));
+        tx.setAttribute("class", "hour-label");
+        tx.textContent = t;
+        el.hourLabels.appendChild(tx);
+      });
+    }
+  }
+
+  // ---------- Seletor de ano ----------
+  var maxH = DATA.reduce(function (m, d) { return Math.max(m, d.homicidios); }, 0);
+  el.ypBars.style.gridTemplateColumns = "repeat(" + YEARS.length + ", minmax(0, 1fr))";
+  YEARS.forEach(function (d, i) {
+    var s = document.createElement("span");
+    s.className = "yp-bar" + (d ? "" : " gap");
+    var bar = document.createElement("i");
+    if (d) bar.style.height = ((d.homicidios / maxH) * 100).toFixed(1) + "%";
+    s.appendChild(bar);
+    el.ypBars.appendChild(s);
+  });
+  function pctCenter(i) { return ((i + 0.5) / YEARS.length) * 100; }
+  (function axis() {
+    for (var y = Math.ceil(FIRST / 10) * 10; y <= LAST; y += 10) {
+      var sp = document.createElement("span");
+      sp.style.left = pctCenter(y - FIRST).toFixed(2) + "%";
+      sp.textContent = y;
+      el.ypAxis.appendChild(sp);
+    }
+    var br = document.createElement("div");
+    br.className = "yp-break";
+    br.style.left = (((SOURCE_BREAK_AFTER - FIRST + 1) / YEARS.length) * 100).toFixed(2) + "%";
+    el.ypChart.appendChild(br);
+  })();
+
+  function nearestAvailable(i) {
+    i = Math.max(0, Math.min(YEARS.length - 1, i));
+    if (YEARS[i]) return i;
+    for (var k = 1; k < YEARS.length; k++) {
+      if (YEARS[i - k]) return i - k;
+      if (YEARS[i + k]) return i + k;
+    }
+    return state.yi;
+  }
+  function stepYear(dir) {
+    for (var i = state.yi + dir; i >= 0 && i < YEARS.length; i += dir) {
+      if (YEARS[i]) { selectYear(i); return; }
+    }
+  }
+  function indexFromX(clientX) {
+    var r = el.ypChart.getBoundingClientRect();
+    return Math.floor(((clientX - r.left) / r.width) * YEARS.length);
+  }
+  var dragging = false;
+  el.ypChart.addEventListener("pointerdown", function (e) {
+    dragging = true;
+    try { el.ypChart.setPointerCapture(e.pointerId); } catch (err) {}
+    selectYear(nearestAvailable(indexFromX(e.clientX)));
+  });
+  el.ypChart.addEventListener("pointermove", function (e) {
+    if (!dragging) return;
+    var i = indexFromX(e.clientX);
+    if (i >= 0 && i < YEARS.length && YEARS[i]) selectYear(i);
+  });
+  ["pointerup", "pointercancel", "lostpointercapture"].forEach(function (ev) {
+    el.ypChart.addEventListener(ev, function () { dragging = false; });
+  });
+  el.ypChart.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") { stepYear(-1); e.preventDefault(); }
+    else if (e.key === "ArrowRight" || e.key === "ArrowUp") { stepYear(1); e.preventDefault(); }
+    else if (e.key === "Home") { selectYear(nearestAvailable(0)); e.preventDefault(); }
+    else if (e.key === "End") { selectYear(nearestAvailable(YEARS.length - 1)); e.preventDefault(); }
+  });
+  el.prev.addEventListener("click", function () { stepYear(-1); });
+  el.next.addEventListener("click", function () { stepYear(1); });
+
+  // Tabela de fontes agrupada por publicação
+  (function sources() {
+    var groups = [];
+    DATA.forEach(function (d) {
+      var g = groups[groups.length - 1];
+      if (g && g.key === d.fonte && g.to === d.ano - 1) g.to = d.ano;
+      else groups.push({ key: d.fonte, from: d.ano, to: d.ano });
+    });
+    groups.forEach(function (g) {
+      var s = SOURCES[g.key];
+      var tr = document.createElement("tr");
+      var td1 = document.createElement("td");
+      td1.textContent = g.from === g.to ? String(g.from) : g.from + "–" + g.to;
+      var td2 = document.createElement("td");
+      var a = document.createElement("a");
+      a.href = s.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = s.nome;
+      td2.appendChild(a);
+      tr.appendChild(td1); tr.appendChild(td2);
+      el.srcBody.appendChild(tr);
+    });
+  })();
+
+  // ---------- Recortes: cálculo ----------
+  state.cut = "total";
+  state.age = "1529";
+  state.marco = -1;
+  function cutKey() { return state.cut === "idade" ? "idade" + state.age : state.cut; }
+  function compForKey(key, ano) {
+    var c = CUTS[key], e = c && c.years[ano];
+    if (!e) return false;
+    if (e._comp) return e._comp;
+    var segs, pctOnly = false;
+    if (e.pct) {
+      pctOnly = true;
+      segs = Object.keys(e.pct).map(function (g) { return { g: g, n: null, s: e.pct[g] }; });
+      var ss = segs.reduce(function (a, s) { return a + s.s; }, 0);
+      if (ss < 1) segs.push({ g: c.resto, n: null, s: 1 - ss });
+    } else {
+      segs = e.segs.map(function (s) { return { g: s[0], n: s[1] }; });
+      var sum = segs.reduce(function (a, s) { return a + s.n; }, 0);
+      var resto = c.resto || (segs.some(function (s) { return s.g === "naoNegros"; }) ? "ignRaca" : "naoNegrosIgn");
+      if (e.tot - sum > 0) segs.push({ g: resto, n: e.tot - sum });
+      segs.forEach(function (s) { s.s = s.n / e.tot; });
+    }
+    e._comp = { segs: segs, tot: e.tot, e: e, src: CSRC[e.src], pctOnly: pctOnly };
+    return e._comp;
+  }
+  function compFor(ano) { return state.cut === "total" ? null : compForKey(cutKey(), ano); }
+  // Atribuição determinística: em N mortes, cada grupo recebe sua cota, intercalada de modo uniforme.
+  function groupIndex(j, segs) {
+    var r = j, left = 1;
+    for (var i = 0; i < segs.length - 1; i++) {
+      var s = segs[i].s / left;
+      if (s >= 1) return i;
+      if (Math.floor(r * s) - Math.floor((r - 1) * s) === 1) return i;
+      r = r - Math.floor(r * s);
+      left -= segs[i].s;
+      if (left <= 1e-9) return i;
+    }
+    return segs.length - 1;
+  }
+  function gColorVar(g) { return "var(--" + GROUPS[g].cor + ")"; }
+  function pct(x) { return nf(x * 100, 1) + "%"; }
+  function lowerFirst(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+  function everyText(s) {
+    if (s >= 3600) { var h = Math.floor(s / 3600), m = Math.round((s - h * 3600) / 60); if (m === 60) { h++; m = 0; } return h + " h " + m + " min"; }
+    return minSec(s);
+  }
+  function ranges(list) {
+    var out = [], a = null, b = null;
+    list.forEach(function (y) { if (a === null) { a = b = y; } else if (y === b + 1) b = y; else { out.push(a === b ? a : a + "–" + b); a = b = y; } });
+    if (a !== null) out.push(a === b ? a : a + "–" + b);
+    return out.join(", ");
+  }
+  function hundred(segs) {
+    var base = segs.map(function (s) { return Math.floor(s.s * 100); });
+    var left = 100 - base.reduce(function (a, b) { return a + b; }, 0);
+    var order = segs.map(function (s, i) { return i; }).sort(function (a, b) { return (segs[b].s * 100 - base[b]) - (segs[a].s * 100 - base[a]); });
+    for (var k = 0; k < left; k++) base[order[k % order.length]]++;
+    return base;
+  }
+  function srcLink(s) {
+    return '<a href="' + s.url + '" target="_blank" rel="noopener">' + s.nome + "</a> (" + TIPO_TXT[s.tipo] + ")";
+  }
+  function fmtDate(iso) { var p = iso.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+
+  var cel = {
+    comp: $("comp"), title: $("compTitle"), body: $("compBody"), empty: $("compEmpty"),
+    cbar: $("cbar"), clist: $("clist"), c100: $("c100"), dots: $("dots"), rhythm: $("crhythm"), rates: $("crates"),
+    src: $("compSrc"), evo: $("evo"), evoTitle: $("evoTitle"), evoRead: $("evoRead"), legend: $("ringLegend"),
+    marcosBox: $("marcosBox"), marcos: $("marcos"), rateBox: $("rateBox"), rateSvg: $("rateSvg"), rateRead: $("rateRead")
+  };
+  for (var di = 0; di < 100; di++) cel.dots.appendChild(document.createElement("i"));
+
+  // Lista de marcos legais (recorte Arma de fogo)
+  MARCOS.forEach(function (m, i) {
+    var det = document.createElement("details");
+    det.className = "marco";
+    det.innerHTML = '<summary><span class="mnum">' + (i + 1) + '</span><span class="mdate">' + fmtDate(m.data) + "</span><span>" + m.curto + "</span></summary><p><strong>" + m.titulo + ".</strong> " + m.texto + ' <a href="' + m.url + '" target="_blank" rel="noopener">Texto oficial</a></p>';
+    det.addEventListener("toggle", function () {
+      if (det.open) state.marco = i;
+      else if (state.marco === i) state.marco = -1;
+      renderEvo();
+    });
+    cel.marcos.appendChild(det);
+  });
+
+  function legendHTML(segs) {
+    return segs.map(function (s) { return '<li><span class="sw" style="background:' + gColorVar(s.g) + '"></span>' + GROUPS[s.g].nome + "</li>"; }).join("");
+  }
+
+  function renderComp() {
+    var on = state.cut !== "total";
+    cel.comp.hidden = !on;
+    if (!on) { cel.legend.hidden = true; return; }
+    var d = current(), key = cutKey(), cut = CUTS[key], comp = compFor(d.ano);
+    cel.title.textContent = "Quem foram as vítimas em " + d.ano + " · " + cut.nome;
+    var anos = Object.keys(cut.years).map(Number).sort(function (a, b) { return a - b; });
+    if (!comp) {
+      cel.body.hidden = true;
+      cel.empty.hidden = false;
+      cel.empty.innerHTML = "<strong>Sem dado conferido para este recorte em " + d.ano + ".</strong> Anos com dado: " + ranges(anos) + ". O anel segue mostrando o total do ano.";
+      cel.legend.hidden = true;
+      cel.src.textContent = "";
+    } else {
+      var e = comp.e;
+      cel.body.hidden = false;
+      cel.empty.hidden = true;
+      cel.cbar.innerHTML = comp.segs.map(function (s) { return '<span style="flex:' + s.s.toFixed(5) + ' 1 0;background:' + gColorVar(s.g) + '"></span>'; }).join("");
+      cel.clist.innerHTML = comp.segs.map(function (s) {
+        return '<li><span class="sw" style="background:' + gColorVar(s.g) + '"></span><span>' + GROUPS[s.g].nome + '</span><span class="pct">' + pct(s.s) + '</span><span class="n">' + (s.n == null ? (s === comp.segs[0] ? "percentual publicado; número não publicado" : "diferença para 100%") : nf(s.n)) + "</span></li>";
+      }).join("");
+      var h = hundred(comp.segs);
+      cel.c100.innerHTML = "De cada 100 vítimas em " + d.ano + ": " + comp.segs.map(function (s, i) { return lowerFirst(GROUPS[s.g].nome) + ", <b>" + h[i] + "</b>"; }).join(" · ") + ".";
+      var di2 = 0;
+      comp.segs.forEach(function (s, i) { for (var q = 0; q < h[i]; q++) cel.dots.children[di2++].style.background = gColorVar(s.g); });
+      var secs = secondsInYear(d.ano);
+      cel.rhythm.hidden = comp.pctOnly;
+      if (!comp.pctOnly) cel.rhythm.textContent = "Ritmo médio por grupo: " + comp.segs.map(function (s) { return GROUPS[s.g].um + " a cada " + everyText(secs / s.n); }).join("; ") + ".";
+      var rt = [];
+      if (e.rates) Object.keys(e.rates).forEach(function (g) { if (e.rates[g] != null) rt.push(lowerFirst(GROUPS[g].nome) + " " + nf(e.rates[g], 1)); });
+      cel.rates.hidden = false;
+      if (rt.length || e.rateNote) {
+        cel.rates.innerHTML = (rt.length ? "<strong>Taxa por 100 mil habitantes do próprio grupo:</strong> " + rt.join(" · ") + ". " : "") + (e.rateNote || "") + " O percentual mostra a parcela entre as vítimas; a taxa mostra o risco.";
+      } else {
+        cel.rates.innerHTML = "A fonte deste ano não traz a taxa por 100 mil do grupo. O percentual mostra a parcela entre as vítimas, não o risco: um grupo pode ser maioria das vítimas e também maioria da população.";
+      }
+      var extra = [];
+      if (e.pub != null) extra.push("Percentual publicado pela fonte: " + nf(e.pub, 1) + "% (a divisão dá " + pct(comp.segs[0].s) + ").");
+      if (e.note) extra.push(e.note);
+      if (e.totNote) extra.push(e.totNote);
+      var diff = comp.tot !== d.homicidios ? " O contador usa " + nf(d.homicidios) + " (" + SOURCES[d.fonte].curto + "); a diferença vem de critérios e revisões entre publicações." : "";
+      cel.src.innerHTML = "Fonte: " + srcLink(comp.src) + ". Total usado neste recorte: " + nf(comp.tot) + "." + diff + (extra.length ? " " + extra.join(" ") : "");
+      cel.legend.innerHTML = legendHTML(comp.segs);
+      cel.legend.hidden = false;
+    }
+    cel.marcosBox.hidden = key !== "arma";
+    cel.rateBox.hidden = key !== "raca";
+    renderEvo();
+    if (key === "raca") renderRates();
+  }
+
+  // Evolução: colunas empilhadas a 100%, uma por ano; lacunas tracejadas.
+  var EVO = { x0: 14, w: 414, top: 10, h: 92 };
+  function evoX(i) { return EVO.x0 + i * (EVO.w / YEARS.length); }
+  function renderEvo(hoverI) {
+    var key = cutKey(), cut = CUTS[key], n = YEARS.length, step = EVO.w / n, cw = Math.max(2, step - 2);
+    var focus = null, svg = [];
+    svg.push('<line class="axis" x1="' + EVO.x0 + '" x2="' + (EVO.x0 + EVO.w) + '" y1="' + (EVO.top + EVO.h) + '" y2="' + (EVO.top + EVO.h) + '"></line>');
+    svg.push('<line class="axis" x1="' + EVO.x0 + '" x2="' + (EVO.x0 + EVO.w) + '" y1="' + (EVO.top + EVO.h / 2) + '" y2="' + (EVO.top + EVO.h / 2) + '" stroke-dasharray="2 3"></line>');
+    svg.push('<text x="' + (EVO.x0 + EVO.w + 4) + '" y="' + (EVO.top + 4) + '">100%</text><text x="' + (EVO.x0 + EVO.w + 4) + '" y="' + (EVO.top + EVO.h / 2 + 3) + '">50%</text><text x="' + (EVO.x0 + EVO.w + 4) + '" y="' + (EVO.top + EVO.h + 3) + '">0%</text>');
+    for (var i = 0; i < n; i++) {
+      var y = FIRST + i, x = evoX(i) + (step - cw) / 2;
+      var comp = compForKey(key, y);
+      if (!comp) {
+        svg.push('<rect class="gap" x="' + x.toFixed(1) + '" y="' + (EVO.top + EVO.h - 6) + '" width="' + cw.toFixed(1) + '" height="6"></rect>');
+        continue;
+      }
+      if (!focus) focus = comp.segs[0].g;
+      var yy = EVO.top + EVO.h;
+      comp.segs.forEach(function (s, k) {
+        var hh = s.s * EVO.h;
+        var gap = k > 0 ? 1 : 0;
+        svg.push('<rect x="' + x.toFixed(1) + '" y="' + (yy - hh + gap).toFixed(2) + '" width="' + cw.toFixed(1) + '" height="' + Math.max(0, hh - gap).toFixed(2) + '" fill="' + gColorVar(s.g) + '"' + (comp.pctOnly ? ' fill-opacity="0.5"' : "") + "></rect>");
+        yy -= hh;
+      });
+    }
+    if (cut.breakAfter) {
+      var bx = evoX(cut.breakAfter - FIRST + 1);
+      svg.push('<line class="brk" x1="' + bx.toFixed(1) + '" x2="' + bx.toFixed(1) + '" y1="' + (EVO.top - 6) + '" y2="' + (EVO.top + EVO.h) + '"></line>');
+    }
+    if (key === "arma") {
+      MARCOS.forEach(function (m, mi) {
+        var p = m.data.split("-"), yr = +p[0], frac = ((+p[1] - 1) + (+p[2] - 1) / 31) / 12;
+        var mx = evoX(yr - FIRST + frac);
+        var sel = state.marco === mi;
+        svg.push('<line class="marco-l' + (sel ? " sel" : "") + '" x1="' + mx.toFixed(1) + '" x2="' + mx.toFixed(1) + '" y1="' + (EVO.top - 8) + '" y2="' + (EVO.top + EVO.h) + '"></line>');
+        if (sel) svg.push('<text class="marco-t" x="' + mx.toFixed(1) + '" y="' + (EVO.top - 0) + '" text-anchor="' + (mx > 300 ? "end" : "start") + '" dx="' + (mx > 300 ? -3 : 3) + '">' + (mi + 1) + ". " + m.curto + "</text>");
+      });
+    }
+    var si = state.yi, sx = evoX(si);
+    svg.push('<rect class="selbox" x="' + (sx + 0.5).toFixed(1) + '" y="' + (EVO.top - 3) + '" width="' + (step - 1).toFixed(1) + '" height="' + (EVO.h + 6) + '" rx="2"></rect>');
+    for (var dy = Math.ceil(FIRST / 10) * 10; dy <= LAST; dy += 10) {
+      svg.push('<text x="' + (evoX(dy - FIRST) + step / 2).toFixed(1) + '" y="' + (EVO.top + EVO.h + 16) + '" text-anchor="middle">' + dy + "</text>");
+    }
+    cel.evo.innerHTML = svg.join("");
+    var fg = focus || (cut.resto === "demaisSexo" ? "mulheres" : null);
+    cel.evoTitle.textContent = key === "idadeF" ? "Composição por faixa entre as vítimas, por ano" : fg ? "Parcela de " + lowerFirst(GROUPS[fg].nome) + " entre as vítimas, por ano" : "Parcela por ano";
+    var ri = hoverI != null ? hoverI : state.yi, rc = compForKey(key, FIRST + ri);
+    var rtxt = "sem dado";
+    if (rc) rtxt = key === "idadeF" ? rc.segs.slice(0, 3).map(function (s) { return GROUPS[s.g].nome.replace(" anos", "") + ": " + pct(s.s); }).join(" · ") : pct(rc.segs[0].s) + (rc.pctOnly ? " (só percentual publicado)" : "");
+    cel.evoRead.innerHTML = "<b>" + (FIRST + ri) + "</b> " + rtxt;
+  }
+  (function evoInput() {
+    function bind(svgEl, onHover) {
+      var drag = false;
+      function idx(e) {
+        var r = svgEl.getBoundingClientRect();
+        var vx = ((e.clientX - r.left) / r.width) * 460;
+        return Math.max(0, Math.min(YEARS.length - 1, Math.floor((vx - EVO.x0) / (EVO.w / YEARS.length))));
+      }
+      svgEl.addEventListener("pointerdown", function (e) { drag = true; try { svgEl.setPointerCapture(e.pointerId); } catch (x) {} selectYear(nearestAvailable(idx(e))); });
+      svgEl.addEventListener("pointermove", function (e) {
+        var i = idx(e);
+        if (drag) { if (YEARS[i]) selectYear(i); }
+        else if (e.pointerType === "mouse") onHover(i);
+      });
+      svgEl.addEventListener("pointerleave", function () { if (!drag) onHover(); });
+      ["pointerup", "pointercancel", "lostpointercapture"].forEach(function (ev) { svgEl.addEventListener(ev, function () { drag = false; }); });
+    }
+    bind(cel.evo, renderEvo);
+    bind(cel.rateSvg, renderRates);
+  })();
+
+  // Taxas por 100 mil de negros e não negros: linhas, quebradas onde falta ano.
+  var RT = { top: 12, h: 100, max: 50 };
+  function renderRates(hoverI) {
+    var n = YEARS.length, step = EVO.w / n, svg = [];
+    function yv(v) { return RT.top + RT.h - (v / RT.max) * RT.h; }
+    [0, 10, 20, 30, 40, 50].forEach(function (v) {
+      svg.push('<line class="axis" x1="' + EVO.x0 + '" x2="' + (EVO.x0 + EVO.w) + '" y1="' + yv(v).toFixed(1) + '" y2="' + yv(v).toFixed(1) + '"' + (v ? ' stroke-dasharray="2 3"' : "") + "></line>");
+      svg.push('<text x="' + (EVO.x0 + EVO.w + 4) + '" y="' + (yv(v) + 3).toFixed(1) + '">' + v + "</text>");
+    });
+    [[0, "g1"], [1, "g2"]].forEach(function (pair) {
+      var k = pair[0], col = "var(--" + pair[1] + ")", path = "", prev = false;
+      for (var i = 0; i < n; i++) {
+        var rr = RACE_RATES[FIRST + i];
+        if (!rr || rr[k] == null) { prev = false; continue; }
+        var x = evoX(i) + step / 2, y = yv(rr[k]);
+        path += (prev ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+        svg.push('<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="2.4" fill="' + col + '"></circle>');
+        prev = true;
+      }
+      svg.push('<path d="' + path + '" fill="none" stroke="' + col + '" stroke-width="2" stroke-linejoin="round"></path>');
+    });
+    var first = RACE_RATES[2004];
+    var fx = evoX(2004 - FIRST) + step / 2;
+    svg.push('<text x="' + (fx - 4).toFixed(1) + '" y="' + (yv(first[0]) - 6).toFixed(1) + '" text-anchor="end" class="rl">negros</text>');
+    svg.push('<text x="' + (fx - 4).toFixed(1) + '" y="' + (yv(first[1]) + 12).toFixed(1) + '" text-anchor="end" class="rl">não negros</text>');
+    var si = state.yi, sx = evoX(si);
+    svg.push('<rect class="selbox" x="' + (sx + 0.5).toFixed(1) + '" y="' + (RT.top - 4) + '" width="' + (step - 1).toFixed(1) + '" height="' + (RT.h + 8) + '" rx="2"></rect>');
+    for (var dy = Math.ceil(FIRST / 10) * 10; dy <= LAST; dy += 10) {
+      svg.push('<text x="' + (evoX(dy - FIRST) + step / 2).toFixed(1) + '" y="' + (RT.top + RT.h + 18) + '" text-anchor="middle">' + dy + "</text>");
+    }
+    cel.rateSvg.innerHTML = svg.join("");
+    var ri = hoverI != null ? hoverI : state.yi, r = RACE_RATES[FIRST + ri];
+    cel.rateRead.innerHTML = "<b>" + (FIRST + ri) + "</b> " + (r ? "negros " + nf(r[0], 1) + (r[1] != null ? " · não negros " + nf(r[1], 1) + " · razão " + nf(r[0] / r[1], 1) + "×" : "") : "sem taxa");
+  }
+
+  function setCut(c, age) {
+    if (c) state.cut = c;
+    if (age) state.age = age;
+    Array.prototype.forEach.call(document.querySelectorAll("#cuts button"), function (b) { b.setAttribute("aria-pressed", b.dataset.cut === state.cut ? "true" : "false"); });
+    Array.prototype.forEach.call(document.querySelectorAll("#ages button"), function (b) { b.setAttribute("aria-pressed", b.dataset.age === state.age ? "true" : "false"); });
+    $("ages").hidden = state.cut !== "idade";
+    // refaz as marcas do período atual com as novas cores, sem disparar figuras
+    el.marks.textContent = "";
+    state.lastK = 0;
+    state.skipAnimOnce = true;
+    renderComp();
+    if (state.view === "all") renderAllStatic();
+  }
+  $("cuts").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setCut(b.dataset.cut); });
+  $("ages").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setCut(null, b.dataset.age); });
+
+  (function cutSources() {
+    var body = $("cutSrcBody");
+    Object.keys(CUTS).forEach(function (key) {
+      var cut = CUTS[key], bySrc = {};
+      Object.keys(cut.years).map(Number).sort(function (a, b) { return a - b; }).forEach(function (y) {
+        var s = cut.years[y].src; (bySrc[s] = bySrc[s] || []).push(y);
+      });
+      Object.keys(bySrc).forEach(function (s) {
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td>" + cut.nome + "</td><td>" + ranges(bySrc[s]) + '</td><td><a href="' + CSRC[s].url + '" target="_blank" rel="noopener">' + CSRC[s].nome + "</a></td><td>" + TIPO_TXT[CSRC[s].tipo] + "</td>";
+        body.appendChild(tr);
+      });
+    });
+  })();
+
+  // ---------- Simulação ----------
+  function current() { return YEARS[state.yi]; }
+  function mode() { return MODES[state.mode]; }
+  function simNow(t) { return ((t - state.anchor) / 1000) * mode().speed; }
+
+  function resetSim() {
+    state.anchor = performance.now();
+    state.lastK = 0;
+    state.lastPeriod = 0;
+    state.queue = 0;
+    state.flashUntil = 0;
+    el.marks.textContent = "";
+    clearFloaters();
+  }
+
+  function renderStatic() {
+    var d = current();
+    var iv = intervalFor(d);
+    var days = secondsInYear(d.ano) / 86400;
+    var src = SOURCES[d.fonte];
+
+    if (state.mode === "real") {
+      el.caption.textContent = "O anel é o intervalo médio até a próxima morte.";
+      el.statement.textContent = "Em " + d.ano + ", uma pessoa foi assassinada a cada " + minSec(iv) + ", em média.";
+      el.simLabel.textContent = "Desde que você escolheu " + d.ano;
+    } else if (state.mode === "hour") {
+      el.caption.textContent = "O anel é uma hora, percorrida em 1 minuto. Cada marca é uma morte.";
+      el.statement.textContent = "Em " + d.ano + ", " + nf(d.homicidios / (days * 24), 1) + " pessoas foram assassinadas por hora, em média.";
+      el.simLabel.textContent = "Total simulado (1 hora em 1 minuto)";
+    } else {
+      el.caption.textContent = "O anel é um dia, percorrido em 1 minuto. Cada marca é uma morte.";
+      el.statement.textContent = "Em " + d.ano + ", " + nf(Math.round(d.homicidios / days)) + " pessoas foram assassinadas por dia, em média.";
+      el.simLabel.textContent = "Total simulado (1 dia em 1 minuto)";
+    }
+    el.total.textContent = nf(d.homicidios) + " homicídios registrados em " + d.ano + " · " + src.curto;
+
+    el.cReal.hidden = state.mode !== "real";
+    el.cClock.hidden = state.mode === "real";
+    el.cFlash.hidden = true;
+    el.rest.innerHTML = figureMarkup("sz-l");
+
+    el.ypYear.textContent = d.ano;
+    el.ypVal.textContent = nf(d.homicidios) + " homicídios";
+    el.ypChart.setAttribute("aria-valuemin", FIRST);
+    el.ypChart.setAttribute("aria-valuemax", LAST);
+    el.ypChart.setAttribute("aria-valuenow", d.ano);
+    el.ypChart.setAttribute("aria-valuetext", d.ano + ", " + nf(d.homicidios) + " homicídios");
+    Array.prototype.forEach.call(el.ypBars.children, function (b, i) { b.classList.toggle("sel", i === state.yi); });
+    el.prev.disabled = !YEARS.slice(0, state.yi).some(Boolean);
+    el.next.disabled = !YEARS.slice(state.yi + 1).some(Boolean);
+    renderComp();
+  }
+
+  function selectYear(i) {
+    if (i === state.yi || !YEARS[i]) return;
+    state.yi = i;
+    resetSim();
+    renderStatic();
+  }
+  function setMode(m) {
+    state.modeChosen = true;
+    applyMode(m);
+  }
+  function applyMode(m) {
+    if (m === state.mode) return;
+    state.mode = m;
+    resetAll();
+    if (state.view === "all") renderAllStatic();
+    Array.prototype.forEach.call(document.querySelectorAll("#modes button"), function (b) {
+      b.setAttribute("aria-pressed", b.dataset.mode === m ? "true" : "false");
+    });
+    buildDial();
+    resetSim();
+    renderStatic();
+  }
+  function setFigure(f) {
+    state.fig = f;
+    Array.prototype.forEach.call(document.querySelectorAll("#figures button"), function (b) {
+      b.setAttribute("aria-pressed", b.dataset.fig === f ? "true" : "false");
+    });
+    renderStatic();
+  }
+  $("modes").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setMode(b.dataset.mode); });
+  $("figures").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setFigure(b.dataset.fig); });
+
+  // ---------- Figuras que sobem ----------
+  function clearFloaters() {
+    Array.prototype.forEach.call(el.wrap.querySelectorAll(".floater"), function (n) { n.remove(); });
+    state.floaters = 0;
+  }
+  function spawn(size, xPct, yPct, dx, color) {
+    var f = document.createElement("div");
+    f.className = "floater " + size;
+    if (color) f.style.setProperty("--fig-color", color);
+    f.style.left = xPct.toFixed(2) + "%";
+    f.style.top = yPct.toFixed(2) + "%";
+    f.style.setProperty("--dx", dx.toFixed(1) + "px");
+    f.innerHTML = figureMarkup(size);
+    f.addEventListener("animationend", function () { f.remove(); state.floaters--; });
+    el.wrap.appendChild(f);
+    state.floaters++;
+  }
+  function launchCenter(t, color) {
+    if (state.floaters >= REAL_MAX_FLOAT) return false;
+    spawn("sz-l", 50, 43, state.queue > 0 ? Math.random() * 30 - 15 : 0, color);
+    state.lastLaunch = t;
+    el.rest.classList.add("dim");
+    void el.rest.offsetWidth;
+    el.rest.classList.remove("dim");
+    return true;
+  }
+  function addMark(frac, big, color) {
+    var p = polar(frac, MARK_R);
+    var c = document.createElementNS(NS, "circle");
+    if (color) c.style.fill = color;
+    c.setAttribute("cx", p.x.toFixed(2));
+    c.setAttribute("cy", p.y.toFixed(2));
+    c.setAttribute("r", big ? "2.4" : "1.25");
+    el.marks.appendChild(c);
+  }
+
+  // ---------- Laço principal ----------
+  function frameOne(t) {
+    var d = current();
+    var iv = intervalFor(d);
+    var m = mode();
+    var sim = simNow(t);
+    var k = Math.floor(sim / iv);           // mortes acumuladas no tempo simulado
+    var animate = !reduceMotion.matches && document.visibilityState === "visible" && !state.skipAnimOnce;
+    state.skipAnimOnce = false;
+    var comp = compFor(d.ano);
+    var colorOf = function (jj) { return comp ? gColorVar(comp.segs[groupIndex(jj, comp.segs)].g) : null; };
+
+    if (state.mode === "real") {
+      var progress = (sim - k * iv) / iv;
+      el.bar.setAttribute("stroke-dashoffset", (CIRC * (1 - progress)).toFixed(2));
+      if (k > state.lastK && animate) state.queue = Math.min(REAL_MAX_QUEUE, state.queue + (k - state.lastK));
+      if (state.queue > 0 && t - state.lastLaunch >= REAL_GAP_MS && launchCenter(t, colorOf(k - state.queue + 1))) state.queue--;
+      el.cNext.innerHTML = "próxima em<br>" + minSec((1 - progress) * iv);
+      el.simCount.textContent = nf(k);
+      el.simSub.textContent = "em " + duration(sim);
+    } else {
+      var P = m.period;
+      var p = Math.floor(sim / P);            // períodos completos
+      var within = sim - p * P;
+      el.bar.setAttribute("stroke-dashoffset", (CIRC * (1 - within / P)).toFixed(2));
+      var firstK = Math.floor((p * P) / iv);  // mortes antes deste período
+
+      if (p > state.lastPeriod) {
+        var done = Math.floor((p * P) / iv) - Math.floor(((p - 1) * P) / iv);
+        el.fTitle.textContent = m.Titulo + " " + nf(p) + " encerrad" + (state.mode === "hour" ? "a" : "o");
+        el.fValue.textContent = nf(done);
+        el.fSub.textContent = done === 1 ? "morte" : "mortes";
+        state.flashUntil = t + FLASH_MS;
+        el.marks.textContent = "";
+        state.lastPeriod = p;
+        state.lastK = Math.max(state.lastK, firstK);
+      }
+
+      // novas mortes neste período: marca no anel + figura subindo dali
+      var from = Math.max(state.lastK + 1, firstK + 1);
+      for (var j = from; j <= k; j++) {
+        var frac = (j * iv - p * P) / P;
+        var col = colorOf(j);
+        addMark(frac, state.mode === "hour", col);
+        if (animate && k - j < TIP_BURST_MAX && state.floaters < m.maxFloat) {
+          var pt = polar(frac, MARK_R);
+          spawn(m.size, pt.x / 2, pt.y / 2, Math.random() * 10 - 5, col);
+        }
+      }
+
+      var flashing = t < state.flashUntil;
+      el.cFlash.hidden = !flashing;
+      el.cClock.hidden = flashing;
+      if (!flashing) {
+        var inPeriod = k - firstK;
+        el.cPeriod.textContent = m.Titulo + " " + nf(p + 1);
+        if (state.mode === "day") {
+          var hh = Math.floor(within / 3600), mm = Math.floor((within % 3600) / 60);
+          el.cTime.textContent = pad2(hh) + ":" + pad2(mm);
+        } else {
+          var mi = Math.floor(within / 60), ss = Math.floor(within % 60);
+          el.cTime.innerHTML = mi + '<span class="u">min</span> ' + pad2(ss) + '<span class="u">s</span>';
+        }
+        el.cCount.textContent = plural(inPeriod, "morte", "mortes") + " " + m.este;
+      }
+      el.simCount.textContent = nf(k);
+      el.simSub.textContent = (k === 1 ? "morte" : "mortes") + " em " + duration(sim) + " simulados";
+    }
+    state.lastK = Math.max(state.lastK, k);
+
+    // relógio de parede: independe do modo
+    var realSec = (Date.now() - state.openedAt) / 1000;
+    el.realCount.textContent = nf(Math.floor(realSec / iv));
+    el.realSub.textContent = "em " + duration(realSec) + ", no ritmo de " + d.ano;
+  }
+
+  // =====================================================================
+  // Visão "Todos os anos": uma célula com canvas por ano, um só relógio.
+  // =====================================================================
+  var GHOST_PATH = window.Path2D ? new Path2D("M5 22 A17 17 0 0 1 39 22 V47 L34.75 43 L30.5 47 L26.25 43 L22 47 L17.75 43 L13.5 47 L9.25 43 L5 47 Z") : null;
+  var colors = {};
+  function readColors() {
+    var cs = getComputedStyle(document.documentElement);
+    ["--bg", "--line", "--ink", "--muted", "--ring", "--glow", "--track", "--figure", "--mark", "--g0", "--g1", "--g2", "--g3"].forEach(function (n) {
+      colors[n.slice(2)] = cs.getPropertyValue(n).trim() || "#888";
+    });
+    colors.font = cs.getPropertyValue("--font-display").trim() || "Georgia, serif";
+  }
+  readColors();
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", readColors);
+  }
+  new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  var cells = [];
+  var allEl = { grid: $("grid"), status: $("allStatus"), caption: $("allCaption"), viewAll: $("viewAll"), viewOne: $("viewOne"), page: document.querySelector(".page") };
+
+  (function buildGrid() {
+    var io = window.IntersectionObserver ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target._cell.visible = en.isIntersecting; });
+    }, { rootMargin: "80px 0px" }) : null;
+    var ro = window.ResizeObserver ? new ResizeObserver(function (entries) {
+      entries.forEach(function (en) { sizeCanvas(en.target._cell); });
+    }) : null;
+
+    YEARS.forEach(function (d, i) {
+      if (!d) return;
+      if (d.ano === SOURCE_BREAK_AFTER + 1) {
+        var br = document.createElement("div");
+        br.className = "grid-break";
+        br.textContent = "Até " + SOURCE_BREAK_AFTER + ": Mapa da Violência. A partir de " + d.ano + ": Atlas da Violência, que também conta intervenções legais. Os dois trechos não são estritamente comparáveis.";
+        allEl.grid.appendChild(br);
+      }
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "cell";
+      b.id = "cell-" + d.ano;
+      b.setAttribute("aria-label", "Abrir " + d.ano + ": " + nf(d.homicidios) + " homicídios");
+      b.innerHTML = '<span class="cy">' + d.ano + '</span><canvas aria-hidden="true"></canvas><span class="cr"></span><span class="mbar" hidden></span><span class="cp" hidden></span><span class="ct"></span>';
+      var c = { d: d, i: i, el: b, canvas: b.querySelector("canvas"), cr: b.querySelector(".cr"), ct: b.querySelector(".ct"), mbar: b.querySelector(".mbar"), cp: b.querySelector(".cp"), visible: !io, size: 0, lastTotal: -1 };
+      c.ctx = c.canvas.getContext("2d");
+      b._cell = c;
+      b.addEventListener("click", function () { openYear(i); });
+      allEl.grid.appendChild(b);
+      cells.push(c);
+      if (io) io.observe(b);
+      if (ro) ro.observe(b);
+    });
+  })();
+
+  function sizeCanvas(c) {
+    var w = c.canvas.clientWidth;
+    if (!w) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var px = Math.round(w * dpr);
+    if (c.canvas.width !== px) { c.canvas.width = px; c.canvas.height = px; }
+    c.size = w; c.dpr = dpr;
+  }
+
+  function allSim(t) { return ((t - state.allAnchor) / 1000) * mode().speed; }
+
+  function renderAllStatic() {
+    var days;
+    if (state.mode === "real") allEl.caption.textContent = "Cada anel é o intervalo médio até a próxima morte daquele ano. Anéis mais lentos, anos com menos homicídios.";
+    else if (state.mode === "hour") allEl.caption.textContent = "Todos os anéis são a mesma hora, percorrida em 1 minuto. Cada marca é uma morte; o número no centro conta as desta hora.";
+    else allEl.caption.textContent = "Todos os anéis são o mesmo dia, percorrido em 1 minuto. Cada marca é uma morte; o número no centro conta as deste dia.";
+    cells.forEach(function (c) {
+      var d = c.d, iv = intervalFor(d);
+      days = secondsInYear(d.ano) / 86400;
+      if (state.mode === "real") c.cr.textContent = "1 a cada " + Math.round(iv / 60) + " min";
+      else if (state.mode === "hour") c.cr.textContent = nf(d.homicidios / (days * 24), 1) + " por hora";
+      else c.cr.textContent = nf(Math.round(d.homicidios / days)) + " por dia";
+      c.lastTotal = -1;
+      // recorte: mini barra de 100% e percentual do grupo principal
+      var on = state.cut !== "total", comp = on ? compFor(d.ano) : null;
+      c.comp = comp || null;
+      c.el.classList.toggle("nodata", on && !comp);
+      c.mbar.hidden = !comp;
+      c.cp.hidden = !on;
+      if (comp) {
+        c.mbar.innerHTML = comp.segs.map(function (s) { return '<span style="flex:' + s.s.toFixed(5) + ' 1 0;background:' + gColorVar(s.g) + '"></span>'; }).join("");
+        c.cp.textContent = cutKey() === "idadeF"
+          ? "0 a 19 anos " + pct(comp.segs[0].s + comp.segs[1].s + comp.segs[2].s)
+          : GROUPS[comp.segs[0].g].nome.split(" (")[0] + " " + pct(comp.segs[0].s) + (comp.pctOnly ? " (publicado)" : "");
+      } else if (on) {
+        c.cp.textContent = "sem dado";
+      }
+      sizeCanvas(c);
+    });
+  }
+
+  function drawFigure(ctx, x, y, h, alpha, tint) {
+    ctx.globalAlpha = alpha;
+    if (state.fig === "light" || !GHOST_PATH) {
+      var r = h * 0.18;
+      var g = ctx.createRadialGradient(x, y, 0, x, y, r * 3);
+      g.addColorStop(0, tint || colors.glow);
+      g.addColorStop(0.33, tint || colors.glow);
+      g.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(x, y, r * 3, 0, Math.PI * 2); ctx.fill();
+    } else {
+      var s = h / 52;
+      ctx.save();
+      ctx.translate(x - 22 * s, y - 26 * s);
+      ctx.scale(s, s);
+      ctx.fillStyle = tint || colors.figure;
+      ctx.globalAlpha = alpha * 0.85;
+      ctx.fill(GHOST_PATH);
+      if (h >= 18) {
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = colors.bg;
+        ctx.beginPath(); ctx.ellipse(16.5, 22.5, 2, 3, 0, 0, Math.PI * 2); ctx.ellipse(27.5, 22.5, 2, 3, 0, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawCell(c, sim, nowMs, P, motion) {
+    if (!c.size) sizeCanvas(c);
+    var S = c.size; if (!S) return;
+    var ctx = c.ctx, d = c.d, iv = intervalFor(d), speed = mode().speed;
+    ctx.setTransform(c.dpr, 0, 0, c.dpr, 0, 0);
+    ctx.clearRect(0, 0, S, S);
+    var cx = S / 2, cy = S / 2, R = S * 0.42, lw = Math.max(2, S * 0.035);
+    var k = Math.floor(sim / iv);
+    var comp = c.comp;
+    var tintOf = function (jj) { return comp ? colors[GROUPS[comp.segs[groupIndex(jj, comp.segs)].g].cor] : null; };
+    var frac, firstK = 0;
+    if (P) { var p = Math.floor(sim / P); frac = (sim - p * P) / P; firstK = Math.floor((p * P) / iv); }
+    else frac = (sim - k * iv) / iv;
+
+    ctx.lineWidth = lw;
+    ctx.strokeStyle = colors.track;
+    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+    ctx.strokeStyle = colors.ring;
+    ctx.beginPath(); ctx.arc(cx, cy, R, -Math.PI / 2, -Math.PI / 2 + frac * Math.PI * 2); ctx.stroke();
+
+    if (P) {
+      // marcas das mortes deste período
+      var mr = R - lw * 1.6, dot = state.mode === "hour" ? Math.max(1.6, S * 0.022) : Math.max(0.9, S * 0.0095);
+      var pStart = Math.floor(sim / P) * P;
+      // marcas acumuladas numa camada própria, desenhadas só quando surgem
+      var key = state.mode + "|" + pStart + "|" + c.canvas.width + "|" + colors.mark + colors.g1 + "|" + state.allAnchor + "|" + (comp ? cutKey() : "total");
+      if (!c.mk) { c.mk = document.createElement("canvas"); c.mkCtx = c.mk.getContext("2d"); }
+      if (c.mkKey !== key) {
+        c.mkKey = key;
+        c.mk.width = c.canvas.width; c.mk.height = c.canvas.height;
+        c.mkCtx.setTransform(c.dpr, 0, 0, c.dpr, 0, 0);
+        c.mkK = firstK;
+      }
+      if (k > c.mkK) {
+        var mctx = c.mkCtx, ng = comp ? comp.segs.length : 1;
+        for (var gi = 0; gi < ng; gi++) {
+          mctx.fillStyle = comp ? colors[GROUPS[comp.segs[gi].g].cor] : colors.mark;
+          mctx.beginPath();
+          for (var j = Math.max(c.mkK, firstK) + 1; j <= k; j++) {
+            if (comp && groupIndex(j, comp.segs) !== gi) continue;
+            var a = ((j * iv - pStart) / P) * Math.PI * 2 - Math.PI / 2;
+            var x = cx + mr * Math.cos(a), y = cy + mr * Math.sin(a);
+            mctx.moveTo(x + dot, y);
+            mctx.arc(x, y, dot, 0, Math.PI * 2);
+          }
+          mctx.fill();
+        }
+        c.mkK = k;
+      }
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.drawImage(c.mk, 0, 0);
+      ctx.setTransform(c.dpr, 0, 0, c.dpr, 0, 0);
+      // mortes recentes: brilho (dia) ou figura subindo (hora)
+      if (motion) {
+        var life = state.mode === "day" ? 450 : 1700;
+        for (var q = k; q > firstK; q--) {
+          var age = nowMs - (state.allAnchor + (q * iv / speed) * 1000);
+          if (age > life) break;
+          var t01 = Math.max(0, age / life);
+          var aa = ((q * iv - pStart) / P) * Math.PI * 2 - Math.PI / 2;
+          var qx = cx + mr * Math.cos(aa), qy = cy + mr * Math.sin(aa);
+          if (state.mode === "day") {
+            ctx.globalAlpha = (1 - t01) * 0.8;
+            ctx.fillStyle = tintOf(q) || colors.glow;
+            ctx.beginPath(); ctx.arc(qx, qy, dot * (1.5 + 2.5 * t01), 0, Math.PI * 2); ctx.fill();
+            ctx.globalAlpha = 1;
+          } else {
+            drawFigure(ctx, qx, qy - t01 * S * 0.3, S * 0.16, (1 - t01) * 0.95, tintOf(q));
+          }
+        }
+      }
+      // número de mortes no período
+      ctx.fillStyle = colors.ink;
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = "600 " + Math.round(S * 0.24) + "px " + colors.font;
+      ctx.fillText(nf(k - firstK), cx, cy + S * 0.01);
+    } else {
+      // tempo real: figura no centro; sobe quando o anel fecha
+      var since = (sim - k * iv) * 1000; // ms desde a última morte (velocidade 1)
+      var rise = 2200;
+      if (motion && k > 0 && since < rise) {
+        var u = since / rise;
+        drawFigure(ctx, cx, cy - u * S * 0.45, S * 0.3, 1 - u, tintOf(k));
+        drawFigure(ctx, cx, cy, S * 0.3, Math.min(1, u * 1.5) * 0.9);
+      } else {
+        drawFigure(ctx, cx, cy, S * 0.3, 0.9);
+      }
+    }
+
+    if (k !== c.lastTotal) {
+      c.lastTotal = k;
+      c.ct.textContent = "total: " + nf(k);
+    }
+  }
+
+  function frameAll(t) {
+    var m = mode(), P = m.period;
+    var sim = allSim(t);
+    var motion = !reduceMotion.matches && document.visibilityState === "visible";
+    var nowMs = t;
+    if (P) {
+      var p = Math.floor(sim / P), within = sim - p * P;
+      if (p > state.allLastPeriod) { state.allLastPeriod = p; state.allFlashUntil = t + FLASH_MS; }
+      var clock = state.mode === "day"
+        ? pad2(Math.floor(within / 3600)) + ":" + pad2(Math.floor((within % 3600) / 60))
+        : Math.floor(within / 60) + " min " + pad2(Math.floor(within % 60)) + " s";
+      var text = t < state.allFlashUntil
+        ? m.Titulo + " " + nf(p) + " encerrad" + (state.mode === "hour" ? "a" : "o") + ' <span class="muted">· recomeçando</span>'
+        : m.Titulo + " " + nf(p + 1) + " · " + clock + ' <span class="muted">· ' + duration(sim) + " simulados</span>";
+      if (text !== state.allStatusText) { allEl.status.innerHTML = text; state.allStatusText = text; }
+    } else {
+      var tx = 'Tempo real <span class="muted">· ' + duration(sim) + " desde o início</span>";
+      if (tx !== state.allStatusText) { allEl.status.innerHTML = tx; state.allStatusText = tx; }
+    }
+    for (var i = 0; i < cells.length; i++) {
+      if (cells[i].visible) drawCell(cells[i], sim, nowMs, P, motion);
+    }
+  }
+
+  function setView(v) {
+    if (v === state.view) return;
+    state.view = v;
+    Array.prototype.forEach.call(document.querySelectorAll("#views button"), function (b) {
+      b.setAttribute("aria-pressed", b.dataset.view === v ? "true" : "false");
+    });
+    allEl.viewAll.hidden = v !== "all";
+    allEl.viewOne.hidden = v !== "one";
+    allEl.status.hidden = v !== "all";
+    allEl.page.classList.toggle("wide", v === "all");
+    if (v === "all") {
+      if (!state.modeChosen && state.mode !== "day") applyMode("day");
+      if (!state.allStarted) { state.allStarted = true; resetAll(); }
+      renderAllStatic();
+    } else {
+      state.skipAnimOnce = true;
+      clearFloaters();
+    }
+  }
+  function resetAll() {
+    state.allAnchor = performance.now();
+    state.allLastPeriod = 0;
+    state.allFlashUntil = 0;
+    state.allStatusText = "";
+  }
+  function openYear(i) {
+    state.yi = i;
+    resetSim();
+    renderStatic();
+    setView("one");
+    window.scrollTo(0, 0);
+  }
+  $("views").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setView(b.dataset.view); });
+
+  // ---------- Laço único ----------
+  function loop(t) {
+    if (state.view === "all") frameAll(t);
+    else frameOne(t);
+    perf.push(t);
+    requestAnimationFrame(loop);
+  }
+  var perf = { last: 0, n: 0, sum: 0, push: function (t) { if (this.last) { this.sum += t - this.last; this.n++; } this.last = t; } };
+  window.__ritmoPerf = function () { var r = perf.n ? perf.sum / perf.n : 0; perf.n = 0; perf.sum = 0; return r; };
+
+  buildDial();
+  renderStatic();
+  requestAnimationFrame(loop);
+})();
+</script>
+<footer class="sitefoot"><div class="sitefoot-in"><p>Parte da <a href="../index.html#violencia">Linha do tempo política do Brasil</a>. As fontes e lacunas desta seção estão listadas acima.</p></div></footer>
+</body>
+</html>

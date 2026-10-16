@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Linha do tempo política do Brasil</title>
+<meta name="description" content="O Brasil de 1995 a 2025, ano a ano: economia, empresas, Congresso e cenário internacional; o país frente a nove emergentes de porte parecido; o ritmo dos homicídios; e, como estudo de caso aprofundado, o Caso Banco Master.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23171c1a'/%3E%3Cg stroke='%23f3f4f1' stroke-width='1.6' opacity='.7'%3E%3Cpath d='M16 16 7 8M16 16l9-7M16 16l-9 9M16 16l10 8M7 8l18 1M7 25l19-1'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='4.5' fill='%23eb6834'/%3E%3Ccircle cx='7' cy='8' r='2.6' fill='%231baf7a'/%3E%3Ccircle cx='25' cy='9' r='2.6' fill='%232a78d6'/%3E%3Ccircle cx='7' cy='25' r='2.6' fill='%23eda100'/%3E%3Ccircle cx='26' cy='24' r='2.6' fill='%23e87ba4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script>
+/* tema escolhido antes da primeira pintura */
+(function(){ try { var t = localStorage.getItem('ldt.tema'); if (t === 'claro') document.documentElement.setAttribute('data-theme', 'light'); else if (t === 'escuro') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {} })();
+</script>
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f3f5f1; --surface:#fbfcfa; --ink:#14201b; --ink2:#4c5a53; --muted:#6f7d76; --line:#d9dfd8;
+  --accent:#2a78d6; --case:#eb6834;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --menu-h:46px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111613; --surface:#181e1a; --ink:#f2f5f1; --ink2:#c0c9c2; --muted:#8a968f; --line:#2b342e;
+    --accent:#3987e5; --case:#d95926;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111613; --surface:#181e1a; --ink:#f2f5f1; --ink2:#c0c9c2; --muted:#8a968f; --line:#2b342e;
+  --accent:#3987e5; --case:#d95926;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--menu-h) + 1px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;overflow-x:clip;padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.in{max-width:1360px;margin:0 auto;padding-inline:16px}
+
+/* cabeçalho */
+.hero{padding:calc(env(safe-area-inset-top,0px) + 28px) 0 22px;border-bottom:1px solid var(--line);background:var(--surface)}
+.kicker{margin:0 0 6px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(28px,5.4vw,52px);line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+.lede{margin:12px 0 0;max-width:68ch;color:var(--ink2);font-size:16px}
+
+/* menu fixo */
+.menu{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.menu-in{display:flex;align-items:center;gap:10px;height:var(--menu-h)}
+.mlist{display:flex;align-items:center;gap:2px;margin:0;padding:0;list-style:none;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;flex:1;min-width:0;height:100%}
+.mlist::-webkit-scrollbar{display:none}
+.mlist li{display:flex;align-items:center;flex:none}
+.mlist a{display:block;padding:5px 9px;border-radius:4px;text-decoration:none;color:var(--ink2);font-size:14px;white-space:nowrap}
+.mlist a:hover{color:var(--ink);background:var(--line)}
+.mlist a[aria-current="true"]{background:var(--ink);color:var(--bg)}
+.mlist .grp{display:flex;align-items:center;gap:2px;margin-left:8px;padding-left:10px;border-left:2px solid var(--case)}
+.mlist .grp-l{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-right:4px;white-space:nowrap}
+.mlist .grp.on .grp-l{color:var(--ink)}
+.tema{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink2);border-radius:4px;padding:4px 9px;font:inherit;font-size:12.5px;cursor:pointer;white-space:nowrap}
+.tema:hover{color:var(--ink)}
+
+/* seções */
+.sec{border-bottom:1px solid var(--line)}
+.sec-h{display:flex;align-items:baseline;gap:6px 12px;flex-wrap:wrap;padding-block:10px;font-size:13px;color:var(--muted)}
+.sec-h .num{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.sec-h h2{margin:0;font-family:var(--display);font-stretch:108%;font-weight:700;font-size:14px;letter-spacing:.01em;color:var(--ink)}
+.sec-h .so{margin-left:auto;font-size:12.5px;color:var(--ink2);text-decoration:none;white-space:nowrap}
+.sec-h .so:hover{text-decoration:underline}
+.slot{position:relative;min-height:min(86vh,900px)}
+.slot.ok{min-height:0}
+.slot iframe{display:block;width:100%;border:0;background:transparent}
+.slot:not(.ok) iframe{position:absolute;top:0;left:0;height:min(86vh,900px);opacity:0;pointer-events:none}
+.ph{max-width:1360px;margin:0 auto;padding:40px 16px;display:flex;flex-direction:column;gap:8px}
+.ph-t{margin:0;font-family:var(--display);font-stretch:108%;font-weight:800;font-size:clamp(22px,3.6vw,32px);line-height:1.1}
+.ph-d{margin:0;max-width:64ch;color:var(--ink2)}
+.ph-s{margin:6px 0 0;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.ph-s a{color:var(--ink)}
+.slot.carregando .ph-s::after{content:"";display:inline-block;width:.9em;height:.9em;margin-left:8px;vertical-align:-2px;border:2px solid var(--line);border-top-color:var(--ink2);border-radius:50%;animation:gira 1s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.slot.carregando .ph-s::after{animation:none}}
+
+/* separador do estudo de caso */
+.estudo{background:var(--surface);border-bottom:1px solid var(--line);border-top:4px solid var(--case)}
+.estudo .in{padding-block:30px 26px;display:flex;flex-direction:column;gap:8px}
+.estudo h2{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:clamp(24px,4vw,36px);line-height:1.05}
+.estudo p{margin:0;max-width:72ch;color:var(--ink2)}
+.estudo .kicker{color:var(--case);margin:0}
+.estudo ol{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px}
+.estudo ol a{text-decoration:none;border-bottom:1px solid var(--line)}
+.estudo ol a:hover{border-bottom-color:var(--ink)}
+
+/* rodapé */
+.foot{background:var(--surface);color:var(--ink2);font-size:13.5px;line-height:1.55}
+.foot .in{padding-block:24px 36px;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px 40px}
+.foot p{margin:0 0 8px;max-width:80ch}
+.foot b{color:var(--ink);font-weight:600}
+.foot h2{margin:0 0 8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.foot ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
+.foot ol a{text-decoration:none}
+.foot ol a:hover{text-decoration:underline}
+.foot small{color:var(--muted)}
+@media (max-width:760px){
+  .foot .in{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-top:calc(env(safe-area-inset-top,0px) + 20px)}
+  .lede{font-size:15px}
+  .mlist a{padding:5px 7px;font-size:13.5px}
+  .mlist .grp{margin-left:4px;padding-left:6px}
+  .tema .tl,.sec-h .sub{display:none}
+  .tema{padding:4px 7px}
+}
+</style>
+</head>
+<body>
+<header class="hero" id="topo">
+  <div class="in">
+    <p class="kicker">Projeto · levantamento até 14 out 2026</p>
+    <h1>Linha do tempo política do Brasil</h1>
+    <p class="lede">O Brasil de 1995 a 2025, ano a ano: economia, empresas, Congresso e cenário internacional; o país frente a nove emergentes de porte parecido; o ritmo dos homicídios; e, como estudo de caso aprofundado, o Caso Banco Master.</p>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Seções">
+  <div class="in menu-in">
+    <ul class="mlist" id="mlist"><li><a href="#linha-do-tempo" data-sec="linha-do-tempo">Linha do tempo</a></li><li><a href="#pares" data-sec="pares">Frente aos pares</a></li><li><a href="#violencia" data-sec="violencia">Violência</a></li><li class="grp"><span class="grp-l">Caso Master</span><a href="#origens" data-sec="origens">Origens</a><a href="#dossie" data-sec="dossie">Dossiê</a><a href="#teia" data-sec="teia">Teia</a></li></ul>
+    <button type="button" class="tema" id="tema" title="Tema de cores"><span class="tl">Tema: </span><span id="temaN">automático</span></button>
+  </div>
+</nav>
+
+<main>
+<section class="sec" id="linha-do-tempo" aria-labelledby="t-linha-do-tempo">
+  <div class="in sec-h"><span class="num">01</span><h2 id="t-linha-do-tempo">Linha do tempo</h2><span class="sub">Brasil ano a ano</span><a class="so" href="paginas/brasil-ano-a-ano.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Brasil ano a ano</p><p class="ph-d">De 1995 a 2025, ano a ano. Escolha o ano e o mapa se redesenha: o tamanho de cada nó mostra o peso que aquilo tinha na época.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/brasil-ano-a-ano.html">abra a página</a>.</noscript></p></div></div>
+</section>
+<section class="sec" id="pares" aria-labelledby="t-pares">
+  <div class="in sec-h"><span class="num">02</span><h2 id="t-pares">Frente aos pares</h2><span class="sub">Brasil frente aos pares</span><a class="so" href="paginas/pares.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Brasil frente aos pares</p><p class="ph-d">Dez países emergentes de porte e perfil parecidos, de 1995 a 2025: economia, desenvolvimento humano, educação, peso no mundo, força militar e inovação.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/pares.html">abra a página</a>.</noscript></p></div></div>
+</section>
+<section class="sec" id="violencia" aria-labelledby="t-violencia">
+  <div class="in sec-h"><span class="num">03</span><h2 id="t-violencia">Violência</h2><span class="sub">Ritmo da violência</span><a class="so" href="paginas/violencia.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Ritmo da violência</p><p class="ph-d">O total anual de homicídios no Brasil convertido em tempo. Veja um ano por vez ou todos lado a lado.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/violencia.html">abra a página</a>.</noscript></p></div></div>
+</section>
+<section class="estudo" id="caso-master" aria-labelledby="t-caso">
+  <div class="in">
+    <p class="kicker">Estudo de caso aprofundado</p>
+    <h2 id="t-caso">Caso Banco Master</h2>
+    <p>As seções anteriores mostram o país inteiro, ano a ano. As três seguintes descem a um caso só, em profundidade: de onde veio o banco, se a rede em torno dele funcionou como mercado ou como máquina, e quem se ligou a quem, ano a ano. Cada fato traz o grau de comprovação, a versão de quem foi citado e as fontes. Ninguém citado foi condenado no caso, nas fontes consultadas.</p>
+    <ol><li><a href="#origens">4 · Origens</a></li><li><a href="#dossie">5 · Dossiê</a></li><li><a href="#teia">6 · Teia 2D | 3D</a></li></ol>
+  </div>
+</section>
+<section class="sec" id="origens" aria-labelledby="t-origens">
+  <div class="in sec-h"><span class="num">04</span><h2 id="t-origens">Caso Master · Origens</h2><span class="sub">Do Máxima ao Master: as origens</span><a class="so" href="paginas/origens.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Do Máxima ao Master: as origens</p><p class="ph-d">A corretora dos anos 1970 que virou banco, a família de Belo Horizonte que o comprou e a igreja em que as duas histórias se cruzam.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/origens.html">abra a página</a>.</noscript></p></div></div>
+</section>
+<section class="sec" id="dossie" aria-labelledby="t-dossie">
+  <div class="in sec-h"><span class="num">05</span><h2 id="t-dossie">Caso Master · Dossiê</h2><span class="sub">Master: mercado ou máquina</span><a class="so" href="paginas/dossie.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Master: mercado ou máquina</p><p class="ph-d">A rede em torno do banco funciona como mercado ou como máquina? Placar por arena, operação BRB, previdência e dinheiro, com o grau de comprovação de cada fato.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/dossie.html">abra a página</a>.</noscript></p></div></div>
+</section>
+<section class="sec" id="teia" aria-labelledby="t-teia">
+  <div class="in sec-h"><span class="num">06</span><h2 id="t-teia">Caso Master · Teia</h2><span class="sub">Teia do Caso Master</span><a class="so" href="paginas/teia.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Teia do Caso Master</p><p class="ph-d">O Banco Master, seu controlador e quem se ligou a eles, ano a ano, em 2D ou em 3D, com o grau de comprovação, a versão dos citados e as fontes de cada ligação.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/teia.html">abra a página</a>.</noscript></p></div></div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="in">
+    <div>
+      <p><b>Levantamento até 14 out 2026.</b> Cada seção lista as suas fontes e as suas lacunas; onde a coleta não achou fonte confiável, a página mostra a lacuna em vez de preencher.</p>
+      <p><b>Caso Master: como ler.</b> Ninguém citado foi condenado no caso, nas fontes consultadas; citação não é investigação, e investigação não é culpa. Cada relação traz o seu status (documentada, sob investigação, revelada pela imprensa ou alegação), a versão de quem foi citado e as fontes. Contrato, voto, reunião e doação são fatos lícitos.</p>
+      <p><small>Cada seção também abre como página própria (link “Abrir sozinha” no topo de cada uma).</small></p>
+    </div>
+    <div>
+      <h2>Seções</h2>
+      <ol><li><a href="#linha-do-tempo">Brasil ano a ano</a></li><li><a href="#pares">Brasil frente aos pares</a></li><li><a href="#violencia">Ritmo da violência</a></li><li><a href="#origens">Do Máxima ao Master: as origens</a> <small>(Caso Master)</small></li><li><a href="#dossie">Master: mercado ou máquina</a> <small>(Caso Master)</small></li><li><a href="#teia">Teia do Caso Master</a> <small>(Caso Master)</small></li></ol>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var SEC = [{"id": "linha-do-tempo", "arq": "brasil-ano-a-ano.html", "titulo": "Brasil ano a ano", "master": false}, {"id": "pares", "arq": "pares.html", "titulo": "Brasil frente aos pares", "master": false}, {"id": "violencia", "arq": "violencia.html", "titulo": "Ritmo da violência", "master": false}, {"id": "origens", "arq": "origens.html", "titulo": "Do Máxima ao Master: as origens", "master": true}, {"id": "dossie", "arq": "dossie.html", "titulo": "Master: mercado ou máquina", "master": true}, {"id": "teia", "arq": "teia.html", "titulo": "Teia do Caso Master", "master": true}];
+  var ALIAS = {'teia-3d': 'teia', 'teia-2d': 'teia'};
+  var d = document, de = d.documentElement, menu = d.getElementById('menu');
+  var ids = SEC.map(function (s) { return s.id; });
+  var byId = {}; SEC.forEach(function (s) { byId[s.id] = s; });
+  var frames = {};           /* id -> {f: iframe, slot, ok, h, vista} */
+  var alvo = null, alvoAte = 0;
+
+  /* ---------- tema ---------- */
+  var TEMAS = ['auto', 'claro', 'escuro'], NOMES = {auto: 'automático', claro: 'claro', escuro: 'escuro'};
+  var tema = 'auto';
+  try { tema = localStorage.getItem('ldt.tema') || 'auto'; } catch (e) {}
+  if (TEMAS.indexOf(tema) < 0) tema = 'auto';
+  var bt = d.getElementById('tema');
+  function aplicaTema(){
+    if (tema === 'claro') de.setAttribute('data-theme', 'light'); else if (tema === 'escuro') de.setAttribute('data-theme', 'dark'); else de.removeAttribute('data-theme');
+    d.getElementById('temaN').textContent = NOMES[tema];
+    bt.setAttribute('aria-label', 'Tema de cores: ' + NOMES[tema]);
+    for (var k in frames) post(frames[k], {pagina: 'tema', tema: tema});
+  }
+  bt.addEventListener('click', function(){
+    tema = TEMAS[(TEMAS.indexOf(tema) + 1) % 3];
+    try { localStorage.setItem('ldt.tema', tema); } catch (e) {}
+    aplicaTema();
+  });
+
+  /* ---------- carregamento sob demanda ---------- */
+  function post(fr, m){ try { if (fr.f.contentWindow) fr.f.contentWindow.postMessage(m, '*'); } catch (e) {} }
+  function carrega(id, sub){
+    if (frames[id]) return frames[id];
+    var s = byId[id], sec = d.getElementById(id), slot = sec.querySelector('.slot');
+    var q = [];
+    if (tema !== 'auto') q.push('tema=' + tema);
+    if (sub === 'teia-3d') q.push('modo=3d');
+    var f = d.createElement('iframe');
+    f.src = 'paginas/' + s.arq + (q.length ? '?' + q.join('&') : '');
+    f.title = s.titulo;
+    f.setAttribute('scrolling', 'no');
+    f.setAttribute('allow', 'fullscreen');
+    slot.classList.add('carregando');
+    slot.appendChild(f);
+    var fr = frames[id] = {id: id, f: f, slot: slot, ok: false, h: 0, vista: ''};
+    /* sem resposta (script bloqueado?): mostra a página com rolagem própria */
+    fr.t = setTimeout(function(){ if (!fr.ok){ f.setAttribute('scrolling', 'auto'); f.style.height = 'calc(100vh - var(--menu-h))'; revela(fr); } }, 20000);
+    return fr;
+  }
+  function revela(fr){
+    if (fr.ok) return;
+    fr.ok = true; clearTimeout(fr.t);
+    fr.slot.classList.remove('carregando'); fr.slot.classList.add('ok');
+    var ph = fr.slot.querySelector('.ph'); if (ph) ph.remove();
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) carrega(e.target.id); });
+  }, {rootMargin: '100% 0px 100% 0px'});
+  ids.forEach(function (id) { io.observe(d.getElementById(id)); });
+
+  /* ---------- mensagens das filhas ---------- */
+  function deQuem(src){ for (var k in frames) if (frames[k].f.contentWindow === src) return frames[k]; return null; }
+  addEventListener('message', function (e) {
+    var m = e.data; if (!m || typeof m !== 'object' || !m.pagina) return;
+    var fr = deQuem(e.source); if (!fr) return;
+    if (m.pagina === 'pronta'){ fr.vista = ''; post(fr, {pagina: 'tema', tema: tema}); vistas(true); }
+    else if (m.pagina === 'altura'){
+      var h = Math.max(0, Math.round(+m.h || 0));
+      if (h && h !== fr.h){ fr.h = h; fr.f.style.height = h + 'px'; }
+      revela(fr); vistas(true); reJump();
+    }
+    else if (m.pagina === 'rolar'){
+      var top = fr.f.getBoundingClientRect().top + scrollY + (+m.y || 0) - menu.offsetHeight - 8;
+      scrollTo({top: Math.max(0, top), behavior: m.suave && !reduz() ? 'smooth' : 'auto'});
+    }
+    else if (m.pagina === 'ir' && typeof m.hash === 'string'){
+      if (location.hash === '#' + m.hash) irPara(m.hash); else location.hash = m.hash;
+    }
+  });
+  function reduz(){ return matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  /* ---------- trecho visível de cada filha (para vh, sticky e camadas fixas) ---------- */
+  var raf = 0;
+  function vistas(force){
+    var mh = menu.offsetHeight, vh = Math.max(200, innerHeight - mh);
+    for (var k in frames){
+      var fr = frames[k]; if (!fr.ok && !force) continue;
+      var r = fr.f.getBoundingClientRect();
+      if (!force && (r.bottom < -innerHeight || r.top > 2 * innerHeight)) continue;
+      var y = Math.max(0, Math.min(mh - r.top, r.height - vh));
+      var b = Math.max(0, r.height - y - vh);
+      var key = Math.round(y) + ',' + Math.round(b) + ',' + vh;
+      if (key === fr.vista) continue;
+      fr.vista = key;
+      post(fr, {pagina: 'vista', y: Math.round(y), b: Math.round(b), vh: vh});
+    }
+  }
+
+  /* ---------- menu: seção ativa ---------- */
+  var links = {}; Array.prototype.forEach.call(d.querySelectorAll('#mlist a[data-sec]'), function (a) { links[a.getAttribute('data-sec')] = a; });
+  var grp = d.querySelector('#mlist .grp'), atual = null, mlist = d.getElementById('mlist');
+  function ativa(){
+    var linha = menu.offsetHeight + innerHeight * 0.3, cur = null;
+    for (var i = 0; i < ids.length; i++){ if (d.getElementById(ids[i]).getBoundingClientRect().top <= linha) cur = ids[i]; }
+    if (cur === atual) return;
+    atual = cur;
+    for (var k in links){ if (k === cur) links[k].setAttribute('aria-current', 'true'); else links[k].removeAttribute('aria-current'); }
+    if (grp) grp.classList.toggle('on', !!cur && byId[cur].master);
+    var a = cur && links[cur];
+    if (a && mlist.scrollWidth > mlist.clientWidth){
+      var l = a.offsetLeft - mlist.offsetLeft, w = a.offsetWidth;
+      if (l < mlist.scrollLeft + 8 || l + w > mlist.scrollLeft + mlist.clientWidth - 8) mlist.scrollTo({left: Math.max(0, l - 24), behavior: reduz() ? 'auto' : 'smooth'});
+    }
+  }
+  function tick(){ raf = 0; vistas(false); ativa(); }
+  addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(tick); }, {passive: true});
+  addEventListener('resize', function(){ if (!raf) raf = requestAnimationFrame(function(){ raf = 0; vistas(true); ativa(); }); });
+
+  /* ---------- âncoras: #linha-do-tempo ... #teia (e #teia-3d) ---------- */
+  function irPara(h){
+    var id = ALIAS[h] || h; if (!byId[id]) return false;
+    var fr = frames[id];
+    if (!fr) carrega(id, h !== id ? h : null);
+    else if (h !== id) post(fr, {pagina: 'hash', hash: h});
+    alvo = id; alvoAte = Date.now() + 6000;
+    d.getElementById(id).scrollIntoView({block: 'start'});
+    return true;
+  }
+  function reJump(){
+    if (!alvo) return;
+    if (Date.now() > alvoAte){ alvo = null; return; }
+    var t = d.getElementById(alvo).getBoundingClientRect().top - menu.offsetHeight;
+    if (Math.abs(t) > 2) d.getElementById(alvo).scrollIntoView({block: 'start'});
+  }
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { addEventListener(ev, function(){ alvo = null; }, {passive: true}); });
+  addEventListener('hashchange', function(){ irPara(decodeURIComponent(location.hash.slice(1))); });
+
+  aplicaTema();
+  if (location.hash.length > 1) { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; irPara(decodeURIComponent(location.hash.slice(1))); }
+  ativa();
+})();
+</script>
+</body>
+</html>

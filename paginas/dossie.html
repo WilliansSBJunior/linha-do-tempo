@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Master: mercado ou máquina</title>
+<meta name="description" content="Dossiê do Caso Banco Master: a rede em torno do banco funciona como mercado ou como máquina? Placar por arena, operação BRB, previdência e dinheiro, com grau de comprovação de cada fato.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23171c1a'/%3E%3Cg stroke='%23f3f4f1' stroke-width='1.6' opacity='.7'%3E%3Cpath d='M16 16 7 8M16 16l9-7M16 16l-9 9M16 16l10 8M7 8l18 1M7 25l19-1'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='4.5' fill='%23eb6834'/%3E%3Ccircle cx='7' cy='8' r='2.6' fill='%231baf7a'/%3E%3Ccircle cx='25' cy='9' r='2.6' fill='%232a78d6'/%3E%3Ccircle cx='7' cy='25' r='2.6' fill='%23eda100'/%3E%3Ccircle cx='26' cy='24' r='2.6' fill='%23e87ba4'/%3E%3C/svg%3E">
+<script src="comum.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root{color-scheme:light;box-sizing:border-box}
+body{margin:0;padding:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]:not([hidden=until-found i]){display:none!important}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: dossiê em coluna única com barra de seções fixa no topo; placar em grade; linha do tempo em dois trilhos (empurra à esquerda, barra à direita, contexto no eixo). Família visual da Teia do Caso Master. */
+:root{
+  --bg:#f3f4f1; --surface:#fbfbf9; --tint:#eceee8; --ink:#171c1a; --ink2:#4d5652; --muted:#7e8783; --line:#d8dcd6;
+  --push:#d4561f; --block:#14916a; --ctx:#6c7570; --bar:#4f6b62;
+  --s-doc:#171c1a; --s-inv:#2a6fc4; --s-rep:#a8740a; --s-ale:#6a4fc4; --s-nc:#8a928e;
+  --warn-bg:#fff3d6; --warn-ink:#5c4300;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111513; --surface:#181d1a; --tint:#1d2320; --ink:#f1f4f1; --ink2:#c1c9c4; --muted:#8a948f; --line:#2b332f;
+    --push:#e8733f; --block:#2fb588; --ctx:#9aa39e; --bar:#8fb0a5;
+    --s-doc:#f1f4f1; --s-inv:#5b9bea; --s-rep:#e0a830; --s-ale:#9f8cf0; --s-nc:#8a948f;
+    --warn-bg:#3a2e0c; --warn-ink:#ffe2a0; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111513; --surface:#181d1a; --tint:#1d2320; --ink:#f1f4f1; --ink2:#c1c9c4; --muted:#8a948f; --line:#2b332f;
+  --push:#e8733f; --block:#2fb588; --ctx:#9aa39e; --bar:#8fb0a5;
+  --s-doc:#f1f4f1; --s-inv:#5b9bea; --s-rep:#e0a830; --s-ale:#9f8cf0; --s-nc:#8a948f;
+  --warn-bg:#3a2e0c; --warn-ink:#ffe2a0; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0}
+ul,ol{padding-left:18px}
+a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--muted)}
+a:hover{text-decoration-color:var(--ink)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* barra de seções */
+.secnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:2px solid var(--ink)}
+.secnav-in{max-width:1180px;margin:0 auto;padding-inline:16px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.secnav-in::-webkit-scrollbar{display:none}
+.secnav a{flex:none;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:var(--ink2);padding:11px 10px 9px;border-bottom:3px solid transparent;white-space:nowrap}
+.secnav a:hover{color:var(--ink)}
+.secnav a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:22px 56px;display:flex;flex-direction:column;gap:52px}
+section{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 58px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.sec-h{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px}
+.sec-h h2{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:22px;line-height:1.15;text-wrap:balance}
+.sec-h p{color:var(--ink2);font-size:14.5px;max-width:78ch}
+h3{font-family:var(--display);font-stretch:106%;font-weight:700;font-size:16px;line-height:1.25;text-wrap:balance}
+
+/* abertura */
+.pages{display:flex;flex-wrap:wrap;gap:4px 6px;font-size:12.5px}
+.pages a,.pages span{border:1px solid var(--line);border-radius:3px;padding:2px 9px;text-decoration:none;color:var(--ink2)}
+.pages a:hover{border-color:var(--ink2);color:var(--ink)}
+.pages span[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.open{display:flex;flex-direction:column;gap:16px}
+.brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+.brand h1{font-family:var(--display);font-stretch:118%;font-weight:900;font-size:clamp(28px,5vw,42px);line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line);padding:2px 7px;border-radius:3px;white-space:nowrap}
+.q{font-family:var(--display);font-stretch:104%;font-weight:600;font-size:clamp(18px,2.4vw,22px);line-height:1.3;max-width:62ch;text-wrap:balance}
+.a{font-size:16px;color:var(--ink2);max-width:72ch}
+.a b{color:var(--ink);font-weight:600}
+.warn{background:var(--warn-bg);color:var(--warn-ink);border-radius:5px;padding:12px 14px;font-size:14px;max-width:110ch}
+.warn b{font-weight:600}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:8px 20px}
+.legend div{display:flex;flex-direction:column;align-items:flex-start;gap:4px;font-size:13px;color:var(--ink2);min-width:0}
+
+/* pílulas de status */
+.st{--c:var(--s-nc);display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;line-height:1;border:1.5px solid var(--c);border-radius:3px;padding:4px 7px 3px;color:var(--ink);background:var(--surface);white-space:nowrap}
+.st::before{content:"";width:8px;height:8px;flex:none;background:var(--c)}
+.st.doc{--c:var(--s-doc);background:var(--ink);color:var(--bg);border-style:solid}
+.st.doc::before{background:var(--bg)}
+.st.inv{--c:var(--s-inv);border-style:dashed}
+.st.inv::before{transform:rotate(45deg) scale(.85)}
+.st.rep{--c:var(--s-rep);border-style:dotted}
+.st.rep::before{border-radius:50%}
+.st.ale{--c:var(--s-ale);border-style:double;border-width:3px}
+.st.ale::before{clip-path:polygon(50% 0,100% 100%,0 100%)}
+.st.nc{--c:var(--s-nc);color:var(--ink2)}
+.st.nc::before{background:none;border:1.5px solid var(--c);border-radius:50%}
+
+/* placar */
+.score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.score article{display:flex;flex-direction:column;gap:8px;padding:14px 16px 16px 0;border-bottom:1px solid var(--line);min-width:0}
+.score article:not(:nth-child(3n+1)){padding-left:16px;border-left:1px solid var(--line)}
+.res{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-stretch:110%;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.02em}
+.res i{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;flex:none}
+.res.ganhou{color:var(--push)}.res.ganhou i{border-bottom:11px solid var(--push)}
+.res.perdeu{color:var(--block)}.res.perdeu i{border-top:11px solid var(--block)}
+.res.misto{color:var(--ctx)}.res.misto i{width:11px;height:11px;border:0;background:var(--ctx);transform:rotate(45deg)}
+.res span{color:var(--ink)}
+.score p{font-size:14px;color:var(--ink2)}
+.score-key{font-size:13px;color:var(--ink2)}
+@media (max-width:900px){.score{grid-template-columns:repeat(2,minmax(0,1fr))}.score article:not(:nth-child(3n+1)){padding-left:0;border-left:0}.score article:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}}
+@media (max-width:560px){.score{grid-template-columns:minmax(0,1fr)}.score article:nth-child(even){padding-left:0;border-left:0}}
+
+/* BRB */
+.hyp{font-family:var(--display);font-stretch:104%;font-weight:600;font-size:18px;max-width:70ch;text-wrap:balance;border-left:3px solid var(--ink);padding-left:12px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 32px}
+@media (max-width:760px){.two{grid-template-columns:minmax(0,1fr)}}
+.col{display:flex;flex-direction:column;gap:10px;min-width:0}
+.col h3{display:flex;align-items:center;gap:8px}
+.col ul{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--ink2)}
+.mark-y,.mark-n{width:12px;height:12px;display:inline-block;flex:none}
+.mark-y{background:var(--ink)}
+.mark-n{border:2px solid var(--ink)}
+.sub{display:flex;flex-direction:column;gap:12px}
+.sub>h3{font-size:18px}
+
+.filters{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+.fgrp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.fgrp>.lab{margin-right:4px}
+.fb{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:4px 10px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.fb:hover{border-color:var(--ink2)}
+.fb[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fb .sw{width:10px;height:10px;border-radius:50%;background:var(--c,var(--ctx));flex:none}
+.fb.st-f{padding:2px 4px;border-color:transparent;background:none}
+.fb.st-f[aria-pressed="false"] .st{opacity:.35}
+.fb.st-f[aria-pressed="true"]{background:none;border-color:transparent}
+.count{font-size:12.5px;color:var(--muted);margin-left:auto}
+
+.tl-key{display:grid;grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);font-size:13px;color:var(--ink2);gap:10px}
+.tl-key div{display:flex;align-items:center;gap:6px}
+.tl-key .r{justify-content:flex-start}
+.tl-key .c{justify-content:center}
+.tl{position:relative;display:flex;flex-direction:column;gap:12px}
+.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--line)}
+.ev{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);align-items:start}
+.ev time{grid-column:2;grid-row:1;justify-self:center;font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:2px 7px;margin-top:12px;white-space:nowrap;position:relative;z-index:1}
+.janela .ev time{background:var(--tint)}
+.card{grid-row:1;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:4px;padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ev.empurra{--c:var(--push)}.ev.barra{--c:var(--block)}.ev.contexto{--c:var(--ctx)}
+.ev.empurra .card{grid-column:1}
+.ev.barra .card{grid-column:3}
+.ev.contexto .card{grid-column:1/-1;grid-row:2;width:min(100%,560px);justify-self:center;margin-top:6px;border-top-style:dashed}
+.side{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+.side::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c)}
+.card .top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;justify-content:space-between}
+.card h4{font-size:14.5px;font-weight:600;line-height:1.35}
+.card p{font-size:13.5px;color:var(--ink2)}
+.src{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:12px}
+.src a{color:var(--ink2);overflow-wrap:anywhere}
+.src a::after{content:" ↗";font-size:11px}
+.janela{position:relative;background:var(--tint);border:1px solid var(--line);border-radius:6px;padding:14px 12px 16px;display:flex;flex-direction:column;gap:12px;margin-inline:-12px;z-index:0}
+.janela-h{display:flex;flex-direction:column;gap:3px;align-items:center;text-align:center;position:relative;z-index:1;background:var(--tint);padding:0 8px 4px;align-self:center;max-width:52ch}
+.janela-h h4{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:18px}
+.janela-h p{font-size:13px;color:var(--ink2)}
+.janela-f{font-size:13px;color:var(--ink2);text-align:center;position:relative;z-index:1;background:var(--tint);align-self:center;padding:2px 8px}
+.empty{font-size:14px;color:var(--muted);text-align:center;padding:20px;background:var(--bg);position:relative}
+@media (max-width:720px){
+  .tl::before{left:6px}
+  .tl-key{grid-template-columns:1fr;gap:4px}
+  .tl-key .c,.tl-key .r{justify-content:flex-start}
+  .ev{grid-template-columns:minmax(0,1fr);padding-left:22px}
+  .ev time{grid-column:1;grid-row:1;justify-self:start;margin-top:0;margin-bottom:6px}
+  .ev.empurra .card,.ev.barra .card,.ev.contexto .card{grid-column:1;grid-row:2;width:auto;justify-self:stretch;margin-top:0}
+  .ev::before{content:"";position:absolute;left:1px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--c);border:2px solid var(--bg)}
+  .janela{margin-inline:-6px;padding-inline:6px}
+  .janela .tl::before{left:6px}
+}
+
+table{border-collapse:collapse;width:100%}
+.tbl{overflow-x:auto}
+.vals th,.vals td{text-align:left;padding:8px 12px 8px 0;border-top:1px solid var(--line);vertical-align:top;font-size:14px}
+.vals th{font-family:var(--mono);font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+.vals td{color:var(--ink2)}
+.alts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:0;border-top:1px solid var(--line)}
+.alts div{padding:10px 14px 10px 0;display:flex;flex-direction:column;gap:3px;border-bottom:1px solid var(--line);min-width:0}
+.alts b{font-weight:600;font-size:14px}
+.alts span{font-size:13.5px;color:var(--ink2)}
+
+/* mercado */
+.pairs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.pairs{grid-template-columns:minmax(0,1fr)}}
+.pair{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pair-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 10px;align-items:flex-start}
+.pair-h h3{font-size:17px}
+.pair-h .who{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pair-h .who span{font-size:13px;color:var(--ink2)}
+.ctag{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line);border-radius:3px;padding:2px 6px}
+.pair dl{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px 12px;font-size:13.5px}
+.pair dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.pair dd{color:var(--ink);min-width:0}
+.liga{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:8px 0}
+.lg{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:13.5px}
+.lg i{width:12px;height:12px;flex:none;display:inline-block}
+.lg.sim i{background:var(--ink)}
+.lg.apura i{background:linear-gradient(90deg,var(--ink) 50%,transparent 50%);border:1.5px solid var(--ink)}
+.lg.nao i{border:1.5px solid var(--ink)}
+.liga small{font-size:13px;color:var(--ink2)}
+.resp{border-left:2px solid var(--muted);padding-left:10px;font-size:13.5px;color:var(--ink)}
+.resp .lab{display:block;margin-bottom:1px}
+.pair .foot{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;justify-content:space-between;margin-top:auto}
+@media (max-width:420px){.pair dl{grid-template-columns:minmax(0,1fr);gap:2px}.pair dd{margin-bottom:6px}}
+
+/* máquina */
+.ind{display:flex;flex-direction:column;border-top:2px solid var(--ink)}
+.ind article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 28px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ind .ih{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px}
+.ind .ih h3{font-size:18px}
+.ind .side2{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ind .side2 p{font-size:14px;color:var(--ink)}
+@media (max-width:720px){.ind article{grid-template-columns:minmax(0,1fr)}}
+.meter{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink2)}
+.meter span{display:inline-flex;gap:3px}
+.meter i{width:18px;height:7px;border-radius:2px;background:var(--line)}
+.meter i.on{background:var(--ink2)}
+
+/* barras */
+.bars{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.brow{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:4px 16px;padding:8px 0;border-bottom:1px solid var(--line);align-items:center}
+.brow .bn{display:flex;flex-direction:column;gap:1px;min-width:0;font-size:14px}
+.brow .bn b{font-weight:600}
+.brow .bn small{font-size:12.5px;color:var(--ink2)}
+.btrack{display:flex;align-items:center;gap:8px;min-width:0}
+.bfill{height:14px;background:var(--bar);border-radius:0 4px 4px 0;flex:none;min-width:2px}
+.bval{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bnote{grid-column:2;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:13px;color:var(--ink2)}
+@media (max-width:620px){.brow{grid-template-columns:minmax(0,1fr)}.bnote{grid-column:1}}
+.groups{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.grp-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:6px}
+.grp-t h3{font-size:16px}
+.grp-t span{font-size:13px;color:var(--muted);font-family:var(--mono);font-variant-numeric:tabular-nums}
+.scale-note{font-size:13px;color:var(--ink2)}
+.plain{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--ink2);max-width:90ch}
+.plain b{color:var(--ink);font-weight:600}
+.dl2{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.dl2 div{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:4px 18px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.dl2 b{font-weight:600}
+.dl2 span{color:var(--ink2)}
+@media (max-width:620px){.dl2 div{grid-template-columns:minmax(0,1fr)}}
+.dl2.dates div{grid-template-columns:120px minmax(0,1fr)}
+.dl2.dates b{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+.fontes{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px}
+.fontes .lab{width:100%}
+.fontes a{color:var(--ink2);overflow-wrap:anywhere}
+.fontes a::after{content:" ↗";font-size:11px}
+
+footer{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--ink2)}
+</style>
+<style>
+:root{--site-max:1180px}
+/* Site: barra de volta e rodapé (só quando a página abre sozinha) */
+.sitenav{background:var(--surface);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.sitenav-in{max-width:var(--site-max,1360px);margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
+.sn-back{font-size:13.5px;text-decoration:none;color:var(--ink);font-weight:600;white-space:nowrap}
+.sn-back:hover{text-decoration:underline}
+.sn-brand{font-size:12.5px;color:var(--ink2,var(--muted,var(--ink3)));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sitefoot{border-top:1px solid var(--line);background:var(--surface);color:var(--ink2,var(--muted,var(--ink3)));font-size:13px;line-height:1.55}
+.sitefoot-in{max-width:var(--site-max,1360px);margin:0 auto;padding:18px 16px 28px;display:flex;flex-direction:column;gap:8px}
+.sitefoot b{color:var(--ink);font-weight:600}
+.sitefoot p{margin:0;max-width:110ch}
+.sitefoot a{color:var(--ink)}
+html.embutida{overflow:hidden}
+html.embutida .sitenav,html.embutida .sitefoot{display:none}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Projeto"><div class="sitenav-in"><a class="sn-back" href="../index.html#dossie">← Página completa</a><span class="sn-brand">Linha do tempo política do Brasil</span></div></nav>
+<nav class="secnav" aria-label="Seções"><div class="secnav-in" id="secnav">
+  <a href="#abertura">Abertura</a><a href="#placar">Placar</a><a href="#brb">BRB</a><a href="#mercado">Mercado</a><a href="#maquina">Máquina</a><a href="#previdencia">Previdência</a><a href="#dinheiro">Dinheiro</a><a href="#limites">Limites</a>
+</div></nav>
+<div class="wrap">
+  <section id="abertura" class="open">
+    <nav class="pages" id="pagesTop" aria-label="Páginas do projeto" hidden></nav>
+    <div class="brand"><h1 id="h1"></h1><span class="tag" id="dbase"></span></div>
+    <p class="q" id="pergunta"></p>
+    <p class="a" id="resposta"></p>
+    <p class="warn" id="aviso"></p>
+    <div><p class="lab" style="margin-bottom:8px">Grau de comprovação de cada fato</p><div class="legend" id="legend"></div></div>
+  </section>
+
+  <section id="placar">
+    <div class="sec-h"><h2>Placar por arena</h2><p>Onde a rede em torno do Master ganhou, perdeu ou ficou dividida.</p></div>
+    <div class="score" id="score"></div>
+  </section>
+
+  <section id="brb">
+    <div class="sec-h"><h2>O eixo: a operação BRB</h2><p>A hipótese testada nesta seção.</p></div>
+    <p class="hyp" id="hyp"></p>
+    <div class="two">
+      <div class="col"><h3><i class="mark-y"></i>O que sustenta</h3><ul id="sust"></ul></div>
+      <div class="col"><h3><i class="mark-n"></i>O que não sustenta</h3><ul id="nsust"></ul></div>
+    </div>
+    <div class="sub">
+      <h3>Linha do tempo</h3>
+      <div class="filters" role="group" aria-label="Filtros da linha do tempo">
+        <div class="fgrp" id="fLado"><span class="lab">Lado</span></div>
+        <div class="fgrp" id="fSt"><span class="lab">Status</span></div>
+        <span class="count num" id="tlCount"></span>
+      </div>
+      <div class="tl-key" aria-hidden="true">
+        <div class="l" style="--c:var(--push)"><span class="side">Empurra</span> atos que favorecem a venda ou o Master</div>
+        <div class="c" style="--c:var(--ctx)"><span class="side">Contexto</span></div>
+        <div class="r" style="--c:var(--block)"><span class="side">Barra</span> atos que travam</div>
+      </div>
+      <div class="tl" id="tl"></div>
+    </div>
+    <div class="sub">
+      <h3>Quanto o BRB comprou: valores que não batem</h3>
+      <div class="tbl"><table class="vals"><tbody id="vals"></tbody></table></div>
+    </div>
+    <div class="sub">
+      <h3>As saídas que falharam</h3>
+      <div class="alts" id="alts"></div>
+    </div>
+  </section>
+
+  <section id="mercado">
+    <div class="sec-h"><h2>Leitura 1: mercado de proteção</h2><p id="mIntro"></p></div>
+    <div class="filters" role="group" aria-label="Filtrar por campo">
+      <div class="fgrp" id="fCampo"><span class="lab">Campo</span></div>
+      <span class="count num" id="mCount"></span>
+    </div>
+    <div class="pairs" id="pairs"></div>
+  </section>
+
+  <section id="maquina">
+    <div class="sec-h"><h2>Leitura 2: máquina</h2><p id="qIntro"></p></div>
+    <div class="ind" id="ind"></div>
+  </section>
+
+  <section id="previdencia">
+    <div class="sec-h"><h2>Previdência de servidores</h2><p id="pIntro"></p></div>
+    <div><p class="scale-note" style="margin-bottom:8px">Valor em letras do Master por regime, em R$ milhões.</p><div class="bars" id="pBars"></div></div>
+    <div class="sub"><h3>Os intermediários</h3><div class="dl2" id="pInter"></div></div>
+    <div class="sub"><h3>Contraprova</h3><ul class="plain" id="pContra"></ul></div>
+    <div class="fontes" id="pFonte"></div>
+  </section>
+
+  <section id="dinheiro">
+    <div class="sec-h"><h2>Por onde o dinheiro correu</h2><p id="dIntro"></p></div>
+    <p class="scale-note">Os três grupos usam a mesma escala, em R$ milhões, para que se possam comparar.</p>
+    <div class="groups" id="dGroups"></div>
+    <div class="sub"><h3>Notas</h3><ul class="plain" id="dNotas"></ul></div>
+    <div class="fontes" id="dFonte"></div>
+  </section>
+
+  <section id="limites">
+    <div class="sec-h"><h2>Limites desta leitura</h2><p>O que a verificação derrubou, o que ficou sem resposta e o que vem pela frente.</p></div>
+    <div class="sub"><h3>O que caiu na verificação</h3><div class="dl2" id="lDer"></div></div>
+    <div class="sub"><h3>O que está em aberto</h3><ul class="plain" id="lAb"></ul></div>
+    <div class="sub"><h3>Agenda</h3><div class="dl2 dates" id="lAg"></div></div>
+  </section>
+
+  <footer>
+    <nav class="pages" id="pagesBot" aria-label="Outras páginas do projeto" hidden></nav>
+    <p id="fBase"></p>
+  </footer>
+</div>
+<script type="application/json" id="dados">{"meta":{"titulo":"Master: mercado ou máquina","data_base":"10/10/2026","aviso":"Tudo aqui vem de reportagens abertas por agentes de coleta e conferidas por uma segunda rodada. Nenhum documento original (decisões do STF, relatórios da PF, votos do Banco Central, painel da Câmara, TSE) foi lido. Ninguém citado foi condenado no caso; não há denúncia da PGR no caso Master nas fontes lidas. Citado não é investigado, e investigado não é culpado.","status":{"doc":"Documentado: ato oficial, dado público ou admitido pelo citado","inv":"Alegado por autoridade em investigação, sem julgamento","rep":"Só reportagem, em geral sobre mensagens vazadas","ale":"Só delator ou adversário, sem corroboração","nc":"Não confirmado pela verificação"},"paginas":[["Teia do Caso Master","./teia.html"],["Origens do Caso Master","./origens.html"],["Brasil ano a ano","./brasil-ano-a-ano.html"]]},"tese":{"pergunta":"A rede em torno do Banco Master funciona como um mercado, em que cada um vende o que controla, ou como uma máquina, em que grupos rivais agem juntos?","resposta":"As fontes sustentam bem o mercado e trazem apenas indícios de máquina. O resultado foi dividido: a rede perdeu no Banco Central e ganhou no Congresso.","placar":[{"arena":"Banco Central","resultado":"perdeu","x":"Vetou a venda ao BRB por unanimidade em 03/09/2025 e liquidou o banco em 18/11/2025. Antes, porém, preparou uma punição em maio de 2024 e não assinou, e dois ex-chefes da supervisão são investigados por receber de Vorcaro."},{"arena":"Congresso","resultado":"ganhou","x":"Nenhuma CPI do Master foi instalada. A CPI do Crime Organizado e a CPMI do INSS terminaram sem relatório aprovado. A emenda que ampliaria o fundo garantidor, porém, foi rejeitada no dia seguinte."},{"arena":"BRB e governo do DF","resultado":"ganhou até o veto","x":"O banco público comprou carteiras de julho de 2024 a outubro de 2025, contra pareceres internos, e a Câmara do DF aprovou a compra do controle em urgência."},{"arena":"STF","resultado":"misto","x":"O relator atual autorizou as fases contra Ciro Nogueira, Jaques Wagner e o inquérito sobre Flávio Bolsonaro. Ao mesmo tempo, a ação que pede a CPI está parada com um ministro citado, e o julgamento sobre investigar Moraes está suspenso por pedido de vista."},{"arena":"Fundos de previdência","resultado":"ganhou","x":"Dezoito regimes aplicaram R$ 1,867 bi em letras sem garantia entre out/2023 e dez/2024, vários contra alertas técnicos."},{"arena":"PF e PGR","resultado":"perdeu","x":"Prisões, nove fases de operação e rejeição das delações de Vorcaro. Ainda sem denúncia."}]},"brb":{"hipotese":"A venda ao BRB era a única saída para o Master sobreviver, e por isso a rede política se mobilizou.","sustenta":["O BRB financia o Master desde julho de 2024, oito meses antes do anúncio da compra. Mensagens mostram Vorcaro cobrando repasses em agosto e setembro de 2024.","As compras de carteiras vão de R$ 12,2 bi (parte que a PF chama de falsa) a R$ 30,4 bi (planilhas obtidas pelo Metrópoles via Lei de Acesso), incluindo R$ 1,9 bi pagos depois do veto.","As outras saídas falharam: bancos privados recusaram, a J&F desistiu, o BTG só comprou ativos e a Fictor apareceu na véspera da liquidação.","O BRB comprou contra pareceres jurídicos internos de abril de 2025 e depois de assinar um termo de ajuste com o Banco Central."],"nao_sustenta":["Nenhuma autoridade afirma que o BRB era a única saída.","O único pagamento alegado a agente público na operação é ao ex-presidente do BRB. Contra o governador há mensagens; o relator teria negado duas buscas contra ele, segundo uma coluna.","A operação fracassou: o Banco Central vetou por unanimidade, com parecer de um diretor indicado no governo Bolsonaro, que Vorcaro tentou afastar.","Há uma alegação no sentido contrário: o diretor de Fiscalização do BC teria pedido ao BRB que comprasse carteiras. O BC nega."],"valores":[["R$ 12,2 bi","PF e BC: carteiras originadas pela Tirreno, que a PF chama de falsas"],["R$ 12,76 bi","BRB: exposição bruta; diz que mais de R$ 10 bi foram liquidados ou substituídos"],["R$ 16,7 bi","Vorcaro à PF, de jul/2024 a out/2025; diz que eram operações normais"],["R$ 17 bi","Relatório da PF: total transferido"],["R$ 21,9 bi","Presidente do BRB no Senado (jun/2026): créditos ligados ao Master no balanço"],["R$ 30,4 bi","Metrópoles, planilhas via Lei de Acesso: total de compras, R$ 20,7 bi depois de mar/2025"]],"eventos":[{"d":"2019-02-13","t":"BC nega a compra do Máxima por Vorcaro","x":"Origem dos recursos não comprovada.","st":"doc","lado":"barra","src":[["Let's Money","https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro/"]]},{"d":"2019-10-14","t":"BC aprova a compra, já com nova diretoria","x":"Presidente Campos Neto; relator Pinho de Mello.","st":"doc","lado":"empurra","src":[["Let's Money","https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro/"]]},{"d":"2023-10","t":"BC limita o crescimento dos precatórios do Master","x":"Em dezembro o Conselho Monetário limita captações com garantia do fundo.","st":"rep","lado":"barra","src":[["Diário do Comércio/Folhapress","https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano/"]]},{"d":"2024-05","t":"BC prepara termo punitivo e não assina","x":"Déficit de capital de R$ 885 mi e informações falsas sobre risco, segundo a reportagem. O BC recuou após propostas de Vorcaro.","st":"rep","lado":"empurra","src":[["Let's Money","https://www.letsmoney.com.br/banco-central/banco-master-bc-supervisao-acao-adiada-2024/"]]},{"d":"2024-06","t":"Começa, segundo a PF, a mesada a Ciro Nogueira","x":"R$ 300 mil por mês, com relatos de R$ 500 mil. Ele nega.","st":"inv","lado":"empurra","src":[["O Povo","https://mais.opovo.com.br/jornal/politica/2026/05/08/pf-mira-ciro-nogueira-e-diz-que-senador-ganhava-mesada-de-ate-rs500-mil-de-vorcaro.html"]]},{"d":"2024-07","t":"BRB começa a comprar carteiras do Master","x":"No mesmo mês, a previdência do Amapá aplica R$ 400 mi em 18 dias.","st":"rep","lado":"empurra","src":[["Times Brasil","https://timesbrasil.com.br/brasil/operacoes-da-pf/mensagens-vorcaro-brb-bancou-master-2024/"]]},{"d":"2024-08-13","t":"Ciro Nogueira apresenta a emenda que elevaria a garantia do fundo a R$ 1 mi","x":"A PF diz que o texto veio da assessoria do banco. O relator Plínio Valério (PSDB) rejeita no dia seguinte.","st":"inv","lado":"empurra","src":[["Band","https://www.band.com.br/noticias/o-que-diz-emenda-de-nogueira-que-a-pf-atribui-ao-banco-master-202605071130"]]},{"d":"2024-11","t":"BC dá seis meses ao Master e busca solução com bancos privados","x":"O Itaú recusa.","st":"rep","lado":"barra","src":[["Diário do Comércio/Folhapress","https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano/"]]},{"d":"2024-12-04","t":"Lula recebe Vorcaro no Planalto, fora da agenda","x":"Com Mantega e Galípolo. Segundo Poder360 e UOL, Lula teria dito para não vender ao BTG por R$ 1; isso é só reportagem.","st":"doc","lado":"contexto","src":[["Gazeta do Povo","https://www.gazetadopovo.com.br/republica/lula-aconselhou-vorcaro-a-recusar-venda-do-master-para-o-btg/"]]},{"d":"2025-02-10","t":"BRB assina termo de ajuste com o BC","x":"Depois disso, compra mais R$ 4 bi.","st":"inv","lado":"barra","src":[["Poder360","https://www.poder360.com.br/brasil/pf-ve-operacao-atipica-de-r-7-bi-entre-master-tirreno-e-brb/"]]},{"d":"2025-03-28","t":"Conselho do BRB aprova comprar 58% do Master por cerca de R$ 2 bi","x":"Dias antes, o presidente do BRB escreve a Vorcaro que o governador pediu material para defender a operação.","st":"doc","lado":"empurra","src":[["Metrópoles","https://www.metropoles.com/colunas/grande-angular/o-que-se-sabe-sobre-a-compra-do-master-pelo-brb"]]},{"d":"2025-04-01","t":"Ministério Público do DF abre inquérito","x":"Em 06/05 um juiz proíbe a assinatura; em 09/05 um desembargador libera.","st":"doc","lado":"barra","src":[["Folha de Pernambuco","https://www.folhape.com.br/economia/ministerio-publico-do-df-abre-inquerito-para-apurar-circunstancias/401783/"]]},{"d":"2025-05-27","t":"BTG compra R$ 1,5 bi em ativos de Vorcaro","x":"A J&F havia desistido dias antes.","st":"rep","lado":"contexto","src":[["Brazil Journal","https://braziljournal.com/exclusivo-btg-compra-r-15-bi-em-ativos-de-vorcaro-que-vai-capitalizar-o-master/"]]},{"d":"2025-06-17","t":"Cade aprova sem restrições","x":"","st":"doc","lado":"empurra","src":[["BRB, fato relevante","https://ri.brb.com.br/upload/files/3886_Fato-Relevante-Aprovac-a-o-CADE-Banco-Master_v02.pdf"]]},{"d":"2025-07-15","t":"BC comunica ao Ministério Público Federal suspeita de crimes nas carteiras","x":"","st":"rep","lado":"barra","src":[["Times Brasil","https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb/"]]},{"d":"2025-07-17","t":"Vorcaro fala em 'guerra' contra o BC; Alcolumbre responde 'Pressão!!!'","x":"Vorcaro quer arguir a suspeição do diretor que travava a venda. O 'amigo' citado na conversa com Alcolumbre não é identificado. A ação nunca saiu do papel.","st":"rep","lado":"empurra","critico":true,"src":[["Times Brasil","https://timesbrasil.com.br/brasil/vorcaro-discutiu-acao-contra-bc-antes-de-veto-a-venda-do-master-ao-brb/"]]},{"d":"2025-07-19","t":"Hugo Motta liga para Vorcaro às 7h; às 9h há reunião no BC","x":"Sábado. Conteúdo das ligações desconhecido. Motta nega ilegalidade.","st":"rep","lado":"empurra","critico":true,"src":[["Times Brasil","https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb/"]]},{"d":"2025-07-23","t":"Advogado propõe buscar Mantega em Londres para levar o caso a Lula","x":"","st":"rep","lado":"empurra","critico":true,"src":[["Gazeta do Povo","https://www.gazetadopovo.com.br/republica/vorcaro-acionou-mantega-e-buscou-nova-reuniao-com-lula-em-2025/"]]},{"d":"2025-08-19","t":"Câmara do DF aprova a compra em urgência, 14 a 7","x":"Contra: PT, PSOL, PSB e Cidadania. O governador Ibaneis Rocha (MDB) sanciona.","st":"doc","lado":"empurra","critico":true,"src":[["Brasil de Fato","https://brasildefato.com.br/2025/08/20/vergonha-parlamentares-de-oposicao-repudiam-aprovacao-relampago-na-camara-do-df-que-autoriza-brb-adquirir-banco-master/"]]},{"d":"2025-08-28","t":"Voo no jato de Vorcaro com Ciro Nogueira, Isnaldo Bulhões, Rodrigo Gambale e Fábio Faria","x":"","st":"rep","lado":"empurra","critico":true,"src":[["Diário de Pernambuco","https://www.diariodepernambuco.com.br/politica/2026/10/11725865-alem-de-flavio-os-envolvidos-com-vorcaro-que-se-elegeram-no-primeiro-turno-das-eleicoes.html"]]},{"d":"2025-09-02","t":"Líderes de seis partidos assinam urgência para projeto que permite ao Congresso afastar diretores do BC","x":"PP, MDB, PL, PSB, Republicanos e União. Nenhuma fonte liga o pedido ao Master; a coincidência de datas é o que chama atenção. Desfecho não encontrado.","st":"doc","lado":"empurra","critico":true,"src":[["InfoMoney","https://www.infomoney.com.br/politica/centrao-assina-urgencia-de-pl-que-permite-ao-congresso-demitir-diretoria-do-bc/amp/"]]},{"d":"2025-09-03","t":"Banco Central veta a compra por unanimidade","x":"Parecer do diretor Renato Gomes. Depois do veto, o Master contrata o escritório de Michel Temer.","st":"doc","lado":"barra","critico":true,"src":[["Poder360","https://www.poder360.com.br/poder-economia/bc-nega-compra-do-banco-master-pelo-brb/"]]},{"d":"2025-10","t":"BRB ainda paga R$ 1,9 bi ao Master depois do veto","x":"","st":"rep","lado":"empurra","src":[["Jornal Opção/Metrópoles","https://www.jornalopcao.com.br/economia/brb-comprou-r-30-4-bi-em-ativos-do-banco-master-mesmo-apos-identificar-fraudes-812419/"]]},{"d":"2025-11-17","t":"Fictor e investidores dos Emirados anunciam a compra do Master","x":"","st":"doc","lado":"contexto","src":[["Bloomberg Línea","https://www.bloomberglinea.com.br/negocios/banco-master-de-daniel-vorcaro-e-vendido-para-consorcio-com-fictor-e-grupo-arabe/"]]},{"d":"2025-11-18","t":"BC liquida o Master; Vorcaro é preso","x":"","st":"doc","lado":"barra","src":[["Poder360","https://www.poder360.com.br/poder-economia/fictor-suspende-compra-do-banco-master-apos-liquidacao-pelo-bc/"]]},{"d":"2025-12-18","t":"Ministro do TCU dá 72 horas ao BC e fala em 'precipitação' na liquidação","x":"Jhonatan de Jesus, ex-deputado do Republicanos. Recuou em janeiro; o mérito não foi julgado.","st":"doc","lado":"empurra","src":[["O Povo","https://www.opovo.com.br/noticias/economia/2025/12/19/ministro-do-tcu-ve-precipitacao-na-liquidacao-do-master-bc-diz-estar-munido-com-documentos.html"]]},{"d":"2026-04-16","t":"Ex-presidente do BRB é preso","x":"A PF fala em R$ 146 mi em imóveis prometidos, R$ 74,6 mi pagos. A defesa nega crime. A nova governadora afasta 12 diretores.","st":"inv","lado":"barra","src":[["Gazeta do Povo","https://www.gazetadopovo.com.br/republica/ex-presidente-do-brb-e-preso-em-nova-fase-da-compliance-zero/"]]},{"d":"2026-05-28","t":"Acordo no STF abre caminho para empréstimo de até R$ 6,6 bi ao BRB","x":"Em 13/08 a audiência termina sem avanço: os bancos pedem garantia do Tesouro.","st":"doc","lado":"contexto","src":[["Correio da Manhã","https://www.correiodamanha.com.br/nacional/centro-oeste/2026/05/289442-gdf-fecha-acordo-bilionario-com-a-uniao-para-salvar-brb.html"]]},{"d":"2026-06-11","t":"Câmara do DF aprova o socorro ao BRB por 11 a 9","x":"O BRB precisa provisionar R$ 8,8 bi e segue sem balanço de 2025.","st":"doc","lado":"contexto","src":[["Correio da Manhã","https://www.correiodamanha.com.br/nacional/centro-oeste/2026/06/292826-pl-que-ratifica-emprestimo-ao-brb-e-aprovado.html"]]},{"d":"2026-09-23","t":"Tribunal de Contas do DF bloqueia bens de ex-dirigentes do BRB","x":"R$ 2,7 bi, segundo o título da reportagem.","st":"doc","lado":"barra","src":[["Diário do Nordeste","https://diariodonordeste.verdesmares.com.br/negocios/caso-master-tcdf-determina-bloqueio-r-27-bilhoes-em-bens-de-ex-dirigentes-do-brb-1.3793728"]]}],"alternativas":[["Bancos privados","O BC procurou em nov/2024; recusaram."],["BTG, por R$ 1","Discutida em dez/2024 e abr/2025; o BTG acabou comprando só ativos."],["J&F","Negociou ativos e desistiu em mai/2025."],["Fundo garantidor","Emenda rejeitada em 2024; assistência de R$ 4 a 4,3 bi em 2025."],["Fictor e Emirados","Anunciada em 17/11/2025; o banco foi liquidado no dia seguinte."]]},"mercado":{"intro":"Cada linha separa três coisas: a alavanca que a pessoa controlava, o que recebeu ou teria recebido, e o ato. A última coluna diz se alguma autoridade liga o pagamento ao ato. Onde não liga, são dois fatos lado a lado e nada mais.","pares":[{"ator":"Ciro Nogueira","campo":"Centrão","partido":"PP","alavanca":"Senador, presidente do partido","recebeu":"Mesada de R$ 300 a 500 mil desde jun/2024, imóvel cedido, participação de R$ 13 mi comprada por R$ 1 mi","ato":"Emenda do fundo garantidor (13/08/2024)","liga":"sim","liga_x":"PF e decisão do relator no STF","st":"inv","estagio":"Investigado; busca em 07/05/2026; não se reelegeu","resp":"Nega e fala em perseguição política.","src":[["O Povo","https://mais.opovo.com.br/jornal/politica/2026/05/08/pf-mira-ciro-nogueira-e-diz-que-senador-ganhava-mesada-de-ate-rs500-mil-de-vorcaro.html"]]},{"ator":"Paulo Henrique Costa","campo":"Gestor público","partido":"indicado por Ibaneis (MDB)","alavanca":"Presidente do BRB","recebeu":"Seis imóveis: R$ 146 mi prometidos, R$ 74,6 mi pagos","ato":"Compras de carteiras contra pareceres internos","liga":"sim","liga_x":"PF e decisão do relator","st":"inv","estagio":"Preso em 16/04/2026; delação rejeitada; sem denúncia encontrada","resp":"A defesa nega crime.","src":[["Gazeta do Povo","https://www.gazetadopovo.com.br/republica/ex-presidente-do-brb-e-preso-em-nova-fase-da-compliance-zero/"]]},{"ator":"Dois ex-chefes da supervisão do BC","campo":"Regulador","partido":"","alavanca":"Fiscalização do banco","recebeu":"Consultoria simulada, com pagamento mensal","ato":"Avisos a Vorcaro e resistência a entregar relatórios","liga":"sim","liga_x":"PF; Galípolo relatou a resistência à PF em 06/10/2026","st":"inv","estagio":"Afastados, com tornozeleira","resp":"Negam.","src":[["Poder360","https://www.poder360.com.br/poder-justica/funcionarios-do-bc-davam-informacoes-a-vorcaro-diz-pf/"]]},{"ator":"Três dirigentes da Amazonprev","campo":"Gestor público","partido":"governo Wilson Lima (União)","alavanca":"Comitê de investimentos","recebeu":"R$ 161 a 274 mil cada, de uma consultoria","ato":"Aplicação de R$ 50 mi sem discussão no comitê","liga":"sim","liga_x":"PF e Justiça Federal","st":"inv","estagio":"Afastados por ordem judicial","resp":"Não localizados.","src":[["IstoÉ Dinheiro","https://istoedinheiro.com.br/gestores-da-amazonprev-ignoraram-alertas-ao-aplicar-r-390-milhoes"]]},{"ator":"Jaques Wagner","campo":"PT","partido":"PT","alavanca":"Líder do governo no Senado","recebeu":"Apartamento de R$ 2,45 mi e R$ 3,5 mi a empresa ligada à família, segundo a PF; R$ 11 a 12 mi do Master à empresa de familiar","ato":"Atuação em temas do consignado e do fundo garantidor, em apuração","liga":"apura","liga_x":"PF investiga se houve troca","st":"inv","estagio":"Alvo de busca em 18/06/2026; reeleito","resp":"Nega.","src":[["CNN Brasil","https://www.cnnbrasil.com.br/politica/lider-do-governo-lula-e-alvo-de-operacao-no-caso-master/"]]},{"ator":"Flávio Bolsonaro","campo":"Bolsonarismo","partido":"PL","alavanca":"Senador, candidato a presidente","recebeu":"US$ 12,33 mi ao fundo do filme 'Dark Horse', segundo a PF","ato":"Nenhum identificado","liga":"nao","liga_x":"Contrapartida não demonstrada","st":"inv","estagio":"Inquérito autorizado em 23/07/2026","resp":"Diz que foi patrocínio privado.","src":[["O Povo/Agência Brasil","https://mais.opovo.com.br/jornal/dom/2026/09/13/pf-aponta-cobrancas-de-flavio-a-vorcaro-e-detalha-relacao-sobre-dark-horse.html"]]},{"ator":"Escritório de Viviane Barci de Moraes","campo":"STF","partido":"esposa de Alexandre de Moraes","alavanca":"O ministro integra o tribunal que supervisiona o caso","recebeu":"Cerca de R$ 80 mi de um contrato de R$ 129 a 131 mi","ato":"Nenhum ato do ministro em favor do banco foi apontado","liga":"nao","liga_x":"A PF lista contatos e não conclui irregularidade","st":"doc","estagio":"Citado; plenário decide se abre investigação","resp":"O escritório diz que prestou serviço. Moraes nega contato com Vorcaro.","src":[["Poder360","https://www.poder360.com.br/poder-justica/master-pagou-r-80-milhoes-a-mulher-de-moraes-diz-fisco/"]]},{"ator":"Dias Toffoli","campo":"STF","partido":"","alavanca":"Relator do caso até 12/02/2026","recebeu":"Fundo que comprou parte do resort Tayayá recebeu ao menos R$ 35 mi de Vorcaro; a PF levanta a hipótese de ele ser o beneficiário","ato":"Sigilo e outras decisões como relator","liga":"apura","liga_x":"Hipótese em relatório da PF","st":"inv","estagio":"Citado; sem investigação formal noticiada","resp":"Nega ter recebido valores.","src":[["Diário de Pernambuco/piauí","https://www.diariodepernambuco.com.br/politica/2026/09/11723643-paraiso-fiscal-pf-suspeita-de-repasses-de-35-milhoes-entre-vorcaro-e-toffoli.html"]]},{"ator":"Kassio Nunes Marques","campo":"STF","partido":"","alavanca":"Voto em precatórios; relator da ação que pede a CPI","recebeu":"Mensagens falam em R$ 500 mil por mês ligados ao filho; ele diz ter recebido R$ 281,6 mil de uma consultoria","ato":"Voto a favor de pagar precatório de interesse do banco; ação da CPI sem decisão","liga":"nao","liga_x":"Só reportagem sobre mensagens","st":"rep","estagio":"Citado; dois pedidos de impeachment","resp":"Nega ter votado a favor do Master.","src":[["Gazeta do Povo","https://www.gazetadopovo.com.br/republica/filho-nunes-marques-teria-recebido-500-mil-master-aponta-pf/"]]},{"ator":"Hugo Motta","campo":"Centrão","partido":"Republicanos","alavanca":"Presidente da Câmara","recebeu":"Empréstimo de ao menos R$ 22 mi à empresa da cunhada (pedido em mar/2024); viagens","ato":"Ligação a Vorcaro antes de reunião no BC (19/07/2025)","liga":"nao","liga_x":"","st":"rep","estagio":"Sem investigação localizada; reeleito","resp":"Nega ilícito.","src":[["Times Brasil","https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb/"]]},{"ator":"Davi Alcolumbre","campo":"Centrão","partido":"União","alavanca":"Presidente do Senado","recebeu":"Nada comprovado; US$ 30 mi aparecem só em delação rejeitada","ato":"Disse que não leria o pedido de CPMI; não prorrogou a CPI do Crime Organizado; indicou o gestor da previdência do Amapá","liga":"nao","liga_x":"","st":"ale","estagio":"Citado","resp":"Diz que as mensagens são pessoais.","src":[["Money Times","https://www.moneytimes.com.br/davi-alcolumbre-descarta-leitura-de-requerimentos-para-criar-cpmi-do-banco-master/"]]},{"ator":"Antônio Rueda e ACM Neto","campo":"Centrão","partido":"União","alavanca":"Direção do partido","recebeu":"R$ 6,4 mi e R$ 5,4 mi por contratos (Receita)","ato":"Abertura de fundos de previdência, segundo Vorcaro","liga":"nao","liga_x":"Só delação rejeitada; a PGR foi contra busca em Rueda","st":"ale","estagio":"Investigação separada pelo relator","resp":"Negam; dizem que os serviços foram técnicos.","src":[["Correio da Manhã","https://www.correiodamanha.com.br/politica/2026/09/318019-vorcaro-acusa-rueda-de-cobrar-10-para-abrir-portas-de-fundos-previdenciarios-ao-master.html"]]},{"ator":"Guido Mantega","campo":"PT","partido":"ex-ministro","alavanca":"Acesso ao presidente","recebeu":"R$ 14 mi de consultoria","ato":"Acompanhou Vorcaro à reunião com Lula (04/12/2024)","liga":"nao","liga_x":"","st":"doc","estagio":"Nenhum","resp":"Confirma o contrato.","src":[["Poder360","https://www.poder360.com.br/brasil/receita-mostra-pagamentos-do-banco-master-a-politicos-e-ex-ministros/"]]}]},"maquina":{"intro":"Indício de máquina é quando grupos que brigam em público agem no mesmo sentido, na mesma hora. São poucos, e nenhum tem prova de combinação.","indicios":[{"t":"As sete semanas antes do veto do BC","x":"Entre 17/07 e 02/09/2025: presidentes do Senado e da Câmara em contato com Vorcaro em torno de reuniões no BC, tentativa de levar o caso a Lula, lei aprovada em urgência no DF e pedido de seis partidos para votar o poder de afastar diretores do BC.","contra":"As mensagens não mostram o que foi dito. Nenhuma fonte liga o pedido de urgência ao Master. O BC vetou mesmo assim.","forca":2},{"t":"Nenhuma CPI do Master","x":"PL e PT assinaram pedidos, e ainda assim nada foi instalado. O presidente do Senado declarou que não leria o requerimento; a ação no STF está com um ministro citado no caso.","contra":"O bloqueio pode ser explicado só pelo interesse de quem controla a pauta, sem acordo entre partidos.","forca":2},{"t":"CPI do Crime Organizado: relatório derrubado por 6 a 4","x":"O texto pedia o indiciamento de três ministros do STF e do procurador-geral. Dois senadores favoráveis foram trocados horas antes. Votaram contra quatro petistas e dois aliados.","contra":"A troca foi formalizada pelo bloco MDB, PSDB, Podemos e União. A atribuição ao governo é de uma emissora e de um dos senadores trocados.","forca":2},{"t":"PEC da Blindagem","x":"Em 16/09/2025, PL (83 a 0), PP, União, Republicanos e MDB votaram por exigir aval do Congresso para processar parlamentares. Doze petistas também.","contra":"PT (51 contra), PSOL e Novo votaram contra. O Senado enterrou por 26 a 0.","forca":1},{"t":"Dinheiro para os dois lados","x":"O banco pagou ao mesmo tempo ex-ministros de Lula, aliados de Bolsonaro, dirigentes do Centrão e escritórios de familiares de ministros do STF.","contra":"Isso é o que um comprador de acesso faz. Não exige que os pagos se conheçam ou combinem.","forca":1}]},"previdencia":{"intro":"Dezoito regimes de previdência de servidores tinham R$ 1,867 bi em letras do Master, sem garantia do fundo. O que se repete entre eles é o intermediário, e não o partido.","entes":[{"n":"Rioprevidência","uf":"RJ","v":970,"gov":"Cláudio Castro","p":"PL","x":"R$ 3,69 bi contando fundos. Exigência de nota de risco revogada em ago/2023. Ex-presidente preso. Corretoras com comissão de 0,6%.","st":"inv"},{"n":"Amprev","uf":"AP","v":400,"gov":"Clécio Luís","p":"Solidariedade","x":"Três aportes em 18 dias. Gestor foi tesoureiro de campanha de Alcolumbre e atribui a ele a indicação.","st":"inv"},{"n":"Maceió","uf":"AL","v":97,"gov":"JHC","p":"PL","x":"Operação em 10/08/2026. Consultoria Crédito e Mercado conduziu a análise.","st":"inv"},{"n":"São Roque","uf":"SP","v":93.15,"gov":"Guto Issa","p":"PSD","x":"18,5% do patrimônio. Duas versões da mesma ata. CPI municipal.","st":"rep"},{"n":"Cajamar","uf":"SP","v":87,"gov":"Danilo Joan","p":"PP","x":"Operação em 13/05/2026.","st":"inv"},{"n":"Itaguaí","uf":"RJ","v":59.6,"gov":"","p":"","x":"Pediu auditoria sobre o BC.","st":"doc"},{"n":"Amazonprev","uf":"AM","v":50,"gov":"Wilson Lima","p":"União","x":"PF aponta pagamentos a três dirigentes.","st":"inv"},{"n":"Aparecida de Goiânia","uf":"GO","v":40,"gov":"Vilmar Mariano","p":"MDB","x":"Conselho não autorizou; ex-secretário aproximou o banco.","st":"inv"},{"n":"Araras","uf":"SP","v":29,"gov":"","p":"","x":"","st":"doc"},{"n":"Congonhas","uf":"MG","v":14,"gov":"","p":"","x":"","st":"doc"},{"n":"Outros oito","uf":"MS, SP, PE","v":27.7,"gov":"","p":"","x":"Fátima do Sul, Santo Antônio de Posse, São Gabriel do Oeste, Paulista, Jateí, Angélica, Santa Rita d'Oeste e Campo Grande. Operações da PF em MS, SP e PE.","st":"inv"}],"intermediarios":[["Crédito e Mercado","Consultoria presente em pelo menos cinco institutos: Maceió, São Roque, Angélica, Campo Grande e Santo Antônio de Posse. Nega ter recomendado o Master."],["Planner e Midias Promotora","Rioprevidência. Comissão de 0,6% sobre a captação, segundo a PF."],["Alfa A Consultoria","Amazonprev. Teria pago três dirigentes, segundo a PF."]],"contraprova":["O instituto do Pará foi procurado em 2024 e proibiu a aplicação por unanimidade.","No Paraná, só 1 de 177 regimes municipais aplicou.","Fundos de pensão de estatais não tinham exposição, segundo o órgão fiscalizador.","Dez dos dezoito entes ficaram sem partido identificado; nenhum dos identificados é de PT, PSB ou Novo."],"fonte":[["Times Brasil, lista do Ministério da Previdência","https://timesbrasil.com.br/brasil/banco-master-18-fundos-de-previdencia-tinham-investimentos-no-banco-veja-lista/"],["Relatório da PF sobre o Rioprevidência","https://static.poder360.com.br/uploads/2026/09/relatorio-pf-castro-rioprevidencia-13set26.pdf"]]},"dinheiro":{"intro":"Doação eleitoral declarada é a menor parte. O dinheiro correu por contratos de advocacia e consultoria e por verba de mídia. Os valores vêm de dados da Receita enviados a uma CPI e variam entre veículos.","contratos":[{"n":"Escritório de Viviane Barci de Moraes","v":80.2,"g":"STF"},{"n":"Henrique Meirelles","v":18.5,"g":"ex-ministro"},{"n":"Guido Mantega","v":14,"g":"PT"},{"n":"Escritório de Michel Temer","v":10,"g":"MDB"},{"n":"Escritórios de Antônio Rueda","v":6.4,"g":"União"},{"n":"Escritório da família Lewandowski","v":6.1,"g":"ex-ministro de Lula"},{"n":"ACM Neto","v":5.4,"g":"União"},{"n":"Fábio Wajngarten","v":3.8,"g":"ex-secretário de Bolsonaro"}],"midia":[{"n":"Metrópoles e empresas de Luiz Estevão","v":27.2},{"n":"Grupo Massa, de Ratinho","v":24},{"n":"Léo Dias","v":9.9}],"doacoes":[{"n":"Jair Bolsonaro (PL), 2022","v":3,"de":"Fabiano Zettel"},{"n":"Tarcísio de Freitas (Republicanos), 2022","v":2,"de":"Fabiano Zettel"},{"n":"Diretório do Novo, 2022","v":1,"de":"Henrique Vorcaro"}],"notas":["A PF apura ao menos 46 perfis de influenciadores pagos para atacar o Banco Central.","A PF e o relator afirmam que Vorcaro mandou agredir o jornalista Lauro Jardim.","Em um fórum em Londres, em abril de 2024, o Master pagou uma degustação de uísque de cerca de US$ 640 mil. Estavam Moraes, Toffoli, o procurador-geral e o diretor-geral da PF.","O portal do TSE não foi consultado diretamente; as doações vêm de reportagens."],"fonte":[["Jornal Opção","https://www.jornalopcao.com.br/ultimas-noticias/r-65-milhoes-em-repasses-lista-liga-banco-master-a-politicos-midia-e-ministros-813853/"],["Poder360","https://www.poder360.com.br/brasil/receita-mostra-pagamentos-do-banco-master-a-politicos-e-ex-ministros/"],["CNN Brasil, doações","https://www.cnnbrasil.com.br/politica/alvo-da-pf-doou-r-5-mi-para-campanhas-de-bolsonaro-e-tarcisio-em-2022/"],["DGABC","https://www.dgabc.com.br/Noticia/4293846/leo-dias-recebeu-r-9-9-milhoes-do-master-e-r-2-milhoes-de-empresa-que-teve-aportes-do-banco"]]},"limites":{"derrubado":[["'Contrato de R$ 500 milhões' ligado a Nunes Marques","Não existe em fonte aberta. Há mensagens sobre R$ 500 mil por mês e um contrato de terceiros com teto de R$ 427 mi."],["'52 mensagens' entre Vorcaro e Moraes","São 52 anotações enviadas a um contato salvo com o nome do ministro."],["Foto de Flávio Bolsonaro com chefes do Comando Vermelho","Não encontrada. Existe foto com o chefe do grupo de intimidação de Vorcaro, sem sinal de adulteração."],["Ex-cunhado de Gilmar Mendes com contrato de R$ 500 mil por mês","Não confirmado."],["Mantega 'articulou' a reunião com Lula","As fontes dizem que ele acompanhou Vorcaro."],["Master ligado diretamente ao PCC","Nenhuma autoridade afirma. Há contato por intermediários financeiros."]],"aberto":["Voto por partido na derrubada do veto às saidinhas, na prisão de Chiquinho Brazão e na Câmara do DF: não conferidos em fonte oficial.","Desfecho do projeto que permite afastar diretores do BC.","Doações de outros sócios do Master e da Reag, direto no TSE.","Kassab e o Credcesta em São Paulo; outros nomes do Centrão ficaram sem cobertura."],"agenda":[["13/10/2026","Reunião do presidente do STF com a PF sobre ministros citados"],["25/10/2026","Segundo turno: Flávio Bolsonaro (47,03%) e Lula (45,16%)"],["dez/2026","Vence o pedido de vista no julgamento sobre Moraes"]]}}</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById('dados').textContent);
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ST_SHORT = {doc:'Documentado', inv:'Em investigação', rep:'Só reportagem', ale:'Só delator ou adversário', nc:'Não confirmado'};
+const pill = st => `<span class="st ${esc(st)}" title="${esc(D.meta.status[st]||'')}">${esc(ST_SHORT[st]||st)}</span>`;
+const MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+function fdate(d){ const p = d.split('-'); const m = MESES[(+p[1])-1]; return p.length === 3 ? `${+p[2]} ${m} ${p[0]}` : `${m} ${p[0]}`; }
+const fnum = v => Number(v).toLocaleString('pt-BR', {maximumFractionDigits:2});
+const links = arr => (arr||[]).map(s => `<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join('');
+const LADO = {empurra:'Empurra', barra:'Barra', contexto:'Contexto'};
+
+// abertura
+const pg = (cur) => [`<span aria-current="page">${esc(D.meta.titulo)}</span>`].concat(D.meta.paginas.map(p => `<a href="${esc(p[1])}" target="_blank" rel="noopener">${esc(p[0])}</a>`)).join('');
+$('pagesTop').innerHTML = pg();
+$('pagesBot').innerHTML = pg();
+$('h1').textContent = D.meta.titulo;
+$('dbase').textContent = 'data-base ' + D.meta.data_base;
+$('pergunta').textContent = D.tese.pergunta;
+$('resposta').innerHTML = '<b>Resposta.</b> ' + esc(D.tese.resposta);
+$('aviso').innerHTML = '<b>Antes de ler.</b> ' + esc(D.meta.aviso);
+$('legend').innerHTML = Object.keys(D.meta.status).map(k => `<div>${pill(k)}<span>${esc(D.meta.status[k])}</span></div>`).join('');
+$('fBase').textContent = 'Data-base: ' + D.meta.data_base + '. ' + 'Conteúdo levantado em reportagens abertas; nenhum documento original foi lido.';
+
+// placar
+$('score').innerHTML = D.tese.placar.map(p => {
+  const r = p.resultado; const cls = r.startsWith('ganhou') ? 'ganhou' : r.startsWith('perdeu') ? 'perdeu' : 'misto';
+  return `<article><h3>${esc(p.arena)}</h3><div class="res ${cls}"><i aria-hidden="true"></i>${esc(r)}</div><p>${esc(p.x)}</p></article>`;
+}).join('');
+
+// BRB
+$('hyp').textContent = D.brb.hipotese;
+$('sust').innerHTML = D.brb.sustenta.map(s => `<li>${esc(s)}</li>`).join('');
+$('nsust').innerHTML = D.brb.nao_sustenta.map(s => `<li>${esc(s)}</li>`).join('');
+$('vals').innerHTML = D.brb.valores.map(v => `<tr><th scope="row">${esc(v[0])}</th><td>${esc(v[1])}</td></tr>`).join('');
+$('alts').innerHTML = D.brb.alternativas.map(a => `<div><b>${esc(a[0])}</b><span>${esc(a[1])}</span></div>`).join('');
+
+const evs = D.brb.eventos.slice().sort((a,b) => a.d < b.d ? -1 : a.d > b.d ? 1 : 0);
+const fl = {lado:'todos', st:new Set(Object.keys(D.meta.status))};
+const stUsed = Object.keys(D.meta.status).filter(k => evs.some(e => e.st === k));
+$('fLado').insertAdjacentHTML('beforeend', [['todos','Todos']].concat(Object.entries(LADO)).map(([k,l]) =>
+  `<button type="button" class="fb" data-lado="${k}" aria-pressed="${k==='todos'}" ${k!=='todos'?`style="--c:var(--${k==='empurra'?'push':k==='barra'?'block':'ctx'})"`:''}>${k!=='todos'?'<i class="sw"></i>':''}${l}</button>`).join(''));
+$('fSt').insertAdjacentHTML('beforeend', stUsed.map(k => `<button type="button" class="fb st-f" data-st="${k}" aria-pressed="true" aria-label="Mostrar ${esc(ST_SHORT[k])}">${pill(k)}</button>`).join(''));
+$('fLado').addEventListener('click', e => { const b = e.target.closest('[data-lado]'); if(!b) return; fl.lado = b.dataset.lado; $('fLado').querySelectorAll('[data-lado]').forEach(x => x.setAttribute('aria-pressed', x === b)); renderTL(); });
+$('fSt').addEventListener('click', e => { const b = e.target.closest('[data-st]'); if(!b) return; const k = b.dataset.st; if(fl.st.has(k)) fl.st.delete(k); else fl.st.add(k); b.setAttribute('aria-pressed', fl.st.has(k)); renderTL(); });
+
+function evHTML(e){
+  return `<div class="ev ${esc(e.lado)}"><time datetime="${esc(e.d)}">${fdate(e.d)}</time><article class="card"><div class="top"><span class="side">${esc(LADO[e.lado]||e.lado)}</span>${pill(e.st)}</div><h4>${esc(e.t)}</h4>${e.x?`<p>${esc(e.x)}</p>`:''}<div class="src">${links(e.src)}</div></article></div>`;
+}
+function renderTL(){
+  const vis = evs.filter(e => (fl.lado === 'todos' || e.lado === fl.lado) && fl.st.has(e.st));
+  $('tlCount').textContent = `${vis.length} de ${evs.length} eventos`;
+  let h = '', inWin = false, winDone = false;
+  const crit = evs.filter(e => e.critico);
+  const firstCrit = crit[0], lastCrit = crit[crit.length-1];
+  const winHead = `<div class="janela"><div class="janela-h"><span class="lab">${fdate(firstCrit.d)} a ${fdate(lastCrit.d)}</span><h4>Sete semanas antes do veto</h4><p>Os fatos desta janela aconteceram em sequência curta. Coincidência de datas não é prova de combinação.</p></div><div class="tl">`;
+  for (const e of evs){
+    if (e.critico && !winDone){
+      if (!inWin){ h += winHead; inWin = true; }
+      if (vis.includes(e)) h += evHTML(e);
+      if (e === lastCrit){
+        const n = crit.filter(c => vis.includes(c)).length;
+        if (!n) h += `<p class="empty">Nenhum evento desta janela com os filtros atuais.</p>`;
+        h += `</div></div>`; inWin = false; winDone = true;
+      }
+      continue;
+    }
+    if (vis.includes(e)) h += evHTML(e);
+  }
+  $('tl').innerHTML = h || '<p class="empty">Nenhum evento com esses filtros.</p>';
+}
+renderTL();
+
+// mercado
+$('mIntro').textContent = D.mercado.intro;
+const LIGA = {sim:'Sim', apura:'Em apuração', nao:'Não'};
+const ORD = {sim:0, apura:1, nao:2};
+const pairs = D.mercado.pares.map((p,i) => ({p,i})).sort((a,b) => (ORD[a.p.liga]-ORD[b.p.liga]) || (a.i-b.i)).map(o => o.p);
+const CAMPOS = ['Centrão','PT','Bolsonarismo','STF','Regulador','Gestor público'];
+let campo = 'Todos';
+$('fCampo').insertAdjacentHTML('beforeend', ['Todos'].concat(CAMPOS).map(c => `<button type="button" class="fb" data-campo="${esc(c)}" aria-pressed="${c==='Todos'}">${esc(c)}</button>`).join(''));
+$('fCampo').addEventListener('click', e => { const b = e.target.closest('[data-campo]'); if(!b) return; campo = b.dataset.campo; $('fCampo').querySelectorAll('[data-campo]').forEach(x => x.setAttribute('aria-pressed', x === b)); renderPairs(); });
+function renderPairs(){
+  const vis = pairs.filter(p => campo === 'Todos' || p.campo === campo);
+  $('mCount').textContent = `${vis.length} de ${pairs.length}`;
+  $('pairs').innerHTML = vis.map(p => `<article class="pair">
+    <div class="pair-h"><div class="who"><h3>${esc(p.ator)}</h3>${p.partido?`<span>${esc(p.partido)}</span>`:''}</div><span class="ctag">${esc(p.campo)}</span></div>
+    <dl><dt>Alavanca</dt><dd>${esc(p.alavanca)}</dd><dt>Recebeu</dt><dd>${esc(p.recebeu)}</dd><dt>Ato</dt><dd>${esc(p.ato)}</dd></dl>
+    <div class="liga"><span class="lab">Autoridade liga os dois?</span><span class="lg ${esc(p.liga)}"><i aria-hidden="true"></i>${esc(LIGA[p.liga]||p.liga)}</span>${p.liga_x?`<small>${esc(p.liga_x)}</small>`:''}</div>
+    <dl><dt>Estágio</dt><dd>${esc(p.estagio)}</dd></dl>
+    <p class="resp"><span class="lab">Resposta</span>${esc(p.resp)}</p>
+    <div class="foot">${pill(p.st)}<span class="src">${links(p.src)}</span></div>
+  </article>`).join('') || '<p class="empty">Nenhum caso neste campo.</p>';
+}
+renderPairs();
+
+// máquina
+$('qIntro').textContent = D.maquina.intro;
+const FORCA = {1:'fraco', 2:'médio', 3:'forte'};
+$('ind').innerHTML = D.maquina.indicios.map(q => `<article>
+  <div class="ih"><h3>${esc(q.t)}</h3><span class="meter" aria-label="Força do indício: ${FORCA[q.forca]}">Força<span aria-hidden="true">${[1,2,3].map(n => `<i class="${n<=q.forca?'on':''}"></i>`).join('')}</span>${FORCA[q.forca]}</span></div>
+  <div class="side2"><span class="lab">O indício</span><p>${esc(q.x)}</p></div>
+  <div class="side2"><span class="lab">O contra-argumento</span><p>${esc(q.contra)}</p></div>
+</article>`).join('');
+
+// barras
+function bars(items, max, row){
+  return items.map(it => `<div class="brow" title="${esc(it.n)}: R$ ${fnum(it.v)} mi">${row.name(it)}<div class="btrack"><div class="bfill" style="width:calc((100% - 92px) * ${(it.v/max).toFixed(4)})"></div><span class="bval">R$ ${fnum(it.v)} mi</span></div>${row.note ? row.note(it) : ''}</div>`).join('');
+}
+$('pIntro').textContent = D.previdencia.intro;
+const ents = D.previdencia.entes;
+const pmax = Math.max(...ents.map(e => e.v));
+$('pBars').innerHTML = bars(ents, pmax, {
+  name: e => `<div class="bn"><b>${esc(e.n)} <span class="lab">${esc(e.uf)}</span></b>${e.gov ? `<small>${esc(e.gov)}${e.p?` (${esc(e.p)})`:''}</small>` : '<small>Sem governante identificado</small>'}</div>`,
+  note: e => `<div class="bnote">${pill(e.st)}${e.x?`<span>${esc(e.x)}</span>`:''}</div>`
+});
+$('pInter').innerHTML = D.previdencia.intermediarios.map(i => `<div><b>${esc(i[0])}</b><span>${esc(i[1])}</span></div>`).join('');
+$('pContra').innerHTML = D.previdencia.contraprova.map(s => `<li>${esc(s)}</li>`).join('');
+$('pFonte').innerHTML = '<span class="lab">Fontes</span>' + links(D.previdencia.fonte);
+
+$('dIntro').textContent = D.dinheiro.intro;
+const dg = [['Contratos de advocacia e consultoria', D.dinheiro.contratos, it => it.g], ['Mídia', D.dinheiro.midia, null], ['Doações eleitorais declaradas', D.dinheiro.doacoes, it => 'doador: ' + it.de]];
+const dmax = Math.max(...dg.flatMap(g => g[1].map(i => i.v)));
+$('dGroups').innerHTML = dg.map(([t, items, sub]) => {
+  const tot = items.reduce((s,i) => s + i.v, 0);
+  return `<div><div class="grp-t"><h3>${esc(t)}</h3><span>soma R$ ${fnum(Math.round(tot*10)/10)} mi</span></div><div class="bars">${bars(items, dmax, {name: it => `<div class="bn"><b>${esc(it.n)}</b>${sub && sub(it) ? `<small>${esc(sub(it))}</small>` : ''}</div>`})}</div></div>`;
+}).join('');
+$('dNotas').innerHTML = D.dinheiro.notas.map(s => `<li>${esc(s)}</li>`).join('');
+$('dFonte').innerHTML = '<span class="lab">Fontes</span>' + links(D.dinheiro.fonte);
+
+// limites
+$('lDer').innerHTML = D.limites.derrubado.map(i => `<div><b>${esc(i[0])}</b><span>${esc(i[1])}</span></div>`).join('');
+$('lAb').innerHTML = D.limites.aberto.map(s => `<li>${esc(s)}</li>`).join('');
+$('lAg').innerHTML = D.limites.agenda.map(i => `<div><b>${esc(i[0])}</b><span>${esc(i[1])}</span></div>`).join('');
+
+// navegação ativa
+const navLinks = [...document.querySelectorAll('#secnav a')];
+const secs = navLinks.map(a => document.querySelector(a.getAttribute('href')));
+function setActive(id){ navLinks.forEach(a => { const on = a.getAttribute('href') === '#' + id; a.setAttribute('aria-current', on); if (on && a.scrollIntoView) { const nav = $('secnav'); nav.scrollLeft = a.offsetLeft - 16; } }); }
+if ('IntersectionObserver' in window){
+  const io = new IntersectionObserver(ents => { ents.forEach(en => { if (en.isIntersecting) setActive(en.target.id); }); }, {rootMargin:'-70px 0px -70% 0px'});
+  secs.forEach(s => s && io.observe(s));
+}
+const h = (location.hash || '').slice(1);
+if (h && document.getElementById(h)) requestAnimationFrame(() => document.getElementById(h).scrollIntoView());
+})();
+</script>
+<footer class="sitefoot"><div class="sitefoot-in"><p><b>Levantamento até 14 out 2026.</b> Fatos coletados em reportagens abertas e fontes oficiais e conferidos por uma segunda rodada de verificação; decisões do STF, relatórios da PF e atos do Banco Central não foram lidos no original.</p><p><b>Como ler.</b> Ninguém citado foi condenado no caso, nas fontes consultadas; citação não é investigação, e investigação não é culpa. Cada relação traz o seu status (documentada, sob investigação, revelada pela imprensa ou alegação), a versão de quem foi citado e as fontes. Contrato, voto, reunião e doação são fatos lícitos.</p></div></footer>
+</body>
+</html>
