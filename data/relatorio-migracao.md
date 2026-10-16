@@ -1,0 +1,330 @@
+# Relatório de migração
+
+Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `data/raw/` (hashes em `data/raw/hashes.txt`).
+
+## 1. Contagens antes (raw) e depois (banco)
+
+| Antes (raw) | n |
+|---|---|
+| N | 198 |
+| E (pares) | 319 |
+| relações (E[].r) | 343 |
+| EV teia | 167 |
+| PREC | 36 |
+| EV origens | 89 |
+| SEM teia | 52 |
+| SEM origens | 22 |
+| LAC teia | 12 |
+| LAC origens | 46 |
+| NARR origens (parágrafos) | 25 |
+| SINT teia/origens | 5/2 |
+| dossiê brb.eventos | 30 |
+| timeline eventos pol+intl | 280 |
+| timeline empresas | 397 |
+| timeline setores | 372 |
+| pares indicadores | 18 |
+| pares pontos não nulos | 4806 |
+| violência marcos | 10 |
+| violência DATA | 45 |
+
+| Depois (banco) | n |
+|---|---|
+| entidade | 386 |
+|   da teia (N) | 198 |
+|   extras (timeline/pares) | 188 |
+| entidade_alias | 492 |
+| relacao (origem teia, de E[].r) | 343 |
+| relacao (fam_de) | 21 |
+| relacao (lig_de) | 3 |
+| relacao total | 367 |
+| evento total | 537 |
+| evidencia | 760 |
+| relacao_evidencia | 729 |
+| evento_evidencia | 518 |
+| evento_entidade | 560 |
+| nota | 319 |
+| indicador | 83 |
+| serie | 6837 |
+| ranking_empresa | 397 |
+| mandato | 311 |
+| bancada | 634 |
+
+Eventos por canal:
+
+| canal | n |
+|---|---|
+| banco | 27 |
+| brasil | 280 |
+| brb | 30 |
+| familia | 22 |
+| ida | 22 |
+| precatorios | 36 |
+| teia | 92 |
+| violencia | 10 |
+| volta | 18 |
+
+## 2. Eventos sem natureza (`natureza_id` NULL)
+
+| canal | n |
+|---|---|
+| brasil | 280 |
+| teia | 92 |
+| violencia | 10 |
+
+Os eventos da timeline Brasil (`brasil`) e os marcos legais (`violencia`) nunca tiveram `st`; os da teia são os 92 abaixo (todos canal `teia`, nenhum casa com origens). Lista completa dos 92 da teia:
+
+| id | d | título |
+|---|---|---|
+| ev-2019-10-14-bc-aprova-controle-do-maxima-por-vorcaro | 2019-10-14 | BC aprova controle do Máxima por Vorcaro |
+| ev-2021-08-02-maxima-relanca-se-como-banco-master | 2021-08-02 | Máxima relança-se como Banco Master digital |
+| ev-2022-02-fgc-denuncia-grupo-master-a-cvm-caso-e | 2022-02 | FGC denuncia Grupo Master à CVM; caso é arquivado |
+| ev-2023-10-rioprevidencia-inicia-aportes-em-letras | 2023-10 | Rioprevidência inicia aportes em letras financeiras do Master |
+| ev-2023-10-comecam-as-aplicacoes-de-rpps-em-letras | 2023-10 | Começam as aplicações de RPPS em letras do Master |
+| ev-2024-05-27-bc-aprova-a-compra-da-will-no-dia | 2024-05-27 | BC aprova a compra da Will; no dia seguinte, exigência de capital |
+| ev-2024-07-brb-comeca-a-comprar-carteiras-de | 2024-07 | BRB começa a comprar carteiras de crédito do Master |
+| ev-2024-10-fundos-hans-95-e-reag-growth-aportam | 2024-10 | Fundos Hans 95 e Reag Growth aportam mais de R$ 1 bi no Master |
+| ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da | 2024-12-04 | Lula recebe Vorcaro no Planalto, fora da agenda |
+| ev-2025-03-28-brb-anuncia-compra-de-58-do-master | 2025-03-28 | BRB anuncia compra de 58% do Master |
+| ev-2025-03-brb-e-master-fecham-acordo-para-venda-de | 2025-03 | BRB e Master fecham acordo para venda de 58% por R$ 2 bilhões |
+| ev-2025-04-23-operacao-sem-desconto-pf-e-cgu-miram | 2025-04-23 | Operação Sem Desconto: PF e CGU miram descontos no INSS |
+| ev-2025-04-balanco-2024-ativo-de-r-63-bi-e-r-8-7-bi | 2025-04 | Balanço 2024: ativo de R$ 63 bi e R$ 8,7 bi em precatórios |
+| ev-2025-05-05-fgc-comeca-a-dar-assistencia-financeira | 2025-05-05 | FGC começa a dar assistência financeira ao Master |
+| ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro | 2025-05-27 | BTG compra R$ 1,5 bi em ativos de Vorcaro |
+| ev-2025-07-15-bc-comunica-ao-mpf-indicios-de-crimes-na | 2025-07-15 | BC comunica ao MPF indícios de crimes na venda de carteiras ao BRB |
+| ev-2025-08-28-carbono-oculto-quasar-e-tank-operacoes | 2025-08-28 | Carbono Oculto, Quasar e Tank: operações miram suposto esquema do PCC no setor de combustíveis |
+| ev-2025-08-28-reag-e-alvo-de-buscas-na-carbono-oculto | 2025-08-28 | Reag é alvo de buscas na Carbono Oculto; ações caem cerca de 16% |
+| ev-2025-08-cldf-aprova-em-uma-semana-compra-do | 2025-08 | CLDF aprova em uma semana compra do Master pelo BRB; Ibaneis sanciona |
+| ev-2025-09-03-bc-veta-a-compra-do-master-pelo-brb | 2025-09-03 | BC veta a compra do Master pelo BRB |
+| ev-2025-09-03-banco-central-rejeita-a-compra-do-master | 2025-09-03 | Banco Central rejeita a compra do Master pelo BRB |
+| ev-2025-09-12-pf-prende-careca-do-inss-e-mauricio | 2025-09-12 | PF prende Careca do INSS e Maurício Camisotti |
+| ev-2025-09-21-master-apresenta-ao-bc-plano-de | 2025-09-21 | Master apresenta ao BC plano de salvamento |
+| ev-2025-10-10-inss-nao-renova-acordo-consignado-do | 2025-10-10 | INSS não renova acordo consignado do Master |
+| ev-2025-10-14-gaeco-aponta-executivos-da-reag-e-fundo | 2025-10-14 | Gaeco aponta executivos da Reag e fundo Mabruk II na Usina Itajobi |
+| ev-2025-11-17-fictor-anuncia-compra-do-master-vorcaro | 2025-11-17 | Fictor anuncia compra do Master; Vorcaro é preso |
+| ev-2025-11-17-pf-prende-daniel-vorcaro-em-sao-paulo | 2025-11-17 | PF prende Daniel Vorcaro em São Paulo |
+| ev-2025-11-17-bc-comunica-ao-mpf-indicios-de-fraude | 2025-11-17 | BC comunica ao MPF indícios de fraude entre Master e fundos da Reag |
+| ev-2025-11-18-bc-decreta-a-liquidacao-extrajudicial-do | 2025-11-18 | BC decreta a liquidação extrajudicial do Master |
+| ev-2025-11-18-1a-fase-da-compliance-zero-7-prisoes-e | 2025-11-18 | 1ª fase da Compliance Zero: 7 prisões e 25 buscas |
+| ev-2025-11-18-bc-liquida-o-banco-master-pf-faz-buscas | 2025-11-18 | BC liquida o Banco Master; PF faz buscas no BRB e Justiça afasta o presidente |
+| ev-2025-11-18-bc-liquida-o-master-pf-deflagra-a | 2025-11-18 | BC liquida o Master; PF deflagra a Compliance Zero |
+| ev-2025-11-relatorio-do-inss-aponta-251-718 | 2025-11 | Relatório do INSS aponta 251.718 consignados do Master sem prova |
+| ev-2025-12-04-cpmi-do-inss-aprova-convocacao-e-quebra | 2025-12-04 | CPMI do INSS aprova convocação e quebra de sigilo de Vorcaro |
+| ev-2025-12-09-revelado-contrato-de-r-129-mi-com | 2025-12-09 | Revelado contrato de R$ 129 mi com escritório da esposa de Moraes |
+| ev-2025-12-19-justica-nega-enviar-carbono-oculto-e | 2025-12-19 | Justiça nega enviar Carbono Oculto e Quasar ao STF a pedido de Vorcaro |
+| ev-2025-12-caso-chega-ao-stf-toffoli-e-relator-e | 2025-12 | Caso chega ao STF; Toffoli é relator e impõe sigilo |
+| ev-2026-01-14-2a-fase-buscas-bloqueio-de-r-5-7-bi-e | 2026-01-14 | 2ª fase: buscas, bloqueio de R$ 5,7 bi e prisão de Zettel |
+| ev-2026-01-14-2a-fase-da-compliance-zero-bloqueia-r-5 | 2026-01-14 | 2ª fase da Compliance Zero bloqueia R$ 5,7 bilhões |
+| ev-2026-01-15-bc-liquida-a-reag-cbsf-dtvm | 2026-01-15 | BC liquida a Reag (CBSF DTVM) |
+| ev-2026-01-15-bc-decreta-liquidacao-da-reag-trust-cbsf | 2026-01-15 | BC decreta liquidação da Reag Trust (CBSF DTVM) |
+| ev-2026-01-16-inss-bloqueia-repasses-ao-master-r-2-bi | 2026-01-16 | INSS bloqueia repasses ao Master: R$ 2 bi e 254 mil contratos |
+| ev-2026-01-17-fgc-inicia-pagamento-a-cerca-de-800-mil | 2026-01-17 | FGC inicia pagamento a cerca de 800 mil credores |
+| ev-2026-01-17-fgc-comeca-a-pagar-garantia-a-credores | 2026-01-17 | FGC começa a pagar garantia a credores do Master (desembolso projetado de ~R$ 40,6 bi) |
+| ev-2026-01-17-fgc-inicia-o-maior-ressarcimento-de-sua | 2026-01-17 | FGC inicia o maior ressarcimento de sua história |
+| ev-2026-01-21-bc-liquida-a-will-financeira-fgc-estima | 2026-01-21 | BC liquida a Will Financeira; FGC estima R$ 6,3 bi |
+| ev-2026-01-23-pf-deflagra-barco-de-papel-castro | 2026-01-23 | PF deflagra Barco de Papel; Castro exonera chefe do Rioprevidência |
+| ev-2026-01-23-pf-faz-a-operacao-barco-de-papel-no | 2026-01-23 | PF faz a operação Barco de Papel no Rioprevidência |
+| ev-2026-02-06-pf-mira-a-amprev-brb-entrega-plano-de | 2026-02-06 | PF mira a Amprev; BRB entrega plano de capital ao BC |
+| ev-2026-02-09-pf-entrega-a-fachin-relatorio-sobre | 2026-02-09 | PF entrega a Fachin relatório sobre Toffoli e arguição de suspeição |
+| ev-2026-02-10-fgc-aprova-plano-emergencial-para | 2026-02-10 | FGC aprova plano emergencial para recompor o caixa |
+| ev-2026-02-12-toffoli-deixa-a-relatoria-mendonca | 2026-02-12 | Toffoli deixa a relatoria; Mendonça assume |
+| ev-2026-02-18-bc-liquida-o-banco-pleno-ex-voiter | 2026-02-18 | BC liquida o Banco Pleno (ex-Voiter) |
+| ev-2026-02-24-cvm-lista-18-procedimentos-sobre-os | 2026-02-24 | CVM lista 18 procedimentos sobre os grupos Master e Reag |
+| ev-2026-03-04-3a-fase-vorcaro-e-preso-de-novo | 2026-03-04 | 3ª fase: Vorcaro é preso de novo |
+| ev-2026-03-04-vorcaro-e-preso-de-novo-pf-mira-ex | 2026-03-04 | Vorcaro é preso de novo; PF mira ex-diretores do BC |
+| ev-2026-03-04-vorcaro-e-preso-decisao-cita-r-2-2-bi-na | 2026-03-04 | Vorcaro é preso; decisão cita R$ 2,2 bi na Reag |
+| ev-2026-03-11-mansur-na-cpi-master-era-cliente-da-reag | 2026-03-11 | Mansur na CPI: Master era cliente da Reag e nega vínculo com PCC |
+| ev-2026-03-17-master-multiplo-e-liquidado-liquidante | 2026-03-17 | Master Múltiplo é liquidado; liquidante move ação em SP |
+| ev-2026-03-28-cpmi-do-inss-termina-sem-relatorio-final | 2026-03-28 | CPMI do INSS termina sem relatório final |
+| ev-2026-04-08-receita-mostra-pagamentos-do-master-a-ex | 2026-04-08 | Receita mostra pagamentos do Master a ex-ministros e políticos |
+| ev-2026-04-16-4a-fase-ex-presidente-do-brb-e-preso | 2026-04-16 | 4ª fase: ex-presidente do BRB é preso |
+| ev-2026-04-16-ex-presidente-do-brb-paulo-henrique | 2026-04-16 | Ex-presidente do BRB, Paulo Henrique Costa, é preso |
+| ev-2026-04-16-ex-presidente-do-brb-e-preso-pf-cita | 2026-04-16 | Ex-presidente do BRB é preso; PF cita imóveis de R$ 74 a 146 mi |
+| ev-2026-04-20-brb-e-quadra-fecham-memorando-para | 2026-04-20 | BRB e Quadra fecham memorando para vender ativos do Master |
+| ev-2026-05-04-cvm-acusa-reag-trust-e-ex-diretor-por | 2026-05-04 | CVM acusa Reag Trust e ex-diretor por ocultar cotistas e liquidez |
+| ev-2026-05-05-defesa-de-vorcaro-oferece-delacao-e | 2026-05-05 | Defesa de Vorcaro oferece delação e devolução de R$ 40 bi |
+| ev-2026-05-07-5a-fase-senador-ciro-nogueira-e-alvo | 2026-05-07 | 5ª fase: senador Ciro Nogueira é alvo |
+| ev-2026-05-07-pf-faz-buscas-contra-o-senador-ciro | 2026-05-07 | PF faz buscas contra o senador Ciro Nogueira (5ª fase) |
+| ev-2026-05-26-justica-das-bahamas-reconhece-a | 2026-05-26 | Justiça das Bahamas reconhece a liquidação do Master |
+| ev-2026-05-28-uniao-e-gdf-acordam-emprestimo-de-ate-r | 2026-05-28 | União e GDF acordam empréstimo de até R$ 6,6 bi do FGC ao BRB |
+| ev-2026-06-09-presidente-do-brb-fala-em-corrida-de | 2026-06-09 | Presidente do BRB fala em corrida de liquidez e provisão de R$ 8,8 bi |
+| ev-2026-06-11-folha-liga-o-gold-style-a-bk-bank-aster | 2026-06-11 | Folha liga o Gold Style a BK Bank, Aster e Super Empreendimentos |
+| ev-2026-06-18-9a-fase-jaques-wagner-e-augusto-lima-sao | 2026-06-18 | 9ª fase: Jaques Wagner e Augusto Lima são alvos |
+| ev-2026-06-18-9a-fase-da-compliance-zero-tem-jaques | 2026-06-18 | 9ª fase da Compliance Zero tem Jaques Wagner como alvo |
+| ev-2026-07-14-pf-indicia-48-pessoas-na-sem-desconto | 2026-07-14 | PF indicia 48 pessoas na Sem Desconto, incluindo ex-presidente do INSS |
+| ev-2026-07-17-brb-encerra-o-memorando-com-a-quadra | 2026-07-17 | BRB encerra o memorando com a Quadra |
+| ev-2026-07-23-mendonca-autoriza-inquerito-sobre | 2026-07-23 | Mendonça autoriza inquérito sobre repasses de Vorcaro ao Dark Horse |
+| ev-2026-08-18-mp-sp-denuncia-16-pessoas-da-carbono | 2026-08-18 | MP-SP denuncia 16 pessoas da Carbono Oculto |
+| ev-2026-08-26-mansur-entrega-a-pgr-proposta-de-delacao | 2026-08-26 | Mansur entrega à PGR proposta de delação com 17 anexos |
+| ev-2026-09-01-mendonca-tira-sigilo-de-relatorio-da-pf | 2026-09-01 | Mendonça tira sigilo de relatório da PF sobre mensagens a Moraes |
+| ev-2026-09-01-mendonca-levanta-sigilo-de-relatorio-da | 2026-09-01 | Mendonça levanta sigilo de relatório da PF com 52 mensagens a número atribuído a Moraes |
+| ev-2026-09-02-pgr-fecha-acordo-de-delacao-com-mansur | 2026-09-02 | PGR fecha acordo de delação com Mansur; homologação pendente |
+| ev-2026-09-08-mendonca-afasta-o-diretor-geral-da-pf | 2026-09-08 | Mendonça afasta o diretor-geral da PF; CVM multa Vorcaro |
+| ev-2026-09-09-fachin-suspende-decisoes-de-mendonca-e | 2026-09-09 | Fachin suspende decisões de Mendonça e Dino sobre a PF |
+| ev-2026-09-13-stf-torna-publica-decisao-que-bloqueou | 2026-09-13 | STF torna pública decisão que bloqueou bens de Vorcaro |
+| ev-2026-09-15-plenario-do-stf-discute-moraes-e | 2026-09-15 | Plenário do STF discute Moraes e Mendonça; Dino pede vista |
+| ev-2026-09-15-plenario-do-stf-comeca-a-analisar | 2026-09-15 | Plenário do STF começa a analisar questão de ordem sobre pedido de investigar Moraes; Dino pede vista |
+| ev-2026-09-24-dino-manda-a-pf-investigar-a-atuacao-da | 2026-09-24 | Dino manda a PF investigar a atuação da CVM no caso Master |
+| ev-2026-09-24-credito-oculto-3a-fase-da-carbono-oculto | 2026-09-24 | Crédito Oculto: 3ª fase da Carbono Oculto mira Freixo, apontado pela PF como operador de Vorcaro |
+| ev-2026-10-01-pf-indicia-13-executivos-na-quasar-e | 2026-10-01 | PF indicia 13 executivos na Quasar e envia relatório ao MPF |
+| ev-2026-10-02-fachin-pede-a-pf-lista-de-ministros | 2026-10-02 | Fachin pede à PF lista de ministros citados nas conversas de Vorcaro |
+
+## 3. Eventos de origens dedupados com os da teia
+
+75 eventos coincidem por `(d, t)`; recebem o id de origens (canal = capítulo de origens) e fundem f (união), r, v, n, p. 14 eventos existem só em origens (ids preservados); 92 só na teia.
+
+Diferença de nº de fontes origens − teia nos dedupados: {0: 53, 1: 22}. Casos em que a teia tem URL que origens não tem: 0; casos em que a ordem de f diverge do prefixo de origens: 0.
+
+| id origens | índice teia EV | d | título |
+|---|---|---|---|
+| ida0 | 0 | 1957-12-20 | Fundação da Igreja Batista da Lagoinha, em Belo Horizonte |
+| max0 | 1 | década de 1970 | Origem como corretora Máxima (anos 1970; 1974 em parte das fontes) |
+| ida1 | 2 | 1972-07-31 | Márcio Valadão assume a Lagoinha e muda o perfil da igreja |
+| fam0 | 3 | 1983-10-06 | Nasce Daniel Bueno Vorcaro, em Belo Horizonte |
+| max1 | 4 | década de 1990 | A corretora se torna banco (anos 1990, sem ato datado) |
+| fam1 | 5 | c. 1991 | Henrique Vorcaro funda o Grupo Multipar, há cerca de 35 anos segundo o site do grupo (c. 1991) |
+| ida2 | 6 | 2000 | Igreja assume a TV que vira Rede Super; Lagoinha tem rádio e TV próprias |
+| ida3 | 7 | 2000 | Henrique Vorcaro teria sido um dos principais financiadores da Rede Super |
+| ida4 | 8 | 2000 | Henrique Vorcaro é descrito como convertido que financiou projetos da igreja |
+| fam2 | 9 | c. 2003 | Daniel, aos 19 ou 20 anos, atua em negócio de educação da família |
+| ida5 | 10 | 2008 | Daniel Vorcaro apresenta programa gospel na Rede Super |
+| max2 | 11 | 2009-11-11 | BC aprova diretor da Máxima S.A. CTVM; corretora e banco são CNPJs distintos |
+| max3 | 12 | 2010-01-11 | Cristiano Abdalla declara propósito de ser diretor adjunto da Máxima CTVM |
+| fam3 | 13 | 2011-10-20 | Estado de Minas: obra de hotel de luxo no Bulevar Arrudas, com a Multipar |
+| max4 | 14 | 2013-08 | Moody's rebaixa notas do Banco Máxima (ago/2013) |
+| max5 | 15 | 2013-09-26 | Máxima compra carteiras imobiliárias de incorporadoras; carteira de R$ 250 mi |
+| max6 | 16 | 2014-11 | Fundo Ravena e FC Max: operação que o MPF diz ter inflado o resultado do banco (nov/2014) |
+| fam4 | 17 | 2014 | Daniel é negativado no Serasa por dívida com escritório de advocacia |
+| max7 | 18 | 2015-01 a 2016-03 | Acusação do MPF: informações incorretas ao BC para ocultar falta de capital (jan/2015 a mar/2016) |
+| max8 | 19 | 2015-07 | Holding da família Vorcaro teria contrato para comprar ações do banco (jul/2015) |
+| max9 | 20 | 2016 | Crise de inadimplência na carteira imobiliária e risco de liquidação, segundo reportagens (2016) |
+| max10 | 21 | 2016 | Sabbá oferece a Vorcaro participação no controle do banco (2016) |
+| fam6 | 22 | 2017-08 | Daniel entra no Máxima com 20% como participação qualificada |
+| max11 | 23 | 2017-09-15 | Contrato de compra e venda do controle entre Sabbá e Vorcaro (15/09/2017) |
+| max12 | 24 | 2017-11-01 | BC publica declaração de propósito; sede do banco era em Copacabana (RJ) |
+| fam8 | 25 | 2017-11 | Minutas de 2016-2017 previam sociedade de Henrique no Máxima, diz O Fator |
+| max13 | 26 | 2017 | Sabbá diz ter se desligado formalmente da gestão em 2017 |
+| max14 | 27 | 2018-01 | Nova diretoria assume em janeiro de 2018 (versão do banco) |
+| fam10 | 28 | 2018-04 | Bahia regulamenta por decreto, em abril de 2018, o consignado Credcesta, depois ligado ao Master |
+| fam11 | 29 | 2018-06-28 | Negócios de cotas do fundo CARE11 em 28 e 29/6/2018 viram caso na CVM |
+| max15 | 30 | 2018-07-27 | BC multa o banco e inabilita Sabbá (9 anos) e Caló (8 anos) |
+| ida6 | 31 | 2018 | André Valadão celebra casamento de Fabiano Zettel e Natália Vorcaro |
+| max18 | 32 | 2019 a 2020 | CVM: parecer de 21/10/2020 sobre debêntures da C.I.P. e da Simsan colocadas pela Máxima CCTVM (ofertas de 2019) |
+| fam13 | 33 | 2019-01-16 | Sete novos sócios aparecem no quadro do Máxima, entre eles Augusto Lima |
+| max16 | 34 | 2019-02-13 | BC rejeita a compra do controle por Vorcaro (voto 20/2019, 13/02/2019) |
+| fam16 | 35 | 2019-05-02 | Novo pedido ao BC, com Simonsen e Gallo, e aportes de R$ 100 mi até junho |
+| max17 | 37 | 2019-10-14 | BC aprova a mudança de controle (voto 218/2019, 14/10/2019) |
+| fam19 | 38 | 2019-10-29 | Mandado de prisão preventiva de cinco dias expedido em Ji-Paraná (RO) |
+| fam15 | 39 | 2019 | Fontes dizem que a má reputação da família em BH dominou a discussão no BC; o voto não a analisou |
+| fam20 | 40 | 2019 | Delação de 2019 cita captação de R$ 100 mi de fundos de pensão para o hotel |
+| fam23 | 41 | 2020-09-08 | Hapvida compra o grupo Promed por R$ 1,5 bi; Máxima assessora |
+| max19 | 42 | 2020-11-17 | CRSFN pautado para julgar recurso do Banco Máxima, Sabbá e Caló |
+| max20 | 43 | 2020-11-17 | CRSFN: pauta inclui segundo recurso, de Máxima CCTVM, Abdalla, Gonçalves e Sabbá |
+| fam24 | 44 | 2020-12-01 | CVM: voto de 1º/12/2020 defende aceitar termo de compromisso de R$ 2,325 mi no caso das debêntures |
+| fam21 | 45 | 2020 | Augusto Lima, dono do Credcesta, entra na sociedade do Master em 2020, segundo a CNN |
+| fam22 | 46 | 2020 | Maurício Quadrado associa-se ao Master para tocar o banco de investimento |
+| fam25 | 47 | 2020 | Máxima (futuro Master) adquire o banco de investimento Vipal (fim de 2020; ainda sob análise do BC em mai/2021) |
+| max21 | 48 | 2021-07-24 | Justiça Federal recebe denúncia do MPF e torna réus cinco acusados ligados ao Máxima (reportado em 24/07/2021) |
+| max22 | 50 | 2021-08-02 | Máxima passa a se chamar Banco Master (reportagem de 02/08/2021) |
+| fam27 | 51 | 2021-12-23 | Brazil Journal: Master vira 'banco de investimento e merchant bank' |
+| ida9 | 53 | 2022-03 | Coaf: R$ 3,9 mi do Banco Master a produtora de André Valadão (negado) |
+| ida7 | 54 | 2022-10-20 | Nikolas Ferreira e o pastor Guilherme Batista voam em jato ligado a Vorcaro; Lagoinha diz que o pastor não é membro |
+| ida8 | 55 | 2022-12-11 | Márcio deixa a liderança; André Valadão assume a Lagoinha Global |
+| ida10 | 58 | 2024-03 | Clava Forte Bank, fintech de André e Cassiane Valadão |
+| vol3 | 59 | 2024-03 | Valadão e a esposa fundam o Clava Forte Bank, fintech cristã |
+| vol4 | 60 | 2024-04-27 | Vorcaro pede a Valadão que fale com Nikolas sobre críticas ao Master |
+| ida11 | 63 | 2024-09 | Lagoinha Belvedere: CNPJ aberto em setembro de 2024 e templo de alto padrão presidido por Zettel |
+| vol7 | 65 | 2024-10 | Folha: Zettel fez 54 repasses de R$ 40,9 milhões à unidade Belvedere |
+| ida12 | 67 | 2024-12-24 | Coaf: Zettel enviou R$ 19,2 mi à conta da Lagoinha Belvedere |
+| ida13 | 68 | 2024-12-24 | Coaf: Henrique Vorcaro fez R$ 120 mil em aportes à Lagoinha Belvedere |
+| ida14 | 69 | 2024-12-24 | Coaf: ex-mulher de Daniel e duas empresas também aparecem entre os remetentes da conta |
+| ida17 | 74 | 2025-04 | Valadão chama Henrique e Aline Vorcaro de 'amigos da minha vida' |
+| ida16 | 78 | 2025-07 | Mensagens reportadas: Zettel teria cobrado Vorcaro por recursos para a obra do Belvedere |
+| vol10 | 95 | 2025-11-25 | CPMI do INSS: Rogério Correia pede quebra de sigilo de Valadão |
+| ida18 | 97 | 2025-11 | Lagoinha diz ter afastado Zettel do pastoreio; prisões e nota de janeiro |
+| ida15 | 99 | 2025-12-08 | Coaf e Banco do Brasil apontam movimentação atípica de R$ 57,1 mi (créditos e débitos) na conta da Belvedere |
+| vol12 | 107 | 2026-01-15 | Lagoinha publica nota: não é parte de investigação e afastou Zettel |
+| vol13 | 108 | 2026-01-15 | Damares divulga lista de requerimentos da CPMI; Valadão e Zettel aparecem |
+| vol14 | 116 | 2026-01-27 | Valadão nega negócios com Vorcaro e diz que o conhece da igreja |
+| vol17 | 126 | 2026-03-10 | Lagoinha responde ao O Globo: relações são pessoais entre famílias |
+| ida19 | 128 | 2026-03-15 | Lagoinha Belvedere encerra atividades |
+| vol21 | 130 | 2026-03-19 | Dino cobra Viana sobre R$ 3,6 mi em emendas à Fundação Oásis, da Lagoinha |
+| ida20 | 131 | 2026-03-22 | Valadão pede perdão por ter confiado em pessoas e nega vínculo |
+| vol23 | 132 | 2026-03-24 | Zettel declarou R$ 190,2 mi em lucros do fundo Kairós, ligado à Super Empreendimentos |
+| vol28 | 160 | 2026-09-14 | STF abre sigilo e Coaf sobre a Belvedere vem a público |
+
+## 4. Colisões de slug
+
+Entidades: nenhuma.
+
+Eventos (sufixo `-2`, `-3`...): 3
+- dossie.brb[8]: `ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da` → `ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da-2`
+- dossie.brb[12]: `ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro` → `ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro-2`
+- Y[2020].intl.eventos[0]: `ev-2020-pandemia-de-covid-19` → `ev-2020-pandemia-de-covid-19-2`
+
+## 5. Fusões automáticas (slug exato / alias único) com entidades já existentes
+
+- `Michel Temer` → `michel-temer` (entidade de origem `teia`)
+- `Luiz Inácio Lula da Silva` → `luiz-inacio-lula-da-silva` (entidade de origem `teia`)
+- `Eduardo Bolsonaro` → `eduardo-bolsonaro` (entidade de origem `teia`)
+- `Flávio Bolsonaro` → `flavio-bolsonaro` (entidade de origem `teia`)
+- `Jair Bolsonaro` → `jair-bolsonaro` (entidade de origem `teia`)
+- `Davi Alcolumbre` → `davi-alcolumbre` (entidade de origem `teia`)
+- `Jaques Wagner` → `jaques-wagner` (entidade de origem `teia`)
+- `Nikolas Ferreira` → `nikolas-ferreira` (entidade de origem `teia`)
+- `Hugo Motta` → `hugo-motta` (entidade de origem `teia`)
+- `BTG Pactual` → `btg-pactual` (entidade de origem `teia`)
+
+## 6. Candidatos a dedup (para aprovação; aprovados vão em `scripts/fusoes.json`)
+
+| slug A | slug B | nome A | nome B | critério |
+|---|---|---|---|---|
+| dias-toffoli | irmaos-de-toffoli | Dias Toffoli | Irmãos de Toffoli (José Carlos e José Eugênio Dias Toffoli) | tokens ⊂ + mesmo sobrenome |
+| paulo-sergio-neves-de-souza | luis-roberto-irmao-de-paulo-sergio-neves-de-souza | Paulo Sérgio Neves de Souza | Luis Roberto (irmão de Paulo Sérgio Neves de Souza) | tokens ⊂ + mesmo sobrenome |
+
+Aliases ambíguos (mesmo `alias_norm` em mais de uma entidade; fora de `indice_alias`):
+
+nenhum.
+
+## 7. URLs normalizadas (evidência)
+
+Regra: strip de `#fragment`, barra final e parâmetros `utm_*`. Nada mais (host e esquema intactos).
+
+- URLs normalizadas distintas (linhas em `evidencia`): 760
+- URLs originais distintas: 760
+- Normalizações que alteraram a URL: 371
+- Colisões (2+ URLs originais → 1 normalizada): 0
+
+Alteradas sem colisão: 371 só pela barra final (não listadas) e 0 por `#fragment`/`utm_*`/outros:
+
+
+Quase-colisões (mesma URL base, queries diferentes; mantidas distintas): 8
+
+- `https://bpmoney.com.br/?p=154390` , `https://bpmoney.com.br/?p=385085` , `https://bpmoney.com.br/?p=385092` , `https://bpmoney.com.br/?p=420995`
+- `https://iclnoticias.com.br/?p=109117` , `https://iclnoticias.com.br/?p=110036` , `https://iclnoticias.com.br/?p=111826` , `https://iclnoticias.com.br/?p=127728` , `https://iclnoticias.com.br/?p=129374`
+- `https://jovempan.com.br/?p=291021` , `https://jovempan.com.br/?p=5429`
+- `https://www.brasil247.com/?p=1049476` , `https://www.brasil247.com/?p=1049764` , `https://www.brasil247.com/?p=263632` , `https://www.brasil247.com/?p=626399` , `https://www.brasil247.com/?p=876131` , `https://www.brasil247.com/?p=927102` , `https://www.brasil247.com/?p=940854` , `https://www.brasil247.com/?p=943810` , `https://www.brasil247.com/?p=945134` , `https://www.brasil247.com/?p=949224`
+- `https://www.cartacapital.com.br/?p=493025` , `https://www.cartacapital.com.br/?p=587967` , `https://www.cartacapital.com.br/?p=636191` , `https://www.cartacapital.com.br/?p=79516`
+- `https://www.infomoney.com.br/?p=1412193` , `https://www.infomoney.com.br/?p=3107708` , `https://www.infomoney.com.br/?p=3107925` , `https://www.infomoney.com.br/?p=3107979` , `https://www.infomoney.com.br/?p=3165413` , `https://www.infomoney.com.br/?p=3174200` , `https://www.infomoney.com.br/?p=3175363` , `https://www.infomoney.com.br/?p=3182375` , `https://www.infomoney.com.br/?p=3194419` , `https://www.infomoney.com.br/?p=3263363` , `https://www.infomoney.com.br/?p=3302923` , `https://www.infomoney.com.br/?p=3377440` , `https://www.infomoney.com.br/?p=357219` , `https://www.infomoney.com.br/?p=422330`
+- `https://www.sedep.com.br/?p=150753` , `https://www.sedep.com.br/?p=168820`
+- `https://www.suno.com.br/noticias/?p=52455` , `https://www.suno.com.br/noticias/?p=53367` , `https://www.suno.com.br/noticias/?p=538608` , `https://www.suno.com.br/noticias/?p=599920`
+
+URLs repetidas dentro da mesma relação/evento após normalização (descartadas na junção): 0
+
+## 8. Outras decisões e avisos
+
+- Relações da teia sem nenhuma fonte: 0.
+- `fam_de` (21) e `lig_de` (3) viram relações `familiar`/`profissional` (subtipo `escritorio_ligado`) com `natureza_id='nao_classificada'` (NULL não é permitido em `relacao`), `direcional=0`, sem fontes.
+- Pseudo-partidos de `N.p` ("Ex-ministros e consultores", "Órgãos e partidos") foram para `entidade.grupo`; `partido` guarda só siglas reais. O exportador reconstrói `p` quando `grupo` é um pseudo-partido, senão `sg`.
+- `E.a/E.b` do `teia.json` exportado é canônico (menor índice, maior índice): a direção semântica vem de `r.a→r.b`; no original 83 de 319 pares tinham `E.a>E.b`. Os índices de aresta (`E[i]`) e de relação (`r[j]`) são preservados.
+- Eventos de origens com `r` vazio gravam `resposta` NULL (exportam de volta como ""); `v` vai para `evento.valor_brl` (a proposta mapeava `r`→`contexto` e `v`→`resposta`, o que invertia o significado).
+- Eventos da timeline Brasil (280): `data` = ano do agrupamento, sem fonte, sem natureza, canal `brasil` (subcanal `pol`/`intl` em `origem_ref`).
+- `pares.notas`: linhas de log de coleta descartadas (1): "Cota: 39 buscas/fetches usados."
+- `pares.indicadores`: valores `null` explícitos (ex.: IDH) não viram linha em `serie`; só os pontos não nulos.
+- `pares.foruns` e as seções estruturadas do dossiê (mercado, previdência, dinheiro, limites, máquina) estão em `nota.texto` como JSON (sem modelagem relacional ainda); a seção `brb.eventos` virou 30 eventos canal `brb`.
+- URLs dentro de `nota.texto` do dossiê não passam por `evidencia`.
+- `mandato`: presidentes/vices/presidentes das casas são agregados por anos consecutivos (granularidade de ano; Dilma/Temer em 2016 usam 12/5); `partido` = valor do primeiro ano do período. Parlamentares em destaque (`pol.parl`) viram `mandato` de um ano (`inicio=fim=ano`) com `motivo` e `votos`.
+- `ranking_empresa.posicao` = posição na lista do ano (a lista original não traz posição explícita).
+- Países em `pares` viram entidades `pais` (alias sigla = ISO3); `serie.dimensao` usa `pais=<ISO3>`. Destinos de exportação usam `pais=<nome>` (sem ISO na fonte).
+- `serie` de pares = pontos não nulos dos 18 indicadores (4.806) + PISA (leitura/matemática/ciências e matemática por estado da Índia).
+- Desvios do DDL proposto (marcados `-- DESVIO:` em `scripts/schema.sql`): o DDL original roda sem erro no SQLite 3.45 (incl. STRICT, colunas geradas e FTS5); acrescentados `entidade.ind_legado`, `evento.valor_brl`, `evento.canal='brb'`, `evento.origem='dossie'`, `ordem` em `relacao_evidencia`/`evento_evidencia`/`evento_entidade`/`nota_entidade`, `mandato.motivo`/`mandato.votos`; `evento.contexto`/`resposta` passam a significar o que os dados dizem (ver acima).
+- Não feito: ligação de eventos de origens a entidades por `indice_alias` (passo 3 do plano) e extração de eventos de datas internas de `N.d`/`desc`.

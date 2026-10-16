@@ -1,0 +1,3377 @@
+{
+ "SOURCES": {
+  "mapa2012": {
+   "nome": "Mapa da Violência 2012: os novos padrões da violência homicida no Brasil, Tabela 2.1.1",
+   "curto": "Mapa da Violência 2012",
+   "url": "https://andi.org.br/wp-content/uploads/2020/10/mapa2012.pdf"
+  },
+  "atlas2016": {
+   "nome": "Atlas da Violência 2016, Tabela 1.3",
+   "curto": "Atlas da Violência 2016",
+   "url": "https://publicacoes.forumseguranca.org.br/items/7a6fc773-c196-4d63-b380-fc8463f958a6"
+  },
+  "atlas2017": {
+   "nome": "Atlas da Violência 2017, Tabela 1.3",
+   "curto": "Atlas da Violência 2017",
+   "url": "https://publicacoes.forumseguranca.org.br/items/155b3df2-3cf5-46ee-b58f-cc96c56dbfda"
+  },
+  "atlas2018": {
+   "nome": "Atlas da Violência 2018, Tabela 2.3",
+   "curto": "Atlas da Violência 2018",
+   "url": "https://publicacoes.forumseguranca.org.br/items/0a152323-6190-4331-b2a9-c5a19c2a9704"
+  },
+  "atlas2021": {
+   "nome": "Atlas da Violência 2021, Tabela 2.2",
+   "curto": "Atlas da Violência 2021",
+   "url": "https://publicacoes.forumseguranca.org.br/items/2e5e66c1-655e-4751-b7fd-d29017d6b1d1"
+  },
+  "atlas2023": {
+   "nome": "Atlas da Violência 2023, Tabela 2",
+   "curto": "Atlas da Violência 2023",
+   "url": "https://publicacoes.forumseguranca.org.br/items/f0c6ddee-5347-47da-9374-1bf491b0aff6"
+  },
+  "atlas2024": {
+   "nome": "Atlas da Violência 2024, Tabela 2.2",
+   "curto": "Atlas da Violência 2024",
+   "url": "https://publicacoes.forumseguranca.org.br/items/81f69453-baf0-4e6a-9f61-f4f6950b1317"
+  },
+  "atlas2025": {
+   "nome": "Atlas da Violência 2025, Tabela 2.2",
+   "curto": "Atlas da Violência 2025",
+   "url": "https://publicacoes.forumseguranca.org.br/items/ecd3f9ce-d774-46f6-9a17-21802a469a09"
+  },
+  "atlas2026": {
+   "nome": "Atlas da Violência 2026, Tabela 2.2",
+   "curto": "Atlas da Violência 2026",
+   "url": "https://publicacoes.forumseguranca.org.br/items/e9c64cd8-f18c-4448-94e7-dc0190efa6ae"
+  }
+ },
+ "DATA": [
+  {
+   "ano": 1980,
+   "homicidios": 13910,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1981,
+   "homicidios": 15213,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1982,
+   "homicidios": 15550,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1983,
+   "homicidios": 17408,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1984,
+   "homicidios": 19767,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1985,
+   "homicidios": 19747,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1986,
+   "homicidios": 20481,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1987,
+   "homicidios": 23087,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1988,
+   "homicidios": 23357,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1989,
+   "homicidios": 28757,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1990,
+   "homicidios": 31989,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1991,
+   "homicidios": 30566,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1992,
+   "homicidios": 28387,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1993,
+   "homicidios": 30586,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1994,
+   "homicidios": 32603,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1995,
+   "homicidios": 37128,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1996,
+   "homicidios": 38894,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1997,
+   "homicidios": 40507,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1998,
+   "homicidios": 41950,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 1999,
+   "homicidios": 42914,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 2000,
+   "homicidios": 45360,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 2001,
+   "homicidios": 47943,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 2002,
+   "homicidios": 49695,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 2003,
+   "homicidios": 51043,
+   "fonte": "mapa2012"
+  },
+  {
+   "ano": 2004,
+   "homicidios": 48909,
+   "fonte": "atlas2016"
+  },
+  {
+   "ano": 2005,
+   "homicidios": 48136,
+   "fonte": "atlas2017"
+  },
+  {
+   "ano": 2006,
+   "homicidios": 49704,
+   "fonte": "atlas2018"
+  },
+  {
+   "ano": 2007,
+   "homicidios": 48219,
+   "fonte": "atlas2018"
+  },
+  {
+   "ano": 2008,
+   "homicidios": 50659,
+   "fonte": "atlas2018"
+  },
+  {
+   "ano": 2009,
+   "homicidios": 52043,
+   "fonte": "atlas2021"
+  },
+  {
+   "ano": 2010,
+   "homicidios": 53016,
+   "fonte": "atlas2021"
+  },
+  {
+   "ano": 2011,
+   "homicidios": 52807,
+   "fonte": "atlas2023"
+  },
+  {
+   "ano": 2012,
+   "homicidios": 57045,
+   "fonte": "atlas2024"
+  },
+  {
+   "ano": 2013,
+   "homicidios": 57396,
+   "fonte": "atlas2025"
+  },
+  {
+   "ano": 2014,
+   "homicidios": 60474,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2015,
+   "homicidios": 59080,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2016,
+   "homicidios": 62517,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2017,
+   "homicidios": 65602,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2018,
+   "homicidios": 57956,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2019,
+   "homicidios": 45503,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2020,
+   "homicidios": 49868,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2021,
+   "homicidios": 47847,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2022,
+   "homicidios": 46409,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2023,
+   "homicidios": 45747,
+   "fonte": "atlas2026"
+  },
+  {
+   "ano": 2024,
+   "homicidios": 42590,
+   "fonte": "atlas2026"
+  }
+ ],
+ "SOURCE_BREAK_AFTER": 2003,
+ "GROUPS": {
+  "mulheres": {
+   "nome": "Mulheres",
+   "um": "uma mulher",
+   "cor": "g1"
+  },
+  "demaisSexo": {
+   "nome": "Homens e sexo não informado",
+   "um": "um homem (ou vítima sem sexo informado)",
+   "cor": "g0"
+  },
+  "jovens": {
+   "nome": "15 a 29 anos",
+   "um": "uma pessoa de 15 a 29 anos",
+   "cor": "g1"
+  },
+  "demais1529": {
+   "nome": "Outras idades e idade não informada",
+   "um": "uma pessoa de outra idade",
+   "cor": "g0"
+  },
+  "ate19": {
+   "nome": "0 a 19 anos",
+   "um": "uma pessoa de 0 a 19 anos",
+   "cor": "g1"
+  },
+  "demais019": {
+   "nome": "20 anos ou mais e idade não informada",
+   "um": "uma pessoa de 20 anos ou mais",
+   "cor": "g0"
+  },
+  "f04": {
+   "nome": "0 a 4 anos",
+   "um": "uma criança de 0 a 4 anos",
+   "cor": "g2"
+  },
+  "f514": {
+   "nome": "5 a 14 anos",
+   "um": "uma criança de 5 a 14 anos",
+   "cor": "g3"
+  },
+  "f1519": {
+   "nome": "15 a 19 anos",
+   "um": "um adolescente de 15 a 19 anos",
+   "cor": "g1"
+  },
+  "idosos": {
+   "nome": "60 anos ou mais",
+   "um": "uma pessoa de 60 anos ou mais",
+   "cor": "g1"
+  },
+  "demais60": {
+   "nome": "Menos de 60 anos e idade não informada",
+   "um": "uma pessoa com menos de 60 anos",
+   "cor": "g0"
+  },
+  "negros": {
+   "nome": "Negros (pretos e pardos)",
+   "um": "uma pessoa negra",
+   "cor": "g1"
+  },
+  "naoNegros": {
+   "nome": "Não negros",
+   "um": "uma pessoa não negra",
+   "cor": "g2"
+  },
+  "ignRaca": {
+   "nome": "Raça/cor não informada",
+   "um": "uma vítima sem raça/cor informada",
+   "cor": "g0"
+  },
+  "naoNegrosIgn": {
+   "nome": "Não negros e raça/cor não informada",
+   "um": "uma pessoa não negra ou sem raça/cor informada",
+   "cor": "g0"
+  },
+  "armaFogo": {
+   "nome": "Arma de fogo",
+   "um": "uma pessoa morta com arma de fogo",
+   "cor": "g1"
+  },
+  "outrosMeios": {
+   "nome": "Outros meios",
+   "um": "uma pessoa morta por outros meios",
+   "cor": "g0"
+  }
+ },
+ "TIPO_TXT": {
+  "tabela": "tabela",
+  "imprensa": "número divulgado, via imprensa",
+  "sintese": "texto ou infográfico oficial"
+ },
+ "CSRC": {
+  "mapa2015m": {
+   "tipo": "tabela",
+   "nome": "Mapa da Violência 2015: Homicídio de mulheres no Brasil, Tabela 2.1",
+   "url": "https://www12.senado.leg.br/institucional/omv/menu/entenda-a-violencia/files/pdfs/mapa-da-violencia-2015"
+  },
+  "mapa2014j": {
+   "tipo": "tabela",
+   "nome": "Mapa da Violência: Homicídios e juventude no Brasil, atualização 2014, Tabelas 2.2.2 e 2.2.3",
+   "url": "https://siac.fpabramo.org.br/uploads/acaoinstitucional/WAISELFISZ_Homicidios_e_juventude_no_Brasil-atualizacao_2014.pdf"
+  },
+  "mapa2012ca": {
+   "tipo": "tabela",
+   "nome": "Mapa da Violência 2012: Crianças e adolescentes do Brasil, Tabela 2.1",
+   "url": "https://www.conjur.com.br/wp-content/uploads/2023/09/mapa-violencia-jovens.pdf"
+  },
+  "mapa2012cor": {
+   "tipo": "sintese",
+   "nome": "Mapa da Violência 2012: A cor dos homicídios no Brasil (número citado no texto)",
+   "url": "https://flacso.org.br/files/2020/03/mapa2012_cor.pdf"
+  },
+  "mapa2015af": {
+   "tipo": "tabela",
+   "nome": "Mapa da Violência 2015: Mortes matadas por armas de fogo, Tabelas 2.1 e 2.2 (coluna homicídio)",
+   "url": "https://flacso.org.br/files/2020/03/mapaViolencia2015.pdf"
+  },
+  "atlas2016t": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2016, Tabelas 4.1, 4.2 e 1.3",
+   "url": "https://publicacoes.forumseguranca.org.br/items/7a6fc773-c196-4d63-b380-fc8463f958a6"
+  },
+  "atlas2017t": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2017, Tabelas 4.1, 4.2 e 1.3",
+   "url": "https://publicacoes.forumseguranca.org.br/items/155b3df2-3cf5-46ee-b58f-cc96c56dbfda"
+  },
+  "atlas2017i": {
+   "tipo": "sintese",
+   "nome": "Atlas da Violência 2017, infográfico",
+   "url": "https://forumseguranca.org.br/wp-content/uploads/2017/06/FBSP_atlas_da_violencia_2017_infografico.pdf"
+  },
+  "atlas2018t": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2018, Tabelas 4.1 e 2.3",
+   "url": "https://publicacoes.forumseguranca.org.br/items/0a152323-6190-4331-b2a9-c5a19c2a9704"
+  },
+  "atlas2018n": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2018 (Jornal do Brasil)",
+   "url": "https://www.jb.com.br/pais/noticias/2018/06/06/amp/atlas-da-violencia-30-de-cada-100-mil-sao-mortos-no-brasil.html"
+  },
+  "atlas2019t": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2019, Tabelas 3.1 e 2.2",
+   "url": "https://publicacoes.forumseguranca.org.br/items/57099e69-8888-4647-8b7b-1efe33e517ff"
+  },
+  "atlas2019n": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2019 (O Imparcial)",
+   "url": "https://oimparcial.com.br/noticias/2019/06/atlas-da-violencia-2019-brasil-registra-indices-ineditos/"
+  },
+  "atlas2019cc": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2019 (CartaCapital)",
+   "url": "https://www.cartacapital.com.br/?p=79516"
+  },
+  "atlas2020n": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2020 (Jovem Pan)",
+   "url": "https://jovempan.com.br/brasil/atlas-da-violencia-aponta-queda-em-homicidios-em-2018-mas-alta-em-crimes-contra-negros/"
+  },
+  "atlas2021t": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2021, Tabelas 4.1, 4.2 e 2.2",
+   "url": "https://publicacoes.forumseguranca.org.br/items/2e5e66c1-655e-4751-b7fd-d29017d6b1d1"
+  },
+  "atlas2021n": {
+   "tipo": "sintese",
+   "nome": "Atlas da Violência 2021, síntese Ipea Em Questão n. 8",
+   "url": "https://repositorio.ipea.gov.br/bitstream/11058/11128/1/EmQuestao_n8_Atlas.pdf"
+  },
+  "atlas2023s": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2023, sumário executivo, Tabela 1 (0 a 19 anos por faixa)",
+   "url": "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download"
+  },
+  "atlas2023st": {
+   "tipo": "sintese",
+   "nome": "Atlas da Violência 2023, sumário executivo (texto, p. 9)",
+   "url": "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download"
+  },
+  "atlas2023af": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2023, sumário executivo, Tabela 50 (homicídios por arma de fogo)",
+   "url": "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download"
+  },
+  "atlas2023neg": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2023 (Poder360)",
+   "url": "https://www.poder360.com.br/brasil/8-em-cada-10-assassinados-no-brasil-sao-negros-indica-atlas-da-violencia/"
+  },
+  "atlas2024t": {
+   "tipo": "tabela",
+   "nome": "Atlas da Violência 2024, Tabelas 4.1, 4.2 e 2.2",
+   "url": "https://publicacoes.forumseguranca.org.br/bitstreams/9cb4616a-b635-468e-aa16-61a7ff6aee21/download"
+  },
+  "atlas2024n": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2024 (SBT News)",
+   "url": "https://sbtnews.sbt.com.br/noticia/brasil/brasil-registrou-127-homicidios-por-dia-em-2022-diz-atlas-da-violencia"
+  },
+  "atlas2024af": {
+   "tipo": "sintese",
+   "nome": "Atlas da Violência 2024, infográfico (percentual publicado)",
+   "url": "https://publicacoes.forumseguranca.org.br/bitstreams/c4331098-0692-4966-b0b2-1a090a08747a/download"
+  },
+  "atlas2025m": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2025 (Diario de Pernambuco)",
+   "url": "https://www.diariodepernambuco.com.br/brasil/2025/05/3893436-atlas-da-violencia-brasil-tem-dez-mulheres-assassinadas-por-dia.html"
+  },
+  "atlas2025j": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2025 (Poder360, CNN Brasil, Correio Braziliense)",
+   "url": "https://www.poder360.com.br/poder-brasil/brasil-teve-60-jovens-assassinados-por-dia-em-2023-diz-relatorio/"
+  },
+  "atlas2025r": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2025 (Poder360)",
+   "url": "https://www.poder360.com.br/poder-pesquisas/pessoas-negras-sao-77-dos-homicidios-no-brasil/"
+  },
+  "atlas2025af": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2025 (Jornal Opção)",
+   "url": "https://www.jornalopcao.com.br/ultimas-noticias/atlas-da-violencia-goias-tem-queda-de-mais-de-10-em-homicidios-por-arma-de-fogo-705984/"
+  },
+  "atlas2026r": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2026 (Jornal do Brasil, Poder360)",
+   "url": "https://www.jb.com.br/brasil/direitos-humanos/2026/05/amp/1059754-atlas-da-violencia-2026-expoe-desigualdades-e-letalidade-contra-grupos-vulneraveis-no-brasil.html"
+  },
+  "atlas2026m": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2026 (Brasil de Fato, Bem Paraná)",
+   "url": "https://www.brasildefato.com.br/2026/05/26/homicidios-de-pessoas-negras-representam-77-do-total-de-assassinatos-no-brasil-aponta-atlas-da-violencia/"
+  },
+  "atlas2026j": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2026 (TVT News)",
+   "url": "https://tvtnews.com.br/?p=789133"
+  },
+  "atlas2026af": {
+   "tipo": "imprensa",
+   "nome": "Atlas da Violência 2026 (boca.com.br; 70,1% confirmado no infográfico oficial)",
+   "url": "https://boca.com.br/justica/homicidios-com-armas-de-fogo-caem-mas-ainda-sao-70-no-brasil"
+  }
+ },
+ "RACE_RATES": {
+  "2004": [
+   31.7,
+   18.3
+  ],
+  "2005": [
+   31.8,
+   17.2
+  ],
+  "2006": [
+   32.7,
+   17
+  ],
+  "2007": [
+   32.4,
+   15.3
+  ],
+  "2008": [
+   33.7,
+   15.7
+  ],
+  "2009": [
+   34.3,
+   15.8
+  ],
+  "2010": [
+   36.5,
+   15.2
+  ],
+  "2011": [
+   35.1,
+   14.6
+  ],
+  "2012": [
+   36.7,
+   15.5
+  ],
+  "2013": [
+   36.8,
+   15.6
+  ],
+  "2014": [
+   38.5,
+   15.6
+  ],
+  "2015": [
+   37.7,
+   15.3
+  ],
+  "2016": [
+   40.2,
+   16
+  ],
+  "2017": [
+   43.1,
+   16
+  ],
+  "2018": [
+   37.8,
+   13.9
+  ],
+  "2019": [
+   29.2,
+   11.2
+  ],
+  "2021": [
+   31,
+   10.8
+  ],
+  "2022": [
+   29.7,
+   10.8
+  ],
+  "2023": [
+   28.9,
+   10.6
+  ],
+  "2024": [
+   27.3,
+   10.1
+  ]
+ },
+ "MARCOS": [
+  {
+   "data": "2003-12-22",
+   "curto": "Estatuto do Desarmamento",
+   "titulo": "Estatuto do Desarmamento (Lei 10.826)",
+   "texto": "Sancionada a Lei 10.826, que trata de registro, posse e comercialização de armas de fogo e munição, cria o Sinarm e define crimes. Publicada no Diário Oficial em 23/12/2003. O art. 35 condicionava a proibição da venda a um referendo.",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.826.htm"
+  },
+  {
+   "data": "2004-07-01",
+   "curto": "Decreto 5.123",
+   "titulo": "Decreto 5.123 regulamenta o Estatuto",
+   "texto": "O Decreto 5.123, de 1/7/2004, regulamenta a Lei 10.826.",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/decreto/d5123.htm"
+  },
+  {
+   "data": "2004-07-15",
+   "curto": "Campanha de entrega",
+   "titulo": "Início da Campanha Nacional do Desarmamento (entrega voluntária)",
+   "texto": "Reportagem da TV Câmara (10/12/2004) data o início da campanha em 15 de julho de 2004. A data não foi confirmada em fonte oficial do governo. A Agência Brasil registra cerca de 704 mil armas devolvidas desde a criação da campanha.",
+   "url": "https://www.camara.leg.br/tv/157682-campanha-pelo-desarmamento-supera-expectativas/"
+  },
+  {
+   "data": "2005-10-23",
+   "curto": "Referendo",
+   "titulo": "Referendo sobre a proibição do comércio de armas",
+   "texto": "Referendo sobre proibir o comércio de armas de fogo e munição (art. 35 do Estatuto). O TSE registra que a proposta foi rejeitada; a Rádio Senado informa 63% de votos “não”. O percentual exato não foi confirmado em página oficial.",
+   "url": "https://www.tse.jus.br/eleicoes/plebiscitos-e-referendos/referendo-2005/referendo-2005-1"
+  },
+  {
+   "data": "2019-01-15",
+   "curto": "Decreto 9.685",
+   "titulo": "Decreto 9.685 (posse de arma)",
+   "texto": "Altera o Decreto 5.123/2004 e define categorias com efetiva necessidade presumida para a posse de arma de fogo, com limite de 4 armas. Depois revogado pelo Decreto 9.785/2019.",
+   "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2019/Decreto/D9685.htm"
+  },
+  {
+   "data": "2019-05-07",
+   "curto": "Decreto 9.785",
+   "titulo": "Decreto 9.785",
+   "texto": "Regulamenta a Lei 10.826, fixa o limite de 1.200 libras-pé (1.620 joules) para armas de uso permitido e amplia limites de aquisição (colecionador até 5 por modelo, caçador até 15, atirador até 30).",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9785.htm"
+  },
+  {
+   "data": "2019-06-25",
+   "curto": "Decreto 9.847",
+   "titulo": "Decreto 9.847",
+   "texto": "Regulamenta a Lei 10.826 quanto a aquisição, cadastro, registro, porte e comercialização de armas e munição (Sinarm e Sigma) e exige idade mínima de 25 anos para adquirir.",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9847.htm"
+  },
+  {
+   "data": "2021-02-12",
+   "curto": "Decretos 10.629 e 10.630",
+   "titulo": "Decretos 10.629 e 10.630",
+   "texto": "Alteram os Decretos 9.846 e 9.847/2019. O 10.629 fixa limites de munição para caçadores e atiradores (até 5.000 unidades por ano para armas de uso permitido); o 10.630 autoriza o porte simultâneo de até duas armas e muda procedimentos no Sinarm e no Sigma.",
+   "url": "http://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/decreto/d10630.htm"
+  },
+  {
+   "data": "2023-01-01",
+   "curto": "Decreto 11.366",
+   "titulo": "Decreto 11.366 (restrições)",
+   "texto": "Suspende registros de aquisição e transferência de armas de uso restrito por caçadores, colecionadores e atiradores, limita armas e munição de uso permitido (até 3 armas por pessoa; 50 munições por ano), suspende novos registros de clubes e escolas de tiro e cria grupo de trabalho para nova regulamentação.",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11366.htm"
+  },
+  {
+   "data": "2023-07-21",
+   "curto": "Decreto 11.615",
+   "titulo": "Decreto 11.615 (nova regulamentação)",
+   "texto": "Regulamenta a Lei 10.826 com novos limites: idade mínima de 25 anos para colecionadores, exigência de comprovar efetiva necessidade e limites anuais por nível de atirador (nível 1: 4 armas e 4.000 cartuchos).",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11615.htm"
+  }
+ ],
+ "CUTS": {
+  "sexo": {
+   "nome": "Sexo",
+   "resto": "demaisSexo",
+   "years": {
+    "1980": {
+     "tot": 13910,
+     "segs": [
+      [
+       "mulheres",
+       1353
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.3
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1981": {
+     "tot": 15213,
+     "segs": [
+      [
+       "mulheres",
+       1487
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1982": {
+     "tot": 15550,
+     "segs": [
+      [
+       "mulheres",
+       1497
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1983": {
+     "tot": 17408,
+     "segs": [
+      [
+       "mulheres",
+       1700
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.7
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1984": {
+     "tot": 19767,
+     "segs": [
+      [
+       "mulheres",
+       1736
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.7
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1985": {
+     "tot": 19747,
+     "segs": [
+      [
+       "mulheres",
+       1766
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.7
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1986": {
+     "tot": 20481,
+     "segs": [
+      [
+       "mulheres",
+       1799
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.7
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1987": {
+     "tot": 23087,
+     "segs": [
+      [
+       "mulheres",
+       1935
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.8
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1988": {
+     "tot": 23357,
+     "segs": [
+      [
+       "mulheres",
+       2025
+      ]
+     ],
+     "rates": {
+      "mulheres": 2.9
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1989": {
+     "tot": 28757,
+     "segs": [
+      [
+       "mulheres",
+       2344
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.3
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1990": {
+     "tot": 31989,
+     "segs": [
+      [
+       "mulheres",
+       2585
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.5
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1991": {
+     "tot": 30566,
+     "segs": [
+      [
+       "mulheres",
+       2727
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.7
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1992": {
+     "tot": 28387,
+     "segs": [
+      [
+       "mulheres",
+       2399
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.2
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1993": {
+     "tot": 30586,
+     "segs": [
+      [
+       "mulheres",
+       2622
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1994": {
+     "tot": 32603,
+     "segs": [
+      [
+       "mulheres",
+       2838
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.6
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1995": {
+     "tot": 37128,
+     "segs": [
+      [
+       "mulheres",
+       3325
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.2
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1996": {
+     "tot": 38894,
+     "segs": [
+      [
+       "mulheres",
+       3682
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.6
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1997": {
+     "tot": 40507,
+     "segs": [
+      [
+       "mulheres",
+       3587
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1998": {
+     "tot": 41950,
+     "segs": [
+      [
+       "mulheres",
+       3503
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.3
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1999": {
+     "tot": 42914,
+     "segs": [
+      [
+       "mulheres",
+       3536
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.3
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2000": {
+     "tot": 45360,
+     "segs": [
+      [
+       "mulheres",
+       3743
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.3
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2001": {
+     "tot": 47943,
+     "segs": [
+      [
+       "mulheres",
+       3851
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2002": {
+     "tot": 49695,
+     "segs": [
+      [
+       "mulheres",
+       3867
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2003": {
+     "tot": 51043,
+     "segs": [
+      [
+       "mulheres",
+       3937
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2004": {
+     "tot": 48374,
+     "segs": [
+      [
+       "mulheres",
+       3830
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.2
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2005": {
+     "tot": 47578,
+     "segs": [
+      [
+       "mulheres",
+       3884
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.2
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2006": {
+     "tot": 49145,
+     "segs": [
+      [
+       "mulheres",
+       4022
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.2
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2007": {
+     "tot": 47707,
+     "segs": [
+      [
+       "mulheres",
+       3772
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.9
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2008": {
+     "tot": 50113,
+     "segs": [
+      [
+       "mulheres",
+       4023
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.2
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2009": {
+     "tot": 51434,
+     "segs": [
+      [
+       "mulheres",
+       4260
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.4
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2010": {
+     "tot": 49932,
+     "segs": [
+      [
+       "mulheres",
+       4465
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.6
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2011": {
+     "tot": 52807,
+     "segs": [
+      [
+       "mulheres",
+       4512
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.6
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: o mesmo do contador, porque a publicação do grupo não traz o total do ano."
+    },
+    "2012": {
+     "tot": 57045,
+     "segs": [
+      [
+       "mulheres",
+       4719
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.8
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: o mesmo do contador, porque a publicação do grupo não traz o total do ano."
+    },
+    "2013": {
+     "tot": 57396,
+     "segs": [
+      [
+       "mulheres",
+       4762
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.8
+     },
+     "src": "mapa2015m",
+     "totNote": "Total: o mesmo do contador, porque a publicação do grupo não traz o total do ano."
+    },
+    "2015": {
+     "tot": 59080,
+     "segs": [
+      [
+       "mulheres",
+       4621
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.5
+     },
+     "src": "atlas2017i"
+    },
+    "2016": {
+     "tot": 62517,
+     "segs": [
+      [
+       "mulheres",
+       4645
+      ]
+     ],
+     "rates": {
+      "mulheres": 4.5
+     },
+     "src": "atlas2018n"
+    },
+    "2017": {
+     "tot": 65602,
+     "segs": [
+      [
+       "mulheres",
+       4936
+      ]
+     ],
+     "src": "atlas2019n"
+    },
+    "2018": {
+     "tot": 57956,
+     "segs": [
+      [
+       "mulheres",
+       4519
+      ]
+     ],
+     "src": "atlas2020n"
+    },
+    "2019": {
+     "tot": 45503,
+     "segs": [
+      [
+       "mulheres",
+       3737
+      ]
+     ],
+     "src": "atlas2021n"
+    },
+    "2021": {
+     "tot": 47847,
+     "segs": [
+      [
+       "mulheres",
+       3858
+      ]
+     ],
+     "src": "atlas2023st"
+    },
+    "2022": {
+     "tot": 46409,
+     "segs": [
+      [
+       "mulheres",
+       3806
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.5
+     },
+     "src": "atlas2024n"
+    },
+    "2023": {
+     "tot": 45747,
+     "segs": [
+      [
+       "mulheres",
+       3903
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.5
+     },
+     "src": "atlas2025m"
+    },
+    "2024": {
+     "tot": 42590,
+     "segs": [
+      [
+       "mulheres",
+       3642
+      ]
+     ],
+     "rates": {
+      "mulheres": 3.4
+     },
+     "src": "atlas2026m"
+    }
+   }
+  },
+  "idade1529": {
+   "nome": "Idade: 15 a 29 anos",
+   "resto": "demais1529",
+   "years": {
+    "1980": {
+     "tot": 13910,
+     "segs": [
+      [
+       "jovens",
+       6759
+      ]
+     ],
+     "rates": {
+      "jovens": 19.6
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1981": {
+     "tot": 15213,
+     "segs": [
+      [
+       "jovens",
+       7378
+      ]
+     ],
+     "rates": {
+      "jovens": 21
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1982": {
+     "tot": 15550,
+     "segs": [
+      [
+       "jovens",
+       7264
+      ]
+     ],
+     "rates": {
+      "jovens": 20.3
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1983": {
+     "tot": 17408,
+     "segs": [
+      [
+       "jovens",
+       8273
+      ]
+     ],
+     "rates": {
+      "jovens": 22.8
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1984": {
+     "tot": 19767,
+     "segs": [
+      [
+       "jovens",
+       9737
+      ]
+     ],
+     "rates": {
+      "jovens": 26.3
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1985": {
+     "tot": 19747,
+     "segs": [
+      [
+       "jovens",
+       10069
+      ]
+     ],
+     "rates": {
+      "jovens": 26.8
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1986": {
+     "tot": 20481,
+     "segs": [
+      [
+       "jovens",
+       10526
+      ]
+     ],
+     "rates": {
+      "jovens": 27.5
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1987": {
+     "tot": 23087,
+     "segs": [
+      [
+       "jovens",
+       11779
+      ]
+     ],
+     "rates": {
+      "jovens": 30.3
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1988": {
+     "tot": 23357,
+     "segs": [
+      [
+       "jovens",
+       11774
+      ]
+     ],
+     "rates": {
+      "jovens": 29.9
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1989": {
+     "tot": 28757,
+     "segs": [
+      [
+       "jovens",
+       15046
+      ]
+     ],
+     "rates": {
+      "jovens": 37.6
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1990": {
+     "tot": 31989,
+     "segs": [
+      [
+       "jovens",
+       16730
+      ]
+     ],
+     "rates": {
+      "jovens": 41.2
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1991": {
+     "tot": 30750,
+     "segs": [
+      [
+       "jovens",
+       15622
+      ]
+     ],
+     "rates": {
+      "jovens": 37.9
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1992": {
+     "tot": 28435,
+     "segs": [
+      [
+       "jovens",
+       14101
+      ]
+     ],
+     "rates": {
+      "jovens": 33.8
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1993": {
+     "tot": 30610,
+     "segs": [
+      [
+       "jovens",
+       15410
+      ]
+     ],
+     "rates": {
+      "jovens": 36.3
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1994": {
+     "tot": 32603,
+     "segs": [
+      [
+       "jovens",
+       16979
+      ]
+     ],
+     "rates": {
+      "jovens": 39.4
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1995": {
+     "tot": 37129,
+     "segs": [
+      [
+       "jovens",
+       18912
+      ]
+     ],
+     "rates": {
+      "jovens": 43.3
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1996": {
+     "tot": 38894,
+     "segs": [
+      [
+       "jovens",
+       19744
+      ]
+     ],
+     "rates": {
+      "jovens": 44.8
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1997": {
+     "tot": 40507,
+     "segs": [
+      [
+       "jovens",
+       21084
+      ]
+     ],
+     "rates": {
+      "jovens": 47.1
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1998": {
+     "tot": 41950,
+     "segs": [
+      [
+       "jovens",
+       22510
+      ]
+     ],
+     "rates": {
+      "jovens": 49.5
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "1999": {
+     "tot": 42914,
+     "segs": [
+      [
+       "jovens",
+       23056
+      ]
+     ],
+     "rates": {
+      "jovens": 50.1
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "2000": {
+     "tot": 45360,
+     "segs": [
+      [
+       "jovens",
+       25058
+      ]
+     ],
+     "rates": {
+      "jovens": 52.3
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "2001": {
+     "tot": 47943,
+     "segs": [
+      [
+       "jovens",
+       26298
+      ]
+     ],
+     "rates": {
+      "jovens": 54
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "2002": {
+     "tot": 49695,
+     "segs": [
+      [
+       "jovens",
+       27655
+      ]
+     ],
+     "rates": {
+      "jovens": 56.1
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "2003": {
+     "tot": 51043,
+     "segs": [
+      [
+       "jovens",
+       28494
+      ]
+     ],
+     "rates": {
+      "jovens": 57
+     },
+     "src": "mapa2014j",
+     "totNote": "Total: jovens + não jovens da própria tabela."
+    },
+    "2004": {
+     "tot": 48909,
+     "segs": [
+      [
+       "jovens",
+       27003
+      ]
+     ],
+     "rates": {
+      "jovens": 52.7
+     },
+     "src": "atlas2016t"
+    },
+    "2005": {
+     "tot": 48136,
+     "segs": [
+      [
+       "jovens",
+       26793
+      ]
+     ],
+     "rates": {
+      "jovens": 51.9
+     },
+     "src": "atlas2017t"
+    },
+    "2006": {
+     "tot": 49704,
+     "segs": [
+      [
+       "jovens",
+       27251
+      ]
+     ],
+     "src": "atlas2018t"
+    },
+    "2007": {
+     "tot": 48219,
+     "segs": [
+      [
+       "jovens",
+       26489
+      ]
+     ],
+     "src": "atlas2019t"
+    },
+    "2008": {
+     "tot": 50659,
+     "segs": [
+      [
+       "jovens",
+       27880
+      ]
+     ],
+     "src": "atlas2019t"
+    },
+    "2009": {
+     "tot": 52043,
+     "segs": [
+      [
+       "jovens",
+       28267
+      ]
+     ],
+     "rates": {
+      "jovens": 54
+     },
+     "src": "atlas2021t"
+    },
+    "2010": {
+     "tot": 53016,
+     "segs": [
+      [
+       "jovens",
+       28562
+      ]
+     ],
+     "rates": {
+      "jovens": 54.6
+     },
+     "src": "atlas2021t"
+    },
+    "2011": {
+     "tot": 52807,
+     "segs": [
+      [
+       "jovens",
+       27930
+      ]
+     ],
+     "rates": {
+      "jovens": 53.5
+     },
+     "src": "atlas2021t"
+    },
+    "2012": {
+     "tot": 57045,
+     "segs": [
+      [
+       "jovens",
+       30609
+      ]
+     ],
+     "rates": {
+      "jovens": 58.9
+     },
+     "src": "atlas2021t"
+    },
+    "2013": {
+     "tot": 57396,
+     "segs": [
+      [
+       "jovens",
+       30689
+      ]
+     ],
+     "rates": {
+      "jovens": 59.3
+     },
+     "src": "atlas2021t"
+    },
+    "2014": {
+     "tot": 60474,
+     "segs": [
+      [
+       "jovens",
+       32436
+      ]
+     ],
+     "rates": {
+      "jovens": 62.9
+     },
+     "src": "atlas2021t"
+    },
+    "2015": {
+     "tot": 59080,
+     "segs": [
+      [
+       "jovens",
+       31264
+      ]
+     ],
+     "rates": {
+      "jovens": 60.9
+     },
+     "src": "atlas2021t"
+    },
+    "2016": {
+     "tot": 62517,
+     "segs": [
+      [
+       "jovens",
+       33590
+      ]
+     ],
+     "rates": {
+      "jovens": 65.5
+     },
+     "src": "atlas2021t"
+    },
+    "2017": {
+     "tot": 65602,
+     "segs": [
+      [
+       "jovens",
+       35783
+      ]
+     ],
+     "rates": {
+      "jovens": 69.9
+     },
+     "src": "atlas2021t"
+    },
+    "2018": {
+     "tot": 57956,
+     "segs": [
+      [
+       "jovens",
+       30873
+      ]
+     ],
+     "rates": {
+      "jovens": 60.4
+     },
+     "src": "atlas2021t"
+    },
+    "2019": {
+     "tot": 45503,
+     "segs": [
+      [
+       "jovens",
+       23327
+      ]
+     ],
+     "rates": {
+      "jovens": 45.8
+     },
+     "src": "atlas2021t"
+    },
+    "2020": {
+     "tot": 49868,
+     "segs": [
+      [
+       "jovens",
+       25814
+      ]
+     ],
+     "rates": {
+      "jovens": 51.8
+     },
+     "src": "atlas2024t"
+    },
+    "2021": {
+     "tot": 47847,
+     "segs": [
+      [
+       "jovens",
+       24217
+      ]
+     ],
+     "rates": {
+      "jovens": 49
+     },
+     "src": "atlas2024t"
+    },
+    "2022": {
+     "tot": 46409,
+     "segs": [
+      [
+       "jovens",
+       22864
+      ]
+     ],
+     "rates": {
+      "jovens": 46.6
+     },
+     "src": "atlas2024t"
+    },
+    "2023": {
+     "tot": 45747,
+     "segs": [
+      [
+       "jovens",
+       21856
+      ]
+     ],
+     "rates": {
+      "jovens": 45.1
+     },
+     "src": "atlas2025j"
+    },
+    "2024": {
+     "tot": 42590,
+     "segs": [
+      [
+       "jovens",
+       19801
+      ]
+     ],
+     "rates": {
+      "jovens": 42.2
+     },
+     "src": "atlas2026j"
+    }
+   },
+   "breakAfter": 2003
+  },
+  "idade019": {
+   "nome": "Idade: 0 a 19 anos",
+   "resto": "demais019",
+   "years": {
+    "1980": {
+     "tot": 13910,
+     "segs": [
+      [
+       "ate19",
+       1825
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1981": {
+     "tot": 15213,
+     "segs": [
+      [
+       "ate19",
+       1920
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1982": {
+     "tot": 15550,
+     "segs": [
+      [
+       "ate19",
+       1899
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1983": {
+     "tot": 17408,
+     "segs": [
+      [
+       "ate19",
+       2266
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1984": {
+     "tot": 19767,
+     "segs": [
+      [
+       "ate19",
+       2596
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1985": {
+     "tot": 19747,
+     "segs": [
+      [
+       "ate19",
+       2908
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1986": {
+     "tot": 20481,
+     "segs": [
+      [
+       "ate19",
+       3134
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1987": {
+     "tot": 23087,
+     "segs": [
+      [
+       "ate19",
+       3396
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1988": {
+     "tot": 23357,
+     "segs": [
+      [
+       "ate19",
+       3422
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1989": {
+     "tot": 28757,
+     "segs": [
+      [
+       "ate19",
+       4456
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1990": {
+     "tot": 31989,
+     "segs": [
+      [
+       "ate19",
+       5004
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1991": {
+     "tot": 30566,
+     "segs": [
+      [
+       "ate19",
+       4674
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1992": {
+     "tot": 28387,
+     "segs": [
+      [
+       "ate19",
+       4165
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1993": {
+     "tot": 30586,
+     "segs": [
+      [
+       "ate19",
+       4782
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1994": {
+     "tot": 32603,
+     "segs": [
+      [
+       "ate19",
+       5168
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1995": {
+     "tot": 37128,
+     "segs": [
+      [
+       "ate19",
+       5925
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1996": {
+     "tot": 38894,
+     "segs": [
+      [
+       "ate19",
+       6170
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1997": {
+     "tot": 40507,
+     "segs": [
+      [
+       "ate19",
+       6645
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1998": {
+     "tot": 41950,
+     "segs": [
+      [
+       "ate19",
+       7181
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "1999": {
+     "tot": 42914,
+     "segs": [
+      [
+       "ate19",
+       7355
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2000": {
+     "tot": 45360,
+     "segs": [
+      [
+       "ate19",
+       8132
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2001": {
+     "tot": 47943,
+     "segs": [
+      [
+       "ate19",
+       8480
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2002": {
+     "tot": 49695,
+     "segs": [
+      [
+       "ate19",
+       8817
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2003": {
+     "tot": 51043,
+     "segs": [
+      [
+       "ate19",
+       8787
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2004": {
+     "tot": 48374,
+     "segs": [
+      [
+       "ate19",
+       8309
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2005": {
+     "tot": 47578,
+     "segs": [
+      [
+       "ate19",
+       8361
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2006": {
+     "tot": 49145,
+     "segs": [
+      [
+       "ate19",
+       8414
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2007": {
+     "tot": 47707,
+     "segs": [
+      [
+       "ate19",
+       8166
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2008": {
+     "tot": 50113,
+     "segs": [
+      [
+       "ate19",
+       8433
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2009": {
+     "tot": 51434,
+     "segs": [
+      [
+       "ate19",
+       8393
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2010": {
+     "tot": 49932,
+     "segs": [
+      [
+       "ate19",
+       8686
+      ]
+     ],
+     "src": "mapa2012ca",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2011": {
+     "tot": 52807,
+     "segs": [
+      [
+       "ate19",
+       9048
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2012": {
+     "tot": 57045,
+     "segs": [
+      [
+       "ate19",
+       10397
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2013": {
+     "tot": 57396,
+     "segs": [
+      [
+       "ate19",
+       10723
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2014": {
+     "tot": 60474,
+     "segs": [
+      [
+       "ate19",
+       11427
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2015": {
+     "tot": 59080,
+     "segs": [
+      [
+       "ate19",
+       10956
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2016": {
+     "tot": 62517,
+     "segs": [
+      [
+       "ate19",
+       11644
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2017": {
+     "tot": 65602,
+     "segs": [
+      [
+       "ate19",
+       12101
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2018": {
+     "tot": 57956,
+     "segs": [
+      [
+       "ate19",
+       10067
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2019": {
+     "tot": 45503,
+     "segs": [
+      [
+       "ate19",
+       7187
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2020": {
+     "tot": 49868,
+     "segs": [
+      [
+       "ate19",
+       7380
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2021": {
+     "tot": 47847,
+     "segs": [
+      [
+       "ate19",
+       6526
+      ]
+     ],
+     "src": "atlas2023s",
+     "note": ""
+    },
+    "2022": {
+     "tot": 46409,
+     "segs": [
+      [
+       "ate19",
+       5715
+      ]
+     ],
+     "src": "atlas2024n",
+     "note": "O número de 0 a 19 anos é a soma exata das três faixas publicadas."
+    },
+    "2024": {
+     "tot": 42590,
+     "segs": [
+      [
+       "ate19",
+       5069
+      ]
+     ],
+     "src": "atlas2026j",
+     "note": "O número de 0 a 19 anos é a soma exata das três faixas publicadas.",
+     "rateNote": "Taxas por 100 mil: 0 a 4 anos, 1,4; 5 a 14 anos, 1,1; 15 a 19 anos, 30,5."
+    }
+   },
+   "breakAfter": 2010
+  },
+  "idadeF": {
+   "nome": "Idade: 0 a 19 anos, por faixa",
+   "resto": "demais019",
+   "years": {
+    "2011": {
+     "tot": 52807,
+     "segs": [
+      [
+       "f04",
+       160
+      ],
+      [
+       "f514",
+       744
+      ],
+      [
+       "f1519",
+       8144
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2012": {
+     "tot": 57045,
+     "segs": [
+      [
+       "f04",
+       199
+      ],
+      [
+       "f514",
+       861
+      ],
+      [
+       "f1519",
+       9337
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2013": {
+     "tot": 57396,
+     "segs": [
+      [
+       "f04",
+       253
+      ],
+      [
+       "f514",
+       821
+      ],
+      [
+       "f1519",
+       9649
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2014": {
+     "tot": 60474,
+     "segs": [
+      [
+       "f04",
+       210
+      ],
+      [
+       "f514",
+       869
+      ],
+      [
+       "f1519",
+       10348
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2015": {
+     "tot": 59080,
+     "segs": [
+      [
+       "f04",
+       210
+      ],
+      [
+       "f514",
+       758
+      ],
+      [
+       "f1519",
+       9988
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2016": {
+     "tot": 62517,
+     "segs": [
+      [
+       "f04",
+       204
+      ],
+      [
+       "f514",
+       733
+      ],
+      [
+       "f1519",
+       10707
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2017": {
+     "tot": 65602,
+     "segs": [
+      [
+       "f04",
+       204
+      ],
+      [
+       "f514",
+       745
+      ],
+      [
+       "f1519",
+       11152
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2018": {
+     "tot": 57956,
+     "segs": [
+      [
+       "f04",
+       213
+      ],
+      [
+       "f514",
+       605
+      ],
+      [
+       "f1519",
+       9249
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2019": {
+     "tot": 45503,
+     "segs": [
+      [
+       "f04",
+       188
+      ],
+      [
+       "f514",
+       461
+      ],
+      [
+       "f1519",
+       6538
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2020": {
+     "tot": 49868,
+     "segs": [
+      [
+       "f04",
+       173
+      ],
+      [
+       "f514",
+       427
+      ],
+      [
+       "f1519",
+       6780
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2021": {
+     "tot": 47847,
+     "segs": [
+      [
+       "f04",
+       152
+      ],
+      [
+       "f514",
+       372
+      ],
+      [
+       "f1519",
+       6002
+      ]
+     ],
+     "src": "atlas2023s"
+    },
+    "2022": {
+     "tot": 46409,
+     "segs": [
+      [
+       "f04",
+       147
+      ],
+      [
+       "f514",
+       348
+      ],
+      [
+       "f1519",
+       5220
+      ]
+     ],
+     "src": "atlas2024n"
+    },
+    "2024": {
+     "tot": 42590,
+     "segs": [
+      [
+       "f04",
+       179
+      ],
+      [
+       "f514",
+       320
+      ],
+      [
+       "f1519",
+       4570
+      ]
+     ],
+     "src": "atlas2026j",
+     "rateNote": "Taxas por 100 mil: 0 a 4 anos, 1,4; 5 a 14 anos, 1,1; 15 a 19 anos, 30,5."
+    }
+   }
+  },
+  "idade60": {
+   "nome": "Idade: 60 anos ou mais",
+   "resto": "demais60",
+   "years": {
+    "2024": {
+     "tot": 42590,
+     "segs": [
+      [
+       "idosos",
+       2007
+      ]
+     ],
+     "rates": {
+      "idosos": 5.9
+     },
+     "src": "atlas2026r"
+    }
+   }
+  },
+  "raca": {
+   "nome": "Raça/cor",
+   "resto": null,
+   "years": {
+    "2002": {
+     "tot": 49695,
+     "segs": [
+      [
+       "negros",
+       26952
+      ]
+     ],
+     "src": "mapa2012cor",
+     "totNote": "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM)."
+    },
+    "2009": {
+     "tot": 52043,
+     "segs": [
+      [
+       "negros",
+       33929
+      ],
+      [
+       "naoNegros",
+       15249
+      ]
+     ],
+     "src": "atlas2021n",
+     "note": "Ressalva: negros + não negros ficam 2.865 (5,5%) abaixo do total, sem explicação na fonte; a diferença aparece como raça/cor não informada.",
+     "rates": {
+      "negros": 34.3,
+      "naoNegros": 15.8
+     }
+    },
+    "2017": {
+     "tot": 65602,
+     "segs": [
+      [
+       "negros",
+       49524
+      ],
+      [
+       "naoNegros",
+       14734
+      ]
+     ],
+     "src": "atlas2019cc",
+     "rates": {
+      "negros": 43.1,
+      "naoNegros": 16
+     }
+    },
+    "2018": {
+     "tot": 57956,
+     "segs": [
+      [
+       "negros",
+       43890
+      ]
+     ],
+     "src": "atlas2020n",
+     "rates": {
+      "negros": 37.8,
+      "naoNegros": 13.9
+     }
+    },
+    "2019": {
+     "tot": 45503,
+     "segs": [
+      [
+       "negros",
+       34466
+      ],
+      [
+       "naoNegros",
+       10217
+      ]
+     ],
+     "src": "atlas2021n",
+     "rates": {
+      "negros": 29.2,
+      "naoNegros": 11.2
+     }
+    },
+    "2021": {
+     "tot": 47847,
+     "segs": [
+      [
+       "negros",
+       36922
+      ]
+     ],
+     "src": "atlas2023neg",
+     "rates": {
+      "negros": 31,
+      "naoNegros": 10.8
+     }
+    },
+    "2022": {
+     "tot": 46409,
+     "segs": [
+      [
+       "negros",
+       35531
+      ]
+     ],
+     "src": "atlas2024n",
+     "rates": {
+      "negros": 29.7,
+      "naoNegros": 10.8
+     }
+    },
+    "2023": {
+     "tot": 45747,
+     "segs": [
+      [
+       "negros",
+       35213
+      ]
+     ],
+     "src": "atlas2025r",
+     "rates": {
+      "negros": 28.9,
+      "naoNegros": 10.6
+     }
+    },
+    "2024": {
+     "tot": 42590,
+     "segs": [
+      [
+       "negros",
+       32820
+      ],
+      [
+       "naoNegros",
+       9234
+      ]
+     ],
+     "src": "atlas2026r",
+     "rates": {
+      "negros": 27.3,
+      "naoNegros": 10.1
+     }
+    }
+   }
+  },
+  "arma": {
+   "nome": "Arma de fogo",
+   "resto": "outrosMeios",
+   "years": {
+    "1980": {
+     "tot": 13910,
+     "segs": [
+      [
+       "armaFogo",
+       6104
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 5.1
+     }
+    },
+    "1981": {
+     "tot": 15213,
+     "segs": [
+      [
+       "armaFogo",
+       6452
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 5.3
+     }
+    },
+    "1982": {
+     "tot": 15550,
+     "segs": [
+      [
+       "armaFogo",
+       6313
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 5.1
+     }
+    },
+    "1983": {
+     "tot": 17408,
+     "segs": [
+      [
+       "armaFogo",
+       6413
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 5.1
+     }
+    },
+    "1984": {
+     "tot": 19767,
+     "segs": [
+      [
+       "armaFogo",
+       7947
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 6.2
+     }
+    },
+    "1985": {
+     "tot": 19747,
+     "segs": [
+      [
+       "armaFogo",
+       8349
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 6.3
+     }
+    },
+    "1986": {
+     "tot": 20481,
+     "segs": [
+      [
+       "armaFogo",
+       8803
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 6.6
+     }
+    },
+    "1987": {
+     "tot": 23087,
+     "segs": [
+      [
+       "armaFogo",
+       10717
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 7.8
+     }
+    },
+    "1988": {
+     "tot": 23357,
+     "segs": [
+      [
+       "armaFogo",
+       10735
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 7.7
+     }
+    },
+    "1989": {
+     "tot": 28757,
+     "segs": [
+      [
+       "armaFogo",
+       13480
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 9.5
+     }
+    },
+    "1990": {
+     "tot": 31989,
+     "segs": [
+      [
+       "armaFogo",
+       16588
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 11.5
+     }
+    },
+    "1991": {
+     "tot": 30566,
+     "segs": [
+      [
+       "armaFogo",
+       15759
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 10.7
+     }
+    },
+    "1992": {
+     "tot": 28387,
+     "segs": [
+      [
+       "armaFogo",
+       14785
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 9.9
+     }
+    },
+    "1993": {
+     "tot": 30586,
+     "segs": [
+      [
+       "armaFogo",
+       17002
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 11.2
+     }
+    },
+    "1994": {
+     "tot": 32603,
+     "segs": [
+      [
+       "armaFogo",
+       18889
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 12.3
+     }
+    },
+    "1995": {
+     "tot": 37128,
+     "segs": [
+      [
+       "armaFogo",
+       22306
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 14.3
+     }
+    },
+    "1996": {
+     "tot": 38894,
+     "segs": [
+      [
+       "armaFogo",
+       22976
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 14.6
+     }
+    },
+    "1997": {
+     "tot": 40507,
+     "segs": [
+      [
+       "armaFogo",
+       24445
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 15.3
+     }
+    },
+    "1998": {
+     "tot": 41950,
+     "segs": [
+      [
+       "armaFogo",
+       25674
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 15.9
+     }
+    },
+    "1999": {
+     "tot": 42914,
+     "segs": [
+      [
+       "armaFogo",
+       26902
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 16.4
+     }
+    },
+    "2000": {
+     "tot": 45360,
+     "segs": [
+      [
+       "armaFogo",
+       30865
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 18.2
+     }
+    },
+    "2001": {
+     "tot": 47943,
+     "segs": [
+      [
+       "armaFogo",
+       33401
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 19.4
+     }
+    },
+    "2002": {
+     "tot": 49695,
+     "segs": [
+      [
+       "armaFogo",
+       34160
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 19.6
+     }
+    },
+    "2003": {
+     "tot": 51043,
+     "segs": [
+      [
+       "armaFogo",
+       36115
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 20.4
+     }
+    },
+    "2004": {
+     "tot": 48909,
+     "segs": [
+      [
+       "armaFogo",
+       34187
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 19.1
+     }
+    },
+    "2005": {
+     "tot": 48136,
+     "segs": [
+      [
+       "armaFogo",
+       33419
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 18.1
+     }
+    },
+    "2006": {
+     "tot": 49704,
+     "segs": [
+      [
+       "armaFogo",
+       34921
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 18.7
+     }
+    },
+    "2007": {
+     "tot": 48219,
+     "segs": [
+      [
+       "armaFogo",
+       34147
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 18
+     }
+    },
+    "2008": {
+     "tot": 50659,
+     "segs": [
+      [
+       "armaFogo",
+       35676
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 18.8
+     }
+    },
+    "2009": {
+     "tot": 52043,
+     "segs": [
+      [
+       "armaFogo",
+       36624
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 19.3
+     }
+    },
+    "2010": {
+     "tot": 53016,
+     "segs": [
+      [
+       "armaFogo",
+       36792
+      ]
+     ],
+     "src": "mapa2015af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 19.3
+     }
+    },
+    "2011": {
+     "tot": 52807,
+     "segs": [
+      [
+       "armaFogo",
+       36737
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 19.1
+     },
+     "note": "Contagem idêntica no Mapa da Violência 2015; a taxa vem do Mapa."
+    },
+    "2012": {
+     "tot": 57045,
+     "segs": [
+      [
+       "armaFogo",
+       40077
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano.",
+     "rates": {
+      "armaFogo": 20.7
+     },
+     "note": "Contagem idêntica no Mapa da Violência 2015; a taxa vem do Mapa."
+    },
+    "2013": {
+     "tot": 57396,
+     "segs": [
+      [
+       "armaFogo",
+       40369
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2014": {
+     "tot": 60474,
+     "segs": [
+      [
+       "armaFogo",
+       42755
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2015": {
+     "tot": 59080,
+     "segs": [
+      [
+       "armaFogo",
+       41817
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2016": {
+     "tot": 62517,
+     "segs": [
+      [
+       "armaFogo",
+       44475
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2017": {
+     "tot": 65602,
+     "segs": [
+      [
+       "armaFogo",
+       47510
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2018": {
+     "tot": 57956,
+     "segs": [
+      [
+       "armaFogo",
+       41179
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2019": {
+     "tot": 45503,
+     "segs": [
+      [
+       "armaFogo",
+       30825
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2020": {
+     "tot": 49868,
+     "segs": [
+      [
+       "armaFogo",
+       33994
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2021": {
+     "tot": 47847,
+     "segs": [
+      [
+       "armaFogo",
+       33039
+      ]
+     ],
+     "src": "atlas2023af",
+     "totNote": "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano."
+    },
+    "2022": {
+     "tot": 46409,
+     "pct": {
+      "armaFogo": 0.724
+     },
+     "src": "atlas2024af",
+     "note": "Só o percentual publicado (72,4%); o número absoluto não foi publicado na fonte lida e não é calculado aqui."
+    },
+    "2023": {
+     "tot": 45747,
+     "segs": [
+      [
+       "armaFogo",
+       32749
+      ]
+     ],
+     "rates": {
+      "armaFogo": 15.2
+     },
+     "pub": 71.6,
+     "src": "atlas2025af"
+    },
+    "2024": {
+     "tot": 42590,
+     "segs": [
+      [
+       "armaFogo",
+       29870
+      ]
+     ],
+     "pub": 70.1,
+     "src": "atlas2026af"
+    }
+   },
+   "breakAfter": 2010
+  }
+ }
+}
