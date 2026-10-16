@@ -332,6 +332,8 @@ def main():
             if not r["f"]:
                 sem_f += 1
             ligar("relacao_evidencia", "relacao_id", rid, r["f"], f"E[{ei}].r[{ri}]")
+    for ei, e in enumerate(teia["E"]):
+        con.execute("INSERT INTO aresta_legado(e_idx,a,b) VALUES(?,?,?)", (ei, mapa[e["a"]], mapa[e["b"]]))
     n_rel_teia = len(rel_ids)
     # fam_de / lig_de -> relações (natureza não classificada; NULL não é permitido em relacao)
     n_fam = n_lig = 0
@@ -865,7 +867,7 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
     w(f"- Relações da teia sem nenhuma fonte: {sem_f}.")
     w(f"- `fam_de` ({n_fam}) e `lig_de` ({n_lig}) viram relações `familiar`/`profissional` (subtipo `escritorio_ligado`) com `natureza_id='nao_classificada'` (NULL não é permitido em `relacao`), `direcional=0`, sem fontes.")
     w("- Pseudo-partidos de `N.p` (\"Ex-ministros e consultores\", \"Órgãos e partidos\") foram para `entidade.grupo`; `partido` guarda só siglas reais. O exportador reconstrói `p` quando `grupo` é um pseudo-partido, senão `sg`.")
-    w("- `E.a/E.b` do `teia.json` exportado é canônico (menor índice, maior índice): a direção semântica vem de `r.a→r.b`; no original 83 de 319 pares tinham `E.a>E.b`. Os índices de aresta (`E[i]`) e de relação (`r[j]`) são preservados.")
+    w("- `E.a/E.b` do `teia.json` exportado reproduz a orientação ORIGINAL de cada par (tabela `aresta_legado`; a cor da aresta na página depende dela). A direção semântica vem de `relacao.de/para` (`r.a→r.b`). Índices `E[i]` e `r[j]` preservados.")
     w("- Eventos de origens com `r` vazio gravam `resposta` NULL (exportam de volta como \"\"); `v` vai para `evento.valor_brl` (a proposta mapeava `r`→`contexto` e `v`→`resposta`, o que invertia o significado).")
     w("- Eventos da timeline Brasil (280): `data` = ano do agrupamento, sem fonte, sem natureza, canal `brasil` (subcanal `pol`/`intl` em `origem_ref`).")
     w(f"- `pares.notas`: linhas de log de coleta descartadas ({len(R['pares_notas_descartadas'])}): " + "; ".join(f"\"{t}\"" for t in R["pares_notas_descartadas"]))

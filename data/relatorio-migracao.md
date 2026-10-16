@@ -315,7 +315,7 @@ URLs repetidas dentro da mesma relação/evento após normalização (descartada
 - Relações da teia sem nenhuma fonte: 0.
 - `fam_de` (21) e `lig_de` (3) viram relações `familiar`/`profissional` (subtipo `escritorio_ligado`) com `natureza_id='nao_classificada'` (NULL não é permitido em `relacao`), `direcional=0`, sem fontes.
 - Pseudo-partidos de `N.p` ("Ex-ministros e consultores", "Órgãos e partidos") foram para `entidade.grupo`; `partido` guarda só siglas reais. O exportador reconstrói `p` quando `grupo` é um pseudo-partido, senão `sg`.
-- `E.a/E.b` do `teia.json` exportado é canônico (menor índice, maior índice): a direção semântica vem de `r.a→r.b`; no original 83 de 319 pares tinham `E.a>E.b`. Os índices de aresta (`E[i]`) e de relação (`r[j]`) são preservados.
+- `E.a/E.b` do `teia.json` exportado reproduz a orientação ORIGINAL de cada par (tabela `aresta_legado`; a cor da aresta na página depende dela). A direção semântica vem de `relacao.de/para` (`r.a→r.b`). Índices `E[i]` e `r[j]` preservados.
 - Eventos de origens com `r` vazio gravam `resposta` NULL (exportam de volta como ""); `v` vai para `evento.valor_brl` (a proposta mapeava `r`→`contexto` e `v`→`resposta`, o que invertia o significado).
 - Eventos da timeline Brasil (280): `data` = ano do agrupamento, sem fonte, sem natureza, canal `brasil` (subcanal `pol`/`intl` em `origem_ref`).
 - `pares.notas`: linhas de log de coleta descartadas (1): "Cota: 39 buscas/fetches usados."

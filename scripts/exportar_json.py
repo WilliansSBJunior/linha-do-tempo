@@ -82,11 +82,12 @@ def montar_teia(con):
             ("ate", None if r["periodo_fim"] is None else int(r["periodo_fim"])),
             ("val", _num(r["valor_brl"])), ("resp", r["resposta"]), ("f", fontes_rel.get(r["id"], []))])
         por_aresta[ei][ri] = rel
+    leg = {r["e_idx"]: (r["a"], r["b"]) for r in con.execute("SELECT e_idx, a, b FROM aresta_legado")}
     E = []
     for ei in sorted(por_aresta):
         rs = [por_aresta[ei][k] for k in sorted(por_aresta[ei])]
-        a, b = sorted((rs[0]["a"], rs[0]["b"]))
-        E.append(OrderedDict([("a", a), ("b", b), ("r", rs)]))
+        a, b = leg[ei]
+        E.append(OrderedDict([("a", idx[a]), ("b", idx[b]), ("r", rs)]))
     # EV
     fontes_ev = _fontes(con, "evento_evidencia", "evento_id")
     ents_ev = defaultdict(list)

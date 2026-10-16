@@ -126,6 +126,7 @@ def orfaos(con):
     esperar("relações da teia sem evidência", n, 0)
     n = q(con, "SELECT count(*) FROM relacao WHERE de=para")[0][0]
     esperar("auto-laços", n, 0)
+    esperar("aresta_legado (pares E)", q(con, "SELECT count(*) FROM aresta_legado")[0][0], 319)
     sem_ref = q(con, """SELECT id, tipo FROM entidade e WHERE NOT EXISTS (SELECT 1 FROM relacao r WHERE r.de=e.id OR r.para=e.id)
                         AND NOT EXISTS (SELECT 1 FROM evento_entidade x WHERE x.entidade_id=e.id)
                         AND NOT EXISTS (SELECT 1 FROM mandato m WHERE m.entidade_id=e.id OR m.orgao_id=e.id)
@@ -186,8 +187,8 @@ def comparar_teia(exp, raw, idx_slug):
         if (idx_slug[b["a"]], idx_slug[b["b"]]) != (b["a_id"], b["b_id"]):
             dif.append(f"{k}: a_id/b_id inconsistentes")
     for ei, (a, b) in enumerate(zip(raw["E"], exp["E"])):
-        if {a["a"], a["b"]} != {b["a"], b["b"]}:
-            dif.append(f"E[{ei}] par difere")
+        if (a["a"], a["b"]) != (b["a"], b["b"]):
+            dif.append(f"E[{ei}].a/b difere da orientação original: ({a['a']},{a['b']}) != ({b['a']},{b['b']})")
     if len(raw["E"]) != len(exp["E"]):
         dif.append(f"E: {len(raw['E'])} != {len(exp['E'])}")
     # eventos

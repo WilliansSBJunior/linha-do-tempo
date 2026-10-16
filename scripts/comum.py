@@ -18,7 +18,7 @@ TABELAS = ["meta", "categoria", "entidade", "entidade_alias", "evidencia", "rela
            "evento_entidade", "evento_relacao", "relacao_evidencia", "evento_evidencia",
            "video", "trecho", "trecho_entidade", "trecho_ano", "trecho_valor", "trecho_relacao",
            "corte", "corte_trecho", "relacao_corte", "nota", "nota_entidade", "indicador", "serie",
-           "ranking_empresa", "mandato", "bancada"]
+           "ranking_empresa", "mandato", "bancada", "aresta_legado"]
 TABELAS_NO_SCHEMA = {"natureza", "natureza_mapa"}
 
 

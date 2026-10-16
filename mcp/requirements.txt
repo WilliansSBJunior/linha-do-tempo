@@ -1,0 +1,4 @@
+# SDK oficial do MCP (FastMCP em 1.x, MCPServer em 2.x: server.py aceita os dois).
+mcp>=1.2,<3
+# Só para rodar os testes com pytest (opcional; test_server.py usa unittest da stdlib).
+# pytest

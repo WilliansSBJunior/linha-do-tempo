@@ -269,5 +269,13 @@ CREATE TABLE bancada (
   PRIMARY KEY (ano, casa, partido_id)
 ) STRICT;
 
+-- DESVIO: orientação original de cada par de teia.E (E[i].a/E[i].b), só para round-trip fiel (a cor da aresta na página depende dela).
+-- A direção semântica continua em relacao.de/para.
+CREATE TABLE aresta_legado (
+  e_idx INTEGER PRIMARY KEY,
+  a TEXT NOT NULL REFERENCES entidade(id),
+  b TEXT NOT NULL REFERENCES entidade(id)
+) STRICT;
+
 -- Busca textual (FTS5 antes do sqlite-vec)
 CREATE VIRTUAL TABLE busca_fts USING fts5(origem_tabela, origem_id, texto, tokenize='unicode61 remove_diacritics 2');
