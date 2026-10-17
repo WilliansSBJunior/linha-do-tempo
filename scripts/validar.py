@@ -530,13 +530,33 @@ def modelo_v2(con, exp):
         mo = json.loads(mo_p.read_text(encoding="utf-8"))
         rs = mo["resumo"]
         esperar("resumo: confirmados + divergentes + sem fonte == linhas de mandato", rs["confirmados"] + rs["divergentes"] + rs["sem_fonte_oficial"], n_m)
-        esperar("linhas de mandato com evidência dado_oficial == confirmados", q(con, "SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id WHERE e.tipo='dado_oficial'")[0][0], rs["confirmados"])
+        pt = rs["confirmados_por_tipo"]
+        esperar("resumo: confirmados == legislatura + eleicao + pagina", rs["confirmados"], pt["legislatura"] + pt["eleicao"] + pt["pagina"])
+        esperar("linhas de mandato com evidência dado_oficial == confirmados por legislatura/eleição", q(con, "SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id WHERE e.tipo='dado_oficial'")[0][0], pt["legislatura"] + pt["eleicao"])
+        esperar("linhas de mandato com evidência documento_oficial (página da presidência) == confirmados por página", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id
+            WHERE e.tipo='documento_oficial' AND e.veiculo IN ('www2.camara.leg.br','www25.senado.leg.br')""")[0][0], pt["pagina"])
+        esperar("confirmação de eleição só em deputado/senador sem legislatura que toque o ano", [c for c in mo["confirmacoes"] if c["confirmacao"] == "eleicao" and c["cargo"] not in ("deputado", "senador")], [])
+        esperar("confirmação por página só em presidente_camara/presidente_senado", [c for c in mo["confirmacoes"] if c["confirmacao"] == "pagina" and c["cargo"] not in ("presidente_camara", "presidente_senado")], [])
         esperar("evidência dos mandatos só em domínios oficiais (Câmara/Senado)", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id
-            WHERE e.veiculo NOT IN ('dadosabertos.camara.leg.br','legis.senado.leg.br') OR e.url NOT LIKE 'https://'||e.veiculo||'/%'""")[0][0], 0)
-        esperar("relações de mandato confirmado sem a evidência oficial", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id AND e.tipo='dado_oficial'
+            WHERE e.veiculo NOT IN ('dadosabertos.camara.leg.br','legis.senado.leg.br','www2.camara.leg.br','www25.senado.leg.br') OR e.url NOT LIKE 'https://'||e.veiculo||'/%'""")[0][0], 0)
+        esperar("evidência de API (dado_oficial) só nos domínios das APIs; de página (documento_oficial) só nos das páginas", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id
+            WHERE (e.tipo='dado_oficial' AND e.veiculo NOT IN ('dadosabertos.camara.leg.br','legis.senado.leg.br'))
+               OR (e.tipo='documento_oficial' AND e.veiculo NOT IN ('www2.camara.leg.br','www25.senado.leg.br'))
+               OR e.tipo NOT IN ('dado_oficial','documento_oficial')""")[0][0], 0)
+        esperar("relações de mandato confirmado sem a evidência oficial", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id AND e.tipo IN ('dado_oficial','documento_oficial')
             JOIN relacao r ON r.origem_ref='mandato:'||m.id WHERE NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id AND x.evidencia_id=e.id)""")[0][0], 0)
         esperar("divergente/sem fonte com evidência oficial no mandato", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id
             WHERE e.tipo='dado_oficial' AND m.cargo NOT IN ('deputado','senador')""")[0][0], 0)
+        esperar("evidência de página oficial em presidente/vice ou em linha divergente", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id
+            WHERE e.tipo='documento_oficial' AND (m.cargo NOT IN ('presidente_camara','presidente_senado')
+              OR EXISTS (SELECT 1 FROM json_each(?) d WHERE json_extract(d.value,'$.entidade_id')=m.entidade_id AND json_extract(d.value,'$.cargo')=m.cargo AND json_extract(d.value,'$.inicio')=m.inicio))""",
+            json.dumps(mo["divergencias"]))[0][0], 0)
+        cor_p = CURADORIA / "mandato-correcoes.json"
+        cor = json.loads(cor_p.read_text(encoding="utf-8")) if cor_p.exists() else []
+        esperar("correções à mão de mandato aplicadas (valor atual == 'para')", [c for c in cor if not q(con, "SELECT 1 FROM mandato WHERE entidade_id=? AND cargo=? AND inicio=? AND "+c["campo"]+"=?", c["entidade_id"], c["cargo"], c["inicio"], c["para"])], [])
+        al_p = CURADORIA / "entidade-aliases.json"
+        al = json.loads(al_p.read_text(encoding="utf-8")) if al_p.exists() else []
+        esperar("aliases à mão presentes em entidade_alias (origem curadoria)", [a for a in al if not q(con, "SELECT 1 FROM entidade_alias WHERE entidade_id=? AND alias=? AND origem='curadoria'", a["entidade_id"], a["alias"])], [])
         n_comp = q(con, "SELECT count(*) FROM mandato WHERE partido IS NULL AND cargo IN ('deputado','senador')")[0][0]
         esperar("deputado/senador com partido NULL após complementos", n_comp, 0)
 

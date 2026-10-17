@@ -4,10 +4,11 @@ que constam em `mandato` (e as páginas oficiais da Presidência e das presidên
 gravando tudo em data/raw/oficial/. Roda na SUA máquina (precisa de internet sem proxy).
 
     python3 scripts/importar.py          # se data/linha-do-tempo.sqlite não existir
-    python3 scripts/coletar_mandatos.py  # [--so camara|senado|presidencia] [--forcar]
+    python3 scripts/coletar_mandatos.py  # [--so camara|senado|presidencia] [--forcar] [--so-cache]
 
 Cada resposta HTTP é guardada em data/raw/oficial/cache/<sha>.json (ou .html) e nunca é
-baixada de novo, a não ser com --forcar. O resultado consolidado vai para
+baixada de novo, a não ser com --forcar. Com --so-cache o script nunca vai à rede: usa só o
+cache e, sem cache, devolve o status "erro: sem cache". O resultado consolidado vai para
 data/raw/oficial/{camara,senado,presidencia}.json e o relatório para
 data/raw/oficial/RELATORIO.md. Depois: git add data/raw/oficial && git commit && git push.
 
@@ -26,12 +27,19 @@ CAMARA = "https://dadosabertos.camara.leg.br/api/v2"
 SENADO = "https://legis.senado.leg.br/dadosabertos"
 LEGISLATURAS = list(range(50, 58))  # 50 = 1995-1999 ... 57 = 2023-2027
 
-PAGINAS = {  # páginas oficiais guardadas como evidência (HTML bruto no cache)
-    "presidentes_republica": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/galeria-de-presidentes",
-    "vice_presidentes": "https://www.gov.br/planalto/pt-br/vice-presidencia/galeria-de-vice-presidentes",
-    "presidentes_camara": "https://www.camara.leg.br/a-camara/conheca/presidentes-da-camara",
-    "presidentes_senado": "https://www25.senado.leg.br/web/senadores/presidentes-do-senado",
+# Páginas oficiais guardadas como evidência (HTML bruto no cache). Valor str = URL a baixar; valor dict com
+# status "indisponivel" = tentativa documentada em presidencia.json, sem baixar nada.
+PAGINAS = {
+    # 2026-10-17: a galeria do Planalto redireciona para login; a Biblioteca da Presidência está "em manutenção"; variantes de URL dão 404.
+    "presidentes_republica": {"url": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/galeria-de-presidentes", "status": "indisponivel",
+                              "motivo": "não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); "
+                                        "a Biblioteca da Presidência está em manutenção; variantes de URL dão 404"},
+    "vice_presidentes": {"url": "https://www.gov.br/planalto/pt-br/vice-presidencia/galeria-de-vice-presidentes", "status": "indisponivel",
+                         "motivo": "não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também"},
+    "presidentes_camara": "https://www2.camara.leg.br/a-camara/conheca/historia/presidentes",
+    "presidentes_senado": "https://www25.senado.leg.br/web/senadores/nova-republica",
 }
+SO_CACHE = False  # --so-cache: nunca vai à rede
 
 
 def norm(s):
@@ -46,7 +54,10 @@ def baixar(url, json_=True, forcar=False, tentativas=3):
     arq = CACHE / (h + (".json" if json_ else ".html"))
     if arq.exists() and not forcar:
         txt = arq.read_text(encoding="utf-8")
-        return (json.loads(txt) if json_ else txt), arq, "cache"
+        # com --so-cache o cache é a própria coleta (respostas HTTP 200 gravadas antes): status "ok", como numa execução direta
+        return (json.loads(txt) if json_ else txt), arq, ("ok" if SO_CACHE else "cache")
+    if SO_CACHE:
+        return None, arq, "erro: sem cache"
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json" if json_ else "text/html"})
     erro = None
     for i in range(tentativas):
@@ -77,7 +88,8 @@ def pessoas_do_banco():
     rows = con.execute("""SELECT e.id, e.nome, m.cargo, m.uf, m.partido, m.inicio, m.fim
                           FROM mandato m JOIN entidade e ON e.id=m.entidade_id ORDER BY e.nome, m.inicio""").fetchall()
     alias = {}
-    for eid, a in con.execute("SELECT entidade_id, alias FROM entidade_alias"):
+    # aliases de mais de uma palavra, mais os de grafia (curadoria: nome parlamentar da API com uma palavra só, ex. "Enéas")
+    for eid, a in con.execute("SELECT entidade_id, alias FROM entidade_alias WHERE tipo_alias='grafia' OR alias LIKE '% %' ORDER BY rowid"):
         alias.setdefault(eid, []).append(a)
     con.close()
     pessoas = {}
@@ -101,17 +113,48 @@ def casa_de(p):
     return casas
 
 
-def match_nome(alvo, candidatos, chave):
-    """Escolhe o candidato cujo nome (normalizado) é igual ou contém/é contido pelo alvo."""
+def match_nome(alvo, candidatos, chave, desempatar=None):
+    """Escolhe o candidato cujo nome (normalizado) é igual ou contém/é contido pelo alvo.
+    `desempatar(lista)` (opcional) devolve o único candidato que sobra pela UF e pelas legislaturas da pessoa, ou None."""
     a = norm(alvo)
     toks = set(a.split())
     exatos = [c for c in candidatos if norm(c[chave]) == a]
     if len(exatos) == 1:
         return exatos[0], "exato"
+    if len(exatos) > 1 and desempatar:
+        d = desempatar(exatos)
+        if d:
+            return d, "exato+desempate"
     parciais = [c for c in candidatos if toks and (toks <= set(norm(c[chave]).split()) or set(norm(c[chave]).split()) <= toks)]
     if len(parciais) == 1:
         return parciais[0], "parcial"
+    if len(parciais) > 1 and desempatar:
+        d = desempatar(parciais)
+        if d:
+            return d, "parcial+desempate"
     return None, ("ambiguo:%d" % len(parciais or exatos)) if (parciais or exatos) else "nenhum"
+
+
+def fazer_desempate(p, uf_de, leg_de, anos_da_leg):
+    """Desempate de homônimos pela UF da pessoa (`p["ufs"]`) e pelas legislaturas que tocam `p["anos"]`.
+    uf_de(leg) / leg_de(leg) extraem UF e nº da legislatura de cada item de `c["legs"]`; anos_da_leg(n) -> {anos que a legislatura n toca}."""
+    def f(cands):
+        sobra = list(cands)
+        if p["ufs"]:
+            por_uf = [c for c in sobra if any(uf_de(l) in p["ufs"] for l in c["legs"])]
+            sobra = por_uf or sobra
+        if len(sobra) > 1:
+            anos = set(p["anos"])
+            por_leg = [c for c in sobra if any(anos & anos_da_leg(leg_de(l)) for l in c["legs"])]
+            sobra = por_leg or sobra
+        return sobra[0] if len(sobra) == 1 else None
+    return f
+
+
+def anos_da_legislatura(n):
+    """Anos que a legislatura n toca: de 1/fev do ano N a 31/jan do ano N+4 (50 = 1995-1999, 57 = 2023-2027)."""
+    ini = 1995 + 4 * (int(n) - 50)
+    return set(range(ini, ini + 5))
 
 
 # ------------------------------------------------------------------ CÂMARA
@@ -127,8 +170,9 @@ def coletar_camara(pessoas, forcar, rel):
         if "camara" not in casa_de(p):
             continue
         reg = {"id_entidade": eid, "nome_banco": p["nome"], "busca": [], "deputado": None, "mandatos": [], "historico_url": None, "status": None}
-        nomes = [p["nome"]] + [a for a in p["aliases"] if len(a.split()) >= 2]
-        cand = []
+        nomes = [p["nome"]] + [a for a in p["aliases"] if a != p["nome"]]
+        desempate = fazer_desempate(p, lambda l: l.get("siglaUf"), lambda l: l["_legislatura"], anos_da_legislatura)
+        cand, escolhido, como = [], None, "nenhum"
         for nome in nomes:
             q = urllib.parse.quote(nome)
             for leg in LEGISLATURAS:
@@ -139,19 +183,13 @@ def coletar_camara(pessoas, forcar, rel):
                     for d in obj.get("dados", []):
                         d["_legislatura"] = leg
                         cand.append(d)
-            if cand:
+            # mesmo deputado (id) em várias legislaturas
+            por_id = {}
+            for d in cand:
+                por_id.setdefault(d["id"], {"id": d["id"], "nome": d["nome"], "legs": []})["legs"].append(d)
+            escolhido, como = match_nome(nome, list(por_id.values()), "nome", desempate)
+            if escolhido:
                 break
-        # mesmo deputado (id) em várias legislaturas
-        por_id = {}
-        for d in cand:
-            por_id.setdefault(d["id"], {"id": d["id"], "nome": d["nome"], "legs": []})["legs"].append(d)
-        escolhido, como = match_nome(p["nome"], list(por_id.values()), "nome")
-        if not escolhido:
-            # tenta pelos aliases
-            for a in p["aliases"]:
-                escolhido, como = match_nome(a, list(por_id.values()), "nome")
-                if escolhido:
-                    break
         if not escolhido:
             reg["status"] = "nao_encontrado:" + como
             out["deputados"][eid] = reg
@@ -205,12 +243,13 @@ def coletar_senado(pessoas, forcar, rel):
         if "senado" not in casa_de(p):
             continue
         reg = {"id_entidade": eid, "nome_banco": p["nome"], "senador": None, "legislaturas": [], "mandatos_url": None, "filiacoes_url": None, "status": None}
-        esc, como = match_nome(p["nome"], cands, "nome")
+        desempate = fazer_desempate(p, lambda l: l.get("uf"), lambda l: l["legislatura"], anos_da_legislatura)
+        esc, como = match_nome(p["nome"], cands, "nome", desempate)
         if not esc:
-            esc, como = match_nome(p["nome"], cands, "nome_completo")
+            esc, como = match_nome(p["nome"], cands, "nome_completo", desempate)
         if not esc:
             for a in p["aliases"]:
-                esc, como = match_nome(a, cands, "nome")
+                esc, como = match_nome(a, cands, "nome", desempate)
                 if esc:
                     break
         if not esc:
@@ -237,11 +276,19 @@ def coletar_senado(pessoas, forcar, rel):
 # ------------------------------------------------------------------ PRESIDÊNCIA E PRESIDÊNCIAS DAS CASAS
 def coletar_paginas(forcar, rel):
     out = {"coletado_em": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "paginas": {}}
-    for chave, url in PAGINAS.items():
-        txt, arq, st = baixar(url, json_=False, forcar=forcar)
-        out["paginas"][chave] = {"url": url, "status": st, "arquivo_cache": str(arq.relative_to(ROOT)) if txt else None,
-                                 "titulo": (re.search(r"<title>(.*?)</title>", txt, re.S | re.I).group(1).strip() if txt else None),
-                                 "tamanho": len(txt) if txt else 0}
+    for chave, alvo in PAGINAS.items():
+        if isinstance(alvo, dict):  # tentativa documentada, nada é baixado
+            out["paginas"][chave] = {"url": alvo["url"], "status": alvo["status"], "motivo": alvo["motivo"], "arquivo_cache": None,
+                                     "titulo": None, "tamanho": 0, "sha256": None}
+            rel.append(f"pagina {chave}: {alvo['status']} ({alvo['motivo']})")
+            continue
+        txt, arq, st = baixar(alvo, json_=False, forcar=forcar)
+        if st == "cache":
+            st = "ok"
+        m = re.search(r"<title>(.*?)</title>", txt or "", re.S | re.I)
+        out["paginas"][chave] = {"url": alvo, "status": st, "arquivo_cache": str(arq.relative_to(ROOT)) if txt else None,
+                                 "titulo": re.sub(r"\s+", " ", m.group(1)).strip() if m else None, "tamanho": len(txt) if txt else 0,
+                                 "sha256": hashlib.sha256(txt.encode("utf-8")).hexdigest() if txt else None}
         rel.append(f"pagina {chave}: {st}")
     return out
 
@@ -250,7 +297,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--so", choices=["camara", "senado", "presidencia"])
     ap.add_argument("--forcar", action="store_true", help="ignora o cache")
+    ap.add_argument("--so-cache", action="store_true", help="nunca vai à rede: usa só o cache; sem cache, status 'erro: sem cache'")
     a = ap.parse_args()
+    global SO_CACHE
+    SO_CACHE = a.so_cache
+    if a.so_cache and a.forcar:
+        sys.exit("--so-cache e --forcar são incompatíveis")
     OFICIAL.mkdir(parents=True, exist_ok=True)
     pessoas = pessoas_do_banco()
     rel = [f"# Coleta oficial — {time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime())}", "",
@@ -261,7 +313,14 @@ def main():
         (OFICIAL / "senado.json").write_text(json.dumps(coletar_senado(pessoas, a.forcar, rel), ensure_ascii=False, indent=1), encoding="utf-8")
     if a.so in (None, "presidencia"):
         (OFICIAL / "presidencia.json").write_text(json.dumps(coletar_paginas(a.forcar, rel), ensure_ascii=False, indent=1), encoding="utf-8")
-    (OFICIAL / "RELATORIO.md").write_text("\n".join(rel) + "\n", encoding="utf-8")
+    arq_rel = OFICIAL / "RELATORIO.md"
+    # a seção "Como esta coleta foi feita" é escrita à mão (histórico das rodadas): preservada a cada execução
+    notas = ""
+    if arq_rel.exists():
+        antigo = arq_rel.read_text(encoding="utf-8")
+        i = antigo.find("## Como esta coleta foi feita")
+        notas = "\n" + antigo[i:].rstrip("\n") + "\n" if i >= 0 else ""
+    arq_rel.write_text("\n".join(rel) + "\n" + notas, encoding="utf-8")
     print("\n".join(rel))
     print("\nPronto. Agora: git add data/raw/oficial && git commit -m 'Coleta oficial de mandatos' && git push")
 

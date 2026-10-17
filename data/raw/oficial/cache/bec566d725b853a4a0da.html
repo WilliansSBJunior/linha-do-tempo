@@ -1,0 +1,1114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-itunes-app" content="app-id=1049343067" />
+    <meta name="google-play-app" content="app-id=br.leg.camara.infolegmovel" />
+    <script>
+      (function () {
+        let initialized = false;
+        let loading = false;
+
+        function ensureBody(callback) {
+          if (document.body) {
+            callback();
+          } else {
+            setTimeout(() => ensureBody(callback), 50);
+          }
+        }
+
+        function loadScript() {
+          if (loading || window.VLibras) return;
+          loading = true;
+
+          ensureBody(() => {
+            const s = document.createElement("script");
+            s.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
+            s.onload = initVLibras;
+            document.body.appendChild(s);
+          });
+        }
+
+        function initVLibras() {
+          if (initialized || !window.VLibras) return;
+
+          ensureBody(() => {
+            if (!document.querySelector("[vw]")) {
+              const container = document.createElement("div");
+              container.innerHTML = `
+              <div vw class="enabled">
+                <div vw-access-button class="active"></div>
+                <div vw-plugin-wrapper>
+                  <div class="vw-plugin-top-wrapper"></div>
+                </div>
+              </div>
+            `;
+              document.body.appendChild(container);
+            }
+
+            (new window.VLibras.Widget(
+              "https://vlibras.gov.br/app",
+              "https://vlibras.gov.br/config/camara.json",
+            ),
+              $("body").append(
+                '<aside><div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div></aside>',
+              ));
+            initialized = true;
+
+            injectCSS();
+            if (!window.location.pathname.includes("/comissoes")) {
+              bindButton();
+            }
+          });
+        }
+
+        function injectCSS() {
+          if (document.getElementById("vlibras-style")) return;
+          const style = document.createElement("style");
+          style.id = "vlibras-style";
+          style.innerHTML = `
+          [vw-access-button] { display: none !important; }
+          div[vw] { z-index: 999999 !important; }
+        `;
+          document.head.appendChild(style);
+        }
+
+        function bindButton() {
+          const btn = document.getElementById("meu-botao-vlibras");
+          if (!btn) {
+            setTimeout(bindButton, 300);
+            return;
+          }
+
+          btn.onclick = function (e) {
+            e.preventDefault();
+            const original = document.querySelector("[vw-access-button]");
+            if (original) original.click();
+          };
+        }
+
+        // OBSERVA MUTA&#199;&#213;ES DO DOM (ESSENCIAL NO PLONE)
+        const observer = new MutationObserver(() => {
+          if (!document.querySelector("[vw]") && !initialized) {
+            loadScript();
+          }
+        });
+
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+        });
+
+        window.addEventListener("load", loadScript);
+      })();
+    </script>
+
+    <title>Presidentes da Câmara dos Deputados — Portal da Câmara dos Deputados</title>
+  <base href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes" /><style type="text/css">@import url(https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/member-cachekey-46bb2e0fc9968a457e63f356c0ff3900.css);</style><style type="text/css">@import url(https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/portlets-cachekey-8a45f49b338591ae0c9c8a91f261dc78.css);</style><style type="text/css" media="screen">@import url(https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/deprecated-cachekey-32595b622b36f2eee9478f07796d4f67.css);</style><style type="text/css" media="screen">@import url(https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/resourceplone.app.discussion.stylesheetsdiscussion-cachekey-5b23f388acd88bdb65020b51a5a278fb.css);</style><style type="text/css">@import url(https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/elements-cachekey-57e40a70bd8192a6f63782abff5c2748.css);</style><style type="text/css" media="all">@import url(https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/ploneCustom-cachekey-7fb44e17264e070fccf4e31d9f2ada1c.css);</style><link rel="stylesheet" type="text/css" href="https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/themecamara.leg.viradadigitalcsslibsbootstrap-datetimepicker.min-cachekey-ab2d257c1b49d2d194633e2ecb4564a2.css" /><link rel="stylesheet" type="text/css" href="https://www.camara.leg.br/tema/global/camara-custom.css" /><link rel="stylesheet" type="text/css" href="https://www2.camara.leg.br/portal_css/camara_leg_viradadigital/++theme++camara.leg.viradadigital/css/all.min.css" /><link rel="canonical" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes" /><link rel="apple-touch-icon" sizes="180x180" href="https://www.camara.leg.br/tema/apple-touch-icon.png" /><link rel="icon" type="image/png" sizes="32x32" href="https://www.camara.leg.br/tema/favicon-32x32.png" /><link rel="icon" type="image/png" sizes="16x16" href="https://www.camara.leg.br/tema/favicon-16x16.png" /><link rel="manifest" href="https://www.camara.leg.br/tema/site.webmanifest" /><link rel="mask-icon" href="https://www.camara.leg.br/tema/safari-pinned-tab.svg" color="#009e49" /><link rel="search" href="http://www2.camara.leg.br/busca-geral" title="Buscar neste site" /><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/resourceplone.app.jquery-cachekey-3fa72abea58e1799bd3b0bc237335d45.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/styleswitcher-cachekey-9178d2d1bc80488214ac8d40a46c7bdf.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/impressaoIframes-cachekey-7de901cf3c737563606c12fa53b7a321.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/GoogleAnalyticsTracker.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/kss-bbb-cachekey-df10a37e7aa4176c3b122c2e3b0ee128.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/inline_validation-cachekey-35d4d75a94cdb17b403a636871dd92cb.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitaljsbootstrap.min-cachekey-c15df71e2ec454087fe4c4eab0ce9d3e.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitaljslibsmoment.min-cachekey-860514b918ea422f7e82fa48125015c4.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitaljslibsmoment-pt-br-cachekey-0aafba4fb000126f1ed0f6701186de00.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitaljslibsbootstrap-datetimepicker.min-cachekey-fac2884b384d9c99236b26d0746facc4.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitaljslibsjquery.maskedinput.min-cachekey-e2f8b2523378532cc132594675b6dc6f.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitaljsacoes-tema-cachekey-a0084cf69f1785571a18f6a58a4986ac.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitaljscorrecoes-bootstrap-tema-cachekey-bd4c19550531506aa59d8b0aa7e8d6c5.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitalviradadigitalvendorjquery.mmenu.all-cachekey-f0e297313e30d6b2b2c2588ef23b5ef2.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitalviradadigitaljsvd_correcoes-cachekey-52a3614631388ad9e07bf35264bc73d5.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitalviradadigitaljsmmenu-correcoes-cachekey-8e45cc1e451978774afbfe2f5f1e95cf.js"></script><script type="text/javascript" src="https://www2.camara.leg.br/portal_javascripts/camara_leg_viradadigital/themecamara.leg.viradadigitalviradadigitaljsselecao-idioma-cachekey-998dbb210e1353a5d7f94011740ee16c.js"></script><meta content="summary" name="twitter:card" /><meta content="Portal da Câmara dos Deputados" property="og:site_name" /><meta content="Presidentes da Câmara dos Deputados" property="og:title" /><meta content="website" property="og:type" /><meta content="" property="og:description" /><meta content="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/index.html" property="og:url" /><meta content="https://www2.camara.leg.br/cd_facebook.jpg" property="og:image" /><meta content="image/jpg" property="og:image:type" /><meta name="msapplication-TileColor" content="#00a300" /><meta name="msapplication-TileImage" content="https://www.camara.leg.br/tema/mstile-144x144.png" /><meta name="theme-color" content="#009e49" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /></head>
+
+  <body data-portal-url="https://www2.camara.leg.br" class="template-document_view portaltype-document site-Camara section-a-camara subsection-conheca subsection-conheca-historia subsection-conheca-historia-presidentes userrole-anonymous" dir="ltr" data-base-url="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/index.html"><div id="personal-tools-mark" class="hidden-xs hidden-sm">
+      
+      <div id="userActions-mark"></div>
+    </div><div class="js-mmenu-container">
+      <header class="l-cabecalho-portal" role="banner" id="portal-header">
+        <ul aria-label="Acesso direto" class="acesso-direto">
+          <!-- Links para saltar diretamente para &#225;reas importantes da p&#225;gina accesskey 2 = conte&#250;do e 3 = navega&#231;&#227;o -->
+          <li>
+            <a class="acesso-direto__link" href="#main-content" accesskey="2">Ir ao conteúdo</a>
+          </li>
+          <li>
+            <a class="acesso-direto__link" href="#main-nav" accesskey="3">Ir à navegação principal</a>
+          </li>
+        </ul>
+
+        <!--[if lte IE 9]>
+          <p class="browserupgrade">
+            Voc&#234; est&#225; usando um navegador <strong>defasado</strong>. Por favor,
+            <a href="https://browsehappy.com/">atualize seu navegador</a> para
+            melhorar sua experi&#234;ncia e sua seguran&#231;a.
+          </p>
+        <![endif]-->
+
+        <div class="nav-top">
+          <div class="container nav-top--container">
+            <a href="https://www2.camara.leg.br" class="logo-camara" accesskey="1"><span class="sr-only">Página inicial</span></a>
+
+            <div class="nav-top__palacio"></div>
+
+            <div class="nav-top__menu-superior">
+              <ul aria-label="Ferramentas de apoio" class="links-apoio">
+                <li class="links-apoio__item links-apoio__item--vlibras">
+                  <a id="meu-botao-vlibras" href="javascript:void(0);">
+                    <span>
+                      <img src="https://www.camara.leg.br/tema/assets/images/ico-vlibras-branco.png" alt="Ativar VLibras" width="28px" height="30px" />
+                    </span>
+                  </a>
+                </li>
+                <li class="links-apoio__item links-apoio__item--acessibilidade">
+                  <a href="https://www2.camara.leg.br/acessibilidade/recursos-de-acessibilidade" accesskey="0">Acessibilidade</a>
+                </li>
+                <li class="links-apoio__item links-apoio__item--faleconosco">
+                  <a href="https://www.camara.leg.br/fale-conosco" accesskey="9">Fale Conosco</a>
+                </li>
+              </ul>
+
+              <ul class="orgaos-parceiros" aria-label="Órgãos parceiros">
+                <li class="orgaos-parceiros__item orgaos-parceiros__item--congresso">
+                  <a href="http://www.congressonacional.leg.br"><span>Congresso</span></a>
+                </li>
+                <li class="orgaos-parceiros__item orgaos-parceiros__item--senado">
+                  <a href="http://www.senado.leg.br"><span>Senado</span></a>
+                </li>
+              </ul>
+
+              <div class="lista-idiomas">
+                <button class="botao-idioma-topo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="4,0">
+                  <span class="botao-idioma-topo__sigla">PT</span>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-right l-lista-idiomas" aria-label="Idioma">
+                  <li class="l-lista-idiomas__item">
+                    <a href="https://www2.camara.leg.br/english" class="idioma-topo">
+                      <span class="idioma-topo__bandeira idioma-topo__bandeira--ingles" aria-hidden="true"></span>
+                      <span class="idioma-topo__nome">English</span>
+                      <span class="idioma-topo__sigla">EN</span>
+                    </a>
+                  </li>
+                  <li class="l-lista-idiomas__item">
+                    <a href="https://www2.camara.leg.br/espanol" class="idioma-topo">
+                      <span class="idioma-topo__bandeira idioma-topo__bandeira--espanhol" aria-hidden="true"></span>
+                      <span class="idioma-topo__nome">Español</span>
+                      <span class="idioma-topo__sigla">ES</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="home-camara-menu">
+    <nav class="menu-global navbar navbar-expand-lg" role="navigation" aria-label="Navegação principal" id="menuglobal">
+      <div class="container menu-global--container">
+      
+
+        <a href="https://www.camara.leg.br" class="logo-camara" accesskey="1">
+          <span class="sr-only">Página inicial</span>
+        </a>
+
+      
+        
+        <!-- icone menu -->
+        <button class="menu-global--btnmenu navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarportal" aria-controls="navbarportal" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="menu-global--icon"></span>
+        </button>
+
+        <!-- icone busca -->
+        <button class="menu-global--btnsearch" type="button" data-toggle="collapse" data-target="#buscaportal" aria-controls="buscaportal" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fa fa-search"></span>
+        </button>
+
+        <div class="navbar-collapse hidden-sm hidden-md hidden-xs" id="navbarportal">
+          <ul title="Navegação Principal" id="main-nav" class="navbar-nav">
+            
+              
+                <li class="nav-item dropdown">
+                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu-global__item-temas nav-link dropdown-toggle" id="temas">Assuntos</a>
+
+                  
+                    <ul class="dropdown-menu" aria-labelledby="temas">
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/agropecuaria">Agropecuária</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/cidades-e-transportes">Cidades e transportes</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/ciencia-tecnologia-e-comunicacoes">Ciência, tecnologia e comunicações</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/consumidor">Consumidor</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/direitos-humanos">Direitos humanos</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/economia">Economia</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/educacao-cultura-e-esportes">Educação, cultura e esportes</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/meio-ambiente-e-energia">Meio ambiente e energia</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/politica-e-administracao-publica">Política e administração pública</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/relacoes-exteriores">Relações exteriores</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/saude">Saúde</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/seguranca">Segurança</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assuntos/trabalho-previdencia-e-assistencia">Trabalho, previdência e assistência</a>
+                      </li>
+                    </ul>
+                  
+                </li>
+              
+            
+            
+              
+                <li class="nav-item dropdown">
+                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu-global__item-institucional nav-link dropdown-toggle" id="institucional">Institucional</a>
+
+                  
+                    <ul class="dropdown-menu" aria-labelledby="institucional">
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/agenda">Agenda</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/transparencia/servicos-ao-cidadao">Serviços</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/a-camara/estruturaadm/mesa/presidencia">Presidência</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/biblioteca-e-publicacoes/">Biblioteca e publicações</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/escola-da-camara/">Escola da Câmara</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/papel-e-estrutura/">Papel e estrutura</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/historia-e-arquivo/">História e arquivo</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/a-camara/visiteacamara">Visite</a>
+                      </li>
+                    </ul>
+                  
+                </li>
+              
+            
+            
+              
+                <li class="nav-item dropdown">
+                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu-global__item-deputados nav-link dropdown-toggle" id="deputados">Deputados</a>
+
+                  
+                    <ul class="dropdown-menu" aria-labelledby="deputados">
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/deputados/quem-sao">Quem são</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/deputados/liderancas-e-bancadas-partidarias">Lideranças e bancadas</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/deputados/frentes-e-grupos-parlamentares">Frentes e grupos parlamentares</a>
+                      </li>
+                    </ul>
+                  
+                </li>
+              
+            
+            
+              
+                <li class="nav-item dropdown">
+                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu-global__item-atvlegislativa nav-link dropdown-toggle" id="atvlegislativa">Atividade Legislativa</a>
+
+                  
+                    <ul class="dropdown-menu" aria-labelledby="atvlegislativa">
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/busca-portal/proposicoes/pesquisa-simplificada">Propostas legislativas</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/plenario">Plenário</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/comissoes">Comissões</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/sessoesereunioes">Sessões e reuniões</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/atividade-legislativa/estudos-e-notas-tecnicas">Estudos legislativos</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/atividade-legislativa/orcamento-da-uniao">Orçamento da União</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/legislacao">Legislação</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/entenda-o-processo-legislativo/">Entenda o processo legislativo</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/atividade-legislativa/participe">Participe</a>
+                      </li>
+                    </ul>
+                  
+                </li>
+              
+            
+            
+              
+                <li class="nav-item dropdown">
+                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu-global__item-comunicacao nav-link dropdown-toggle" id="comunicacao">Comunicação</a>
+
+                  
+                    <ul class="dropdown-menu" aria-labelledby="comunicacao">
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/noticias">Agência Câmara de Notícias</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/radio">Rádio Câmara</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/tv">TV Câmara</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/banco-imagens">Banco de Imagens</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/assessoria-de-imprensa">Assessoria de Imprensa</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/comprove">Comprove uma notícia</a>
+                      </li>
+                    </ul>
+                  
+                </li>
+              
+            
+            
+              
+                <li class="nav-item dropdown">
+                  <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="menu-global__item-transprestcontas nav-link dropdown-toggle" id="transprestcontas">Transparência e prestação de contas</a>
+
+                  
+                    <ul class="dropdown-menu" aria-labelledby="transprestcontas">
+                      <li class="dropdown-item">
+                        <a href="https://www.camara.leg.br/transparencia/">Transparência</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://www2.camara.leg.br/transparencia/prestacao-de-contas">Prestação de contas</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a href="https://dadosabertos.camara.leg.br/">Dados abertos</a>
+                      </li>
+                    </ul>
+                  
+                </li>
+              
+            
+          </ul>
+          <div class="outras-opcoes-menu-usuario hidden-md hidden-lg">
+            <ul aria-label="Ferramentas de apoio" class="links-apoio links-apoio--menu-mobile">
+              <li class="links-apoio__item links-apoio__item--acessibilidade">
+                <a href="https://www2.camara.leg.br/acessibilidade/recursos-de-acessibilidade" accesskey="0">Acessibilidade</a>
+              </li>
+              <li class="links-apoio__item links-apoio__item--faleconosco">
+                <a href="https://www.camara.leg.br/fale-conosco" accesskey="9">Fale Conosco</a>
+              </li>
+            </ul>
+          </div>
+          <div class="lista-idiomas hidden-md hidden-lg">
+            <button id="botao-idioma-topo" class="botao-idioma-topo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="4,0">
+                <span class="botao-idioma-topo__sigla">PT</span>
+            </button>
+        
+            <ul class="dropdown-menu-right l-lista-idiomas " aria-label="Idioma">
+                <li class="l-lista-idiomas__item">
+                    <a href="https://www2.camara.leg.br/english" class="idioma-topo">
+                        <span class="idioma-topo__bandeira idioma-topo__bandeira--ingles" aria-hidden="true"></span>
+                        <span class="idioma-topo__nome">English</span>
+                        <span class="idioma-topo__sigla">EN</span>
+                    </a>
+                </li>
+                <li class="l-lista-idiomas__item">
+                    <a href="https://www2.camara.leg.br/espanol" class="idioma-topo">
+                        <span class="idioma-topo__bandeira idioma-topo__bandeira--espanhol" aria-hidden="true"></span>
+                        <span class="idioma-topo__nome">Español</span>
+                        <span class="idioma-topo__sigla">ES</span>            
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+
+        <div class="collapse box-search" id="buscaportal">
+          <form role="search" accesskey="4" class="box-search__busca form-inline" action="https://www.camara.leg.br/busca-geral">
+            <label for="termo" class="sr-only box-search__label">Pesquise no Portal da Câmara</label>
+            <input class="form-control box-search__campo" type="search" name="termo" id="termo" placeholder="Buscar" aria-label="Search" />
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+      </header>
+
+      <div class="breadcrumbs-marcacao">
+        <div class="container">
+          <div id="portal-breadcrumbs">
+  <span id="breadcrumbs-home">
+    <a href="https://www2.camara.leg.br">Início</a>
+    <span class="breadcrumbSeparator">
+      /
+      
+    </span>
+  </span>
+  <span id="breadcrumbs-1" dir="ltr">
+    
+      <a href="https://www2.camara.leg.br/a-camara">Institucional</a>
+      <span class="breadcrumbSeparator">
+        /
+        
+      </span>
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      
+    
+  </span>
+  <span id="breadcrumbs-2" dir="ltr">
+    
+      <a href="https://www2.camara.leg.br/a-camara/conheca">História e arquivo</a>
+      <span class="breadcrumbSeparator">
+        /
+        
+      </span>
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      
+    
+  </span>
+  <span id="breadcrumbs-3" dir="ltr">
+    
+      <a href="https://www2.camara.leg.br/a-camara/conheca/historia">A História da Câmara</a>
+      <span class="breadcrumbSeparator">
+        /
+        
+      </span>
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      
+    
+  </span>
+  <span id="breadcrumbs-4" dir="ltr">
+    
+      
+      
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      <span id="breadcrumbs-current">Esta página</span>
+    
+  </span>
+
+</div>
+        </div>
+        <div class="container-fluid p-0">
+          <div id="menu-secoes-internas" class="menu-secoes-internass">
+            <div class="l-identificacao-landing">
+              <div class="container">
+                <div id="portal-mainsection">
+    <h1 class="titulo-landing">Galeria de ex-presidentes</h1>
+</div>
+                
+              </div>
+            </div>
+            <div id="container-addthis">
+              <div class="g-contexto-compartilhamento">
+                <aside class="g-l-acoes-apoio" aria-label="Compartilhamento">
+                  <div class="g-acoes-apoio g-acoes-apoio--only-small">
+                    <button class="g-acoes-apoio__item js-widget-share-button">
+                      <i class="fa fa-share-alt g-acoes-apoio__icone" aria-hidden="true"></i>
+                      <span class="g-acoes-apoio__chamada-acao">Compartilhe</span>
+                    </button>
+                  </div>
+                </aside>
+                <div id="conteudo-overflow-addthis" style="display: none"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="marcacao-conteudo-portal" class="conteudo-portal container nopadding-right nopadding-left">
+        <div id="portal-coluna-esquerda" class="coluna-esquerda"></div>
+        <div id="portal-coluna-centro" class="coluna-centro col-md-10">
+        <div id="portal-column-content">
+
+          <div id="viewlet-above-content"><div id="portal-breadcrumbs">
+  <span id="breadcrumbs-home">
+    <a href="https://www2.camara.leg.br">Início</a>
+    <span class="breadcrumbSeparator">
+      /
+      
+    </span>
+  </span>
+  <span id="breadcrumbs-1" dir="ltr">
+    
+      <a href="https://www2.camara.leg.br/a-camara">Institucional</a>
+      <span class="breadcrumbSeparator">
+        /
+        
+      </span>
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      
+    
+  </span>
+  <span id="breadcrumbs-2" dir="ltr">
+    
+      <a href="https://www2.camara.leg.br/a-camara/conheca">História e arquivo</a>
+      <span class="breadcrumbSeparator">
+        /
+        
+      </span>
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      
+    
+  </span>
+  <span id="breadcrumbs-3" dir="ltr">
+    
+      <a href="https://www2.camara.leg.br/a-camara/conheca/historia">A História da Câmara</a>
+      <span class="breadcrumbSeparator">
+        /
+        
+      </span>
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      
+    
+  </span>
+  <span id="breadcrumbs-4" dir="ltr">
+    
+      
+      
+      <!-- <span id="breadcrumbs-current" tal:condition="is_last" tal:content="title">crumb</span> -->
+      <span id="breadcrumbs-current">Esta página</span>
+    
+  </span>
+
+</div></div>
+
+          
+            <div class="">
+
+              
+
+              
+
+        <div class="portalMessage alert alert-dismissible" id="kssPortalMessage" style="display:none">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Info</strong><span id="kss-portal-message" style="display:none">KSS portal message</span>
+        </div>
+
+    
+
+              
+                <div id="content">
+
+                  
+
+                  
+
+                    <div id="viewlet-above-content-title"></div>
+                    
+          
+    
+                    <div id="viewlet-below-content-title">
+</div>
+
+                    
+                      
+                      
+            
+                
+            
+            
+        
+                    
+
+                    <div id="viewlet-above-content-body">
+
+</div>
+                    <div id="content-core">
+                      
+        
+            
+        <div class="" id="parent-fieldname-text-a939d41d37e0c6a9c7f5b91b0a7de858">
+            <div id="corpo">
+<div class="legislatura">
+<div class="exPresidente">
+<h5 class="subSessao" style="text-align: center; "></h5>
+<table class="table table-bordered table-striped">
+<tbody>
+<tr style="text-align: center; vertical-align: middle; ">
+<td scope="row">
+<h5 class="subSessao" style="text-align: center; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/Flag_of_Brazil_18531889.svg.png/@@images/639d1903-fa07-47c3-a0e9-641888b1a5e4.png" alt="bandeira brasil império" class="image-inline" title="bandeira brasil império" /> Império (1826 - 1889) </h5>
+</td>
+<td scope="row">
+<h5 class="subSessao" style="text-align: center; "> <img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/BandeiraBrasilRepublica.png/@@images/9bb805cb-b517-457e-a91f-647d27de61fb.png" alt="Bandeira brasil república" class="image-inline" title="Bandeira brasil república" /> República (1891 - )</h5>
+</td>
+</tr>
+<tr style="vertical-align: middle; ">
+<td scope="row">
+<p> <a class="external-link" href="https://bd.camara.leg.br/bd/items/293c5228-53f7-4e0b-b067-4e2173d99b58" target="_blank" title=""><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/leitura.png" alt="icon-leitura" class="image-inline" title="icon-leitura" /> Saiba mais sobre os ex-presidentes do Império</a></p>
+<p><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/venancio_rezende2.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/baraodelucena.jfif" title="HENRIQUE PEREIRA DE LUCENA" height="60" width="50" alt="Foto do ex-presidente BarÃ£o de Lucena" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1248" target="_blank" title="">Barão de Lucena 04-05-1888 a 15-11-1889</a></p>
+<p class=" "><a title="" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/bio_infoleg/DeputadoInfolegParlamentarHENRIQUEPEREIRADELUCENA.pdf" class="internal-link" target="_blank"></a><strong><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/augusto_castro.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/gomesdecastro.jfif" title="AUGUSTO OLYMPIO GOMES DE CASTRO" height="60" width="50" alt="Foto do ex-presidente Gomes de Castro" class="image-inline" /></a> </strong><a class="external-link" href="https://www.camara.leg.br/deputados/882" target="_blank" title=""><span class="nome">Gomes de Castro</span><span class="periodoMandato"> 04-05-1887 a 04-05-1888</span></a></p>
+<p class=" "><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/domingos_figueira.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/andradefigueira.jfif" title="DOMINGOS DE ANDRADE FIGUEIRA" height="60" width="50" alt="Foto do ex-presidente Andrade Fiqueira" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/988" target="_blank" title=""><span class="nome">Andrade Figueira </span><span class="periodoMandato">05-05-1886 a 04-05-1887</span></a></span></p>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/andre_fleury.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/paduafleury.jfif" title="ANDRÉ AUGUSTO DE PÁDUA FLEURY" height="60" width="50" alt="Foto do ex-presidente Pádua Fleury" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/783" target="_blank" title=""><span class="nome">Pádua Fleury </span><span class="periodoMandato">29-08-1885 a 05-05-1886</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/franklin_doria.html"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/franklindoria.jfif" title="FRANKLIN AMÉRICO DE MENEZES DÓRIA" height="60" width="50" alt="Foto do ex-presidente Franklin Doria" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1060" target="_blank" title=""><span class="nome">Franklin Dória </span><span class="periodoMandato">21-05-1885 a 29-08-1885</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="nome"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/antonio_barros1.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/moreiradebarros.jfif" title="ANTONIO MOREIRA DE BARROS" height="60" width="50" alt="Foto do ex-presidente Moreira de Barros" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1131" target="_blank" title="">Moreira de Barros 11-03-1885 a 21-05-1885</a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/manoel_araujo.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/alvesdearaujo.jfif" title="MANOEL ALVES DE ARAÚJO" height="60" width="50" alt="Foto do ex-presidente Alves de AraÃºjo" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1108" target="_blank" title=""><span class="nome">Alves de Araújo </span><span class="periodoMandato">04-08-1884 a 11-03-1885</span></a></div>
+<div class="exPresidente">
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/antonio_barros1.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/moreiradebarros.jfif" title="ANTONIO MOREIRA DE BARROS" height="60" width="50" alt="Foto do ex-presidente Moreira de Barros" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1131" target="_blank" title=""><span class="nome">Moreira de Barros </span><span class="periodoMandato">03-06-1884 a 04-08-1884</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/jose_duarte.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/limaduarte.jfif" title="JOSÉ RODRIGUES DE LIMA DUARTE" height="60" width="50" alt="Foto do ex-presidente Lima Duarte" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/724" target="_blank" title=""><span class="nome">Lima Duarte </span><span class="periodoMandato">17-07-1882 a 03-06-1884</span></a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/joao_moura.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/ferreirademoura.jfif" title="JOÃO FERREIRA DE MOURA" height="60" width="50" alt="Foto do ex-presidente Joao Ferreira" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/817" target="_blank" title=""><span class="nome">Ferreira de Moura</span> 17-03-1882 a 17-07-1882</a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/martim_andrada_pai3.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/martimfrancisco.jfif/@@images/5601385c-f76c-4d79-a484-ae2d7e3890f2.jpeg" title="MARTIM FRANCISCO RIBEIRO DE ANDRADA" height="60" width="50" alt="Foto do ex-presidente Manuel Inacio Cavalcanti Lacerda" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1272" target="_blank" title=""><span class="nome">Martim Francisco </span><span class="periodoMandato">17-02-1882 a 17-03-1882</span></a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente">
+<div class="exPresidente">
+<div class="exPresidente">
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/martinho_campos.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/martinhocampos.jfif" title="MARTINHO ALVARES DA SILVA CAMPOS" height="60" width="50" alt="Foto do ex-presidente Martinho Ã�lvares" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/4104" target="_blank" title=""><span class="nome">Martinho Campos </span><span class="periodoMandato">18-01-1882 a 17-02-1882</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="nome"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/camilo_armond.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/baraodeprados.jfif" title="CAMILO MARIA FERREIRA ARMOND" height="60" width="50" alt="Foto do ex-presidente BarÃ£o de Prados" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/833" target="_blank" title="">Visconde de Prados 16-12-1878 a 18-01-1882</a> </span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/paulino_filho.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/paulinodesousa.jfif" title="PAULINO JOSÉ SOARES DE SOUZA" height="60" width="50" alt="Foto do ex-presidente Ferreira de Moura" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1274" target="_blank" title=""><span class="nome">Paulino de Sousa </span><span class="periodoMandato">03-02-1877 a 16-12-1878</span></a></div>
+</div>
+<div class="exPresidente"></div>
+</div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/manoel_correia.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/correia.jfif" title="MANOEL FRANCISCO CORREIA" height="60" width="50" alt="Foto do ex-presidente Correia" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/968" target="_blank" title=""><span class="nome">Correia</span><span class="periodoMandato"> 08-06-1874 a 03-02-1877</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/manoel_lacerda.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/araujogois.jfif" title="INNOCÊNCIO MARQUES DE ARAÚJO GOES" height="60" width="50" alt="Foto do ex-presidente AraÃºjo GÃ³is" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/923" target="_blank" title=""><span class="nome">Araújo Góis</span><span class="periodoMandato"> 10-03-1873 a 08-06-1874</span></a></div>
+<div class="exPresidente"></div>
+</div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/jeronimo_junior.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/teixeirajunior.jfif" title="JERONYMO JOSÉ TEIXEIRA JÚNIOR" height="60" width="50" alt="Foto do ex-presidente Teixeira Junior" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/760" target="_blank" title=""><span class="nome">Teixeira Júnior</span><span class="periodoMandato"> 03-08-1871 a 10-03-1873</span></a></div>
+<div class="exPresidente">
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="nome"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/braz_gama1.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/viscondedebaepedi.jfif" title="BRÁS CARNEIRO NOGUEIRA DA COSTA E GAMA" height="60" width="50" alt="Foto do ex-presidente Vinconde de Baependi" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/598" target="_blank" title="">Conde de Baependi 09-05-1870 a 03-08-1871</a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/joaquim_nebias.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/nebias.jfif" title="JOAQUIM OCTAVIO NEBIAS" height="60" width="50" alt="Foto do ex-presidente Nebias" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/465" target="_blank" title=""><span class="nome">Nébias</span><span class="periodoMandato"> 23-06-1869 a 09-05-1870</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente">
+<div class="exPresidente"><span class="nome"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/pedro_albuquerque.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/viscondedecamaragibe.jfif" title="PEDRO FRANCISCO DE PAULA CAVALCANTI DE ALBUQUERQUE" height="60" width="50" alt="Foto do ex-presidente Visconde de Ccamaragibe" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/255" target="_blank" title="">Visconde de Camaragibe 12-05-1869 a 22-06-1869</a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/francisco_lobo.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/silveiralobo.jfif" title="FRANCISCO DE PAULA DA SILVEIRA LOBO" height="60" width="50" alt="Foto do ex-presidente Silveira Lobo" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/727" target="_blank" title=""><span class="nome">Silveira Lobo</span><span class="periodoMandato"> 23-05-1867 a 12-05-1869</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/joaquim_marinho.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/saldanhamarinho.jfif" title="JOAQUIM SALDANHA MARINHO" height="60" width="50" alt="Foto do ex-presidente Saldanha Marinho" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/527" target="_blank" title=""><span class="nome">Saldanha Marinho</span><span class="periodoMandato"> 09-08-1866 a 23-05-1867</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/camilo_armond.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/baraodeprados.jfif" title="CAMILO MARIA FERREIRA ARMOND" height="60" width="50" alt="Foto do ex-presidente BarÃ£o de Prados" class="image-inline" /></a> <a title="" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/bio_infoleg/DeputadoInfolegParlamentarCAMILOMARIAFERREIRAARMONDbarodeprados.pdf" class="internal-link" target="_blank"><span class="nome">Barão de Prados</span><span class="periodoMandato"> 03-08-1864 a 09-08-1866</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/francisco_furtado.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/furtado.jfif" title="FRANCISCO JOSÉ FURTADO" height="60" width="50" alt="Foto do ex-presidente Furtado" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/530" target="_blank" title=""><span class="nome">Furtado</span><span class="periodoMandato"> 01-02-1864 a 03-08-1864</span></a></div>
+</div>
+<div class="exPresidente"></div>
+</div>
+</div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/zacarias_vasconcelos.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/zacarias.jfif" title="ZACARIAS DE GÓIS E VASCONCELOS" height="60" width="50" alt="Foto do ex-presidente Zacarias" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/605" target="_blank" title=""><span class="nome">Zacarias</span><span class="periodoMandato"> 02-01-1864 a 15-01-1864</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/pedro_albuquerque.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/viscondedecamaragibe.jfif" title="PEDRO FRANCISCO DE PAULA CAVALCANTI DE ALBUQUERQUE" height="60" width="50" alt="Foto do ex-presidente Visconde de Ccamaragibe" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/255" target="_blank" title=""><span class="nome">Visconde de Camaragibe </span><span class="periodoMandato">04-05-1861 a 02-01-1864</span></a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="nome"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/braz_gama1.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/viscondedebaepedi.jfif" title="BRÁS CARNEIRO NOGUEIRA DA COSTA E GAMA" height="60" width="50" alt="Foto do ex-presidente Vinconde de Baependi" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/598" target="_blank" title="">Conde de Baependi 11-05-1859 a 04-05-1861</a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/braz_gama1.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/viscondedebaepedi.jfif" title="BRÁS CARNEIRO NOGUEIRA DA COSTA E GAMA" height="60" width="50" alt="Foto do ex-presidente Vinconde de Baependi" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/598" target="_blank" title=""><span class="nome">Conde de Baependi</span><span class="periodoMandato"> 09-05-1854 a 04-05-1859</span></a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/antonio_monteiro.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/macielmonteiro.jfif" title="ANTONIO PEREGRINO MACIEL MONTEIRO" height="60" width="50" alt="Foto do ex-presidente Maciel Monteiro" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/324" target="_blank" title=""><span class="nome">Maciel Monteiro</span><span class="periodoMandato"> 12-05-1852 a 09-05-1854</span></a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/jose_ramos.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/sousaramos.jfif" title="JOSÉ ILDEFONSO DE SOUZA RAMOS" height="60" width="50" alt="Foto do ex-presidente Sousa Ramos" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/503" target="_blank" title=""><span class="nome">Souza Ramos</span><span class="periodoMandato"> 08-05-1852 a 11-05-1852</span></a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/gabriel_santos.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/mendesdossantos.jfif" title="GABRIEL MENDES DOS SANTOS" height="60" width="50" alt="Foto do ex-presidente Mendes dos Santos" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/238" target="_blank" title=""><span class="nome">Mendes dos Santos </span><span class="periodoMandato">02-01-1850 a 13-08-1851</span></a></span></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/antonio_gama.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/chichorrodagama.jfif" title="ANTONIO PINTO CHICHORRO DA GAMA" height="60" width="50" alt="Foto do ex-presidente Chicorro da Gama" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/230" target="_blank" title=""><span class="nome">Chichorro da Gama </span><span class="periodoMandato">03-06-1848 a 02-01-1850</span></a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/jose_pedro.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/diasdecarvalho.jfif" title="JOSÉ PEDRO DIAS DE CARVALHO" height="60" width="50" alt="Foto do ex-presidente Dias de Carvalho" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/310" target="_blank" title=""><span class="nome">Dias de Carvalho</span><span class="periodoMandato"> 04-05-1847 a 03-06-1848</span></a></span></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/francisco_tavares.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/muniztavares.jfif" title="FRANCISCO MUNIZ TAVARES" height="60" width="50" alt="Foto do ex-presidente Muniz Tavares" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/37" target="_blank" title=""><span class="nome">Muniz Tavares</span><span class="periodoMandato"> 04-06-1846 a 04-05-1847</span></a></span></span></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><span class="periodoMandato"><span class="periodoMandato"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/jose_torres.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/fernandestorres.jfif" title="JOSÉ JOAQUIM FERNANDES TORRES" height="60" width="50" alt="Foto do ex-presidente Fernandes Torres" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/311" target="_blank" title=""><span class="nome">Fernandes Torres</span><span class="periodoMandato"> 03-06-1845 a 04-06-1846</span></a></span></span></span></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente">
+<div class="exPresidente"><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/limpodeabreu.jfif" title="ANTÔNIO PAULINO LIMPO DE ABREU" height="60" width="50" alt="ANTÔNIO PAULINO LIMPO DE ABREU" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/138" target="_blank" title="">Limpo de Abreu 02-01-1845 a 03-06-1845</a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/cavalcanti_ lacerda.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/cavalcantidelacerda.jfif" title="MANOEL IGNÁCIO CAVALCANTI DE LACERDA" height="60" width="50" alt="Foto do ex-presidente Cavalcante de Lacerda" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/33" target="_blank" title=""><span class="nome">Cavalcanti de Lacerda</span><span class="periodoMandato"> 02-01-1843 a 02-01-1845</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/martim_andrada_pai1.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MartimFrancisco.jpg" title="Martim Francisco" height="60" width="50" alt="Foto do ex-presidente Martim Francisco" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/1271" target="_blank" title=""><span class="nome">Martim Francisco </span><span class="periodoMandato">25-04-1842 a 02-01-1843</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/henriquesderezende.jfif" title="BENTO DE OLIVEIRA BRAGA" height="60" width="50" alt="BENTO DE OLIVEIRA BRAGA" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/251" target="_blank" title="">Henriques de Rezende 03-08-1841 a 25-04-1842</a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/arcebispodabahia.jfif" title="ROMUALDO ANTONIO DE SEIXAS" height="60" width="50" alt="ROMUALDO ANTONIO DE SEIXAS" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/150" target="_blank" title="">Arcebispo da Bahia 04-05-1841 a 03-08-1841</a></span></div>
+</div>
+<div class="exPresidente">
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/joaquim_brito.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/marcelinodebrito.jfif" title="JOAQUIM MARCELLINO DE BRITO" height="60" width="50" alt="Foto do ex-presidente Marcelino Brito" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/476" target="_blank" title=""><span class="nome">Marcelino de Brito</span><span class="periodoMandato"> 04-05-1840 a 04-05-1841</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/candido_viana.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/araujoviana.jfif" title="CÂNDIDO JOSÉ DE ARAÚJO VIANNA" height="60" width="50" alt="Foto do ex-presidente Araújo Viana" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/226" target="_blank" title=""><span class="nome">Araújo Viana</span><span class="periodoMandato"> 09-09-1837 a 04-05-1840</span></a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a title="" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/pedro_lima1.html" class="external-link" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/araujolima.jfif" title="PEDRO DE ARAUJO LIMA" height="60" width="50" alt="PEDRO DE ARAUJO LIMA" class="image-inline" /></a><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/pedro_lima2.html" target="_self"></a> <a class="external-link" href="https://www.camara.leg.br/deputados/154" target="_blank" title=""><span class="nome">Araújo Lima</span><span class="periodoMandato"> 04-05-1835 a 09-09-1837</span></a></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="nome"><a title="" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/antonio_moura.html" class="external-link" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/mariademoura.jfif" title="ANTÔNIO MARIA DE MOURA" height="60" width="50" alt="ANTÔNIO MARIA DE MOURA" class="image-inline" /></a> <a class="external-link" href="https://www.camara.leg.br/deputados/237" target="_blank" title="">Maria de Moura 02-08-1834 a 04-05-1835</a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/henriquesderezende.jfif" title="BENTO DE OLIVEIRA BRAGA" height="60" width="50" alt="BENTO DE OLIVEIRA BRAGA" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/251" target="_blank" title="">Henriques de Rezende 03-06-1834 a 02-08-1834</a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/Bento_de_oliveira_braga.jpg" title="BENTO DE OLIVEIRA BRAGA" height="60" width="50" alt="BENTO DE OLIVEIRA BRAGA" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/334" target="_blank" title="">Oliveira Braga 05-05-1834 a 03-06-1834</a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span class="periodoMandato"><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/limpodeabreu.jfif" title="ANTÔNIO PAULINO LIMPO DE ABREU" height="60" width="50" alt="ANTÔNIO PAULINO LIMPO DE ABREU" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/138" target="_blank" title="">Limpo de Abreu 04-05-1832 a 05-05-1834</a></span></span></span></div>
+<div class="exPresidente"></div>
+</div>
+<div class="exPresidente">
+<div class="exPresidente"><span><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/alencar.jfif" title="JOSÉ MARTINIANO DE ALENCAR" height="60" width="50" alt="JOSÉ MARTINIANO DE ALENCAR" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/65" target="_blank" title="">Alencar 02-07-1831 a 04-05-1832</a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/martim_andrada_pai1.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MartimFrancisco.jpg" title="Martim Francisco" height="60" width="50" alt="Foto do ex-presidente Martim Francisco" class="image-inline" /></a> <span><a class="external-link" href="https://www.camara.leg.br/deputados/1271" target="_blank" title=""><span class="nome">Martim Francisco </span><span class="periodoMandato">04-05-1831 a 02-07-1831</span></a></span><br /><span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/jose_carvalho2.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/costacarvalho.jfif" title="JOSÉ DA COSTA CARVALHO" height="60" width="50" alt="JOSÉ DA COSTA CARVALHO" class="image-inline" /></a> <span><a class="external-link" href="https://www.camara.leg.br/deputados/206" target="_blank" title=""><span class="nome">Costa Carvalho</span><span class="periodoMandato"> 03-08-1830 a 04-05-1831</span></a></span><br /><span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/soaresdarocha.jfif" title="JOSÉ RIBEIRO SOARES DA ROCHA" height="60" width="50" alt="JOSÉ RIBEIRO SOARES DA ROCHA" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/122" target="_blank" title="">Soares da Rocha 03-07-1830 a 03-08-1830</a></span></span><br /><span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/jose_carvalho2.html" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/costacarvalho.jfif" title="JOSÉ DA COSTA CARVALHO" height="60" width="50" alt="JOSÉ DA COSTA CARVALHO" class="image-inline" /></a> <span><a class="external-link" href="https://www.camara.leg.br/deputados/206" target="_blank" title=""><span class="nome">Costa Carvalho</span><span class="periodoMandato"> 04-05-1830 a 03-07-1830</span></a></span><br /><span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><a title="" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/pedro_lima1.html" class="external-link" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/araujolima.jfif" title="PEDRO DE ARAUJO LIMA" height="60" width="50" alt="PEDRO DE ARAUJO LIMA" class="image-inline" /></a><a href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/pedro_lima2.html" target="_self"></a> <a class="external-link" href="https://www.camara.leg.br/deputados/154" target="_blank" title=""><span class="nome">Araújo Lima</span><span class="periodoMandato"> 04-05-1829 a 04-05-1830</span></a></div>
+<div class="exPresidente"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/arcebispodabahia.jfif" title="ROMUALDO ANTONIO DE SEIXAS" height="60" width="50" alt="ROMUALDO ANTONIO DE SEIXAS" class="image-inline" /> <a class="external-link" href="http://www.camara.leg.br/deputados/150" target="_blank" title="">Arcebispo da Bahia 03-07-1828 a 04-05-1829</a></div>
+<div class="exPresidente"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/costacarvalho.jfif" title="JOSÉ DA COSTA CARVALHO" height="60" width="50" alt="JOSÉ DA COSTA CARVALHO" class="image-inline" /> <a class="external-link" href="http://www.camara.leg.br/deputados/206" target="_blank" title=""><span class="nome">Costa Carvalho</span><span class="periodoMandato"> 05-05-1828 a 03-07-1828</span></a></div>
+</div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span><span class="nome"><a title="" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/pedro_lima1.html" class="external-link" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/araujolima.jfif" title="PEDRO DE ARAUJO LIMA" height="60" width="50" alt="PEDRO DE ARAUJO LIMA" class="image-inline" /></a> <a class="external-link" href="http://www.camara.leg.br/deputados/154" target="_blank" title="">Araújo Lima 02-06-1827 a 05-05-1828</a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/paulasousa.jfif" title="Francisco de Paula Souza Mello " height="60" width="50" alt="FRANCISCO DE PAULA SOUZA E MELLO" class="image-inline" /> <span><a class="external-link" href="https://www.camara.leg.br/deputados/182" target="_blank" title=""><span class="nome">Paula Sousa</span><span class="periodoMandato"> 04-05-1827 a 02-06-1827</span></a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span><span class="nome"><a title="" href="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/luiz_coutinho.html" class="external-link" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/pereiradanobrega.jfif" title="PereiradaNobrega" height="60" width="50" alt="PEREIRA DA NÓBREGA" class="image-inline" /></a></span><span class="periodoMandato"> <a class="external-link" href="https://www.camara.leg.br/deputados/176" target="_blank" title="">Pereira da Nóbrega 08-05-1826 a 04-05-1827</a></span></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><img src="https://www2.camara.leg.br/atividade-legislativa/legislacao/imagens-das-constituicoes/1824A.jpg" title="1824A" height="60" width="50" alt="1824A" class="image-inline" /> <a title="" href="https://www2.camara.leg.br/a-camara/atividade-legislativa/legislacao/Constituicoes_Brasileiras/constituicao-cidada/anteriores.html#:~:text=C%C3%A2mara%20dos%20Deputados-,constituicao%20de%201824,-Constitui%C3%A7%C3%A3o%20Pol%C3%ADtica%20do" class="external-link" target="_blank">Outorga da <span>Constituição - 1824</span></a></span></div>
+<div class="exPresidente"></div>
+<div class="exPresidente"><span class="periodoMandato"><span><a title="" href="https://www2.camara.leg.br/a-camara/legin/fed/procla_sn/anterioresa1824/proclamacao-41438-8-setembro-1822-576173-norma-pe.html" class="external-link" target="_blank"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/brasil.png/@@images/dccc82ca-fe23-4f74-b2e5-17d65abef83d.png" alt="icon-brasil" class="image-inline" title="icon-brasil" /> Independência do Brasil - 1822</a></span></span></div>
+</td>
+<td scope="row">
+<div style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/arthurlira.jpg" title="Arthur Lira" height="60" width="50" alt="Arthur Lira" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/160541" target="_blank" title="">Arthur Lira 2023 - 2025</a></div>
+<div style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/arthurlira.jpg" title="Arthur Lira" height="60" width="50" alt="Arthur Lira" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/160541" target="_blank" title="">Arthur Lira 2021 - 2023</a></div>
+<div style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/rodrigo_maia.jpeg" alt="rodrigo_maia.jpeg" class="image-inline" title="rodrigo_maia.jpeg" /> <a class="external-link" href="https://www.camara.leg.br/deputados/74693/biografia" target="_blank" title="">Rodrigo Maia 2019 - 2021</a></div>
+<div style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/rodrigo_maia.jpeg" alt="rodrigo_maia.jpeg" class="image-inline" title="rodrigo_maia.jpeg" /> <a class="external-link" href="https://www.camara.leg.br/deputados/74693/biografia" target="_blank" title="">Rodrigo Maia 2017 - 2019</a></div>
+<div style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/rodrigo_maia.jpeg" alt="rodrigo_maia.jpeg" class="image-inline" title="rodrigo_maia.jpeg" /> <a class="external-link" href="https://www.camara.leg.br/deputados/74693/biografia" target="_blank" title="">Rodrigo Maia 2016 - 2017</a></div>
+<div style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/waldir_maranhao.jpg" alt="waldir_maranhao.jpg" class="image-inline" title="waldir_maranhao.jpg" /> <a class="external-link" href="https://www.camara.leg.br/deputados/141558/biografia" target="_blank" title="">Waldir Maranhão - 2016</a></div>
+<div style="text-align: left; "><a class="external-link" href="https://www.camara.leg.br/deputados/74173/biografia" target="_blank" title=""><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/eduardo-cunha" title="EduardoCunha" height="60" width="50" alt="EduardoCunha" class="image-inline" />Eduardo Cunha 2015 - 2016</a></div>
+<div style="text-align: left; "><span class="external-link"><a class="external-link" href="https://www.camara.leg.br/deputados/74324/biografia" target="_blank" title=""><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/74324.jpg/@@images/69eeb3de-3f03-42a2-92fc-1e7aa729aa95.jpeg" title="henriqueeduardoalves" height="60" width="50" alt="henriqueeduardoalves" class="image-inline" />Henrique Eduardo Alves 2013 - 2015</a></span></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MARCOMAIACARTEIRA3x4.jpg" title="MarcoMaia" height="60" width="50" alt="MarcoMaia" class="image-inline" /> <span class="external-link"><a class="external-link" href="https://www.camara.leg.br/deputados/133373/biografia" target="_blank" title="">Marco Maia 2011 - 2013</a></span></div>
+<div>
+<div class="exPresidente" style="text-align: left; "><a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_blank" title=""><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MichelTemer.jpg" title="MichelTemer" height="60" width="50" alt="Michel Temer" class="image-inline" /></a><a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_blank" title="">Michel Temer 2009 - 2010</a><span class="nome"><span class="external-link"><a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_blank" title=""><br /></a></span></span></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/ArlindoChinaglia.jpg" title="ArlindoChinaglia" height="60" width="50" alt="ArlindoChinaglia" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/73433" target="_blank" title="">Arlindo Chinaglia 2007 - 2009</a></span><span class="external-link"><span class="external-link"><span class="periodoMandato"><a class="external-link" href="https://www.camara.leg.br/deputados/73433" target="_blank" title=""><br /></a></span></span></span></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/AldoRebelo.jpg" title="AldoRebelo" height="60" width="50" alt="AldoRebelo" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/73428/biografia" target="_blank" title="">Aldo Rebelo 2005 - 2007</a><span class="external-link"><a class="external-link" href="https://www.camara.leg.br/deputados/73428/biografia" target="_blank" title=""></a></span></span><span class="external-link"><span class="periodoMandato"><a class="external-link" href="https://www.camara.leg.br/deputados/73428/biografia" target="_blank" title=""><br /></a></span></span></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><a class="external-link" href="https://www.camara.leg.br/deputados/74436/biografia" target="_self" title=""><span class="external-link"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/SeverinoCavalcanti.jpg" title="SeverinoCavalcanti" height="60" width="50" alt="SeverinoCavalcanti" class="image-inline" /></span></a><a class="external-link" href="https://www.camara.leg.br/deputados/74436/biografia" target="_blank" title="">Severino Cavalcanti 2005</a></span><a class="external-link" href="https://www.camara.leg.br/deputados/74436/biografia" target="_self" title=""><span class="external-link"><span class="periodoMandato"><br /></span></span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><a class="external-link" href="https://www.camara.leg.br/deputados/73534/biografia" target="_self" title=""><span class="external-link"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/JoaoPauloCunha.jpg" title="JoaoPauloCunha" height="60" width="50" alt="JoaoPauloCunha" class="image-inline" /></span></a><a class="external-link" href="https://www.camara.leg.br/deputados/73534/biografia" target="_blank" title="">João Paulo Cunha 2003 - 2005</a></span><a class="external-link" href="https://www.camara.leg.br/deputados/73534/biografia" target="_self" title=""><span class="external-link"><span class="periodoMandato"><br /></span></span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/EfraimMorais.jpg" title="EfraimMorais" height="60" width="50" alt="EfraimMorais" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/74407/biografia" target="_blank" title="">Efraim Morais 2002 - 2003</a></span><a class="external-link" href="https://www.camara.leg.br/deputados/74407/biografia" target="_self" title=""><span class="external-link"><span class="periodoMandato"><br /></span></span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><a title="" href="https://www2.camara.leg.br/a-camara/deputados/pesquisa/layouts_deputados_biografia_novo?pk=96766&amp;tipo=0" class="external-link" target="_self"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/AecioNeves.jpg" title="AecioNeves" height="60" width="50" alt="AecioNeves" class="image-inline" /></a><a class="external-link" href="https://www.camara.leg.br/deputados/74646" target="_blank" title="">Aécio Neves 2001 - 2002</a></span><a title="" href="https://www2.camara.leg.br/a-camara/deputados/pesquisa/layouts_deputados_biografia_novo?pk=96766&amp;tipo=0" class="external-link" target="_self"><span class="periodoMandato"><br /></span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MichelTemer.jpg" title="MichelTemer" height="60" width="50" alt="MichelTemer" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_blank" title="">Michel Temer 1999 - 2001</a><a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_self" title=""><span class="external-link"></span></a></span><a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_self" title=""><span class="external-link"><span class="periodoMandato"><br /></span></span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="nome"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MichelTemer.jpg" title="MichelTemer" height="60" width="50" alt="MichelTemer" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_blank" title="">Michel Temer 1997 - 1999</a><a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_self" title=""><span class="external-link"></span></a></span><a class="external-link" href="https://www.camara.leg.br/deputados/73552/biografia" target="_self" title=""><span class="external-link"><span class="periodoMandato"><br /></span></span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/LuisEduardo.jpg" title="LuisEduardo" height="60" width="50" alt="LuisEduardo" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/74630/biografia" target="_blank" title=""><span class="nome">Luís Eduardo</span> <span class="periodoMandato">1995 - 1997</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/InocencioOliveira.jpg" title="InocencioOliveira" height="60" width="50" alt="InocencioOliveira" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/74421/biografia" target="_blank" title="">Inocêncio de Oliveira 1993 - 1995</a><a title="" href="https://www2.camara.leg.br/a-camara/deputados/pesquisa/layouts_deputados_biografia_novo?pk=97513&amp;tipo=0" class="external-link" target="_self"><span class="periodoMandato"><br /></span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/IbsenPinheiro.jpg" title="IbsenPinheiro" height="60" width="50" alt="IbsenPinheiro" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/133853/biografia" target="_blank" title=""><span class="nome">Ibsen Pinheiro</span> <span class="periodoMandato">1991 - 1993</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/PaesDeAndrade.jpg" title="PaesDeAndrade" height="60" width="50" alt="PaesDeAndrade" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/74302/biografia" target="_blank" title=""><span class="nome">Paes de Andrade</span> <span class="periodoMandato">1989 - 1991</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/UlyssesGuimaraes.jpg" title="UlyssesGuimaraes" height="60" width="50" alt="UlyssesGuimaraes" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/133850/biografia" target="_blank" title=""><span class="nome">Ulysses Guimarães</span> <span class="periodoMandato">1987 - 1989</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/UlyssesGuimaraes.jpg" title="UlyssesGuimaraes" height="60" width="50" alt="UlyssesGuimaraes" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/133850/biografia" target="_blank" title=""><span class="nome">Ulysses Guimarães</span> <span class="periodoMandato">1985 - 1987</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/FlavioMarcilio.jpg" title="" height="60" width="50" alt="FlavioMarcilio" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/139203/biografia" target="_blank" title=""><span class="nome">Flávio Marcílio</span> <span class="periodoMandato">1983 - 1985</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/NelsonMarchezan.jpg" title="NelsonMarchezan" height="60" width="50" alt="NelsonMarchezan" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/73906/biografia" target="_blank" title=""><span class="nome">Nelson Marchezan</span> <span class="periodoMandato">1981 - 1983</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/FlavioMarcilio.jpg" title="" height="60" width="50" alt="FlavioMarcilio" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/139203/biografia" target="_blank" title=""><span class="nome">Flávio Marcílio</span> <span class="periodoMandato">1979 - 1981</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MarcoMaciel.jpg" title="MarcoMaciel" height="60" width="50" alt="MarcoMaciel" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/2286/biografia" target="_blank" title=""><span class="nome">Marco Maciel</span> <span class="periodoMandato">1977 - 1979</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/CelioBorja.jpg" title="CelioBorja" height="60" width="50" alt="CelioBorja" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131672/biografia" target="_blank" title=""><span class="nome">Célio Borja</span> <span class="periodoMandato">1975 - 1977</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/FlavioMarcilio.jpg" title="" height="60" width="50" alt="FlavioMarcilio" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/139203/biografia" target="_blank" title=""><span class="nome">Flávio Marcílio</span> <span class="periodoMandato">1973 - 1975</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/PereiraLopes.jpg" title="PereiraLopes" height="60" width="50" alt="PereiraLopes" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131496/biografia" target="_blank" title=""><span class="nome">Pereira Lopes</span> <span class="periodoMandato">1971 - 1973</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/GeraldoFreire.jpg" title="GeraldoFreire" height="60" width="50" alt="GeraldoFreire" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131546/biografia" target="_blank" title=""><span class="nome">Geraldo Freire</span> <span class="periodoMandato">1970 - 1971</span></a></div>
+<div class="exPresidente" style="text-align: left; "><a class="external-link" href="https://www.camara.leg.br/deputados/131567/biografia" target="_blank" title=""><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/JoseBonifacio.jpg" title="JoseBonifacio" height="60" width="50" alt="JoseBonifacio" class="image-inline" /> <span class="nome">José Bonifácio</span> <span class="periodoMandato">1968 - 1970</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/BaptistaRamos.jpg" title="BaptistaRamos" height="60" width="50" alt="BaptistaRamos" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131430/biografia" target="_blank" title=""><span class="nome">Baptista Ramos</span> <span class="periodoMandato">1966 - 1968</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/AdauctoCardoso.jpg" title="AdauctoCardoso" height="60" width="50" alt="AdauctoCardoso" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131149/biografia" target="_blank" title=""><span class="nome">Adaucto Cardoso</span> <span class="periodoMandato">1966</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/BilacPinto.jpg" title="Bilac Pinto" height="60" width="50" alt="Bilac Pinto" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131085/biografia" target="_blank" title=""><span class="nome">Bilac Pinto</span> <span class="periodoMandato">1965 - 1966</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/RanieriMazzilli.jpg" title="Ranieri Mazzilli" height="60" width="50" alt="Ranieri Mazzilli" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131093/biografia" target="_blank" title=""><span class="nome">Ranieri Mazzilli</span> <span class="periodoMandato">1958 - 1965</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/UlyssesGuimaraes2.jpg" title="Ulysses Guimarães" height="60" width="50" alt="Ulysses Guimarães" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/133850/biografia" target="_blank" title=""><span class="nome">Ullysses Guimarães</span> 1956 - 1958</a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/FloresDaCunha.jpg" title="Flores da Cunha" height="60" width="50" alt="Flores da Cunha" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/130616/biografia" target="_blank" title=""><span class="nome">Flores da Cunha</span> <span class="periodoMandato">1955</span> - 1956</a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/CarlosLuz.jpg" title="Carlos Luz" height="60" width="50" alt="Carlos Luz" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/130731/biografia" target="_blank" title=""><span class="nome">Carlos Luz</span> 1955</a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/NereuRamos.jpg" title="Nereu Ramos" height="60" width="50" alt="Nereu Ramos" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/130480/biografia" target="_blank" title=""><span class="nome">Nereu Ramos</span> <span class="periodoMandato">1951 - 195</span>5</a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/CiriloJunior.jpg" title="Cirilo Júnior" height="60" width="50" alt="Cirilo Júnior" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/130421/biografia" target="_blank" title=""><span class="nome">Cirilo Júnior</span> <span class="periodoMandato">1949 - 195</span>1</a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/SamuelDuarte.jpg" title="Samuel Duarte" height="60" width="50" alt="Samuel Duarte" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/130492" target="_blank" title=""><span class="nome">Samuel Duarte</span> <span class="periodoMandato">1947 - 194</span>9</a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/HonorioMonteiro.jpg" title="Honório Monteiro" height="60" width="50" alt="Honório Monteiro" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/3055" target="_blank" title=""><span class="nome">Honório Monteiro</span> <span class="periodoMandato">1946 - 1947</span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="periodoMandato"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/congresso.png/@@images/be5e84fc-b893-44fa-8942-5f9b284fccfd.png" title="logo_congresso" height="50" width="50" alt="logo congresso nacional" class="image-inline" /> <a class="external-link" href="http://www.camara.leg.br/noticias/545319-parlamento-brasileiro-foi-fechado-ou-dissolvido-18-vezes/" target="_blank" title="">Congresso fechado em 1937</a></span></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/PedroAleixo.jpg" title="Pedro Aleixo" height="60" width="50" alt="Pedro Aleixo" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/131102" target="_blank" title=""><span class="nome">Pedro Aleixo</span> <span class="periodoMandato">1937</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/AntonioCarlos.jpg" title="Antônio Carlos Ribeiro de Andrada" height="60" width="50" alt="Antônio Carlos Ribeiro de Andrada" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/4671" target="_blank" title=""><span class="nome">Antônio Carlos</span> <span class="periodoMandato">1934 - 1937</span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="periodoMandato"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/congresso.png/@@images/be5e84fc-b893-44fa-8942-5f9b284fccfd.png" title="logo_congresso" height="50" width="50" alt="logo congresso nacional" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/noticias/545319-parlamento-brasileiro-foi-fechado-ou-dissolvido-18-vezes/" target="_blank" title="">Congresso fechado em 1930</a></span></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/RegoBarros.jpg" title="Rego Barros" height="60" width="50" alt="Rego Barros" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/2557" target="_blank" title=""><span class="nome">Rego Barros</span> <span class="periodoMandato">1927 - 1930</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/ArnolfoAzevedo.jpg" title="Arnolfo Azevedo" height="60" width="50" alt="Arnolfo Azevedo" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/2179" target="_blank" title=""><span class="nome">Arnolfo Azevedo</span> <span class="periodoMandato">1921 </span><span class="periodoMandato">- 1926</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/BuenoBrandao.jpg" title="Bueno Brandão" height="60" width="50" alt="Bueno Brandão" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/4280" target="_blank" title=""><span class="nome">Bueno Brandão</span> <span class="periodoMandato">1920 - 1921</span></a></div>
+<div class="exPresidente" style="text-align: left; "><span class="periodoMandato"><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/AstolfoDutra.jpg" title="Astolfo Dutra" height="60" width="50" alt="Astolfo Dutra" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/2136" target="_blank" title=""><span class="nome">Astolfo Dutra</span> <span class="periodoMandato">1919 - 1920</span></a></span></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/AstolfoDutra.jpg" title="Astolfo Dutra" height="60" width="50" alt="Astolfo Dutra" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/2136" target="_blank" title=""><span class="nome">Astolfo Dutra</span> <span class="periodoMandato">1914 - 1917</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/SabinoBarroso.jpg" title="Sabino Barroso" height="60" width="50" alt="Sabino Barroso" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/2056" target="_blank" title=""><span class="nome">Sabino Barroso</span> <span class="periodoMandato">1909 - 191</span>4</a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/CarlosPeixotoFilho.jpg" title="Carlos Peixoto Filho" height="60" width="50" alt="Carlos Peixoto Filho" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/2140" target="_blank" title=""><span class="nome">Carlos Peixoto Filho</span> <span class="periodoMandato">1907 - 1909</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/PaulaGuimaraes.jpg" title="Francisco de Paula Guimarães" height="60" width="50" alt="Francisco de Paula Guimarães" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/3668" target="_blank" title=""><span class="nome">Paula Guimarães</span> <span class="periodoMandato">1903 - 1907</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/VazDeMelo.jpg" title="Vaz de Melo" height="60" width="50" alt="Vaz de Melo" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/130109" target="_blank" title=""><span class="nome">Vaz de Melo</span> <span class="periodoMandato">1899 - 1903</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/ArthurRios.jpg" title="Arthur Rios" height="60" width="50" alt="Arthur Rios" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/1614" target="_blank" title=""><span class="nome">Arthur Rios</span> <span class="periodoMandato">1896 - 1898</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/RosaeSilva.jpg" title="Rosa e Silva" height="60" width="50" alt="Rosa e Silva" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/3966" target="_blank" title=""><span class="nome">Rosa e Silva</span> <span class="periodoMandato">1894 - 1896</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/JoaoLopes.jpg" title="João Lopes" height="60" width="50" alt="João Lopes" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/3537" target="_blank" title=""><span class="nome">João Lopes</span> <span class="periodoMandato">1892 - 1894</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/BernardinoDeCampos.jpg" title="Bernardino de Campos" height="60" width="50" alt="Bernardino de Campos" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/130131" target="_blank" title=""><span class="nome">Bernardino de Campos </span><span class="periodoMandato">1891 - 1892</span></a></div>
+<div class="exPresidente" style="text-align: left; "><img src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/imagens/MataMachado.jpg" title="Mata Machado" height="60" width="50" alt="Mata Machado" class="image-inline" /> <a class="external-link" href="https://www.camara.leg.br/deputados/1577" target="_blank" title=""><span class="nome">Mata Machado</span> <span class="periodoMandato">1891</span></a></div>
+<div class="exPresidente" style="text-align: left; "></div>
+<div class="exPresidente" style="text-align: left; "><span class="periodoMandato"><img src="https://www2.camara.leg.br/atividade-legislativa/legislacao/Constituicoes_Brasileiras/constituicao-cidada/constituicao-federal/imagens-das-constituicoes/1891A.jpg" title="1891A" height="60" width="50" alt="Capa Constituição 1891" class="image-inline" /> <a title="" href="https://www2.camara.leg.br/a-camara/atividade-legislativa/legislacao/Constituicoes_Brasileiras/constituicao-cidada/anteriores.html#:~:text=constituicao%20de%201891" class="external-link" target="_blank">Promulgação da Constituição - 1891</a></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+            
+        </div>
+    
+        
+    
+                    </div>
+                    <div id="viewlet-below-content-body">
+</div>
+
+                  
+                </div>
+              
+
+              
+            </div>
+          
+
+          <div id="viewlet-below-content">
+
+
+
+
+
+</div>
+        </div>
+      </div>
+        <div id="portal-column-two" class="column-two col-md-12 col-lg-2">
+          <div id="portal-column-two">
+            <div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706f7274616c2f43616d6172612f612d63616d6172610a706f72746c65742d62616e6e6572732d6469726569746f" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f706f7274616c2f43616d6172612f612d63616d6172610a706f72746c65742d62616e6e6572732d6469726569746f"><!-- Banner/Destaque -->
+<div>
+
+  
+  <div class="portlet-destaques-1">
+
+    <h5 class="header">Destaques</h5>
+    <ul>
+      
+        
+      
+      <li class="destaque ">
+        
+          <a class="clearedBox" target="_self" href="https://www2.camara.leg.br/a-camara/estruturaadm/mesa/presidencia">
+            <img alt="" src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/destaques/presidencia-atual/imagem_tile" />
+            <span>Presidência</span>
+          </a>
+          
+        
+      </li>
+      
+      
+      
+      
+        
+      
+      <li class="destaque ">
+        
+          <a class="clearedBox" target="_self" href="https://www2.camara.leg.br/a-camara/presidencia/mesa-diretora/mesa-diretora">
+            <img alt="" src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/destaques/mesa-diretora/imagem_tile" />
+            <span>Mesa Diretora</span>
+          </a>
+          
+        
+      </li>
+      
+      
+      
+      
+        
+      
+      <li class="destaque ultima-linha">
+        
+          <a class="clearedBox" target="_self" href="https://www2.camara.leg.br/a-camara/conheca/historia-e-arquivo">
+            <img alt="" src="https://www2.camara.leg.br/a-camara/conheca/historia/presidentes/destaques/historia-da-camara/imagem_tile" />
+            <span>História da Câmara</span>
+          </a>
+          
+        
+      </li>
+      
+      
+      
+    </ul>
+  </div>
+  
+
+  
+
+  
+</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <footer role="contentinfo" class="rodape-portal">
+        <!-- Coloque aqui o endere&#231;o e demais informa&#231;&#245;es de assinatura -->
+        <address class="rodape-portal-info">
+          <div class="container">
+            <div class="rodape-portal-info__nome">
+              <p>
+                <strong id="legislaturaRodape">57ª Legislatura - 4ª Sessão Legislativa Ordinária</strong>
+              </p>
+            </div>
+
+            <div class="l-rodape-info">
+              <div class="l-rodape-info__local rodape-portal-info__texto">
+                <span class="rodape-info">Câmara dos Deputados - Palácio do Congresso Nacional - Praça
+                  dos Três Poderes</span>
+                <span class="rodape-info">Brasília - DF - Brasil - CEP 70160-900</span>
+                <span class="rodape-info"><span class="rodape-info__destaque">CNPJ:</span>
+                  00.530.352/0001-59</span>
+              </div>
+
+              <div class="l-rodape-info__telefones rodape-portal-info__texto">
+                <ul class="list-unstyled" aria-label="Número para contato e horário de atendimento">
+                  <li>
+                    <span class="rodape-info__destaque">Disque-Câmara:</span>
+                    <a href="tel:0800-0-619-619">0800-0-619-619</a>, das 8h às
+                    20h
+                  </li>
+                  <li>
+                    <span class="rodape-info__destaque">Atendimento por WhatsApp:</span>
+                    <a href="https://wa.me//556132160000?text">(61) 3216-0000</a>, das 8h às 19h
+                  </li>
+                  <li>
+                    <span class="rodape-info__destaque">Atendimento presencial:</span>
+                    das 9h às 19h
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="acesso-provedor text-right">
+              <a title="Autenticar-se no site" href="/login_form">
+                <i class="fas fa-lock" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </address>
+        <!-- Coloque aqui a lista de redes sociais da C&#226;mara -->
+        <div class="rodape-portal-links rodape-portal-links--redes-sociais">
+          <div class="container">
+            <ul class="rodape-portal-links__lista" aria-label="Câmara nas redes sociais">
+              <li class="rodape-portal-links__item">
+                <a href="https://whatsapp.com/channel/0029Va2fexI3gvWgfMs6Fv31" class="rodape-portal-links__link">
+                  <span class="g-social-icon-outline g-social-icon-outline--whatsapp" aria-hidden="true"></span>
+                  <span class="sr-only">Whatsapp</span>
+                </a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://t.me/CamaradosDeputados" class="rodape-portal-links__link">
+                  <span class="g-social-icon-outline g-social-icon-outline--telegram" aria-hidden="true"></span>
+                  <span class="sr-only">Telegram</span>
+                </a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://www.facebook.com/camaradeputados" class="rodape-portal-links__link">
+                  <span class="g-social-icon-outline g-social-icon-outline--facebook" aria-hidden="true"></span>
+                  <span class="sr-only">Facebook</span>
+                </a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://twitter.com/camaradeputados" class="rodape-portal-links__link">
+                  <span class="g-social-icon-outline g-social-icon-outline--twitter" aria-hidden="true"></span>
+                  <span class="sr-only">X</span>
+                </a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://www.youtube.com/channel/UC-ZkSRh-7UEuwXJQ9UMCFJA" class="rodape-portal-links__link">
+                  <span class="g-social-icon-outline g-social-icon-outline--youtube" aria-hidden="true"></span>
+                  <span class="sr-only">Youtube</span>
+                </a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://tiktok.com/@camaradosdeputados" class="rodape-portal-links__link">
+                  <span class="g-social-icon-outline g-social-icon-outline--tiktok" aria-hidden="true"></span>
+                  <span class="sr-only">Tiktok</span>
+                </a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://www.instagram.com/camaradeputados" class="rodape-portal-links__link">
+                  <span class="g-social-icon-outline g-social-icon-outline--instagram" aria-hidden="true"></span>
+                  <span class="sr-only">Instagram</span>
+                </a>
+              </li>
+              <li class="rodape-portal-links__item">
+                  <a href="https://www.threads.com/@camaradosdeputados" class="rodape-portal-links__link">
+                      <span class="g-social-icon-outline g-social-icon-outline--threads" aria-hidden="true"></span>
+                      <span class="sr-only">Threads</span>
+                  </a>
+              </li>
+              <li class="rodape-portal-links__item">
+                  <a href="https://bsky.app/profile/camara.leg.br" class="rodape-portal-links__link">
+                      <span class="g-social-icon-outline g-social-icon-outline--bluesky" aria-hidden="true"></span>
+                      <span class="sr-only">Bluesky</span>
+                  </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Coloque aqui a lista de links de apoio do rodap&#233; -->
+        <div class="rodape-portal-links rodape-portal-links--apoio">
+          <div class="container">
+            <ul class="rodape-portal-links__lista" aria-label="Links de apoio">
+              <li class="rodape-portal-links__item">
+                <a href="https://www2.camara.leg.br/sobre-o-portal" class="rodape-portal-links__link">Sobre o portal</a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://www2.camara.leg.br/termo-de-uso-e-politica-de-privacidade" class="rodape-portal-links__link">Termos de uso</a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://www2.camara.leg.br/aplicativos/" class="rodape-portal-links__link">Aplicativos</a>
+              </li>
+
+              <li class="rodape-portal-links__item">
+                <a href="https://www.camara.leg.br/extranet" class="rodape-portal-links__link">Extranet</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+      <div class="barra-carregando" style="display: none">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Carregando</h5>
+            </div>
+            <div class="modal-body">
+              <p>Por favor, aguarde.</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                  <span class="sr-only"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></body>
+</html>

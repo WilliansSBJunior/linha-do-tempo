@@ -1,4 +1,4 @@
-# Coleta oficial — 2026-10-17 16:04 UTC
+# Coleta oficial — 2026-10-17 21:31 UTC
 
 Pessoas com mandato no banco: 111
 
@@ -29,14 +29,14 @@ camara Duarte Nogueira: ok (exato, 3 legislaturas, histórico ok)
 camara Eduardo Bolsonaro: ok (exato, 6 legislaturas, histórico ok)
 camara Eduardo Cunha: ok (exato, 7 legislaturas, histórico ok)
 camara Efraim Morais: ok (exato, 2 legislaturas, histórico ok)
-camara Enéas Carneiro: NÃO encontrado (nenhum)
+camara Enéas Carneiro: ok (exato, 3 legislaturas, histórico ok)
 camara Enio Verri: ok (exato, 3 legislaturas, histórico ok)
 camara Geddel Vieira Lima: ok (exato, 4 legislaturas, histórico ok)
 camara Henrique Eduardo Alves: ok (exato, 5 legislaturas, histórico ok)
 camara Henrique Fontana: ok (exato, 6 legislaturas, histórico ok)
 camara Hugo Motta: ok (exato, 6 legislaturas, histórico ok)
 camara Inocêncio Oliveira: ok (exato, 8 legislaturas, histórico ok)
-camara João Maia: NÃO encontrado (ambiguo:2)
+camara João Maia: ok (exato+desempate, 1 legislaturas, histórico ok)
 camara João Paulo Cunha: ok (exato, 3 legislaturas, histórico ok)
 camara Joice Hasselmann: ok (exato, 3 legislaturas, histórico ok)
 camara José Carlos Aleluia: ok (exato, 6 legislaturas, histórico ok)
@@ -49,8 +49,8 @@ camara Jovair Arantes: ok (exato, 7 legislaturas, histórico ok)
 camara Jutahy Júnior: ok (exato, 5 legislaturas, histórico ok)
 camara Leonardo Picciani: ok (exato, 6 legislaturas, histórico ok)
 camara Lindbergh Farias: ok (exato, 1 legislaturas, histórico ok)
-camara Luís Carlos Santos: NÃO encontrado (nenhum)
-camara Luís Eduardo Magalhães: NÃO encontrado (nenhum)
+camara Luís Carlos Santos: ok (exato, 2 legislaturas, histórico ok)
+camara Luís Eduardo Magalhães: ok (exato, 1 legislaturas, histórico ok)
 camara Luiz Sérgio: ok (exato, 5 legislaturas, histórico ok)
 camara Major Vitor Hugo: ok (exato, 3 legislaturas, histórico ok)
 camara Marco Maia: ok (exato, 5 legislaturas, histórico ok)
@@ -121,10 +121,10 @@ senado Rodrigo Pacheco: ok (exato, 2 legislaturas)
 senado Romero Jucá: ok (exato, 6 legislaturas)
 senado Tasso Jereissati: ok (exato, 4 legislaturas)
 senado Tião Viana: ok (exato, 4 legislaturas)
-pagina presidentes_republica: erro: redireciona para login (acl_users/credentials_cookie_auth) — página não pública
-pagina vice_presidentes: erro: HTTP 404
-pagina presidentes_camara: erro: HTTP 404
-pagina presidentes_senado: erro: HTTP 404
+pagina presidentes_republica: indisponivel (não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404)
+pagina vice_presidentes: indisponivel (não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também)
+pagina presidentes_camara: ok
+pagina presidentes_senado: ok
 
 ## Como esta coleta foi feita (2026-10-17)
 
@@ -141,3 +141,12 @@ foi executado lendo só do cache. Resultado idêntico ao de uma execução diret
   resolver com aliases no banco e nova rodada, nada foi inventado.
 - Páginas oficiais da Presidência/presidências das Casas: as 4 URLs do script estão fora do ar
   (404) ou exigem login; nenhuma evidência gravada. Pendência: localizar as páginas oficiais atuais.
+
+## Segunda rodada (2026-10-17): aliases e páginas das presidências das Casas
+
+Sem rede: tudo veio do cache (`coletar_mandatos.py --so-cache`; cache hit conta como status "ok", como numa execução direta).
+
+- Aliases de grafia (curadoria `data/curadoria/entidade-aliases.json`, aplicados pela migração): "Enéas" (API: ENÉAS, id 74269), "Luís Eduardo" (LUÍS EDUARDO, id 74630) e "Luiz Carlos Santos" (LUIZ CARLOS SANTOS, id 73546). As buscas por esses nomes nas 8 legislaturas e os históricos dos 4 ids estavam no cache. A busca passa a tentar cada nome (nome do banco e aliases) até casar, e o homônimo de "João Maia" foi desempatado pela UF (AC) e pelas legislaturas que tocam os anos da pessoa. Os 4 deputados passam a "ok".
+- Páginas novas: Câmara, https://www2.camara.leg.br/a-camara/conheca/historia/presidentes ("Presidentes da Câmara dos Deputados — Portal da Câmara dos Deputados"); Senado, https://www25.senado.leg.br/web/senadores/nova-republica ("Nova República - Senado Federal"). HTML bruto no cache; `presidencia.json` guarda título, tamanho e sha256 do HTML.
+- Presidente da República e vice-presidentes: sem página pública (galeria do Planalto redireciona para login, Biblioteca da Presidência em manutenção, variantes de URL dão 404). `presidencia.json` documenta a tentativa (status "indisponivel", com o motivo) sem baixar nada.
+- Os três JSONs desta pasta foram regerados por esta coleta própria (não são cópia de fonte externa); os hashes em `data/raw/hashes.txt` foram atualizados.

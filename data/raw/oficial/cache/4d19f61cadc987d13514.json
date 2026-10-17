@@ -1,0 +1,40 @@
+{
+ "dados": [
+  {
+   "id": 74269,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+   "nome": "ENÉAS",
+   "siglaPartido": "PRONA",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+   "siglaUf": "SP",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+   "email": null
+  },
+  {
+   "id": 74269,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+   "nome": "ENÉAS",
+   "siglaPartido": "PR",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+   "siglaUf": "SP",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=52&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=52&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

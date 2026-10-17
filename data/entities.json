@@ -5051,7 +5051,9 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": [],
+   "aliases": [
+    "Enéas"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -5840,7 +5842,9 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": [],
+   "aliases": [
+    "Luiz Carlos Santos"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -5858,7 +5862,9 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": [],
+   "aliases": [
+    "Luís Eduardo"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -7638,6 +7644,7 @@
   "eletrobras": "eletrobras",
   "eliziane gama": "eliziane-gama",
   "embratel": "embratel",
+  "eneas": "eneas-carneiro",
   "eneas carneiro": "eneas-carneiro",
   "enio verri": "enio-verri",
   "enrique de abreu lewandowski": "enrique-de-abreu-lewandowski",
@@ -7759,9 +7766,11 @@
   "lindbergh farias": "lindbergh-farias",
   "luciano huck": "luciano-huck",
   "luis carlos santos": "luis-carlos-santos",
+  "luis eduardo": "luis-eduardo-magalhaes",
   "luis eduardo magalhaes": "luis-eduardo-magalhaes",
   "luis roberto irmao de paulo sergio neves de souza": "luis-roberto-irmao-de-paulo-sergio-neves-de-souza",
   "luiz bacci": "luiz-bacci",
+  "luiz carlos santos": "luis-carlos-santos",
   "luiz estevao": "luiz-estevao",
   "luiz fux": "luiz-fux",
   "luiz inacio lula da silva": "luiz-inacio-lula-da-silva",

@@ -1,6 +1,6 @@
 {
  "fonte": "https://dadosabertos.camara.leg.br/api/v2",
- "coletado_em": "2026-10-17T16:04:21Z",
+ "coletado_em": "2026-10-17T21:31:28Z",
  "legislaturas": {
   "50": {
    "dataInicio": "1995-02-01",
@@ -6444,58 +6444,222 @@
      "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 50,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 51,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 52,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 53,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 54,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 55,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 56,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Enéas Carneiro",
+     "nome": "Enéas",
      "legislatura": 57,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
     }
    ],
-   "deputado": null,
-   "mandatos": [],
-   "historico_url": null,
-   "status": "nao_encontrado:nenhum"
+   "deputado": {
+    "id": 74269,
+    "nome": "ENÉAS",
+    "match": "exato",
+    "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269"
+   },
+   "mandatos": [
+    {
+     "legislatura": 52,
+     "siglaPartido": "PRONA",
+     "siglaUf": "SP",
+     "dataInicio": "2003-02-01",
+     "dataFim": "2007-01-31",
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "url_lista": "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=52&nome=EN%C3%89AS"
+    },
+    {
+     "legislatura": 52,
+     "siglaPartido": "PR",
+     "siglaUf": "SP",
+     "dataInicio": "2003-02-01",
+     "dataFim": "2007-01-31",
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "url_lista": "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=52&nome=EN%C3%89AS"
+    },
+    {
+     "legislatura": 53,
+     "siglaPartido": "PR",
+     "siglaUf": "SP",
+     "dataInicio": "2007-02-01",
+     "dataFim": "2011-01-31",
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "url_lista": "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=53&nome=EN%C3%89AS"
+    }
+   ],
+   "historico_url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269/historico",
+   "status": "ok",
+   "historico": [
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PR",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+     "siglaUf": "SP",
+     "idLegislatura": 53,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2007-01-25T00:00",
+     "situacao": "VACANCIA",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Alteração de partido"
+    },
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PR",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+     "siglaUf": "SP",
+     "idLegislatura": 53,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2007-02-01T00:00",
+     "situacao": "Exercício",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Entrada - Posse de Eleito Titular - Posse na Sessão Preparatória"
+    },
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PR",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+     "siglaUf": "SP",
+     "idLegislatura": 53,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2007-05-06T00:00",
+     "situacao": "VACANCIA",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Saída - Afastamento definitivo - Falecimento"
+    },
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PR",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+     "siglaUf": "SP",
+     "idLegislatura": 53,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    },
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PRONA",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36823",
+     "siglaUf": "SP",
+     "idLegislatura": 52,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2003-02-01T00:00",
+     "situacao": "Exercício",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Entrada - Posse de Eleito Titular - Posse na Sessão Preparatória"
+    },
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PR",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+     "siglaUf": "SP",
+     "idLegislatura": 52,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2007-01-25T00:00",
+     "situacao": "Exercício",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Alteração de partido"
+    },
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PR",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+     "siglaUf": "SP",
+     "idLegislatura": 52,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2007-01-31T00:00",
+     "situacao": "FIM_MANDATO",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Saída - Afastamento definitivo - Término da Legislatura"
+    },
+    {
+     "id": 74269,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74269",
+     "nome": "ENÉAS",
+     "nomeEleitoral": "ENÉAS",
+     "siglaPartido": "PR",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+     "siglaUf": "SP",
+     "idLegislatura": 52,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74269.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    }
+   ],
+   "historico_status": "ok"
   },
   "enio-verri": {
    "id_entidade": "enio-verri",
@@ -8648,10 +8812,76 @@
      "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Maia&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
     }
    ],
-   "deputado": null,
-   "mandatos": [],
-   "historico_url": null,
-   "status": "nao_encontrado:ambiguo:2"
+   "deputado": {
+    "id": 74182,
+    "nome": "JOÃO MAIA",
+    "match": "exato+desempate",
+    "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182"
+   },
+   "mandatos": [
+    {
+     "legislatura": 50,
+     "siglaPartido": "PP***",
+     "siglaUf": "AC",
+     "dataInicio": "1995-02-01",
+     "dataFim": "1999-01-31",
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182",
+     "url_lista": "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=50&nome=JO%C3%83O%20MAIA"
+    }
+   ],
+   "historico_url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182/historico",
+   "status": "ok",
+   "historico": [
+    {
+     "id": 74182,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182",
+     "nome": "JOÃO MAIA",
+     "nomeEleitoral": "JOÃO MAIA",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "AC",
+     "idLegislatura": 50,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74182.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    },
+    {
+     "id": 74182,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182",
+     "nome": "JOÃO MAIA",
+     "nomeEleitoral": "JOÃO MAIA",
+     "siglaPartido": "PMDB",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36800",
+     "siglaUf": "AC",
+     "idLegislatura": 49,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74182.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    },
+    {
+     "id": 74182,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182",
+     "nome": "JOÃO MAIA",
+     "nomeEleitoral": "JOÃO MAIA",
+     "siglaPartido": "PMDB",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36800",
+     "siglaUf": "AC",
+     "idLegislatura": 48,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74182.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    }
+   ],
+   "historico_status": "ok"
   },
   "joao-paulo-cunha": {
    "id_entidade": "joao-paulo-cunha",
@@ -12479,58 +12709,165 @@
      "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 50,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 51,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 52,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 53,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 54,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 55,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 56,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Carlos Santos",
+     "nome": "Luiz Carlos Santos",
      "legislatura": 57,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20Carlos%20Santos&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
     }
    ],
-   "deputado": null,
-   "mandatos": [],
-   "historico_url": null,
-   "status": "nao_encontrado:nenhum"
+   "deputado": {
+    "id": 73546,
+    "nome": "LUIZ CARLOS SANTOS",
+    "match": "exato",
+    "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546"
+   },
+   "mandatos": [
+    {
+     "legislatura": 50,
+     "siglaPartido": "PMDB",
+     "siglaUf": "SP",
+     "dataInicio": "1995-02-01",
+     "dataFim": "1999-01-31",
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546",
+     "url_lista": "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=50&nome=LUIZ%20CARLOS%20SANTOS"
+    },
+    {
+     "legislatura": 52,
+     "siglaPartido": "PFL",
+     "siglaUf": "SP",
+     "dataInicio": "2003-02-01",
+     "dataFim": "2007-01-31",
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546",
+     "url_lista": "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=52&nome=LUIZ%20CARLOS%20SANTOS"
+    }
+   ],
+   "historico_url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546/historico",
+   "status": "ok",
+   "historico": [
+    {
+     "id": 73546,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546",
+     "nome": "LUIZ CARLOS SANTOS",
+     "nomeEleitoral": "LUIZ CARLOS SANTOS",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "SP",
+     "idLegislatura": 52,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73546.jpg",
+     "dataHora": "2003-02-01T00:00",
+     "situacao": "Exercício",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Entrada - Posse de Eleito Titular - Posse na Sessão Preparatória"
+    },
+    {
+     "id": 73546,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546",
+     "nome": "LUIZ CARLOS SANTOS",
+     "nomeEleitoral": "LUIZ CARLOS SANTOS",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "SP",
+     "idLegislatura": 52,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73546.jpg",
+     "dataHora": "2007-01-31T00:00",
+     "situacao": "FIM_MANDATO",
+     "condicaoEleitoral": "Titular",
+     "descricaoStatus": "Saída - Afastamento definitivo - Término da Legislatura"
+    },
+    {
+     "id": 73546,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546",
+     "nome": "LUIZ CARLOS SANTOS",
+     "nomeEleitoral": "LUIZ CARLOS SANTOS",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "SP",
+     "idLegislatura": 52,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73546.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    },
+    {
+     "id": 73546,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546",
+     "nome": "LUIZ CARLOS SANTOS",
+     "nomeEleitoral": "LUIZ CARLOS SANTOS",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "SP",
+     "idLegislatura": 50,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73546.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    },
+    {
+     "id": 73546,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73546",
+     "nome": "LUIZ CARLOS SANTOS",
+     "nomeEleitoral": "LUIZ CARLOS SANTOS",
+     "siglaPartido": "PMDB",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36800",
+     "siglaUf": "SP",
+     "idLegislatura": 49,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73546.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    }
+   ],
+   "historico_status": "ok"
   },
   "luis-eduardo-magalhaes": {
    "id_entidade": "luis-eduardo-magalhaes",
@@ -12585,58 +12922,124 @@
      "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 50,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 51,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 52,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 53,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 54,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 55,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 56,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
     },
     {
-     "nome": "Luís Eduardo Magalhães",
+     "nome": "Luís Eduardo",
      "legislatura": 57,
      "status": "ok",
-     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
     }
    ],
-   "deputado": null,
-   "mandatos": [],
-   "historico_url": null,
-   "status": "nao_encontrado:nenhum"
+   "deputado": {
+    "id": 74630,
+    "nome": "LUÍS EDUARDO",
+    "match": "exato",
+    "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74630"
+   },
+   "mandatos": [
+    {
+     "legislatura": 50,
+     "siglaPartido": "PFL",
+     "siglaUf": "BA",
+     "dataInicio": "1995-02-01",
+     "dataFim": "1999-01-31",
+     "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74630",
+     "url_lista": "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=50&nome=LU%C3%8DS%20EDUARDO"
+    }
+   ],
+   "historico_url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74630/historico",
+   "status": "ok",
+   "historico": [
+    {
+     "id": 74630,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74630",
+     "nome": "LUÍS EDUARDO",
+     "nomeEleitoral": "LUÍS EDUARDO",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "BA",
+     "idLegislatura": 50,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74630.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    },
+    {
+     "id": 74630,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74630",
+     "nome": "LUÍS EDUARDO",
+     "nomeEleitoral": "LUÍS EDUARDO",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "BA",
+     "idLegislatura": 49,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74630.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    },
+    {
+     "id": 74630,
+     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74630",
+     "nome": "LUÍS EDUARDO",
+     "nomeEleitoral": "LUÍS EDUARDO",
+     "siglaPartido": "PFL",
+     "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+     "siglaUf": "BA",
+     "idLegislatura": 48,
+     "email": null,
+     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74630.jpg",
+     "dataHora": "2023-02-01T00:00",
+     "situacao": null,
+     "condicaoEleitoral": null,
+     "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+    }
+   ],
+   "historico_status": "ok"
   },
   "luiz-sergio": {
    "id_entidade": "luiz-sergio",

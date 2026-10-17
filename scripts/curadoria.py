@@ -4,12 +4,14 @@ migrar.py chama as funções `aplicar_*`; gerar_curadoria.py chama as funções 
 Só stdlib. Nada aqui edita o banco fora de migrar.py (que recria o banco do zero a cada execução).
 """
 import collections
+import hashlib
+import html
 import json
 import re
 import unicodedata
 from urllib.parse import unquote, urlsplit
 
-from comum import CURADORIA, DATA, RAW, TS_MIGRACAO, dominio_de, normalizar_url
+from comum import CURADORIA, DATA, RAW, ROOT, TS_MIGRACAO, dominio_de, normalizar_url
 from slug import alias_norm, sem_acento
 
 
@@ -476,6 +478,37 @@ def aplicar_ligacoes(con):
     return {"eventos": len(itens), "ligacoes": n, "ignorados": n_ign}
 
 
+# ======================================================================== 4b. aliases e correções de mandato escritos à mão
+def aplicar_aliases(con):
+    """data/curadoria/entidade-aliases.json: `[{"entidade_id","alias","motivo"}]`. Acrescenta `entidade_alias` (tipo 'grafia', origem 'curadoria');
+    nunca remove nem troca alias existente. Falha se a entidade não existe. -> {'aplicados': n, 'ja_existiam': n}"""
+    r = {"aplicados": 0, "ja_existiam": 0}
+    for a in ler_json("entidade-aliases.json", []):
+        if not con.execute("SELECT 1 FROM entidade WHERE id=?", (a["entidade_id"],)).fetchone():
+            raise SystemExit(f"entidade-aliases.json: entidade inexistente: {a['entidade_id']}")
+        n = alias_norm(a["alias"])
+        cur = con.execute("INSERT OR IGNORE INTO entidade_alias(alias,alias_norm,entidade_id,tipo_alias,origem) VALUES(?,?,?,'grafia','curadoria')",
+                          (a["alias"], n, a["entidade_id"]))
+        r["aplicados" if cur.rowcount else "ja_existiam"] += 1
+    return r
+
+
+def aplicar_mandato_correcoes(con):
+    """data/curadoria/mandato-correcoes.json (à mão): `[{"entidade_id","cargo","inicio","campo","de","para","motivo","fonte_url"}]`.
+    Troca `mandato.<campo>` de `de` para `para` na linha (entidade_id, cargo, inicio); falha se a linha não existe ou o valor atual não é `de`
+    (a correção ficou obsoleta ou o dado mudou). Roda depois da carga e antes de aplicar_mandato_oficial / gerar_relacoes_mandato."""
+    r = {"aplicadas": []}
+    for c in ler_json("mandato-correcoes.json", []):
+        if c["campo"] not in ("partido", "uf"):
+            raise SystemExit(f"mandato-correcoes.json: campo não permitido: {c['campo']}")
+        cur = con.execute(f"UPDATE mandato SET {c['campo']}=? WHERE entidade_id=? AND cargo=? AND inicio=? AND {c['campo']}=?",
+                          (c["para"], c["entidade_id"], c["cargo"], c["inicio"], c["de"]))
+        if cur.rowcount != 1:
+            raise SystemExit(f"mandato-correcoes.json: nenhuma linha {c['entidade_id']}/{c['cargo']}/{c['inicio']} com {c['campo']}={c['de']!r}")
+        r["aplicadas"].append(c)
+    return r
+
+
 # ======================================================================== 5. teia <-> timeline: mandato/bancada -> relações institucionais
 def _ano(s):
     return int(str(s)[:4])
@@ -708,12 +741,26 @@ def _lista(x):
     return x if isinstance(x, list) else ([] if x is None else [x])
 
 
-def _info_camara(rec):
-    """Dados oficiais de um deputado: url, título, {legislatura: {partido, uf}}, partidos/UFs vigentes num ano (pelo histórico)."""
+FALSO_INICIO = "Nome no início da legislatura"   # descricaoStatus das entradas "Nome no início da legislatura / Partido no início da legislatura"
+
+
+def _info_camara(rec, datas):
+    """Dados oficiais de um deputado: url, título, {legislatura: {partido, uf}}, partidos/UFs vigentes num ano (pelo histórico).
+    As entradas do histórico com descricaoStatus 'Nome no início da legislatura / Partido no início da legislatura' trazem uma dataHora falsa
+    (a da exportação, 2023): valem como 'partido no início da legislatura idLegislatura' e entram datadas no 1/fev desse mandato
+    (legislaturas fora de 50-57, sem data conhecida, são descartadas)."""
     dep = rec["deputado"]
     legs = {int(m["legislatura"]): {"partido": m.get("siglaPartido"), "uf": m.get("siglaUf")} for m in rec.get("mandatos", [])}
-    hist = sorted(((h["dataHora"], h.get("siglaPartido"), h.get("siglaUf")) for h in (rec.get("historico") or []) if h.get("dataHora")),
-                  key=lambda x: (x[0], x[1] or "", x[2] or ""))
+    pontos = []
+    for h in rec.get("historico") or []:
+        if (h.get("descricaoStatus") or "").startswith(FALSO_INICIO):
+            d = datas.get(int(h["idLegislatura"])) if h.get("idLegislatura") is not None else None
+            dh = d["dataInicio"] + "T00:00" if d else None
+        else:
+            dh = h.get("dataHora")
+        if dh:
+            pontos.append((dh, h.get("siglaPartido"), h.get("siglaUf")))
+    hist = sorted(pontos, key=lambda x: (x[0], x[1] or "", x[2] or ""))
 
     def no_ano(ano, col):
         vals = {h[col] for h in hist if h[0][:4] == str(ano) and h[col]}
@@ -725,7 +772,7 @@ def _info_camara(rec):
             "partidos_no_ano": lambda a: no_ano(a, 1), "ufs_no_ano": lambda a: no_ano(a, 2)}
 
 
-def _info_senado(rec):
+def _info_senado(rec, datas=None):
     sen = rec["senador"]
     legs = {int(l["legislatura"]): {"partido": l.get("partido"), "uf": l.get("uf")} for l in rec.get("legislaturas", [])}
     uf_mandato = {}
@@ -767,8 +814,73 @@ def _cmp(banco, oficial, historico, partido):
     return "divergente", True
 
 
+# Variantes de grafia do nome na página oficial (nome normalizado da página -> nome normalizado do banco).
+VARIANTES_NOME_PAGINA = {"tiao vianna": "tiao viana"}
+REGEX_ELEICAO = re.compile(r"eleit|votos|mais votad")   # sobre o `motivo` sem acento e em minúsculas
+
+
+def _nome_norm(s):
+    n = re.sub(r"[^a-z0-9]+", " ", sem_acento(s or "").lower()).strip()
+    return VARIANTES_NOME_PAGINA.get(n, n)
+
+
+def _nome_casa(a, b):
+    """Nome do banco e nome da página casam se um está contido no outro (por palavras): 'Luís Eduardo' ~ 'Luís Eduardo Magalhães'."""
+    ta, tb = set(_nome_norm(a).split()), set(_nome_norm(b).split())
+    return bool(ta and tb and (ta <= tb or tb <= ta))
+
+
+def _texto_html(h):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"(?s)<[^>]+>", " ", h)).replace("\xa0", " ")).strip()
+
+
+def _periodos_camara(htm):
+    """Página 'Presidentes da Câmara': cada presidente é um link com o texto 'Nome AAAA - AAAA', 'Nome AAAA' ou 'Nome - AAAA'."""
+    saida = []
+    for inner in re.findall(r"(?s)<a\b[^>]*>(.*?)</a>", htm):
+        t = _texto_html(inner)
+        m = re.fullmatch(r"(.+?) (\d{4}) ?- ?(\d{4})", t)
+        if m:
+            saida.append((m.group(1), int(m.group(2)), int(m.group(3))))
+            continue
+        m = re.fullmatch(r"(.+?) ?- ?(\d{4})", t) or re.fullmatch(r"(.+?) (\d{4})", t)
+        if m:
+            saida.append((m.group(1), int(m.group(2)), int(m.group(2))))
+    return sorted(set(saida), key=lambda x: (x[1], x[2], x[0]))
+
+
+def _periodos_senado(htm):
+    """Página 'Nova República' do Senado: <figcaption>AAAA - AAAA</figcaption> ... <p class="senador">Nome [*]</p>."""
+    saida = []
+    for m in re.finditer(r'(?s)<figcaption>\s*(\d{4})\s*-\s*(\d{4})\s*</figcaption>.*?<p class="senador">(.*?)</p>', htm):
+        saida.append((_texto_html(m.group(3)).replace("*", "").strip(), int(m.group(1)), int(m.group(2))))
+    return sorted(set(saida), key=lambda x: (x[1], x[2], x[0]))
+
+
+def _texto_periodo(ini, fim):
+    return str(ini) if ini == fim else f"{ini} - {fim}"
+
+
+def _carregar_paginas(pres):
+    """-> {cargo: {url, titulo, veiculo, entradas[(nome, ini, fim)]}} para presidente_camara / presidente_senado, só das páginas baixadas (status ok)."""
+    saida = {}
+    for chave, cargo, f in (("presidentes_camara", "presidente_camara", _periodos_camara), ("presidentes_senado", "presidente_senado", _periodos_senado)):
+        pg = pres["paginas"].get(chave) or {}
+        if pg.get("status") != "ok" or not pg.get("arquivo_cache"):
+            continue
+        txt = (ROOT / pg["arquivo_cache"]).read_text(encoding="utf-8")
+        if pg.get("sha256") and hashlib.sha256(txt.encode("utf-8")).hexdigest() != pg["sha256"]:
+            raise SystemExit(f"{pg['arquivo_cache']}: sha256 diferente do registrado em presidencia.json")
+        saida[cargo] = {"url": pg["url"], "titulo": pg["titulo"], "veiculo": urlsplit(pg["url"]).netloc, "entradas": f(txt)}
+    return saida
+
+
 def gerar_mandato_oficial(con):
-    """Casa as linhas de `mandato` com data/raw/oficial/{camara,senado}.json. Não altera o banco. -> dict (conteúdo de mandato-oficial.json)."""
+    """Casa as linhas de `mandato` com data/raw/oficial/{camara,senado,presidencia}.json. Não altera o banco. -> dict (conteúdo de mandato-oficial.json).
+    deputado/senador (destaque anual, inicio=fim=ano): confirmada se a pessoa consta na API em ALGUMA legislatura que toque o ano
+    (1/fev de N a 31/jan de N+4), `confirmacao: "legislatura"`; se não consta em nenhuma e o `motivo` fala de eleição, vale a legislatura que
+    começa em 1/fev do ano seguinte, `confirmacao: "eleicao"` (prova o mandato subsequente, não o exercício no ano da eleição).
+    presidente_camara/presidente_senado: nome e ano de `inicio` contra a página oficial da presidência da Casa, `confirmacao: "pagina"`."""
     cam = json.loads((OFICIAL / "camara.json").read_text(encoding="utf-8"))
     sen = json.loads((OFICIAL / "senado.json").read_text(encoding="utf-8"))
     pres = json.loads((OFICIAL / "presidencia.json").read_text(encoding="utf-8"))
@@ -776,19 +888,46 @@ def gerar_mandato_oficial(con):
     coletado = {"camara": cam["coletado_em"], "senado": sen["coletado_em"], "presidencia": pres["coletado_em"]}
     fontes = {"camara": (cam["deputados"], _info_camara, "dadosabertos.camara.leg.br"),
               "senado": (sen["senadores"], _info_senado, "legis.senado.leg.br")}
-    paginas_fora = sorted(k for k, v in pres["paginas"].items() if v.get("status") != "ok")
+    paginas = _carregar_paginas(pres)
+    indisponiveis = {k: v for k, v in sorted(pres["paginas"].items()) if v.get("status") != "ok"}
     out = {"gerado_de": ["data/raw/oficial/camara.json", "data/raw/oficial/senado.json", "data/raw/oficial/presidencia.json"],
            "coletado_em": coletado, "evidencias": [], "confirmacoes": [], "complementos": [], "divergencias": [], "sem_fonte": [],
            "nao_encontrados": []}
     evid, n_total, n_ev_previa = {}, 0, 0
-    for m in con.execute("SELECT id, entidade_id, cargo, partido, uf, inicio, evidencia_id FROM mandato ORDER BY entidade_id, cargo, inicio, id").fetchall():
+    q = """SELECT m.id, m.entidade_id, e.nome, m.cargo, m.partido, m.uf, m.inicio, m.motivo, m.evidencia_id
+           FROM mandato m JOIN entidade e ON e.id=m.entidade_id ORDER BY m.entidade_id, m.cargo, m.inicio, m.id"""
+    for m in con.execute(q).fetchall():
         n_total += 1
         chave = {"entidade_id": m["entidade_id"], "cargo": m["cargo"], "inicio": m["inicio"]}
+        ano = int(m["inicio"][:4])
         casa = CARGOS_OFICIAIS.get(m["cargo"])
+        if m["cargo"] in ("presidente_camara", "presidente_senado") and m["cargo"] in paginas:
+            pg = paginas[m["cargo"]]
+            mesmos = [e for e in pg["entradas"] if _nome_casa(m["nome"], e[0])]
+            cobre = [e for e in mesmos if e[1] <= ano <= e[2]]
+            if cobre:
+                nome_pg, ini, fim = cobre[0]
+                out["confirmacoes"].append({**chave, "casa": "camara" if m["cargo"] == "presidente_camara" else "senado", "confirmacao": "pagina",
+                                            "nome_pagina": nome_pg, "periodo": _texto_periodo(ini, fim), "url": pg["url"]})
+                if m["evidencia_id"]:
+                    n_ev_previa += 1
+                evid.setdefault(pg["url"], {"url": pg["url"], "veiculo": pg["veiculo"], "titulo": pg["titulo"], "tipo": "documento_oficial",
+                                            "acessado_em": coletado["presidencia"]})
+                continue
+            if mesmos:
+                out["divergencias"].append({**chave, "tipo": "pagina_periodo", "banco": m["inicio"],
+                                            "oficial": "; ".join(f"{e[0]} {_texto_periodo(e[1], e[2])}" for e in mesmos), "legislatura": None, "url": pg["url"],
+                                            "nota": f"a página lista a pessoa, mas nenhum período cobre {ano}"})
+            else:
+                out["divergencias"].append({**chave, "tipo": "pagina_pessoa", "banco": m["nome"], "oficial": None, "legislatura": None, "url": pg["url"],
+                                            "nota": f"nome não consta na página (presidentes listados de {pg['entradas'][0][1]} a {max(e[2] for e in pg['entradas'])})"})
+            continue
         if not casa:
-            motivo = ("páginas oficiais da Presidência/Casas fora do ar na coleta (" + ", ".join(paginas_fora) + ")"
-                      if m["cargo"] in ("presidente", "vice_presidente", "presidente_camara", "presidente_senado")
-                      else "cargo sem fonte oficial coletada")
+            if m["cargo"] in ("presidente", "vice_presidente", "presidente_camara", "presidente_senado"):
+                motivo = ("sem página oficial pública das presidências na coleta de " + pres["coletado_em"][:10] + ": "
+                          + "; ".join(f"{k} ({v.get('status')}" + (f": {v['motivo']}" if v.get("motivo") else "") + ")" for k, v in indisponiveis.items()))
+            else:
+                motivo = "cargo sem fonte oficial coletada"
             out["sem_fonte"].append({**chave, "motivo": motivo})
             continue
         recs, montar, dominio = fontes[casa]
@@ -803,36 +942,51 @@ def gerar_mandato_oficial(con):
             if not any(x["entidade_id"] == m["entidade_id"] and x["casa"] == casa for x in out["nao_encontrados"]):
                 out["nao_encontrados"].append({"entidade_id": m["entidade_id"], "casa": casa, "status": (rec or {}).get("status")})
             continue
-        info = montar(rec)
-        ano = int(m["inicio"][:4])
-        meio = f"{ano}-07-01"   # o ano pertence à legislatura que contém o meio do ano (fronteiras em 1/2 e 31/1)
-        cands = sorted(n for n in info["legs"] if legs_datas[n]["dataInicio"] <= meio <= legs_datas[n]["dataFim"])
-        if not cands:
-            out["divergencias"].append({**chave, "tipo": "ano_fora_das_legislaturas", "banco": m["inicio"],
-                                        "oficial": "legislaturas listadas: " + (", ".join(str(n) for n in sorted(info["legs"])) or "nenhuma"),
-                                        "legislatura": None, "url": info["url"],
-                                        "nota": f"o meio de {ano} não cai em nenhuma legislatura em que a API lista a pessoa"})
-            continue
-        leg = cands[0]
-        o = info["legs"][leg]
-        divs, confirm = [], {**chave, "casa": casa, "legislatura": leg, "url": info["url"]}
-        compl = []
-        for campo in ("partido", "uf"):
-            banco, oficial = m[campo], o[campo]
-            if banco is None:
-                if oficial is not None and not (campo == "partido" and _norm_partido(oficial) == "SEMPARTIDO"):
-                    compl.append({**chave, "campo": campo, "valor": oficial, "legislatura": leg, "url": info["url"]})
-                    confirm[campo] = {"banco": None, "oficial": oficial, "resultado": "complemento"}
-                else:
-                    confirm[campo] = {"banco": None, "oficial": oficial, "resultado": "nao_informado"}
+        info = montar(rec, legs_datas)
+        meio = f"{ano}-07-01"
+        # legislaturas em que a API lista a pessoa e que tocam algum dia do ano; a que contém 1/jul é comparada primeiro
+        tocam = sorted((n for n in info["legs"] if legs_datas[n]["dataInicio"] <= f"{ano}-12-31" and legs_datas[n]["dataFim"] >= f"{ano}-01-01"),
+                       key=lambda n: (not (legs_datas[n]["dataInicio"] <= meio <= legs_datas[n]["dataFim"]), n))
+        tipo_conf, complementar = "legislatura", True
+        if tocam:
+            cands = tocam
+        else:
+            prox = sorted(n for n in info["legs"] if legs_datas[n]["dataInicio"] == f"{ano + 1}-02-01")
+            if prox and REGEX_ELEICAO.search(sem_acento(m["motivo"] or "").lower()):
+                cands, tipo_conf, complementar = prox[:1], "eleicao", False
+            else:
+                extra = (f"; a legislatura que começa em 1/2/{ano + 1} ({prox[0]}) lista a pessoa, mas o motivo da linha não fala de eleição" if prox else "")
+                out["divergencias"].append({**chave, "tipo": "ano_fora_das_legislaturas", "banco": m["inicio"],
+                                            "oficial": "legislaturas listadas: " + (", ".join(str(n) for n in sorted(info["legs"])) or "nenhuma"),
+                                            "legislatura": None, "url": info["url"],
+                                            "nota": f"nenhuma legislatura em que a API lista a pessoa toca {ano}" + extra})
                 continue
-            hist = info["partidos_no_ano"](ano) if campo == "partido" else info["ufs_no_ano"](ano)
-            res, div = _cmp(banco, oficial, hist, campo == "partido")
-            confirm[campo] = {"banco": banco, "oficial": oficial, "resultado": res}
-            if div:
-                divs.append({**chave, "tipo": campo, "banco": banco, "oficial": oficial, "legislatura": leg, "url": info["url"],
-                             "nota": f"legislatura {leg} ({legs_datas[leg]['dataInicio'][:4]}-{legs_datas[leg]['dataFim'][:4]})"
-                                     + (f"; no ano {ano} o histórico/filiações oficiais traz: " + ", ".join(sorted(hist)) if hist else "")})
+        resultados = []
+        for leg in cands:
+            o = info["legs"][leg]
+            divs, confirm, compl = [], {**chave, "casa": casa, "confirmacao": tipo_conf, "legislatura": leg, "url": info["url"]}, []
+            for campo in ("partido", "uf"):
+                banco, oficial = m[campo], o[campo]
+                if banco is None:
+                    if complementar and oficial is not None and not (campo == "partido" and _norm_partido(oficial) == "SEMPARTIDO"):
+                        compl.append({**chave, "campo": campo, "valor": oficial, "legislatura": leg, "url": info["url"]})
+                        confirm[campo] = {"banco": None, "oficial": oficial, "resultado": "complemento"}
+                    else:
+                        confirm[campo] = {"banco": None, "oficial": oficial, "resultado": "nao_informado"}
+                    continue
+                ano_hist = ano + 1 if tipo_conf == "eleicao" else ano   # eleição: partido/UF vigentes no ano em que a legislatura seguinte começa
+                hist = info["partidos_no_ano"](ano_hist) if campo == "partido" else info["ufs_no_ano"](ano_hist)
+                res, div = _cmp(banco, oficial, hist, campo == "partido")
+                confirm[campo] = {"banco": banco, "oficial": oficial, "resultado": res}
+                if div:
+                    quando = (f"legislatura {leg} ({legs_datas[leg]['dataInicio'][:4]}-{legs_datas[leg]['dataFim'][:4]})"
+                              + ("; a linha é de ano de eleição e foi comparada com a legislatura seguinte" if tipo_conf == "eleicao" else ""))
+                    divs.append({**chave, "tipo": campo, "banco": banco, "oficial": oficial, "legislatura": leg, "url": info["url"],
+                                 "nota": quando + (f"; no ano {ano_hist} o histórico/filiações oficiais traz: " + ", ".join(sorted(hist)) if hist else "")})
+            resultados.append((divs, confirm, compl))
+            if not divs:
+                break
+        divs, confirm, compl = next((r for r in resultados if not r[0]), resultados[0])
         if divs:
             out["divergencias"].extend(divs)
             continue
@@ -844,8 +998,10 @@ def gerar_mandato_oficial(con):
             evid[info["url"]] = {"url": info["url"], "veiculo": dominio, "titulo": info["titulo"], "tipo": "dado_oficial",
                                  "acessado_em": coletado[casa]}
     out["evidencias"] = [evid[u] for u in sorted(evid)]
-    out["resumo"] = {"mandatos_no_banco": n_total, "confirmados": len(out["confirmacoes"]), "complementados": len(
-        {(c["entidade_id"], c["cargo"], c["inicio"]) for c in out["complementos"]}),
+    por_tipo = collections.Counter(c["confirmacao"] for c in out["confirmacoes"])
+    out["resumo"] = {"mandatos_no_banco": n_total, "confirmados": len(out["confirmacoes"]),
+        "confirmados_por_tipo": {k: por_tipo.get(k, 0) for k in ("legislatura", "eleicao", "pagina")},
+        "complementados": len({(c["entidade_id"], c["cargo"], c["inicio"]) for c in out["complementos"]}),
         "divergentes": len({(d["entidade_id"], d["cargo"], d["inicio"]) for d in out["divergencias"]}),
         "sem_fonte_oficial": len(out["sem_fonte"]), "confirmados_com_evidencia_previa": n_ev_previa,
         "divergencias_registradas": len(out["divergencias"])}
@@ -895,23 +1051,53 @@ def relatorio_mandato_oficial(cfg, nomes):
     rs, L = cfg["resumo"], []
     w = L.append
     nome = lambda e: nomes.get(e, e)
-    w("# Mandatos: conferência com as APIs oficiais\n")
+    pt = rs["confirmados_por_tipo"]
+    w("# Mandatos: conferência com as fontes oficiais\n")
     w(f"Gerado por `scripts/gerar_curadoria.py --so mandato-oficial` a partir de `data/raw/oficial/` (Câmara coletada em {cfg['coletado_em']['camara']}, "
-      f"Senado em {cfg['coletado_em']['senado']}). Aplicado por `curadoria.aplicar_mandato_oficial` (arquivo `data/curadoria/mandato-oficial.json`). "
-      "Nada do que já estava em `mandato` foi sobrescrito.\n")
+      f"Senado em {cfg['coletado_em']['senado']}, páginas das presidências das Casas em {cfg['coletado_em']['presidencia']}). "
+      "Aplicado por `curadoria.aplicar_mandato_oficial` (arquivo `data/curadoria/mandato-oficial.json`). "
+      "Nada do que já estava em `mandato` foi sobrescrito (a única mudança de valor é a correção à mão listada abaixo).\n")
     w("| | linhas de `mandato` |\n|---|---:|")
     w(f"| no banco | {rs['mandatos_no_banco']} |")
-    w(f"| confirmadas (legislatura bate; partido e UF sem conflito) | {rs['confirmados']} |")
+    w(f"| confirmadas | {rs['confirmados']} |")
+    w(f"| &nbsp;&nbsp;por legislatura (deputado/senador; a pessoa consta na API em legislatura que toca o ano; partido e UF sem conflito) | {pt['legislatura']} |")
+    w(f"| &nbsp;&nbsp;por eleição (a pessoa só consta na legislatura que começa em 1/fev do ano seguinte; ver abaixo) | {pt['eleicao']} |")
+    w(f"| &nbsp;&nbsp;por página oficial da presidência da Casa (nome e ano de início) | {pt['pagina']} |")
     w(f"| com complemento de partido/UF (campo estava NULL) | {rs['complementados']} |")
     w(f"| divergentes (listadas abaixo, banco intacto) | {rs['divergentes']} |")
     w(f"| sem fonte oficial nesta rodada | {rs['sem_fonte_oficial']} |")
     w(f"\nConfirmadas + divergentes + sem fonte = {rs['confirmados'] + rs['divergentes'] + rs['sem_fonte_oficial']}. "
       f"Linhas confirmadas que já tinham evidência antes: {rs['confirmados_com_evidencia_previa']} (nesses casos a oficial entra como evidência adicional das relações).\n")
-    w("Regras: o ano de `inicio` pertence à legislatura que contém 1/jul desse ano; a linha só é confirmada se a pessoa consta na API nessa legislatura e "
-      "partido/UF do banco batem com a API (mesma sigla, renomeação inequívoca da mesma legenda como PMDB/MDB e PFL/DEM, ou legenda vigente naquele ano segundo o histórico da Câmara / filiações do Senado). "
-      "Qualquer outra coisa é divergência. Campo NULL no banco só é preenchido quando a linha não tem divergência alguma.\n")
+    w("Regras:\n")
+    w("- `legislatura`: as linhas de `deputado`/`senador` são destaques anuais (inicio = fim = ano). Uma legislatura vai de 1/fev do ano N a 31/jan do ano N+4; "
+      "a linha é confirmada se a pessoa consta na API em **qualquer** legislatura que toque algum dia do ano (a que contém 1/jul é comparada primeiro) "
+      "e partido/UF do banco batem com a API (mesma sigla, renomeação inequívoca da mesma legenda como PMDB/MDB e PFL/DEM, ou legenda vigente naquele ano segundo o histórico da Câmara / filiações do Senado). "
+      "Nas entradas do histórico da Câmara com descrição \"Nome no início da legislatura / Partido no início da legislatura\" a `dataHora` é falsa (2023); "
+      "valem como o partido no início da legislatura indicada (1/fev do início dela).")
+    w("- `eleicao`: se a pessoa **não** consta em legislatura que toque o ano, mas consta na que começa em 1/fev do ano seguinte, **e** o `motivo` da linha menciona eleição "
+      "(eleit / votos / mais votad), a linha é confirmada com essa evidência e o partido/UF comparados são os da legislatura seguinte. "
+      "Isso prova o mandato subsequente; **não** prova que a pessoa exercia mandato no ano da eleição.")
+    w("- `pagina`: `presidente_camara` e `presidente_senado` são conferidos pelo nome (sem acento/caixa; um nome contido no outro, com a variante \"Tião Vianna\" = \"Tião Viana\") "
+      "e pelo ano de `inicio` contra o período da página oficial (\"AAAA - BBBB\" cobre AAAA a BBBB; \"AAAA\" só AAAA; \"- BBBB\" só BBBB). "
+      "`presidente` e `vice_presidente` seguem sem fonte oficial (não há página pública).")
+    w("- Qualquer outra coisa é divergência. Campo NULL no banco só é preenchido quando a linha não tem divergência alguma (e não em linha confirmada por eleição).\n")
+    eleicao = [c for c in cfg["confirmacoes"] if c["confirmacao"] == "eleicao"]
+    w("## Confirmadas por eleição\n")
+    w("Evidência é a legislatura seguinte; a pessoa não exercia mandato naquele ano.\n")
+    w("| pessoa | cargo | ano da linha | legislatura que prova | partido (banco / oficial) | UF (banco / oficial) |\n|---|---|---|---|---|---|")
+    for c in sorted(eleicao, key=lambda c: (c["entidade_id"], c["cargo"], c["inicio"])):
+        w(f"| {nome(c['entidade_id'])} | {c['cargo']} | {c['inicio']} | {c['legislatura']} | {c['partido']['banco']} / {c['partido']['oficial']} | {c['uf']['banco']} / {c['uf']['oficial']} |")
+    if not eleicao:
+        w("| (nenhuma) | | | | | |")
+    pagina = [c for c in cfg["confirmacoes"] if c["confirmacao"] == "pagina"]
+    w("\n## Confirmadas por página oficial\n")
+    w("| pessoa | cargo | início | nome na página | período na página |\n|---|---|---|---|---|")
+    for c in sorted(pagina, key=lambda c: (c["cargo"], c["inicio"], c["entidade_id"])):
+        w(f"| {nome(c['entidade_id'])} | {c['cargo']} | {c['inicio']} | {c['nome_pagina']} | {c['periodo']} |")
+    if not pagina:
+        w("| (nenhuma) | | | | |")
     por_tipo = collections.Counter(d["tipo"] for d in cfg["divergencias"])
-    w("## Divergências\n")
+    w("\n## Divergências\n")
     w("Por tipo: " + (", ".join(f"{k} {v}" for k, v in sorted(por_tipo.items())) or "nenhuma") + ".\n")
     w("| pessoa | cargo | início | tipo | banco | oficial | legislatura | fonte |\n|---|---|---|---|---|---|---|---|")
     for d in sorted(cfg["divergencias"], key=lambda d: (d["tipo"], d["entidade_id"], d["cargo"], d["inicio"])):
@@ -921,22 +1107,28 @@ def relatorio_mandato_oficial(cfg, nomes):
     nf = cfg["nao_encontrados"]
     for x in nf:
         n = sum(1 for d in cfg["divergencias"] if d["entidade_id"] == x["entidade_id"] and d["tipo"] == "nao_encontrado_na_api")
-        w(f"- {nome(x['entidade_id'])} ({x['casa']}): {x['status']}; {n} linha(s) de mandato sem fonte. Provável diferença de grafia do nome parlamentar; resolver com alias e nova coleta.")
+        w(f"- {nome(x['entidade_id'])} ({x['casa']}): {x['status']}; {n} linha(s) de mandato sem fonte. Provável diferença de grafia do nome parlamentar; resolver com alias (`data/curadoria/entidade-aliases.json`) e nova coleta.")
     if not nf:
         w("- nenhuma")
     sf = collections.Counter(s["cargo"] for s in cfg["sem_fonte"])
     w("\n## Sem fonte oficial nesta rodada\n")
     w(", ".join(f"{k} {v}" for k, v in sorted(sf.items())) + ". "
       + (cfg["sem_fonte"][0]["motivo"] if cfg["sem_fonte"] else "") + ". Linhas não tocadas.")
+    cor = ler_json("mandato-correcoes.json", [])
+    w("\n## Correções à mão aplicadas antes do confronto\n")
+    w("\n".join(f"- {nome(c['entidade_id'])} {c['cargo']} {c['inicio']}: {c['campo']} {c['de']} -> {c['para']}. {c['motivo']}. Fonte: {c['fonte_url']}" for c in cor)
+      if cor else "Nenhuma (`data/curadoria/mandato-correcoes.json`).")
     comp = cfg["complementos"]
     w("\n## Complementos aplicados\n")
     w("\n".join(f"- {nome(c['entidade_id'])} {c['cargo']} {c['inicio']}: {c['campo']} = {c['valor']}" for c in comp) if comp
       else "Nenhum: em `deputado`/`senador` todo `partido` e `uf` do banco já estava preenchido.")
     res = collections.Counter()
     for c in cfg["confirmacoes"]:
+        if c["confirmacao"] == "pagina":
+            continue
         for campo in ("partido", "uf"):
             res[(campo, c[campo]["resultado"])] += 1
-    w("\n## Como as linhas confirmadas bateram\n")
+    w("\n## Como as linhas confirmadas por legislatura/eleição bateram\n")
     w("| campo | " + " | ".join(["igual", "sucessao", "historico", "nao_informado", "complemento"]) + " |\n|---|---:|---:|---:|---:|---:|")
     for campo in ("partido", "uf"):
         w(f"| {campo} | " + " | ".join(str(res[(campo, k)]) for k in ["igual", "sucessao", "historico", "nao_informado", "complemento"]) + " |")

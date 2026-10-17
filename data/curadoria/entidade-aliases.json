@@ -1,0 +1,5 @@
+[
+ {"entidade_id": "eneas-carneiro", "alias": "Enéas", "motivo": "nome parlamentar na API da Câmara: \"ENÉAS\" (id 74269; PRONA/PR, SP; legislaturas 52 e 53)"},
+ {"entidade_id": "luis-eduardo-magalhaes", "alias": "Luís Eduardo", "motivo": "nome parlamentar na API da Câmara: \"LUÍS EDUARDO\" (id 74630; PFL, BA; legislatura 50); também como aparece na página de presidentes da Câmara"},
+ {"entidade_id": "luis-carlos-santos", "alias": "Luiz Carlos Santos", "motivo": "nome parlamentar na API da Câmara: \"LUIZ CARLOS SANTOS\" (id 73546; PMDB/PFL, SP; legislaturas 50 e 52)"}
+]

@@ -1,0 +1,58 @@
+{
+ "dados": [
+  {
+   "id": 74182,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182",
+   "nome": "JOÃO MAIA",
+   "nomeEleitoral": "JOÃO MAIA",
+   "siglaPartido": "PFL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+   "siglaUf": "AC",
+   "idLegislatura": 50,
+   "email": null,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74182.jpg",
+   "dataHora": "2023-02-01T00:00",
+   "situacao": null,
+   "condicaoEleitoral": null,
+   "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+  },
+  {
+   "id": 74182,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182",
+   "nome": "JOÃO MAIA",
+   "nomeEleitoral": "JOÃO MAIA",
+   "siglaPartido": "PMDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36800",
+   "siglaUf": "AC",
+   "idLegislatura": 49,
+   "email": null,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74182.jpg",
+   "dataHora": "2023-02-01T00:00",
+   "situacao": null,
+   "condicaoEleitoral": null,
+   "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+  },
+  {
+   "id": 74182,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182",
+   "nome": "JOÃO MAIA",
+   "nomeEleitoral": "JOÃO MAIA",
+   "siglaPartido": "PMDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36800",
+   "siglaUf": "AC",
+   "idLegislatura": 48,
+   "email": null,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74182.jpg",
+   "dataHora": "2023-02-01T00:00",
+   "situacao": null,
+   "condicaoEleitoral": null,
+   "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados/74182/historico"
+  }
+ ]
+}

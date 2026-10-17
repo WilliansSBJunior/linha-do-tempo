@@ -1,33 +1,39 @@
 {
- "coletado_em": "2026-10-17T16:04:51Z",
+ "coletado_em": "2026-10-17T21:31:59Z",
  "paginas": {
   "presidentes_republica": {
    "url": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/galeria-de-presidentes",
-   "status": "erro: redireciona para login (acl_users/credentials_cookie_auth) — página não pública",
+   "status": "indisponivel",
+   "motivo": "não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404",
    "arquivo_cache": null,
    "titulo": null,
-   "tamanho": 0
+   "tamanho": 0,
+   "sha256": null
   },
   "vice_presidentes": {
    "url": "https://www.gov.br/planalto/pt-br/vice-presidencia/galeria-de-vice-presidentes",
-   "status": "erro: HTTP 404",
+   "status": "indisponivel",
+   "motivo": "não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também",
    "arquivo_cache": null,
    "titulo": null,
-   "tamanho": 0
+   "tamanho": 0,
+   "sha256": null
   },
   "presidentes_camara": {
-   "url": "https://www.camara.leg.br/a-camara/conheca/presidentes-da-camara",
-   "status": "erro: HTTP 404",
-   "arquivo_cache": null,
-   "titulo": null,
-   "tamanho": 0
+   "url": "https://www2.camara.leg.br/a-camara/conheca/historia/presidentes",
+   "status": "ok",
+   "arquivo_cache": "data/raw/oficial/cache/bec566d725b853a4a0da.html",
+   "titulo": "Presidentes da Câmara dos Deputados — Portal da Câmara dos Deputados",
+   "tamanho": 112792,
+   "sha256": "9b410e484928317979337cebda779adb94683ae3a1bfe5dfde3de3af2ec0d71d"
   },
   "presidentes_senado": {
-   "url": "https://www25.senado.leg.br/web/senadores/presidentes-do-senado",
-   "status": "erro: HTTP 404",
-   "arquivo_cache": null,
-   "titulo": null,
-   "tamanho": 0
+   "url": "https://www25.senado.leg.br/web/senadores/nova-republica",
+   "status": "ok",
+   "arquivo_cache": "data/raw/oficial/cache/ce42aab75596f6a6aa4d.html",
+   "titulo": "Nova República - Senado Federal",
+   "tamanho": 41267,
+   "sha256": "e53cbf01a5494d36df9f7111c6043097b96d9d4ae6b27f88ba95ec0e7e1414cb"
   }
  }
 }
