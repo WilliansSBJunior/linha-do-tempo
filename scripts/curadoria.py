@@ -1272,6 +1272,71 @@ def aplicar_evidencias_adicionais(con):
     return r
 
 
+# ======================================================================== correções de tipo e metadados de evidência
+CAMPOS_EVIDENCIA_CORRECAO = ("tipo",)
+DATA_ISO = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def aplicar_evidencia_correcoes(con):
+    """data/curadoria/evidencia-correcoes.json (à mão): `[{"url","campo":"tipo","de","para","motivo"}]`. Troca `evidencia.tipo` de uma evidência
+    identificada pela URL (normalizada). Todas as entradas são conferidas antes de qualquer UPDATE; aborta (sem aplicar nada) se a URL não existe,
+    o campo não é permitido, a entrada se repete, falta o motivo ou o valor atual não é `de`. Roda depois das cargas de evidência (inclusive as
+    adicionais). -> dict."""
+    r = {"aplicadas": []}
+    erros, plano, vistos = [], [], set()
+    for c in ler_json("evidencia-correcoes.json", []):
+        url = normalizar_url(c.get("url", ""))
+        ref = f"{c.get('url')}/{c.get('campo')}"
+        if c.get("campo") not in CAMPOS_EVIDENCIA_CORRECAO:
+            erros.append(f"{ref}: campo não permitido")
+            continue
+        if (url, c["campo"]) in vistos:
+            erros.append(f"{ref}: entrada repetida")
+            continue
+        vistos.add((url, c["campo"]))
+        if not c.get("motivo"):
+            erros.append(f"{ref}: motivo obrigatório")
+        row = con.execute("SELECT id, tipo FROM evidencia WHERE url=?", (url,)).fetchone()
+        if not row:
+            erros.append(f"{ref}: evidência inexistente")
+        elif row[1] != c.get("de"):
+            erros.append(f"{ref}: valor atual {row[1]!r} diferente de `de` {c.get('de')!r}")
+        else:
+            plano.append((row[0], c))
+    if erros:
+        raise SystemExit("evidencia-correcoes.json: nada foi aplicado.\n  " + "\n  ".join(erros))
+    for eid, c in plano:
+        try:
+            con.execute(f"UPDATE evidencia SET {c['campo']}=? WHERE id=?", (c["para"], eid))
+        except Exception as ex:   # CHECK do schema
+            raise SystemExit(f"evidencia-correcoes.json: {c['url']}: {ex}")
+        r["aplicadas"].append(dict(c, id_efetivo=eid))
+    return r
+
+
+def aplicar_evidencia_metadados(con):
+    """data/curadoria/evidencia-metadados.json: `[{"url","titulo","data","status"}]` (rodadas de WebFetch; ver scripts/enriquecer_evidencias.py).
+    Só preenche `evidencia.titulo`/`evidencia.data` onde estão NULL e só para `status == "ok"`; nunca sobrescreve. -> dict com contagens."""
+    r = {"entradas": 0, "ok": 0, "erro": 0, "titulos": 0, "datas": 0, "sem_evidencia": []}
+    for m in ler_json("evidencia-metadados.json", []):
+        r["entradas"] += 1
+        if m.get("status") != "ok":
+            r["erro"] += 1
+            continue
+        r["ok"] += 1
+        row = con.execute("SELECT id, titulo, data FROM evidencia WHERE url=?", (normalizar_url(m["url"]),)).fetchone()
+        if not row:
+            r["sem_evidencia"].append(m["url"])
+            continue
+        if row[1] is None and m.get("titulo"):
+            con.execute("UPDATE evidencia SET titulo=? WHERE id=?", (m["titulo"], row[0]))
+            r["titulos"] += 1
+        if row[2] is None and m.get("data"):
+            con.execute("UPDATE evidencia SET data=? WHERE id=?", (m["data"], row[0]))
+            r["datas"] += 1
+    return r
+
+
 # ======================================================================== correções de revisão (ressalvas das evidências adicionais)
 CAMPOS_EVENTO_CORRECAO = ("titulo", "descricao")
 CAMPOS_RELACAO_CORRECAO = ("periodo_fim", "descricao", "subtipo", "rotulo", "tipo")

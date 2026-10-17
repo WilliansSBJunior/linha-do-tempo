@@ -379,7 +379,7 @@ def montar_pares(con):
     paises = OrderedDict((iso, next(nome_de[e] for e, i in iso_de.items() if i == iso)) for iso in ordem)
     inds = OrderedDict()
     pisa_ids = {"pares.pisa_leitura", "pares.pisa_matematica", "pares.pisa_ciencias", "pares.pisa_matematica_estado"}
-    for r in con.execute("SELECT * FROM indicador WHERE dominio='pares' ORDER BY rowid"):
+    for r in con.execute("SELECT * FROM indicador WHERE dominio='pares' ORDER BY id"):
         if r["id"] in pisa_ids:
             continue
         m = re.fullmatch(r"grupo=(.*); fmt=(.*)", r["descricao"])

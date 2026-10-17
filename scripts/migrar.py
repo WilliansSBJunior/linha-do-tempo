@@ -749,6 +749,8 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["mandato_oficial"] = curadoria.aplicar_mandato_oficial(con) if "mandato_oficial" not in pular else {"evidencias": 0, "preenchidos": 0, "extras": {}, "complementados": 0, "obsoletas": [], "resumo": {}}
     R["mandato_rel"] = curadoria.gerar_relacoes_mandato(con, R["mandato_oficial"]["extras"])   # teia <-> timeline (herda a evidência oficial dos mandatos)
     R["evid_adic"] = curadoria.aplicar_evidencias_adicionais(con)   # à mão; precisa das relações de mandato/filiação; antes dos temas (que leem a descrição)
+    R["evid_corr"] = curadoria.aplicar_evidencia_correcoes(con)     # à mão; tipo de evidências oficiais registradas como reportagem
+    R["evid_meta"] = curadoria.aplicar_evidencia_metadados(con)     # título/data só onde NULL (rodadas de WebFetch)
     R["evento_corr"] = curadoria.aplicar_evento_correcoes(con)      # à mão; decisões sobre as ressalvas das evidências adicionais; antes dos temas (leem título/descrição)
     R["relacao_corr"] = curadoria.aplicar_relacao_correcoes(con)
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade

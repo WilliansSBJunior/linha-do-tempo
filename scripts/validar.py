@@ -557,6 +557,44 @@ def revisao_evidencias(con):
         esperar("relatório: eventos corrigidos == correções aceitas do arquivo", f"| eventos corrigidos | {n_e} |" in p.read_text(encoding="utf-8"), True)
 
 
+def evidencia_curadoria(con):
+    secao("Evidências: correções de tipo e metadados (evidencia-correcoes.json e evidencia-metadados.json aplicados)")
+    ruins = []
+    corr = json.loads((CURADORIA / "evidencia-correcoes.json").read_text(encoding="utf-8"))
+    tipos = set(re.findall(r"'([a-z_]+)'", re.search(r"tipo TEXT NOT NULL DEFAULT 'reportagem' CHECK \(tipo IN \(([^)]*)\)",
+                                                      (Path(__file__).parent / "schema.sql").read_text(encoding="utf-8")).group(1)))
+    for c in corr:
+        r = q(con, "SELECT tipo FROM evidencia WHERE url=?", normalizar_url(c["url"]))
+        if not r:
+            ruins.append(f"evidência inexistente: {c['url']}")
+        elif r[0][0] != c["para"]:
+            ruins.append(f"{c['url']}: tipo {r[0][0]!r} != {c['para']!r}")
+        if c["para"] not in tipos or c["de"] == c["para"] or not c.get("motivo"):
+            ruins.append(f"{c['url']}: entrada inválida (para fora do CHECK, de == para ou sem motivo)")
+    esperar("evidencia-correcoes.json: tipo no banco == `para` (divergências)", len(ruins), 0)
+    for x in ruins[:20]:
+        print("   -", x)
+    # nenhum domínio oficial restante como reportagem fora da lista de exceções documentada (notícias das Casas legislativas são jornalismo institucional)
+    oficiais = q(con, """SELECT url FROM evidencia WHERE tipo IN ('reportagem','outro') AND (url LIKE '%://www.gov.br/%' OR url LIKE '%://gov.br/%'
+                         OR url LIKE '%.jus.br/%')""")
+    esperar("evidências de gov.br/jus.br ainda como reportagem/outro", len(oficiais), 0)
+    for x in oficiais[:10]:
+        print("   -", x[0])
+    import enriquecer_evidencias as en
+    meta = json.loads((CURADORIA / "evidencia-metadados.json").read_text(encoding="utf-8"))
+    ruins = en.erros_arquivo(meta, con)
+    for m in meta:
+        if m["status"] != "ok":
+            continue
+        r = q(con, "SELECT titulo, data FROM evidencia WHERE url=?", m["url"])
+        if r and ((m["titulo"] and r[0][0] is None) or (m["data"] and r[0][1] is None)):
+            ruins.append(f"{m['url']}: metadado do arquivo não chegou ao banco")
+    esperar("evidencia-metadados.json: formato válido e aplicado ao banco (divergências)", len(ruins), 0)
+    for x in ruins[:20]:
+        print("   -", x)
+    print(f"  entradas de metadados: {len(meta)} ({sum(m['status'] == 'ok' for m in meta)} ok); correções de tipo: {len(corr)}")
+
+
 def natureza_eventos(con, gerado):
     """Nenhum evento sem natureza (salvo exceção explícita, com justificativa, em eventos-natureza-manual.json) e toda natureza
     aplicada por regra (R1-R5) ou à mão tem regra/justificativa registrada e igual à do banco."""
@@ -808,6 +846,7 @@ def main():
     curadoria(con)
     evidencias_adicionais(con)
     revisao_evidencias(con)
+    evidencia_curadoria(con)
     modelo_v2(con, exp)
 
     secao("Arquivos exportados em disco")

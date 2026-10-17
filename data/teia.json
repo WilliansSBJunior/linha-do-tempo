@@ -1555,8 +1555,8 @@
       "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html",
       "veiculo": "diariodepernambuco.com.br",
       "tipo": "reportagem",
-      "titulo": null,
-      "data": null,
+      "titulo": "Contrato de Vorcaro previa até R$ 427 mi em honorários a escritório de esposa de desembargador da \"Turma do KN\"",
+      "data": "2026-09-22",
       "qualidade": "fraca"
      }
     ]
@@ -1715,8 +1715,8 @@
       "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html",
       "veiculo": "diariodepernambuco.com.br",
       "tipo": "reportagem",
-      "titulo": null,
-      "data": null,
+      "titulo": "Contrato de Vorcaro previa até R$ 427 mi em honorários a escritório de esposa de desembargador da \"Turma do KN\"",
+      "data": "2026-09-22",
       "qualidade": "fraca"
      }
     ]
@@ -10142,7 +10142,7 @@
       {
        "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/informacoes-relativas-a-grupo-master-reag-e-outras-entidades-conexas",
        "veiculo": "gov.br",
-       "tipo": "reportagem",
+       "tipo": "comunicado",
        "titulo": null,
        "data": null,
        "qualidade": null
@@ -11388,14 +11388,6 @@
      ],
      "fontes": [
       {
-       "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/setembro/operacao-credito-oculto-receita-federal-e-gaeco-identificam-novas-conexoes-financeiras-de-investigados-da-operacao-carbono-oculto",
-       "veiculo": "gov.br",
-       "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
-       "qualidade": null
-      },
-      {
        "url": "https://www.oliberal.com/brasil/operac-o-carbono-oculto-3-fase-mira-empresario-ligado-a-vorcaro-1.1172509",
        "veiculo": "oliberal.com",
        "tipo": "reportagem",
@@ -11407,6 +11399,14 @@
        "url": "https://www.bemparana.com.br/noticias/politica/nova-fase-da-operacao-carbono-oculto-mira-executivo-ligado-ao-master-e-a-financiamento-de-filme-de-bolsonaro",
        "veiculo": "bemparana.com.br",
        "tipo": "reportagem",
+       "titulo": null,
+       "data": null,
+       "qualidade": null
+      },
+      {
+       "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/setembro/operacao-credito-oculto-receita-federal-e-gaeco-identificam-novas-conexoes-financeiras-de-investigados-da-operacao-carbono-oculto",
+       "veiculo": "gov.br",
+       "tipo": "comunicado",
        "titulo": null,
        "data": null,
        "qualidade": null
@@ -11644,7 +11644,7 @@
       {
        "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/informacoes-relativas-a-grupo-master-reag-e-outras-entidades-conexas",
        "veiculo": "gov.br",
-       "tipo": "reportagem",
+       "tipo": "comunicado",
        "titulo": null,
        "data": null,
        "qualidade": null
@@ -17154,8 +17154,8 @@
        "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html",
        "veiculo": "diariodepernambuco.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Contrato de Vorcaro previa até R$ 427 mi em honorários a escritório de esposa de desembargador da \"Turma do KN\"",
+       "data": "2026-09-22",
        "qualidade": null
       },
       {
@@ -17213,8 +17213,8 @@
        "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html",
        "veiculo": "diariodepernambuco.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Contrato de Vorcaro previa até R$ 427 mi em honorários a escritório de esposa de desembargador da \"Turma do KN\"",
+       "data": "2026-09-22",
        "qualidade": null
       },
       {
@@ -17264,8 +17264,8 @@
        "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html",
        "veiculo": "diariodepernambuco.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Contrato de Vorcaro previa até R$ 427 mi em honorários a escritório de esposa de desembargador da \"Turma do KN\"",
+       "data": "2026-09-22",
        "qualidade": null
       },
       {
@@ -17323,8 +17323,8 @@
        "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html",
        "veiculo": "diariodepernambuco.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Contrato de Vorcaro previa até R$ 427 mi em honorários a escritório de esposa de desembargador da \"Turma do KN\"",
+       "data": "2026-09-22",
        "qualidade": null
       }
      ]
@@ -17426,8 +17426,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -17580,8 +17580,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -18292,8 +18292,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       },
       {
@@ -18339,8 +18339,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -18378,8 +18378,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -18417,8 +18417,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -18456,8 +18456,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -18495,8 +18495,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -18773,8 +18773,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       },
       {
@@ -18820,8 +18820,8 @@
        "url": "https://www.novacana.com/noticias/fundos-compraram-precatorios-investigados-pf-repassaram-creditos-master-120526",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fundos que compraram precatórios investigados repassaram créditos ao Master",
+       "data": "2026-05-12",
        "qualidade": null
       }
      ]
@@ -22314,7 +22314,7 @@
     {
      "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2020/20201201_PAS_CVM_SEI_19957_009798_2019_01_voto_termo_compromisso_diretor_henrique_machado.pdf-49901aa4aaec4d11ab8f39b3ed6e6ca5",
      "veiculo": "gov.br",
-     "tipo": "reportagem",
+     "tipo": "documento_oficial",
      "titulo": null,
      "data": null
     },
@@ -26253,7 +26253,7 @@
     {
      "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/informacoes-relativas-a-grupo-master-reag-e-outras-entidades-conexas",
      "veiculo": "gov.br",
-     "tipo": "reportagem",
+     "tipo": "comunicado",
      "titulo": null,
      "data": null
     }
@@ -28269,13 +28269,6 @@
    ],
    "fontes": [
     {
-     "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/setembro/operacao-credito-oculto-receita-federal-e-gaeco-identificam-novas-conexoes-financeiras-de-investigados-da-operacao-carbono-oculto",
-     "veiculo": "gov.br",
-     "tipo": "reportagem",
-     "titulo": null,
-     "data": null
-    },
-    {
      "url": "https://midiamax.com.br/brasil/2026/caso-master-chega-carbono-oculto-delator-vorcaro-diretor-genial-sao-alvos-buscas",
      "veiculo": "midiamax.com.br",
      "tipo": "reportagem",
@@ -28286,6 +28279,13 @@
      "url": "https://www.bemparana.com.br/noticias/politica/nova-fase-da-operacao-carbono-oculto-mira-executivo-ligado-ao-master-e-a-financiamento-de-filme-de-bolsonaro",
      "veiculo": "bemparana.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null
+    },
+    {
+     "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/setembro/operacao-credito-oculto-receita-federal-e-gaeco-identificam-novas-conexoes-financeiras-de-investigados-da-operacao-carbono-oculto",
+     "veiculo": "gov.br",
+     "tipo": "comunicado",
      "titulo": null,
      "data": null
     }
