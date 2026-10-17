@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

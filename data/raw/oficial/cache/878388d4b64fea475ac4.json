@@ -1,0 +1,40 @@
+{
+ "dados": [
+  {
+   "id": 74693,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "nome": "RODRIGO MAIA",
+   "siglaPartido": "PFL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36769",
+   "siglaUf": "RJ",
+   "idLegislatura": 53,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74693.jpg",
+   "email": null
+  },
+  {
+   "id": 74693,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "nome": "RODRIGO MAIA",
+   "siglaPartido": "DEM",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36769",
+   "siglaUf": "RJ",
+   "idLegislatura": 53,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74693.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Rodrigo%20Maia&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Rodrigo%20Maia&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Rodrigo%20Maia&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

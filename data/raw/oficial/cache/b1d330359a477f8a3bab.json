@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Bruno%20Ara%C3%BAjo&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

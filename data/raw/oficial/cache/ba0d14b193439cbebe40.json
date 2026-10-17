@@ -1,0 +1,191 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:50:02",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "87",
+   "Nome": "Garibaldi Alves Filho",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "476",
+      "UfParlamentar": "RN",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5020",
+         "NomeParlamentar": "Paulo Davim"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5022",
+         "NomeParlamentar": "Janduhy Max Freire de Andrade"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2725",
+         "DataInicio": "2015-01-01",
+         "DataFim": "2019-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        },
+        {
+         "CodigoExercicio": "2596",
+         "DataInicio": "2011-02-01",
+         "DataFim": "2011-02-01",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício",
+         "DataLeitura": "2011-02-02"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "2003-02-01"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "307",
+      "UfParlamentar": "RN",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "3593",
+         "NomeParlamentar": "João Faustino"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "3594",
+         "NomeParlamentar": "Carlos Alberto"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2577",
+         "DataInicio": "2011-01-31",
+         "DataFim": "2011-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        },
+        {
+         "CodigoExercicio": "2564",
+         "DataInicio": "2010-11-13",
+         "DataFim": "2010-12-31",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício",
+         "DataLeitura": "2010-11-16"
+        },
+        {
+         "CodigoExercicio": "1740",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2010-07-14",
+         "SiglaCausaAfastamento": "LSP",
+         "DescricaoCausaAfastamento": "Licença Saúde-Particular"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "2003-02-01"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "31",
+      "UfParlamentar": "RN",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "49",
+       "DataInicio": "1991-02-01",
+       "DataFim": "1995-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "172",
+         "NomeParlamentar": "Nathanias Ribeiro V. Shosten"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "121",
+         "DataInicio": "1991-02-01",
+         "DataFim": "1994-12-31",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "1994-12-20",
+         "DataDesfiliacao": "2003-01-31"
+        },
+        {
+         "CodigoPartido": "33",
+         "Sigla": "MDB",
+         "Nome": "Movimento Democrático Brasileiro",
+         "DataFiliacao": "1991-02-01",
+         "DataDesfiliacao": "1994-12-19"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

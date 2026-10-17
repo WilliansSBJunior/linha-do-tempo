@@ -1,0 +1,126 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "36",
+   "Nome": "Jefferson Peres",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "290",
+      "UfParlamentar": "AM",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "4792",
+         "NomeParlamentar": "Jefferson Praia"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "3616",
+         "NomeParlamentar": "Erasmo Lino de Jesus Alfaia"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "1723",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2008-05-23",
+         "SiglaCausaAfastamento": "FAL",
+         "DescricaoCausaAfastamento": "Falecimento"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "20",
+        "Sigla": "PDT",
+        "Nome": "Partido Democrático Trabalhista",
+        "DataFiliacao": "1999-01-28",
+        "DataDesfiliacao": "2008-05-23"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "35",
+      "UfParlamentar": "AM",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "109",
+         "NomeParlamentar": "Edson Gomes da Silva"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "4794",
+         "NomeParlamentar": "Alfredo Antonio Goulart Sade"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "124",
+         "DataInicio": "1995-02-01",
+         "DataFim": "2003-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "20",
+         "Sigla": "PDT",
+         "Nome": "Partido Democrático Trabalhista",
+         "DataFiliacao": "1999-01-28",
+         "DataDesfiliacao": "2008-05-23"
+        },
+        {
+         "CodigoPartido": "66",
+         "Sigla": "PSDB",
+         "Nome": "Partido da Social Democracia Brasileira",
+         "DataFiliacao": "1995-02-01",
+         "DataDesfiliacao": "1999-01-27"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

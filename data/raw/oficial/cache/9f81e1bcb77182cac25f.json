@@ -1,0 +1,45 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:50:02",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "87",
+   "Nome": "Garibaldi Alves Filho",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "33",
+       "SiglaPartido": "MDB",
+       "NomePartido": "Movimento Democrático Brasileiro"
+      },
+      "DataFiliacao": "2003-02-01"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "1994-12-20",
+      "DataDesfiliacao": "2003-01-31"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "33",
+       "SiglaPartido": "MDB",
+       "NomePartido": "Movimento Democrático Brasileiro"
+      },
+      "DataFiliacao": "1991-02-01",
+      "DataDesfiliacao": "1994-12-19"
+     }
+    ]
+   }
+  }
+ }
+}

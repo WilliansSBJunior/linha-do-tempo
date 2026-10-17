@@ -1,0 +1,40 @@
+{
+ "dados": [
+  {
+   "id": 74173,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74173",
+   "nome": "EDUARDO CUNHA",
+   "siglaPartido": "PMDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
+   "siglaUf": "RJ",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74173.jpg",
+   "email": null
+  },
+  {
+   "id": 74173,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74173",
+   "nome": "EDUARDO CUNHA",
+   "siglaPartido": "MDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
+   "siglaUf": "RJ",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74173.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Eduardo%20Cunha&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Eduardo%20Cunha&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Eduardo%20Cunha&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

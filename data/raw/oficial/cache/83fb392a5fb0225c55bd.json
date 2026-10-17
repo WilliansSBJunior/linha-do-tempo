@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 160541,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160541",
+   "nome": "Arthur Lira",
+   "siglaPartido": "PP",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37903",
+   "siglaUf": "AL",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160541.jpg",
+   "email": "dep.arthurlira@camara.leg.br"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arthur%20Lira&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arthur%20Lira&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arthur%20Lira&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

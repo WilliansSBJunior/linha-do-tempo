@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 178947,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178947",
+   "nome": "Sóstenes Cavalcante",
+   "siglaPartido": "PL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUf": "RJ",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178947.jpg",
+   "email": "dep.sostenescavalcante@camara.leg.br"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=S%C3%B3stenes%20Cavalcante&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=S%C3%B3stenes%20Cavalcante&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=S%C3%B3stenes%20Cavalcante&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

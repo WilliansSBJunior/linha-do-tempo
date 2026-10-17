@@ -1,0 +1,73 @@
+{
+ "dados": [
+  {
+   "id": 74184,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74184",
+   "nome": "RONIVON SANTIAGO",
+   "siglaPartido": "PPB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36809",
+   "siglaUf": "AC",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74184.jpg",
+   "email": null
+  },
+  {
+   "id": 74184,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74184",
+   "nome": "RONIVON SANTIAGO",
+   "siglaPartido": "PP**",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36809",
+   "siglaUf": "AC",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74184.jpg",
+   "email": null
+  },
+  {
+   "id": 74184,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74184",
+   "nome": "RONIVON SANTIAGO",
+   "siglaPartido": "PMDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36809",
+   "siglaUf": "AC",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74184.jpg",
+   "email": null
+  },
+  {
+   "id": 74184,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74184",
+   "nome": "RONIVON SANTIAGO",
+   "siglaPartido": "S.PART.",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36809",
+   "siglaUf": "AC",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74184.jpg",
+   "email": null
+  },
+  {
+   "id": 74184,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74184",
+   "nome": "RONIVON SANTIAGO",
+   "siglaPartido": "PP**",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36809",
+   "siglaUf": "AC",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74184.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Ronivon%20Santiago&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Ronivon%20Santiago&idLegislatura=52&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Ronivon%20Santiago&idLegislatura=52&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

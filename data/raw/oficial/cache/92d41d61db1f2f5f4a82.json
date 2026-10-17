@@ -1,0 +1,87 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:00:46",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "5894",
+   "Nome": "Flávio Bolsonaro",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "532",
+      "UfParlamentar": "RJ",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "57",
+       "DataInicio": "2023-02-01",
+       "DataFim": "2027-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5901",
+         "NomeParlamentar": "Paulo Marinho"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5903",
+         "NomeParlamentar": "Leonardo Rodrigues"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2904",
+         "DataInicio": "2019-02-01"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "523",
+         "Sigla": "PL",
+         "Nome": "Partido Liberal",
+         "DataFiliacao": "2021-11-30"
+        },
+        {
+         "CodigoPartido": "579",
+         "Sigla": "PATRIOTA",
+         "Nome": "Patriota",
+         "DataFiliacao": "2021-05-31",
+         "DataDesfiliacao": "2021-11-29"
+        },
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2019-11-20",
+         "DataDesfiliacao": "2021-05-30"
+        },
+        {
+         "CodigoPartido": "85",
+         "Sigla": "PSL",
+         "Nome": "Partido Social Liberal",
+         "DataFiliacao": "2019-01-01",
+         "DataDesfiliacao": "2019-11-19"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

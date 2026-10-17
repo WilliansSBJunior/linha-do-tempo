@@ -1,0 +1,36 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:57",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "4610",
+   "Nome": "Alexandre Silveira",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "557",
+       "SiglaPartido": "PSD",
+       "NomePartido": "Partido Social Democrático"
+      },
+      "DataFiliacao": "2011-10-26"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "41",
+       "SiglaPartido": "CIDADANIA",
+       "NomePartido": "CIDADANIA"
+      },
+      "DataFiliacao": "2007-02-01",
+      "DataDesfiliacao": "2011-10-25"
+     }
+    ]
+   }
+  }
+ }
+}

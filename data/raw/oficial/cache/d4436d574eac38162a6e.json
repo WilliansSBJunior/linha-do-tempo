@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74407,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74407",
+   "nome": "EFRAIM MORAIS",
+   "siglaPartido": "PFL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+   "siglaUf": "PB",
+   "idLegislatura": 51,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74407.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Efraim%20Morais&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Efraim%20Morais&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Efraim%20Morais&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "32",
+   "Nome": "Hugo Napoleão",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "65",
+      "UfParlamentar": "PI",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "162",
+         "NomeParlamentar": "Benício Sampaio"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "163",
+         "NomeParlamentar": "Antônio Rufino"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "152",
+         "DataInicio": "1995-02-01",
+         "DataFim": "2001-11-18",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "22",
+        "Sigla": "PFL",
+        "Nome": "Partido da Frente Liberal",
+        "DataFiliacao": "1987-02-01",
+        "DataDesfiliacao": "2007-08-01"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "410",
+      "UfParlamentar": "PI",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "48",
+       "DataInicio": "1987-02-01",
+       "DataFim": "1991-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "49",
+       "DataInicio": "1991-02-01",
+       "DataFim": "1995-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "22",
+        "Sigla": "PFL",
+        "Nome": "Partido da Frente Liberal",
+        "DataFiliacao": "1987-02-01",
+        "DataDesfiliacao": "2007-08-01"
+       }
+      }
+     },
+     {
+      "UfParlamentar": "PI",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "48",
+       "DataInicio": "1987-02-01",
+       "DataFim": "1991-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "49",
+       "DataInicio": "1991-02-01",
+       "DataFim": "1995-01-31"
+      }
+     }
+    ]
+   }
+  }
+ }
+}

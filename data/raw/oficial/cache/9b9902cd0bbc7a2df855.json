@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 73666,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73666",
+   "nome": "JOVAIR ARANTES",
+   "siglaPartido": "PTB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36845",
+   "siglaUf": "GO",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73666.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jovair%20Arantes&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jovair%20Arantes&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jovair%20Arantes&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

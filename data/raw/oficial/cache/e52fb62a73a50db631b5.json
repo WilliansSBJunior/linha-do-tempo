@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74421,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74421",
+   "nome": "INOCÊNCIO OLIVEIRA",
+   "siglaPartido": "PR",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+   "siglaUf": "PE",
+   "idLegislatura": 53,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74421.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Inoc%C3%AAncio%20Oliveira&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Inoc%C3%AAncio%20Oliveira&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Inoc%C3%AAncio%20Oliveira&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

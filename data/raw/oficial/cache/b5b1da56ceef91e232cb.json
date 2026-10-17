@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 141558,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/141558",
+   "nome": "WALDIR MARANHÃO",
+   "siglaPartido": "PP**",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36809",
+   "siglaUf": "MA",
+   "idLegislatura": 54,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/141558.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Waldir%20Maranh%C3%A3o&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Waldir%20Maranh%C3%A3o&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Waldir%20Maranh%C3%A3o&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:57",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "3360",
+   "Nome": "Delcídio do Amaral",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "447",
+      "UfParlamentar": "MS",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5116",
+         "NomeParlamentar": "Pedro Chaves"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5118",
+         "NomeParlamentar": "Zonir Freitas Tetila"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2589",
+         "DataInicio": "2011-02-01",
+         "DataFim": "2016-05-10",
+         "SiglaCausaAfastamento": "PER",
+         "DescricaoCausaAfastamento": "Perda de mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2016-03-29"
+        },
+        {
+         "CodigoPartido": "71",
+         "Sigla": "PT",
+         "Nome": "Partido dos Trabalhadores",
+         "DataFiliacao": "2003-02-01",
+         "DataDesfiliacao": "2016-03-28"
+        }
+       ]
+      }
+     },
+     {
+      "CodigoMandato": "254",
+      "UfParlamentar": "MS",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "4516",
+         "NomeParlamentar": "Antonio João"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "4889",
+         "NomeParlamentar": "Ordalino Martins da Cunha"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2436",
+         "DataInicio": "2006-08-31",
+         "DataFim": "2011-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato",
+         "DataLeitura": "2006-08-31"
+        },
+        {
+         "CodigoExercicio": "1703",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2006-05-01",
+         "SiglaCausaAfastamento": "LSP",
+         "DescricaoCausaAfastamento": "Licença Saúde-Particular",
+         "DataLeitura": "2006-05-02"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "71",
+        "Sigla": "PT",
+        "Nome": "Partido dos Trabalhadores",
+        "DataFiliacao": "2003-02-01",
+        "DataDesfiliacao": "2016-03-28"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

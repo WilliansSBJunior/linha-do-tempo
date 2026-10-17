@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Efraim%20Morais&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

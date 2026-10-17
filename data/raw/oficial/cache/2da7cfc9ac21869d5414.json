@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 73993,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73993",
+   "nome": "ARNALDO MADEIRA",
+   "siglaPartido": "PSDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "SP",
+   "idLegislatura": 50,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73993.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arnaldo%20Madeira&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arnaldo%20Madeira&idLegislatura=50&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arnaldo%20Madeira&idLegislatura=50&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:09:17",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "5732",
+   "Nome": "Rodrigo Pacheco",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "562",
+      "UfParlamentar": "MG",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "57",
+       "DataInicio": "2023-02-01",
+       "DataFim": "2027-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5257",
+         "NomeParlamentar": "Renzo Braz"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5989",
+         "NomeParlamentar": "Ana Maria"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2931",
+         "DataInicio": "2019-02-01",
+         "DataFim": "2026-09-30",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "63",
+         "Sigla": "PSB",
+         "Nome": "Partido Socialista Brasileiro",
+         "DataFiliacao": "2026-04-01",
+         "DataDesfiliacao": "2026-09-29"
+        },
+        {
+         "CodigoPartido": "557",
+         "Sigla": "PSD",
+         "Nome": "Partido Social Democrático",
+         "DataFiliacao": "2021-10-27",
+         "DataDesfiliacao": "2026-03-31"
+        },
+        {
+         "CodigoPartido": "554",
+         "Sigla": "DEM",
+         "Nome": "Democratas",
+         "DataFiliacao": "2018-03-26",
+         "DataDesfiliacao": "2021-10-27"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

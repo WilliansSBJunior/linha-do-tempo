@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 73428,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73428",
+   "nome": "ALDO REBELO",
+   "siglaPartido": "PCdoB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36779",
+   "siglaUf": "SP",
+   "idLegislatura": 53,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73428.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Aldo%20Rebelo&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Aldo%20Rebelo&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Aldo%20Rebelo&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74646,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74646",
+   "nome": "Aécio Neves",
+   "siglaPartido": "PSDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "MG",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74646.jpg",
+   "email": "dep.aecioneves@camara.leg.br"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=A%C3%A9cio%20Neves&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=A%C3%A9cio%20Neves&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=A%C3%A9cio%20Neves&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

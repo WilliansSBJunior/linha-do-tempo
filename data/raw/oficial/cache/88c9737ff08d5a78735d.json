@@ -1,0 +1,51 @@
+{
+ "dados": [
+  {
+   "id": 178997,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178997",
+   "nome": "MOSES RODRIGUES",
+   "siglaPartido": "PPS",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
+   "siglaUf": "CE",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178997.jpg",
+   "email": null
+  },
+  {
+   "id": 178997,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178997",
+   "nome": "MOSES RODRIGUES",
+   "siglaPartido": "PMDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
+   "siglaUf": "CE",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178997.jpg",
+   "email": null
+  },
+  {
+   "id": 178997,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178997",
+   "nome": "MOSES RODRIGUES",
+   "siglaPartido": "MDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36899",
+   "siglaUf": "CE",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178997.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Moses%20Rodrigues&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Moses%20Rodrigues&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Moses%20Rodrigues&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

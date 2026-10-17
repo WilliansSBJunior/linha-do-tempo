@@ -1,0 +1,54 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "32",
+   "Nome": "Hugo Napoleão",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "557",
+       "SiglaPartido": "PSD",
+       "NomePartido": "Partido Social Democrático"
+      },
+      "DataFiliacao": "2011-10-26"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "554",
+       "SiglaPartido": "DEM",
+       "NomePartido": "Democratas"
+      },
+      "DataFiliacao": "2011-02-01",
+      "DataDesfiliacao": "2011-10-25"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2007-08-02",
+      "DataDesfiliacao": "2011-01-31"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "22",
+       "SiglaPartido": "PFL",
+       "NomePartido": "Partido da Frente Liberal"
+      },
+      "DataFiliacao": "1987-02-01",
+      "DataDesfiliacao": "2007-08-01"
+     }
+    ]
+   }
+  }
+ }
+}

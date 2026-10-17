@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jutahy%20J%C3%BAnior&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

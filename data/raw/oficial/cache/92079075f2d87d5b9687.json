@@ -1,0 +1,45 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:50:00",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "5540",
+   "Nome": "Fernando Bezerra Coelho",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "33",
+       "SiglaPartido": "MDB",
+       "NomePartido": "Movimento Democrático Brasileiro"
+      },
+      "DataFiliacao": "2017-09-13"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2017-09-05",
+      "DataDesfiliacao": "2017-09-12"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "63",
+       "SiglaPartido": "PSB",
+       "NomePartido": "Partido Socialista Brasileiro"
+      },
+      "DataFiliacao": "2015-02-01",
+      "DataDesfiliacao": "2017-09-04"
+     }
+    ]
+   }
+  }
+ }
+}

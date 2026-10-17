@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 160527,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160527",
+   "nome": "AGUINALDO RIBEIRO",
+   "siglaPartido": "PP**",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36809",
+   "siglaUf": "PB",
+   "idLegislatura": 54,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160527.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Aguinaldo%20Ribeiro&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Aguinaldo%20Ribeiro&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Aguinaldo%20Ribeiro&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

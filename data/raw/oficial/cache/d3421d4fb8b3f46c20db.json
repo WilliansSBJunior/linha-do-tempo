@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 73534,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73534",
+   "nome": "JOÃO PAULO CUNHA",
+   "siglaPartido": "PT",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
+   "siglaUf": "SP",
+   "idLegislatura": 52,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73534.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Paulo%20Cunha&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Paulo%20Cunha&idLegislatura=52&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Paulo%20Cunha&idLegislatura=52&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

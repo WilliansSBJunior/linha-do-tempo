@@ -1,0 +1,194 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "47",
+   "Nome": "José Sarney",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "365",
+      "UfParlamentar": "AP",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "4849",
+         "NomeParlamentar": "Salomão Alcolumbre"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "1090",
+         "NomeParlamentar": "Nova da Costa"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2472",
+         "DataInicio": "2007-02-01",
+         "DataFim": "2015-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato",
+         "DataLeitura": "2007-02-01"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "1991-02-01"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "184",
+      "UfParlamentar": "AP",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "1090",
+         "NomeParlamentar": "Nova da Costa"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "1194",
+         "DataInicio": "2001-08-01",
+         "DataFim": "2007-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        },
+        {
+         "CodigoExercicio": "703",
+         "DataInicio": "1999-02-01",
+         "DataFim": "2001-04-01",
+         "SiglaCausaAfastamento": "LS ",
+         "DescricaoCausaAfastamento": "Licença saúde",
+         "DataLeitura": "2001-05-31"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "1991-02-01"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "8",
+      "UfParlamentar": "AP",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "49",
+       "DataInicio": "1991-02-01",
+       "DataFim": "1995-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "102",
+         "NomeParlamentar": "Paulo Guerra"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "103",
+         "NomeParlamentar": "Marcos Rocha de Andrade"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "100",
+         "DataInicio": "1991-02-01",
+         "DataFim": "1998-09-30",
+         "SiglaCausaAfastamento": "LP ",
+         "DescricaoCausaAfastamento": "Licença Particular",
+         "DataLeitura": "1998-10-09"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "1991-02-01"
+       }
+      }
+     },
+     {
+      "UfParlamentar": "MA",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "46",
+       "DataInicio": "1979-02-01",
+       "DataFim": "1983-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "47",
+       "DataInicio": "1983-02-01",
+       "DataFim": "1987-01-31"
+      }
+     },
+     {
+      "UfParlamentar": "MA",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "44",
+       "DataInicio": "1971-03-31",
+       "DataFim": "1974-12-05"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "45",
+       "DataInicio": "1975-03-01",
+       "DataFim": "1978-12-05"
+      }
+     }
+    ]
+   }
+  }
+ }
+}

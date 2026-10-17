@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 178990,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178990",
+   "nome": "Samuel Moreira",
+   "siglaPartido": "PSDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "SP",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178990.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Samuel%20Moreira&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Samuel%20Moreira&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Samuel%20Moreira&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

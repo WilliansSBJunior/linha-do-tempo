@@ -1,0 +1,119 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:58",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "4994",
+   "Nome": "Eduardo Braga",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "521",
+      "UfParlamentar": "AM",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "57",
+       "DataInicio": "2023-02-01",
+       "DataFim": "2027-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5038",
+         "NomeParlamentar": "Sandra Braga"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5935",
+         "NomeParlamentar": "Miguel Biango"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2893",
+         "DataInicio": "2019-02-01"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "2011-01-28"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "473",
+      "UfParlamentar": "AM",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5038",
+         "NomeParlamentar": "Sandra Braga"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5040",
+         "NomeParlamentar": "Lirio Albino Parisotto"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2775",
+         "DataInicio": "2016-04-22",
+         "DataFim": "2019-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        },
+        {
+         "CodigoExercicio": "2593",
+         "DataInicio": "2011-02-01",
+         "DataFim": "2015-01-01",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "2011-01-28"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

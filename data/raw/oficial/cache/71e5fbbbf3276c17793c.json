@@ -1,0 +1,205 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:50:20",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "73",
+   "Nome": "Romero Jucá",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "460",
+      "UfParlamentar": "RR",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "3597",
+         "NomeParlamentar": "Wirlande da Luz"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5074",
+         "NomeParlamentar": "Sander Fraxe Salomao"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2792",
+         "DataInicio": "2016-05-24",
+         "DataFim": "2019-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        },
+        {
+         "CodigoExercicio": "2623",
+         "DataInicio": "2011-02-01",
+         "DataFim": "2016-05-13",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "2003-05-14"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "311",
+      "UfParlamentar": "RR",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "3597",
+         "NomeParlamentar": "Wirlande da Luz"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "3598",
+         "NomeParlamentar": "Delacir de Melo"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2375",
+         "DataInicio": "2005-07-21",
+         "DataFim": "2011-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato",
+         "DataLeitura": "2005-07-21"
+        },
+        {
+         "CodigoExercicio": "1744",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2005-03-21",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício",
+         "DataLeitura": "2005-03-22"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "33",
+         "Sigla": "MDB",
+         "Nome": "Movimento Democrático Brasileiro",
+         "DataFiliacao": "2003-05-14"
+        },
+        {
+         "CodigoPartido": "66",
+         "Sigla": "PSDB",
+         "Nome": "Partido da Social Democracia Brasileira",
+         "DataFiliacao": "1999-01-28",
+         "DataDesfiliacao": "2003-05-13"
+        }
+       ]
+      }
+     },
+     {
+      "CodigoMandato": "90",
+      "UfParlamentar": "RR",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "3597",
+         "NomeParlamentar": "Wirlande da Luz"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5074",
+         "NomeParlamentar": "Sander Fraxe Salomao"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "161",
+         "DataInicio": "1995-02-01",
+         "DataFim": "2003-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "66",
+         "Sigla": "PSDB",
+         "Nome": "Partido da Social Democracia Brasileira",
+         "DataFiliacao": "1999-01-28",
+         "DataDesfiliacao": "2003-05-13"
+        },
+        {
+         "CodigoPartido": "22",
+         "Sigla": "PFL",
+         "Nome": "Partido da Frente Liberal",
+         "DataFiliacao": "1995-02-16",
+         "DataDesfiliacao": "1999-01-27"
+        },
+        {
+         "CodigoPartido": "40",
+         "Sigla": "PPR",
+         "Nome": "Partido Progressista Reformador",
+         "DataFiliacao": "1995-02-01",
+         "DataDesfiliacao": "1995-02-15"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

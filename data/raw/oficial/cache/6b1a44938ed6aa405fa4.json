@@ -1,0 +1,129 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:57",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "3399",
+   "Nome": "Demóstenes Torres",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "472",
+      "UfParlamentar": "GO",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "4873",
+         "NomeParlamentar": "Fleury"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2590",
+         "DataInicio": "2011-02-01",
+         "DataFim": "2012-07-11",
+         "SiglaCausaAfastamento": "PER",
+         "DescricaoCausaAfastamento": "Perda de mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2012-04-27"
+        },
+        {
+         "CodigoPartido": "554",
+         "Sigla": "DEM",
+         "Nome": "Democratas",
+         "DataFiliacao": "2007-08-02",
+         "DataDesfiliacao": "2012-04-26"
+        }
+       ]
+      }
+     },
+     {
+      "CodigoMandato": "248",
+      "UfParlamentar": "GO",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "3623",
+         "NomeParlamentar": "Sandra Melon de Paula"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "3624",
+         "NomeParlamentar": "José Eduardo"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "1697",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2011-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "554",
+         "Sigla": "DEM",
+         "Nome": "Democratas",
+         "DataFiliacao": "2007-08-02",
+         "DataDesfiliacao": "2012-04-26"
+        },
+        {
+         "CodigoPartido": "22",
+         "Sigla": "PFL",
+         "Nome": "Partido da Frente Liberal",
+         "DataFiliacao": "2003-02-01",
+         "DataDesfiliacao": "2007-08-01"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

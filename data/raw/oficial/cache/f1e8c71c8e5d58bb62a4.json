@@ -1,0 +1,58 @@
+{
+ "dados": [
+  {
+   "id": 74407,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74407",
+   "nome": "EFRAIM MORAIS",
+   "nomeEleitoral": "EFRAIM MORAIS",
+   "siglaPartido": "PFL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+   "siglaUf": "PB",
+   "idLegislatura": 51,
+   "email": null,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74407.jpg",
+   "dataHora": "2023-02-01T00:00",
+   "situacao": null,
+   "condicaoEleitoral": null,
+   "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+  },
+  {
+   "id": 74407,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74407",
+   "nome": "EFRAIM MORAIS",
+   "nomeEleitoral": "EFRAIM MORAIS",
+   "siglaPartido": null,
+   "uriPartido": null,
+   "siglaUf": "PB",
+   "idLegislatura": 50,
+   "email": null,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74407.jpg",
+   "dataHora": "2023-02-01T00:00",
+   "situacao": null,
+   "condicaoEleitoral": null,
+   "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+  },
+  {
+   "id": 74407,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74407",
+   "nome": "EFRAIM MORAIS",
+   "nomeEleitoral": "EFRAIM MORAIS",
+   "siglaPartido": null,
+   "uriPartido": null,
+   "siglaUf": "PB",
+   "idLegislatura": 49,
+   "email": null,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74407.jpg",
+   "dataHora": "2023-02-01T00:00",
+   "situacao": null,
+   "condicaoEleitoral": null,
+   "descricaoStatus": "Nome no início da legislatura / Partido no início da legislatura"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados/74407/historico"
+  }
+ ]
+}

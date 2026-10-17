@@ -1,0 +1,54 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:50:20",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "73",
+   "Nome": "Romero Jucá",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "33",
+       "SiglaPartido": "MDB",
+       "NomePartido": "Movimento Democrático Brasileiro"
+      },
+      "DataFiliacao": "2003-05-14"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "66",
+       "SiglaPartido": "PSDB",
+       "NomePartido": "Partido da Social Democracia Brasileira"
+      },
+      "DataFiliacao": "1999-01-28",
+      "DataDesfiliacao": "2003-05-13"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "22",
+       "SiglaPartido": "PFL",
+       "NomePartido": "Partido da Frente Liberal"
+      },
+      "DataFiliacao": "1995-02-16",
+      "DataDesfiliacao": "1999-01-27"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "40",
+       "SiglaPartido": "PPR",
+       "NomePartido": "Partido Progressista Reformador"
+      },
+      "DataFiliacao": "1995-02-01",
+      "DataDesfiliacao": "1995-02-15"
+     }
+    ]
+   }
+  }
+ }
+}

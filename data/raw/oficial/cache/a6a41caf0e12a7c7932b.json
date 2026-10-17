@@ -1,0 +1,145 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:00:46",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "345",
+   "Nome": "Flávio Arns",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "540",
+      "UfParlamentar": "PR",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "57",
+       "DataInicio": "2023-02-01",
+       "DataFim": "2027-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5919",
+         "NomeParlamentar": "Vilson Basso"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5920",
+         "NomeParlamentar": "Flavio Vicente"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2903",
+         "DataInicio": "2019-02-01"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "63",
+         "Sigla": "PSB",
+         "Nome": "Partido Socialista Brasileiro",
+         "DataFiliacao": "2023-01-31"
+        },
+        {
+         "CodigoPartido": "577",
+         "Sigla": "PODE",
+         "Nome": "Podemos",
+         "DataFiliacao": "2020-08-31",
+         "DataDesfiliacao": "2023-01-30"
+        },
+        {
+         "CodigoPartido": "565",
+         "Sigla": "REDE",
+         "Nome": "Rede Sustentabilidade",
+         "DataFiliacao": "2019-01-01",
+         "DataDesfiliacao": "2020-08-29"
+        }
+       ]
+      }
+     },
+     {
+      "CodigoMandato": "304",
+      "UfParlamentar": "PR",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "3637",
+         "NomeParlamentar": "Danimar Cristina"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "3638",
+         "NomeParlamentar": "Márcio Tadeu Vieira Pessatti"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "1737",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2010-12-31",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "66",
+         "Sigla": "PSDB",
+         "Nome": "Partido da Social Democracia Brasileira",
+         "DataFiliacao": "2009-10-08",
+         "DataDesfiliacao": "2018-12-31"
+        },
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2009-09-11",
+         "DataDesfiliacao": "2009-10-07"
+        },
+        {
+         "CodigoPartido": "71",
+         "Sigla": "PT",
+         "Nome": "Partido dos Trabalhadores",
+         "DataFiliacao": "2003-02-01",
+         "DataDesfiliacao": "2009-09-10"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

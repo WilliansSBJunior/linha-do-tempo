@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 160674,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160674",
+   "nome": "HUGO MOTTA",
+   "siglaPartido": "PMDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36800",
+   "siglaUf": "PB",
+   "idLegislatura": 54,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160674.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Hugo%20Motta&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Hugo%20Motta&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Hugo%20Motta&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

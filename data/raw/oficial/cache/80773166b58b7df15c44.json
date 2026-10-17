@@ -1,0 +1,83 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:50:00",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "5540",
+   "Nome": "Fernando Bezerra Coelho",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "519",
+      "UfParlamentar": "PE",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5603",
+         "NomeParlamentar": "Carlos Augusto Costa"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5605",
+         "NomeParlamentar": "Eliane Rodrigues"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2736",
+         "DataInicio": "2015-02-01",
+         "DataFim": "2023-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "33",
+         "Sigla": "MDB",
+         "Nome": "Movimento Democrático Brasileiro",
+         "DataFiliacao": "2017-09-13"
+        },
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2017-09-05",
+         "DataDesfiliacao": "2017-09-12"
+        },
+        {
+         "CodigoPartido": "63",
+         "Sigla": "PSB",
+         "Nome": "Partido Socialista Brasileiro",
+         "DataFiliacao": "2015-02-01",
+         "DataDesfiliacao": "2017-09-04"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

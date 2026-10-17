@@ -1,0 +1,45 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:29",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "3399",
+   "Nome": "Demóstenes Torres",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2012-04-27"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "554",
+       "SiglaPartido": "DEM",
+       "NomePartido": "Democratas"
+      },
+      "DataFiliacao": "2007-08-02",
+      "DataDesfiliacao": "2012-04-26"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "22",
+       "SiglaPartido": "PFL",
+       "NomePartido": "Partido da Frente Liberal"
+      },
+      "DataFiliacao": "2003-02-01",
+      "DataDesfiliacao": "2007-08-01"
+     }
+    ]
+   }
+  }
+ }
+}

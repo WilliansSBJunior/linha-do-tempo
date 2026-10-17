@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 73441,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73441",
+   "nome": "CELSO RUSSOMANNO",
+   "siglaPartido": "PRB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36815",
+   "siglaUf": "SP",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73441.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Celso%20Russomanno&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Celso%20Russomanno&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Celso%20Russomanno&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

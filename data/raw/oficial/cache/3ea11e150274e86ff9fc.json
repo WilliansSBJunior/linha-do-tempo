@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Maia&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

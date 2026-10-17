@@ -1,0 +1,68 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:29",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "8",
+   "Nome": "Beni Veras",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "10",
+      "UfParlamentar": "CE",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "49",
+       "DataInicio": "1991-02-01",
+       "DataFim": "1995-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "139",
+         "NomeParlamentar": "Reginaldo Duarte"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "141",
+         "NomeParlamentar": "Juarez Leitão"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "102",
+         "DataInicio": "1991-02-01",
+         "DataFim": "1998-12-31",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "66",
+        "Sigla": "PSDB",
+        "Nome": "Partido da Social Democracia Brasileira",
+        "DataFiliacao": "1991-02-01",
+        "DataDesfiliacao": "1998-12-31"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

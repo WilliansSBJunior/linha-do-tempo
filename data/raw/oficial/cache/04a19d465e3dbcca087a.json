@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Severino%20Cavalcanti&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "dados": [
+  {
+   "id": 179587,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/179587",
+   "nome": "MAJOR VITOR HUGO",
+   "siglaPartido": "PSL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUf": "GO",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/179587.jpg",
+   "email": null
+  },
+  {
+   "id": 179587,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/179587",
+   "nome": "MAJOR VITOR HUGO",
+   "siglaPartido": "UNIÃO",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUf": "GO",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/179587.jpg",
+   "email": null
+  },
+  {
+   "id": 179587,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/179587",
+   "nome": "MAJOR VITOR HUGO",
+   "siglaPartido": "PL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUf": "GO",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/179587.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Major%20Vitor%20Hugo&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Major%20Vitor%20Hugo&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Major%20Vitor%20Hugo&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

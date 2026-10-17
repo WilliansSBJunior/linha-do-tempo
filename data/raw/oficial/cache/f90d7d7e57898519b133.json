@@ -1,0 +1,84 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "923",
+   "Nome": "Heloísa Helena",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "176",
+      "UfParlamentar": "AL",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "1143",
+         "NomeParlamentar": "Severino Lúcio"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "1146",
+         "NomeParlamentar": "Maria Ivone"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "701",
+         "DataInicio": "1999-02-01",
+         "DataFim": "2007-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "458",
+         "Sigla": "PSOL",
+         "Nome": "Partido Socialismo e Liberdade",
+         "DataFiliacao": "2004-08-04",
+         "DataDesfiliacao": "2025-12-15"
+        },
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2004-01-22",
+         "DataDesfiliacao": "2004-08-03"
+        },
+        {
+         "CodigoPartido": "71",
+         "Sigla": "PT",
+         "Nome": "Partido dos Trabalhadores",
+         "DataFiliacao": "1999-02-01",
+         "DataDesfiliacao": "2004-01-21"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

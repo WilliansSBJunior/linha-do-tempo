@@ -1,0 +1,14 @@
+{
+ "dados": {
+  "id": 53,
+  "uri": "https://dadosabertos.camara.leg.br/api/v2/legislaturas/53",
+  "dataInicio": "2007-02-01",
+  "dataFim": "2011-01-31"
+ },
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/legislaturas/53"
+  }
+ ]
+}

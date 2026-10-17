@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Aguinaldo%20Ribeiro&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

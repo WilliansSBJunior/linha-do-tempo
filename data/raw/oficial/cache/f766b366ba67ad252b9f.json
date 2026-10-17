@@ -1,0 +1,76 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:56",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "5529",
+   "Nome": "Antonio Anastasia",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "495",
+      "UfParlamentar": "MG",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "4610",
+         "NomeParlamentar": "Alexandre Silveira"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "415",
+         "NomeParlamentar": "Lael Varella"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2759",
+         "DataInicio": "2015-02-01",
+         "DataFim": "2022-02-02",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "557",
+         "Sigla": "PSD",
+         "Nome": "Partido Social Democrático",
+         "DataFiliacao": "2020-02-12"
+        },
+        {
+         "CodigoPartido": "66",
+         "Sigla": "PSDB",
+         "Nome": "Partido da Social Democracia Brasileira",
+         "DataFiliacao": "2015-02-01",
+         "DataDesfiliacao": "2020-02-11"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

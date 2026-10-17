@@ -1,0 +1,27 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 11:25:29",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "581",
+   "Nome": "Jaques Wagner",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "71",
+       "SiglaPartido": "PT",
+       "NomePartido": "Partido dos Trabalhadores"
+      },
+      "DataFiliacao": "1999-02-01"
+     }
+    ]
+   }
+  }
+ }
+}

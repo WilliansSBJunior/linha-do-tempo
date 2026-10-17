@@ -1,0 +1,54 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:29",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "3830",
+   "Nome": "Davi Alcolumbre",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "582",
+       "SiglaPartido": "UNIÃO",
+       "NomePartido": "União Brasil"
+      },
+      "DataFiliacao": "2022-04-12"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "554",
+       "SiglaPartido": "DEM",
+       "NomePartido": "Democratas"
+      },
+      "DataFiliacao": "2007-04-24",
+      "DataDesfiliacao": "2022-04-11"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "578",
+       "SiglaPartido": "AVANTE",
+       "NomePartido": "Avante"
+      },
+      "DataFiliacao": "2005-02-15",
+      "DataDesfiliacao": "2007-04-23"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "20",
+       "SiglaPartido": "PDT",
+       "NomePartido": "Partido Democrático Trabalhista"
+      },
+      "DataFiliacao": "2003-02-01",
+      "DataDesfiliacao": "2005-02-14"
+     }
+    ]
+   }
+  }
+ }
+}

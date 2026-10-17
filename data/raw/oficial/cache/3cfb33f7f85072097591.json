@@ -1,0 +1,14 @@
+{
+ "dados": {
+  "id": 56,
+  "uri": "https://dadosabertos.camara.leg.br/api/v2/legislaturas/56",
+  "dataInicio": "2019-02-01",
+  "dataFim": "2023-01-31"
+ },
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/legislaturas/56"
+  }
+ ]
+}

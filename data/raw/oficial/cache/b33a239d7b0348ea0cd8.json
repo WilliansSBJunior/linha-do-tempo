@@ -1,0 +1,126 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "69",
+   "Nome": "Ramez Tebet",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "297",
+      "UfParlamentar": "MS",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "3629",
+         "NomeParlamentar": "Valter Pereira"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "3630",
+         "NomeParlamentar": "Eduardo Otávio Teixeira Marcondes"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "1730",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2006-11-17",
+         "SiglaCausaAfastamento": "FAL",
+         "DescricaoCausaAfastamento": "Falecimento",
+         "DataLeitura": "2006-11-20"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "1995-02-01",
+        "DataDesfiliacao": "2006-11-17"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "100",
+      "UfParlamentar": "MS",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "119",
+         "NomeParlamentar": "Pedro Paulo"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "121",
+         "NomeParlamentar": "Pedro Ubirajara"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "1213",
+         "DataInicio": "2001-09-20",
+         "DataFim": "2003-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        },
+        {
+         "CodigoExercicio": "138",
+         "DataInicio": "1995-02-01",
+         "DataFim": "2001-06-19",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício",
+         "DataLeitura": "2001-06-20"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "33",
+        "Sigla": "MDB",
+        "Nome": "Movimento Democrático Brasileiro",
+        "DataFiliacao": "1995-02-01",
+        "DataDesfiliacao": "2006-11-17"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

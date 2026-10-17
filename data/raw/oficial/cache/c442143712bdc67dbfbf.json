@@ -1,0 +1,91 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "46",
+   "Nome": "José Roberto Arruda",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "41",
+      "UfParlamentar": "DF",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "2411",
+         "NomeParlamentar": "Lindberg Cury"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "2412",
+         "NomeParlamentar": "Ilton Mendes"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "130",
+         "DataInicio": "1995-02-01",
+         "DataFim": "2001-05-24",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2001-05-25",
+         "DataDesfiliacao": "2003-01-31"
+        },
+        {
+         "CodigoPartido": "66",
+         "Sigla": "PSDB",
+         "Nome": "Partido da Social Democracia Brasileira",
+         "DataFiliacao": "1995-10-04",
+         "DataDesfiliacao": "2001-05-24"
+        },
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "1995-08-12",
+         "DataDesfiliacao": "1995-10-03"
+        },
+        {
+         "CodigoPartido": "38",
+         "Sigla": "PP",
+         "Nome": "Partido Progressista",
+         "DataFiliacao": "1995-02-01",
+         "DataDesfiliacao": "1995-08-11"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

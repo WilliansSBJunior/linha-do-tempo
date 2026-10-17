@@ -1,0 +1,74 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:56",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "846",
+   "Nome": "Aloysio Nunes Ferreira",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "485",
+      "UfParlamentar": "SP",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5140",
+         "NomeParlamentar": "Airton Sandoval"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5142",
+         "NomeParlamentar": "Marta Maria Freire da Costa"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2883",
+         "DataInicio": "2019-01-01",
+         "DataFim": "2019-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        },
+        {
+         "CodigoExercicio": "2580",
+         "DataInicio": "2011-02-01",
+         "DataFim": "2017-03-06",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "66",
+        "Sigla": "PSDB",
+        "Nome": "Partido da Social Democracia Brasileira",
+        "DataFiliacao": "1999-02-01"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:29",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "4",
+   "Nome": "Antonio Carlos Magalhães",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "22",
+       "SiglaPartido": "PFL",
+       "NomePartido": "Partido da Frente Liberal"
+      },
+      "DataFiliacao": "2003-02-01",
+      "DataDesfiliacao": "2007-07-20"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2001-05-31",
+      "DataDesfiliacao": "2003-01-31"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "22",
+       "SiglaPartido": "PFL",
+       "NomePartido": "Partido da Frente Liberal"
+      },
+      "DataFiliacao": "1995-02-01",
+      "DataDesfiliacao": "2001-05-30"
+     }
+    ]
+   }
+  }
+ }
+}

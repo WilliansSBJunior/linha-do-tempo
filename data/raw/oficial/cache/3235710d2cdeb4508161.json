@@ -1,0 +1,36 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:57",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "5529",
+   "Nome": "Antonio Anastasia",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "557",
+       "SiglaPartido": "PSD",
+       "NomePartido": "Partido Social Democrático"
+      },
+      "DataFiliacao": "2020-02-12"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "66",
+       "SiglaPartido": "PSDB",
+       "NomePartido": "Partido da Social Democracia Brasileira"
+      },
+      "DataFiliacao": "2015-02-01",
+      "DataDesfiliacao": "2020-02-11"
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "46",
+   "Nome": "José Roberto Arruda",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "22",
+       "SiglaPartido": "PFL",
+       "NomePartido": "Partido da Frente Liberal"
+      },
+      "DataFiliacao": "2003-02-01",
+      "DataDesfiliacao": "2007-08-01"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2001-05-25",
+      "DataDesfiliacao": "2003-01-31"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "66",
+       "SiglaPartido": "PSDB",
+       "NomePartido": "Partido da Social Democracia Brasileira"
+      },
+      "DataFiliacao": "1995-10-04",
+      "DataDesfiliacao": "2001-05-24"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "1995-08-12",
+      "DataDesfiliacao": "1995-10-03"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "38",
+       "SiglaPartido": "PP",
+       "NomePartido": "Partido Progressista"
+      },
+      "DataFiliacao": "1995-02-01",
+      "DataDesfiliacao": "1995-08-11"
+     }
+    ]
+   }
+  }
+ }
+}

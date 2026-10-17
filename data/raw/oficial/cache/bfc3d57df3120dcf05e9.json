@@ -1,0 +1,121 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:57",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "3830",
+   "Nome": "Davi Alcolumbre",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "618",
+      "UfParlamentar": "AP",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "57",
+       "DataInicio": "2023-02-01",
+       "DataFim": "2027-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "58",
+       "DataInicio": "2027-02-01",
+       "DataFim": "2031-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5569",
+         "NomeParlamentar": "Josiel"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "6347",
+         "NomeParlamentar": "Breno"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "3021",
+         "DataInicio": "2023-02-01"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "582",
+        "Sigla": "UNIÃO",
+        "Nome": "União Brasil",
+        "DataFiliacao": "2022-04-12"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "501",
+      "UfParlamentar": "AP",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5569",
+         "NomeParlamentar": "Josiel"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5571",
+         "NomeParlamentar": "Marquinho"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2732",
+         "DataInicio": "2015-02-01",
+         "DataFim": "2023-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "582",
+         "Sigla": "UNIÃO",
+         "Nome": "União Brasil",
+         "DataFiliacao": "2022-04-12"
+        },
+        {
+         "CodigoPartido": "554",
+         "Sigla": "DEM",
+         "Nome": "Democratas",
+         "DataFiliacao": "2007-04-24",
+         "DataDesfiliacao": "2022-04-11"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

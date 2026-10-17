@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74570,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74570",
+   "nome": "JUTAHY JUNIOR",
+   "siglaPartido": "PSDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "BA",
+   "idLegislatura": 51,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74570.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jutahy%20J%C3%BAnior&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jutahy%20J%C3%BAnior&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jutahy%20J%C3%BAnior&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

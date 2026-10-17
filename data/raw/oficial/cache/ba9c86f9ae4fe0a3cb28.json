@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74436,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74436",
+   "nome": "SEVERINO CAVALCANTI",
+   "siglaPartido": "PPB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36811",
+   "siglaUf": "PE",
+   "idLegislatura": 51,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74436.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Severino%20Cavalcanti&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Severino%20Cavalcanti&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Severino%20Cavalcanti&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

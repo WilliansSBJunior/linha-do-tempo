@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74688,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74688",
+   "nome": "LUIZ SÉRGIO",
+   "siglaPartido": "PT",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
+   "siglaUf": "RJ",
+   "idLegislatura": 53,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74688.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20S%C3%A9rgio&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20S%C3%A9rgio&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Luiz%20S%C3%A9rgio&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

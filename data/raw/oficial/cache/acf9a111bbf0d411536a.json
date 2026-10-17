@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 73433,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "nome": "ARLINDO CHINAGLIA",
+   "siglaPartido": "PT",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
+   "siglaUf": "SP",
+   "idLegislatura": 51,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73433.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arlindo%20Chinaglia&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arlindo%20Chinaglia&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Arlindo%20Chinaglia&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

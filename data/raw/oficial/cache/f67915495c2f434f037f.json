@@ -1,0 +1,51 @@
+{
+ "dados": [
+  {
+   "id": 204546,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/204546",
+   "nome": "Joice Hasselmann",
+   "siglaPartido": "PSL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "SP",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204546.jpg",
+   "email": null
+  },
+  {
+   "id": 204546,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/204546",
+   "nome": "Joice Hasselmann",
+   "siglaPartido": "UNIÃO",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "SP",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204546.jpg",
+   "email": null
+  },
+  {
+   "id": 204546,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/204546",
+   "nome": "Joice Hasselmann",
+   "siglaPartido": "PSDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "SP",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204546.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Joice%20Hasselmann&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Joice%20Hasselmann&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Joice%20Hasselmann&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

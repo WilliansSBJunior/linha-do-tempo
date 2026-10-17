@@ -1,0 +1,40 @@
+{
+ "dados": [
+  {
+   "id": 178937,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178937",
+   "nome": "Altineu Côrtes",
+   "siglaPartido": "PR",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUf": "RJ",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178937.jpg",
+   "email": null
+  },
+  {
+   "id": 178937,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178937",
+   "nome": "Altineu Côrtes",
+   "siglaPartido": "PL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37906",
+   "siglaUf": "RJ",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178937.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Altineu%20C%C3%B4rtes&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Altineu%20C%C3%B4rtes&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Altineu%20C%C3%B4rtes&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

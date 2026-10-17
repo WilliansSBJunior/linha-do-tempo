@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 141470,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "nome": "José Guimarães",
+   "siglaPartido": "PT",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
+   "siglaUf": "CE",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/141470.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jos%C3%A9%20Guimar%C3%A3es&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jos%C3%A9%20Guimar%C3%A3es&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jos%C3%A9%20Guimar%C3%A3es&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

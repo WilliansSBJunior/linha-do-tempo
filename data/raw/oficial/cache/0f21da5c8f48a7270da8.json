@@ -1,0 +1,27 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:58",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "4994",
+   "Nome": "Eduardo Braga",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "33",
+       "SiglaPartido": "MDB",
+       "NomePartido": "Movimento Democrático Brasileiro"
+      },
+      "DataFiliacao": "2011-01-28"
+     }
+    ]
+   }
+  }
+ }
+}

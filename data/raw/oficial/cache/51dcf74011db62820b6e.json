@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 178997,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178997",
+   "nome": "Moses Rodrigues",
+   "siglaPartido": "UNIÃO",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/38009",
+   "siglaUf": "CE",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178997.jpg",
+   "email": "dep.mosesrodrigues@camara.leg.br"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Moses%20Rodrigues&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Moses%20Rodrigues&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Moses%20Rodrigues&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 160639,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160639",
+   "nome": "PROFESSORA DORINHA SEABRA REZENDE",
+   "siglaPartido": "DEM",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36769",
+   "siglaUf": "TO",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160639.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Professora%20Dorinha%20Seabra%20Rezende&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Professora%20Dorinha%20Seabra%20Rezende&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Professora%20Dorinha%20Seabra%20Rezende&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

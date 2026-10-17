@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

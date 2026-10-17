@@ -1,0 +1,51 @@
+{
+ "dados": [
+  {
+   "id": 204454,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/204454",
+   "nome": "Daniel Silveira",
+   "siglaPartido": "PSL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36845",
+   "siglaUf": "RJ",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204454.jpg",
+   "email": null
+  },
+  {
+   "id": 204454,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/204454",
+   "nome": "Daniel Silveira",
+   "siglaPartido": "UNIÃO",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36845",
+   "siglaUf": "RJ",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204454.jpg",
+   "email": null
+  },
+  {
+   "id": 204454,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/204454",
+   "nome": "Daniel Silveira",
+   "siglaPartido": "PTB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36845",
+   "siglaUf": "RJ",
+   "idLegislatura": 56,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204454.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Daniel%20Silveira&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Daniel%20Silveira&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Daniel%20Silveira&idLegislatura=56&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

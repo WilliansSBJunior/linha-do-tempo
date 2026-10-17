@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 141488,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/141488",
+   "nome": "PAULO TEIXEIRA",
+   "siglaPartido": "PT",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
+   "siglaUf": "SP",
+   "idLegislatura": 54,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/141488.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Paulo%20Teixeira&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Paulo%20Teixeira&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Paulo%20Teixeira&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

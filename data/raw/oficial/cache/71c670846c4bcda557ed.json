@@ -1,0 +1,40 @@
+{
+ "dados": [
+  {
+   "id": 160976,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160976",
+   "nome": "Tiririca",
+   "siglaPartido": "PL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36834",
+   "siglaUf": "SP",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160976.jpg",
+   "email": "dep.tiririca@camara.leg.br"
+  },
+  {
+   "id": 160976,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160976",
+   "nome": "Tiririca",
+   "siglaPartido": "PSD",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36834",
+   "siglaUf": "SP",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160976.jpg",
+   "email": "dep.tiririca@camara.leg.br"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Tiririca&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Tiririca&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Tiririca&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

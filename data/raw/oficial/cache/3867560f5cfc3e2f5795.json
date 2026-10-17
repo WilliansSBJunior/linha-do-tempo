@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Professora%20Dorinha%20Seabra%20Rezende&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

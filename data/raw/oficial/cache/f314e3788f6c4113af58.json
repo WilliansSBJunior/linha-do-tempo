@@ -1,0 +1,40 @@
+{
+ "dados": [
+  {
+   "id": 178947,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178947",
+   "nome": "SÓSTENES CAVALCANTE",
+   "siglaPartido": "PSD",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36769",
+   "siglaUf": "RJ",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178947.jpg",
+   "email": null
+  },
+  {
+   "id": 178947,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/178947",
+   "nome": "SÓSTENES CAVALCANTE",
+   "siglaPartido": "DEM",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36769",
+   "siglaUf": "RJ",
+   "idLegislatura": 55,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/178947.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=S%C3%B3stenes%20Cavalcante&idLegislatura=55&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=S%C3%B3stenes%20Cavalcante&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=S%C3%B3stenes%20Cavalcante&idLegislatura=55&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

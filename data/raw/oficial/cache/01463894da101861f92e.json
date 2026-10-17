@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 141394,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/141394",
+   "nome": "BRUNO ARAÚJO",
+   "siglaPartido": "PSDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "PE",
+   "idLegislatura": 54,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/141394.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Bruno%20Ara%C3%BAjo&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Bruno%20Ara%C3%BAjo&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Bruno%20Ara%C3%BAjo&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

@@ -1,0 +1,92 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:50:18",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "635",
+   "Nome": "Ricardo Ferraço",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "455",
+      "UfParlamentar": "ES",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "54",
+       "DataInicio": "2011-02-01",
+       "DataFim": "2015-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "5106",
+         "NomeParlamentar": "Sérgio de Castro"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "5120",
+         "NomeParlamentar": "José Antonio Guidoni"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2845",
+         "DataInicio": "2018-03-08",
+         "DataFim": "2019-01-31",
+         "SiglaCausaAfastamento": "TER",
+         "DescricaoCausaAfastamento": "Término do mandato",
+         "DataLeitura": "2018-03-07"
+        },
+        {
+         "CodigoExercicio": "2620",
+         "DataInicio": "2011-02-01",
+         "DataFim": "2017-11-07",
+         "SiglaCausaAfastamento": "LSP",
+         "DescricaoCausaAfastamento": "Licença Saúde-Particular",
+         "DataLeitura": "2017-11-07"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "66",
+         "Sigla": "PSDB",
+         "Nome": "Partido da Social Democracia Brasileira",
+         "DataFiliacao": "2016-03-01"
+        },
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2016-02-04",
+         "DataDesfiliacao": "2016-02-29"
+        },
+        {
+         "CodigoPartido": "33",
+         "Sigla": "MDB",
+         "Nome": "Movimento Democrático Brasileiro",
+         "DataFiliacao": "2011-01-27",
+         "DataDesfiliacao": "2016-02-03"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

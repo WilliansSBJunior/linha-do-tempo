@@ -1,0 +1,14 @@
+{
+ "dados": {
+  "id": 51,
+  "uri": "https://dadosabertos.camara.leg.br/api/v2/legislaturas/51",
+  "dataInicio": "1999-02-01",
+  "dataFim": "2003-01-31"
+ },
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/legislaturas/51"
+  }
+ ]
+}

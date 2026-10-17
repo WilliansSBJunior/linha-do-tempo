@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=C%C3%A2ndido%20Vaccarezza&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

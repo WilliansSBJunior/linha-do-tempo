@@ -1,0 +1,63 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:30",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "924",
+   "Nome": "Paulo Souto",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "162",
+      "UfParlamentar": "BA",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "1085",
+         "NomeParlamentar": "Rodolpho Tourinho"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "686",
+         "DataInicio": "1999-02-01",
+         "DataFim": "2002-12-31",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "22",
+        "Sigla": "PFL",
+        "Nome": "Partido da Frente Liberal",
+        "DataFiliacao": "1999-02-01",
+        "DataDesfiliacao": "2007-08-01"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

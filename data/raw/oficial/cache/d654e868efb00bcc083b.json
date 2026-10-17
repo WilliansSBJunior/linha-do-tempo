@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Michel%20Temer&idLegislatura=56&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

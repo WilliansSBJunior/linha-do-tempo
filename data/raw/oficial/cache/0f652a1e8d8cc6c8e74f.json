@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 160674,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160674",
+   "nome": "Hugo Motta",
+   "siglaPartido": "REPUBLICANOS",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37908",
+   "siglaUf": "PB",
+   "idLegislatura": 57,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160674.jpg",
+   "email": "dep.hugomotta@camara.leg.br"
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Hugo%20Motta&idLegislatura=57&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Hugo%20Motta&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Hugo%20Motta&idLegislatura=57&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74426,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74426",
+   "nome": "JOSÉ MÚCIO MONTEIRO",
+   "siglaPartido": "PFL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36835",
+   "siglaUf": "PE",
+   "idLegislatura": 51,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74426.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jos%C3%A9%20M%C3%BAcio%20Monteiro&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jos%C3%A9%20M%C3%BAcio%20Monteiro&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jos%C3%A9%20M%C3%BAcio%20Monteiro&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

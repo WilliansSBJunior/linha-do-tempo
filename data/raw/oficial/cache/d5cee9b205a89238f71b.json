@@ -1,0 +1,54 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 11:45:36",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "5894",
+   "Nome": "Flávio Bolsonaro",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "523",
+       "SiglaPartido": "PL",
+       "NomePartido": "Partido Liberal"
+      },
+      "DataFiliacao": "2021-11-30"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "579",
+       "SiglaPartido": "PATRIOTA",
+       "NomePartido": "Patriota"
+      },
+      "DataFiliacao": "2021-05-31",
+      "DataDesfiliacao": "2021-11-29"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2019-11-20",
+      "DataDesfiliacao": "2021-05-30"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "85",
+       "SiglaPartido": "PSL",
+       "NomePartido": "Partido Social Liberal"
+      },
+      "DataFiliacao": "2019-01-01",
+      "DataDesfiliacao": "2019-11-19"
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74537,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74537",
+   "nome": "CLAUDIO CAJADO",
+   "siglaPartido": "PFL",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36790",
+   "siglaUf": "BA",
+   "idLegislatura": 50,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74537.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Claudio%20Cajado&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Claudio%20Cajado&idLegislatura=50&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Claudio%20Cajado&idLegislatura=50&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

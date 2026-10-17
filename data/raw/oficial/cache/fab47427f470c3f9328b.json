@@ -1,0 +1,126 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:54:29",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "4",
+   "Nome": "Antonio Carlos Magalhães",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "293",
+      "UfParlamentar": "BA",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "52",
+       "DataInicio": "2003-02-01",
+       "DataFim": "2007-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "53",
+       "DataInicio": "2007-02-01",
+       "DataFim": "2011-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "118",
+         "NomeParlamentar": "Antonio Carlos Júnior"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "3572",
+         "NomeParlamentar": "Hélio Corrêa"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "1726",
+         "DataInicio": "2003-02-01",
+         "DataFim": "2007-07-20",
+         "SiglaCausaAfastamento": "FAL",
+         "DescricaoCausaAfastamento": "Falecimento"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "22",
+        "Sigla": "PFL",
+        "Nome": "Partido da Frente Liberal",
+        "DataFiliacao": "2003-02-01",
+        "DataDesfiliacao": "2007-07-20"
+       }
+      }
+     },
+     {
+      "CodigoMandato": "36",
+      "UfParlamentar": "BA",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "50",
+       "DataInicio": "1995-02-01",
+       "DataFim": "1999-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "51",
+       "DataInicio": "1999-02-01",
+       "DataFim": "2003-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "1º Suplente",
+         "CodigoParlamentar": "118",
+         "NomeParlamentar": "Antonio Carlos Júnior"
+        },
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "2430",
+         "NomeParlamentar": "Hélio Correia"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "125",
+         "DataInicio": "1995-02-01",
+         "DataFim": "2001-05-30",
+         "SiglaCausaAfastamento": "REN",
+         "DescricaoCausaAfastamento": "Renúncia"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": [
+        {
+         "CodigoPartido": "163",
+         "Sigla": "S/Partido",
+         "Nome": "Sem Partido",
+         "DataFiliacao": "2001-05-31",
+         "DataDesfiliacao": "2003-01-31"
+        },
+        {
+         "CodigoPartido": "22",
+         "Sigla": "PFL",
+         "Nome": "Partido da Frente Liberal",
+         "DataFiliacao": "1995-02-01",
+         "DataDesfiliacao": "2001-05-30"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

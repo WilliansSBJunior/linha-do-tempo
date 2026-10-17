@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Major%20Vitor%20Hugo&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}

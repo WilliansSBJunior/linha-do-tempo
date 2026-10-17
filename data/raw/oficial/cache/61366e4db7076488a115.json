@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 73482,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/73482",
+   "nome": "HENRIQUE FONTANA",
+   "siglaPartido": "PT",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36844",
+   "siglaUf": "RS",
+   "idLegislatura": 53,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/73482.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Henrique%20Fontana&idLegislatura=53&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Henrique%20Fontana&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Henrique%20Fontana&idLegislatura=53&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

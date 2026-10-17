@@ -1,0 +1,67 @@
+{
+ "MandatoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/MandatoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 12:49:56",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação dos Mandatos do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "4610",
+   "Nome": "Alexandre Silveira",
+   "Mandatos": {
+    "Mandato": [
+     {
+      "CodigoMandato": "495",
+      "UfParlamentar": "MG",
+      "PrimeiraLegislaturaDoMandato": {
+       "NumeroLegislatura": "55",
+       "DataInicio": "2015-02-01",
+       "DataFim": "2019-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+       "NumeroLegislatura": "56",
+       "DataInicio": "2019-02-01",
+       "DataFim": "2023-01-31"
+      },
+      "DescricaoParticipacao": "1º Suplente",
+      "Titular": {
+       "DescricaoParticipacao": "Titular",
+       "CodigoParlamentar": "5529",
+       "NomeParlamentar": "Antonio Anastasia"
+      },
+      "Suplentes": {
+       "Suplente": [
+        {
+         "DescricaoParticipacao": "2º Suplente",
+         "CodigoParlamentar": "415",
+         "NomeParlamentar": "Lael Varella"
+        }
+       ]
+      },
+      "Exercicios": {
+       "Exercicio": [
+        {
+         "CodigoExercicio": "2973",
+         "DataInicio": "2022-02-02",
+         "DataFim": "2023-01-01",
+         "SiglaCausaAfastamento": "AFO",
+         "DescricaoCausaAfastamento": "Afastamento do exercício"
+        }
+       ]
+      },
+      "Partidos": {
+       "Partido": {
+        "CodigoPartido": "557",
+        "Sigla": "PSD",
+        "Nome": "Partido Social Democrático",
+        "DataFiliacao": "2011-10-26"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

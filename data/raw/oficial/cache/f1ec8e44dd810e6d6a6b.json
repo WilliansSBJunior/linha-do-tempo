@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74862,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74862",
+   "nome": "MIRO TEIXEIRA",
+   "siglaPartido": "PDT",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36786",
+   "siglaUf": "RJ",
+   "idLegislatura": 51,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74862.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Miro%20Teixeira&idLegislatura=51&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Miro%20Teixeira&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Miro%20Teixeira&idLegislatura=51&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

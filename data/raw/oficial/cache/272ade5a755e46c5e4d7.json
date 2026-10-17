@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 74544,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74544",
+   "nome": "GEDDEL VIEIRA LIMA",
+   "siglaPartido": "PMDB",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36800",
+   "siglaUf": "BA",
+   "idLegislatura": 50,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/74544.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Geddel%20Vieira%20Lima&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Geddel%20Vieira%20Lima&idLegislatura=50&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Geddel%20Vieira%20Lima&idLegislatura=50&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

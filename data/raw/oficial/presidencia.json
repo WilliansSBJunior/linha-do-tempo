@@ -1,0 +1,33 @@
+{
+ "coletado_em": "2026-10-17T16:04:51Z",
+ "paginas": {
+  "presidentes_republica": {
+   "url": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/galeria-de-presidentes",
+   "status": "erro: redireciona para login (acl_users/credentials_cookie_auth) — página não pública",
+   "arquivo_cache": null,
+   "titulo": null,
+   "tamanho": 0
+  },
+  "vice_presidentes": {
+   "url": "https://www.gov.br/planalto/pt-br/vice-presidencia/galeria-de-vice-presidentes",
+   "status": "erro: HTTP 404",
+   "arquivo_cache": null,
+   "titulo": null,
+   "tamanho": 0
+  },
+  "presidentes_camara": {
+   "url": "https://www.camara.leg.br/a-camara/conheca/presidentes-da-camara",
+   "status": "erro: HTTP 404",
+   "arquivo_cache": null,
+   "titulo": null,
+   "tamanho": 0
+  },
+  "presidentes_senado": {
+   "url": "https://www25.senado.leg.br/web/senadores/presidentes-do-senado",
+   "status": "erro: HTTP 404",
+   "arquivo_cache": null,
+   "titulo": null,
+   "tamanho": 0
+  }
+ }
+}

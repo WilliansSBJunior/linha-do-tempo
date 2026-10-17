@@ -1,0 +1,29 @@
+{
+ "dados": [
+  {
+   "id": 141459,
+   "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/141459",
+   "nome": "JOÃO MAIA",
+   "siglaPartido": "PR",
+   "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36814",
+   "siglaUf": "RN",
+   "idLegislatura": 54,
+   "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/141459.jpg",
+   "email": null
+  }
+ ],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Maia&idLegislatura=54&itens=100&ordem=ASC&ordenarPor=nome"
+  },
+  {
+   "rel": "first",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Maia&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  },
+  {
+   "rel": "last",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Maia&idLegislatura=54&ordem=ASC&ordenarPor=nome&pagina=1&itens=100"
+  }
+ ]
+}

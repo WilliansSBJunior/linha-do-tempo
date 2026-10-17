@@ -1,0 +1,90 @@
+{
+ "FiliacaoParlamentar": {
+  "noNamespaceSchemaLocation": "https://legis.senado.leg.br/dadosabertos/dados/FiliacaoParlamentarv5.xsd",
+  "Metadados": {
+   "Versao": "17/10/2026 11:25:25",
+   "VersaoServico": "5",
+   "DataVersaoServico": "2021-09-09",
+   "DescricaoDataSet": "Retorna a relação de Filiações Partidárias do Senador informado no parâmetro."
+  },
+  "Parlamentar": {
+   "Codigo": "345",
+   "Nome": "Flávio Arns",
+   "Filiacoes": {
+    "Filiacao": [
+     {
+      "Partido": {
+       "CodigoPartido": "63",
+       "SiglaPartido": "PSB",
+       "NomePartido": "Partido Socialista Brasileiro"
+      },
+      "DataFiliacao": "2023-01-31"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "577",
+       "SiglaPartido": "PODE",
+       "NomePartido": "Podemos"
+      },
+      "DataFiliacao": "2020-08-31",
+      "DataDesfiliacao": "2023-01-30"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "565",
+       "SiglaPartido": "REDE",
+       "NomePartido": "Rede Sustentabilidade"
+      },
+      "DataFiliacao": "2019-01-01",
+      "DataDesfiliacao": "2020-08-29"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "66",
+       "SiglaPartido": "PSDB",
+       "NomePartido": "Partido da Social Democracia Brasileira"
+      },
+      "DataFiliacao": "2009-10-08",
+      "DataDesfiliacao": "2018-12-31"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2009-09-11",
+      "DataDesfiliacao": "2009-10-07"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "71",
+       "SiglaPartido": "PT",
+       "NomePartido": "Partido dos Trabalhadores"
+      },
+      "DataFiliacao": "2003-02-01",
+      "DataDesfiliacao": "2009-09-10"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "163",
+       "SiglaPartido": "S/Partido",
+       "NomePartido": "Sem Partido"
+      },
+      "DataFiliacao": "2001-10-06",
+      "DataDesfiliacao": "2003-01-31"
+     },
+     {
+      "Partido": {
+       "CodigoPartido": "66",
+       "SiglaPartido": "PSDB",
+       "NomePartido": "Partido da Social Democracia Brasileira"
+      },
+      "DataFiliacao": "1999-02-01",
+      "DataDesfiliacao": "2001-10-05"
+     }
+    ]
+   }
+  }
+ }
+}

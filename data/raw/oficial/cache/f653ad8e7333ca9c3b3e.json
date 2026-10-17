@@ -1,0 +1,9 @@
+{
+ "dados": [],
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Enio%20Verri&idLegislatura=52&itens=100&ordem=ASC&ordenarPor=nome"
+  }
+ ]
+}
