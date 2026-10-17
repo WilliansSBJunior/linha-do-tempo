@@ -1213,13 +1213,14 @@ def _alvo_evidencia(con, e):
 
 def aplicar_evidencias_adicionais(con):
     """data/curadoria/evidencias-adicionais.json (à mão): uma entrada por (alvo, URL). Cria `evidencia` (URL normalizada; se já existe, reaproveita
-    e NÃO altera veiculo/tipo/título), liga em `evento_evidencia` (rotulo = titulo) ou `relacao_evidencia` (papel 'sustenta') e guarda por ligação
+    e NÃO altera veiculo/tipo/título; uma entrada `fraca` com `substituida_por` NÃO é ligada nem cria evidência, só fica no arquivo como histórico; a
+    `descricao_nova` dela ainda vale), liga em `evento_evidencia` (rotulo = titulo) ou `relacao_evidencia` (papel 'sustenta') e guarda por ligação
     `trecho_citado`, `nota` e `qualidade` ('boa'/'fraca'; colunas aditivas do schema). Nas relações da teia (entrada com `descricao_nova`) troca
     `relacao.descricao` só quando a atual começa com "Vínculo" e contém "sem descrição na fonte". Nunca muda rótulo, tipo, subtipo nem descrição de evento.
     Roda depois das relações de mandato/filiação (que precisam existir) e antes dos temas. -> dict para o relatório."""
     entradas = ler_json("evidencias-adicionais.json", [])
     r = {"entradas": entradas, "alvos": {}, "evid_novas": collections.Counter(), "evid_reaproveitadas": 0, "ligacoes": 0, "ja_ligadas": 0,
-         "descricoes_trocadas": [], "descricoes_mantidas": []}
+         "descricoes_trocadas": [], "descricoes_mantidas": [], "substituidas": []}
     chaves, criadas = set(), set()
     for e in entradas:
         tab, col, aid = _alvo_evidencia(con, e)
@@ -1232,8 +1233,13 @@ def aplicar_evidencias_adicionais(con):
     for e in entradas:
         tab, col, aid = _alvo_evidencia(con, e)
         url = normalizar_url(e["url"])
-        linha = con.execute("SELECT id FROM evidencia WHERE url=?", (url,)).fetchone()
-        if linha:
+        substituida = e["qualidade"] == "fraca" and bool(e.get("substituida_por"))   # fonte fraca já trocada por outra: fica no arquivo como histórico, não é ligada
+        if substituida:
+            r["substituidas"].append(e)
+        linha = None if substituida else con.execute("SELECT id FROM evidencia WHERE url=?", (url,)).fetchone()
+        if substituida:
+            pass
+        elif linha:
             evid = linha[0]
             r["evid_reaproveitadas"] += url not in criadas   # só as que já existiam antes desta etapa (a mesma URL em 2 alvos conta 1 nova)
         else:
@@ -1242,15 +1248,19 @@ def aplicar_evidencias_adicionais(con):
                               (url, e["veiculo"], e["titulo"], e["data"], e["tipo"], TS_MIGRACAO))
             evid = cur.lastrowid
             r["evid_novas"][e["tipo"]] += 1
-        ordem = con.execute(f"SELECT COALESCE(MAX(ordem)+1,0) FROM {tab} WHERE {col}=?", (aid,)).fetchone()[0]
+        if not substituida:
+            ordem = con.execute(f"SELECT COALESCE(MAX(ordem)+1,0) FROM {tab} WHERE {col}=?", (aid,)).fetchone()[0]
         nota = e.get("nota") or None
-        if tab == "evento_evidencia":
+        if substituida:
+            cur = None
+        elif tab == "evento_evidencia":
             cur = con.execute("INSERT OR IGNORE INTO evento_evidencia(evento_id,evidencia_id,papel,ordem,rotulo,trecho_citado,nota,qualidade) VALUES(?,?,'sustenta',?,?,?,?,?)",
                               (aid, evid, ordem, e["titulo"], e["trecho"], nota, e["qualidade"]))
         else:
             cur = con.execute("INSERT OR IGNORE INTO relacao_evidencia(relacao_id,evidencia_id,papel,trecho_citado,ordem,nota,qualidade) VALUES(?,?,'sustenta',?,?,?,?)",
                               (aid, evid, e["trecho"], ordem, nota, e["qualidade"]))
-        r["ligacoes" if cur.rowcount else "ja_ligadas"] += 1
+        if cur is not None:
+            r["ligacoes" if cur.rowcount else "ja_ligadas"] += 1
         if e.get("descricao_nova"):
             atual = con.execute("SELECT descricao FROM relacao WHERE id=?", (aid,)).fetchone()[0] or ""
             if atual.startswith("Vínculo") and "sem descrição na fonte" in atual:
@@ -1436,7 +1446,16 @@ def relatorio_evidencias_adicionais(con, R):
     n_rl_antes = sum(1 for k in sem_ev if k.startswith("relacao_evidencia:"))
     n_ev_dep = con.execute("SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)").fetchone()[0]
     n_rl_dep = con.execute("SELECT count(*) FROM relacao r WHERE r.status='publicada' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id)").fetchone()[0]
-    fracas = [e for e in entradas if e["qualidade"] == "fraca"]
+    todas_fracas = [e for e in entradas if e["qualidade"] == "fraca"]
+    fracas = [e for e in todas_fracas if not e.get("substituida_por")]   # as ligadas ao alvo
+    chave_alvo = lambda e: (e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]))
+    subst_de = collections.defaultdict(list)   # (alvo, url normalizada da fraca) -> entradas novas que a substituem
+    for e in entradas:
+        if e.get("substitui"):
+            subst_de[(chave_alvo(e), normalizar_url(e["substitui"]))].append(e)
+    n_subst = [e for e in todas_fracas if e.get("substituida_por")]
+    n_parc = [e for e in fracas if subst_de.get((chave_alvo(e), normalizar_url(e["url"])))]
+    n_sem = [e for e in fracas if e not in n_parc]
     L = []
     w = L.append
     w("# Evidências adicionais\n")
@@ -1455,8 +1474,9 @@ def relatorio_evidencias_adicionais(con, R):
     w(f"| evidências novas (linhas em `evidencia`) | {sum(R['evid_novas'].values())} |")
     w(f"| ligações a URLs que já existiam em `evidencia` antes desta etapa (reaproveitadas; veículo e tipo intactos) | {R['evid_reaproveitadas']} |")
     w(f"| ligações criadas | {R['ligacoes']} |")
-    w(f"| qualidade `boa` | {len(entradas) - len(fracas)} |")
-    w(f"| qualidade `fraca` | {len(fracas)} |")
+    w(f"| qualidade `boa` | {len(entradas) - len(todas_fracas)} |")
+    w(f"| qualidade `fraca` (no arquivo, inclusive as substituídas, que ficam como histórico) | {len(todas_fracas)} |")
+    w(f"| qualidade `fraca` ligadas ao alvo no banco | {len(fracas)} |")
     w(f"| descrições de relação da teia substituídas | {len(R['descricoes_trocadas'])} |")
     w(f"| descrições mantidas (a atual já não era o texto padrão \"Vínculo ... sem descrição na fonte\") | {len(R['descricoes_mantidas'])} |")
     w("\nEvidências novas por tipo:\n")
@@ -1475,10 +1495,29 @@ def relatorio_evidencias_adicionais(con, R):
         rid = con.execute("SELECT id FROM relacao WHERE origem=? AND origem_ref=?", (e["relacao_origem"], e["relacao_origem_ref"])).fetchone()[0]
         w(f"| {alvo(e)} | {esc(rot[rid]['rotulo'])} | {esc(e['divergencia_rotulo'])} | {esc(e['descricao_nova'])} |")
     w("\n## Fontes fracas (para substituição futura)\n")
-    w(f"{len(fracas)} entradas.\n")
+    w(f"{len(fracas)} entradas ainda ligadas ao alvo ({len(n_parc)} com substituição parcial, {len(n_sem)} sem substituto); "
+      f"as outras {len(n_subst)} foram substituídas e ficam no arquivo só como histórico.\n")
     w("| alvo | url | motivo |\n|---|---|---|")
     for e in fracas:
         w(f"| {alvo(e)} | {esc(e['url'])} | {esc(e['motivo_fraca'])} |")
+    w("\n## Substituições de fontes fracas\n")
+    w("Uma entrada `fraca` com `substituida_por` não é ligada ao alvo (continua no arquivo como histórico); a nova evidência (`boa`) traz `substitui: <url da fraca>`. "
+      "Quando a nova fonte sustenta só parte do fato, a fraca continua ligada, sem `substituida_por`, e a nota registra o que falta.\n")
+    w("| | |\n|---|---:|")
+    w(f"| fontes fracas no arquivo | {len(todas_fracas)} |")
+    w(f"| substituídas (desligadas do alvo) | {len(n_subst)} |")
+    w(f"| substituídas parcialmente (fraca continua ligada) | {len(n_parc)} |")
+    w(f"| sem substituto (continuam ligadas) | {len(n_sem)} |")
+    w(f"| fraca ligadas ao alvo depois | {len(fracas)} |")
+    w("\n| alvo | fraca -> nova | tipo |\n|---|---|---|")
+    for f in todas_fracas:
+        for nv in subst_de.get((chave_alvo(f), normalizar_url(f["url"])), []):
+            parc = " (parcial: a fraca continua ligada)" if not f.get("substituida_por") else ""
+            w(f"| {alvo(f)} | {esc(f['url'])} -> {esc(nv['url'])}{parc} | {nv['tipo']} |")
+    if n_sem:
+        w("\nSem substituto (continuam ligadas e marcadas):\n")
+        for e in n_sem:
+            w(f"- {alvo(e)}: {esc(e['url'])}")
     w("\n## Contradições e ressalvas para decisão humana\n")
     com_nota = [e for e in entradas if e.get("nota")]
     w(f"Todas as notas não vazias dos pesquisadores ({len(com_nota)}). Entre elas: Mercosul em 11/1/1995 e não 1/1; Efeito Tequila (US$ 50 bi não sustentado); "

@@ -29,11 +29,12 @@
    "decisao": "aceitar",
    "de": "com 54,28% dos votos",
    "para": "com cerca de 54,3% dos votos válidos",
-   "motivo": "Fundação FHC: 54,3% dos válidos; o 54,28% vinha da Wikipédia.",
+   "motivo": "Fundação FHC (fonte ligada ao evento): 54,3% dos válidos; o 54,28% vinha da Wikipédia. O TSE foi citado por um pesquisador com 55,22%, mas sem URL aberta — sem a página, o número não entra.",
    "ressalvas": [
     "r009",
     "r010"
-   ]
+   ],
+   "fonte_url": "https://fundacaofhc.org.br/wp-content/uploads/2025/12/curriculo-fhc-2025.pdf"
   },
   {
    "evento_id": "ev-2000-argentina-em-recessao",

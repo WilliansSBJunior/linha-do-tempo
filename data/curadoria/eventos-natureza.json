@@ -337,12 +337,12 @@
  {
   "id": "ev-2000-argentina-em-recessao",
   "natureza": "documentada",
-  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, api.worldbank.org)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, wits.worldbank.org)"
  },
  {
   "id": "ev-2000-cassacao-do-senador-luiz-estevao",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2000-eleicoes-municipais",
@@ -362,7 +362,7 @@
  {
   "id": "ev-2000-lei-de-responsabilidade-fiscal",
   "natureza": "documentada",
-  "regra": "R5: 2 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www25.senado.leg.br)"
+  "regra": "R5: 2 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-2000-petroleo-em-alta",
@@ -602,12 +602,12 @@
  {
   "id": "ev-2005-katrina-e-petroleo-mais-caro",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, fred.stlouisfed.org)"
+  "regra": "R5: 2 de 3 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, fred.stlouisfed.org)"
  },
  {
   "id": "ev-2005-omc-em-hong-kong-e-subsidios-agricolas",
-  "natureza": "nao_classificada",
-  "regra": "R5: nenhuma fonte reportagem/relatório/oficial sustenta o evento (1 de sustentação, 0 só de contexto)"
+  "natureza": "documentada",
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, wto.org)"
  },
  {
   "id": "ev-2005-referendo-sobre-comercio-de-armas",
@@ -826,8 +826,8 @@
  },
  {
   "id": "ev-2010-primeiro-resgate-da-grecia",
-  "natureza": "nao_classificada",
-  "regra": "R5: nenhuma fonte reportagem/relatório/oficial sustenta o evento (1 de sustentação, 0 só de contexto)"
+  "natureza": "documentada",
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, gouvernement.lu)"
  },
  {
   "id": "ev-2010-prisao-do-governador-do-distrito-federal",
@@ -1027,7 +1027,7 @@
  {
   "id": "ev-2015-colapso-do-preco-das-commodities",
   "natureza": "documentada",
-  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, fred.stlouisfed.org)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, imf.org)"
  },
  {
   "id": "ev-2015-eduardo-cunha-assume-a-camara",
@@ -1041,8 +1041,8 @@
  },
  {
   "id": "ev-2015-manifestacoes-contra-o-governo",
-  "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo relatorio, www12.senado.leg.br)"
+  "natureza": "reportada",
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2015-prisao-do-senador-delcidio-do-amaral",
@@ -1262,7 +1262,7 @@
  {
   "id": "ev-2020-china-cresce-e-compra-um-terco-das",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, api.worldbank.org)"
+  "regra": "R5: 2 de 3 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, api.worldbank.org)"
  },
  {
   "id": "ev-2020-fed-zera-os-juros",
@@ -1272,12 +1272,12 @@
  {
   "id": "ev-2020-guerra-de-precos-do-petroleo",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2020-novo-fundeb",
   "natureza": "documentada",
-  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
  },
  {
   "id": "ev-2020-pandemia-de-covid-19",
@@ -1532,7 +1532,7 @@
  {
   "id": "ev-2025-eua-impoem-tarifa-de-50-a-produtos",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, whitehouse.gov)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, govinfo.gov)"
  },
  {
   "id": "ev-2025-eua-isentam-parte-dos-produtos-agricolas",
@@ -1542,17 +1542,17 @@
  {
   "id": "ev-2025-fed-corta-juros-tres-vezes",
   "natureza": "documentada",
-  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, federalreserve.gov)"
+  "regra": "R5: 2 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, federalreserve.gov)"
  },
  {
   "id": "ev-2025-isencao-do-ir-ate-r-5-mil",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, camara.leg.br)"
+  "regra": "R5: 3 de 3 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, camara.leg.br)"
  },
  {
   "id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
-  "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "natureza": "documentada",
+  "regra": "R5: 1 de 4 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, noticias.stf.jus.br)"
  },
  {
   "id": "ev-2025-tarifas-dos-eua-sobre-o-brasil",

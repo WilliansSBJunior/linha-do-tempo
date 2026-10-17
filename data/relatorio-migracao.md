@@ -43,9 +43,9 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 907 |
 | evento_tema | 631 |
 | fonte (era video) | 0 |
-| evidencia | 1321 |
-| relacao_evidencia | 1236 |
-| evento_evidencia | 2989 |
+| evidencia | 1326 |
+| relacao_evidencia | 1238 |
+| evento_evidencia | 2995 |
 | evento_entidade | 934 |
 | nota | 254 |
 | indicador | 83 |
@@ -392,9 +392,9 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
     (fica NULL, a justificativa é obrigatória).
 ```
 
-- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 72, investigacao 9, nao_classificada 201, reportada 30.
+- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 74, investigacao 9, nao_classificada 199, reportada 30.
 - Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 290.
-- R5 por canal e natureza: brasil/documentada 51, brasil/nao_classificada 201, brasil/reportada 28, violencia/documentada 10.
+- R5 por canal e natureza: brasil/documentada 53, brasil/nao_classificada 199, brasil/reportada 28, violencia/documentada 10.
 - Classificação manual (`eventos-natureza-manual.json`): 41 entradas, 41 aplicadas (alegacao 5, investigacao 11, reportada 25), 0 ignoradas (já tinham natureza), 0 exceções explícitas (ficam NULL).
 - Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 63 ganharam natureza pelas regras R1-R4 ou à mão, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 0 seguem NULL.
 - **Ficaram NULL: 0 eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: 0.
@@ -409,7 +409,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1321 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1326 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).

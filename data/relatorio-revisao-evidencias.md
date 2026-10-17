@@ -13,12 +13,12 @@ Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta foram corrigidos 
 | eventos corrigidos | 23 |
 | &nbsp;&nbsp;campo `descricao` | 21 |
 | &nbsp;&nbsp;campo `titulo` | 2 |
-| relações de linha do tempo corrigidas (período/descrição) | 4 |
-| vínculos da teia ajustados (subtipo/rótulo/tipo) | 11 |
+| relações de linha do tempo corrigidas (período/descrição) | 5 |
+| vínculos da teia ajustados (subtipo/rótulo/tipo) | 12 |
 | &nbsp;&nbsp;`subtipo` definido | 11 |
 | &nbsp;&nbsp;`rotulo` trocado | 4 |
 | &nbsp;&nbsp;`tipo` trocado | 1 |
-| itens mantidos com nota (relações/vínculos sem mudança) | 4 |
+| itens mantidos com nota (relações/vínculos sem mudança) | 2 |
 | ressalvas mantidas com nota, sem mudança no banco (ids de ressalva) | 37 |
 
 Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de substituição por fontes primárias; nenhuma foi removida (`data/relatorio-evidencias-adicionais.md`, seção "Fontes fracas").
@@ -29,7 +29,7 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 |---|---|---|---|---|
 | `ev-1995-efeito-tequila-apos-a-crise-do-peso` | descricao | os EUA coordenaram em janeiro de 1995 um pacote de US$ 50 bilhões -> os EUA e organismos internacionais montaram no início de 1995 um pacote de socorro de cerca de US$ 50 bilhões | Fontes abertas falam em ~US$ 50 bi no total, no início de 1995, não em um pacote único de janeiro. | r004 |
 | `ev-1995-mercosul-vira-uniao-aduaneira` | descricao | Em 1º de janeiro de 1995 o Mercosul (Argentina, Brasil, Paraguai e Uruguai) passou a operar como união aduaneira, com tarifa externa comum. -> Em janeiro de 1995 o Mercosul (Argentina, Brasil, Paraguai e Uruguai) passou a operar como união aduaneira, com tarifa externa comum ainda sujeita a exceções. | A única fonte aberta (Câmara) dá 11/1/1995 e diz que a TEC não estava plenamente em vigor; 1º/1 não foi confirmado. | r008 |
-| `ev-1995-posse-de-fernando-henrique-cardoso` | descricao | com 54,28% dos votos -> com cerca de 54,3% dos votos válidos | Fundação FHC: 54,3% dos válidos; o 54,28% vinha da Wikipédia. | r009, r010 |
+| `ev-1995-posse-de-fernando-henrique-cardoso` | descricao | com 54,28% dos votos -> com cerca de 54,3% dos votos válidos | Fundação FHC (fonte ligada ao evento): 54,3% dos válidos; o 54,28% vinha da Wikipédia. O TSE foi citado por um pesquisador com 55,22%, mas sem URL aberta — sem a página, o número não entra. | r009, r010 |
 | `ev-2000-argentina-em-recessao` | descricao | , e a Argentina era o segundo destino das exportações brasileiras, com 11,33% do total. -> , e a Argentina era um dos principais destinos das exportações brasileiras. | A posição de 2º destino e o 11,33% não foram verificados em nenhuma fonte aberta. | r011 |
 | `ev-2000-cassacao-do-senador-luiz-estevao` | descricao | Em 28/6/2000 o Senado cassa o mandato de Luiz Estêvão por quebra de decoro parlamentar, por 52 votos a 18, -> Em junho de 2000 o Senado cassa o mandato de Luiz Estêvão por quebra de decoro parlamentar, por 52 votos a 18 (10 abstenções), | O dia 28/6 não foi confirmado; a fonte traz o placar completo. | r012 |
 | `ev-2000-lei-de-responsabilidade-fiscal` | descricao | os relatores foram Pedro Novais na Câmara e Jefferson Peres no Senado. -> no Senado, Jefferson Péres foi o relator na CAE e Álvaro Dias na CCJ. | Pedro Novais como relator na Câmara não foi confirmado em nenhuma fonte; o Senado confirma Péres (CAE) e Álvaro Dias (CCJ). | r016 |
@@ -60,6 +60,8 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | 730 `filiacao:geraldo-alckmin:psb:2023` | Geraldo Alckmin: Filiado ao PSB (2023) | descricao | Partido registrado em 1 mandato(s) da linha do tempo (vice_presidente); PSB. O período é inferido dos mandatos, não da data de filiação. -> Partido registrado no mandato de vice-presidente (2023-2026); filiado ao PSB desde março de 2022, vindo do PSDB. | Agência Senado. |
 | 743 `filiacao:jair-bolsonaro:psl:2019` | Jair Bolsonaro: Filiado ao PSL (2019) | periodo_fim | 2022 -> 2019 | A fonte só sustenta o PSL na eleição e na posse; 2019-2022 é inexato. |
 | 743 `filiacao:jair-bolsonaro:psl:2019` | Jair Bolsonaro: Filiado ao PSL (2019) | descricao | Partido registrado em 1 mandato(s) da linha do tempo (presidente); PSL. O período é inferido dos mandatos, não da data de filiação. -> Eleito e empossado pelo PSL; deixou o partido em novembro de 2019. | A fonte só sustenta o PSL na eleição e na posse; 2019-2022 é inexato. |
+| 749 `filiacao:jose-alencar:pl:2003` | José Alencar: Filiado ao PL (2003) | periodo_fim | 2010 -> 2005 | Congresso em Foco: Alencar saiu do PL no auge do mensalão e se filiou ao PMR (depois PRB) em 29/9/2005; o mandato (partido PL, 2003-2010) não muda. |
+| 749 `filiacao:jose-alencar:pl:2003` | José Alencar: Filiado ao PL (2003) | descricao | Partido registrado em 1 mandato(s) da linha do tempo (vice_presidente); PL. O período é inferido dos mandatos, não da data de filiação. -> Eleito e empossado vice-presidente pelo PL (2003); deixou o PL em setembro de 2005 e filiou-se ao PMR, depois PRB. | Congresso em Foco: Alencar saiu do PL no auge do mensalão e se filiou ao PMR (depois PRB) em 29/9/2005; o mandato (partido PL, 2003-2010) não muda. |
 
 ## Vínculos da teia ajustados
 
@@ -72,14 +74,16 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | 353 `N[132].fam_de` | ETC Participações -> Hugo Motta | subtipo | (vazio) -> empresa_de_familiar | Empresa controlada pela cunhada; vínculo indireto. |
 | 353 `N[132].fam_de` | ETC Participações -> Hugo Motta | rotulo | Familiar ou próximo de -> Empresa de familiar de | Empresa controlada pela cunhada; vínculo indireto. |
 | 354 `N[133].fam_de` | Bonnie de Bonilha -> Jaques Wagner | subtipo | (vazio) -> nora | Fonte: nora (casada com o enteado). |
-| 355 `N[134].fam_de` | BN Financeira (BK Financeira) -> Jaques Wagner | subtipo | (vazio) -> empresa_de_familiar | Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses. |
-| 355 `N[134].fam_de` | BN Financeira (BK Financeira) -> Jaques Wagner | rotulo | Familiar ou próximo de -> Empresa de familiar de | Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses. |
+| 355 `N[134].fam_de` | BN Financeira (BK Financeira) -> Jaques Wagner | subtipo | (vazio) -> empresa_de_familiar | Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses. Descrição: Metrópoles (18/3/2026) escreve BK Financeira; a matéria de 18/6 escreve BN Financeira. Fonte da descrição: https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner |
+| 355 `N[134].fam_de` | BN Financeira (BK Financeira) -> Jaques Wagner | rotulo | Familiar ou próximo de -> Empresa de familiar de | Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses. Descrição: Metrópoles (18/3/2026) escreve BK Financeira; a matéria de 18/6 escreve BN Financeira. Fonte da descrição: https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner |
+| 355 `N[134].fam_de` | BN Financeira (BK Financeira) -> Jaques Wagner | descricao | Empresa da qual a nora de Jaques Wagner, Bonnie Bonilha, é sócia; recebeu pagamentos do Banco Master segundo a imprensa. -> Empresa da qual a nora de Jaques Wagner, Bonnie Bonilha, é sócia; recebeu pagamentos do Banco Master segundo a imprensa. A grafia "BK Financeira" é a das matérias de março; "BN Financeira", a de junho. | Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses. Descrição: Metrópoles (18/3/2026) escreve BK Financeira; a matéria de 18/6 escreve BN Financeira. Fonte da descrição: https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner |
 | 356 `N[135].fam_de` | Eduardo Sodré Martins -> Jaques Wagner | subtipo | (vazio) -> enteado | Fonte: enteado. |
 | 358 `N[137].fam_de` | CNLF Empreendimentos Imobiliários -> Ciro Nogueira | subtipo | (vazio) -> empresa_atribuida | Não é vínculo familiar: a PF atribui a empresa ao senador; o irmão a administra formalmente. |
 | 358 `N[137].fam_de` | CNLF Empreendimentos Imobiliários -> Ciro Nogueira | rotulo | Familiar ou próximo de -> Empresa atribuída pela PF a | Não é vínculo familiar: a PF atribui a empresa ao senador; o irmão a administra formalmente. |
 | 358 `N[137].fam_de` | CNLF Empreendimentos Imobiliários -> Ciro Nogueira | tipo | familiar -> societaria | Não é vínculo familiar: a PF atribui a empresa ao senador; o irmão a administra formalmente. |
 | 363 `N[142].fam_de` | Camilla Ramos -> Newton Ramos | subtipo | (vazio) -> conjuge | Fonte: esposa. |
 | 364 `N[160].lig_de` | Queiroga, Vieira, Queiroz e Ramos Advocacia (QVQR) -> Newton Ramos | subtipo | escritorio_ligado -> escritorio_do_conjuge | Escritório é da esposa; rótulo 'Escritório ligado a' mantido, com subtipo que explicita o caminho. |
+| 366 `N[163].lig_de` | Lewandowski Advocacia -> Ricardo Lewandowski | descricao | Escritório de Lewandowski que recebeu R$ 5 milhões do Banco Master, inclusive com ele já como ministro; depois representado pelo filho. -> Escritório de Lewandowski que recebeu R$ 6,5 milhões brutos do Banco Master, dos quais R$ 5,25 milhões depois de ele assumir o Ministério da Justiça, em janeiro de 2024; depois representado pelo filho. | Metrópoles (26/1/2026): total bruto de R$ 6,5 mi, R$ 5,25 mi pagos após ele virar ministro (jan/2024). |
 | 367 `N[197].fam_de` | Chiquinho Feitosa -> Gilmar Mendes | subtipo | (vazio) -> ex-cunhado | Fonte: ex-cunhado. |
 
 ## Mantidos com nota (nada mudou)
@@ -87,9 +91,7 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | relação | alvo | motivo |
 |---|---|---|
 | 365 `N[161].lig_de` | Ibaneis Advocacia -> Ibaneis Rocha: Escritório ligado a | Nome do escritório na fonte ('escritório Ibaneis Rocha') é compatível; a defesa alega afastamento desde 2018 — já na descrição. |
-| 366 `N[163].lig_de` | Lewandowski Advocacia -> Ricardo Lewandowski: Escritório ligado a | Nome não conferido literalmente, mas o vínculo (contrato de R$ 5 mi) está na fonte. |
 | 407 `mandato:40` | Davi Alcolumbre: Presidente do Senado Federal | Biênio 2025-2027 não confirmado nas páginas abertas; fica 2025 até nova fonte. |
-| 749 `filiacao:jose-alencar:pl:2003` | José Alencar: Filiado ao PL | Fonte só diz PL na eleição e PRB em 2011; a data da troca (2005) não foi verificada. Fica como está, com nota. |
 
 ## Ressalvas mantidas sem mudança no banco
 
