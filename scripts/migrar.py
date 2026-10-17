@@ -748,6 +748,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["mandato_correcoes"] = curadoria.aplicar_mandato_correcoes(con)   # à mão; antes de confrontar com as APIs e de gerar as relações
     R["mandato_oficial"] = curadoria.aplicar_mandato_oficial(con) if "mandato_oficial" not in pular else {"evidencias": 0, "preenchidos": 0, "extras": {}, "complementados": 0, "obsoletas": [], "resumo": {}}
     R["mandato_rel"] = curadoria.gerar_relacoes_mandato(con, R["mandato_oficial"]["extras"])   # teia <-> timeline (herda a evidência oficial dos mandatos)
+    R["evid_adic"] = curadoria.aplicar_evidencias_adicionais(con)   # à mão; precisa das relações de mandato/filiação; antes dos temas (que leem a descrição)
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
 
     # ================================================================ META, FTS, DUMP
@@ -771,6 +772,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
         con.commit()
     if escrever:
         gerar_dump(con)
+        (DATA / "relatorio-evidencias-adicionais.md").write_text(curadoria.relatorio_evidencias_adicionais(con, R["evid_adic"]), encoding="utf-8")
 
         # ================================================================ RELATÓRIO
         escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, mapa, n_rel_teia, n_fam, n_lig, sem_f,

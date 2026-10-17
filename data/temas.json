@@ -76,9 +76,9 @@
    "cor": "#1b9e77",
    "ordem": 7,
    "principal": false,
-   "n_relacoes": 28,
+   "n_relacoes": 29,
    "n_eventos": 34,
-   "n_entidades": 41
+   "n_entidades": 42
   },
   {
    "id": "precatorios",
@@ -87,9 +87,9 @@
    "cor": "#8c6bb1",
    "ordem": 8,
    "principal": false,
-   "n_relacoes": 11,
+   "n_relacoes": 12,
    "n_eventos": 37,
-   "n_entidades": 24
+   "n_entidades": 26
   },
   {
    "id": "lagoinha",
@@ -1002,7 +1002,8 @@
    264,
    267,
    274,
-   281
+   281,
+   359
   ],
   "precatorios": [
    43,
@@ -1015,7 +1016,8 @@
    294,
    317,
    320,
-   321
+   321,
+   365
   ],
   "lagoinha": [
    10,
@@ -2190,6 +2192,7 @@
    "banco-master",
    "bcb",
    "brb",
+   "caio-carvalho-barros",
    "ciro-nogueira",
    "credcesta",
    "daniel-lopes-monteiro",
@@ -2238,6 +2241,8 @@
    "cnj",
    "companhia-acucareira-vale-do-ceara-mirim",
    "edson-fachin",
+   "ibaneis-advocacia",
+   "ibaneis-rocha",
    "kevin-de-carvalho-marques",
    "newton-ramos",
    "pf",

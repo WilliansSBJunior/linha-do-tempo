@@ -40,12 +40,12 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao total | 818 |
 | evento total | 505 |
 | tema | 10 |
-| relacao_tema | 905 |
+| relacao_tema | 907 |
 | evento_tema | 631 |
 | fonte (era video) | 0 |
-| evidencia | 1221 |
-| relacao_evidencia | 1187 |
-| evento_evidencia | 2907 |
+| evidencia | 1321 |
+| relacao_evidencia | 1236 |
+| evento_evidencia | 2989 |
 | evento_entidade | 937 |
 | nota | 254 |
 | indicador | 83 |
@@ -437,8 +437,8 @@ Precedência: R1, R2, R3, R4. Só se aplica a eventos do canal 'teia' com nature
 
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
-- Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): 1995 (8), 2000 (8), 2005 (8), 2010 (8), 2015 (9), 2020 (9), 2025 (9). Ficam sem fonte.
-- URLs de `evidencia` agora: 1221 (todas ligadas a alguma coisa; `validar.py` confere).
+- Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
+- URLs de `evidencia` agora: 1321 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -570,9 +570,9 @@ Regras (aplicadas na ordem; filtros combinados com E; `dentro_de` = só registro
 | violencia-eventos | violencia | evento | canal=['violencia'] | 0 | 10 |
 | brb-canal | brb | evento | canal=['brb'] | 0 | 18 |
 | brb-entidade | brb | ambos | dentro_de=['caso-master']; entidade=['brb'] | 10 | 15 |
-| brb-texto | brb | ambos | dentro_de=['caso-master']; texto=['BRB', 'Banco de Brasília'] | 18 | 1 |
+| brb-texto | brb | ambos | dentro_de=['caso-master']; texto=['BRB', 'Banco de Brasília'] | 19 | 1 |
 | precatorios-canal | precatorios | evento | canal=['precatorios'] | 0 | 35 |
-| precatorios-texto | precatorios | ambos | dentro_de=['caso-master']; texto=['precatorio*'] | 11 | 2 |
+| precatorios-texto | precatorios | ambos | dentro_de=['caso-master']; texto=['precatorio*'] | 12 | 2 |
 | inss-entidade | inss | ambos | entidade=['inss', 'cpmi-do-inss'] | 9 | 14 |
 | inss-texto | inss | ambos | texto=['INSS', 'Sem Desconto', 'consignado*'] | 12 | 4 |
 | pcc-entidade | pcc | ambos | entidade=['pcc', 'operacao-carbono-oculto', 'operacao-quasar'] | 7 | 8 |
@@ -603,12 +603,12 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | `violencia` (Violência) | 0 | 10 | 1 |
 | `inss` (INSS) | 17 | 14 | 26 |
 | `pcc` (PCC e crime organizado) | 14 | 9 | 25 |
-| `brb` (BRB) | 28 | 34 | 41 |
-| `precatorios` (Precatórios) | 11 | 37 | 24 |
+| `brb` (BRB) | 29 | 34 | 42 |
+| `precatorios` (Precatórios) | 12 | 37 | 26 |
 | `lagoinha` (Lagoinha) | 17 | 32 | 27 |
 | `a-classificar` (A classificar) | 0 | 0 | 0 |
 
-Em mais de um tema: 82 relações, 118 eventos, 115 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).
+Em mais de um tema: 84 relações, 118 eventos, 117 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).
 
 Limites conhecidos: (a) os temas por texto (`inss`, `pcc`, `brb`, `precatorios`, `lagoinha`) marcam **citação**, não centralidade: uma relação que só menciona a CPMI do INSS como origem de um documento entra em `inss` (retirei os casos mais óbvios nas exceções); (b) `usinas` ficou de fora do `pcc-texto` (a maior parte das ocorrências é o setor sucroalcooleiro dos precatórios, não o PCC); só 'Usina Itajobi'; (c) `pares` não tem relação nem evento (só 10 países via `forum`), e `violencia` só 10 eventos: séries (`indicador`/`serie`) **não** têm tema ainda; (d) eventos novos não entram por MCP (não há ferramenta), só por migração.
 

@@ -183,6 +183,8 @@ CREATE TABLE relacao_evidencia (
   papel TEXT NOT NULL DEFAULT 'sustenta' CHECK (papel IN ('sustenta','contesta','contexto')),
   trecho_citado TEXT,
   ordem INTEGER NOT NULL DEFAULT 0,              -- DESVIO: preserva a ordem de r.f
+  nota TEXT,                                     -- DESVIO (aditivo): ressalva do pesquisador sobre o que a fonte não confirma (curadoria/evidencias-adicionais.json)
+  qualidade TEXT CHECK (qualidade IS NULL OR qualidade IN ('boa','fraca')), -- DESVIO (aditivo): NULL = não avaliada; 'fraca' = candidata a substituição
   PRIMARY KEY (relacao_id, evidencia_id)
 ) STRICT;
 CREATE TABLE evento_evidencia (
@@ -191,6 +193,9 @@ CREATE TABLE evento_evidencia (
   papel TEXT NOT NULL DEFAULT 'sustenta' CHECK (papel IN ('sustenta','contesta','contexto')),
   ordem INTEGER NOT NULL DEFAULT 0,              -- DESVIO: preserva a ordem de EV.f
   rotulo TEXT,                                   -- DESVIO: rótulo da fonte como no original ([rótulo, url]); evidencia.veiculo guarda só o do primeiro uso da URL
+  trecho_citado TEXT,                            -- DESVIO (aditivo): trecho da fonte que sustenta o evento (como relacao_evidencia.trecho_citado)
+  nota TEXT,                                     -- DESVIO (aditivo): ressalva do pesquisador sobre o que a fonte não confirma (curadoria/evidencias-adicionais.json)
+  qualidade TEXT CHECK (qualidade IS NULL OR qualidade IN ('boa','fraca')), -- DESVIO (aditivo): NULL = não avaliada; 'fraca' = candidata a substituição
   PRIMARY KEY (evento_id, evidencia_id)
 ) STRICT;
 

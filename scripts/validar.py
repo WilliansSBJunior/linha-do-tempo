@@ -403,6 +403,53 @@ def dossie_e_pares(con, exp):
     esperar("seções relacionais não estão mais em nota", n, 0)
 
 
+def evidencias_adicionais(con):
+    secao("Evidências adicionais (data/curadoria/evidencias-adicionais.json aplicada)")
+    n = q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)")[0][0]
+    esperar("eventos sem nenhuma evidência", n, 0)
+    n = q(con, "SELECT count(*) FROM relacao r WHERE r.status='publicada' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id)")[0][0]
+    esperar("relações publicadas sem nenhuma evidência", n, 0)
+    ent = json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8"))
+    chaves, ruins, fracas = set(), [], 0
+    for e in ent:
+        k = (e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"]))
+        if k in chaves:
+            ruins.append(f"entrada repetida: {k}")
+        chaves.add(k)
+        if e["qualidade"] not in ("boa", "fraca") or (e["qualidade"] == "fraca") != bool(e.get("motivo_fraca")):
+            ruins.append(f"qualidade/motivo_fraca inconsistentes: {k}")
+        fracas += e["qualidade"] == "fraca"
+        ev = q(con, "SELECT id FROM evidencia WHERE url=?", normalizar_url(e["url"]))
+        if not ev:
+            ruins.append(f"evidência ausente: {e['url']}")
+            continue
+        if e["alvo_tipo"] == "evento":
+            a = q(con, "SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?", e["evento_id"], e["evento_id"])
+            lig = q(con, "SELECT trecho_citado, nota, qualidade, rotulo, papel FROM evento_evidencia WHERE evento_id=? AND evidencia_id=?", a[0][0], ev[0][0]) if a else []
+            if lig and lig[0]["rotulo"] != e["titulo"]:
+                ruins.append(f"rótulo != título: {k}")
+        else:
+            a = q(con, "SELECT id FROM relacao WHERE origem=? AND origem_ref=?", e["relacao_origem"], e["relacao_origem_ref"])
+            lig = q(con, "SELECT trecho_citado, nota, qualidade, papel FROM relacao_evidencia WHERE relacao_id=? AND evidencia_id=?", a[0][0], ev[0][0]) if a else []
+            if a and e.get("descricao_nova"):
+                d = q(con, "SELECT descricao FROM relacao WHERE id=?", a[0][0])[0][0]
+                if d != e["descricao_nova"]:
+                    ruins.append(f"descricao de {k[1]} difere de descricao_nova")
+        if not a:
+            ruins.append(f"alvo ausente: {k}")
+        elif not lig:
+            ruins.append(f"ligação ausente: {k}")
+        elif (lig[0]["trecho_citado"], lig[0]["nota"], lig[0]["qualidade"], lig[0]["papel"]) != (e["trecho"], e["nota"] or None, e["qualidade"], "sustenta"):
+            ruins.append(f"trecho/nota/qualidade/papel diferem do arquivo: {k}")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("evidencias-adicionais.json: entradas aplicadas e idênticas ao banco (divergências)", len(ruins), 0)
+    nf = (q(con, "SELECT count(*) FROM evento_evidencia WHERE qualidade='fraca'")[0][0] + q(con, "SELECT count(*) FROM relacao_evidencia WHERE qualidade='fraca'")[0][0])
+    esperar("ligações com qualidade 'fraca' no banco == entradas fracas do arquivo", nf, fracas)
+    p = DATA / "relatorio-evidencias-adicionais.md"
+    esperar("data/relatorio-evidencias-adicionais.md existe", p.exists(), True)
+
+
 def curadoria(con):
     secao("Curadoria (data/curadoria/*.json aplicada)")
     fusoes = json.loads((CURADORIA / "eventos-fusoes.json").read_text(encoding="utf-8"))
@@ -597,6 +644,7 @@ def main():
     esperar("mapa_indices.EV cobre os 167 EV (fundidos apontam para o mantido)", len(mapa["EV"]), len(raw["EV"]))
     dossie_e_pares(con, exp)
     curadoria(con)
+    evidencias_adicionais(con)
     modelo_v2(con, exp)
 
     secao("Arquivos exportados em disco")

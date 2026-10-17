@@ -1135,3 +1135,154 @@ def relatorio_mandato_oficial(cfg, nomes):
     w("\n`sucessao` = renomeação da mesma legenda; `historico` = não bate com a lista da legislatura mas bate com o histórico de partido/UF do ano; "
       "`nao_informado` = a API não traz o dado.\n")
     return "\n".join(L)
+
+
+# ======================================================================== 7. evidências adicionais (pesquisa de fontes para eventos/relações sem evidência)
+def _alvo_evidencia(con, e):
+    """(tabela_de_ligação, coluna, id do alvo) de uma entrada de evidencias-adicionais.json; falha se o alvo não existe.
+    Evento: `evento_id` (via evento_alias se foi fundido). Relação: ids de relação são atribuídos na migração, então a chave estável é
+    (`relacao_origem`, `relacao_origem_ref`) = (relacao.origem, relacao.origem_ref)."""
+    if e["alvo_tipo"] == "evento":
+        r = con.execute("SELECT id FROM evento WHERE id=?", (e["evento_id"],)).fetchone()
+        if not r:
+            r = con.execute("SELECT e.id FROM evento_alias a JOIN evento e ON e.id=a.evento_id WHERE a.alias=?", (e["evento_id"],)).fetchone()
+        if not r:
+            raise SystemExit(f"evidencias-adicionais.json: evento inexistente: {e['evento_id']}")
+        return "evento_evidencia", "evento_id", r[0]
+    if e["alvo_tipo"] == "relacao":
+        r = con.execute("SELECT id FROM relacao WHERE origem=? AND origem_ref=?", (e["relacao_origem"], e["relacao_origem_ref"])).fetchone()
+        if not r:
+            raise SystemExit(f"evidencias-adicionais.json: relação inexistente: {e['relacao_origem']} {e['relacao_origem_ref']}")
+        return "relacao_evidencia", "relacao_id", r[0]
+    raise SystemExit(f"evidencias-adicionais.json: alvo_tipo inválido: {e['alvo_tipo']}")
+
+
+def aplicar_evidencias_adicionais(con):
+    """data/curadoria/evidencias-adicionais.json (à mão): uma entrada por (alvo, URL). Cria `evidencia` (URL normalizada; se já existe, reaproveita
+    e NÃO altera veiculo/tipo/título), liga em `evento_evidencia` (rotulo = titulo) ou `relacao_evidencia` (papel 'sustenta') e guarda por ligação
+    `trecho_citado`, `nota` e `qualidade` ('boa'/'fraca'; colunas aditivas do schema). Nas relações da teia (entrada com `descricao_nova`) troca
+    `relacao.descricao` só quando a atual começa com "Vínculo" e contém "sem descrição na fonte". Nunca muda rótulo, tipo, subtipo nem descrição de evento.
+    Roda depois das relações de mandato/filiação (que precisam existir) e antes dos temas. -> dict para o relatório."""
+    entradas = ler_json("evidencias-adicionais.json", [])
+    r = {"entradas": entradas, "alvos": {}, "evid_novas": collections.Counter(), "evid_reaproveitadas": 0, "ligacoes": 0, "ja_ligadas": 0,
+         "descricoes_trocadas": [], "descricoes_mantidas": []}
+    chaves, criadas = set(), set()
+    for e in entradas:
+        tab, col, aid = _alvo_evidencia(con, e)
+        k = (tab, aid, normalizar_url(e["url"]))
+        if k in chaves:
+            raise SystemExit(f"evidencias-adicionais.json: entrada repetida para o mesmo alvo e URL: {e['url']}")
+        chaves.add(k)
+        if (tab, aid) not in r["alvos"]:
+            r["alvos"][(tab, aid)] = con.execute(f"SELECT count(*) FROM {tab} WHERE {col}=?", (aid,)).fetchone()[0]   # ligações antes
+    for e in entradas:
+        tab, col, aid = _alvo_evidencia(con, e)
+        url = normalizar_url(e["url"])
+        linha = con.execute("SELECT id FROM evidencia WHERE url=?", (url,)).fetchone()
+        if linha:
+            evid = linha[0]
+            r["evid_reaproveitadas"] += url not in criadas   # só as que já existiam antes desta etapa (a mesma URL em 2 alvos conta 1 nova)
+        else:
+            criadas.add(url)
+            cur = con.execute("INSERT INTO evidencia(url,veiculo,titulo,data,tipo,criado_em) VALUES(?,?,?,?,?,?)",
+                              (url, e["veiculo"], e["titulo"], e["data"], e["tipo"], TS_MIGRACAO))
+            evid = cur.lastrowid
+            r["evid_novas"][e["tipo"]] += 1
+        ordem = con.execute(f"SELECT COALESCE(MAX(ordem)+1,0) FROM {tab} WHERE {col}=?", (aid,)).fetchone()[0]
+        nota = e.get("nota") or None
+        if tab == "evento_evidencia":
+            cur = con.execute("INSERT OR IGNORE INTO evento_evidencia(evento_id,evidencia_id,papel,ordem,rotulo,trecho_citado,nota,qualidade) VALUES(?,?,'sustenta',?,?,?,?,?)",
+                              (aid, evid, ordem, e["titulo"], e["trecho"], nota, e["qualidade"]))
+        else:
+            cur = con.execute("INSERT OR IGNORE INTO relacao_evidencia(relacao_id,evidencia_id,papel,trecho_citado,ordem,nota,qualidade) VALUES(?,?,'sustenta',?,?,?,?)",
+                              (aid, evid, e["trecho"], ordem, nota, e["qualidade"]))
+        r["ligacoes" if cur.rowcount else "ja_ligadas"] += 1
+        if e.get("descricao_nova"):
+            atual = con.execute("SELECT descricao FROM relacao WHERE id=?", (aid,)).fetchone()[0] or ""
+            if atual.startswith("Vínculo") and "sem descrição na fonte" in atual:
+                con.execute("UPDATE relacao SET descricao=? WHERE id=?", (e["descricao_nova"], aid))
+                r["descricoes_trocadas"].append(aid)
+            else:
+                r["descricoes_mantidas"].append(aid)
+    r["alvos"] = {f"{t}:{i}": n for (t, i), n in r["alvos"].items()}
+    return r
+
+
+def relatorio_evidencias_adicionais(con, R):
+    """Markdown determinístico (data/relatorio-evidencias-adicionais.md) a partir do resultado de aplicar_evidencias_adicionais."""
+    esc = lambda s: str(s).replace("|", "\\|").replace("\n", " ")
+    entradas = R["entradas"]
+    rot = {r["id"]: r for r in con.execute("SELECT id, origem_ref, rotulo, descricao, de, para FROM relacao")}
+    nome = {r["id"]: r["nome"] for r in con.execute("SELECT id, nome FROM entidade")}
+    tit = {r["id"]: r["titulo"] for r in con.execute("SELECT id, titulo FROM evento")}
+
+    def alvo(e):
+        if e["alvo_tipo"] == "evento":
+            return f"evento `{e['evento_id']}` ({esc(tit.get(e['evento_id'], ''))})"
+        rid = con.execute("SELECT id FROM relacao WHERE origem=? AND origem_ref=?", (e["relacao_origem"], e["relacao_origem_ref"])).fetchone()[0]
+        x = rot[rid]
+        return f"relação {rid} `{x['origem_ref']}` ({esc(nome[x['de']])} -> {esc(nome[x['para']])}: {esc(x['rotulo'])})"
+
+    ev = {e["evento_id"] for e in entradas if e["alvo_tipo"] == "evento"}
+    rl = {(e["relacao_origem"], e["relacao_origem_ref"]) for e in entradas if e["alvo_tipo"] == "relacao"}
+    sem_ev = {k: n for k, n in R["alvos"].items() if n == 0}
+    n_ev_antes = sum(1 for k in sem_ev if k.startswith("evento_evidencia:"))
+    n_rl_antes = sum(1 for k in sem_ev if k.startswith("relacao_evidencia:"))
+    n_ev_dep = con.execute("SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)").fetchone()[0]
+    n_rl_dep = con.execute("SELECT count(*) FROM relacao r WHERE r.status='publicada' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id)").fetchone()[0]
+    fracas = [e for e in entradas if e["qualidade"] == "fraca"]
+    L = []
+    w = L.append
+    w("# Evidências adicionais\n")
+    w("Gerado por `scripts/migrar.py` (`curadoria.relatorio_evidencias_adicionais`) a partir de `data/curadoria/evidencias-adicionais.json`, "
+      "aplicado por `curadoria.aplicar_evidencias_adicionais`. Determinístico: não muda entre execuções.\n")
+    w("Pesquisa de fontes para os eventos e relações que a migração deixava sem nenhuma evidência. Nada foi descartado: as fontes de qualidade "
+      "`fraca` entram marcadas (coluna `qualidade` de `evento_evidencia`/`relacao_evidencia`) para serem substituídas depois. "
+      "Rótulo, tipo e subtipo das relações e a descrição dos eventos **não** foram alterados: as divergências abaixo são decisão humana.\n")
+    w("## Contagens\n")
+    w("| | |\n|---|---:|")
+    w(f"| entradas (alvo, URL) | {len(entradas)} |")
+    w(f"| eventos cobertos | {len(ev)} |")
+    w(f"| relações cobertas | {len(rl)} |")
+    w(f"| eventos sem evidência antes -> depois | {n_ev_antes} -> {n_ev_dep} |")
+    w(f"| relações publicadas sem evidência antes -> depois | {n_rl_antes} -> {n_rl_dep} |")
+    w(f"| evidências novas (linhas em `evidencia`) | {sum(R['evid_novas'].values())} |")
+    w(f"| ligações a URLs que já existiam em `evidencia` antes desta etapa (reaproveitadas; veículo e tipo intactos) | {R['evid_reaproveitadas']} |")
+    w(f"| ligações criadas | {R['ligacoes']} |")
+    w(f"| qualidade `boa` | {len(entradas) - len(fracas)} |")
+    w(f"| qualidade `fraca` | {len(fracas)} |")
+    w(f"| descrições de relação da teia substituídas | {len(R['descricoes_trocadas'])} |")
+    w(f"| descrições mantidas (a atual já não era o texto padrão \"Vínculo ... sem descrição na fonte\") | {len(R['descricoes_mantidas'])} |")
+    w("\nEvidências novas por tipo:\n")
+    w("| tipo | evidências novas |\n|---|---:|")
+    for t, n in sorted(R["evid_novas"].items()):
+        w(f"| {t} | {n} |")
+    w("\nOnde ficam os dados (colunas aditivas, ver `-- DESVIO` em `scripts/schema.sql`): `trecho_citado` (em `relacao_evidencia` já existia; em `evento_evidencia` é novo), "
+      "`nota` (ressalva do pesquisador) e `qualidade` ('boa'/'fraca'; NULL nas ligações antigas, que não foram avaliadas). "
+      "`evidencia.veiculo`/`tipo` vêm da primeira entrada que criou a URL; `evento_evidencia.rotulo` = título da fonte.\n")
+    w("## Relações da teia: vínculo descrito pela fonte difere do rótulo do grafo\n")
+    div = [e for e in entradas if e.get("divergencia_rotulo")]
+    w(f"{len(div)} relações. O rótulo (`Familiar ou próximo de` / `Escritório ligado a`) continua como estava; a `descricao` agora diz o que a fonte diz. "
+      "Decidir se o rótulo, o `tipo` ou o `subtipo` devem mudar.\n")
+    w("| relação | rótulo atual | a fonte descreve | descrição nova |\n|---|---|---|---|")
+    for e in div:
+        rid = con.execute("SELECT id FROM relacao WHERE origem=? AND origem_ref=?", (e["relacao_origem"], e["relacao_origem_ref"])).fetchone()[0]
+        w(f"| {alvo(e)} | {esc(rot[rid]['rotulo'])} | {esc(e['divergencia_rotulo'])} | {esc(e['descricao_nova'])} |")
+    w("\n## Fontes fracas (para substituição futura)\n")
+    w(f"{len(fracas)} entradas.\n")
+    w("| alvo | url | motivo |\n|---|---|---|")
+    for e in fracas:
+        w(f"| {alvo(e)} | {esc(e['url'])} | {esc(e['motivo_fraca'])} |")
+    w("\n## Contradições e ressalvas para decisão humana\n")
+    com_nota = [e for e in entradas if e.get("nota")]
+    w(f"Todas as notas não vazias dos pesquisadores ({len(com_nota)}). Entre elas: Mercosul em 11/1/1995 e não 1/1; Efeito Tequila (US$ 50 bi não sustentado); "
+      "LRF (Pedro Novais como relator não confirmado; Álvaro Dias foi relator na CCJ); Luiz Estêvão em 28/6 não confirmado; posse de FHC com 54,3% vs 55,22%; "
+      "cassação de Dirceu já em 1/12/2005; médias do Brent 54,57 e 38,26; Grécia em 2/5/2010; manifestações de 2015 com cerca de 2 milhões e não \"centenas de milhares\"; "
+      "minério de ferro 96,8 e 55,2; Pazuello em 15/5; Acordo de Paris com 195 Partes (a UE já está incluída); placar do STF sobre doações (8x2 ou 8x3); "
+      "condenação de Bolsonaro a 27 anos e 3 meses; tarifa agrícola em 20/11/2025 (EO 14361); Bolsonaro deixou o PSL em 2019 (relação \"PSL 2019-2022\" inexata); "
+      "Temer vice até 2016; posse definitiva de Temer em 31/8/2016; Lula e Alckmin com mandato até 2026; Alckmin no PSB desde março de 2022; "
+      "Hugo Motta no biênio 2025-2026; Alencar no PRB em 2011; Maciel vice até 1/1/2003.\n")
+    w("| alvo | fonte | nota |\n|---|---|---|")
+    for e in com_nota:
+        w(f"| {alvo(e)} | {esc(e['veiculo'])}: {esc(e['url'])} | {esc(e['nota'])} |")
+    return "\n".join(L) + "\n"

@@ -204,7 +204,8 @@
    "temas": [
     "caso-master",
     "brasil-ano-a-ano",
-    "brb"
+    "brb",
+    "precatorios"
    ]
   },
   {
@@ -2786,7 +2787,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "brb"
    ]
   },
   {
@@ -3212,7 +3214,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "precatorios"
    ]
   },
   {
