@@ -1208,6 +1208,157 @@ def aplicar_evidencias_adicionais(con):
     return r
 
 
+# ======================================================================== correções de revisão (ressalvas das evidências adicionais)
+CAMPOS_EVENTO_CORRECAO = ("titulo", "descricao")
+CAMPOS_RELACAO_CORRECAO = ("periodo_fim", "descricao", "subtipo", "rotulo", "tipo")
+
+
+def aplicar_evento_correcoes(con):
+    """data/curadoria/evento-correcoes.json (à mão): `correcoes` = [{"evento_id","campo","decisao","de","para","motivo","ressalvas"}].
+    Substituição textual exata em `evento.titulo` ou `evento.descricao`: `de` tem de ocorrer EXATAMENTE uma vez no valor atual do campo.
+    Todas as entradas são conferidas antes de qualquer UPDATE; se uma falhar (evento inexistente, `de` ausente ou repetido) a migração aborta
+    sem aplicar nada. O evento é achado pelo id ou, se foi fundido, pelo evento_alias. Roda depois das cargas e das evidências adicionais,
+    antes dos temas (as regras de tema leem título e descrição). -> dict para o relatório."""
+    cfg = ler_json("evento-correcoes.json", {})
+    r = {"aplicadas": [], "mantidas": [], "ressalvas_mantidas": list(cfg.get("ressalvas_mantidas_com_nota", {}).get("ressalvas", [])), "pendentes": []}
+    erros, plano, vistos = [], [], set()
+    for c in cfg.get("correcoes", []):
+        ref = f"{c.get('evento_id')}/{c.get('campo')}"
+        if c.get("decisao") == "manter":
+            r["mantidas"].append(c)
+            continue
+        if c.get("campo") not in CAMPOS_EVENTO_CORRECAO:
+            erros.append(f"{ref}: campo não permitido")
+            continue
+        if ref in vistos:
+            erros.append(f"{ref}: entrada repetida")
+            continue
+        vistos.add(ref)
+        row = con.execute("SELECT id FROM evento WHERE id=?", (c["evento_id"],)).fetchone() or \
+            con.execute("SELECT e.id FROM evento_alias a JOIN evento e ON e.id=a.evento_id WHERE a.alias=?", (c["evento_id"],)).fetchone()
+        if not row:
+            erros.append(f"{ref}: evento inexistente")
+            continue
+        atual = con.execute(f"SELECT {c['campo']} FROM evento WHERE id=?", (row[0],)).fetchone()[0] or ""
+        n = atual.count(c["de"]) if c.get("de") else 0
+        if n != 1:
+            erros.append(f"{ref}: o texto `de` ocorre {n} vez(es) em evento.{c['campo']} (esperado 1): {c.get('de')!r}; valor atual: {atual!r}")
+            continue
+        plano.append((row[0], c, atual.replace(c["de"], c["para"], 1)))
+    if erros:
+        raise SystemExit("evento-correcoes.json: nada foi aplicado.\n  " + "\n  ".join(erros))
+    for eid, c, novo in plano:
+        con.execute(f"UPDATE evento SET {c['campo']}=?, atualizado_em=? WHERE id=?", (novo, TS_MIGRACAO, eid))
+        r["aplicadas"].append(dict(c, id_efetivo=eid))
+    return r
+
+
+def aplicar_relacao_correcoes(con):
+    """data/curadoria/relacao-correcoes.json (à mão): `periodos` (relações de origem linha_do_tempo) e `vinculos_teia` (relações da teia), cada entrada
+    {"origem","origem_ref","alvo":{...},"decisao":"aceitar"|"manter","de":{campo: valor atual},"para":{campo: valor novo},"motivo","ressalvas"}.
+    Chave estável: (origem, origem_ref). `alvo` confere a identidade (nome da entidade `de`, rótulo, periodo_inicio e/ou nome de `para`); cada campo de `de`
+    tem de valer o valor atual do banco. Tudo é conferido antes do primeiro UPDATE; qualquer divergência aborta a migração sem aplicar nada.
+    O valor novo de `tipo` tem de respeitar o CHECK do schema (o UPDATE falharia). decisao 'manter' só entra no relatório. -> dict para o relatório."""
+    cfg = ler_json("relacao-correcoes.json", {})
+    r = {"aplicadas": [], "mantidas": [], "grupos": {}}
+    erros, plano, vistos = [], [], set()
+    for grupo in ("periodos", "vinculos_teia"):
+        for c in cfg.get(grupo, []):
+            ref = f"{c.get('origem')} {c.get('origem_ref')}"
+            if (c.get("origem"), c.get("origem_ref")) in vistos:
+                erros.append(f"{ref}: entrada repetida")
+                continue
+            vistos.add((c.get("origem"), c.get("origem_ref")))
+            row = con.execute("""SELECT r.id, r.rotulo, r.tipo, r.subtipo, r.descricao, r.periodo_inicio, r.periodo_fim, d.nome AS nome_de, p.nome AS nome_para
+                                 FROM relacao r JOIN entidade d ON d.id=r.de JOIN entidade p ON p.id=r.para WHERE r.origem=? AND r.origem_ref=?""",
+                              (c["origem"], c["origem_ref"])).fetchone()
+            if not row:
+                erros.append(f"{ref}: relação inexistente")
+                continue
+            al = c.get("alvo", {})
+            for k_alvo, k_row in (("de", "nome_de"), ("para", "nome_para"), ("rotulo", "rotulo"), ("periodo_inicio", "periodo_inicio")):
+                if k_alvo in al and al[k_alvo] != row[k_row]:
+                    erros.append(f"{ref}: alvo.{k_alvo}={al[k_alvo]!r} não bate com o banco ({row[k_row]!r}); relação {row['id']}")
+            if c.get("decisao") == "manter":
+                r["mantidas"].append(dict(c, relacao_id=row["id"], grupo=grupo))
+                continue
+            de, para = c.get("de", {}), c.get("para", {})
+            if not para or set(de) != set(para):
+                erros.append(f"{ref}: `de` e `para` têm de ter os mesmos campos (e não vazios)")
+                continue
+            for campo, v in de.items():
+                if campo not in CAMPOS_RELACAO_CORRECAO:
+                    erros.append(f"{ref}: campo não permitido: {campo}")
+                elif row[campo] != v:
+                    erros.append(f"{ref}: relação {row['id']}: {campo} atual {row[campo]!r} != de {v!r}")
+            plano.append((row["id"], c, grupo))
+    if erros:
+        raise SystemExit("relacao-correcoes.json: nada foi aplicado.\n  " + "\n  ".join(erros))
+    for rid, c, grupo in plano:
+        sets = ", ".join(f"{k}=?" for k in c["para"])
+        try:
+            con.execute(f"UPDATE relacao SET {sets}, atualizado_em=? WHERE id=?", (*c["para"].values(), TS_MIGRACAO, rid))
+        except Exception as ex:   # CHECK do schema
+            raise SystemExit(f"relacao-correcoes.json: {c['origem']} {c['origem_ref']}: valor novo recusado pelo schema ({ex})")
+        r["aplicadas"].append(dict(c, relacao_id=rid, grupo=grupo))
+    return r
+
+
+def relatorio_revisao_evidencias(con, E, Rl):
+    """Markdown determinístico (data/relatorio-revisao-evidencias.md) a partir dos resultados de aplicar_evento_correcoes e aplicar_relacao_correcoes."""
+    esc = lambda s: str(s).replace("|", "\\|").replace("\n", " ")
+    tit = {x["id"]: x["titulo"] for x in con.execute("SELECT id, titulo FROM evento")}
+    ap_per = [c for c in Rl["aplicadas"] if c["grupo"] == "periodos"]
+    ap_vin = [c for c in Rl["aplicadas"] if c["grupo"] == "vinculos_teia"]
+    mant = Rl["mantidas"]
+    campos = collections.Counter(k for c in ap_vin for k in c["para"])
+    L = []
+    w = L.append
+    w("# Revisão das ressalvas das evidências adicionais\n")
+    w("Gerado por `scripts/migrar.py` (`curadoria.relatorio_revisao_evidencias`) a partir de `data/curadoria/evento-correcoes.json` e "
+      "`data/curadoria/relacao-correcoes.json`, aplicados por `curadoria.aplicar_evento_correcoes` e `curadoria.aplicar_relacao_correcoes`. Determinístico.\n")
+    w("As ressalvas de `data/relatorio-evidencias-adicionais.md` foram decididas pelo dono do projeto; as decisões estão nos dois arquivos acima "
+      "(o relatório de evidências continua sendo gerado só de `evidencias-adicionais.json`). Princípio: a descrição no banco tem de corresponder à evidência anexada; "
+      "onde a fonte oficial contradiz um número ou data o banco muda; onde a fonte só não confirma um detalhe, o detalhe sai ou fica mais vago; "
+      "onde a fonte é fraca mas o fato é notório, mantém-se marcado para troca de fonte.\n")
+    w("## Contagens\n")
+    w("| | |\n|---|---:|")
+    w(f"| eventos corrigidos | {len(E['aplicadas'])} |")
+    w(f"| &nbsp;&nbsp;campo `descricao` | {sum(1 for c in E['aplicadas'] if c['campo'] == 'descricao')} |")
+    w(f"| &nbsp;&nbsp;campo `titulo` | {sum(1 for c in E['aplicadas'] if c['campo'] == 'titulo')} |")
+    w(f"| relações de linha do tempo corrigidas (período/descrição) | {len(ap_per)} |")
+    w(f"| vínculos da teia ajustados (subtipo/rótulo/tipo) | {len(ap_vin)} |")
+    w(f"| &nbsp;&nbsp;`subtipo` definido | {campos['subtipo']} |")
+    w(f"| &nbsp;&nbsp;`rotulo` trocado | {campos['rotulo']} |")
+    w(f"| &nbsp;&nbsp;`tipo` trocado | {campos['tipo']} |")
+    w(f"| itens mantidos com nota (relações/vínculos sem mudança) | {len(mant)} |")
+    w(f"| ressalvas mantidas com nota, sem mudança no banco (ids de ressalva) | {len(E['ressalvas_mantidas'])} |")
+    w("\nFontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de substituição por fontes primárias; nenhuma foi removida "
+      "(`data/relatorio-evidencias-adicionais.md`, seção \"Fontes fracas\").\n")
+    w("## Eventos corrigidos\n")
+    w("| evento | campo | de -> para | motivo | ressalvas |\n|---|---|---|---|---|")
+    for c in sorted(E["aplicadas"], key=lambda c: (c["id_efetivo"], c["campo"])):
+        w(f"| `{c['id_efetivo']}` | {c['campo']} | {esc(c['de'])} -> {esc(c['para'])} | {esc(c['motivo'])} | {esc(', '.join(c.get('ressalvas', [])))} |")
+    w("\n## Relações de linha do tempo corrigidas\n")
+    w("| relação | alvo | campo | de -> para | motivo |\n|---|---|---|---|---|")
+    for c in sorted(ap_per, key=lambda c: c["relacao_id"]):
+        for k in c["para"]:
+            w(f"| {c['relacao_id']} `{c['origem_ref']}` | {esc(c['alvo']['de'])}: {esc(c['alvo']['rotulo'])} ({c['alvo']['periodo_inicio']}) | {k} | {esc(c['de'][k])} -> {esc(c['para'][k])} | {esc(c['motivo'])} |")
+    w("\n## Vínculos da teia ajustados\n")
+    w("| relação | alvo | campo | de -> para | motivo |\n|---|---|---|---|---|")
+    for c in sorted(ap_vin, key=lambda c: c["relacao_id"]):
+        for k in c["para"]:
+            w(f"| {c['relacao_id']} `{c['origem_ref']}` | {esc(c['alvo']['de'])} -> {esc(c['alvo']['para'])} | {k} | {esc(c['de'][k]) if c['de'][k] is not None else '(vazio)'} -> {esc(c['para'][k])} | {esc(c['motivo'])} |")
+    w("\n## Mantidos com nota (nada mudou)\n")
+    w("| relação | alvo | motivo |\n|---|---|---|")
+    for c in sorted(mant, key=lambda c: c["relacao_id"]):
+        al = c["alvo"]
+        w(f"| {c['relacao_id']} `{c['origem_ref']}` | {esc(al['de'])}{' -> ' + esc(al['para']) if 'para' in al else ''}: {esc(al['rotulo'])} | {esc(c['motivo'])} |")
+    w("\n## Ressalvas mantidas sem mudança no banco\n")
+    w(f"{len(E['ressalvas_mantidas'])} ressalvas: " + ", ".join(E["ressalvas_mantidas"]) + ".\n")
+    return "\n".join(L) + "\n"
+
+
 def relatorio_evidencias_adicionais(con, R):
     """Markdown determinístico (data/relatorio-evidencias-adicionais.md) a partir do resultado de aplicar_evidencias_adicionais."""
     esc = lambda s: str(s).replace("|", "\\|").replace("\n", " ")
@@ -1238,7 +1389,7 @@ def relatorio_evidencias_adicionais(con, R):
       "aplicado por `curadoria.aplicar_evidencias_adicionais`. Determinístico: não muda entre execuções.\n")
     w("Pesquisa de fontes para os eventos e relações que a migração deixava sem nenhuma evidência. Nada foi descartado: as fontes de qualidade "
       "`fraca` entram marcadas (coluna `qualidade` de `evento_evidencia`/`relacao_evidencia`) para serem substituídas depois. "
-      "Rótulo, tipo e subtipo das relações e a descrição dos eventos **não** foram alterados: as divergências abaixo são decisão humana.\n")
+      "Esta etapa não altera rótulo, tipo, subtipo das relações nem a descrição dos eventos: as divergências abaixo eram decisão humana, hoje registrada em `data/curadoria/evento-correcoes.json` e `data/curadoria/relacao-correcoes.json` (resumo em `data/relatorio-revisao-evidencias.md`); as tabelas mostram o estado atual do banco.\n")
     w("## Contagens\n")
     w("| | |\n|---|---:|")
     w(f"| entradas (alvo, URL) | {len(entradas)} |")

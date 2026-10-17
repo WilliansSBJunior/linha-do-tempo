@@ -1,0 +1,303 @@
+{
+ "_doc": "Correções textuais exatas em evento.titulo/descricao, decididas pelo dono do projeto sobre as ressalvas de data/relatorio-evidencias-adicionais.md. Chave estável: (evento_id, campo). `de` tem de ocorrer exatamente uma vez no campo atual; senão a migração aborta (curadoria.aplicar_evento_correcoes). Princípio: A descrição no banco tem de corresponder à evidência anexada. Onde a fonte oficial/primária contradiz um número ou data, o banco muda e cita a série. Onde a fonte só não confirma um detalhe, o detalhe sai ou vira texto mais vago. Onde a fonte é fraca mas o fato é notório e não contestado, mantém-se, marcado para troca de fonte.",
+ "correcoes": [
+  {
+   "evento_id": "ev-1995-mercosul-vira-uniao-aduaneira",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Em 1º de janeiro de 1995 o Mercosul (Argentina, Brasil, Paraguai e Uruguai) passou a operar como união aduaneira, com tarifa externa comum.",
+   "para": "Em janeiro de 1995 o Mercosul (Argentina, Brasil, Paraguai e Uruguai) passou a operar como união aduaneira, com tarifa externa comum ainda sujeita a exceções.",
+   "motivo": "A única fonte aberta (Câmara) dá 11/1/1995 e diz que a TEC não estava plenamente em vigor; 1º/1 não foi confirmado.",
+   "ressalvas": [
+    "r008"
+   ]
+  },
+  {
+   "evento_id": "ev-1995-efeito-tequila-apos-a-crise-do-peso",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "os EUA coordenaram em janeiro de 1995 um pacote de US$ 50 bilhões",
+   "para": "os EUA e organismos internacionais montaram no início de 1995 um pacote de socorro de cerca de US$ 50 bilhões",
+   "motivo": "Fontes abertas falam em ~US$ 50 bi no total, no início de 1995, não em um pacote único de janeiro.",
+   "ressalvas": [
+    "r004"
+   ]
+  },
+  {
+   "evento_id": "ev-1995-posse-de-fernando-henrique-cardoso",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "com 54,28% dos votos",
+   "para": "com cerca de 54,3% dos votos válidos",
+   "motivo": "Fundação FHC: 54,3% dos válidos; o 54,28% vinha da Wikipédia.",
+   "ressalvas": [
+    "r009",
+    "r010"
+   ]
+  },
+  {
+   "evento_id": "ev-2000-argentina-em-recessao",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": ", e a Argentina era o segundo destino das exportações brasileiras, com 11,33% do total.",
+   "para": ", e a Argentina era um dos principais destinos das exportações brasileiras.",
+   "motivo": "A posição de 2º destino e o 11,33% não foram verificados em nenhuma fonte aberta.",
+   "ressalvas": [
+    "r011"
+   ]
+  },
+  {
+   "evento_id": "ev-2000-cassacao-do-senador-luiz-estevao",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Em 28/6/2000 o Senado cassa o mandato de Luiz Estêvão por quebra de decoro parlamentar, por 52 votos a 18,",
+   "para": "Em junho de 2000 o Senado cassa o mandato de Luiz Estêvão por quebra de decoro parlamentar, por 52 votos a 18 (10 abstenções),",
+   "motivo": "O dia 28/6 não foi confirmado; a fonte traz o placar completo.",
+   "ressalvas": [
+    "r012"
+   ]
+  },
+  {
+   "evento_id": "ev-2000-lei-de-responsabilidade-fiscal",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "os relatores foram Pedro Novais na Câmara e Jefferson Peres no Senado.",
+   "para": "no Senado, Jefferson Péres foi o relator na CAE e Álvaro Dias na CCJ.",
+   "motivo": "Pedro Novais como relator na Câmara não foi confirmado em nenhuma fonte; o Senado confirma Péres (CAE) e Álvaro Dias (CCJ).",
+   "ressalvas": [
+    "r016"
+   ]
+  },
+  {
+   "evento_id": "ev-2005-cassacoes-de-roberto-jefferson-e-jose",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "e o de José Dirceu em 30/11/2005,",
+   "para": "e o de José Dirceu na madrugada de 1/12/2005 (sessão iniciada em 30/11),",
+   "motivo": "Congresso em Foco: votação concluída logo após a meia-noite.",
+   "ressalvas": [
+    "r020"
+   ]
+  },
+  {
+   "evento_id": "ev-2005-katrina-e-petroleo-mais-caro",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "o Brent teve média anual de US$ 54,68 em 2005, ante US$ 38,23 em 2004.",
+   "para": "o Brent teve média anual de US$ 54,57 em 2005, ante US$ 38,26 em 2004 (série da EIA).",
+   "motivo": "Os números do banco não batem com a série anexada (EIA/FRED); a evidência manda.",
+   "ressalvas": [
+    "r027"
+   ]
+  },
+  {
+   "evento_id": "ev-2010-china-a-frente-do-japao-e-principal",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "O PIB nominal da China (US$ 6,19 tri) ficou acima do japonês (US$ 5,81 tri) em 2010",
+   "para": "O PIB nominal da China (US$ 5,88 tri, pelos dados oficiais divulgados em fevereiro de 2011) ficou acima do japonês (US$ 5,47 tri) em 2010",
+   "motivo": "Os valores do banco não têm fonte; os da evidência são os divulgados pelos dois governos.",
+   "ressalvas": [
+    "r032"
+   ]
+  },
+  {
+   "evento_id": "ev-2010-primeiro-resgate-da-grecia",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Em 3 de maio de 2010",
+   "para": "Em 2 de maio de 2010",
+   "motivo": "O comunicado do Eurogrupo/FMI é de 2/5/2010.",
+   "ressalvas": [
+    "r038"
+   ]
+  },
+  {
+   "evento_id": "ev-2015-acordo-de-paris-na-cop21",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "195 países-membros da UNFCCC e a União Europeia chegaram a consenso sobre o texto do Acordo de Paris na COP21.",
+   "para": "as 195 Partes da UNFCCC (incluindo a União Europeia) adotaram o Acordo de Paris na COP21.",
+   "motivo": "A UNFCCC conta 195 Partes já com a UE; 'consenso' não consta das fontes.",
+   "ressalvas": [
+    "r040"
+   ]
+  },
+  {
+   "evento_id": "ev-2015-colapso-do-preco-das-commodities",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "o do minério de ferro de US$ 97,39 para US$ 56,14 por tonelada (séries do FMI).",
+   "para": "o do minério de ferro de US$ 96,8 para US$ 55,2 por tonelada (séries do FMI, boletim de janeiro de 2016).",
+   "motivo": "Alinhado ao boletim do FMI anexado como evidência.",
+   "ressalvas": [
+    "r041"
+   ]
+  },
+  {
+   "evento_id": "ev-2015-manifestacoes-contra-o-governo",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "reúnem centenas de milhares de pessoas contra o governo",
+   "para": "reúnem multidões contra o governo (cerca de 2 milhões em 15/3, 560 mil em 12/4 e 795 mil em 16/8, por estimativas das polícias militares)",
+   "motivo": "A fonte dá números muito acima de 'centenas de milhares'.",
+   "ressalvas": [
+    "r044"
+   ]
+  },
+  {
+   "evento_id": "ev-2015-turbulencia-na-china-bolsa-e-yuan",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "A bolsa de Xangai caiu de mais de 5.000 pontos em meados de junho para menos de 3.000 no fim de agosto,",
+   "para": "A bolsa de Xangai fechou abaixo de 3.000 pontos em 25 de agosto de 2015,",
+   "motivo": "O pico acima de 5.000 em junho não foi confirmado em fonte aberta.",
+   "ressalvas": [
+    "r048"
+   ]
+  },
+  {
+   "evento_id": "ev-2020-china-cresce-e-compra-um-terco-das",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "a China respondeu por 32,41% das exportações brasileiras.",
+   "para": "a China respondeu por 32,3% das exportações brasileiras.",
+   "motivo": "Agência Brasil (dados do governo): 32,3%.",
+   "ressalvas": [
+    "r051"
+   ]
+  },
+  {
+   "evento_id": "ev-2020-guerra-de-precos-do-petroleo",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "iniciada em 8 de março,",
+   "para": "iniciada no início de março,",
+   "motivo": "O dia 8/3 não consta da fonte.",
+   "ressalvas": [
+    "r053"
+   ]
+  },
+  {
+   "evento_id": "ev-2020-novo-fundeb",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "promulgada em 26/8/2020 após aprovação por 79 votos a zero no Senado, torna o Fundeb permanente",
+   "para": "promulgada em 26/8/2020, torna o Fundeb permanente (art. 212-A da Constituição)",
+   "motivo": "O placar 79x0 não foi verificado; a permanência é a substância da EC 108.",
+   "ressalvas": [
+    "r054"
+   ]
+  },
+  {
+   "evento_id": "ev-2020-pandemia-de-covid-19",
+   "campo": "titulo",
+   "decisao": "aceitar",
+   "de": "Pandemia de covid-19",
+   "para": "Pandemia de covid-19: resposta do Congresso",
+   "motivo": "Dois eventos com o mesmo título e fatos distintos; títulos distintos evitam fusão indevida.",
+   "ressalvas": [
+    "r056"
+   ]
+  },
+  {
+   "evento_id": "ev-2020-pandemia-de-covid-19-2",
+   "campo": "titulo",
+   "decisao": "aceitar",
+   "de": "Pandemia de covid-19",
+   "para": "Pandemia de covid-19: declaração da OMS e PIB mundial",
+   "motivo": "Idem.",
+   "ressalvas": [
+    "r056"
+   ]
+  },
+  {
+   "evento_id": "ev-2020-saida-de-sergio-moro-do-governo",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": " na Polícia Federal; Bolsonaro contesta a versão.",
+   "para": " na Polícia Federal.",
+   "motivo": "A contestação não está na fonte anexada.",
+   "ressalvas": [
+    "r058"
+   ]
+  },
+  {
+   "evento_id": "ev-2020-trocas-no-ministerio-da-saude",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "o general Eduardo Pazuello assume a pasta em 16/5.",
+   "para": "o general Eduardo Pazuello assume a pasta interinamente em 15/5.",
+   "motivo": "Poder360 e O Popular: 15/5, interino.",
+   "ressalvas": [
+    "r059"
+   ]
+  },
+  {
+   "evento_id": "ev-2025-eua-isentam-parte-dos-produtos-agricolas",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Em 14 de novembro de 2025 os EUA retiraram da tarifa produtos como café, carne bovina, frutas tropicais, cacau, bananas e laranjas, incluindo itens brasileiros.",
+   "para": "Em 14 de novembro de 2025 os EUA retiraram da tarifa 'recíproca' produtos agrícolas como café, carne bovina, frutas tropicais, cacau, bananas e laranjas e, em 20 de novembro, retiraram também a tarifa adicional de 40% sobre esses itens brasileiros (EO 14361).",
+   "motivo": "A isenção para itens brasileiros é de 20/11 (EO 14361); 14/11 é a ordem geral.",
+   "ressalvas": [
+    "r064",
+    "r065"
+   ]
+  },
+  {
+   "evento_id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "o condena a 27 anos de prisão.",
+   "para": "o condena a 27 anos e 3 meses de prisão.",
+   "motivo": "Pena exata conforme a fonte.",
+   "ressalvas": [
+    "r070"
+   ]
+  }
+ ],
+ "ressalvas_mantidas_com_nota": {
+  "ressalvas": [
+   "r001",
+   "r003",
+   "r005",
+   "r006",
+   "r007",
+   "r013",
+   "r015",
+   "r019",
+   "r021",
+   "r022",
+   "r023",
+   "r025",
+   "r028",
+   "r029",
+   "r043",
+   "r046",
+   "r049",
+   "r052",
+   "r061",
+   "r062",
+   "r063",
+   "r066",
+   "r067",
+   "r068",
+   "r069",
+   "r071",
+   "r073",
+   "r076",
+   "r079",
+   "r080",
+   "r082",
+   "r084",
+   "r085",
+   "r086",
+   "r089",
+   "r090",
+   "r092"
+  ],
+  "nota": "Ressalvas dos pesquisadores aceitas como estão: o banco não muda e a nota segue em evento_evidencia/relacao_evidencia (coluna nota). Só entram na contagem do relatório."
+ },
+ "fontes_fracas": "As 51 continuam marcadas 'fraca' para a rodada de substituição por fontes primárias; nenhuma foi removida."
+}

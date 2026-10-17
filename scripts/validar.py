@@ -450,6 +450,73 @@ def evidencias_adicionais(con):
     esperar("data/relatorio-evidencias-adicionais.md existe", p.exists(), True)
 
 
+def _correcoes_relacao():
+    """{origem_ref: entrada} das correções de relação aceitas (data/curadoria/relacao-correcoes.json), de linha_do_tempo e da teia."""
+    p = CURADORIA / "relacao-correcoes.json"
+    if not p.exists():
+        return {}
+    cfg = json.loads(p.read_text(encoding="utf-8"))
+    return {c["origem_ref"]: c for g in ("periodos", "vinculos_teia") for c in cfg.get(g, []) if c.get("decisao") == "aceitar"}
+
+
+def revisao_evidencias(con):
+    secao("Revisão das ressalvas (evento-correcoes.json e relacao-correcoes.json aplicados)")
+    cfg_e = json.loads((CURADORIA / "evento-correcoes.json").read_text(encoding="utf-8"))
+    ruins = []
+    n_e = 0
+    for c in cfg_e["correcoes"]:
+        if c.get("decisao") == "manter":
+            continue
+        n_e += 1
+        r = q(con, "SELECT id, titulo, descricao FROM evento WHERE id=?", c["evento_id"]) or \
+            q(con, "SELECT e.id, e.titulo, e.descricao FROM evento_alias a JOIN evento e ON e.id=a.evento_id WHERE a.alias=?", c["evento_id"])
+        if not r:
+            ruins.append(f"evento inexistente: {c['evento_id']}")
+            continue
+        valor = r[0][c["campo"]] or ""
+        if valor.count(c["para"]) != 1:
+            ruins.append(f"{c['evento_id']}/{c['campo']}: `para` ocorre {valor.count(c['para'])} vez(es)")
+        if c["de"] in valor and c["de"] not in c["para"]:
+            ruins.append(f"{c['evento_id']}/{c['campo']}: `de` ainda presente")
+    esperar("evento-correcoes.json: correções com `para` presente e `de` ausente (divergências)", len(ruins), 0)
+    for x in ruins[:20]:
+        print("   -", x)
+    ruins = []
+    cfg_r = json.loads((CURADORIA / "relacao-correcoes.json").read_text(encoding="utf-8"))
+    tipos = set(re.findall(r"'([a-z_]+)'", re.search(r"tipo TEXT NOT NULL CHECK \(tipo IN \(([^)]*)\)", q(con, "SELECT sql FROM sqlite_master WHERE name='relacao'")[0][0]).group(1)))
+    n_r = 0
+    for g in ("periodos", "vinculos_teia"):
+        for c in cfg_r[g]:
+            row = q(con, """SELECT r.*, d.nome AS nome_de FROM relacao r JOIN entidade d ON d.id=r.de WHERE r.origem=? AND r.origem_ref=?""", c["origem"], c["origem_ref"])
+            if not row:
+                ruins.append(f"relação inexistente: {c['origem']} {c['origem_ref']}")
+                continue
+            row = row[0]
+            if row["nome_de"] != c["alvo"]["de"] or row["rotulo"] != (c["para"]["rotulo"] if c.get("decisao") == "aceitar" and "rotulo" in c["para"] else c["alvo"]["rotulo"]):
+                ruins.append(f"{c['origem_ref']}: alvo não bate com o banco")
+            if c.get("decisao") != "aceitar":
+                continue
+            n_r += 1
+            for k, v in c["para"].items():
+                if row[k] != v:
+                    ruins.append(f"{c['origem_ref']}: {k}={row[k]!r} != {v!r}")
+            if row["tipo"] not in tipos:
+                ruins.append(f"{c['origem_ref']}: tipo {row['tipo']!r} fora do CHECK")
+            for k in ("periodo_inicio", "periodo_fim"):
+                if row[k] is not None and not re.match(r"[0-9]{4}", row[k]):
+                    ruins.append(f"{c['origem_ref']}: {k} fora do CHECK")
+            if row["ano_fim"] is not None and row["ano_inicio"] is not None and row["ano_fim"] < row["ano_inicio"]:
+                ruins.append(f"{c['origem_ref']}: periodo_fim anterior ao início")
+    esperar("relacao-correcoes.json: correções com valores novos no banco e alvo conferido (divergências)", len(ruins), 0)
+    for x in ruins[:20]:
+        print("   -", x)
+    esperar("relações com `tipo` fora da lista do CHECK", q(con, "SELECT count(*) FROM relacao WHERE tipo NOT IN (%s)" % ",".join("?" * len(tipos)), *sorted(tipos))[0][0], 0)
+    p = DATA / "relatorio-revisao-evidencias.md"
+    esperar("data/relatorio-revisao-evidencias.md existe", p.exists(), True)
+    if p.exists():
+        esperar("relatório: eventos corrigidos == correções aceitas do arquivo", f"| eventos corrigidos | {n_e} |" in p.read_text(encoding="utf-8"), True)
+
+
 def curadoria(con):
     secao("Curadoria (data/curadoria/*.json aplicada)")
     fusoes = json.loads((CURADORIA / "eventos-fusoes.json").read_text(encoding="utf-8"))
@@ -541,7 +608,14 @@ def modelo_v2(con, exp):
     secao("Teia <-> timeline (mandato/bancada -> relações institucionais)")
     n_m = q(con, "SELECT count(*) FROM mandato")[0][0]
     esperar("relações subtipo mandato:* == linhas de mandato", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND subtipo LIKE 'mandato:%'")[0][0], n_m)
-    esperar("cada mandato tem a sua relação (origem_ref mandato:<id>)", q(con, "SELECT count(*) FROM mandato m WHERE NOT EXISTS (SELECT 1 FROM relacao r WHERE r.origem_ref='mandato:'||m.id AND r.de=m.entidade_id AND r.periodo_inicio=m.inicio AND r.periodo_fim=COALESCE(m.fim,m.inicio))")[0][0], 0)
+    corr = _correcoes_relacao()   # só periodo_fim corrigido à mão (relacao-correcoes.json) pode divergir do mandato; o resto vale como antes
+    ruins = []
+    for m in q(con, "SELECT m.id, m.entidade_id, m.inicio, COALESCE(m.fim,m.inicio) fim FROM mandato m"):
+        ref = f"mandato:{m['id']}"
+        fim_ok = corr[ref]["para"].get("periodo_fim", m["fim"]) if ref in corr else m["fim"]
+        if not q(con, "SELECT 1 FROM relacao r WHERE r.origem_ref=? AND r.de=? AND r.periodo_inicio=? AND r.periodo_fim=?", ref, m["entidade_id"], m["inicio"], fim_ok):
+            ruins.append(ref)
+    esperar("cada mandato tem a sua relação (origem_ref mandato:<id>; periodo_fim = o do mandato, ou o corrigido em relacao-correcoes.json)", len(ruins), 0)
     esperar("relações linha_do_tempo: natureza/tipo/status", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND (natureza_id<>'documentada' OR tipo<>'institucional' OR status<>'publicada')")[0][0], 0)
     esperar("relações linha_do_tempo sem o tema brasil-ano-a-ano", q(con, "SELECT count(*) FROM relacao r WHERE origem='linha_do_tempo' AND NOT EXISTS (SELECT 1 FROM relacao_tema x WHERE x.relacao_id=r.id AND x.tema_id='brasil-ano-a-ano')")[0][0], 0)
     esperar("mandato: de=pessoa, para=orgao_publico", q(con, "SELECT count(*) FROM relacao r JOIN entidade d ON d.id=r.de JOIN entidade p ON p.id=r.para WHERE r.subtipo LIKE 'mandato:%' AND (d.tipo<>'pessoa' OR p.tipo<>'orgao_publico')")[0][0], 0)
@@ -552,8 +626,10 @@ def modelo_v2(con, exp):
     for m in q(con, "SELECT entidade_id, partido, inicio, COALESCE(fim, inicio) fim FROM mandato WHERE partido IS NOT NULL"):
         mand.setdefault(m["entidade_id"], []).append((m["partido"], int(m["inicio"][:4]), int(m["fim"][:4])))
     sem = 0
-    for r in q(con, "SELECT de, para, ano_inicio, ano_fim FROM relacao WHERE subtipo='filiacao'"):
-        if not any((manual.get(p) == r["para"] or (p, r["para"]) in por_alias) and r["ano_inicio"] <= a <= b <= r["ano_fim"]
+    for r in q(con, "SELECT de, para, ano_inicio, ano_fim, origem_ref FROM relacao WHERE subtipo='filiacao'"):
+        # filiação com período corrigido à mão (relacao-correcoes.json) só precisa sobrepor um mandato do partido; as demais continuam exigindo o mandato dentro do período
+        cobre = (lambda a, b: r["ano_inicio"] <= b and a <= r["ano_fim"]) if r["origem_ref"] in corr else (lambda a, b: r["ano_inicio"] <= a <= b <= r["ano_fim"])
+        if not any((manual.get(p) == r["para"] or (p, r["para"]) in por_alias) and cobre(a, b)
                    for p, a, b in mand.get(r["de"], [])):
             sem += 1
     esperar("filiação sem mandato no mesmo partido dentro do período", sem, 0)
@@ -645,6 +721,7 @@ def main():
     dossie_e_pares(con, exp)
     curadoria(con)
     evidencias_adicionais(con)
+    revisao_evidencias(con)
     modelo_v2(con, exp)
 
     secao("Arquivos exportados em disco")

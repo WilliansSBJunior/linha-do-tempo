@@ -311,20 +311,12 @@
   "evento_id": "ev-2000-lei-de-responsabilidade-fiscal",
   "entidades": [
    {
-    "id": "pedro-novais",
-    "alias": "Pedro Novais"
-   },
-   {
-    "id": "camara-dos-deputados",
-    "alias": "Câmara"
+    "id": "senado-federal",
+    "alias": "Senado"
    },
    {
     "id": "jefferson-peres",
     "alias": "Jefferson Peres"
-   },
-   {
-    "id": "senado-federal",
-    "alias": "Senado"
    }
   ],
   "papel": "citado"
@@ -1755,16 +1747,6 @@
    {
     "id": "russia",
     "alias": "Rússia"
-   }
-  ],
-  "papel": "citado"
- },
- {
-  "evento_id": "ev-2020-novo-fundeb",
-  "entidades": [
-   {
-    "id": "senado-federal",
-    "alias": "Senado"
    }
   ],
   "papel": "citado"

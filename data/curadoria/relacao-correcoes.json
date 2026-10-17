@@ -1,0 +1,401 @@
+{
+ "_doc": "Correções de relações, decididas sobre as ressalvas de data/relatorio-evidencias-adicionais.md. Chave estável: (origem, origem_ref). `alvo` confere a identidade da relação (nome da entidade `de`, rótulo, período/`para`): se não bater com o banco a migração aborta. `de` = valores atuais exigidos por campo, `para` = valores novos; um campo cujo valor atual difere de `de` aborta a migração (nada é aplicado parcialmente). decisao 'manter' não muda nada, só entra no relatório. Campos permitidos: periodo_fim, descricao, subtipo, rotulo, tipo (CHECKs do schema valem). Aplicado por curadoria.aplicar_relacao_correcoes (depois das evidências adicionais, antes dos temas).",
+ "periodos": [
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "mandato:6",
+   "alvo": {
+    "de": "Luiz Inácio Lula da Silva",
+    "rotulo": "Presidente da República",
+    "periodo_inicio": "2023"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2025",
+    "descricao": "Presidente da República (PT), 2023 a 2025."
+   },
+   "para": {
+    "periodo_fim": "2026",
+    "descricao": "Presidente da República (PT), 2023 a 2026."
+   },
+   "motivo": "Mandato até 31/12/2026 (Agência Senado).",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "mandato:11",
+   "alvo": {
+    "de": "Geraldo Alckmin",
+    "rotulo": "Vice-presidente da República",
+    "periodo_inicio": "2023"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2025",
+    "descricao": "Vice-presidente da República (PSB), 2023 a 2025."
+   },
+   "para": {
+    "periodo_fim": "2026",
+    "descricao": "Vice-presidente da República (PSB), 2023 a 2026."
+   },
+   "motivo": "Idem.",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "filiacao:luiz-inacio-lula-da-silva:pt:2023",
+   "alvo": {
+    "de": "Luiz Inácio Lula da Silva",
+    "rotulo": "Filiado ao PT",
+    "periodo_inicio": "2023"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2025"
+   },
+   "para": {
+    "periodo_fim": "2026"
+   },
+   "motivo": "Acompanha o mandato.",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "filiacao:geraldo-alckmin:psb:2023",
+   "alvo": {
+    "de": "Geraldo Alckmin",
+    "rotulo": "Filiado ao PSB",
+    "periodo_inicio": "2023"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2025",
+    "descricao": "Partido registrado em 1 mandato(s) da linha do tempo (vice_presidente); PSB. O período é inferido dos mandatos, não da data de filiação."
+   },
+   "para": {
+    "periodo_fim": "2026",
+    "descricao": "Partido registrado no mandato de vice-presidente (2023-2026); filiado ao PSB desde março de 2022, vindo do PSDB."
+   },
+   "motivo": "Agência Senado.",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "mandato:9",
+   "alvo": {
+    "de": "Michel Temer",
+    "rotulo": "Vice-presidente da República",
+    "periodo_inicio": "2011"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2015",
+    "descricao": "Vice-presidente da República (PMDB), 2011 a 2015."
+   },
+   "para": {
+    "periodo_fim": "2016",
+    "descricao": "Vice-presidente da República (PMDB), 2011 a 2016 (interino na Presidência a partir de 12/5/2016)."
+   },
+   "motivo": "Agência Senado: vice até 2016.",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "filiacao:jair-bolsonaro:psl:2019",
+   "alvo": {
+    "de": "Jair Bolsonaro",
+    "rotulo": "Filiado ao PSL",
+    "periodo_inicio": "2019"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2022",
+    "descricao": "Partido registrado em 1 mandato(s) da linha do tempo (presidente); PSL. O período é inferido dos mandatos, não da data de filiação."
+   },
+   "para": {
+    "periodo_fim": "2019",
+    "descricao": "Eleito e empossado pelo PSL; deixou o partido em novembro de 2019."
+   },
+   "motivo": "A fonte só sustenta o PSL na eleição e na posse; 2019-2022 é inexato.",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "mandato:27",
+   "alvo": {
+    "de": "Hugo Motta",
+    "rotulo": "Presidente da Câmara dos Deputados",
+    "periodo_inicio": "2025"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2025",
+    "descricao": "Presidente da Câmara dos Deputados (Republicanos), 2025."
+   },
+   "para": {
+    "periodo_fim": "2026",
+    "descricao": "Presidente da Câmara dos Deputados (Republicanos), biênio 2025-2026."
+   },
+   "motivo": "Agência Câmara: biênio 2025-2026.",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "mandato:40",
+   "alvo": {
+    "de": "Davi Alcolumbre",
+    "rotulo": "Presidente do Senado Federal",
+    "periodo_inicio": "2025"
+   },
+   "decisao": "manter",
+   "motivo": "Biênio 2025-2027 não confirmado nas páginas abertas; fica 2025 até nova fonte.",
+   "ressalvas": []
+  },
+  {
+   "origem": "linha_do_tempo",
+   "origem_ref": "filiacao:jose-alencar:pl:2003",
+   "alvo": {
+    "de": "José Alencar",
+    "rotulo": "Filiado ao PL",
+    "periodo_inicio": "2003"
+   },
+   "decisao": "manter",
+   "motivo": "Fonte só diz PL na eleição e PRB em 2011; a data da troca (2005) não foi verificada. Fica como está, com nota.",
+   "ressalvas": []
+  }
+ ],
+ "vinculos_teia": [
+  {
+   "origem": "teia",
+   "origem_ref": "N[128].fam_de",
+   "alvo": {
+    "de": "Mario Umberto Degani",
+    "para": "Dias Toffoli",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null
+   },
+   "para": {
+    "subtipo": "primo"
+   },
+   "motivo": "Fonte: primo.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[129].fam_de",
+   "alvo": {
+    "de": "Roberta Rangel",
+    "para": "Dias Toffoli",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null,
+    "rotulo": "Familiar ou próximo de"
+   },
+   "para": {
+    "subtipo": "ex-conjuge",
+    "rotulo": "Ex-cônjuge de"
+   },
+   "motivo": "Fonte: ex-esposa (divórcio em 2025).",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[131].fam_de",
+   "alvo": {
+    "de": "Bianca Medeiros",
+    "para": "Hugo Motta",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null
+   },
+   "para": {
+    "subtipo": "cunhada"
+   },
+   "motivo": "Fonte: cunhada (irmã da esposa).",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[132].fam_de",
+   "alvo": {
+    "de": "ETC Participações",
+    "para": "Hugo Motta",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null,
+    "rotulo": "Familiar ou próximo de"
+   },
+   "para": {
+    "subtipo": "empresa_de_familiar",
+    "rotulo": "Empresa de familiar de"
+   },
+   "motivo": "Empresa controlada pela cunhada; vínculo indireto.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[133].fam_de",
+   "alvo": {
+    "de": "Bonnie de Bonilha",
+    "para": "Jaques Wagner",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null
+   },
+   "para": {
+    "subtipo": "nora"
+   },
+   "motivo": "Fonte: nora (casada com o enteado).",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[134].fam_de",
+   "alvo": {
+    "de": "BN Financeira (BK Financeira)",
+    "para": "Jaques Wagner",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null,
+    "rotulo": "Familiar ou próximo de"
+   },
+   "para": {
+    "subtipo": "empresa_de_familiar",
+    "rotulo": "Empresa de familiar de"
+   },
+   "motivo": "Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[135].fam_de",
+   "alvo": {
+    "de": "Eduardo Sodré Martins",
+    "para": "Jaques Wagner",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null
+   },
+   "para": {
+    "subtipo": "enteado"
+   },
+   "motivo": "Fonte: enteado.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[137].fam_de",
+   "alvo": {
+    "de": "CNLF Empreendimentos Imobiliários",
+    "para": "Ciro Nogueira",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null,
+    "rotulo": "Familiar ou próximo de",
+    "tipo": "familiar"
+   },
+   "para": {
+    "subtipo": "empresa_atribuida",
+    "rotulo": "Empresa atribuída pela PF a",
+    "tipo": "societaria"
+   },
+   "motivo": "Não é vínculo familiar: a PF atribui a empresa ao senador; o irmão a administra formalmente.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[142].fam_de",
+   "alvo": {
+    "de": "Camilla Ramos",
+    "para": "Newton Ramos",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null
+   },
+   "para": {
+    "subtipo": "conjuge"
+   },
+   "motivo": "Fonte: esposa.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[160].lig_de",
+   "alvo": {
+    "de": "Queiroga, Vieira, Queiroz e Ramos Advocacia (QVQR)",
+    "para": "Newton Ramos",
+    "rotulo": "Escritório ligado a"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": "escritorio_ligado"
+   },
+   "para": {
+    "subtipo": "escritorio_do_conjuge"
+   },
+   "motivo": "Escritório é da esposa; rótulo 'Escritório ligado a' mantido, com subtipo que explicita o caminho.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[161].lig_de",
+   "alvo": {
+    "de": "Ibaneis Advocacia",
+    "para": "Ibaneis Rocha",
+    "rotulo": "Escritório ligado a"
+   },
+   "decisao": "manter",
+   "motivo": "Nome do escritório na fonte ('escritório Ibaneis Rocha') é compatível; a defesa alega afastamento desde 2018 — já na descrição.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[163].lig_de",
+   "alvo": {
+    "de": "Lewandowski Advocacia",
+    "para": "Ricardo Lewandowski",
+    "rotulo": "Escritório ligado a"
+   },
+   "decisao": "manter",
+   "motivo": "Nome não conferido literalmente, mas o vínculo (contrato de R$ 5 mi) está na fonte.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[197].fam_de",
+   "alvo": {
+    "de": "Chiquinho Feitosa",
+    "para": "Gilmar Mendes",
+    "rotulo": "Familiar ou próximo de"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "subtipo": null
+   },
+   "para": {
+    "subtipo": "ex-cunhado"
+   },
+   "motivo": "Fonte: ex-cunhado.",
+   "ressalvas": []
+  }
+ ]
+}

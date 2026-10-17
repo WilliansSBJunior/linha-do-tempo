@@ -46,7 +46,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | evidencia | 1321 |
 | relacao_evidencia | 1236 |
 | evento_evidencia | 2989 |
-| evento_entidade | 937 |
+| evento_entidade | 934 |
 | nota | 254 |
 | indicador | 83 |
 | serie | 6837 |
@@ -451,15 +451,15 @@ Candidatos: eventos sem nenhuma linha em `evento_entidade` (origens, PREC, brb, 
 - siglas (alias em maiúsculas ou `tipo_alias='sigla'`) só em maiúsculas e não seguidas de número (evita 'PL 2338' e 'pl').
 - entidades excluídas: brasil (aparece em tudo). Exigem inicial maiúscula: vale, rede, caixa, senado, camara. Contextos barrados: 'camara' seguido de do/legislativa/municipal/distrital; 'vale' seguido de do/da/de; 'caixa' seguido de de; 'senado' precedido de radio; 'camara' precedido de radio.
 
-- Resultado: 207 eventos receberam ligação, 428 linhas novas em `evento_entidade`.
-- Eventos ainda sem entidade por canal: banco 2, brasil 123, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
+- Resultado: 206 eventos receberam ligação, 425 linhas novas em `evento_entidade`.
+- Eventos ainda sem entidade por canal: banco 2, brasil 124, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
 
 Aliases com mais de 15 ligações (suspeitos por volume; são nomes de órgãos e partidos que aparecem muito nos textos da timeline; a amostra abaixo não achou falso positivo entre eles, mas vale conferir os eventos):
 
 | ligações | entidade | alias casado |
 |---|---|---|
-| 38 | `senado-federal` (Senado Federal) | Senado |
-| 36 | `camara-dos-deputados` (Câmara dos Deputados) | Câmara |
+| 37 | `senado-federal` (Senado Federal) | Senado |
+| 35 | `camara-dos-deputados` (Câmara dos Deputados) | Câmara |
 | 32 | `stf` (Supremo Tribunal Federal) | STF |
 | 18 | `pt` (PT) | PT |
 
@@ -471,32 +471,32 @@ Amostra de 30 ligações para conferência (a cada k-ésima, em ordem de evento)
 | `ev-1997-novas-mesas-da-camara-e-do-senado` | Novas Mesas da Câmara e do Senado | Senado -> `senado-federal` |
 | `ev-1998-privatizacao-do-sistema-telebras` | Privatização do Sistema Telebrás | Telebrás -> `telebras` |
 | `ev-2000-eleicoes-municipais` | Eleições municipais | PT -> `pt` |
-| `ev-2001-jader-barbalho-deixa-a-presidencia-do` | Jader Barbalho deixa a presidência do Senado | Senado -> `senado-federal` |
-| `ev-2002-lula-e-eleito-presidente` | Lula é eleito presidente | PT -> `pt` |
-| `ev-2003-sarney-volta-a-presidencia-do-senado` | Sarney volta à presidência do Senado | José Sarney -> `jose-sarney` |
-| `ev-2005-denuncia-do-mensalao` | Denúncia do mensalão | José Dirceu -> `jose-dirceu` |
-| `ev-2006-reeleicao-de-lula` | Reeleição de Lula | PSDB -> `psdb` |
-| `ev-2008-marina-silva-deixa-o-ministerio-do-meio` | Marina Silva deixa o Ministério do Meio Ambiente | Senado -> `senado-federal` |
-| `ev-2009-sarney-e-temer-assumem-as-presidencias` | Sarney e Temer assumem as presidências do Congresso | Câmara -> `camara-dos-deputados` |
-| `ev-2012-argentina-reestatiza-a-petroleira-ypf` | Argentina reestatiza a petroleira YPF | Senado -> `senado-federal` |
-| `ev-2013-alves-e-renan-sao-eleitos-presidentes` | Alves e Renan são eleitos presidentes das Casas | Senado -> `senado-federal` |
-| `ev-2014-reeleicao-de-dilma-rousseff` | Reeleição de Dilma Rousseff | Dilma Rousseff -> `dilma-rousseff` |
-| `ev-2015-eduardo-cunha-assume-a-camara` | Eduardo Cunha assume a Câmara | PT -> `pt` |
-| `ev-2016-opep-faz-seu-primeiro-corte-de-producao` | Opep faz seu primeiro corte de produção desde 2008 | Rússia -> `russia` |
-| `ev-2017-moro-condena-lula-no-caso-do-triplex` | Moro condena Lula no caso do tríplex | Lula -> `luiz-inacio-lula-da-silva` |
-| `ev-2018-tse-barra-lula-e-pt-lanca-haddad` | TSE barra Lula e PT lança Haddad | PT -> `pt` |
-| `ev-2020-saida-de-sergio-moro-do-governo` | Saída de Sergio Moro do governo | Polícia Federal -> `pf` |
-| `ev-2021-lira-e-pacheco-sao-eleitos-presidentes` | Lira e Pacheco são eleitos presidentes das Casas | Arthur Lira -> `arthur-lira` |
-| `ev-2022-ec-123-cria-estado-de-emergencia-e` | EC 123 cria estado de emergência e amplia benefícios | Câmara -> `camara-dos-deputados` |
-| `ev-2023-ataques-de-8-de-janeiro-em-brasilia` | Ataques de 8 de janeiro em Brasília | Jair Bolsonaro -> `jair-bolsonaro` |
-| `ev-2023-stf-e-congresso-divergem-sobre-o-marco` | STF e Congresso divergem sobre o marco temporal | Senado -> `senado-federal` |
-| `ev-2024-presos-por-suposto-plano-de-golpe-pf` | Presos por suposto plano de golpe; PF indicia Bolsonaro | PF -> `pf` |
-| `ev-2025-stf-torna-bolsonaro-reu-e-o-condena` | STF torna Bolsonaro réu e o condena | Jair Bolsonaro -> `jair-bolsonaro` |
-| `ev-2025-08-19-camara-do-df-aprova-a-compra-em-urgencia` | Câmara do DF aprova a compra em urgência, 14 a 7 | Ibaneis Rocha -> `ibaneis-rocha` |
-| `fam28` | Pai e irmã constam como responsáveis por cerca de R$ 8 mi em dívida ativa da Uni | Henrique Moura Vorcaro -> `henrique-vorcaro` |
-| `ev-2023-03-21-master-ingressa-na-acao-da-usina` | Master ingressa na ação da usina Cansanção de Sinimbu | Newton Ramos -> `newton-ramos` |
-| `ev-2024-10-01-data-disputada-do-julgamento-da-alcidia` | Data disputada do julgamento da Alcídia (ARE 1.327.995) | Alessandro Vieira -> `alessandro-vieira` |
-| `ev-2026-09-24-gilmar-leva-o-caso-raizen-ao-plenario` | Gilmar leva o caso Raízen ao plenário; CNJ faz correição em Newton Ramos; Vieira | PF -> `pf` |
+| `ev-2001-violacao-do-painel-do-senado-e-renuncia` | Violação do painel do Senado e renúncia de ACM | Senado -> `senado-federal` |
+| `ev-2002-tse-impoe-a-verticalizacao-das` | TSE impõe a verticalização das coligações | Miro Teixeira -> `miro-teixeira` |
+| `ev-2004-eleicoes-municipais-de-2004` | Eleições municipais de 2004 | PMDB -> `mdb` |
+| `ev-2005-eleicao-e-renuncia-de-severino` | Eleição e renúncia de Severino Cavalcanti | PP -> `pp` |
+| `ev-2006-stf-derruba-a-clausula-de-barreira` | STF derruba a cláusula de barreira | STF -> `stf` |
+| `ev-2008-operacao-satiagraha-prende-daniel-dantas` | Operação Satiagraha prende Daniel Dantas | STF -> `stf` |
+| `ev-2010-china-a-frente-do-japao-e-principal` | China à frente do Japão e principal destino das exportações brasileiras | China -> `china` |
+| `ev-2012-instalada-a-comissao-nacional-da-verdade` | Instalada a Comissão Nacional da Verdade | Dilma Rousseff -> `dilma-rousseff` |
+| `ev-2013-camara-mantem-o-mandato-de-natan-donadon` | Câmara mantém o mandato de Natan Donadon | STF -> `stf` |
+| `ev-2014-reeleicao-de-dilma-rousseff` | Reeleição de Dilma Rousseff | Aécio Neves -> `aecio-neves` |
+| `ev-2015-manifestacoes-contra-o-governo` | Manifestações contra o governo | Dilma Rousseff -> `dilma-rousseff` |
+| `ev-2016-pec-do-teto-de-gastos-vira-a-emenda` | PEC do teto de gastos vira a Emenda Constitucional 95 | Senado -> `senado-federal` |
+| `ev-2017-reforma-trabalhista-e-aprovada-e` | Reforma trabalhista é aprovada e sancionada | Câmara -> `camara-dos-deputados` |
+| `ev-2019-bolsonaro-anuncia-novo-partido-o-alianca` | Bolsonaro anuncia novo partido, o Aliança pelo Brasil | Jair Bolsonaro -> `jair-bolsonaro` |
+| `ev-2021-atos-de-7-de-setembro-e-carta-de` | Atos de 7 de Setembro e carta de Bolsonaro | STF -> `stf` |
+| `ev-2021-lira-e-pacheco-sao-eleitos-presidentes` | Lira e Pacheco são eleitos presidentes das Casas | MDB -> `mdb` |
+| `ev-2022-lula-derrota-bolsonaro-na-eleicao` | Lula derrota Bolsonaro na eleição presidencial | Jair Bolsonaro -> `jair-bolsonaro` |
+| `ev-2023-ataques-de-8-de-janeiro-em-brasilia` | Ataques de 8 de janeiro em Brasília | Ibaneis Rocha -> `ibaneis-rocha` |
+| `ev-2023-tse-torna-bolsonaro-inelegivel-por-oito` | TSE torna Bolsonaro inelegível por oito anos | PDT -> `pdt` |
+| `ev-2024-presos-por-suposto-plano-de-golpe-pf` | Presos por suposto plano de golpe; PF indicia Bolsonaro | STF -> `stf` |
+| `ev-2024-06-comeca-segundo-a-pf-a-mesada-a-ciro` | Começa, segundo a PF, a mesada a Ciro Nogueira | PF -> `pf` |
+| `ev-2025-08-28-voo-no-jato-de-vorcaro-com-ciro-nogueira` | Voo no jato de Vorcaro com Ciro Nogueira, Isnaldo Bulhões, Rodrigo Gambale e Fáb | Fábio Faria -> `fabio-faria` |
+| `ida21` | PF prende Henrique Vorcaro na 6a fase da Compliance Zero | PF -> `pf` |
+| `ev-2023-12-valores-de-16-precatorios-depositados-em` | Valores de 16 precatórios depositados em contas judiciais | AGU -> `agu` |
+| `ev-2025-06-03-alcidia-2a-turma-decide-3x2-pelo` | Alcídia: 2ª Turma decide 3x2 pelo pagamento | Camilla Ramos -> `camilla-ramos` |
+| `ev-2026-09-29-fachin-responde-a-gilmar` | Fachin responde a Gilmar | TCU -> `tcu` |
 
 ## 13. Dossiê e fóruns relacionais (`scripts/dossie_rel.py`)
 
