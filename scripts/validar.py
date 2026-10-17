@@ -164,9 +164,20 @@ def comparar_teia(exp, raw, idx_slug, con):
     if len(N_raw) != len(N_exp):
         dif.append(f"N: {len(N_raw)} != {len(N_exp)}")
     for i, (a, b) in enumerate(zip(N_raw, N_exp)):
-        b2 = {k: v for k, v in b.items() if k not in ("id", "fam_de_id", "lig_de_id")}
+        # `sat` (aditivo): relação implícita do satélite com a descrição ATUAL do banco e as fontes; o raw não tem esse campo.
+        # Não entra no round-trip contra o raw; é conferido contra o banco logo abaixo (descrição e URLs).
+        b2 = {k: v for k, v in b.items() if k not in ("id", "fam_de_id", "lig_de_id", "sat")}
         if a != b2:
             dif.append(f"N[{i}] difere: {a} != {b2}")
+        sats = [k for k in ("fam_de", "lig_de") if k in a]
+        if ("sat" in b) != bool(sats):
+            dif.append(f"N[{i}].sat presente sem fam_de/lig_de (ou ausente com eles)")
+        for k in sats:
+            rel = con.execute("SELECT id, rotulo, descricao FROM relacao WHERE origem='teia' AND origem_ref=?", (f"N[{i}].{k}",)).fetchone()
+            s = b.get("sat") or {}
+            ub = {x[0] for x in con.execute("SELECT e.url FROM relacao_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.relacao_id=?", (rel["id"],))} if rel else set()
+            if not rel or (s.get("rot"), s.get("desc")) != (rel["rotulo"], rel["descricao"]) or {f["url"] for f in s.get("fontes", [])} != ub:
+                dif.append(f"N[{i}].sat difere da relação N[{i}].{k} no banco")
         if b["id"] != idx_slug[i]:
             dif.append(f"N[{i}].id {b['id']} != slug(nome) {idx_slug[i]}")
         for k in ("fam_de", "lig_de"):
@@ -198,6 +209,8 @@ def comparar_teia(exp, raw, idx_slug, con):
                 dif.append(f"{k}: campo {c}: {a[c]!r} != {b[c]!r}")
         if urls(a["f"]) != urls(b["f"]):
             dif.append(f"{k}: URLs diferem {urls(a['f']) ^ urls(b['f'])}")
+        if "fontes" in b and {f["url"] for f in b["fontes"]} != {f[1] for f in b["f"]}:
+            dif.append(f"{k}: `fontes` e `f` não trazem as mesmas URLs")
         if (idx_slug[b["a"]], idx_slug[b["b"]]) != (b["a_id"], b["b_id"]):
             dif.append(f"{k}: a_id/b_id inconsistentes")
     for ei, (a, b) in enumerate(zip(raw["E"], exp["E"])):
@@ -308,6 +321,8 @@ def comparar_eventos_teia(con, exp, raw, mapa, idx_slug):
             # st ausente no raw pode ter sido atribuído pela curadoria (eventos-natureza.json); presente tem de ser igual
             if ("st" in a and a["st"] != b.get("st")) or b["ids"] != [idx_slug[k] for k in a["n"]]:
                 dif.append(f"EV[{i}].st/ids")
+            if "fontes" in b and {f["url"] for f in b["fontes"]} != {f[1] for f in b["f"]}:
+                dif.append(f"EV[{i}]: `fontes` e `f` não trazem as mesmas URLs")
             if ua != urls(b["f"]) and not str(row["origem_ref"]).count("origens"):
                 dif.append(f"EV[{i}].f difere: {ua ^ urls(b['f'])}")
     # PREC fundidos: original intacto no alias
