@@ -4,6 +4,8 @@ Gerado por `scripts/migrar.py` (`curadoria.relatorio_revisao_evidencias`) a part
 
 As ressalvas de `data/relatorio-evidencias-adicionais.md` foram decididas pelo dono do projeto; as decisões estão nos dois arquivos acima (o relatório de evidências continua sendo gerado só de `evidencias-adicionais.json`). Princípio: a descrição no banco tem de corresponder à evidência anexada; onde a fonte oficial contradiz um número ou data o banco muda; onde a fonte só não confirma um detalhe, o detalhe sai ou fica mais vago; onde a fonte é fraca mas o fato é notório, mantém-se marcado para troca de fonte.
 
+Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta foram corrigidos na tabela `mandato` (`data/curadoria/mandato-correcoes.json`, campo `fim`); por isso as relações de mandato/filiação correspondentes já nascem com o período certo e não aparecem nas tabelas abaixo.
+
 ## Contagens
 
 | | |
@@ -11,7 +13,7 @@ As ressalvas de `data/relatorio-evidencias-adicionais.md` foram decididas pelo d
 | eventos corrigidos | 23 |
 | &nbsp;&nbsp;campo `descricao` | 21 |
 | &nbsp;&nbsp;campo `titulo` | 2 |
-| relações de linha do tempo corrigidas (período/descrição) | 7 |
+| relações de linha do tempo corrigidas (período/descrição) | 4 |
 | vínculos da teia ajustados (subtipo/rótulo/tipo) | 11 |
 | &nbsp;&nbsp;`subtipo` definido | 11 |
 | &nbsp;&nbsp;`rotulo` trocado | 4 |
@@ -53,19 +55,11 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 
 | relação | alvo | campo | de -> para | motivo |
 |---|---|---|---|---|
-| 373 `mandato:6` | Luiz Inácio Lula da Silva: Presidente da República (2023) | periodo_fim | 2025 -> 2026 | Mandato até 31/12/2026 (Agência Senado). |
-| 373 `mandato:6` | Luiz Inácio Lula da Silva: Presidente da República (2023) | descricao | Presidente da República (PT), 2023 a 2025. -> Presidente da República (PT), 2023 a 2026. | Mandato até 31/12/2026 (Agência Senado). |
-| 376 `mandato:9` | Michel Temer: Vice-presidente da República (2011) | periodo_fim | 2015 -> 2016 | Agência Senado: vice até 2016. |
-| 376 `mandato:9` | Michel Temer: Vice-presidente da República (2011) | descricao | Vice-presidente da República (PMDB), 2011 a 2015. -> Vice-presidente da República (PMDB), 2011 a 2016 (interino na Presidência a partir de 12/5/2016). | Agência Senado: vice até 2016. |
-| 378 `mandato:11` | Geraldo Alckmin: Vice-presidente da República (2023) | periodo_fim | 2025 -> 2026 | Idem. |
-| 378 `mandato:11` | Geraldo Alckmin: Vice-presidente da República (2023) | descricao | Vice-presidente da República (PSB), 2023 a 2025. -> Vice-presidente da República (PSB), 2023 a 2026. | Idem. |
-| 394 `mandato:27` | Hugo Motta: Presidente da Câmara dos Deputados (2025) | periodo_fim | 2025 -> 2026 | Agência Câmara: biênio 2025-2026. |
-| 394 `mandato:27` | Hugo Motta: Presidente da Câmara dos Deputados (2025) | descricao | Presidente da Câmara dos Deputados (Republicanos), 2025. -> Presidente da Câmara dos Deputados (Republicanos), biênio 2025-2026. | Agência Câmara: biênio 2025-2026. |
-| 730 `filiacao:geraldo-alckmin:psb:2023` | Geraldo Alckmin: Filiado ao PSB (2023) | periodo_fim | 2025 -> 2026 | Agência Senado. |
+| 376 `mandato:9` | Michel Temer: Vice-presidente da República (2011) | descricao | Vice-presidente da República (PMDB), 2011 a 2016. -> Vice-presidente da República (PMDB), 2011 a 2016 (interino na Presidência a partir de 12/5/2016). | Agência Senado: vice até 2016. |
+| 394 `mandato:27` | Hugo Motta: Presidente da Câmara dos Deputados (2025) | descricao | Presidente da Câmara dos Deputados (Republicanos), 2025 a 2026. -> Presidente da Câmara dos Deputados (Republicanos), biênio 2025-2026. | Agência Câmara: biênio 2025-2026. |
 | 730 `filiacao:geraldo-alckmin:psb:2023` | Geraldo Alckmin: Filiado ao PSB (2023) | descricao | Partido registrado em 1 mandato(s) da linha do tempo (vice_presidente); PSB. O período é inferido dos mandatos, não da data de filiação. -> Partido registrado no mandato de vice-presidente (2023-2026); filiado ao PSB desde março de 2022, vindo do PSDB. | Agência Senado. |
 | 743 `filiacao:jair-bolsonaro:psl:2019` | Jair Bolsonaro: Filiado ao PSL (2019) | periodo_fim | 2022 -> 2019 | A fonte só sustenta o PSL na eleição e na posse; 2019-2022 é inexato. |
 | 743 `filiacao:jair-bolsonaro:psl:2019` | Jair Bolsonaro: Filiado ao PSL (2019) | descricao | Partido registrado em 1 mandato(s) da linha do tempo (presidente); PSL. O período é inferido dos mandatos, não da data de filiação. -> Eleito e empossado pelo PSL; deixou o partido em novembro de 2019. | A fonte só sustenta o PSL na eleição e na posse; 2019-2022 é inexato. |
-| 769 `filiacao:luiz-inacio-lula-da-silva:pt:2023` | Luiz Inácio Lula da Silva: Filiado ao PT (2023) | periodo_fim | 2025 -> 2026 | Acompanha o mandato. |
 
 ## Vínculos da teia ajustados
 

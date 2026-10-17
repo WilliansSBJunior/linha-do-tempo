@@ -495,11 +495,11 @@ def aplicar_aliases(con):
 
 def aplicar_mandato_correcoes(con):
     """data/curadoria/mandato-correcoes.json (à mão): `[{"entidade_id","cargo","inicio","campo","de","para","motivo","fonte_url"}]`.
-    Troca `mandato.<campo>` de `de` para `para` na linha (entidade_id, cargo, inicio); falha se a linha não existe ou o valor atual não é `de`
+    Troca `mandato.<campo>` (partido, uf ou fim) de `de` para `para` na linha (entidade_id, cargo, inicio); falha se a linha não existe ou o valor atual não é `de`
     (a correção ficou obsoleta ou o dado mudou). Roda depois da carga e antes de aplicar_mandato_oficial / gerar_relacoes_mandato."""
     r = {"aplicadas": []}
     for c in ler_json("mandato-correcoes.json", []):
-        if c["campo"] not in ("partido", "uf"):
+        if c["campo"] not in ("partido", "uf", "fim"):
             raise SystemExit(f"mandato-correcoes.json: campo não permitido: {c['campo']}")
         cur = con.execute(f"UPDATE mandato SET {c['campo']}=? WHERE entidade_id=? AND cargo=? AND inicio=? AND {c['campo']}=?",
                           (c["para"], c["entidade_id"], c["cargo"], c["inicio"], c["de"]))
@@ -1321,6 +1321,7 @@ def relatorio_revisao_evidencias(con, E, Rl):
       "(o relatório de evidências continua sendo gerado só de `evidencias-adicionais.json`). Princípio: a descrição no banco tem de corresponder à evidência anexada; "
       "onde a fonte oficial contradiz um número ou data o banco muda; onde a fonte só não confirma um detalhe, o detalhe sai ou fica mais vago; "
       "onde a fonte é fraca mas o fato é notório, mantém-se marcado para troca de fonte.\n")
+    w("Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta foram corrigidos na tabela `mandato` (`data/curadoria/mandato-correcoes.json`, campo `fim`); por isso as relações de mandato/filiação correspondentes já nascem com o período certo e não aparecem nas tabelas abaixo.\n")
     w("## Contagens\n")
     w("| | |\n|---|---:|")
     w(f"| eventos corrigidos | {len(E['aplicadas'])} |")

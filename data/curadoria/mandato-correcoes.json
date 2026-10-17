@@ -1,5 +1,7 @@
 [
- {"entidade_id": "miro-teixeira", "cargo": "deputado", "inicio": "2004", "campo": "partido", "de": "PT", "para": "PPS",
-  "motivo": "histórico oficial da Câmara: PDT até 13/4/2004, PPS de 13/4/2004 a 14/2/2005; PT só a partir de 14/2/2005",
-  "fonte_url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74862/historico"}
+ {"entidade_id": "miro-teixeira", "cargo": "deputado", "inicio": "2004", "campo": "partido", "de": "PT", "para": "PPS", "motivo": "histórico oficial da Câmara: PDT até 13/4/2004, PPS de 13/4/2004 a 14/2/2005; PT só a partir de 14/2/2005", "fonte_url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74862/historico"},
+ {"entidade_id": "luiz-inacio-lula-da-silva", "cargo": "presidente", "inicio": "2023", "campo": "fim", "de": "2025", "para": "2026", "motivo": "Mandato até 31/12/2026 (Agência Senado).", "fonte_url": "https://www12.senado.leg.br/noticias/materias/2023/01/01/congresso-empossa-lula-e-alckmin-na-presidencia-da-republica"},
+ {"entidade_id": "geraldo-alckmin", "cargo": "vice_presidente", "inicio": "2023", "campo": "fim", "de": "2025", "para": "2026", "motivo": "Mandato até 31/12/2026 (Agência Senado).", "fonte_url": "https://www12.senado.leg.br/noticias/materias/2022/10/30/lula-e-eleito-presidente-da-republica-pela-terceira-vez"},
+ {"entidade_id": "michel-temer", "cargo": "vice_presidente", "inicio": "2011", "campo": "fim", "de": "2015", "para": "2016", "motivo": "Agência Senado: vice até 2016.", "fonte_url": "https://www12.senado.leg.br/noticias/materias/2016/08/31/a-trajetoria-politica-do-novo-presidente"},
+ {"entidade_id": "hugo-motta", "cargo": "presidente_camara", "inicio": "2025", "campo": "fim", "de": "2025", "para": "2026", "motivo": "Agência Câmara: biênio 2025-2026.", "fonte_url": "https://www.camara.leg.br/noticias/1128935-hugo-motta-e-o-novo-presidente-da-camara-dos-deputados"}
 ]

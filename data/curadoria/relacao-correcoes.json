@@ -1,64 +1,6 @@
 {
- "_doc": "Correções de relações, decididas sobre as ressalvas de data/relatorio-evidencias-adicionais.md. Chave estável: (origem, origem_ref). `alvo` confere a identidade da relação (nome da entidade `de`, rótulo, período/`para`): se não bater com o banco a migração aborta. `de` = valores atuais exigidos por campo, `para` = valores novos; um campo cujo valor atual difere de `de` aborta a migração (nada é aplicado parcialmente). decisao 'manter' não muda nada, só entra no relatório. Campos permitidos: periodo_fim, descricao, subtipo, rotulo, tipo (CHECKs do schema valem). Aplicado por curadoria.aplicar_relacao_correcoes (depois das evidências adicionais, antes dos temas).",
+ "_doc": "Correções de relações, decididas sobre as ressalvas de data/relatorio-evidencias-adicionais.md. Chave estável: (origem, origem_ref). `alvo` confere a identidade da relação (nome da entidade `de`, rótulo, período/`para`): se não bater com o banco a migração aborta. `de` = valores atuais exigidos por campo, `para` = valores novos; um campo cujo valor atual difere de `de` aborta a migração (nada é aplicado parcialmente). decisao 'manter' não muda nada, só entra no relatório. Campos permitidos: periodo_fim, descricao, subtipo, rotulo, tipo (CHECKs do schema valem). Aplicado por curadoria.aplicar_relacao_correcoes (depois das evidências adicionais, antes dos temas). Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta são corrigidos na tabela `mandato` (mandato-correcoes.json, campo `fim`) e as relações de mandato/filiação já nascem com o período certo; aqui ficam só as descrições e o período da filiação de Bolsonaro no PSL.",
  "periodos": [
-  {
-   "origem": "linha_do_tempo",
-   "origem_ref": "mandato:6",
-   "alvo": {
-    "de": "Luiz Inácio Lula da Silva",
-    "rotulo": "Presidente da República",
-    "periodo_inicio": "2023"
-   },
-   "decisao": "aceitar",
-   "de": {
-    "periodo_fim": "2025",
-    "descricao": "Presidente da República (PT), 2023 a 2025."
-   },
-   "para": {
-    "periodo_fim": "2026",
-    "descricao": "Presidente da República (PT), 2023 a 2026."
-   },
-   "motivo": "Mandato até 31/12/2026 (Agência Senado).",
-   "ressalvas": []
-  },
-  {
-   "origem": "linha_do_tempo",
-   "origem_ref": "mandato:11",
-   "alvo": {
-    "de": "Geraldo Alckmin",
-    "rotulo": "Vice-presidente da República",
-    "periodo_inicio": "2023"
-   },
-   "decisao": "aceitar",
-   "de": {
-    "periodo_fim": "2025",
-    "descricao": "Vice-presidente da República (PSB), 2023 a 2025."
-   },
-   "para": {
-    "periodo_fim": "2026",
-    "descricao": "Vice-presidente da República (PSB), 2023 a 2026."
-   },
-   "motivo": "Idem.",
-   "ressalvas": []
-  },
-  {
-   "origem": "linha_do_tempo",
-   "origem_ref": "filiacao:luiz-inacio-lula-da-silva:pt:2023",
-   "alvo": {
-    "de": "Luiz Inácio Lula da Silva",
-    "rotulo": "Filiado ao PT",
-    "periodo_inicio": "2023"
-   },
-   "decisao": "aceitar",
-   "de": {
-    "periodo_fim": "2025"
-   },
-   "para": {
-    "periodo_fim": "2026"
-   },
-   "motivo": "Acompanha o mandato.",
-   "ressalvas": []
-  },
   {
    "origem": "linha_do_tempo",
    "origem_ref": "filiacao:geraldo-alckmin:psb:2023",
@@ -69,11 +11,9 @@
    },
    "decisao": "aceitar",
    "de": {
-    "periodo_fim": "2025",
     "descricao": "Partido registrado em 1 mandato(s) da linha do tempo (vice_presidente); PSB. O período é inferido dos mandatos, não da data de filiação."
    },
    "para": {
-    "periodo_fim": "2026",
     "descricao": "Partido registrado no mandato de vice-presidente (2023-2026); filiado ao PSB desde março de 2022, vindo do PSDB."
    },
    "motivo": "Agência Senado.",
@@ -89,11 +29,9 @@
    },
    "decisao": "aceitar",
    "de": {
-    "periodo_fim": "2015",
-    "descricao": "Vice-presidente da República (PMDB), 2011 a 2015."
+    "descricao": "Vice-presidente da República (PMDB), 2011 a 2016."
    },
    "para": {
-    "periodo_fim": "2016",
     "descricao": "Vice-presidente da República (PMDB), 2011 a 2016 (interino na Presidência a partir de 12/5/2016)."
    },
    "motivo": "Agência Senado: vice até 2016.",
@@ -129,11 +67,9 @@
    },
    "decisao": "aceitar",
    "de": {
-    "periodo_fim": "2025",
-    "descricao": "Presidente da Câmara dos Deputados (Republicanos), 2025."
+    "descricao": "Presidente da Câmara dos Deputados (Republicanos), 2025 a 2026."
    },
    "para": {
-    "periodo_fim": "2026",
     "descricao": "Presidente da Câmara dos Deputados (Republicanos), biênio 2025-2026."
    },
    "motivo": "Agência Câmara: biênio 2025-2026.",

@@ -608,14 +608,8 @@ def modelo_v2(con, exp):
     secao("Teia <-> timeline (mandato/bancada -> relações institucionais)")
     n_m = q(con, "SELECT count(*) FROM mandato")[0][0]
     esperar("relações subtipo mandato:* == linhas de mandato", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND subtipo LIKE 'mandato:%'")[0][0], n_m)
-    corr = _correcoes_relacao()   # só periodo_fim corrigido à mão (relacao-correcoes.json) pode divergir do mandato; o resto vale como antes
-    ruins = []
-    for m in q(con, "SELECT m.id, m.entidade_id, m.inicio, COALESCE(m.fim,m.inicio) fim FROM mandato m"):
-        ref = f"mandato:{m['id']}"
-        fim_ok = corr[ref]["para"].get("periodo_fim", m["fim"]) if ref in corr else m["fim"]
-        if not q(con, "SELECT 1 FROM relacao r WHERE r.origem_ref=? AND r.de=? AND r.periodo_inicio=? AND r.periodo_fim=?", ref, m["entidade_id"], m["inicio"], fim_ok):
-            ruins.append(ref)
-    esperar("cada mandato tem a sua relação (origem_ref mandato:<id>; periodo_fim = o do mandato, ou o corrigido em relacao-correcoes.json)", len(ruins), 0)
+    corr = _correcoes_relacao()   # filiação com período corrigido à mão (Bolsonaro/PSL) é a única exceção abaixo
+    esperar("cada mandato tem a sua relação (origem_ref mandato:<id>)", q(con, "SELECT count(*) FROM mandato m WHERE NOT EXISTS (SELECT 1 FROM relacao r WHERE r.origem_ref='mandato:'||m.id AND r.de=m.entidade_id AND r.periodo_inicio=m.inicio AND r.periodo_fim=COALESCE(m.fim,m.inicio))")[0][0], 0)
     esperar("relações linha_do_tempo: natureza/tipo/status", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND (natureza_id<>'documentada' OR tipo<>'institucional' OR status<>'publicada')")[0][0], 0)
     esperar("relações linha_do_tempo sem o tema brasil-ano-a-ano", q(con, "SELECT count(*) FROM relacao r WHERE origem='linha_do_tempo' AND NOT EXISTS (SELECT 1 FROM relacao_tema x WHERE x.relacao_id=r.id AND x.tema_id='brasil-ano-a-ano')")[0][0], 0)
     esperar("mandato: de=pessoa, para=orgao_publico", q(con, "SELECT count(*) FROM relacao r JOIN entidade d ON d.id=r.de JOIN entidade p ON p.id=r.para WHERE r.subtipo LIKE 'mandato:%' AND (d.tipo<>'pessoa' OR p.tipo<>'orgao_publico')")[0][0], 0)
@@ -627,8 +621,8 @@ def modelo_v2(con, exp):
         mand.setdefault(m["entidade_id"], []).append((m["partido"], int(m["inicio"][:4]), int(m["fim"][:4])))
     sem = 0
     for r in q(con, "SELECT de, para, ano_inicio, ano_fim, origem_ref FROM relacao WHERE subtipo='filiacao'"):
-        # filiação com período corrigido à mão (relacao-correcoes.json) só precisa sobrepor um mandato do partido; as demais continuam exigindo o mandato dentro do período
-        cobre = (lambda a, b: r["ano_inicio"] <= b and a <= r["ano_fim"]) if r["origem_ref"] in corr else (lambda a, b: r["ano_inicio"] <= a <= b <= r["ano_fim"])
+        # filiação com `periodo_fim` corrigido à mão (relacao-correcoes.json; hoje só Bolsonaro/PSL 2019) só precisa sobrepor um mandato do partido; as demais continuam exigindo o mandato dentro do período
+        cobre = (lambda a, b: r["ano_inicio"] <= b and a <= r["ano_fim"]) if "periodo_fim" in corr.get(r["origem_ref"], {}).get("para", {}) else (lambda a, b: r["ano_inicio"] <= a <= b <= r["ano_fim"])
         if not any((manual.get(p) == r["para"] or (p, r["para"]) in por_alias) and cobre(a, b)
                    for p, a, b in mand.get(r["de"], [])):
             sem += 1
