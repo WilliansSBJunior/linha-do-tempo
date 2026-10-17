@@ -744,7 +744,8 @@ def main(destino=SQLITE, pular=(), escrever=True):
         R["fontes_brasil"] = curadoria.aplicar_fontes_brasil(con, evid)
     if "complementos" not in pular:
         R["complementos"] = curadoria.aplicar_complementos_brasil(con)
-    R["mandato_rel"] = curadoria.gerar_relacoes_mandato(con)   # teia <-> timeline
+    R["mandato_oficial"] = curadoria.aplicar_mandato_oficial(con) if "mandato_oficial" not in pular else {"evidencias": 0, "preenchidos": 0, "extras": {}, "complementados": 0, "obsoletas": [], "resumo": {}}
+    R["mandato_rel"] = curadoria.gerar_relacoes_mandato(con, R["mandato_oficial"]["extras"])   # teia <-> timeline (herda a evidência oficial dos mandatos)
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
 
     # ================================================================ META, FTS, DUMP
@@ -956,7 +957,11 @@ def secoes_modelo(con, R, w):
     w(f"- **{mr['filiacao']} de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); "
       "o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.")
     w("- Órgãos: `camara-dos-deputados`, `senado-federal` (já existiam, origem timeline) e **`presidencia-da-republica`** (nova, `orgao_publico`; presidente e vice-presidente, em que `mandato.orgao_id` é NULL).")
-    w(f"- `mandato.evidencia_id` está NULL em todas as linhas: nenhuma relação ganhou evidência (o código liga se existir).")
+    mo = R["mandato_oficial"]
+    n_ev = q("SELECT count(*) FROM mandato WHERE evidencia_id IS NOT NULL")[0][0]
+    w(f"- `mandato.evidencia_id`: {n_ev} de {mr['mandato']} linhas têm evidência (`tipo='dado_oficial'`, Dados Abertos da Câmara/Senado, `data/curadoria/mandato-oficial.json`, gerado de `data/raw/oficial/`); "
+      f"as relações de mandato e de filiação herdam essa evidência via `relacao_evidencia`. Complementos de partido/UF: {mo['complementados']}. "
+      "Divergências e linhas sem fonte oficial (presidência: páginas fora do ar) estão em `data/relatorio-mandatos-oficial.md`; o banco não foi alterado por elas.")
     w("- **Parlamentares em destaque** (`deputado`/`senador`, `mandato` de um ano = ano do destaque na timeline): a relação tem `periodo_aprox=1` e a descrição avisa que o período é o ano do destaque, não o mandato inteiro.")
     sp = mr["sem_partido"]
     w("- Mandatos sem filiação (partido sem entidade): " + (", ".join(f"{e} ({p})" for _, e, p in sp) if sp else "nenhum") + ". Não criei entidade de partido (PRTB, PSOL); decisão pendente.")

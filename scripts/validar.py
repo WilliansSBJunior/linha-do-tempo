@@ -524,6 +524,22 @@ def modelo_v2(con, exp):
     n_ent_tl = q(con, "SELECT count(*) FROM entidade WHERE origem='teia' AND id IN (SELECT entidade_id FROM v_entidade_tema WHERE tema_id='brasil-ano-a-ano')")[0][0]
     print(f"  info: nós da teia no tema brasil-ano-a-ano: {n_ent_tl}")
 
+    mo_p = CURADORIA / "mandato-oficial.json"
+    if mo_p.exists():
+        secao("Mandatos x APIs oficiais (data/curadoria/mandato-oficial.json)")
+        mo = json.loads(mo_p.read_text(encoding="utf-8"))
+        rs = mo["resumo"]
+        esperar("resumo: confirmados + divergentes + sem fonte == linhas de mandato", rs["confirmados"] + rs["divergentes"] + rs["sem_fonte_oficial"], n_m)
+        esperar("linhas de mandato com evidência dado_oficial == confirmados", q(con, "SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id WHERE e.tipo='dado_oficial'")[0][0], rs["confirmados"])
+        esperar("evidência dos mandatos só em domínios oficiais (Câmara/Senado)", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id
+            WHERE e.veiculo NOT IN ('dadosabertos.camara.leg.br','legis.senado.leg.br') OR e.url NOT LIKE 'https://'||e.veiculo||'/%'""")[0][0], 0)
+        esperar("relações de mandato confirmado sem a evidência oficial", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id AND e.tipo='dado_oficial'
+            JOIN relacao r ON r.origem_ref='mandato:'||m.id WHERE NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id AND x.evidencia_id=e.id)""")[0][0], 0)
+        esperar("divergente/sem fonte com evidência oficial no mandato", q(con, """SELECT count(*) FROM mandato m JOIN evidencia e ON e.id=m.evidencia_id
+            WHERE e.tipo='dado_oficial' AND m.cargo NOT IN ('deputado','senador')""")[0][0], 0)
+        n_comp = q(con, "SELECT count(*) FROM mandato WHERE partido IS NULL AND cargo IN ('deputado','senador')")[0][0]
+        esperar("deputado/senador com partido NULL após complementos", n_comp, 0)
+
 
 def main():
     ap = argparse.ArgumentParser()

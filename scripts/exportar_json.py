@@ -203,7 +203,8 @@ def montar_series(con):
                   r.cobertura, r.obs, e.url AS evidencia FROM ranking_empresa r LEFT JOIN evidencia e ON e.id=r.evidencia_id
            ORDER BY r.ano, r.posicao""")]
     mand = [OrderedDict(_sem_nulos(dict(r))) for r in con.execute(
-        "SELECT entidade_id, cargo, orgao_id, partido, uf, inicio, fim, motivo, votos, periodo_texto FROM mandato ORDER BY id")]
+        """SELECT m.entidade_id, m.cargo, m.orgao_id, m.partido, m.uf, m.inicio, m.fim, m.motivo, m.votos, m.periodo_texto, e.url AS evidencia
+           FROM mandato m LEFT JOIN evidencia e ON e.id=m.evidencia_id ORDER BY m.id""")]
     banc = [OrderedDict(_sem_nulos(dict(r))) for r in con.execute(
         "SELECT legislatura, ano, casa, partido_id, nome_epoca, cadeiras, campo FROM bancada ORDER BY ano, casa, cadeiras DESC, partido_id")]
     return OrderedDict([("versao", VERSAO), ("gerado_em", TS_MIGRACAO), ("indicadores", inds), ("series", series),

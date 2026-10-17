@@ -1,0 +1,5718 @@
+{
+ "gerado_de": [
+  "data/raw/oficial/camara.json",
+  "data/raw/oficial/senado.json",
+  "data/raw/oficial/presidencia.json"
+ ],
+ "coletado_em": {
+  "camara": "2026-10-17T16:04:21Z",
+  "senado": "2026-10-17T16:04:40Z",
+  "presidencia": "2026-10-17T16:04:51Z"
+ },
+ "evidencias": [
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/132056",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 132056",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/132504",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 132504",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/133373",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 133373",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141385",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 141385",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141394",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 141394",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141396",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 141396",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 141470",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141488",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 141488",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141535",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 141535",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141558",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 141558",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160511",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160511",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160527",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160527",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160541",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160541",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160543",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160543",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160592",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160592",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160639",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160639",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160674",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160674",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160976",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 160976",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178937",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 178937",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178947",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 178947",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178990",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 178990",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178997",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 178997",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/179587",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 179587",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/204454",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 204454",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/209787",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 209787",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73420",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73420",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73428",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73428",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73433",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73441",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73441",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73482",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73482",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73534",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73534",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73552",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73666",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73666",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73788",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73788",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73993",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 73993",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74159",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74159",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74161",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74161",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74173",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74173",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74207",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74207",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74254",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74254",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74262",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74262",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74274",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74274",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74298",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74298",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74324",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74407",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74407",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74421",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74421",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74426",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74426",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74436",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74436",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74537",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74537",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74544",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74544",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74553",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74553",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74570",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74570",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74646",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74646",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74688",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74688",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74693",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74782",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74782",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74792",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74792",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74858",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74858",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74862",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74862",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74863",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 74863",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/92346",
+   "veiculo": "dadosabertos.camara.leg.br",
+   "titulo": "Dados Abertos da Câmara — deputado 92346",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:21Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/32",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 32",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3360",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 3360",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3396",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 3396",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3399",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 3399",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/345",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 345",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/35",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 35",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/36",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 36",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3830",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 3830",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 4",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/46",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 46",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4610",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 4610",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 47",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4994",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 4994",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5008",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5008",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5012",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5012",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5525",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5525",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5529",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5529",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5540",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5540",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5718",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5718",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5732",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5732",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/581",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 581",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5894",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5894",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/59",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 59",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5936",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 5936",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/612",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 612",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/635",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 635",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/69",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 69",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 70",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 73",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/8",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 8",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/845",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 845",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/846",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 846",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/87",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 87",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/923",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 923",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/924",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 924",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  },
+  {
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/982",
+   "veiculo": "legis.senado.leg.br",
+   "titulo": "Dados Abertos do Senado — senador 982",
+   "tipo": "dado_oficial",
+   "acessado_em": "2026-10-17T16:04:40Z"
+  }
+ ],
+ "confirmacoes": [
+  {
+   "entidade_id": "aecio-neves",
+   "cargo": "deputado",
+   "inicio": "1997",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74646",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aecio-neves",
+   "cargo": "deputado",
+   "inicio": "1998",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74646",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aecio-neves",
+   "cargo": "deputado",
+   "inicio": "1999",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74646",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aecio-neves",
+   "cargo": "deputado",
+   "inicio": "2001",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74646",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aecio-neves",
+   "cargo": "deputado",
+   "inicio": "2002",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74646",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aguinaldo-ribeiro",
+   "cargo": "deputado",
+   "inicio": "2017",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160527",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PB",
+    "oficial": "PB",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aguinaldo-ribeiro",
+   "cargo": "deputado",
+   "inicio": "2018",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160527",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PB",
+    "oficial": "PB",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aguinaldo-ribeiro",
+   "cargo": "deputado",
+   "inicio": "2023",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160527",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PB",
+    "oficial": "PB",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aldo-rebelo",
+   "cargo": "deputado",
+   "inicio": "2003",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73428",
+   "partido": {
+    "banco": "PCdoB",
+    "oficial": "PCdoB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aldo-rebelo",
+   "cargo": "deputado",
+   "inicio": "2004",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73428",
+   "partido": {
+    "banco": "PCdoB",
+    "oficial": "PCdoB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aldo-rebelo",
+   "cargo": "deputado",
+   "inicio": "2005",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73428",
+   "partido": {
+    "banco": "PCdoB",
+    "oficial": "PCdoB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aldo-rebelo",
+   "cargo": "deputado",
+   "inicio": "2006",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73428",
+   "partido": {
+    "banco": "PCdoB",
+    "oficial": "PCdoB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aldo-rebelo",
+   "cargo": "deputado",
+   "inicio": "2007",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73428",
+   "partido": {
+    "banco": "PCdoB",
+    "oficial": "PCdoB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "alessandro-molon",
+   "cargo": "deputado",
+   "inicio": "2013",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160511",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "alessandro-molon",
+   "cargo": "deputado",
+   "inicio": "2014",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160511",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "alexandre-silveira",
+   "cargo": "senador",
+   "inicio": "2022",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4610",
+   "partido": {
+    "banco": "PSD",
+    "oficial": "PSD",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aloizio-mercadante",
+   "cargo": "senador",
+   "inicio": "2003",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/845",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aloizio-mercadante",
+   "cargo": "senador",
+   "inicio": "2004",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/845",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aloizio-mercadante",
+   "cargo": "senador",
+   "inicio": "2005",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/845",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aloizio-mercadante",
+   "cargo": "senador",
+   "inicio": "2006",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/845",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aloizio-mercadante",
+   "cargo": "senador",
+   "inicio": "2010",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/845",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aloysio-nunes-ferreira",
+   "cargo": "senador",
+   "inicio": "2016",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/846",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "aloysio-nunes-ferreira",
+   "cargo": "senador",
+   "inicio": "2017",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/846",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "altineu-cortes",
+   "cargo": "deputado",
+   "inicio": "2022",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178937",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "altineu-cortes",
+   "cargo": "deputado",
+   "inicio": "2023",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178937",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "altineu-cortes",
+   "cargo": "deputado",
+   "inicio": "2024",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178937",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "andre-moura",
+   "cargo": "deputado",
+   "inicio": "2016",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160543",
+   "partido": {
+    "banco": "PSC",
+    "oficial": "PSC",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SE",
+    "oficial": "SE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "andre-moura",
+   "cargo": "deputado",
+   "inicio": "2017",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160543",
+   "partido": {
+    "banco": "PSC",
+    "oficial": "PSC",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SE",
+    "oficial": "SE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "andre-moura",
+   "cargo": "deputado",
+   "inicio": "2018",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160543",
+   "partido": {
+    "banco": "PSC",
+    "oficial": "PSC",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SE",
+    "oficial": "SE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "antonio-anastasia",
+   "cargo": "senador",
+   "inicio": "2016",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5529",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSD",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "antonio-carlos-magalhaes",
+   "cargo": "senador",
+   "inicio": "1997",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4",
+   "partido": {
+    "banco": "PFL",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "antonio-carlos-magalhaes",
+   "cargo": "senador",
+   "inicio": "1998",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4",
+   "partido": {
+    "banco": "PFL",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "antonio-carlos-magalhaes",
+   "cargo": "senador",
+   "inicio": "1999",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4",
+   "partido": {
+    "banco": "PFL",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "antonio-carlos-magalhaes",
+   "cargo": "senador",
+   "inicio": "2000",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4",
+   "partido": {
+    "banco": "PFL",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "antonio-carlos-magalhaes",
+   "cargo": "senador",
+   "inicio": "2001",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4",
+   "partido": {
+    "banco": "PFL",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2004",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2005",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2006",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2007",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2008",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2009",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2012",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "deputado",
+   "inicio": "2013",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73433",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arnaldo-madeira",
+   "cargo": "deputado",
+   "inicio": "1998",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73993",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arnaldo-madeira",
+   "cargo": "deputado",
+   "inicio": "1999",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73993",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arnaldo-madeira",
+   "cargo": "deputado",
+   "inicio": "2001",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73993",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arnaldo-madeira",
+   "cargo": "deputado",
+   "inicio": "2002",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73993",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arthur-lira",
+   "cargo": "deputado",
+   "inicio": "2021",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160541",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arthur-lira",
+   "cargo": "deputado",
+   "inicio": "2022",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160541",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arthur-lira",
+   "cargo": "deputado",
+   "inicio": "2023",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160541",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arthur-lira",
+   "cargo": "deputado",
+   "inicio": "2024",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160541",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "arthur-lira",
+   "cargo": "deputado",
+   "inicio": "2025",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160541",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "beni-veras",
+   "cargo": "senador",
+   "inicio": "1998",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/8",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "bruno-araujo",
+   "cargo": "deputado",
+   "inicio": "2012",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141394",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "candido-vaccarezza",
+   "cargo": "deputado",
+   "inicio": "2010",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141396",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "candido-vaccarezza",
+   "cargo": "deputado",
+   "inicio": "2011",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141396",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "candido-vaccarezza",
+   "cargo": "deputado",
+   "inicio": "2012",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141396",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "carlos-portinho",
+   "cargo": "senador",
+   "inicio": "2022",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5936",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "carlos-sampaio",
+   "cargo": "deputado",
+   "inicio": "2015",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74262",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "celso-russomanno",
+   "cargo": "deputado",
+   "inicio": "1995",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73441",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "celso-russomanno",
+   "cargo": "deputado",
+   "inicio": "1996",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73441",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "celso-russomanno",
+   "cargo": "deputado",
+   "inicio": "2015",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73441",
+   "partido": {
+    "banco": "PRB",
+    "oficial": "PRB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "celso-russomanno",
+   "cargo": "deputado",
+   "inicio": "2016",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73441",
+   "partido": {
+    "banco": "PRB",
+    "oficial": "PRB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "celso-russomanno",
+   "cargo": "deputado",
+   "inicio": "2017",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73441",
+   "partido": {
+    "banco": "PRB",
+    "oficial": "PRB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "claudio-cajado",
+   "cargo": "deputado",
+   "inicio": "2023",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74537",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "daniel-silveira",
+   "cargo": "deputado",
+   "inicio": "2022",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/204454",
+   "partido": {
+    "banco": "PTB",
+    "oficial": "PTB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "senador",
+   "inicio": "2019",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3830",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "UNIÃO",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "senador",
+   "inicio": "2020",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3830",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "UNIÃO",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "senador",
+   "inicio": "2021",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3830",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "UNIÃO",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "senador",
+   "inicio": "2025",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3830",
+   "partido": {
+    "banco": "União Brasil",
+    "oficial": "UNIÃO",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "delcidio-do-amaral",
+   "cargo": "senador",
+   "inicio": "2015",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3360",
+   "partido": {
+    "banco": "PT",
+    "oficial": "S/Partido",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MS",
+    "oficial": "MS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "demostenes-torres",
+   "cargo": "senador",
+   "inicio": "2012",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3399",
+   "partido": {
+    "banco": "sem partido (ex-DEM)",
+    "oficial": "S/Partido",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "GO",
+    "oficial": "GO",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "duarte-nogueira",
+   "cargo": "deputado",
+   "inicio": "2011",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141385",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-bolsonaro",
+   "cargo": "deputado",
+   "inicio": "2018",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/92346",
+   "partido": {
+    "banco": "PSL",
+    "oficial": "PSL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-bolsonaro",
+   "cargo": "deputado",
+   "inicio": "2019",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/92346",
+   "partido": {
+    "banco": "PSL",
+    "oficial": "PL",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-bolsonaro",
+   "cargo": "deputado",
+   "inicio": "2020",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/92346",
+   "partido": {
+    "banco": "PSL",
+    "oficial": "PL",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-bolsonaro",
+   "cargo": "deputado",
+   "inicio": "2021",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/92346",
+   "partido": {
+    "banco": "PSL",
+    "oficial": "PL",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-bolsonaro",
+   "cargo": "deputado",
+   "inicio": "2022",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/92346",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-braga",
+   "cargo": "senador",
+   "inicio": "2012",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4994",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AM",
+    "oficial": "AM",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-braga",
+   "cargo": "senador",
+   "inicio": "2013",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4994",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AM",
+    "oficial": "AM",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-braga",
+   "cargo": "senador",
+   "inicio": "2014",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4994",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AM",
+    "oficial": "AM",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-braga",
+   "cargo": "senador",
+   "inicio": "2024",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/4994",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AM",
+    "oficial": "AM",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-cunha",
+   "cargo": "deputado",
+   "inicio": "2013",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74173",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-cunha",
+   "cargo": "deputado",
+   "inicio": "2014",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74173",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-cunha",
+   "cargo": "deputado",
+   "inicio": "2015",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74173",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eduardo-cunha",
+   "cargo": "deputado",
+   "inicio": "2016",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74173",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "efraim-morais",
+   "cargo": "deputado",
+   "inicio": "2002",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74407",
+   "partido": {
+    "banco": "PFL",
+    "oficial": "PFL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PB",
+    "oficial": "PB",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eliziane-gama",
+   "cargo": "senador",
+   "inicio": "2023",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5718",
+   "partido": {
+    "banco": "PSD",
+    "oficial": "PSD",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MA",
+    "oficial": "MA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "enio-verri",
+   "cargo": "deputado",
+   "inicio": "2020",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/132504",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eunicio-oliveira",
+   "cargo": "senador",
+   "inicio": "2017",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/612",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "eunicio-oliveira",
+   "cargo": "senador",
+   "inicio": "2018",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/612",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "fernando-bezerra-coelho",
+   "cargo": "senador",
+   "inicio": "2019",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5540",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "fernando-bezerra-coelho",
+   "cargo": "senador",
+   "inicio": "2020",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5540",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "fernando-bezerra-coelho",
+   "cargo": "senador",
+   "inicio": "2021",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5540",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "fernando-bezerra-coelho",
+   "cargo": "senador",
+   "inicio": "2022",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5540",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "flavio-arns",
+   "cargo": "senador",
+   "inicio": "2020",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/345",
+   "partido": {
+    "banco": "Rede",
+    "oficial": "PSB",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "flavio-bolsonaro",
+   "cargo": "senador",
+   "inicio": "2019",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5894",
+   "partido": {
+    "banco": "PSL",
+    "oficial": "PL",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "garibaldi-alves-filho",
+   "cargo": "senador",
+   "inicio": "2007",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/87",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "garibaldi-alves-filho",
+   "cargo": "senador",
+   "inicio": "2008",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/87",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "garibaldi-alves-filho",
+   "cargo": "senador",
+   "inicio": "2009",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/87",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "geddel-vieira-lima",
+   "cargo": "deputado",
+   "inicio": "1999",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74544",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "geddel-vieira-lima",
+   "cargo": "deputado",
+   "inicio": "2002",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74544",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "heloisa-helena",
+   "cargo": "senador",
+   "inicio": "2000",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/923",
+   "partido": {
+    "banco": "PT",
+    "oficial": "REDE",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "heloisa-helena",
+   "cargo": "senador",
+   "inicio": "2003",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/923",
+   "partido": {
+    "banco": "PT",
+    "oficial": "REDE",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "heloisa-helena",
+   "cargo": "senador",
+   "inicio": "2004",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/923",
+   "partido": {
+    "banco": "PSOL",
+    "oficial": "REDE",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2007",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2008",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2009",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2010",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2011",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2012",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2013",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2014",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-fontana",
+   "cargo": "deputado",
+   "inicio": "2006",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73482",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RS",
+    "oficial": "RS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-fontana",
+   "cargo": "deputado",
+   "inicio": "2008",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73482",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RS",
+    "oficial": "RS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-fontana",
+   "cargo": "deputado",
+   "inicio": "2009",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73482",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RS",
+    "oficial": "RS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "henrique-fontana",
+   "cargo": "deputado",
+   "inicio": "2014",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73482",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RS",
+    "oficial": "RS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "hugo-motta",
+   "cargo": "deputado",
+   "inicio": "2025",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160674",
+   "partido": {
+    "banco": "Republicanos",
+    "oficial": "REPUBLICANOS",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PB",
+    "oficial": "PB",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "hugo-napoleao",
+   "cargo": "senador",
+   "inicio": "2000",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/32",
+   "partido": {
+    "banco": "PFL",
+    "oficial": "PSD",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "PI",
+    "oficial": "PI",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "humberto-costa",
+   "cargo": "senador",
+   "inicio": "2015",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5008",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "humberto-costa",
+   "cargo": "senador",
+   "inicio": "2016",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5008",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "inocencio-oliveira",
+   "cargo": "deputado",
+   "inicio": "1999",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74421",
+   "partido": {
+    "banco": "PFL",
+    "oficial": "PFL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "senador",
+   "inicio": "1995",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/35",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "PA",
+    "oficial": "PA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "senador",
+   "inicio": "1996",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/35",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "PA",
+    "oficial": "PA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "senador",
+   "inicio": "1999",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/35",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "PA",
+    "oficial": "PA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "senador",
+   "inicio": "2000",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/35",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "PA",
+    "oficial": "PA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "senador",
+   "inicio": "2001",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/35",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "PA",
+    "oficial": "PA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "senador",
+   "inicio": "2002",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/35",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "PA",
+    "oficial": "PA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jaques-wagner",
+   "cargo": "senador",
+   "inicio": "2023",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/581",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jaques-wagner",
+   "cargo": "senador",
+   "inicio": "2024",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/581",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jaques-wagner",
+   "cargo": "senador",
+   "inicio": "2025",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/581",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jefferson-peres",
+   "cargo": "senador",
+   "inicio": "2000",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/36",
+   "partido": {
+    "banco": "PDT",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AM",
+    "oficial": "AM",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "joao-paulo-cunha",
+   "cargo": "deputado",
+   "inicio": "2003",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73534",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "joao-paulo-cunha",
+   "cargo": "deputado",
+   "inicio": "2004",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73534",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "joao-paulo-cunha",
+   "cargo": "deputado",
+   "inicio": "2005",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73534",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-carlos-aleluia",
+   "cargo": "deputado",
+   "inicio": "2003",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74553",
+   "partido": {
+    "banco": "PFL",
+    "oficial": "PFL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-carlos-aleluia",
+   "cargo": "deputado",
+   "inicio": "2004",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74553",
+   "partido": {
+    "banco": "PFL",
+    "oficial": "PFL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-dirceu",
+   "cargo": "deputado",
+   "inicio": "2005",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74782",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-eduardo-cardozo",
+   "cargo": "deputado",
+   "inicio": "2010",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74274",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-guimaraes",
+   "cargo": "deputado",
+   "inicio": "2013",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-guimaraes",
+   "cargo": "deputado",
+   "inicio": "2015",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-guimaraes",
+   "cargo": "deputado",
+   "inicio": "2016",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-guimaraes",
+   "cargo": "deputado",
+   "inicio": "2023",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-guimaraes",
+   "cargo": "deputado",
+   "inicio": "2024",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-guimaraes",
+   "cargo": "deputado",
+   "inicio": "2025",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141470",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-mucio-monteiro",
+   "cargo": "deputado",
+   "inicio": "2007",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74426",
+   "partido": {
+    "banco": "PTB",
+    "oficial": "PTB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-pimentel",
+   "cargo": "deputado",
+   "inicio": "2003",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74298",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-roberto-arruda",
+   "cargo": "senador",
+   "inicio": "2000",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/46",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "DF",
+    "oficial": "DF",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-roberto-arruda",
+   "cargo": "senador",
+   "inicio": "2001",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/46",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "DF",
+    "oficial": "DF",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "1995",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "1996",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "1997",
+   "casa": "senado",
+   "legislatura": 50,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2003",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2004",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2005",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2009",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2010",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2011",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2012",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "senador",
+   "inicio": "2013",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/47",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jovair-arantes",
+   "cargo": "deputado",
+   "inicio": "2016",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73666",
+   "partido": {
+    "banco": "PTB",
+    "oficial": "PTB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "GO",
+    "oficial": "GO",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jutahy-junior",
+   "cargo": "deputado",
+   "inicio": "2006",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74570",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "leonardo-picciani",
+   "cargo": "deputado",
+   "inicio": "2015",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74254",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "lindbergh-farias",
+   "cargo": "deputado",
+   "inicio": "2025",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74858",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "luiz-sergio",
+   "cargo": "deputado",
+   "inicio": "2007",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74688",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "major-vitor-hugo",
+   "cargo": "deputado",
+   "inicio": "2019",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/179587",
+   "partido": {
+    "banco": "PSL",
+    "oficial": "PL",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "GO",
+    "oficial": "GO",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "major-vitor-hugo",
+   "cargo": "deputado",
+   "inicio": "2020",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/179587",
+   "partido": {
+    "banco": "PSL",
+    "oficial": "PL",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "GO",
+    "oficial": "GO",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "marco-maia",
+   "cargo": "deputado",
+   "inicio": "2011",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/133373",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RS",
+    "oficial": "RS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "marco-maia",
+   "cargo": "deputado",
+   "inicio": "2012",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/133373",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RS",
+    "oficial": "RS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "marco-maia",
+   "cargo": "deputado",
+   "inicio": "2013",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/133373",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RS",
+    "oficial": "RS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "marina-silva",
+   "cargo": "senador",
+   "inicio": "2008",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/59",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PV",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AC",
+    "oficial": "AC",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "1996",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "1997",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "1998",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "1999",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "2000",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "2001",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "2009",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "2010",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "miro-teixeira",
+   "cargo": "deputado",
+   "inicio": "2002",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74862",
+   "partido": {
+    "banco": "PDT",
+    "oficial": "PDT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "moreira-franco",
+   "cargo": "deputado",
+   "inicio": "1998",
+   "casa": "camara",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74863",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "moses-rodrigues",
+   "cargo": "deputado",
+   "inicio": "2024",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178997",
+   "partido": {
+    "banco": "União",
+    "oficial": "UNIÃO",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "nikolas-ferreira",
+   "cargo": "deputado",
+   "inicio": "2023",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/209787",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "nikolas-ferreira",
+   "cargo": "deputado",
+   "inicio": "2024",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/209787",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "nikolas-ferreira",
+   "cargo": "deputado",
+   "inicio": "2025",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/209787",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "odair-cunha",
+   "cargo": "deputado",
+   "inicio": "2024",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74159",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "omar-aziz",
+   "cargo": "senador",
+   "inicio": "2021",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5525",
+   "partido": {
+    "banco": "PSD",
+    "oficial": "PSD",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AM",
+    "oficial": "AM",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "paulo-maluf",
+   "cargo": "deputado",
+   "inicio": "2007",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/132056",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP**",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "paulo-maluf",
+   "cargo": "deputado",
+   "inicio": "2008",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/132056",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP**",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "paulo-maluf",
+   "cargo": "deputado",
+   "inicio": "2009",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/132056",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP**",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "paulo-maluf",
+   "cargo": "deputado",
+   "inicio": "2010",
+   "casa": "camara",
+   "legislatura": 53,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/132056",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP**",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "paulo-souto",
+   "cargo": "senador",
+   "inicio": "1999",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/924",
+   "partido": {
+    "banco": "PFL",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "BA",
+    "oficial": "BA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "paulo-teixeira",
+   "cargo": "deputado",
+   "inicio": "2011",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141488",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "pedro-novais",
+   "cargo": "deputado",
+   "inicio": "2000",
+   "casa": "camara",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74207",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "PMDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MA",
+    "oficial": "MA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "professor-luizinho",
+   "cargo": "deputado",
+   "inicio": "2004",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74792",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "professora-dorinha-seabra-rezende",
+   "cargo": "deputado",
+   "inicio": "2020",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160639",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "UNIÃO",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "TO",
+    "oficial": "TO",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ramez-tebet",
+   "cargo": "senador",
+   "inicio": "1999",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/69",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MS",
+    "oficial": "MS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ramez-tebet",
+   "cargo": "senador",
+   "inicio": "2001",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/69",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MS",
+    "oficial": "MS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ramez-tebet",
+   "cargo": "senador",
+   "inicio": "2002",
+   "casa": "senado",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/69",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MS",
+    "oficial": "MS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ramez-tebet",
+   "cargo": "senador",
+   "inicio": "2003",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/69",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MS",
+    "oficial": "MS",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "randolfe-rodrigues",
+   "cargo": "senador",
+   "inicio": "2021",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5012",
+   "partido": {
+    "banco": "Rede",
+    "oficial": "PT",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "AP",
+    "oficial": "AP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "reginaldo-lopes",
+   "cargo": "deputado",
+   "inicio": "2022",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74161",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "reginaldo-lopes",
+   "cargo": "deputado",
+   "inicio": "2024",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74161",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2005",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2006",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2007",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2013",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2014",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2015",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2016",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2017",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "senador",
+   "inicio": "2021",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/70",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AL",
+    "oficial": "AL",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ricardo-barros",
+   "cargo": "deputado",
+   "inicio": "2020",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73788",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ricardo-barros",
+   "cargo": "deputado",
+   "inicio": "2021",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73788",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ricardo-barros",
+   "cargo": "deputado",
+   "inicio": "2022",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73788",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "ricardo-ferraco",
+   "cargo": "senador",
+   "inicio": "2017",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/635",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "ES",
+    "oficial": "ES",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "roberto-jefferson",
+   "cargo": "deputado",
+   "inicio": "2005",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73420",
+   "partido": {
+    "banco": "PTB",
+    "oficial": "PTB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "deputado",
+   "inicio": "2006",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "partido": {
+    "banco": "PFL",
+    "oficial": "PFL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "deputado",
+   "inicio": "2016",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "DEM",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "deputado",
+   "inicio": "2017",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "DEM",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "deputado",
+   "inicio": "2018",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "DEM",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "deputado",
+   "inicio": "2019",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "PSDB",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "deputado",
+   "inicio": "2020",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "PSDB",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "deputado",
+   "inicio": "2021",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74693",
+   "partido": {
+    "banco": "DEM",
+    "oficial": "PSDB",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-pacheco",
+   "cargo": "senador",
+   "inicio": "2021",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5732",
+   "partido": {
+    "banco": "DEM",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-pacheco",
+   "cargo": "senador",
+   "inicio": "2022",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5732",
+   "partido": {
+    "banco": "PSD",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-pacheco",
+   "cargo": "senador",
+   "inicio": "2023",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5732",
+   "partido": {
+    "banco": "PSD",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-pacheco",
+   "cargo": "senador",
+   "inicio": "2024",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5732",
+   "partido": {
+    "banco": "PSD",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rodrigo-pacheco",
+   "cargo": "senador",
+   "inicio": "2025",
+   "casa": "senado",
+   "legislatura": 57,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5732",
+   "partido": {
+    "banco": "PSD",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MG",
+    "oficial": "MG",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "rogerio-marinho",
+   "cargo": "deputado",
+   "inicio": "2017",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141535",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RN",
+    "oficial": "RN",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2006",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2007",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2008",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2009",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2010",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2011",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2012",
+   "casa": "senado",
+   "legislatura": 54,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2016",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2017",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PMDB",
+    "oficial": "MDB",
+    "resultado": "sucessao"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2018",
+   "casa": "senado",
+   "legislatura": 55,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "MDB",
+    "oficial": "MDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "samuel-moreira",
+   "cargo": "deputado",
+   "inicio": "2019",
+   "casa": "camara",
+   "legislatura": 56,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178990",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "severino-cavalcanti",
+   "cargo": "deputado",
+   "inicio": "2005",
+   "casa": "camara",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74436",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PP**",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PE",
+    "oficial": "PE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "sostenes-cavalcante",
+   "cargo": "deputado",
+   "inicio": "2025",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/178947",
+   "partido": {
+    "banco": "PL",
+    "oficial": "PL",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "RJ",
+    "oficial": "RJ",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tasso-jereissati",
+   "cargo": "senador",
+   "inicio": "2019",
+   "casa": "senado",
+   "legislatura": 56,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/3396",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "CE",
+    "oficial": "CE",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tiao-viana",
+   "cargo": "senador",
+   "inicio": "2003",
+   "casa": "senado",
+   "legislatura": 52,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/982",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AC",
+    "oficial": "AC",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tiao-viana",
+   "cargo": "senador",
+   "inicio": "2007",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/982",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AC",
+    "oficial": "AC",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tiao-viana",
+   "cargo": "senador",
+   "inicio": "2009",
+   "casa": "senado",
+   "legislatura": 53,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/982",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "AC",
+    "oficial": "AC",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tiririca",
+   "cargo": "deputado",
+   "inicio": "2011",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160976",
+   "partido": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tiririca",
+   "cargo": "deputado",
+   "inicio": "2012",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160976",
+   "partido": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tiririca",
+   "cargo": "deputado",
+   "inicio": "2013",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160976",
+   "partido": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "tiririca",
+   "cargo": "deputado",
+   "inicio": "2014",
+   "casa": "camara",
+   "legislatura": 54,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160976",
+   "partido": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "SP",
+    "oficial": "SP",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "waldir-maranhao",
+   "cargo": "deputado",
+   "inicio": "2016",
+   "casa": "camara",
+   "legislatura": 55,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/141558",
+   "partido": {
+    "banco": "PP",
+    "oficial": "PSDB",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "MA",
+    "oficial": "MA",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "zeca-dirceu",
+   "cargo": "deputado",
+   "inicio": "2023",
+   "casa": "camara",
+   "legislatura": 57,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/160592",
+   "partido": {
+    "banco": "PT",
+    "oficial": "PT",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": "PR",
+    "oficial": "PR",
+    "resultado": "igual"
+   }
+  }
+ ],
+ "complementos": [],
+ "divergencias": [
+  {
+   "entidade_id": "aloizio-mercadante",
+   "cargo": "senador",
+   "inicio": "2002",
+   "tipo": "ano_fora_das_legislaturas",
+   "banco": "2002",
+   "oficial": "legislaturas listadas: 52, 53",
+   "legislatura": null,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/845",
+   "nota": "o meio de 2002 não cai em nenhuma legislatura em que a API lista a pessoa"
+  },
+  {
+   "entidade_id": "eneas-carneiro",
+   "cargo": "deputado",
+   "inicio": "2002",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "eneas-carneiro",
+   "cargo": "deputado",
+   "inicio": "2003",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "eneas-carneiro",
+   "cargo": "deputado",
+   "inicio": "2005",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "eneas-carneiro",
+   "cargo": "deputado",
+   "inicio": "2006",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=En%C3%A9as%20Carneiro&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "eunicio-oliveira",
+   "cargo": "senador",
+   "inicio": "2019",
+   "tipo": "ano_fora_das_legislaturas",
+   "banco": "2019",
+   "oficial": "legislaturas listadas: 54, 55",
+   "legislatura": null,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/612",
+   "nota": "o meio de 2019 não cai em nenhuma legislatura em que a API lista a pessoa"
+  },
+  {
+   "entidade_id": "flavio-bolsonaro",
+   "cargo": "senador",
+   "inicio": "2018",
+   "tipo": "ano_fora_das_legislaturas",
+   "banco": "2018",
+   "oficial": "legislaturas listadas: 56, 57",
+   "legislatura": null,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/5894",
+   "nota": "o meio de 2018 não cai em nenhuma legislatura em que a API lista a pessoa"
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "deputado",
+   "inicio": "2015",
+   "tipo": "ano_fora_das_legislaturas",
+   "banco": "2015",
+   "oficial": "legislaturas listadas: 50, 51, 52, 53, 54",
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74324",
+   "nota": "o meio de 2015 não cai em nenhuma legislatura em que a API lista a pessoa"
+  },
+  {
+   "entidade_id": "joao-maia",
+   "cargo": "deputado",
+   "inicio": "1997",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Jo%C3%A3o%20Maia&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:ambiguo:2); nada foi inferido"
+  },
+  {
+   "entidade_id": "joice-hasselmann",
+   "cargo": "deputado",
+   "inicio": "2018",
+   "tipo": "ano_fora_das_legislaturas",
+   "banco": "2018",
+   "oficial": "legislaturas listadas: 56",
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/204546",
+   "nota": "o meio de 2018 não cai em nenhuma legislatura em que a API lista a pessoa"
+  },
+  {
+   "entidade_id": "luis-carlos-santos",
+   "cargo": "deputado",
+   "inicio": "1995",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Carlos%20Santos&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "luis-eduardo-magalhaes",
+   "cargo": "deputado",
+   "inicio": "1995",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "luis-eduardo-magalhaes",
+   "cargo": "deputado",
+   "inicio": "1996",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "luis-eduardo-magalhaes",
+   "cargo": "deputado",
+   "inicio": "1997",
+   "tipo": "nao_encontrado_na_api",
+   "banco": "deputado",
+   "oficial": null,
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados?nome=Lu%C3%ADs%20Eduardo%20Magalh%C3%A3es&idLegislatura=50&itens=100&ordem=ASC&ordenarPor=nome",
+   "nota": "pessoa não encontrada na API (nao_encontrado:nenhum); nada foi inferido"
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "deputado",
+   "inicio": "2011",
+   "tipo": "ano_fora_das_legislaturas",
+   "banco": "2011",
+   "oficial": "legislaturas listadas: 50, 51, 52, 53",
+   "legislatura": null,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
+   "nota": "o meio de 2011 não cai em nenhuma legislatura em que a API lista a pessoa"
+  },
+  {
+   "entidade_id": "miro-teixeira",
+   "cargo": "deputado",
+   "inicio": "2004",
+   "tipo": "partido",
+   "banco": "PT",
+   "oficial": "PDT",
+   "legislatura": 52,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74862",
+   "nota": "legislatura 52 (2003-2007); no ano 2004 o histórico/filiações oficiais traz: PDT, PPS"
+  },
+  {
+   "entidade_id": "ronivon-santiago",
+   "cargo": "deputado",
+   "inicio": "1997",
+   "tipo": "partido",
+   "banco": "PFL",
+   "oficial": "PPR",
+   "legislatura": 50,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74184",
+   "nota": "legislatura 50 (1995-1999)"
+  }
+ ],
+ "sem_fonte": [
+  {
+   "entidade_id": "aecio-neves",
+   "cargo": "presidente_camara",
+   "inicio": "2001",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "aldo-rebelo",
+   "cargo": "presidente_camara",
+   "inicio": "2005",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "antonio-carlos-magalhaes",
+   "cargo": "presidente_senado",
+   "inicio": "1997",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "arlindo-chinaglia",
+   "cargo": "presidente_camara",
+   "inicio": "2007",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "arthur-lira",
+   "cargo": "presidente_camara",
+   "inicio": "2021",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "presidente_senado",
+   "inicio": "2019",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "davi-alcolumbre",
+   "cargo": "presidente_senado",
+   "inicio": "2025",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "dilma-rousseff",
+   "cargo": "presidente",
+   "inicio": "2011",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "eduardo-cunha",
+   "cargo": "presidente_camara",
+   "inicio": "2015",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "efraim-morais",
+   "cargo": "presidente_camara",
+   "inicio": "2002",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "eunicio-oliveira",
+   "cargo": "presidente_senado",
+   "inicio": "2017",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "fernando-henrique-cardoso",
+   "cargo": "presidente",
+   "inicio": "1995",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "garibaldi-alves-filho",
+   "cargo": "presidente_senado",
+   "inicio": "2007",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "geraldo-alckmin",
+   "cargo": "vice_presidente",
+   "inicio": "2023",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "hamilton-mourao",
+   "cargo": "vice_presidente",
+   "inicio": "2019",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "henrique-eduardo-alves",
+   "cargo": "presidente_camara",
+   "inicio": "2013",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "hugo-motta",
+   "cargo": "presidente_camara",
+   "inicio": "2025",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "jader-barbalho",
+   "cargo": "presidente_senado",
+   "inicio": "2001",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "jair-bolsonaro",
+   "cargo": "presidente",
+   "inicio": "2019",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "joao-paulo-cunha",
+   "cargo": "presidente_camara",
+   "inicio": "2003",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "jose-alencar",
+   "cargo": "vice_presidente",
+   "inicio": "2003",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "presidente_senado",
+   "inicio": "1995",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "presidente_senado",
+   "inicio": "2003",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "jose-sarney",
+   "cargo": "presidente_senado",
+   "inicio": "2009",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "luis-eduardo-magalhaes",
+   "cargo": "presidente_camara",
+   "inicio": "1995",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "luiz-inacio-lula-da-silva",
+   "cargo": "presidente",
+   "inicio": "2003",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "luiz-inacio-lula-da-silva",
+   "cargo": "presidente",
+   "inicio": "2023",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "marco-maciel",
+   "cargo": "vice_presidente",
+   "inicio": "1995",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "marco-maia",
+   "cargo": "presidente_camara",
+   "inicio": "2011",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "presidente",
+   "inicio": "2016-05-12",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "presidente_camara",
+   "inicio": "1997",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "presidente_camara",
+   "inicio": "2009",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "michel-temer",
+   "cargo": "vice_presidente",
+   "inicio": "2011",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "ramez-tebet",
+   "cargo": "presidente_senado",
+   "inicio": "2001",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "presidente_senado",
+   "inicio": "2005",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "renan-calheiros",
+   "cargo": "presidente_senado",
+   "inicio": "2013",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "rodrigo-maia",
+   "cargo": "presidente_camara",
+   "inicio": "2016",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "rodrigo-pacheco",
+   "cargo": "presidente_senado",
+   "inicio": "2021",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "severino-cavalcanti",
+   "cargo": "presidente_camara",
+   "inicio": "2005",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "tiao-viana",
+   "cargo": "presidente_senado",
+   "inicio": "2007",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  },
+  {
+   "entidade_id": "waldir-maranhao",
+   "cargo": "presidente_camara",
+   "inicio": "2016",
+   "motivo": "páginas oficiais da Presidência/Casas fora do ar na coleta (presidentes_camara, presidentes_republica, presidentes_senado, vice_presidentes)"
+  }
+ ],
+ "nao_encontrados": [
+  {
+   "entidade_id": "eneas-carneiro",
+   "casa": "camara",
+   "status": "nao_encontrado:nenhum"
+  },
+  {
+   "entidade_id": "joao-maia",
+   "casa": "camara",
+   "status": "nao_encontrado:ambiguo:2"
+  },
+  {
+   "entidade_id": "luis-carlos-santos",
+   "casa": "camara",
+   "status": "nao_encontrado:nenhum"
+  },
+  {
+   "entidade_id": "luis-eduardo-magalhaes",
+   "casa": "camara",
+   "status": "nao_encontrado:nenhum"
+  }
+ ],
+ "resumo": {
+  "mandatos_no_banco": 311,
+  "confirmados": 253,
+  "complementados": 0,
+  "divergentes": 17,
+  "sem_fonte_oficial": 41,
+  "confirmados_com_evidencia_previa": 0,
+  "divergencias_registradas": 17
+ }
+}

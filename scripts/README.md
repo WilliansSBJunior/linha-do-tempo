@@ -14,7 +14,8 @@ Python 3 padrão (só stdlib; SQLite >= 3.37 com FTS5). Nenhuma dependência ext
 | `fusoes.json` | Fusões de entidades aprovadas (`[{"de": "slug-velho", "para": "slug-novo"}]`); vazio por ora. |
 | `comum.py` | Caminhos, normalização de URL, dump determinístico, FTS. |
 | `curadoria.py` | Aplica `data/curadoria/*.json` depois da carga bruta (fusões, natureza, fontes da timeline, ligações evento-entidade, complementos, **relações de mandato/filiação, temas**) e contém as regras que geram parte deles; `inferir_temas_relacao` também é usado pelo MCP. |
-| `gerar_curadoria.py [--so ...]` | Regenera os JSON derivados por regra (`eventos-natureza`, `brasil-fontes`, `brasil-complementos`, `evento-entidade-auto`) a partir de um banco temporário. Determinístico. |
+| `gerar_curadoria.py [--so ...]` | Regenera os JSON derivados por regra (`eventos-natureza`, `brasil-fontes`, `brasil-complementos`, `evento-entidade-auto`, `mandato-oficial`) a partir de um banco temporário. Determinístico. `--so mandato-oficial` também escreve `data/relatorio-mandatos-oficial.md`. |
+| `coletar_mandatos.py` | Roda na máquina do usuário (rede): baixa mandatos/filiações das APIs da Câmara e do Senado para `data/raw/oficial/` (congelado; só `camara.json`, `senado.json`, `presidencia.json` têm hash em `hashes.txt`, o `cache/` não). |
 | `dossie_rel.py` | Carga relacional do dossiê (`dossie_par`, `previdencia_ente`, `pagamento`, `indicio_maquina`, `limite`) e de `pares.foruns` (`forum`). |
 
 Fluxo normal:
@@ -39,6 +40,7 @@ Princípio: `migrar.py` recria o banco do zero a partir de `data/raw/` e **depoi
 | `brasil-fontes.json` | gerado | Fontes dos eventos da timeline Brasil, vindas de `data/raw/dados-brutos-31-anos.json` (URLs por bloco-ano: `contexto`; `sustenta` quando o slug da URL toca o evento). |
 | `brasil-complementos.json` | gerado | `ranking_empresa.receita_brl_bi` e `mandato.periodo_texto` do bruto, só onde o mapeamento é inequívoco. |
 | `evento-entidade-auto.json` | gerado | Ligações `evento_entidade` com `papel='citado'` por alias. |
+| `mandato-oficial.json` | gerado | Confronto de `mandato` com `data/raw/oficial/{camara,senado}.json` (`--so mandato-oficial`; chave = entidade_id + cargo + início): `evidencias` (`dado_oficial`), `confirmacoes`, `complementos` (só campo NULL), `divergencias`, `sem_fonte` (presidência: páginas fora do ar), `nao_encontrados`. `curadoria.aplicar_mandato_oficial` preenche `mandato.evidencia_id` só onde está NULL, antes de `gerar_relacoes_mandato`, e as relações de mandato/filiação herdam a evidência. Relatório: `data/relatorio-mandatos-oficial.md`. |
 | `temas.json` | à mão | Seed de `tema`, regras de atribuição a `relacao_tema`/`evento_tema` (por origem, canal, entidade, texto; `dentro_de`) e `excecoes` (falso positivo/ajuste por registro, com motivo). Aplicado por último em `migrar.py`; quem ficar sem tema vai para `a-classificar`. |
 | `mandato-relacoes.json` | à mão | Rótulo por cargo, órgão de presidente/vice (`presidencia-da-republica`), mapa manual de partido e textos que não são filiação, para `gerar_relacoes_mandato` (relações `institucional` `mandato:<cargo>` e `filiacao`, `origem='linha_do_tempo'`, tema `brasil-ano-a-ano`). |
 

@@ -43,8 +43,8 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 905 |
 | evento_tema | 631 |
 | fonte (era video) | 0 |
-| evidencia | 1116 |
-| relacao_evidencia | 729 |
+| evidencia | 1213 |
+| relacao_evidencia | 1106 |
 | evento_evidencia | 2907 |
 | evento_entidade | 937 |
 | nota | 254 |
@@ -438,7 +438,7 @@ Precedência: R1, R2, R3, R4. Só se aplica a eventos do canal 'teia' com nature
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): 1995 (8), 2000 (8), 2005 (8), 2010 (8), 2015 (9), 2020 (9), 2025 (9). Ficam sem fonte.
-- URLs de `evidencia` agora: 1116 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1213 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -627,7 +627,7 @@ Dados migrados: a tabela `video` estava vazia (0 linhas), então não houve conv
 - **311 de mandato** (`subtipo='mandato:<cargo>'`, pessoa -> órgão, uma por linha de `mandato`, `origem_ref='mandato:<id>'`, período = o do mandato): deputado 163, presidente 6, presidente_camara 16, presidente_senado 14, senador 107, vice_presidente 5.
 - **140 de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.
 - Órgãos: `camara-dos-deputados`, `senado-federal` (já existiam, origem timeline) e **`presidencia-da-republica`** (nova, `orgao_publico`; presidente e vice-presidente, em que `mandato.orgao_id` é NULL).
-- `mandato.evidencia_id` está NULL em todas as linhas: nenhuma relação ganhou evidência (o código liga se existir).
+- `mandato.evidencia_id`: 253 de 311 linhas têm evidência (`tipo='dado_oficial'`, Dados Abertos da Câmara/Senado, `data/curadoria/mandato-oficial.json`, gerado de `data/raw/oficial/`); as relações de mandato e de filiação herdam essa evidência via `relacao_evidencia`. Complementos de partido/UF: 0. Divergências e linhas sem fonte oficial (presidência: páginas fora do ar) estão em `data/relatorio-mandatos-oficial.md`; o banco não foi alterado por elas.
 - **Parlamentares em destaque** (`deputado`/`senador`, `mandato` de um ano = ano do destaque na timeline): a relação tem `periodo_aprox=1` e a descrição avisa que o período é o ano do destaque, não o mandato inteiro.
 - Mandatos sem filiação (partido sem entidade): hamilton-mourao (PRTB), heloisa-helena (PSOL). Não criei entidade de partido (PRTB, PSOL); decisão pendente.
 - Mandatos sem órgão resolvido: 0.
