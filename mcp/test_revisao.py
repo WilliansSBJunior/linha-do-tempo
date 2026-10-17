@@ -253,10 +253,9 @@ class TestCorteEventoEntidade(Base):
 
     def test_pendencias_eventos(self):
         p = R.listar_pendencias_core(limite=100, com_similares=False)
-        self.assertEqual(p["contagem"]["evento_natureza"], 41)
-        ev = [x for x in p["itens"] if x["tipo"] == "evento_natureza"]
-        self.assertEqual(len(ev), 41)
-        self.assertTrue(all(x["canal"] == "teia" and x["natureza"] is None for x in ev))
+        # R5 (brasil/violencia) e a classificação manual (teia) zeraram a fila de natureza
+        self.assertEqual(p["contagem"]["evento_natureza"], 0)
+        self.assertEqual([x for x in p["itens"] if x["tipo"] == "evento_natureza"], [])
         self.assertEqual(p["contagem"]["evento_fusao"], 10)
         fus = {x["n"]: [e["id"] for e in x["eventos"]] for x in p["itens"] if x["tipo"] == "evento_fusao"}
         self.assertEqual(fus[1], ["ida10", "vol3"])
@@ -266,18 +265,20 @@ class TestCorteEventoEntidade(Base):
         self.assertFalse(R.listar_pendencias_core("xyz")["ok"])
 
     def test_natureza_sobrevive_a_remigracao(self):
-        eid = R.listar_pendencias_core("evento_natureza", limite=1)["itens"][0]["id"]
-        d = R.revisar_evento_core(eid, "natureza", natureza="rep")
-        self.assertTrue(d["ok"], d)
+        # a revisão humana pode trocar a natureza dada pela regra/classificação manual; a decisão sobrevive à remigração
+        eid = "ev-2026-09-13-stf-torna-publica-decisao-que-bloqueou"
         self.assertEqual(self.um("SELECT natureza_id FROM evento WHERE id=?", eid), "reportada")
-        self.assertEqual(R.listar_pendencias_core("evento_natureza")["contagem"]["evento_natureza"], 40)
+        d = R.revisar_evento_core(eid, "natureza", natureza="doc")
+        self.assertTrue(d["ok"], d)
+        self.assertEqual(self.um("SELECT natureza_id FROM evento WHERE id=?", eid), "documentada")
+        self.assertEqual(R.listar_pendencias_core("evento_natureza")["contagem"]["evento_natureza"], 0)
         # migrar.py recria o banco do zero e já reaplica decisoes.jsonl; aplicar_decisoes.py de novo é idempotente; validar.py passa
         m = subprocess.run([sys.executable, str(self.repo / "scripts" / "migrar.py")], capture_output=True, text=True, cwd=str(self.repo))
         self.assertEqual(m.returncode, 0, m.stderr[-2000:])
-        self.assertEqual(self.um("SELECT natureza_id FROM evento WHERE id=?", eid), "reportada")
+        self.assertEqual(self.um("SELECT natureza_id FROM evento WHERE id=?", eid), "documentada")
         p = subprocess.run([sys.executable, str(self.repo / "scripts" / "aplicar_decisoes.py"), "--db", str(self.db)], capture_output=True, text=True)
         self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
-        self.assertEqual(self.um("SELECT natureza_id FROM evento WHERE id=?", eid), "reportada")
+        self.assertEqual(self.um("SELECT natureza_id FROM evento WHERE id=?", eid), "documentada")
         rc, saida = self.validar()
         self.assertEqual(rc, 0, saida)
 
@@ -407,16 +408,16 @@ class TestPagina(Base):
             n_itens = pg.locator("#lista li").count()
             self.assertGreaterEqual(n_itens, 1)
             total = int(pg.locator("#total").inner_text())
-            self.assertEqual(total, 3 + 41 + 10)
+            self.assertEqual(total, 3 + 10)
             primeiro = pg.locator("#card .kind span").first.inner_text()  # "Relação <id>"
             rid = int(primeiro.split()[-1])
             pg.locator(".acts [data-acao=aprovar]").click()
-            pg.wait_for_function("document.querySelector('#total').textContent === '53'")
+            pg.wait_for_function("document.querySelector('#total').textContent === '12'")
             self.assertEqual(self.um("SELECT status FROM relacao WHERE id=?", rid), "publicada")
             pg.keyboard.press("d")  # tecla D no próximo item (outra relação)
-            pg.wait_for_function("document.querySelector('#total').textContent === '52'")
+            pg.wait_for_function("document.querySelector('#total').textContent === '11'")
             pg.keyboard.press("u")  # desfaz a última
-            pg.wait_for_function("document.querySelector('#total').textContent === '53'")
+            pg.wait_for_function("document.querySelector('#total').textContent === '12'")
             pg.set_viewport_size({"width": 390, "height": 800})
             largura = pg.evaluate("document.documentElement.scrollWidth")
             nav.close()

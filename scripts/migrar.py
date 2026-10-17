@@ -805,18 +805,24 @@ def secoes_curadoria(con, R, w):
     w("Eventos absorvidos por canal de origem: " + ", ".join(f"{c} {n}" for c, n in sorted(por_canal.items())) + ".\n")
     # ---------------------------------------------------------------- 10
     n = R.get("natureza", {"arquivo": 0, "aplicados": 0, "por_regra": {}, "por_natureza": {}})
-    w("## 10. Natureza dos eventos da teia sem `st` (`data/curadoria/eventos-natureza.json`)\n")
-    w("Regras determinísticas (`scripts/curadoria.py`, `classificar_natureza`; o arquivo é regenerado por `scripts/gerar_curadoria.py`). Só atribui onde `natureza_id IS NULL`; nada é inventado.\n")
+    w("## 10. Natureza dos eventos sem `st` (`data/curadoria/eventos-natureza.json`, `eventos-natureza-manual.json`)\n")
+    w("Regras determinísticas (`scripts/curadoria.py`, `classificar_natureza`; o arquivo é regenerado por `scripts/gerar_curadoria.py`). Só atribui onde `natureza_id IS NULL`; nada é inventado. R1-R4 valem para a `teia`; **R5** cobre os eventos factuais da linha do tempo (`brasil`, `violencia`) pelo tipo/domínio das evidências com papel `sustenta`; o que as regras não pegam na teia foi classificado à mão (`M`).\n")
     w("```\n" + curadoria.REGRAS_NATUREZA_TEXTO + "\n```\n")
     w(f"- Atribuídas por regra: {n['aplicados']} (arquivo com {n['arquivo']}). Por regra: " + ", ".join(f"{k} {v}" for k, v in sorted(n["por_regra"].items()))
       + ". Por natureza: " + ", ".join(f"{k} {v}" for k, v in sorted(n["por_natureza"].items())) + ".")
+    mn = n.get("manual", {"arquivo": 0, "aplicados": 0, "ignorados": 0, "por_natureza": {}, "excecoes": 0})
+    w(f"- Por regra, efetivamente aplicadas: " + ", ".join(f"{k} {v}" for k, v in sorted(n.get("aplicados_por_regra", {}).items())) + ".")
+    w(f"- R5 por canal e natureza: " + ", ".join(f"{r[0]}/{r[1]} {r[2]}" for r in q("SELECT canal, COALESCE(natureza_id,'(NULL)'), count(*) FROM evento WHERE canal IN ('brasil','violencia') GROUP BY 1, 2 ORDER BY 1, 2")) + ".")
+    w(f"- Classificação manual (`eventos-natureza-manual.json`): {mn['arquivo']} entradas, {mn['aplicados']} aplicadas ({', '.join(f'{k} {v}' for k, v in sorted(mn['por_natureza'].items()))}), "
+      f"{mn['ignorados']} ignoradas (já tinham natureza), {mn['excecoes']} exceções explícitas (ficam NULL).")
     ficou = q("SELECT id, data, titulo FROM evento WHERE canal='teia' AND natureza_id IS NULL ORDER BY data, id")
     fus_nat = sum(1 for f in fus if f["natureza"])
     n_teia = q("SELECT count(*) FROM evento WHERE canal='teia'")[0][0]
     abs_teia = sum(1 for f in fus for i, c in f["canais"].items() if i != f["manter"] and c == "teia")
     w(f"- Dos 92 eventos da teia sem `st`: {abs_teia} foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os {n_teia} eventos `teia` atuais. "
-      f"Destes, {n['aplicados']} ganharam natureza pelas regras acima, {n_teia - n['aplicados'] - len(ficou)} ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e {len(ficou)} seguem NULL.")
-    w(f"- **Ficaram NULL por nenhuma regra servir: {len(ficou)} eventos do canal `teia`** (lista abaixo). Eventos `brasil` (280) e `violencia` (10) continuam sem natureza: nunca tiveram `st` e as regras não se aplicam a eles.\n")
+      f"Destes, {n['aplicados_por_regra'].get('R1', 0) + n['aplicados_por_regra'].get('R2', 0) + n['aplicados_por_regra'].get('R3', 0) + n['aplicados_por_regra'].get('R4', 0) + mn['aplicados']} ganharam natureza pelas regras R1-R4 ou à mão, {n_teia - (n['aplicados_por_regra'].get('R1', 0) + n['aplicados_por_regra'].get('R2', 0) + n['aplicados_por_regra'].get('R3', 0) + n['aplicados_por_regra'].get('R4', 0)) - mn['aplicados'] - len(ficou)} ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e {len(ficou)} seguem NULL.")
+    n_outros_null = q("SELECT count(*) FROM evento WHERE canal IN ('brasil','violencia') AND natureza_id IS NULL")[0][0]
+    w(f"- **Ficaram NULL: {len(ficou)} eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: {n_outros_null}.\n")
     w("| id | data | título | fontes |\n|---|---|---|---|")
     for r in ficou:
         nf = q("SELECT count(*) FROM evento_evidencia WHERE evento_id=?", r["id"])[0][0]

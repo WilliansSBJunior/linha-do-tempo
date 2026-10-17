@@ -517,6 +517,59 @@ def revisao_evidencias(con):
         esperar("relatório: eventos corrigidos == correções aceitas do arquivo", f"| eventos corrigidos | {n_e} |" in p.read_text(encoding="utf-8"), True)
 
 
+def natureza_eventos(con, gerado):
+    """Nenhum evento sem natureza (salvo exceção explícita, com justificativa, em eventos-natureza-manual.json) e toda natureza
+    aplicada por regra (R1-R5) ou à mão tem regra/justificativa registrada e igual à do banco."""
+    manual_p = CURADORIA / "eventos-natureza-manual.json"
+    manual = json.loads(manual_p.read_text(encoding="utf-8")) if manual_p.exists() else []
+    nat_validas = {r[0] for r in q(con, "SELECT id FROM natureza")}
+    ids_ger = {n["id"] for n in gerado}
+    for n in gerado:
+        if not str(n.get("regra", "")).strip():
+            falha(f"eventos-natureza.json: {n['id']} sem regra")
+    ids_man = set()
+    for m in manual:
+        if m["id"] in ids_man:
+            falha(f"eventos-natureza-manual.json: id repetido {m['id']}")
+        ids_man.add(m["id"])
+        if not str(m.get("justificativa", "")).strip():
+            falha(f"eventos-natureza-manual.json: {m['id']} sem justificativa")
+        if m.get("natureza") is not None and m["natureza"] not in nat_validas:
+            falha(f"eventos-natureza-manual.json: natureza inválida em {m['id']}: {m['natureza']}")
+        if not q(con, "SELECT 1 FROM evento WHERE id=?", m["id"]):
+            falha(f"eventos-natureza-manual.json: evento inexistente {m['id']}")
+    excecoes = {m["id"] for m in manual if m.get("natureza") is None}
+    nulos = {r[0] for r in q(con, "SELECT id FROM evento WHERE natureza_id IS NULL")}
+    esperar("eventos sem natureza fora da lista de exceções (eventos-natureza-manual.json)", sorted(nulos - excecoes), [])
+    esperar("exceções declaradas == eventos com natureza NULL", sorted(excecoes - nulos), [])
+    # o que o banco tem tem de coincidir com o arquivo que o produziu (gerado primeiro; manual só onde o gerado não pegou)
+    dif = []
+    revisados = set()   # natureza trocada por decisão humana (decisoes.jsonl) vale mais que a regra
+    dec_p = CURADORIA / "decisoes.jsonl"
+    if dec_p.exists():
+        for linha in dec_p.read_text(encoding="utf-8").splitlines():
+            if linha.strip():
+                d = json.loads(linha)
+                if d.get("tipo") == "evento" and (d.get("acao") == "natureza" or "natureza" in (d.get("campos") or {})):
+                    revisados.add(d["alvo"]["id"])
+    for n in gerado:
+        got = q(con, "SELECT natureza_id FROM evento WHERE id=?", n["id"])
+        if n["id"] in revisados:
+            continue
+        if got and got[0][0] is not None and got[0][0] != n["natureza"]:
+            dif.append(n["id"])
+    for m in manual:
+        if m["id"] in ids_ger or m.get("natureza") is None or m["id"] in revisados:
+            continue
+        got = q(con, "SELECT natureza_id FROM evento WHERE id=?", m["id"])
+        if got and got[0][0] != m["natureza"]:
+            dif.append(m["id"])
+    esperar("natureza no banco == a registrada em eventos-natureza(.manual).json", dif, [])
+    sem_reg = [r[0] for r in q(con, "SELECT id FROM evento WHERE canal IN ('brasil','violencia') AND natureza_id IS NOT NULL") if r[0] not in ids_ger and r[0] not in ids_man]
+    esperar("eventos brasil/violencia com natureza sem regra registrada", sem_reg, [])
+    print(f"  info: natureza por regra gerada: {len(gerado)} eventos; à mão: {len(manual)} (exceções: {len(excecoes)})")
+
+
 def curadoria(con):
     secao("Curadoria (data/curadoria/*.json aplicada)")
     fusoes = json.loads((CURADORIA / "eventos-fusoes.json").read_text(encoding="utf-8"))
@@ -545,8 +598,7 @@ def curadoria(con):
     esperar("brasil-fontes.json: eventos com todas as fontes ligadas", ok, len(fon))
     n_sem = q(con, "SELECT count(*) FROM evento e WHERE canal='brasil' AND NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)")[0][0]
     print(f"  info: eventos da timeline Brasil sem fonte (sem item no bruto): {n_sem}")
-    n_nat = q(con, "SELECT count(*) FROM evento WHERE canal='teia' AND natureza_id IS NULL")[0][0]
-    print(f"  info: eventos da teia ainda sem natureza (nenhuma regra serviu): {n_nat}")
+    natureza_eventos(con, nat)
     comp = json.loads((CURADORIA / "brasil-complementos.json").read_text(encoding="utf-8"))
     esperar("ranking_empresa com receita == brasil-complementos.json", q(con, "SELECT count(*) FROM ranking_empresa WHERE receita_brl_bi IS NOT NULL")[0][0], len(comp["receita"]))
     esperar("mandato com periodo_texto == brasil-complementos.json", q(con, "SELECT count(*) FROM mandato WHERE periodo_texto IS NOT NULL")[0][0], len(comp["mandato_periodo"]))

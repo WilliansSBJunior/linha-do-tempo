@@ -367,9 +367,9 @@ URLs repetidas dentro da mesma relação/evento após normalização (descartada
 
 Eventos absorvidos por canal de origem: brb 12, precatorios 1, teia 19.
 
-## 10. Natureza dos eventos da teia sem `st` (`data/curadoria/eventos-natureza.json`)
+## 10. Natureza dos eventos sem `st` (`data/curadoria/eventos-natureza.json`, `eventos-natureza-manual.json`)
 
-Regras determinísticas (`scripts/curadoria.py`, `classificar_natureza`; o arquivo é regenerado por `scripts/gerar_curadoria.py`). Só atribui onde `natureza_id IS NULL`; nada é inventado.
+Regras determinísticas (`scripts/curadoria.py`, `classificar_natureza`; o arquivo é regenerado por `scripts/gerar_curadoria.py`). Só atribui onde `natureza_id IS NULL`; nada é inventado. R1-R4 valem para a `teia`; **R5** cobre os eventos factuais da linha do tempo (`brasil`, `violencia`) pelo tipo/domínio das evidências com papel `sustenta`; o que as regras não pegam na teia foi classificado à mão (`M`).
 
 ```
 R1  todas as fontes do evento são documento oficial (domínios .gov.br/gov.br, .jus.br, .leg.br, okai.com.br; PDFs em static.poder360.com.br) -> documentada
@@ -380,56 +380,27 @@ R2  o título começa por verbo de autoridade sobre ato formal consumado (BC liq
 R3  o título tem 'PF aponta/diz/suspeita', 'relatório da PF', 'indicia', 'alvo(s)', 'busca(s)' ou 'denúncia/denuncia(r)' -> investigacao
 R4  o título começa por 'Folha liga' ou tem 'revelado/revelada', 'mensagens', 'teria', 'segundo' -> reportada
 --  nenhuma das anteriores: continua NULL (nada é inventado)
-Precedência: R1, R2, R3, R4. Só se aplica a eventos do canal 'teia' com natureza_id NULL.
+Precedência: R1, R2, R3, R4. R1-R4 só se aplicam a eventos do canal 'teia' com natureza_id NULL.
+R5  (canais 'brasil' e 'violencia', eventos factuais da linha do tempo; olha o tipo e o domínio das evidências ligadas ao evento com papel 'sustenta'):
+    ao menos uma evidência documento_oficial/dado_oficial/decisao_judicial (ou domínio oficial pela lista de R1) -> documentada;
+    senão, ao menos uma reportagem/relatorio -> reportada;
+    senão (só wiki/outro/video, só fonte de papel 'contexto' ou nenhuma fonte) -> nao_classificada.
+    Fontes 'contexto' (as URLs do bloco-ano de brasil-fontes.json, que o bruto não separa por evento) NÃO contam: não sustentam o fato do evento.
+    Muda-se isso em R5_PAPEIS.
+M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descrição, fontes) e classificados à mão em data/curadoria/eventos-natureza-manual.json
+    ([{"id","natureza","justificativa"}]), aplicado depois do gerado e só onde natureza_id IS NULL; entrada com "natureza": null é exceção explícita
+    (fica NULL, a justificativa é obrigatória).
 ```
 
-- Atribuídas por regra: 22 (arquivo com 22). Por regra: R1 1, R2 10, R3 9, R4 2. Por natureza: documentada 11, investigacao 9, reportada 2.
-- Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 22 ganharam natureza pelas regras acima, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 41 seguem NULL.
-- **Ficaram NULL por nenhuma regra servir: 41 eventos do canal `teia`** (lista abaixo). Eventos `brasil` (280) e `violencia` (10) continuam sem natureza: nunca tiveram `st` e as regras não se aplicam a eles.
+- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 72, investigacao 9, nao_classificada 201, reportada 30.
+- Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 290.
+- R5 por canal e natureza: brasil/documentada 51, brasil/nao_classificada 201, brasil/reportada 28, violencia/documentada 10.
+- Classificação manual (`eventos-natureza-manual.json`): 41 entradas, 41 aplicadas (alegacao 5, investigacao 11, reportada 25), 0 ignoradas (já tinham natureza), 0 exceções explícitas (ficam NULL).
+- Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 63 ganharam natureza pelas regras R1-R4 ou à mão, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 0 seguem NULL.
+- **Ficaram NULL: 0 eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: 0.
 
 | id | data | título | fontes |
 |---|---|---|---|
-| ev-2023-10-comecam-as-aplicacoes-de-rpps-em-letras | 2023-10 | Começam as aplicações de RPPS em letras do Master | 2 |
-| ev-2023-10-rioprevidencia-inicia-aportes-em-letras | 2023-10 | Rioprevidência inicia aportes em letras financeiras do Master | 2 |
-| ev-2024-05-27-bc-aprova-a-compra-da-will-no-dia | 2024-05-27 | BC aprova a compra da Will; no dia seguinte, exigência de capital | 1 |
-| ev-2024-10-fundos-hans-95-e-reag-growth-aportam | 2024-10 | Fundos Hans 95 e Reag Growth aportam mais de R$ 1 bi no Master | 1 |
-| ev-2025-03-brb-e-master-fecham-acordo-para-venda-de | 2025-03 | BRB e Master fecham acordo para venda de 58% por R$ 2 bilhões | 2 |
-| ev-2025-04-balanco-2024-ativo-de-r-63-bi-e-r-8-7-bi | 2025-04 | Balanço 2024: ativo de R$ 63 bi e R$ 8,7 bi em precatórios | 2 |
-| ev-2025-04-23-operacao-sem-desconto-pf-e-cgu-miram | 2025-04-23 | Operação Sem Desconto: PF e CGU miram descontos no INSS | 2 |
-| ev-2025-05-05-fgc-comeca-a-dar-assistencia-financeira | 2025-05-05 | FGC começa a dar assistência financeira ao Master | 2 |
-| ev-2025-08-cldf-aprova-em-uma-semana-compra-do | 2025-08 | CLDF aprova em uma semana compra do Master pelo BRB; Ibaneis sanciona | 1 |
-| ev-2025-08-28-carbono-oculto-quasar-e-tank-operacoes | 2025-08-28 | Carbono Oculto, Quasar e Tank: operações miram suposto esquema do PCC no setor de combustíveis | 3 |
-| ev-2025-09-21-master-apresenta-ao-bc-plano-de | 2025-09-21 | Master apresenta ao BC plano de salvamento | 1 |
-| ev-2025-10-10-inss-nao-renova-acordo-consignado-do | 2025-10-10 | INSS não renova acordo consignado do Master | 2 |
-| ev-2025-10-14-gaeco-aponta-executivos-da-reag-e-fundo | 2025-10-14 | Gaeco aponta executivos da Reag e fundo Mabruk II na Usina Itajobi | 2 |
-| ev-2025-11-relatorio-do-inss-aponta-251-718 | 2025-11 | Relatório do INSS aponta 251.718 consignados do Master sem prova | 1 |
-| ev-2025-11-17-bc-comunica-ao-mpf-indicios-de-fraude | 2025-11-17 | BC comunica ao MPF indícios de fraude entre Master e fundos da Reag | 3 |
-| ev-2025-12-caso-chega-ao-stf-toffoli-e-relator-e | 2025-12 | Caso chega ao STF; Toffoli é relator e impõe sigilo | 3 |
-| ev-2025-12-04-cpmi-do-inss-aprova-convocacao-e-quebra | 2025-12-04 | CPMI do INSS aprova convocação e quebra de sigilo de Vorcaro | 1 |
-| ev-2026-01-16-inss-bloqueia-repasses-ao-master-r-2-bi | 2026-01-16 | INSS bloqueia repasses ao Master: R$ 2 bi e 254 mil contratos | 1 |
-| ev-2026-01-17-fgc-inicia-o-maior-ressarcimento-de-sua | 2026-01-17 | FGC inicia o maior ressarcimento de sua história | 4 |
-| ev-2026-01-23-pf-deflagra-barco-de-papel-castro | 2026-01-23 | PF deflagra Barco de Papel; Castro exonera chefe do Rioprevidência | 2 |
-| ev-2026-02-06-pf-mira-a-amprev-brb-entrega-plano-de | 2026-02-06 | PF mira a Amprev; BRB entrega plano de capital ao BC | 2 |
-| ev-2026-02-09-pf-entrega-a-fachin-relatorio-sobre | 2026-02-09 | PF entrega a Fachin relatório sobre Toffoli e arguição de suspeição | 2 |
-| ev-2026-02-10-fgc-aprova-plano-emergencial-para | 2026-02-10 | FGC aprova plano emergencial para recompor o caixa | 2 |
-| ev-2026-02-12-toffoli-deixa-a-relatoria-mendonca | 2026-02-12 | Toffoli deixa a relatoria; Mendonça assume | 3 |
-| ev-2026-03-04-3a-fase-vorcaro-e-preso-de-novo | 2026-03-04 | 3ª fase: Vorcaro é preso de novo | 6 |
-| ev-2026-03-11-mansur-na-cpi-master-era-cliente-da-reag | 2026-03-11 | Mansur na CPI: Master era cliente da Reag e nega vínculo com PCC | 2 |
-| ev-2026-03-17-master-multiplo-e-liquidado-liquidante | 2026-03-17 | Master Múltiplo é liquidado; liquidante move ação em SP | 2 |
-| ev-2026-04-08-receita-mostra-pagamentos-do-master-a-ex | 2026-04-08 | Receita mostra pagamentos do Master a ex-ministros e políticos | 2 |
-| ev-2026-04-20-brb-e-quadra-fecham-memorando-para | 2026-04-20 | BRB e Quadra fecham memorando para vender ativos do Master | 2 |
-| ev-2026-05-04-cvm-acusa-reag-trust-e-ex-diretor-por | 2026-05-04 | CVM acusa Reag Trust e ex-diretor por ocultar cotistas e liquidez | 1 |
-| ev-2026-05-05-defesa-de-vorcaro-oferece-delacao-e | 2026-05-05 | Defesa de Vorcaro oferece delação e devolução de R$ 40 bi | 3 |
-| ev-2026-05-26-justica-das-bahamas-reconhece-a | 2026-05-26 | Justiça das Bahamas reconhece a liquidação do Master | 2 |
-| ev-2026-06-09-presidente-do-brb-fala-em-corrida-de | 2026-06-09 | Presidente do BRB fala em corrida de liquidez e provisão de R$ 8,8 bi | 1 |
-| ev-2026-07-17-brb-encerra-o-memorando-com-a-quadra | 2026-07-17 | BRB encerra o memorando com a Quadra | 3 |
-| ev-2026-07-23-mendonca-autoriza-inquerito-sobre | 2026-07-23 | Mendonça autoriza inquérito sobre repasses de Vorcaro ao Dark Horse | 1 |
-| ev-2026-08-26-mansur-entrega-a-pgr-proposta-de-delacao | 2026-08-26 | Mansur entrega à PGR proposta de delação com 17 anexos | 1 |
-| ev-2026-09-02-pgr-fecha-acordo-de-delacao-com-mansur | 2026-09-02 | PGR fecha acordo de delação com Mansur; homologação pendente | 3 |
-| ev-2026-09-13-stf-torna-publica-decisao-que-bloqueou | 2026-09-13 | STF torna pública decisão que bloqueou bens de Vorcaro | 1 |
-| ev-2026-09-15-plenario-do-stf-comeca-a-analisar | 2026-09-15 | Plenário do STF começa a analisar questão de ordem sobre pedido de investigar Moraes; Dino pede vista | 6 |
-| ev-2026-09-24-credito-oculto-3a-fase-da-carbono-oculto | 2026-09-24 | Crédito Oculto: 3ª fase da Carbono Oculto mira Freixo, apontado pela PF como operador de Vorcaro | 3 |
-| ev-2026-10-02-fachin-pede-a-pf-lista-de-ministros | 2026-10-02 | Fachin pede à PF lista de ministros citados nas conversas de Vorcaro | 1 |
 
 ## 11. Fontes da timeline Brasil (`data/curadoria/brasil-fontes.json`, de `data/raw/dados-brutos-31-anos.json`)
 

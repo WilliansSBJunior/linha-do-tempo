@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gera (ou regenera) os JSON de curadoria que são DERIVADOS por regra:
 
-  data/curadoria/eventos-natureza.json       natureza dos eventos da teia sem `st` (regras R1-R4 em curadoria.py)
+  data/curadoria/eventos-natureza.json       natureza dos eventos da teia sem `st` (regras R1-R4 na teia, R5 em brasil/violencia; curadoria.py)
   data/curadoria/brasil-fontes.json          fontes dos eventos da timeline Brasil, casadas com data/raw/dados-brutos-31-anos.json
   data/curadoria/brasil-complementos.json    receita das empresas e períodos de mandato vindos do bruto
   data/curadoria/evento-entidade-auto.json   evento -> entidade por alias (regras em evento-entidade-regras.json)
@@ -14,6 +14,7 @@ aplicado), lê e escreve os JSON. Depois rode migrar.py normalmente.
 Uso: python3 scripts/gerar_curadoria.py [--so natureza,fontes,complementos,ligacoes,mandato-oficial]
 """
 import argparse
+import collections
 import json
 import tempfile
 from pathlib import Path
@@ -27,17 +28,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--so", default="natureza,fontes,complementos,ligacoes,mandato-oficial")
     a = ap.parse_args()
-    quais = set(a.so.split(","))
+    quais = {"natureza" if x == "eventos-natureza" else x for x in a.so.split(",")}
     bruto = json.loads((RAW / "dados-brutos-31-anos.json").read_text(encoding="utf-8"))
     brasil = json.loads((RAW / "brasil.json").read_text(encoding="utf-8"))
     with tempfile.TemporaryDirectory() as t:
         db = Path(t) / "gerar.sqlite"
         migrar.main(destino=db, pular={"natureza", "ligacoes", "fontes_brasil", "complementos", "mandato_oficial"}, escrever=False)
         con = conectar(db)
-        if "natureza" in quais:
-            nat = curadoria.gerar_natureza(con)
-            curadoria.salvar_json("eventos-natureza.json", nat)
-            print(f"eventos-natureza.json: {len(nat)} eventos")
         if "fontes" in quais:
             fontes, sem = curadoria.gerar_fontes_brasil(con, bruto)
             curadoria.salvar_json("brasil-fontes.json", fontes)
@@ -57,6 +54,16 @@ def main():
             curadoria.RELATORIO_MANDATO_OFICIAL.write_text(curadoria.relatorio_mandato_oficial(mo, nomes) + "\n", encoding="utf-8")
             print("mandato-oficial.json:", mo["resumo"])
         con.close()
+        if "natureza" in quais:
+            # R5 precisa das fontes da timeline (brasil-fontes.json já aplicado, inclusive o que acabou de ser regerado acima)
+            db2 = Path(t) / "natureza.sqlite"
+            migrar.main(destino=db2, pular={"natureza", "ligacoes", "complementos", "mandato_oficial"}, escrever=False)
+            con = conectar(db2)
+            nat = curadoria.gerar_natureza(con)
+            curadoria.salvar_json("eventos-natureza.json", nat)
+            por = collections.Counter(i["regra"].split(":")[0] for i in nat)
+            print(f"eventos-natureza.json: {len(nat)} eventos (" + ", ".join(f"{k} {v}" for k, v in sorted(por.items())) + ")")
+            con.close()
 
 
 if __name__ == "__main__":

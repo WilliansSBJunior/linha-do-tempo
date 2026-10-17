@@ -143,7 +143,16 @@ R2  o título começa por verbo de autoridade sobre ato formal consumado (BC liq
 R3  o título tem 'PF aponta/diz/suspeita', 'relatório da PF', 'indicia', 'alvo(s)', 'busca(s)' ou 'denúncia/denuncia(r)' -> investigacao
 R4  o título começa por 'Folha liga' ou tem 'revelado/revelada', 'mensagens', 'teria', 'segundo' -> reportada
 --  nenhuma das anteriores: continua NULL (nada é inventado)
-Precedência: R1, R2, R3, R4. Só se aplica a eventos do canal 'teia' com natureza_id NULL."""
+Precedência: R1, R2, R3, R4. R1-R4 só se aplicam a eventos do canal 'teia' com natureza_id NULL.
+R5  (canais 'brasil' e 'violencia', eventos factuais da linha do tempo; olha o tipo e o domínio das evidências ligadas ao evento com papel 'sustenta'):
+    ao menos uma evidência documento_oficial/dado_oficial/decisao_judicial (ou domínio oficial pela lista de R1) -> documentada;
+    senão, ao menos uma reportagem/relatorio -> reportada;
+    senão (só wiki/outro/video, só fonte de papel 'contexto' ou nenhuma fonte) -> nao_classificada.
+    Fontes 'contexto' (as URLs do bloco-ano de brasil-fontes.json, que o bruto não separa por evento) NÃO contam: não sustentam o fato do evento.
+    Muda-se isso em R5_PAPEIS.
+M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descrição, fontes) e classificados à mão em data/curadoria/eventos-natureza-manual.json
+    ([{"id","natureza","justificativa"}]), aplicado depois do gerado e só onde natureza_id IS NULL; entrada com "natureza": null é exceção explícita
+    (fica NULL, a justificativa é obrigatória)."""
 
 
 def classificar_natureza(titulo, urls):
@@ -168,6 +177,34 @@ def classificar_natureza(titulo, urls):
     return None, None
 
 
+R5_PAPEIS = ("sustenta",)
+R5_TIPOS_OFICIAIS = ("documento_oficial", "dado_oficial", "decisao_judicial")
+R5_TIPOS_IMPRENSA = ("reportagem", "relatorio")
+
+
+def classificar_natureza_r5(evidencias):
+    """evidencias: [(tipo, url, papel)] ligadas ao evento -> (natureza, regra). Sempre devolve algo."""
+    ev = [(t, u) for t, u, p in evidencias if p in R5_PAPEIS]
+    ctx = len(evidencias) - len(ev)
+    oficiais = [(t, u) for t, u in ev if t in R5_TIPOS_OFICIAIS or fonte_oficial(u)]
+    if oficiais:
+        return "documentada", f"R5: {len(oficiais)} de {len(ev)} fonte(s) que sustentam o evento são oficiais (tipo {oficiais[0][0]}, {dominio_de(oficiais[0][1])})"
+    imp = [(t, u) for t, u in ev if t in R5_TIPOS_IMPRENSA]
+    if imp:
+        return "reportada", f"R5: sem fonte oficial; {len(imp)} de {len(ev)} fonte(s) que sustentam o evento são reportagem/relatório"
+    return "nao_classificada", f"R5: nenhuma fonte reportagem/relatório/oficial sustenta o evento ({len(ev)} de sustentação, {ctx} só de contexto)"
+
+
+def gerar_natureza_r5(con):
+    out = []
+    for r in con.execute("SELECT id FROM evento WHERE canal IN ('brasil','violencia') AND natureza_id IS NULL ORDER BY data, id"):
+        evs = [(x[0], x[1], x[2]) for x in con.execute(
+            "SELECT e.tipo, e.url, x.papel FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.evento_id=? ORDER BY x.ordem", (r["id"],))]
+        nat, regra = classificar_natureza_r5(evs)
+        out.append({"id": r["id"], "natureza": nat, "regra": regra})
+    return out
+
+
 def gerar_natureza(con):
     """Para cada evento da teia ainda sem natureza, aplica as regras ao título do evento e aos títulos originais dos eventos
     fundidos nele (evento_alias), com a união das fontes; vale a natureza mais forte."""
@@ -184,19 +221,36 @@ def gerar_natureza(con):
                 melhor = (nat, regra + nota)
         if melhor:
             out.append({"id": r["id"], "natureza": melhor[0], "regra": melhor[1]})
-    return out
+    return out + gerar_natureza_r5(con)
 
 
 def aplicar_natureza(con):
     itens = ler_json("eventos-natureza.json", [])
     aplicados = ignorados = 0
+    aplic_regra = collections.Counter()
     for it in itens:
         cur = con.execute("UPDATE evento SET natureza_id=? WHERE id=? AND natureza_id IS NULL", (it["natureza"], it["id"]))
         aplicados += cur.rowcount
         ignorados += 1 - cur.rowcount
+        if cur.rowcount:
+            aplic_regra[it["regra"].split(":")[0]] += 1
+    manual = ler_json("eventos-natureza-manual.json", [])
+    man_aplic = man_ign = 0
+    por_nat_manual = collections.Counter()
+    for it in manual:
+        if it.get("natureza") is None:
+            continue   # exceção explícita: fica NULL
+        cur = con.execute("UPDATE evento SET natureza_id=? WHERE id=? AND natureza_id IS NULL", (it["natureza"], it["id"]))
+        man_aplic += cur.rowcount
+        man_ign += 1 - cur.rowcount
+        if cur.rowcount:
+            por_nat_manual[it["natureza"]] += 1
     return {"arquivo": len(itens), "aplicados": aplicados, "ignorados": ignorados,
             "por_regra": collections.Counter(i["regra"].split(":")[0] for i in itens),
-            "por_natureza": collections.Counter(i["natureza"] for i in itens)}
+            "por_natureza": collections.Counter(i["natureza"] for i in itens),
+            "aplicados_por_regra": aplic_regra,
+            "manual": {"arquivo": len(manual), "aplicados": man_aplic, "ignorados": man_ign, "por_natureza": por_nat_manual,
+                       "excecoes": sum(1 for i in manual if i.get("natureza") is None)}}
 
 
 # ======================================================================== 3. fontes da timeline Brasil

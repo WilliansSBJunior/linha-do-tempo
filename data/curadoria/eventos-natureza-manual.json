@@ -1,0 +1,207 @@
+[
+ {
+  "id": "ev-2023-10-comecam-as-aplicacoes-de-rpps-em-letras",
+  "natureza": "reportada",
+  "justificativa": "Dado do Ministério da Previdência citado por Poder360 e Times Brasil; nenhuma fonte oficial ligada ao evento."
+ },
+ {
+  "id": "ev-2023-10-rioprevidencia-inicia-aportes-em-letras",
+  "natureza": "reportada",
+  "justificativa": "Valores atribuídos à PF, mas só há reportagens (Poder360, CNN); o relatório da PF não está ligado."
+ },
+ {
+  "id": "ev-2024-05-27-bc-aprova-a-compra-da-will-no-dia",
+  "natureza": "reportada",
+  "justificativa": "Atos do BC e dados do TCU conhecidos por uma única reportagem (Let's Money); sem documento oficial ligado."
+ },
+ {
+  "id": "ev-2024-10-fundos-hans-95-e-reag-growth-aportam",
+  "natureza": "alegacao",
+  "justificativa": "Fato afirmado na acusação formal da CVM, segundo o Let's Money; é afirmação de uma parte acusadora, sem julgamento."
+ },
+ {
+  "id": "ev-2025-03-brb-e-master-fecham-acordo-para-venda-de",
+  "natureza": "reportada",
+  "justificativa": "Acordo e valor estimado vêm de reportagens; o ato não tem documento oficial ligado."
+ },
+ {
+  "id": "ev-2025-04-balanco-2024-ativo-de-r-63-bi-e-r-8-7-bi",
+  "natureza": "reportada",
+  "justificativa": "Balanço auditado é publicação da própria empresa (publicidade legal), não documento oficial/decisão; conservador: reportada."
+ },
+ {
+  "id": "ev-2025-04-23-operacao-sem-desconto-pf-e-cgu-miram",
+  "natureza": "investigacao",
+  "justificativa": "Operação da PF e da CGU com 211 mandados de busca: ato de investigação."
+ },
+ {
+  "id": "ev-2025-05-05-fgc-comeca-a-dar-assistencia-financeira",
+  "natureza": "reportada",
+  "justificativa": "Valores e cláusula do contrato do FGC revelados por Folha/CNN; sem documento oficial ligado."
+ },
+ {
+  "id": "ev-2025-08-cldf-aprova-em-uma-semana-compra-do",
+  "natureza": "reportada",
+  "justificativa": "Aprovação de lei pela CLDF, mas só uma reportagem ligada (R2 exigiria duas); sem a lei/diário oficial como fonte."
+ },
+ {
+  "id": "ev-2025-08-28-carbono-oculto-quasar-e-tank-operacoes",
+  "natureza": "investigacao",
+  "justificativa": "Operações da PF/MPF/Receita com mais de 350 alvos e bloqueios: ato de investigação; as cifras são 'segundo as autoridades'."
+ },
+ {
+  "id": "ev-2025-09-21-master-apresenta-ao-bc-plano-de",
+  "natureza": "reportada",
+  "justificativa": "Conteúdo do plano conhecido por uma reportagem; o plano não está ligado como documento."
+ },
+ {
+  "id": "ev-2025-10-10-inss-nao-renova-acordo-consignado-do",
+  "natureza": "reportada",
+  "justificativa": "Ato administrativo do INSS noticiado por Jovem Pan e Jornal de Brasília; sem documento oficial."
+ },
+ {
+  "id": "ev-2025-10-14-gaeco-aponta-executivos-da-reag-e-fundo",
+  "natureza": "investigacao",
+  "justificativa": "Suspeita do Gaeco (MP) em apuração sobre lavagem; a Reag contesta o enquadramento."
+ },
+ {
+  "id": "ev-2025-11-relatorio-do-inss-aponta-251-718",
+  "natureza": "reportada",
+  "justificativa": "Análise interna do INSS revelada pelo Estadão (confirmada pelo O Globo); relatório não ligado como fonte."
+ },
+ {
+  "id": "ev-2025-11-17-bc-comunica-ao-mpf-indicios-de-fraude",
+  "natureza": "reportada",
+  "justificativa": "Comunicação do BC ao MPF/TCU revelada pela imprensa; relatório não ligado como fonte."
+ },
+ {
+  "id": "ev-2025-12-caso-chega-ao-stf-toffoli-e-relator-e",
+  "natureza": "reportada",
+  "justificativa": "Atos do STF e do TCU conhecidos por reportagens; sem decisão ou documento ligado."
+ },
+ {
+  "id": "ev-2025-12-04-cpmi-do-inss-aprova-convocacao-e-quebra",
+  "natureza": "investigacao",
+  "justificativa": "Ato de CPMI (convocação e quebra de sigilo) é medida investigativa parlamentar."
+ },
+ {
+  "id": "ev-2026-01-16-inss-bloqueia-repasses-ao-master-r-2-bi",
+  "natureza": "reportada",
+  "justificativa": "Informação do presidente do INSS à GloboNews, repercutida pela imprensa; sem documento oficial."
+ },
+ {
+  "id": "ev-2026-01-17-fgc-inicia-o-maior-ressarcimento-de-sua",
+  "natureza": "reportada",
+  "justificativa": "Pagamentos do FGC noticiados; nota técnica do Dieese é análise de terceiro, não documento oficial."
+ },
+ {
+  "id": "ev-2026-01-23-pf-deflagra-barco-de-papel-castro",
+  "natureza": "investigacao",
+  "justificativa": "Operação da PF com quatro mandados de busca."
+ },
+ {
+  "id": "ev-2026-02-06-pf-mira-a-amprev-brb-entrega-plano-de",
+  "natureza": "investigacao",
+  "justificativa": "Operação Zona Cinzenta da PF com buscas na cúpula da Amprev."
+ },
+ {
+  "id": "ev-2026-02-09-pf-entrega-a-fachin-relatorio-sobre",
+  "natureza": "investigacao",
+  "justificativa": "Relatório da PF ao presidente do STF no inquérito; o conteúdo é conhecido pela imprensa."
+ },
+ {
+  "id": "ev-2026-02-10-fgc-aprova-plano-emergencial-para",
+  "natureza": "reportada",
+  "justificativa": "Deliberação do conselho do FGC noticiada; a estimativa de R$ 55 bi é do Valor, não oficial."
+ },
+ {
+  "id": "ev-2026-02-12-toffoli-deixa-a-relatoria-mendonca",
+  "natureza": "reportada",
+  "justificativa": "Ato do STF noticiado por Poder360 e Folha Vitória, sem a decisão ligada; a explicação de Toffoli é declaração própria."
+ },
+ {
+  "id": "ev-2026-03-04-3a-fase-vorcaro-e-preso-de-novo",
+  "natureza": "investigacao",
+  "justificativa": "Fase da operação com prisões e buscas determinadas por ministro do STF na investigação da PF."
+ },
+ {
+  "id": "ev-2026-03-11-mansur-na-cpi-master-era-cliente-da-reag",
+  "natureza": "alegacao",
+  "justificativa": "Depoimento de Mansur à CPI: negativa de vínculo com o PCC é afirmação de uma parte, sem confirmação."
+ },
+ {
+  "id": "ev-2026-03-17-master-multiplo-e-liquidado-liquidante",
+  "natureza": "reportada",
+  "justificativa": "Liquidação e ação do liquidante conhecidas por reportagens (Metrópoles, Mercado & Consumo); sem ato oficial ligado."
+ },
+ {
+  "id": "ev-2026-04-08-receita-mostra-pagamentos-do-master-a-ex",
+  "natureza": "reportada",
+  "justificativa": "Declarações do Master enviadas à CPI reveladas por Jornal Opção e CNN; documento não ligado."
+ },
+ {
+  "id": "ev-2026-04-20-brb-e-quadra-fecham-memorando-para",
+  "natureza": "reportada",
+  "justificativa": "Memorando noticiado por O Povo e Gazeta do Povo, com base em comunicação do GDF; sem documento oficial."
+ },
+ {
+  "id": "ev-2026-05-04-cvm-acusa-reag-trust-e-ex-diretor-por",
+  "natureza": "investigacao",
+  "justificativa": "Acusação formal da CVM (processo sancionador) ainda sem julgamento; a Reag contesta."
+ },
+ {
+  "id": "ev-2026-05-05-defesa-de-vorcaro-oferece-delacao-e",
+  "natureza": "reportada",
+  "justificativa": "A entrega da base da delação à PF/PGR foi noticiada por Band e Exame; a rejeição também só consta de reportagens."
+ },
+ {
+  "id": "ev-2026-05-26-justica-das-bahamas-reconhece-a",
+  "natureza": "reportada",
+  "justificativa": "Reconhecimento judicial noticiado por Conjur e Jornal de Brasília; decisão não ligada. O desvio de US$ 1 bi é apuração preliminar do liquidante."
+ },
+ {
+  "id": "ev-2026-06-09-presidente-do-brb-fala-em-corrida-de",
+  "natureza": "alegacao",
+  "justificativa": "Números e qualificação de fraude dados pelo presidente do BRB, parte interessada; sem balanço divulgado."
+ },
+ {
+  "id": "ev-2026-07-17-brb-encerra-o-memorando-com-a-quadra",
+  "natureza": "reportada",
+  "justificativa": "Fato relevante do BRB e relato da Folha chegam por reportagens; o comunicado não está ligado como fonte."
+ },
+ {
+  "id": "ev-2026-07-23-mendonca-autoriza-inquerito-sobre",
+  "natureza": "investigacao",
+  "justificativa": "Abertura de inquérito autorizada por ministro do STF a pedido da PF e da PGR; Flávio Bolsonaro nega irregularidade."
+ },
+ {
+  "id": "ev-2026-08-26-mansur-entrega-a-pgr-proposta-de-delacao",
+  "natureza": "alegacao",
+  "justificativa": "Proposta de delação não homologada; os relatos são afirmação de uma parte, via UOL."
+ },
+ {
+  "id": "ev-2026-09-02-pgr-fecha-acordo-de-delacao-com-mansur",
+  "natureza": "alegacao",
+  "justificativa": "Acordo sem homologação; o conteúdo atribuído a Mansur está no condicional e não é comprovado."
+ },
+ {
+  "id": "ev-2026-09-13-stf-torna-publica-decisao-que-bloqueou",
+  "natureza": "reportada",
+  "justificativa": "Decisão do STF noticiada por uma única reportagem; a decisão não está ligada como fonte (R2 exigiria duas)."
+ },
+ {
+  "id": "ev-2026-09-15-plenario-do-stf-comeca-a-analisar",
+  "natureza": "reportada",
+  "justificativa": "Sessão plenária e troca de acusações noticiadas por seis reportagens; sem ata ou decisão ligada."
+ },
+ {
+  "id": "ev-2026-09-24-credito-oculto-3a-fase-da-carbono-oculto",
+  "natureza": "investigacao",
+  "justificativa": "Buscas da Receita e do Gaeco; o comunicado oficial da Receita é fonte, mas não cita Master, e a ligação com Vorcaro é da PF segundo a imprensa."
+ },
+ {
+  "id": "ev-2026-10-02-fachin-pede-a-pf-lista-de-ministros",
+  "natureza": "reportada",
+  "justificativa": "Pedido de Fachin à PF noticiado por uma única reportagem; as menções nas conversas não implicam irregularidade."
+ }
+]
