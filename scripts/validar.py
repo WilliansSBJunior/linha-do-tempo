@@ -418,8 +418,32 @@ def evidencias_adicionais(con):
         chaves.add(k)
         if e["qualidade"] not in ("boa", "fraca") or (e["qualidade"] == "fraca") != bool(e.get("motivo_fraca")):
             ruins.append(f"qualidade/motivo_fraca inconsistentes: {k}")
-        fracas += e["qualidade"] == "fraca"
+        if e.get("substituida_por") and e["qualidade"] != "fraca":
+            ruins.append(f"substituida_por em entrada que não é fraca: {k}")
+        if e.get("substituida_por") and e.get("substitui"):
+            ruins.append(f"entrada ao mesmo tempo substituída e substituta: {k}")
+        subs_url = bool(e.get("substituida_por")) and e["qualidade"] == "fraca"
+        fracas += e["qualidade"] == "fraca" and not subs_url
+        if e.get("substituida_por"):   # a nova fonte tem de estar no arquivo, no mesmo alvo, apontando de volta (`substitui`) e ligada
+            nova = [x for x in ent if (x["alvo_tipo"], x.get("evento_id") or (x["relacao_origem"], x["relacao_origem_ref"])) == k[:2]
+                    and normalizar_url(x["url"]) == normalizar_url(e["substituida_por"])]
+            if len(nova) != 1 or not nova[0].get("substitui"):
+                ruins.append(f"substituida_por sem entrada substituta (com `substitui`) no mesmo alvo: {k}")
+            elif nova[0]["qualidade"] != "boa":
+                ruins.append(f"substituta não é de qualidade boa: {k}")
         ev = q(con, "SELECT id FROM evidencia WHERE url=?", normalizar_url(e["url"]))
+        if subs_url:   # fraca substituída: fica só no arquivo (histórico); não pode estar ligada ao alvo
+            if e["alvo_tipo"] == "evento":
+                a = q(con, "SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?", e["evento_id"], e["evento_id"])
+                lig = q(con, "SELECT 1 FROM evento_evidencia WHERE evento_id=? AND evidencia_id=?", a[0][0], ev[0][0]) if a and ev else []
+            else:
+                a = q(con, "SELECT id FROM relacao WHERE origem=? AND origem_ref=?", e["relacao_origem"], e["relacao_origem_ref"])
+                lig = q(con, "SELECT 1 FROM relacao_evidencia WHERE relacao_id=? AND evidencia_id=?", a[0][0], ev[0][0]) if a and ev else []
+            if not a:
+                ruins.append(f"alvo ausente: {k}")
+            if lig:
+                ruins.append(f"fonte fraca substituída ainda ligada ao alvo: {k}")
+            continue
         if not ev:
             ruins.append(f"evidência ausente: {e['url']}")
             continue
@@ -433,7 +457,8 @@ def evidencias_adicionais(con):
             lig = q(con, "SELECT trecho_citado, nota, qualidade, papel FROM relacao_evidencia WHERE relacao_id=? AND evidencia_id=?", a[0][0], ev[0][0]) if a else []
             if a and e.get("descricao_nova"):
                 d = q(con, "SELECT descricao FROM relacao WHERE id=?", a[0][0])[0][0]
-                if d != e["descricao_nova"]:
+                esperada = _correcoes_relacao().get(e["relacao_origem_ref"], {}).get("para", {}).get("descricao", e["descricao_nova"])   # correção aceita posterior vale
+                if d != esperada:
                     ruins.append(f"descricao de {k[1]} difere de descricao_nova")
         if not a:
             ruins.append(f"alvo ausente: {k}")
@@ -445,7 +470,7 @@ def evidencias_adicionais(con):
         print("   -", r)
     esperar("evidencias-adicionais.json: entradas aplicadas e idênticas ao banco (divergências)", len(ruins), 0)
     nf = (q(con, "SELECT count(*) FROM evento_evidencia WHERE qualidade='fraca'")[0][0] + q(con, "SELECT count(*) FROM relacao_evidencia WHERE qualidade='fraca'")[0][0])
-    esperar("ligações com qualidade 'fraca' no banco == entradas fracas do arquivo", nf, fracas)
+    esperar("ligações com qualidade 'fraca' no banco == entradas fracas do arquivo sem `substituida_por`", nf, fracas)
     p = DATA / "relatorio-evidencias-adicionais.md"
     esperar("data/relatorio-evidencias-adicionais.md existe", p.exists(), True)
 
@@ -660,7 +685,7 @@ def modelo_v2(con, exp):
     secao("Teia <-> timeline (mandato/bancada -> relações institucionais)")
     n_m = q(con, "SELECT count(*) FROM mandato")[0][0]
     esperar("relações subtipo mandato:* == linhas de mandato", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND subtipo LIKE 'mandato:%'")[0][0], n_m)
-    corr = _correcoes_relacao()   # filiação com período corrigido à mão (Bolsonaro/PSL) é a única exceção abaixo
+    corr = _correcoes_relacao()   # filiação com período corrigido à mão (Bolsonaro/PSL e Alencar/PL) é a única exceção abaixo
     esperar("cada mandato tem a sua relação (origem_ref mandato:<id>)", q(con, "SELECT count(*) FROM mandato m WHERE NOT EXISTS (SELECT 1 FROM relacao r WHERE r.origem_ref='mandato:'||m.id AND r.de=m.entidade_id AND r.periodo_inicio=m.inicio AND r.periodo_fim=COALESCE(m.fim,m.inicio))")[0][0], 0)
     esperar("relações linha_do_tempo: natureza/tipo/status", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND (natureza_id<>'documentada' OR tipo<>'institucional' OR status<>'publicada')")[0][0], 0)
     esperar("relações linha_do_tempo sem o tema brasil-ano-a-ano", q(con, "SELECT count(*) FROM relacao r WHERE origem='linha_do_tempo' AND NOT EXISTS (SELECT 1 FROM relacao_tema x WHERE x.relacao_id=r.id AND x.tema_id='brasil-ano-a-ano')")[0][0], 0)
@@ -673,7 +698,7 @@ def modelo_v2(con, exp):
         mand.setdefault(m["entidade_id"], []).append((m["partido"], int(m["inicio"][:4]), int(m["fim"][:4])))
     sem = 0
     for r in q(con, "SELECT de, para, ano_inicio, ano_fim, origem_ref FROM relacao WHERE subtipo='filiacao'"):
-        # filiação com `periodo_fim` corrigido à mão (relacao-correcoes.json; hoje só Bolsonaro/PSL 2019) só precisa sobrepor um mandato do partido; as demais continuam exigindo o mandato dentro do período
+        # filiação com `periodo_fim` corrigido à mão (relacao-correcoes.json; hoje só Bolsonaro/PSL 2019 e Alencar/PL 2003) só precisa sobrepor um mandato do partido; as demais continuam exigindo o mandato dentro do período
         cobre = (lambda a, b: r["ano_inicio"] <= b and a <= r["ano_fim"]) if "periodo_fim" in corr.get(r["origem_ref"], {}).get("para", {}) else (lambda a, b: r["ano_inicio"] <= a <= b <= r["ano_fim"])
         if not any((manual.get(p) == r["para"] or (p, r["para"]) in por_alias) and cobre(a, b)
                    for p, a, b in mand.get(r["de"], [])):

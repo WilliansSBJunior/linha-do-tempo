@@ -95,8 +95,17 @@
     "rotulo": "Filiado ao PL",
     "periodo_inicio": "2003"
    },
-   "decisao": "manter",
-   "motivo": "Fonte só diz PL na eleição e PRB em 2011; a data da troca (2005) não foi verificada. Fica como está, com nota.",
+   "decisao": "aceitar",
+   "de": {
+    "periodo_fim": "2010",
+    "descricao": "Partido registrado em 1 mandato(s) da linha do tempo (vice_presidente); PL. O período é inferido dos mandatos, não da data de filiação."
+   },
+   "para": {
+    "periodo_fim": "2005",
+    "descricao": "Eleito e empossado vice-presidente pelo PL (2003); deixou o PL em setembro de 2005 e filiou-se ao PMR, depois PRB."
+   },
+   "motivo": "Congresso em Foco: Alencar saiu do PL no auge do mensalão e se filiou ao PMR (depois PRB) em 29/9/2005; o mandato (partido PL, 2003-2010) não muda.",
+   "fonte_url": "https://www.congressoemfoco.com.br/noticia/99616/alencar-e-crivella-se-filiam-ao-pmr",
    "ressalvas": []
   }
  ],
@@ -206,14 +215,17 @@
    "decisao": "aceitar",
    "de": {
     "subtipo": null,
-    "rotulo": "Familiar ou próximo de"
+    "rotulo": "Familiar ou próximo de",
+    "descricao": "Empresa da qual a nora de Jaques Wagner, Bonnie Bonilha, é sócia; recebeu pagamentos do Banco Master segundo a imprensa."
    },
    "para": {
     "subtipo": "empresa_de_familiar",
-    "rotulo": "Empresa de familiar de"
+    "rotulo": "Empresa de familiar de",
+    "descricao": "Empresa da qual a nora de Jaques Wagner, Bonnie Bonilha, é sócia; recebeu pagamentos do Banco Master segundo a imprensa. A grafia \"BK Financeira\" é a das matérias de março; \"BN Financeira\", a de junho."
    },
-   "motivo": "Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses.",
-   "ressalvas": []
+   "motivo": "Empresa da nora; vínculo indireto. Nome varia (BN/BK Financeira) — manter o nome com a variante entre parênteses. Descrição: Metrópoles (18/3/2026) escreve BK Financeira; a matéria de 18/6 escreve BN Financeira. Fonte da descrição: https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner",
+   "ressalvas": [],
+   "fonte_url": "https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner"
   },
   {
    "origem": "teia",
@@ -305,18 +317,6 @@
   },
   {
    "origem": "teia",
-   "origem_ref": "N[163].lig_de",
-   "alvo": {
-    "de": "Lewandowski Advocacia",
-    "para": "Ricardo Lewandowski",
-    "rotulo": "Escritório ligado a"
-   },
-   "decisao": "manter",
-   "motivo": "Nome não conferido literalmente, mas o vínculo (contrato de R$ 5 mi) está na fonte.",
-   "ressalvas": []
-  },
-  {
-   "origem": "teia",
    "origem_ref": "N[197].fam_de",
    "alvo": {
     "de": "Chiquinho Feitosa",
@@ -331,6 +331,25 @@
     "subtipo": "ex-cunhado"
    },
    "motivo": "Fonte: ex-cunhado.",
+   "ressalvas": []
+  },
+  {
+   "origem": "teia",
+   "origem_ref": "N[163].lig_de",
+   "alvo": {
+    "de": "Lewandowski Advocacia",
+    "para": "Ricardo Lewandowski",
+    "rotulo": "Escritório ligado a"
+   },
+   "decisao": "aceitar",
+   "de": {
+    "descricao": "Escritório de Lewandowski que recebeu R$ 5 milhões do Banco Master, inclusive com ele já como ministro; depois representado pelo filho."
+   },
+   "para": {
+    "descricao": "Escritório de Lewandowski que recebeu R$ 6,5 milhões brutos do Banco Master, dos quais R$ 5,25 milhões depois de ele assumir o Ministério da Justiça, em janeiro de 2024; depois representado pelo filho."
+   },
+   "motivo": "Metrópoles (26/1/2026): total bruto de R$ 6,5 mi, R$ 5,25 mi pagos após ele virar ministro (jan/2024).",
+   "fonte_url": "https://www.metropoles.com/brasil/politica-brasil/master-pagou-r-5-milhoes-a-escritorio-de-lewandowski-ja-como-ministro",
    "ressalvas": []
   }
  ]

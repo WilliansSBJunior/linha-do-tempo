@@ -95,7 +95,8 @@
   "trecho": "O Mercosul, desde o dia 11 de janeiro de 1995, está num grau de integração comumente chamado União Aduaneira.",
   "nota": "CONTRADIÇÃO: esta fonte dá 11 de janeiro de 1995, não 1º de janeiro; diz também que a TEC 'não está plenamente em vigor'. Outras fontes costumam dar 1/1/1995; não confirmado em fonte aberta por mim. Campo 'data' da página não identificado.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-mistas/cpcms/conheca-a-representacao/oqueeomercosul.html/organogramamercosul.html"
  },
  {
   "alvo_tipo": "evento",
@@ -134,7 +135,8 @@
   "trecho": "2000: -0.78899893905691; 1999: -3.38545704063269",
   "nota": "Confirma -0,79% em 2000 e queda também em 1999. NÃO verificado: Argentina como 2º destino das exportações brasileiras com 11,33% (nenhuma fonte aberta).",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://wits.worldbank.org/CountryProfile/es/Country/BRA/Year/2000/Summarytext"
  },
  {
   "alvo_tipo": "evento",
@@ -145,7 +147,7 @@
   "titulo": "Por 56 votos a 19, Senado cassa Demóstenes Torres",
   "data": "2012-07-11",
   "trecho": "pela primeira vez na sua história, cassou um senador ... em sessão fechada, houve 52 votos pela cassação do senador do Distrito Federal",
-  "nota": "Confirma ano 2000, 52 votos a favor, 18 contra, 10 abstenções e pioneirismo; não traz o dia 28/6. Congresso em Foco (outra matéria) cita 'junho de 2000' via Correio Braziliense. Gazeta do Povo (conselho de ética) data erroneamente em 2001.",
+  "nota": "Confirma ano 2000, 52 votos a favor, 18 contra, 10 abstenções e pioneirismo; não traz o dia 28/6. Congresso em Foco (outra matéria) cita 'junho de 2000' via Correio Braziliense. Gazeta do Povo (conselho de ética) data erroneamente em 2001. Substituição parcial: a nova fonte confirma o ano e o pioneirismo, mas não traz mês/dia nem o placar 52x18x10; esta continua ligada para essas partes (https://www.congressoemfoco.com.br/noticia/48086/ex-senador-cassado-luiz-estevao-responde-a-131-processos-na-justica-do-df).",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
  },
@@ -197,7 +199,8 @@
   "trecho": "Sancionada em 04/05/2000 ... CAE Parecer nº 298/2000, Relator: Senador Jefferson Péres",
   "nota": "Confirma sanção em 4/5/2000 (LC 101), origem PLP 18/1999 da Câmara e Jefferson Péres (grafia com acento) como relator na CAE; na CCJ o relator foi Álvaro Dias. NÃO confirmado: Pedro Novais como relator na Câmara (nenhuma fonte aberta).",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www25.senado.leg.br/web/atividade/materias/-/materia/43190/pdf"
  },
  {
   "alvo_tipo": "evento",
@@ -259,7 +262,8 @@
   "trecho": "The revaluation puts the renminbi at 8.11 against the dollar, which amounts to an appreciation of 2.1%.",
   "nota": "Trecho também menciona a cesta de moedas de referência; a página não foi checada para o dia 21/7 especificamente no trecho citado.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.nbcnews.com/id/wbna8655469"
  },
  {
   "alvo_tipo": "evento",
@@ -308,7 +312,8 @@
   "trecho": "decided today to raise its target for the federal funds rate by 25 basis points to 4-1/4 percent.",
   "nota": "Confirma 4,25% em 13/12; 'oito reuniões' e início do ciclo em 30/6/2004 não verificados nesta página.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -331,7 +336,7 @@
   "titulo": "Table Data - Crude Oil Prices: Brent - Europe",
   "data": "2005",
   "trecho": "2004: 38.26; 2005: 54.57 (dólares por barril, médias anuais)",
-  "nota": "CONTRADIÇÃO: a série EIA/FRED dá média de US$ 54,57 (2005) e US$ 38,26 (2004), e não 54,68 e 38,23. A diferença pode vir de outra fonte (ex. BP).",
+  "nota": "CONTRADIÇÃO: a série EIA/FRED dá média de US$ 54,57 (2005) e US$ 38,26 (2004), e não 54,68 e 38,23. A diferença pode vir de outra fonte (ex. BP). Substituição parcial: a nova fonte (série primária de preços) não cobre a parte do Katrina (plataformas e refinarias); esta continua ligada para essa parte (https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=A).",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
  },
@@ -346,7 +351,8 @@
   "trecho": "The most straightforward is the agreement to end export subsidies in agriculture by 2013",
   "nota": "Espelho não oficial de página do wto.org (wto.org não carregou); procurar versão em wto.org. Confirma fim dos subsídios à exportação até 2013.",
   "qualidade": "fraca",
-  "motivo_fraca": "espelho não oficial da página da OMC; substituir pela versão em wto.org; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "espelho não oficial da página da OMC; substituir pela versão em wto.org; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.wto.org/English/thewto_e/minist_e/min05_e/min05_18dec_e.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -382,7 +388,8 @@
   "data": "2010",
   "trecho": "Exportaciones de Brasil a China por un valor de US$ 30,748 millones, con una proporción de 15.34 % de los asociados.",
   "nota": "Confirma China 15,34% e EUA 9,71% (US$ 19,459 mi).",
-  "qualidade": "boa"
+  "qualidade": "boa",
+  "substitui": "https://www.rferl.org/a/china_economy/2308720.html"
  },
  {
   "alvo_tipo": "evento",
@@ -395,7 +402,8 @@
   "trecho": "Data released February 14 put China's overall gross domestic product (GDP) for 2010 at $5.879 trillion. ... $5.474 trillion for Japan.",
   "nota": "CONTRADIÇÃO: dados oficiais chineses/japoneses divulgados em 14/2/2011 dão PIB nominal de US$ 5,88 tri (China) e US$ 5,47 tri (Japão), não 6,19 e 5,81 (valores possivelmente de FMI/Banco Mundial; não verificados). A ultrapassagem se confirma.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.aljazeera.com/amp/economy/2011/2/14/chinese-economy-overtakes-japan"
  },
  {
   "alvo_tipo": "evento",
@@ -492,7 +500,8 @@
   "trecho": "the financial package makes available E110 billion to help Greece meet its financing needs",
   "nota": "DATA: o texto do anúncio é de 2/5/2010 (Eurogrupo/FMI), não 3/5; o 3/5 pode ser a aprovação final/assinatura. Veículo é de mercado, reproduz texto oficial.",
   "qualidade": "fraca",
-  "motivo_fraca": "site de mercado que reproduz texto oficial; substituir pela fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "site de mercado que reproduz texto oficial; substituir pela fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://gouvernement.lu/dam-assets/fr/actualites/articles/2010/05-mai/02-eurogroupe/statement.pdf"
  },
  {
   "alvo_tipo": "evento",
@@ -553,7 +562,8 @@
   "trecho": "2014: 99.35; 2015: 53.02 (U.S. dollars per barrel, annual; fonte IMF)",
   "nota": "Confirma os valores do Brent. Minério de ferro NÃO confirmado com os números do evento: o IMF Commodity Market Monthly de jan/2016 traz ferro 96.8 (2014) e 55.2 (2015), preliminar, vs. 97,39 e 56,14 do evento (https://www.imf.org/external/np/res/commod/pdf/monthly/011516.pdf). Diferença provavelmente de revisão da série.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.imf.org/external/np/res/commod/pdf/monthly/011516.pdf"
  },
  {
   "alvo_tipo": "evento",
@@ -578,7 +588,8 @@
   "trecho": "the Committee decided to raise the target range for the federal funds rate to 1/4 to 1/2 percent",
   "nota": "O comunicado não diz que é a primeira alta desde 2006 nem cita a faixa anterior; esse detalhe não foi verificado na página.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -590,7 +601,8 @@
   "data": "2015-08-16",
   "trecho": "superou o registrado na manifestação de 12 de abril, estimado em 560 mil manifestantes",
   "nota": "Cobre 12/4 (560 mil) e 16/8 (~795 mil, PMs); 15/3 citado com ~2 milhões na estimativa do texto, bem acima de 'centenas de milhares'. Título da página inferido do conteúdo retornado, URL slug diferente.",
-  "qualidade": "boa"
+  "qualidade": "boa",
+  "substitui": "https://www12.senado.leg.br/institucional/datasenado/materias/enquetes/manifestacoes-de-rua-2015"
  },
  {
   "alvo_tipo": "evento",
@@ -603,7 +615,8 @@
   "trecho": "Corrupção e impeachment da presidente Dilma foram a motivação para os protestos de 76% e 75%, respectivamente",
   "nota": "Só cobre 16/8; enquete online, não representativa.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.congressoemfoco.com.br/noticia/44038/brasileiros-voltam-as-ruas-contra-governo-federal"
  },
  {
   "alvo_tipo": "evento",
@@ -640,7 +653,8 @@
   "trecho": "the center of the trading band was set 1.9 percent below Monday's level",
   "nota": "Confirma apenas o yuan (ponto médio 1,9% abaixo; yuan ~2% mais fraco).",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.everycrsreport.com/files/20150817_IN10342_ce6eb700a4e769c5c91c750981a3c7cd98358793.html"
  },
  {
   "alvo_tipo": "evento",
@@ -688,7 +702,7 @@
   "titulo": "China contribuiu com mais da metade do superávit comercial do Brasil",
   "data": "2021-01-15",
   "trecho": "A participação do país saiu de 28,1% para 32,3% de 2019 para 2020.",
-  "nota": "CONTRADIÇÃO: fonte dá 32,3%, não 32,41%. O MDIC/Siscomex (gov.br) não publica o percentual: só US$ 70,08 bi para China+HK+Macau (~33%).",
+  "nota": "CONTRADIÇÃO: fonte dá 32,3%, não 32,41%. O MDIC/Siscomex (gov.br) não publica o percentual: só US$ 70,08 bi para China+HK+Macau (~33%). Substituição parcial: a nova fonte cobre só 2,34% e -2,08%; os 32,3% só estão na Agência Brasil (esta), que continua ligada para essa parte (https://api.worldbank.org/v2/country/CHN;USA/indicator/NY.GDP.MKTP.KD.ZG?date=2020:2020&format=json).",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
  },
@@ -713,7 +727,7 @@
   "titulo": "How negative oil prices revealed the dangers of futures trading",
   "data": "2020-06-16",
   "trecho": "a price war erupted between oil giants Saudi Arabia and Russia in early March",
-  "nota": "WTI a cerca de -US$ 37 em 20/4 confirmado. Data exata 8/3 não consta na página ('início de março'). Brent média 2020 = 43.33 confirmado em https://fred.stlouisfed.org/data/POILBREUSDA (série do FMI). Obs.: o -37 refere-se ao contrato de maio.",
+  "nota": "WTI a cerca de -US$ 37 em 20/4 confirmado. Data exata 8/3 não consta na página ('início de março'). Brent média 2020 = 43.33 confirmado em https://fred.stlouisfed.org/data/POILBREUSDA (série do FMI). Obs.: o -37 refere-se ao contrato de maio. Substituição parcial: a nova fonte confirma a guerra de preços e a data de 8/3; esta (CNBC) continua ligada apenas para o WTI a cerca de -US$ 37 em 20/4 (https://www.npr.org/2020/03/08/813439501/saudi-arabia-stuns-world-with-massive-discount-in-oil-sold-to-asia-europe-and-u-).",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
  },
@@ -728,7 +742,8 @@
   "trecho": "a União complementará os recursos dos fundos",
   "nota": "Confirma promulgação 26/8/2020 e complementação (mín. 23%, progressiva a partir de 2021). A página não usa a palavra 'permanente' (Fundeb passa ao art. 212-A) e não traz o placar 79x0 do Senado, não verificado.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www12.senado.leg.br/noticias/materias/2020/08/26/senadores-comemoram-promulgacao-da-emenda-que-torna-o-fundeb-permanente"
  },
  {
   "alvo_tipo": "evento",
@@ -789,7 +804,8 @@
   "trecho": "Falei ao presidente que seria uma intervenção política, e ele disse que seria mesmo.",
   "nota": "A página não traz a contestação de Bolsonaro (parte da descrição não verificada nesta fonte).",
   "qualidade": "fraca",
-  "motivo_fraca": "veículo regional (A Gazeta, ES); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "veículo regional (A Gazeta, ES); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://istoedinheiro.com.br/moro-anuncia-demissao-e-acusa-bolsonaro-de-interferir-na-pf"
  },
  {
   "alvo_tipo": "evento",
@@ -887,7 +903,8 @@
   "trecho": "an additional ad valorem duty rate of 40 percent on certain articles of Brazil",
   "nota": "Página da Casa Branca é a ordem de 20/11/2025 (EO 14361), que cita a EO 14323 (30/7/2025) que impôs os 40%; a ordem original de 30/7 não abriu no fetch. Os 10% de abril não aparecem nesta página.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.govinfo.gov/content/pkg/FR-2025-08-05/pdf/2025-14896.pdf"
  },
  {
   "alvo_tipo": "evento",
@@ -900,7 +917,8 @@
   "trecho": "foi imposta, em abril, a taxa mais baixa, de 10%. | elevou a tarifa para 50% contra o Brasil",
   "nota": "A matéria não menciona explicitamente 'adicional de 40%' nem a data de 30/7; trecho condensado de duas frases.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.govinfo.gov/content/pkg/FR-2025-08-05/pdf/2025-14896.pdf"
  },
  {
   "alvo_tipo": "evento",
@@ -913,7 +931,8 @@
   "trecho": "certain agricultural products shall not be subject to the reciprocal tariff imposed under Executive [Order] 14257, as amended.",
   "nota": "A página não nomeia café, carne, banana etc. (lista no anexo, não aberto). Esta ordem trata da tarifa 'recíproca'; a retirada dos 40% específicos do Brasil para esses itens é da ordem de 20/11/2025 (ver Agência Brasil).",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.whitehouse.gov/presidential-actions/2025/11/modifying-the-scope-of-tariffs-on-the-government-of-brazil"
  },
  {
   "alvo_tipo": "evento",
@@ -926,7 +945,8 @@
   "trecho": "café, chá, frutas tropicais e sucos de frutas, cacau e especiarias, banana, laranja, tomate e carne bovina",
   "nota": "CONTRADIÇÃO DE DATA: a retirada dos 40% sobre itens brasileiros foi anunciada em 20/11/2025; 14/11/2025 é a data da ordem sobre a tarifa recíproca de produtos agrícolas.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://exame.com/mundo/trump-corta-tarifas-de-carne-cafe-tomate-e-banana-nos-eua/"
  },
  {
   "alvo_tipo": "evento",
@@ -939,7 +959,8 @@
   "trecho": "lower the target range for the federal funds rate by 1/4 percentage point to 3-1/2 to 3-3/4 percent",
   "nota": "Só o comunicado de dezembro foi aberto; os cortes de setembro e outubro não foram confirmados em página própria.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -952,7 +973,8 @@
   "trecho": "sancionou, nesta quarta-feira, 26, a isenção do Imposto de Renda (IR) para quem ganha até R$ 5 mil",
   "nota": "A matéria não cita Arthur Lira.",
   "qualidade": "fraca",
-  "motivo_fraca": "veículo regional (O Povo, CE); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "veículo regional (O Povo, CE); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.camara.leg.br/noticias/1206672-camara-aprova-projeto-que-isenta-do-imposto-de-renda-quem-ganha-ate-r-5-mil-por-mes/"
  },
  {
   "alvo_tipo": "evento",
@@ -989,7 +1011,8 @@
   "trecho": "fixar a pena do ex-presidente Jair Bolsonaro a uma pena de 27 anos e 3 meses de prisão",
   "nota": "Pena exata é 27 anos e 3 meses (descrição diz 27 anos). Página do STF não aberta.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://agenciabrasil.ebc.com.br/justica/noticia/2025-09/stf-condena-bolsonaro-27-anos-e-tres-meses-de-prisao"
  },
  {
   "alvo_tipo": "evento",
@@ -1070,7 +1093,8 @@
   "trecho": "Jair Bolsonaro (PSL-RJ) foi eleito neste domingo (28) presidente do Brasil.",
   "nota": "Filiação PSL vale na eleição; Bolsonaro deixou o PSL em 2019 (fora da fonte), então 'PSL 2019-2022' é inexato para todo o período.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://agenciabrasil.ebc.com.br/politica/noticia/2019-11/bolsonaro-anuncia-saida-do-psl-e-criacao-da-alianca-pelo-brasil"
  },
  {
   "alvo_tipo": "relacao",
@@ -1099,7 +1123,8 @@
   "trecho": "como senador da República pelo Partido Liberal",
   "nota": "Confirma o PL na época da eleição (era senador pelo PL). Em 2011 a Agência Senado o diz no PRB. Término do mandato como vice não verificado nesta página.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www2.senado.leg.br/jspui/bitstream/id/460123/1/noticia.htm"
  },
  {
   "alvo_tipo": "relacao",
@@ -1296,7 +1321,8 @@
   "trecho": "Jair Bolsonaro (PSL-RJ) foi eleito neste domingo (28) presidente do Brasil.",
   "nota": "Eleito pelo PSL; a fonte não trata da saída do partido em 2019 (Bolsonaro deixou o PSL em nov/2019, informação externa à fonte).",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://agenciabrasil.ebc.com.br/politica/noticia/2019-11/bolsonaro-anuncia-saida-do-psl-e-criacao-da-alianca-pelo-brasil"
  },
  {
   "alvo_tipo": "relacao",
@@ -1339,7 +1365,8 @@
   "trecho": "como senador da República pelo Partido Liberal",
   "nota": "Confirma o PL na época da eleição (era senador pelo PL). Em 2011 a Agência Senado o diz no PRB. Término do mandato como vice não verificado nesta página.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www2.senado.leg.br/jspui/bitstream/id/460123/1/noticia.htm"
  },
  {
   "alvo_tipo": "relacao",
@@ -1383,7 +1410,8 @@
   "nota": "Republicação de reportagem do Estadão; defesa nega irregularidade.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo regional (Bahia Notícias) que republica matéria do Estadão; preferir o original",
-  "descricao_nova": "Advogado, filho do ministro Kassio Nunes Marques; teria recebido pagamentos da consultoria Consult, que recebeu repasses do Master e da JBS."
+  "descricao_nova": "Advogado, filho do ministro Kassio Nunes Marques; teria recebido pagamentos da consultoria Consult, que recebeu repasses do Master e da JBS.",
+  "substituida_por": "https://www.metropoles.com/brasil/consultoria-ligada-ao-master-e-a-jbs-contratou-filho-de-nunes-marques"
  },
  {
   "alvo_tipo": "relacao",
@@ -1399,7 +1427,8 @@
   "nota": "A reportagem ressalva que as mensagens não mostram Luiz Fux envolvido.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo fora da lista de veículos estabelecidos",
-  "descricao_nova": "Advogado, filho do ministro Luiz Fux; mensagens do celular de Vorcaro mostram contato frequente com ele (sem indicar participação do ministro)."
+  "descricao_nova": "Advogado, filho do ministro Luiz Fux; mensagens do celular de Vorcaro mostram contato frequente com ele (sem indicar participação do ministro).",
+  "substituida_por": "https://www.jb.com.br/brasil/justica/2026/09/1060924-tapete-vermelho-irmao-policia-federal-encontra-mensagens-telefonicas-mostrando-proximidade-entre-rodrigo-fux-filho-do-ministro-e-daniel-vorcaro.html"
  },
  {
   "alvo_tipo": "relacao",
@@ -1430,7 +1459,8 @@
   "nota": "Os dois nomes aparecem em frases separadas; José Carlos é descrito como 'padre' e ex-sócio na época das aquisições.",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma o vínculo ou o nome como o grafo registra: os dois nomes aparecem em frases separadas; o vínculo não é afirmado diretamente",
-  "descricao_nova": "Irmãos do ministro Dias Toffoli, sócios da empresa Maridt, que negociou participação em resort com fundo ligado a Vorcaro."
+  "descricao_nova": "Irmãos do ministro Dias Toffoli, sócios da empresa Maridt, que negociou participação em resort com fundo ligado a Vorcaro.",
+  "substituida_por": "https://www.poder360.com.br/poder-justica/toffoli-viajou-em-jato-de-empresa-ligada-a-vorcaro-diz-jornal/"
  },
  {
   "alvo_tipo": "relacao",
@@ -1447,7 +1477,8 @@
   "qualidade": "fraca",
   "motivo_fraca": "veículo fora da lista de veículos estabelecidos; republica matéria da Folha",
   "descricao_nova": "Primo do ministro Dias Toffoli; controlava em 2020 a empresa que administra o resort Tayayá e foi sócio de empreendimento com participação de fundo ligado à rede do caso Master.",
-  "divergencia_rotulo": "primo"
+  "divergencia_rotulo": "primo",
+  "substituida_por": "https://www.poder360.com.br/poder-justica/toffoli-viajou-em-jato-de-empresa-ligada-a-vorcaro-diz-jornal/"
  },
  {
   "alvo_tipo": "relacao",
@@ -1479,7 +1510,8 @@
   "nota": "A matéria cita apenas 'Pedro Gonet', sem o sobrenome 'Branco'. Veículo regional, fora da lista nominal.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo regional (O Hoje, GO)",
-  "descricao_nova": "Filho do procurador-geral da República Paulo Gonet; segundo a PF, foi incluído em viagem a Londres custeada por Vorcaro."
+  "descricao_nova": "Filho do procurador-geral da República Paulo Gonet; segundo a PF, foi incluído em viagem a Londres custeada por Vorcaro.",
+  "substituida_por": "https://sbtnews.sbt.com.br/noticia/politica/pgr-pediu-para-vorcaro-levar-filho-a-londres-com-tudo-pago"
  },
  {
   "alvo_tipo": "relacao",
@@ -1544,7 +1576,8 @@
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma o vínculo ou o nome como o grafo registra: a fonte grafa BN Financeira e outra matéria BK Financeira; vínculo só indireto",
   "descricao_nova": "Empresa da qual a nora de Jaques Wagner, Bonnie Bonilha, é sócia; recebeu pagamentos do Banco Master segundo a imprensa.",
-  "divergencia_rotulo": "empresa da nora"
+  "divergencia_rotulo": "empresa da nora",
+  "substituida_por": "https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner"
  },
  {
   "alvo_tipo": "relacao",
@@ -1592,7 +1625,8 @@
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma o vínculo ou o nome como o grafo registra: propriedade atribuída pela PF, não vínculo familiar; veículo fora da lista nominal",
   "descricao_nova": "Empresa que, segundo a PF, pertenceria ao senador Ciro Nogueira (administrada formalmente pelo irmão dele); comprou 30% de firma de Vorcaro.",
-  "divergencia_rotulo": "empresa atribuída ao senador pela PF"
+  "divergencia_rotulo": "empresa atribuída ao senador pela PF",
+  "substituida_por": "https://www.cnnbrasil.com.br/politica/quem-e-irmao-ciro-alvo-pf/"
  },
  {
   "alvo_tipo": "relacao",
@@ -1655,7 +1689,8 @@
   "nota": "Grafia do sobrenome varia na fonte (Lenhares/Linhares). Veículo regional; contexto é a investigação de tráfico de influência em tribunais, ligada ao caso Master.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo regional (Midiamax, MS)",
-  "descricao_nova": "Esposa do deputado Cezinha de Madureira; associada a mala com R$ 510 mil apreendida em Congonhas, segundo decisão citada do ministro Dino."
+  "descricao_nova": "Esposa do deputado Cezinha de Madureira; associada a mala com R$ 510 mil apreendida em Congonhas, segundo decisão citada do ministro Dino.",
+  "substituida_por": "https://www.jb.com.br/brasil/policia/2026/09/amp/1060905-pf-mira-cezinha-de-madureira-em-operacao-sobre-tribunais-superiores.html"
  },
  {
   "alvo_tipo": "relacao",
@@ -1706,7 +1741,8 @@
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma o vínculo ou o nome como o grafo registra: a fonte nomeia 'escritório Ibaneis Rocha', não 'Ibaneis Advocacia'",
   "descricao_nova": "Escritório de advocacia ligado ao governador Ibaneis Rocha firmou contrato de venda de honorários de precatórios a fundo ligado à Reag; a defesa diz que ele está afastado do escritório desde 2018.",
-  "divergencia_rotulo": "escritório com nome diferente na fonte"
+  "divergencia_rotulo": "escritório com nome diferente na fonte",
+  "substituida_por": "https://www.metropoles.com/colunas/grande-angular/escritorio-ibaneis-advocacia-recebeu-r-738-milhoes-por-venda-de-honorarios-em-13-contratos"
  },
  {
   "alvo_tipo": "relacao",
@@ -1756,5 +1792,566 @@
   "nota": "Veículo fora da lista nominal; trecho é parcial (sujeito da frase é o escritório de Viviane Barci de Moraes, esposa do ministro).",
   "qualidade": "boa",
   "descricao_nova": "Esposa do ministro Alexandre de Moraes; seu escritório tinha contrato com o Banco Master, segundo a reportagem."
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-1995-mercosul-vira-uniao-aduaneira",
+  "url": "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-mistas/cpcms/conheca-a-representacao/oqueeomercosul.html/organogramamercosul.html",
+  "veiculo": "camara.leg.br",
+  "tipo": "documento_oficial",
+  "titulo": "Mercosul: período de transição (Comissão Parlamentar Conjunta do Mercosul)",
+  "data": null,
+  "trecho": "passaria a vigorar a partir de 1º de janeiro de 1995, conforme estabelecido pelo Protocolo de Ouro Preto",
+  "nota": "Mesma comissão da fonte fraca; dá 'janeiro de 1994 a janeiro de 1995' para entrada em vigor da união aduaneira e Ouro Preto (17/12/1994) com estrutura vigente em 1/1/1995; a TEC só foi concluída no fim de 1994. Compatível com 'janeiro de 1995'. Trecho conforme retornado pela ferramenta de leitura.",
+  "qualidade": "boa",
+  "substitui": "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-mistas/cpcms/seguranca.html/perguntas.html"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2000-argentina-em-recessao",
+  "url": "https://wits.worldbank.org/CountryProfile/es/Country/BRA/Year/2000/Summarytext",
+  "veiculo": "wits.worldbank.org (Banco Mundial)",
+  "tipo": "dado_oficial",
+  "titulo": "Brazil Trade Summary 2000 (WITS)",
+  "data": "2000",
+  "trecho": "Argentina ... con una proporción de 11.33 % de los asociados",
+  "nota": "Confirma Argentina em 2º lugar (11,33%) entre destinos das exportações brasileiras em 2000, atrás dos EUA (24,29%). O PIB (-0,79%) segue na URL do Banco Mundial original, que já era dado oficial.",
+  "qualidade": "boa",
+  "substitui": "https://api.worldbank.org/v2/country/ARG/indicator/NY.GDP.MKTP.KD.ZG?date=1998:2001&format=json"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2000-cassacao-do-senador-luiz-estevao",
+  "url": "https://www.congressoemfoco.com.br/noticia/48086/ex-senador-cassado-luiz-estevao-responde-a-131-processos-na-justica-do-df",
+  "veiculo": "congressoemfoco.com.br",
+  "tipo": "reportagem",
+  "titulo": "Ex-senador cassado Luiz Estevão responde a 131 processos na Justiça do DF",
+  "data": null,
+  "trecho": "Em 2000, Luiz Estevao tornou-se o primeiro senador a ser cassado pelo plenário",
+  "nota": "Confirma 2000 e pioneirismo, sobre o próprio Luiz Estêvão (a fonte fraca era sobre Demóstenes). Não traz mês/dia nem o placar 52x18x10.",
+  "qualidade": "boa",
+  "substitui": "https://www.congressoemfoco.com.br/noticia/60130/por-56-votos-19-senado-cassa-demostenes-torres"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2000-lei-de-responsabilidade-fiscal",
+  "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/43190/pdf",
+  "veiculo": "senado.leg.br",
+  "tipo": "documento_oficial",
+  "titulo": "Projeto de Lei da Câmara n° 4, de 2000 (Complementar) - tramitação (PDF)",
+  "data": "2000-05-04",
+  "trecho": "Sancionada em 04/05/2000 ... (Relator: Senador Jefferson Péres) ... Senador Alvaro Dias",
+  "nota": "Versão PDF da tramitação confirma sanção 4/5/2000, Péres na CAE e Álvaro Dias na CCJ.",
+  "qualidade": "boa",
+  "substitui": "https://www25.senado.leg.br/web/atividade/materias/-/materia/43190"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2005-china-encerra-a-paridade-fixa-com-o",
+  "url": "https://www.nbcnews.com/id/wbna8655469",
+  "veiculo": "nbcnews.com (reproduz comunicado do Banco Popular da China)",
+  "tipo": "reportagem",
+  "titulo": "Central bank statement on currency changes",
+  "data": "2005-07-21",
+  "trecho": "Starting from July 21, 2005, China will reform the exchange rate regime ... adjusted to 8.11 yuan per US dollar",
+  "nota": "Reproduz o comunicado do PBoC: 21/7/2005, 8,11 yuan/US$, referência a cesta de moedas.",
+  "qualidade": "boa",
+  "substitui": "https://www.frbsf.org/research-and-insights/publications/economic-letter/2005/09/a-look-at-china-new-exchange-rate-regime"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2005-fed-sobe-juros-em-todas-as-reunioes-do",
+  "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+  "veiculo": "federalreserve.gov",
+  "tipo": "dado_oficial",
+  "titulo": "Open Market Operations - Historical changes of the target federal funds rate",
+  "data": "2005",
+  "trecho": "December 13 | 25 | 4.25 ... June 30 | 25 | 1.25 (2004)",
+  "nota": "Tabela oficial: oito altas de 25 pb em 2005 (2/2 a 13/12, nível 4,25%) e início do ciclo em 30/6/2004 (1,25%). Trecho é linha de tabela.",
+  "qualidade": "boa",
+  "substitui": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20051213/default.htm"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2005-katrina-e-petroleo-mais-caro",
+  "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=A",
+  "veiculo": "eia.gov",
+  "tipo": "dado_oficial",
+  "titulo": "Europe Brent Spot Price FOB, Annual (EIA)",
+  "data": "2005",
+  "trecho": "2004: 38.26; 2005: 54.57 (US$/barril)",
+  "nota": "Fonte primária da série (a FRED é espelho). NÃO cobre a parte do Katrina (30 plataformas / 9 refinarias): só offshore-technology.com (trade) afirma literalmente; CRS diz 35 plataformas destruídas p/ Katrina+Rita e NBC 9 refinarias paradas.",
+  "qualidade": "boa",
+  "substitui": "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2005-omc-em-hong-kong-e-subsidios-agricolas",
+  "url": "https://www.wto.org/English/thewto_e/minist_e/min05_e/min05_18dec_e.htm",
+  "veiculo": "wto.org",
+  "tipo": "documento_oficial",
+  "titulo": "Day 6: Ministers agree on declaration that 'puts Round back on track'",
+  "data": "2005-12-18",
+  "trecho": "The most straightforward is the agreement to end export subsidies in agriculture by 2013",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://dgg.cloudns.org/english/thewto_e/minist_e/min05_e/min05_18dec_e.htm"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2010-china-a-frente-do-japao-e-principal",
+  "url": "https://www.aljazeera.com/amp/economy/2011/2/14/chinese-economy-overtakes-japan",
+  "veiculo": "aljazeera.com",
+  "tipo": "reportagem",
+  "titulo": "Chinese economy overtakes Japan",
+  "data": "2011-02-14",
+  "trecho": "Nominal GDP of $5.47 trillion in 2010 put Japan behind China's $5.88 trillion",
+  "nota": "Confirma 5,88 tri / 5,47 tri (dados de 14/2/2011). Fonte internacional estabelecida, não da lista nacional.",
+  "qualidade": "boa",
+  "substitui": "https://www.rferl.org/a/china_economy/2308720.html"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2010-primeiro-resgate-da-grecia",
+  "url": "https://gouvernement.lu/dam-assets/fr/actualites/articles/2010/05-mai/02-eurogroupe/statement.pdf",
+  "veiculo": "gouvernement.lu (Eurogroup)",
+  "tipo": "documento_oficial",
+  "titulo": "Statement by the Eurogroup",
+  "data": "2010-05-02",
+  "trecho": "In the context of a three year joint programme with the IMF, the financial package makes available € 110 billion",
+  "nota": "Comunicado oficial do Eurogrupo, Bruxelas, 2/5/2010 (hospedado pelo governo de Luxemburgo).",
+  "qualidade": "boa",
+  "substitui": "https://investinglive.com/news/!/eurozoneimf-pledge-e110-bln-to-greece-over-3-yrs-full-text-20100502"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2015-colapso-do-preco-das-commodities",
+  "url": "https://www.imf.org/external/np/res/commod/pdf/monthly/011516.pdf",
+  "veiculo": "imf.org",
+  "tipo": "dado_oficial",
+  "titulo": "IMF Commodity Market Monthly, January 2016",
+  "data": "2016-01-15",
+  "trecho": "Iron Ore $/MT 135.4 96.8 55.2",
+  "nota": "CONTRADIÇÃO: neste boletim o Brent é 98.9 (2014) e 52.4 (2015), preliminar; a descrição usa 99,35 e 53,02 (série FRED/FMI revisada). Minério 96.8/55.2 confirmado.",
+  "qualidade": "boa",
+  "substitui": "https://fred.stlouisfed.org/data/POILBREUSDA"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2015-fed-inicia-o-ciclo-de-alta-de-juros",
+  "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+  "veiculo": "federalreserve.gov",
+  "tipo": "dado_oficial",
+  "titulo": "Open Market Operations - Historical changes of the target federal funds rate",
+  "data": "2015",
+  "trecho": "December 17 | 25 | 0 | 0.25-0.50 ... 2008 December 16 ... 0-0.25; 2006 June 29 | 25 | 5.25",
+  "nota": "Tabela confirma faixa anterior 0-0,25 (desde 16/12/2008) e última alta em 29/6/2006. A tabela data a mudança em 17/12 (vigência); o comunicado FOMC é de 16/12.",
+  "qualidade": "boa",
+  "substitui": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20151216a.htm"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2015-turbulencia-na-china-bolsa-e-yuan",
+  "url": "https://www.everycrsreport.com/files/20150817_IN10342_ce6eb700a4e769c5c91c750981a3c7cd98358793.html",
+  "veiculo": "Congressional Research Service",
+  "tipo": "relatorio",
+  "titulo": "China's Currency Devaluation (CRS Insight IN10342)",
+  "data": "2015-08-17",
+  "trecho": "The PBC's action on August 11 led to an immediate 1.9% depreciation of the renminbi",
+  "nota": "Cobre só o yuan; não traz o nível de Xangai.",
+  "qualidade": "boa",
+  "substitui": "https://investing.com/news/economy-news/a-surprise-devaluation-for-the-yuan-355385"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2020-china-cresce-e-compra-um-terco-das",
+  "url": "https://api.worldbank.org/v2/country/CHN;USA/indicator/NY.GDP.MKTP.KD.ZG?date=2020:2020&format=json",
+  "veiculo": "worldbank.org",
+  "tipo": "dado_oficial",
+  "titulo": "World Bank: GDP growth (annual %) - China and United States, 2020",
+  "data": "2020",
+  "trecho": "China 2.33950385203023; United States -2.081375977796",
+  "nota": "Cobre 2,34% e -2,08%. A fonte fraca (Agência Brasil, 'de 28,1% para 32,3%') já sustenta os 32,3% da descrição e é veículo nacional; pode ser mantida para essa parte.",
+  "qualidade": "boa",
+  "substitui": "https://agenciabrasil.ebc.com.br/economia/noticia/2021-01/china-contribuiu-com-mais-da-metade-do-superavit-comercial-do-brasil"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2020-guerra-de-precos-do-petroleo",
+  "url": "https://www.npr.org/2020/03/08/813439501/saudi-arabia-stuns-world-with-massive-discount-in-oil-sold-to-asia-europe-and-u-",
+  "veiculo": "npr.org",
+  "tipo": "reportagem",
+  "titulo": "Saudi Arabia stuns world with massive discount in oil sold to Asia, Europe and U.S.",
+  "data": "2020-03-08",
+  "trecho": "Late last week, Saudi Arabia, the rest of OPEC and Russia failed to agree on production cuts",
+  "nota": "Reportagem de 8/3/2020 (data inferida do slug/URL); mantém CNBC apenas para o WTI -37 em 20/4.",
+  "qualidade": "boa",
+  "substitui": "https://www.cnbc.com/2020/06/16/how-negative-oil-prices-revealed-the-dangers-of-futures-trading.html"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2020-novo-fundeb",
+  "url": "https://www12.senado.leg.br/noticias/materias/2020/08/26/senadores-comemoram-promulgacao-da-emenda-que-torna-o-fundeb-permanente",
+  "veiculo": "senado.leg.br (Agência Senado)",
+  "tipo": "reportagem",
+  "titulo": "Senadores comemoram promulgação da emenda que torna o Fundeb permanente",
+  "data": "2020-08-26",
+  "trecho": "Senadores comemoram promulgação da emenda que torna o Fundeb permanente",
+  "nota": "Confirma promulgação da EC 108 em 26/8/2020 e que torna o Fundeb permanente; não usa a palavra complementação (fala em subir a parte da União de 10% a 23% até 2026).",
+  "qualidade": "boa",
+  "substitui": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc108.htm"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2020-saida-de-sergio-moro-do-governo",
+  "url": "https://istoedinheiro.com.br/moro-anuncia-demissao-e-acusa-bolsonaro-de-interferir-na-pf",
+  "veiculo": "istoedinheiro.com.br",
+  "tipo": "reportagem",
+  "titulo": "Moro anuncia demissão e acusa Bolsonaro de interferir na PF",
+  "data": "2020-04-24",
+  "trecho": "tentar interferir politicamente no comando da Polícia Federal",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://www.agazeta.com.br/es/politica/interferencia-na-pf-fraude-e-demissao-veja-dez-frases-de-moro-0420"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-eua-impoem-tarifa-de-50-a-produtos",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2025-08-05/pdf/2025-14896.pdf",
+  "veiculo": "Federal Register (govinfo.gov)",
+  "tipo": "documento_oficial",
+  "titulo": "Addressing Threats to the United States by the Government of Brazil (EO 14323)",
+  "data": "2025-07-30",
+  "trecho": "subject to an additional ad valorem rate of duty of 40 percent.",
+  "nota": "Confirma os 40% adicionais e a data de 30/7/2025. Os 10% recíprocos de abril e a soma de 50% em agosto não aparecem neste documento.",
+  "qualidade": "boa",
+  "substitui": "https://www.whitehouse.gov/presidential-actions/2025/11/modifying-the-scope-of-tariffs-on-the-government-of-brazil"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-eua-isentam-parte-dos-produtos-agricolas",
+  "url": "https://www.whitehouse.gov/presidential-actions/2025/11/modifying-the-scope-of-tariffs-on-the-government-of-brazil",
+  "veiculo": "whitehouse.gov",
+  "tipo": "documento_oficial",
+  "titulo": "Modifying the Scope of Tariffs on the Government of Brazil (EO 14361)",
+  "data": "2025-11-20",
+  "trecho": "certain agricultural products shall not be subject to the additional ad valorem rate of duty",
+  "nota": "Sustenta a retirada dos 40% em 20/11 (EO 14361); a lista de produtos está no Anexo I, não aberto.",
+  "qualidade": "boa",
+  "substitui": "https://www.whitehouse.gov/presidential-actions/2025/11/modifying-the-scope-of-the-reciprocal-tariff-with-respect-to-certain-agricultural-products"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-eua-isentam-parte-dos-produtos-agricolas",
+  "url": "https://exame.com/mundo/trump-corta-tarifas-de-carne-cafe-tomate-e-banana-nos-eua/",
+  "veiculo": "Exame",
+  "tipo": "reportagem",
+  "titulo": "Trump corta tarifas de carne, café, tomate e banana nos EUA",
+  "data": "2025-11-14",
+  "trecho": "Os cortes têm efeito retroativo a partir das 0h01 do dia 13 de novembro, no horário de Nova York.",
+  "nota": "Ordem assinada em 14/11/2025 (tarifa recíproca); lista cita carne, tomate, café, banana.",
+  "qualidade": "boa",
+  "substitui": "https://www.whitehouse.gov/presidential-actions/2025/11/modifying-the-scope-of-the-reciprocal-tariff-with-respect-to-certain-agricultural-products"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-fed-corta-juros-tres-vezes",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
+  "veiculo": "federalreserve.gov",
+  "tipo": "documento_oficial",
+  "titulo": "Federal Reserve issues FOMC statement",
+  "data": "2025-09-17",
+  "trecho": "lower the target range for the federal funds rate by 1/4 percentage point to 4 to 4-1/4 percent",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-fed-corta-juros-tres-vezes",
+  "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
+  "veiculo": "federalreserve.gov",
+  "tipo": "documento_oficial",
+  "titulo": "Federal Reserve issues FOMC statement",
+  "data": "2025-10-29",
+  "trecho": "lower the target range for the federal funds rate by 1/4 percentage point to 3-3/4 to 4 percent",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-isencao-do-ir-ate-r-5-mil",
+  "url": "https://www.camara.leg.br/noticias/1206672-camara-aprova-projeto-que-isenta-do-imposto-de-renda-quem-ganha-ate-r-5-mil-por-mes/",
+  "veiculo": "camara.leg.br (Agência Câmara)",
+  "tipo": "documento_oficial",
+  "titulo": "Câmara aprova projeto que isenta do Imposto de Renda quem ganha até R$ 5 mil por mês",
+  "data": "2025-10-01",
+  "trecho": "O Plenário da Câmara aprovou o projeto na forma de substitutivo do relator, deputado Arthur Lira (PP-AL).",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://www.opovo.com.br/noticias/economia/2025/11/26/lula-sanciona-isencao-do-ir-para-quem-ganha-ate-rs-5-mil.html"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-isencao-do-ir-ate-r-5-mil",
+  "url": "https://www12.senado.leg.br/noticias/materias/2025/11/27/sancionada-isencao-do-imposto-de-renda-para-quem-ganha-ate-r-5-mil-por-mes",
+  "veiculo": "senado.leg.br (Agência Senado)",
+  "tipo": "documento_oficial",
+  "titulo": "Sancionada isenção do Imposto de Renda para quem ganha até R$ 5 mil por mês",
+  "data": "2025-11-27",
+  "trecho": "sancionou na quarta-feira (26)",
+  "nota": "Confirma sanção em 26/11/2025. A Lei 15.270 (planalto.gov.br) fala em 'redução do imposto' que zera o devido até R$ 5 mil, não usa a palavra 'isenção'.",
+  "qualidade": "boa",
+  "substitui": "https://www.opovo.com.br/noticias/economia/2025/11/26/lula-sanciona-isencao-do-ir-para-quem-ganha-ate-rs-5-mil.html"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
+  "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2025-09/stf-condena-bolsonaro-27-anos-e-tres-meses-de-prisao",
+  "veiculo": "Agência Brasil",
+  "tipo": "reportagem",
+  "titulo": "STF condena Bolsonaro a 27 anos e três meses de prisão",
+  "data": "2025-09-11",
+  "trecho": "condenou nesta quinta-feira (11) o ex-presidente Jair Bolsonaro a 27 anos e três meses de prisão em regime fechado",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://www.moneytimes.com.br/stf-condena-bolsonaro-a-27-anos-e-3-meses-de-prisao-em-regime-inicial-fechado-por-tentativa-de-golpe-de-estado-e-outros-crimes-kda"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
+  "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2025-03/por-unanimidade-turma-do-stf-torna-bolsonaro-e-mais-7-reus-por-golpe",
+  "veiculo": "Agência Brasil",
+  "tipo": "reportagem",
+  "titulo": "Por unanimidade, turma do STF torna Bolsonaro e mais 7 réus por golpe",
+  "data": "2025-03-26",
+  "trecho": "Os ministros também decidiram, por unanimidade, tornar mais sete aliados de Bolsonaro réus na mesma ação penal.",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://www.moneytimes.com.br/stf-condena-bolsonaro-a-27-anos-e-3-meses-de-prisao-em-regime-inicial-fechado-por-tentativa-de-golpe-de-estado-e-outros-crimes-kda"
+ },
+ {
+  "alvo_tipo": "evento",
+  "evento_id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
+  "url": "https://noticias.stf.jus.br/postsnoticias/stf-concluiu-julgamento-de-acoes-contra-reus-que-planejaram-golpe-de-estado/",
+  "veiculo": "stf.jus.br",
+  "tipo": "documento_oficial",
+  "titulo": "STF concluiu julgamento de ações contra réus que planejaram golpe de Estado",
+  "data": "2025-12-17",
+  "trecho": "A pena mais alta foi imposta ao ex-presidente da República Jair Bolsonaro, 27 anos e três meses de prisão",
+  "nota": "",
+  "qualidade": "boa",
+  "substitui": "https://www.moneytimes.com.br/stf-condena-bolsonaro-a-27-anos-e-3-meses-de-prisao-em-regime-inicial-fechado-por-tentativa-de-golpe-de-estado-e-outros-crimes-kda"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "linha_do_tempo",
+  "relacao_origem_ref": "filiacao:jair-bolsonaro:psl:2019",
+  "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2019-11/bolsonaro-anuncia-saida-do-psl-e-criacao-da-alianca-pelo-brasil",
+  "veiculo": "Agência Brasil",
+  "tipo": "reportagem",
+  "titulo": "Bolsonaro anuncia saída do PSL e criação da Aliança pelo Brasil",
+  "data": "2019-11-12",
+  "trecho": "O presidente Jair Bolsonaro anunciou nesta terça-feira (12) a saída do PSL",
+  "nota": "Complementa a fonte da Câmara (eleição pelo PSL): confirma saída do PSL em nov/2019.",
+  "qualidade": "boa",
+  "substitui": "https://www.camara.leg.br/noticias/546904-jair-bolsonaro-e-eleito-presidente-do-brasil"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "linha_do_tempo",
+  "relacao_origem_ref": "mandato:5",
+  "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2019-11/bolsonaro-anuncia-saida-do-psl-e-criacao-da-alianca-pelo-brasil",
+  "veiculo": "Agência Brasil",
+  "tipo": "reportagem",
+  "titulo": "Bolsonaro anuncia saída do PSL e criação da Aliança pelo Brasil",
+  "data": "2019-11-12",
+  "trecho": "O presidente Jair Bolsonaro anunciou nesta terça-feira (12) a saída do PSL",
+  "nota": "Complementa a fonte da Câmara (eleição pelo PSL): confirma saída do PSL em nov/2019.",
+  "qualidade": "boa",
+  "substitui": "https://www.camara.leg.br/noticias/546904-jair-bolsonaro-e-eleito-presidente-do-brasil"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "linha_do_tempo",
+  "relacao_origem_ref": "filiacao:jose-alencar:pl:2003",
+  "url": "https://www2.senado.leg.br/jspui/bitstream/id/460123/1/noticia.htm",
+  "veiculo": "senado.leg.br (Agência Senado)",
+  "tipo": "documento_oficial",
+  "titulo": "Alencar diz que gostaria de disputar Senado",
+  "data": "2009-11-19",
+  "trecho": "Filiado ao Partido Republicano Brasileiro (PRB), Alencar pode deixar ainda mais confuso o quadro eleitoral em Minas Gerais.",
+  "nota": "CONTRADIÇÃO: em 2009 Alencar estava no PRB; saiu do PL em set/2005 (mensalão). 'PL 2003 a 2010' é inexato; PL vale só 2003-2005.",
+  "qualidade": "boa",
+  "substitui": "https://www12.senado.leg.br/noticias/materias/2002/12/30/congresso-nacional-dara-posse-ao-37-presidente-da-republica-do-brasil"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "linha_do_tempo",
+  "relacao_origem_ref": "filiacao:jose-alencar:pl:2003",
+  "url": "https://www.congressoemfoco.com.br/noticia/99616/alencar-e-crivella-se-filiam-ao-pmr",
+  "veiculo": "Congresso em Foco",
+  "tipo": "reportagem",
+  "titulo": "Alencar e Crivella se filiam ao PMR",
+  "data": "2005-09-29",
+  "trecho": "José Alencar havia saído do PL no auge do escândalo do mensalão.",
+  "nota": "Filiou-se ao PMR (depois PRB) em 29/9/2005.",
+  "qualidade": "boa",
+  "substitui": "https://www12.senado.leg.br/noticias/materias/2002/12/30/congresso-nacional-dara-posse-ao-37-presidente-da-republica-do-brasil"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "linha_do_tempo",
+  "relacao_origem_ref": "mandato:8",
+  "url": "https://www2.senado.leg.br/jspui/bitstream/id/460123/1/noticia.htm",
+  "veiculo": "senado.leg.br (Agência Senado)",
+  "tipo": "documento_oficial",
+  "titulo": "Alencar diz que gostaria de disputar Senado",
+  "data": "2009-11-19",
+  "trecho": "Filiado ao Partido Republicano Brasileiro (PRB), Alencar pode deixar ainda mais confuso o quadro eleitoral em Minas Gerais.",
+  "nota": "CONTRADIÇÃO: mandato de vice 2003-2010 correto, mas o partido (PL) só vale até set/2005; depois PMR/PRB.",
+  "qualidade": "boa",
+  "substitui": "https://www12.senado.leg.br/noticias/materias/2002/12/30/congresso-nacional-dara-posse-ao-37-presidente-da-republica-do-brasil"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "linha_do_tempo",
+  "relacao_origem_ref": "mandato:8",
+  "url": "https://www.congressoemfoco.com.br/noticia/99616/alencar-e-crivella-se-filiam-ao-pmr",
+  "veiculo": "Congresso em Foco",
+  "tipo": "reportagem",
+  "titulo": "Alencar e Crivella se filiam ao PMR",
+  "data": "2005-09-29",
+  "trecho": "José Alencar havia saído do PL no auge do escândalo do mensalão.",
+  "nota": "Filiou-se ao PMR em 29/9/2005, sendo vice-presidente.",
+  "qualidade": "boa",
+  "substitui": "https://www12.senado.leg.br/noticias/materias/2002/12/30/congresso-nacional-dara-posse-ao-37-presidente-da-republica-do-brasil"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[124].fam_de",
+  "url": "https://www.metropoles.com/brasil/consultoria-ligada-ao-master-e-a-jbs-contratou-filho-de-nunes-marques",
+  "veiculo": "Metrópoles",
+  "tipo": "reportagem",
+  "titulo": "Consultoria ligada ao Master e à JBS contratou filho de Nunes Marques",
+  "data": "2026-03-19",
+  "trecho": "recebeu R$ 281 mil em 10 parcelas da empresa de consultoria contratada pelo Master e pela JBS.",
+  "nota": "Consult confirmou o pagamento de R$ 281 mil por serviços jurídicos e técnicos; título inferido da URL. A defesa de Kevin não foi localizada.",
+  "qualidade": "boa",
+  "substitui": "https://www.bahianoticias.com.br/noticia/314946-filho-do-ministro-nunes-marques-do-stf-foi-pago-por-empresa-que-recebeu-r-18-milhoes-do-master-e-da-jbs"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[125].fam_de",
+  "url": "https://www.jb.com.br/brasil/justica/2026/09/1060924-tapete-vermelho-irmao-policia-federal-encontra-mensagens-telefonicas-mostrando-proximidade-entre-rodrigo-fux-filho-do-ministro-e-daniel-vorcaro.html",
+  "veiculo": "Jornal do Brasil",
+  "tipo": "reportagem",
+  "titulo": "'Tapete vermelho', 'irmão': PF encontra mensagens mostrando proximidade entre Rodrigo Fux, filho do ministro, e Daniel Vorcaro",
+  "data": "2026-09-16",
+  "trecho": "filho do ministro Luiz Fux",
+  "nota": "Fala em 'proximidade'; não usa 'contato frequente'. Material 'não confirma por si só qualquer ilegalidade do ministro'. Título inferido da URL; JB pode não estar na lista nominal.",
+  "qualidade": "boa",
+  "substitui": "https://www.correiodamanha.com.br/politica/2026/09/319139-filho-de-fux-ofereceu-tapete-vermelho-a-vorcaro-e-manteve-contato-por-mais-de-um-ano.html"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[127].fam_de",
+  "url": "https://www.poder360.com.br/poder-justica/toffoli-viajou-em-jato-de-empresa-ligada-a-vorcaro-diz-jornal/",
+  "veiculo": "Poder360",
+  "tipo": "reportagem",
+  "titulo": "Toffoli viajou em jato de empresa ligada a Vorcaro, diz jornal",
+  "data": "2026-04-02",
+  "trecho": "teve como acionistas os irmãos e um primo do ministro Dias Toffoli",
+  "nota": "Cobre irmãos, Maridt e fundo da Reag/Zettel; não confirmei os nomes José Carlos e José Eugênio nesta página. Data da página incerta (cita nota de 12/2/2026).",
+  "qualidade": "boa",
+  "substitui": "https://www.infomoney.com.br/politica/toffoli-admite-ser-socio-de-empresa-que-negociou-resort-com-fundo-ligado-a-vorcaro/amp"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[128].fam_de",
+  "url": "https://www.poder360.com.br/poder-justica/toffoli-viajou-em-jato-de-empresa-ligada-a-vorcaro-diz-jornal/",
+  "veiculo": "Poder360",
+  "tipo": "reportagem",
+  "titulo": "Toffoli viajou em jato de empresa ligada a Vorcaro, diz jornal",
+  "data": "2026-04-02",
+  "trecho": "teve como acionistas os irmãos e um primo do ministro Dias Toffoli",
+  "nota": "Confirma 'primo' e o resort Tayayá, mas não vi o nome Mario Umberto Degani nem 'controlava em 2020' nesta página.",
+  "qualidade": "boa",
+  "substitui": "https://brasilagro.com.br/conteudo/parentes-de-toffoli-foram-socios-de-fundo-ligado-a-rede-do-caso-master.html"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[130].fam_de",
+  "url": "https://sbtnews.sbt.com.br/noticia/politica/pgr-pediu-para-vorcaro-levar-filho-a-londres-com-tudo-pago",
+  "veiculo": "SBT News",
+  "tipo": "reportagem",
+  "titulo": "PGR pediu para Vorcaro levar filho a Londres com tudo pago",
+  "data": "2026-09-01",
+  "trecho": "Gonet perguntou se Vorcaro poderia incluir seu filho, Pedro Gonet, na lista de autoridades",
+  "nota": "Cita relatório da PF. Rede nacional, mas SBT News pode estar fora da lista nominal. Sem 'Branco' no sobrenome.",
+  "qualidade": "boa",
+  "substitui": "https://ohoje.com/2026/09/01/filho-de-paulo-gonet-foi-incluido-em-viagem-a-londres-custeada-por-vorcaro-aponta-pf"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[134].fam_de",
+  "url": "https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner",
+  "veiculo": "Metrópoles",
+  "tipo": "reportagem",
+  "titulo": "Master pagou R$ 11 milhões à empresa de nora de Jaques Wagner",
+  "data": "2026-03-18",
+  "trecho": "pagou ao menos R$ 11 milhões à empresa da nora",
+  "nota": "Nome na matéria: BK Financeira (BN Financeira só na de 18/6). Bonnie é casada com Eduardo Sodré, enteado de Wagner. Wagner nega intermediação. Título inferido da URL.",
+  "qualidade": "boa",
+  "substitui": "https://www.metropoles.com/colunas/milena-teixeira/boletos-altos-enteado-de-jaques-wagner-tambem-foi-alvo-da-pf"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[137].fam_de",
+  "url": "https://www.cnnbrasil.com.br/politica/quem-e-irmao-ciro-alvo-pf/",
+  "veiculo": "CNN Brasil",
+  "tipo": "reportagem",
+  "titulo": "Quem é o irmão de Ciro Nogueira, alvo de operação da PF nesta quinta-feira",
+  "data": "2026-05-07",
+  "trecho": "administrador formal de CNLF",
+  "nota": "Confirma CNLF com irmão como administrador formal e compra de ações da Green Investimentos (Felipe Vorcaro) por R$ 1 mi vs R$ 13 mi; NÃO traz 'pertenceria ao senador' nem '30%'.",
+  "qualidade": "boa",
+  "substitui": "https://sbtnews.sbt.com.br/colunas/coluna-do-gayer/empresa-de-ciro-nogueira-comprou-30-de-firma-de-vorcaro-por-valor-abaixo-do-mercado-diz-pf"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[141].fam_de",
+  "url": "https://www.jb.com.br/brasil/policia/2026/09/amp/1060905-pf-mira-cezinha-de-madureira-em-operacao-sobre-tribunais-superiores.html",
+  "veiculo": "Jornal do Brasil",
+  "tipo": "reportagem",
+  "titulo": "PF mira Cezinha de Madureira em operação sobre tribunais superiores",
+  "data": "2026-09-14",
+  "trecho": "tentando embarcar para Brasília com R$ 510 mil em espécie na bagagem de mão",
+  "nota": "Nome 'Valéria Rodrigues Linhares'; Dino autorizou a operação em 5/9. Não vi 'esposa' explícito no trecho. Título inferido da URL.",
+  "qualidade": "boa",
+  "substitui": "https://midiamax.com.br/brasil/2026/esposa-cezinha-estava-mala-r-510-mil-apreendida-congonhas-segundo-dino"
+ },
+ {
+  "alvo_tipo": "relacao",
+  "relacao_origem": "teia",
+  "relacao_origem_ref": "N[161].lig_de",
+  "url": "https://www.metropoles.com/colunas/grande-angular/escritorio-ibaneis-advocacia-recebeu-r-738-milhoes-por-venda-de-honorarios-em-13-contratos",
+  "veiculo": "Metrópoles",
+  "tipo": "reportagem",
+  "titulo": "Escritório Ibaneis Advocacia recebeu R$ 73,8 milhões por venda de honorários em 13 contratos",
+  "data": "2026-03-21",
+  "trecho": "O Escritório Ibaneis Advocacia e Consultoria recebeu R$ 73,8 milhões pela venda de honorários de precatórios",
+  "nota": "Confirma o nome 'Ibaneis Advocacia' e vendas a fundos da Reag. Não vi aqui a defesa 'afastado desde 2018' (está no Correio Braziliense). Título inferido da URL.",
+  "qualidade": "boa",
+  "substitui": "https://www.correiobraziliense.com.br/cidades-df/2026/03/amp/7372684-master-brb-contrato-de-escritorio-de-ibaneis-com-reag-turbina-a-crise-no-df.html"
  }
 ]

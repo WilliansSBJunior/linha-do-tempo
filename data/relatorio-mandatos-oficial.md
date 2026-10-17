@@ -86,6 +86,10 @@ presidente 6, vice_presidente 5. sem página oficial pública das presidências 
 ## Correções à mão aplicadas antes do confronto
 
 - Miro Teixeira deputado 2004: partido PT -> PPS. histórico oficial da Câmara: PDT até 13/4/2004, PPS de 13/4/2004 a 14/2/2005; PT só a partir de 14/2/2005. Fonte: https://dadosabertos.camara.leg.br/api/v2/deputados/74862/historico
+- Luiz Inácio Lula da Silva presidente 2023: fim 2025 -> 2026. Mandato até 31/12/2026 (Agência Senado).. Fonte: https://www12.senado.leg.br/noticias/materias/2023/01/01/congresso-empossa-lula-e-alckmin-na-presidencia-da-republica
+- Geraldo Alckmin vice_presidente 2023: fim 2025 -> 2026. Mandato até 31/12/2026 (Agência Senado).. Fonte: https://www12.senado.leg.br/noticias/materias/2022/10/30/lula-e-eleito-presidente-da-republica-pela-terceira-vez
+- Michel Temer vice_presidente 2011: fim 2015 -> 2016. Agência Senado: vice até 2016.. Fonte: https://www12.senado.leg.br/noticias/materias/2016/08/31/a-trajetoria-politica-do-novo-presidente
+- Hugo Motta presidente_camara 2025: fim 2025 -> 2026. Agência Câmara: biênio 2025-2026.. Fonte: https://www.camara.leg.br/noticias/1128935-hugo-motta-e-o-novo-presidente-da-camara-dos-deputados
 
 ## Complementos aplicados
 
