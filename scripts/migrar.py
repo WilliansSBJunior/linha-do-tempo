@@ -184,6 +184,9 @@ def main(destino=SQLITE, pular=(), escrever=True):
     senado = extra("Senado Federal", "orgao_publico", ("orgao_publico",), LT, "Y.pol.presSenado")
     add_alias(camara, "Câmara", "apelido", LT)
     add_alias(senado, "Senado", "apelido", LT)
+    # órgão dos mandatos de presidente/vice (mandato.orgao_id fica NULL); alvo das relações institucionais geradas em curadoria.gerar_relacoes_mandato
+    presidencia = extra("Presidência da República", "orgao_publico", ("orgao_publico",), LT, "Y.pol.presidente")
+    assert presidencia == "presidencia-da-republica", presidencia
 
     PARTIDO_SLUG = {"PP1993": "pp-1993", "Outros": "outros-partidos", "FE Brasil (PT/PCdoB/PV)": "fe-brasil"}
     PARTIDO_NOME = {"PP1993": "PP (de 1993)", "Outros": "Outros partidos (bancada)",
@@ -741,9 +744,11 @@ def main(destino=SQLITE, pular=(), escrever=True):
         R["fontes_brasil"] = curadoria.aplicar_fontes_brasil(con, evid)
     if "complementos" not in pular:
         R["complementos"] = curadoria.aplicar_complementos_brasil(con)
+    R["mandato_rel"] = curadoria.gerar_relacoes_mandato(con)   # teia <-> timeline
+    R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
 
     # ================================================================ META, FTS, DUMP
-    meta = {"schema_versao": "1", "migrado_em": TS_MIGRACAO, "migrar_py": "scripts/migrar.py"}
+    meta = {"schema_versao": "2", "migrado_em": TS_MIGRACAO, "migrar_py": "scripts/migrar.py"}
     for n, h in hashes.items():
         meta[f"raw.sha256.{n}"] = h
     con.executemany("INSERT INTO meta(chave,valor) VALUES(?,?)", sorted(meta.items()))
@@ -881,6 +886,77 @@ def secoes_curadoria(con, R, w):
     w("- `dossie.json` inclui os 30 eventos BRB como no original (os fundidos saem de `evento_alias.original_json`); `teia.json` e `origens.json` refletem a curadoria (eventos fundidos saem da lista; `mapa_indices.json` ainda resolve os índices antigos).\n")
 
 
+def secoes_modelo(con, R, w):
+    """Seções 14 a 16: tema N:N, fonte genérica, ligação teia <-> timeline."""
+    q = lambda s, *a: con.execute(s, a).fetchall()
+    cfg = curadoria.ler_json("temas.json", {})
+    nome = {r["id"]: r["nome"] for r in q("SELECT id, nome FROM tema")}
+    # ---------------------------------------------------------------- 14
+    w("\n## 14. Tema como dimensão N:N (`data/curadoria/temas.json`)\n")
+    w("Tabelas: `tema(id, nome, descricao, cor, ordem, principal)`, `relacao_tema(relacao_id, tema_id, origem, regra)`, `evento_tema(evento_id, tema_id, origem, regra)`. "
+      "**A entidade não tem tabela**: `v_entidade_tema` (view) deriva a pertinência: a entidade está no tema se tem relação ou evento nele; acrescentei como fontes estruturais "
+      "`mandato`/`bancada`/`ranking_empresa` -> `brasil-ano-a-ano`, `forum` -> `pares` e o dossiê relacional (par, ente de previdência, pagamento) -> `caso-master` "
+      "(sem isso empresas do ranking, partidos da bancada e países de `forum` ficariam sem tema, e as 'fusões' dependem disso). `entidade.categoria_id` continua sendo a categoria da teia. "
+      "`migrar.py` aplica `temas.json` por último (`curadoria.aplicar_temas`), depois de fusões, ligações evento-entidade e relações de mandato; "
+      "`exportar_json.py` emite `tema` em cada relação/evento de `teia.json` (e nos eventos de `origens.json`), `temas` em cada entidade de `entities.json` e o novo `temas.json`.\n")
+    w("Regras (aplicadas na ordem; filtros combinados com E; `dentro_de` = só registros que já têm aquele tema; texto = palavra inteira, sem acento/caixa, `*` = prefixo):\n")
+    w("| regra | tema | alvo | filtros | relações | eventos |\n|---|---|---|---|---|---|")
+    st = R["temas"]["por_regra"]
+    for rg in cfg.get("regras", []):
+        filtros = "; ".join(f"{k}={v}" for k, v in rg.items() if k not in ("id", "tema", "alvo"))
+        s_ = st.get(rg["id"], {"relacao": 0, "evento": 0})
+        w(f"| {rg['id']} | {rg['tema']} | {rg['alvo']} | {filtros.replace('|', '/')} | {s_['relacao']} | {s_['evento']} |")
+    w("\nExceções (`excecoes` em `temas.json`; falso positivo de texto removido à mão, com motivo):\n")
+    w("| alvo | ref | incluir | excluir | motivo |\n|---|---|---|---|---|")
+    for ex in cfg.get("excecoes", []):
+        w(f"| {ex['alvo']} | `{ex['ref']}` | {', '.join(ex.get('incluir', [])) or '-'} | {', '.join(ex.get('excluir', [])) or '-'} | {ex.get('motivo', '')} |")
+    w("\nContagens por tema (entidades vêm da view; um registro pode estar em vários temas):\n")
+    w("| tema | relações | eventos | entidades |\n|---|---|---|---|")
+    ent = {r[0]: r[1] for r in q("SELECT tema_id, count(*) FROM v_entidade_tema GROUP BY tema_id")}
+    rel = {r[0]: r[1] for r in q("SELECT tema_id, count(*) FROM relacao_tema GROUP BY tema_id")}
+    evn = {r[0]: r[1] for r in q("SELECT tema_id, count(*) FROM evento_tema GROUP BY tema_id")}
+    for t in cfg.get("temas", []):
+        w(f"| `{t['id']}` ({nome[t['id']]}) | {rel.get(t['id'], 0)} | {evn.get(t['id'], 0)} | {ent.get(t['id'], 0)} |")
+    multi_r = q("SELECT count(*) FROM (SELECT relacao_id FROM relacao_tema GROUP BY relacao_id HAVING count(*)>1)")[0][0]
+    multi_e = q("SELECT count(*) FROM (SELECT evento_id FROM evento_tema GROUP BY evento_id HAVING count(*)>1)")[0][0]
+    multi_n = q("SELECT count(*) FROM (SELECT entidade_id FROM v_entidade_tema GROUP BY entidade_id HAVING count(*)>1)")[0][0]
+    w(f"\nEm mais de um tema: {multi_r} relações, {multi_e} eventos, {multi_n} entidades. Registros no tema-caixa `a-classificar`: {R['temas']['fallback']['relacao']} relações, {R['temas']['fallback']['evento']} eventos "
+      "(o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).\n")
+    w("Limites conhecidos: (a) os temas por texto (`inss`, `pcc`, `brb`, `precatorios`, `lagoinha`) marcam **citação**, não centralidade: uma relação que só menciona a CPMI do INSS como origem de um documento entra em `inss` "
+      "(retirei os casos mais óbvios nas exceções); (b) `usinas` ficou de fora do `pcc-texto` (a maior parte das ocorrências é o setor sucroalcooleiro dos precatórios, não o PCC); só 'Usina Itajobi'; "
+      "(c) `pares` não tem relação nem evento (só 10 países via `forum`), e `violencia` só 10 eventos: séries (`indicador`/`serie`) **não** têm tema ainda; (d) eventos novos não entram por MCP (não há ferramenta), só por migração.\n")
+    # ---------------------------------------------------------------- 15
+    w("\n## 15. Fonte genérica (`fonte` no lugar de `video`)\n")
+    w("`video` virou `fonte(id, tipo, plataforma?, url?, titulo, canal, canal_entidade_id, publicado_em, duracao_s, texto, hash_texto, arquivo_texto, resumo, evidencia_id, ...)` com "
+      "`tipo IN ('video','reportagem','documento','pdf','depoimento','decisao','transcricao','outro')`. `texto` substitui `transcricao` (conteúdo extraído; para vídeo é a transcrição) e `hash_texto` é o sha256 do texto. "
+      "`evidencia_id` é obrigatório quando há `url` (CHECK) e a evidência tem a mesma URL normalizada; sem URL (depoimento oral, documento físico) fica NULL. "
+      "`trecho.video_id` virou `trecho.fonte_id`; `inicio_s`/`fim_s` passaram a ser opcionais (trigger exige para fonte tipo video) e entrou `localizacao` (página/parágrafo). "
+      "`corte` continua com a coluna `video_id`, agora referenciando `fonte(id)`; triggers `trg_corte_so_video_*` recusam corte em fonte que não seja `video` (e a troca de tipo de uma fonte com cortes). "
+      "A view `video` reproduz as colunas antigas (somente leitura; `transcricao` = `texto`). `busca_fts` ganhou linhas `fonte` (título, canal, resumo, texto).\n")
+    w(f"Dados migrados: a tabela `video` estava vazia (0 linhas), então não houve conversão de registros: {q('SELECT count(*) FROM fonte')[0][0]} fontes agora. "
+      "Nota: `migrar.py` recria o banco do zero a partir de `data/raw/` + `data/curadoria/`; o que o MCP gravou (vídeos, relações `classificador`) só sobrevive no `dump.sql` versionado, não numa nova migração.\n")
+    # ---------------------------------------------------------------- 16
+    mr = R["mandato_rel"]
+    w("\n## 16. Teia <-> timeline: mandato e bancada -> relações institucionais (`data/curadoria/mandato-relacoes.json`)\n")
+    w(f"`curadoria.gerar_relacoes_mandato` cria **{mr['mandato'] + mr['filiacao']} relações novas** (`tipo='institucional'`, `natureza='documentada'`, `origem='linha_do_tempo'`, `status='publicada'`, tema `brasil-ano-a-ano`), "
+      "depois de toda a carga bruta (ids novos, os antigos não mudam):\n")
+    w(f"- **{mr['mandato']} de mandato** (`subtipo='mandato:<cargo>'`, pessoa -> órgão, uma por linha de `mandato`, `origem_ref='mandato:<id>'`, período = o do mandato): "
+      + ", ".join(f"{k} {v}" for k, v in sorted(mr["por_cargo"].items())) + ".")
+    w(f"- **{mr['filiacao']} de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); "
+      "o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.")
+    w("- Órgãos: `camara-dos-deputados`, `senado-federal` (já existiam, origem timeline) e **`presidencia-da-republica`** (nova, `orgao_publico`; presidente e vice-presidente, em que `mandato.orgao_id` é NULL).")
+    w(f"- `mandato.evidencia_id` está NULL em todas as linhas: nenhuma relação ganhou evidência (o código liga se existir).")
+    w("- **Parlamentares em destaque** (`deputado`/`senador`, `mandato` de um ano = ano do destaque na timeline): a relação tem `periodo_aprox=1` e a descrição avisa que o período é o ano do destaque, não o mandato inteiro.")
+    sp = mr["sem_partido"]
+    w("- Mandatos sem filiação (partido sem entidade): " + (", ".join(f"{e} ({p})" for _, e, p in sp) if sp else "nenhum") + ". Não criei entidade de partido (PRTB, PSOL); decisão pendente.")
+    w(f"- Mandatos sem órgão resolvido: {len(mr['sem_orgao'])}.\n")
+    fus = [r[0] for r in q("""SELECT e.id FROM entidade e WHERE e.origem='teia' AND (EXISTS (SELECT 1 FROM mandato m WHERE m.entidade_id=e.id OR m.orgao_id=e.id)
+        OR EXISTS (SELECT 1 FROM bancada b WHERE b.partido_id=e.id) OR EXISTS (SELECT 1 FROM ranking_empresa k WHERE k.entidade_id=e.id)
+        OR EXISTS (SELECT 1 FROM evento_entidade x JOIN evento v ON v.id=x.evento_id WHERE x.entidade_id=e.id AND v.canal='brasil')) ORDER BY e.id""")]
+    w(f"Entidades da teia que aparecem na timeline (as 10 fusões da seção 5 mais as ligadas por eventos `brasil`): {len(fus)}, todas em `brasil-ano-a-ano` **e** `caso-master` pela view: "
+      + ", ".join(f"`{e}`" for e in fus) + ".")
+
+
 def tokens(s):
     return [t for t in alias_norm(s).split() if t not in ("de", "da", "do", "dos", "das", "e")]
 
@@ -925,7 +1001,10 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
         ("relacao (origem teia, de E[].r)", "SELECT count(*) FROM relacao WHERE origem_ref LIKE 'E[%'"),
         ("relacao (fam_de)", "SELECT count(*) FROM relacao WHERE origem_ref LIKE '%.fam_de'"),
         ("relacao (lig_de)", "SELECT count(*) FROM relacao WHERE origem_ref LIKE '%.lig_de'"),
+        ("relacao (origem linha_do_tempo: mandato/filiação)", "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo'"),
         ("relacao total", "SELECT count(*) FROM relacao"), ("evento total", "SELECT count(*) FROM evento"),
+        ("tema", "SELECT count(*) FROM tema"), ("relacao_tema", "SELECT count(*) FROM relacao_tema"), ("evento_tema", "SELECT count(*) FROM evento_tema"),
+        ("fonte (era video)", "SELECT count(*) FROM fonte"),
         ("evidencia", "SELECT count(*) FROM evidencia"), ("relacao_evidencia", "SELECT count(*) FROM relacao_evidencia"),
         ("evento_evidencia", "SELECT count(*) FROM evento_evidencia"), ("evento_entidade", "SELECT count(*) FROM evento_entidade"),
         ("nota", "SELECT count(*) FROM nota"), ("indicador", "SELECT count(*) FROM indicador"), ("serie", "SELECT count(*) FROM serie"),
@@ -1039,12 +1118,14 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
     w("- `serie` de pares = pontos não nulos dos 18 indicadores (4.806) + PISA (leitura/matemática/ciências e matemática por estado da Índia).")
     w("- Desvios do DDL proposto (marcados `-- DESVIO:` em `scripts/schema.sql`): o DDL original roda sem erro no SQLite 3.45 (incl. STRICT, colunas geradas e FTS5); "
       "acrescentados `entidade.ind_legado`, `evento.valor_brl`, `evento.canal='brb'`, `evento.origem='dossie'`, `ordem` em `relacao_evidencia`/`evento_evidencia`/`evento_entidade`/`nota_entidade`, "
-      "`mandato.motivo`/`mandato.votos`; `evento.contexto`/`resposta` passam a significar o que os dados dizem (ver acima).")
+      "`mandato.motivo`/`mandato.votos`; `evento.contexto`/`resposta` passam a significar o que os dados dizem (ver acima). Rodada de modelo (seções 14 a 16): "
+      "`tema`/`relacao_tema`/`evento_tema`/`v_entidade_tema`, `fonte` no lugar de `video` (e `trecho.fonte_id`), `relacao.origem='linha_do_tempo'`.")
     w("- Passo 3 do plano (ligar eventos a entidades por alias): feito pela curadoria, seção 12. Continua não feita a extração de eventos a partir de datas internas de `N.d`/`desc`.")
     w("- `evento_evidencia.rotulo` (desvio) guarda o rótulo da fonte como veio no original; `evidencia.veiculo` guarda só o do primeiro uso da URL. O exportador usa o rótulo.")
     for a in R["aviso"]:
         w(f"- AVISO: {a}")
     secoes_curadoria(con, R, w)
+    secoes_modelo(con, R, w)
     (DATA / "relatorio-migracao.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 
 

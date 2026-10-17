@@ -51,6 +51,7 @@
   "contratual",
   "familiar",
   "financeira",
+  "institucional",
   "investigacao",
   "juridica",
   "pessoal",
@@ -72,7 +73,15 @@
    "uf": null,
    "indice_legado": 0,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "pcc",
+    "brb",
+    "precatorios",
+    "lagoinha"
+   ]
   },
   {
    "id": "daniel-vorcaro",
@@ -89,6 +98,13 @@
    "origem": "teia",
    "aliases": [
     "Daniel Bueno Vorcaro"
+   ],
+   "temas": [
+    "caso-master",
+    "inss",
+    "pcc",
+    "brb",
+    "lagoinha"
    ]
   },
   {
@@ -104,7 +120,11 @@
    "uf": null,
    "indice_legado": 2,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "jaques-wagner",
@@ -119,7 +139,13 @@
    "uf": null,
    "indice_legado": 3,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "inss",
+    "brb"
+   ]
   },
   {
    "id": "hugo-motta",
@@ -134,7 +160,12 @@
    "uf": null,
    "indice_legado": 4,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
+   ]
   },
   {
    "id": "davi-alcolumbre",
@@ -149,7 +180,12 @@
    "uf": null,
    "indice_legado": 5,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
+   ]
   },
   {
    "id": "ibaneis-rocha",
@@ -164,7 +200,12 @@
    "uf": null,
    "indice_legado": 6,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
+   ]
   },
   {
    "id": "claudio-castro",
@@ -179,7 +220,10 @@
    "uf": null,
    "indice_legado": 7,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "tarcisio-de-freitas",
@@ -194,7 +238,11 @@
    "uf": null,
    "indice_legado": 8,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "lagoinha"
+   ]
   },
   {
    "id": "jair-bolsonaro",
@@ -211,6 +259,11 @@
    "origem": "teia",
    "aliases": [
     "Bolsonaro"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "lagoinha"
    ]
   },
   {
@@ -226,7 +279,11 @@
    "uf": null,
    "indice_legado": 10,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "luiz-inacio-lula-da-silva",
@@ -243,6 +300,11 @@
    "origem": "teia",
    "aliases": [
     "Lula"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
    ]
   },
   {
@@ -258,7 +320,10 @@
    "uf": null,
    "indice_legado": 12,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "guido-mantega",
@@ -273,7 +338,11 @@
    "uf": null,
    "indice_legado": 13,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "henrique-meirelles",
@@ -288,7 +357,10 @@
    "uf": null,
    "indice_legado": 14,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "michel-temer",
@@ -305,6 +377,11 @@
    "origem": "teia",
    "aliases": [
     "Temer"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
    ]
   },
   {
@@ -320,7 +397,10 @@
    "uf": null,
    "indice_legado": 16,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "antonio-rueda",
@@ -335,7 +415,10 @@
    "uf": null,
    "indice_legado": 17,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "acm-neto",
@@ -350,7 +433,10 @@
    "uf": null,
    "indice_legado": 18,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "partido-novo-diretorio-de-minas-gerais",
@@ -365,7 +451,10 @@
    "uf": null,
    "indice_legado": 19,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "governo-do-distrito-federal",
@@ -380,7 +469,11 @@
    "uf": null,
    "indice_legado": 20,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "nikolas-ferreira",
@@ -395,7 +488,13 @@
    "uf": null,
    "indice_legado": 21,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "stf",
@@ -412,6 +511,14 @@
    "origem": "teia",
    "aliases": [
     "STF"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "inss",
+    "pcc",
+    "precatorios",
+    "lagoinha"
    ]
   },
   {
@@ -427,7 +534,11 @@
    "uf": null,
    "indice_legado": 23,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "viviane-barci-de-moraes",
@@ -442,7 +553,10 @@
    "uf": null,
    "indice_legado": 24,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "dias-toffoli",
@@ -457,7 +571,12 @@
    "uf": null,
    "indice_legado": 25,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "maridt-participacoes",
@@ -472,7 +591,10 @@
    "uf": null,
    "indice_legado": 26,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "andre-mendonca",
@@ -487,7 +609,12 @@
    "uf": null,
    "indice_legado": 27,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb",
+    "lagoinha"
+   ]
   },
   {
    "id": "gilmar-mendes",
@@ -502,7 +629,11 @@
    "uf": null,
    "indice_legado": 28,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "edson-fachin",
@@ -517,7 +648,12 @@
    "uf": null,
    "indice_legado": 29,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "precatorios"
+   ]
   },
   {
    "id": "flavio-dino",
@@ -532,7 +668,14 @@
    "uf": null,
    "indice_legado": 30,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "inss",
+    "pcc",
+    "lagoinha"
+   ]
   },
   {
    "id": "paulo-gonet",
@@ -547,7 +690,10 @@
    "uf": null,
    "indice_legado": 31,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "mpf",
@@ -564,6 +710,12 @@
    "origem": "teia",
    "aliases": [
     "MPF"
+   ],
+   "temas": [
+    "caso-master",
+    "inss",
+    "pcc",
+    "brb"
    ]
   },
   {
@@ -582,6 +734,14 @@
    "aliases": [
     "Banco Central",
     "BCB"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "pcc",
+    "brb",
+    "precatorios",
+    "lagoinha"
    ]
   },
   {
@@ -597,7 +757,11 @@
    "uf": null,
    "indice_legado": 34,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "roberto-campos-neto",
@@ -612,7 +776,10 @@
    "uf": null,
    "indice_legado": 35,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "paulo-sergio-neves-de-souza",
@@ -627,7 +794,10 @@
    "uf": null,
    "indice_legado": 36,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "belline-santana",
@@ -642,7 +812,10 @@
    "uf": null,
    "indice_legado": 37,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "cvm",
@@ -660,6 +833,9 @@
    "aliases": [
     "Comissão de Valores Mobiliários",
     "CVM"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -677,6 +853,12 @@
    "origem": "teia",
    "aliases": [
     "TCU"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc",
+    "brb",
+    "precatorios"
    ]
   },
   {
@@ -694,6 +876,15 @@
    "origem": "teia",
    "aliases": [
     "PF"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "inss",
+    "pcc",
+    "brb",
+    "precatorios",
+    "lagoinha"
    ]
   },
   {
@@ -709,7 +900,13 @@
    "uf": null,
    "indice_legado": 41,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "brb",
+    "lagoinha"
+   ]
   },
   {
    "id": "cpi-do-crime-organizado",
@@ -724,7 +921,10 @@
    "uf": null,
    "indice_legado": 42,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "efb-regimes-especiais-de-empresas",
@@ -739,7 +939,10 @@
    "uf": null,
    "indice_legado": 43,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "grupo-voto",
@@ -754,7 +957,10 @@
    "uf": null,
    "indice_legado": 44,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "operacao-carbono-oculto",
@@ -769,7 +975,11 @@
    "uf": null,
    "indice_legado": 45,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "operacao-quasar",
@@ -784,7 +994,11 @@
    "uf": null,
    "indice_legado": 46,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "operacao-credito-oculto",
@@ -799,7 +1013,11 @@
    "uf": null,
    "indice_legado": 47,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "gaeco-mp-sp",
@@ -814,7 +1032,11 @@
    "uf": null,
    "indice_legado": 48,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "pcc",
@@ -832,6 +1054,10 @@
    "aliases": [
     "Primeiro Comando da Capital",
     "PCC"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc"
    ]
   },
   {
@@ -849,6 +1075,10 @@
    "origem": "teia",
    "aliases": [
     "Mohamad Hussein Mourad"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc"
    ]
   },
   {
@@ -867,6 +1097,10 @@
    "aliases": [
     "Roberto Augusto Leme da Silva",
     "Beto Louco"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc"
    ]
   },
   {
@@ -882,7 +1116,11 @@
    "uf": null,
    "indice_legado": 52,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "aster-petroleo",
@@ -897,7 +1135,10 @@
    "uf": null,
    "indice_legado": 53,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "inss",
@@ -912,7 +1153,12 @@
    "uf": null,
    "indice_legado": 54,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "operacao-sem-desconto",
@@ -927,7 +1173,11 @@
    "uf": null,
    "indice_legado": 55,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss"
+   ]
   },
   {
    "id": "cpmi-do-inss",
@@ -942,7 +1192,12 @@
    "uf": null,
    "indice_legado": 56,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "antonio-carlos-camilo-antunes",
@@ -960,6 +1215,10 @@
    "aliases": [
     "Antônio Carlos Camilo Antunes",
     "Careca do INSS"
+   ],
+   "temas": [
+    "caso-master",
+    "inss"
    ]
   },
   {
@@ -975,7 +1234,11 @@
    "uf": null,
    "indice_legado": 58,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss"
+   ]
   },
   {
    "id": "conafer",
@@ -990,7 +1253,11 @@
    "uf": null,
    "indice_legado": 59,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss"
+   ]
   },
   {
    "id": "alessandro-stefanutto",
@@ -1005,7 +1272,10 @@
    "uf": null,
    "indice_legado": 60,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "credcesta",
@@ -1020,7 +1290,12 @@
    "uf": null,
    "indice_legado": 61,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "brb"
+   ]
   },
   {
    "id": "reag-investimentos",
@@ -1035,7 +1310,13 @@
    "uf": null,
    "indice_legado": 62,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc",
+    "brb",
+    "lagoinha"
+   ]
   },
   {
    "id": "reag-trust-dtvm",
@@ -1053,6 +1334,11 @@
    "aliases": [
     "Reag Trust DTVM",
     "CBSF DTVM"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc",
+    "lagoinha"
    ]
   },
   {
@@ -1068,7 +1354,11 @@
    "uf": null,
    "indice_legado": 64,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "arandu-partners-holding",
@@ -1083,7 +1373,10 @@
    "uf": null,
    "indice_legado": 65,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "hans-95",
@@ -1100,6 +1393,10 @@
    "origem": "teia",
    "aliases": [
     "Hans 95"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc"
    ]
   },
   {
@@ -1117,6 +1414,10 @@
    "origem": "teia",
    "aliases": [
     "Hans II"
+   ],
+   "temas": [
+    "caso-master",
+    "inss"
    ]
   },
   {
@@ -1134,6 +1435,9 @@
    "origem": "teia",
    "aliases": [
     "Astralo 95"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -1149,7 +1453,11 @@
    "uf": null,
    "indice_legado": 69,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "mabruk-ii",
@@ -1166,6 +1474,10 @@
    "origem": "teia",
    "aliases": [
     "Mabruk II"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc"
    ]
   },
   {
@@ -1181,7 +1493,11 @@
    "uf": null,
    "indice_legado": 71,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc"
+   ]
   },
   {
    "id": "antonio-carlos-freixo-junior",
@@ -1199,6 +1515,10 @@
    "aliases": [
     "Antônio Carlos Freixo Júnior",
     "Mineiro"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc"
    ]
   },
   {
@@ -1214,7 +1534,12 @@
    "uf": null,
    "indice_legado": 73,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "pcc",
+    "lagoinha"
+   ]
   },
   {
    "id": "xp-investimentos",
@@ -1229,7 +1554,10 @@
    "uf": null,
    "indice_legado": 74,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "btg-pactual",
@@ -1244,7 +1572,11 @@
    "uf": null,
    "indice_legado": 75,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "easynvest",
@@ -1262,6 +1594,9 @@
    "aliases": [
     "Easynvest",
     "Nubank"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -1277,7 +1612,10 @@
    "uf": null,
    "indice_legado": 77,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "fgc",
@@ -1295,6 +1633,10 @@
    "aliases": [
     "Fundo Garantidor de Créditos",
     "FGC"
+   ],
+   "temas": [
+    "caso-master",
+    "brb"
    ]
   },
   {
@@ -1310,7 +1652,10 @@
    "uf": null,
    "indice_legado": 79,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "brb",
@@ -1328,6 +1673,11 @@
    "aliases": [
     "Banco de Brasília",
     "BRB"
+   ],
+   "temas": [
+    "caso-master",
+    "inss",
+    "brb"
    ]
   },
   {
@@ -1343,7 +1693,11 @@
    "uf": null,
    "indice_legado": 81,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "quadra-gestao-de-recursos",
@@ -1358,7 +1712,11 @@
    "uf": null,
    "indice_legado": 82,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "grupo-fictor",
@@ -1373,7 +1731,10 @@
    "uf": null,
    "indice_legado": 83,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "nelson-tanure",
@@ -1388,7 +1749,10 @@
    "uf": null,
    "indice_legado": 84,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "rioprevidencia",
@@ -1403,7 +1767,10 @@
    "uf": null,
    "indice_legado": 85,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "amprev",
@@ -1421,6 +1788,10 @@
    "aliases": [
     "Amprev",
     "Amapá Previdência"
+   ],
+   "temas": [
+    "caso-master",
+    "brb"
    ]
   },
   {
@@ -1436,7 +1807,10 @@
    "uf": null,
    "indice_legado": 87,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "amazonprev",
@@ -1451,7 +1825,10 @@
    "uf": null,
    "indice_legado": 88,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "aparecidaprev",
@@ -1466,7 +1843,10 @@
    "uf": null,
    "indice_legado": 89,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "iprev-maceio",
@@ -1481,7 +1861,10 @@
    "uf": null,
    "indice_legado": 90,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "sao-roque-prev",
@@ -1496,7 +1879,10 @@
    "uf": null,
    "indice_legado": 91,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "demais-14-rpps",
@@ -1514,6 +1900,9 @@
    "aliases": [
     "Demais 14 RPPS",
     "Cajamar, Itaguaí, Amazonas e outros"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -1532,6 +1921,10 @@
    "aliases": [
     "Estados e municípios",
     "entes dos RPPS"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -1547,7 +1940,10 @@
    "uf": null,
    "indice_legado": 94,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "banco-maxima",
@@ -1562,7 +1958,10 @@
    "uf": null,
    "indice_legado": 95,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "banco-letsbank",
@@ -1577,7 +1976,10 @@
    "uf": null,
    "indice_legado": 96,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "banco-pleno",
@@ -1595,6 +1997,10 @@
    "aliases": [
     "Banco Pleno",
     "Voiter"
+   ],
+   "temas": [
+    "caso-master",
+    "lagoinha"
    ]
   },
   {
@@ -1613,6 +2019,9 @@
    "aliases": [
     "Will Financeira",
     "Will Bank"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -1628,7 +2037,11 @@
    "uf": null,
    "indice_legado": 99,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "fabiano-zettel",
@@ -1643,7 +2056,12 @@
    "uf": null,
    "indice_legado": 100,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "henrique-vorcaro",
@@ -1660,6 +2078,10 @@
    "origem": "teia",
    "aliases": [
     "Henrique Moura Vorcaro"
+   ],
+   "temas": [
+    "caso-master",
+    "lagoinha"
    ]
   },
   {
@@ -1675,7 +2097,12 @@
    "uf": null,
    "indice_legado": 102,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios",
+    "lagoinha"
+   ]
   },
   {
    "id": "tirreno",
@@ -1690,7 +2117,12 @@
    "uf": null,
    "indice_legado": 103,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "brb"
+   ]
   },
   {
    "id": "roberto-de-rezende-barbosa",
@@ -1705,7 +2137,10 @@
    "uf": null,
    "indice_legado": 104,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "saul-dutra-sabba",
@@ -1720,7 +2155,10 @@
    "uf": null,
    "indice_legado": 105,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "grupo-multipar",
@@ -1735,7 +2173,11 @@
    "uf": null,
    "indice_legado": 106,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "lagoinha"
+   ]
   },
   {
    "id": "igreja-batista-da-lagoinha",
@@ -1750,7 +2192,12 @@
    "uf": null,
    "indice_legado": 107,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "andre-valadao",
@@ -1765,7 +2212,12 @@
    "uf": null,
    "indice_legado": 108,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "lagoinha-belvedere",
@@ -1780,7 +2232,12 @@
    "uf": null,
    "indice_legado": 109,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "rede-super",
@@ -1795,7 +2252,11 @@
    "uf": null,
    "indice_legado": 110,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "lagoinha"
+   ]
   },
   {
    "id": "clava-forte-bank",
@@ -1810,7 +2271,12 @@
    "uf": null,
    "indice_legado": 111,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "inss",
+    "lagoinha"
+   ]
   },
   {
    "id": "kassio-nunes-marques",
@@ -1825,7 +2291,10 @@
    "uf": null,
    "indice_legado": 112,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "luiz-fux",
@@ -1840,7 +2309,10 @@
    "uf": null,
    "indice_legado": 113,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "newton-ramos",
@@ -1855,7 +2327,11 @@
    "uf": null,
    "indice_legado": 114,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "benedito-goncalves",
@@ -1870,7 +2346,11 @@
    "uf": null,
    "indice_legado": 115,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "cnj",
@@ -1888,6 +2368,10 @@
    "aliases": [
     "Corregedoria Nacional de Justiça",
     "CNJ"
+   ],
+   "temas": [
+    "caso-master",
+    "precatorios"
    ]
   },
   {
@@ -1906,6 +2390,10 @@
    "aliases": [
     "Advocacia-Geral da União",
     "AGU"
+   ],
+   "temas": [
+    "caso-master",
+    "precatorios"
    ]
   },
   {
@@ -1924,6 +2412,10 @@
    "aliases": [
     "Tribunal Regional Federal da 1ª Região",
     "TRF-1"
+   ],
+   "temas": [
+    "caso-master",
+    "precatorios"
    ]
   },
   {
@@ -1939,7 +2431,11 @@
    "uf": null,
    "indice_legado": 119,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "otto-alencar",
@@ -1954,7 +2450,10 @@
    "uf": null,
    "indice_legado": 120,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "cezinha-de-madureira",
@@ -1969,7 +2468,10 @@
    "uf": null,
    "indice_legado": 121,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "fabio-faria",
@@ -1984,7 +2486,11 @@
    "uf": null,
    "indice_legado": 122,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "ronaldo-bento",
@@ -1999,7 +2505,10 @@
    "uf": null,
    "indice_legado": 123,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "kevin-de-carvalho-marques",
@@ -2014,7 +2523,11 @@
    "uf": null,
    "indice_legado": 124,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "rodrigo-fux",
@@ -2029,7 +2542,11 @@
    "uf": null,
    "indice_legado": 125,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "enrique-de-abreu-lewandowski",
@@ -2044,7 +2561,10 @@
    "uf": null,
    "indice_legado": 126,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "irmaos-de-toffoli",
@@ -2062,6 +2582,9 @@
    "aliases": [
     "Irmãos de Toffoli",
     "José Carlos e José Eugênio Dias Toffoli"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2077,7 +2600,10 @@
    "uf": null,
    "indice_legado": 128,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "roberta-rangel",
@@ -2092,7 +2618,10 @@
    "uf": null,
    "indice_legado": 129,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "pedro-gonet-branco",
@@ -2107,7 +2636,10 @@
    "uf": null,
    "indice_legado": 130,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "bianca-medeiros",
@@ -2122,7 +2654,10 @@
    "uf": null,
    "indice_legado": 131,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "etc-participacoes",
@@ -2137,7 +2672,10 @@
    "uf": null,
    "indice_legado": 132,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "bonnie-de-bonilha",
@@ -2152,7 +2690,10 @@
    "uf": null,
    "indice_legado": 133,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "bn-financeira",
@@ -2170,6 +2711,10 @@
    "aliases": [
     "BN Financeira",
     "BK Financeira"
+   ],
+   "temas": [
+    "caso-master",
+    "inss"
    ]
   },
   {
@@ -2185,7 +2730,10 @@
    "uf": null,
    "indice_legado": 135,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "raimundo-neto-e-silva-nogueira-lima",
@@ -2200,7 +2748,10 @@
    "uf": null,
    "indice_legado": 136,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "cnlf-empreendimentos-imobiliarios",
@@ -2215,7 +2766,10 @@
    "uf": null,
    "indice_legado": 137,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "caio-carvalho-barros",
@@ -2230,7 +2784,10 @@
    "uf": null,
    "indice_legado": 138,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "eduardo-bolsonaro",
@@ -2245,7 +2802,11 @@
    "uf": null,
    "indice_legado": 139,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "luis-roberto-irmao-de-paulo-sergio-neves-de-souza",
@@ -2260,7 +2821,10 @@
    "uf": null,
    "indice_legado": 140,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "valeria-rodrigues-linhares",
@@ -2275,7 +2839,10 @@
    "uf": null,
    "indice_legado": 141,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "camilla-ramos",
@@ -2290,7 +2857,11 @@
    "uf": null,
    "indice_legado": 142,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "felipe-cancado-vorcaro",
@@ -2305,7 +2876,10 @@
    "uf": null,
    "indice_legado": 143,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "luiz-renno-netto",
@@ -2320,7 +2894,10 @@
    "uf": null,
    "indice_legado": 144,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "andre-kruschewsky",
@@ -2335,7 +2912,10 @@
    "uf": null,
    "indice_legado": 145,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "leo-serrano-giunchetti",
@@ -2350,7 +2930,10 @@
    "uf": null,
    "indice_legado": 146,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "prime-aviation",
@@ -2365,7 +2948,10 @@
    "uf": null,
    "indice_legado": 147,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "fsw-spe",
@@ -2380,7 +2966,10 @@
    "uf": null,
    "indice_legado": 148,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "luiz-phillipi-mourao",
@@ -2398,6 +2987,9 @@
    "aliases": [
     "Luiz Phillipi Mourão",
     "Sicário"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2413,7 +3005,10 @@
    "uf": null,
    "indice_legado": 150,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "walfrido-warde",
@@ -2428,7 +3023,10 @@
    "uf": null,
    "indice_legado": 151,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "warde-advogados",
@@ -2443,7 +3041,10 @@
    "uf": null,
    "indice_legado": 152,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "monteiro-rusu-cameirao-e-bercht-advogados",
@@ -2458,7 +3059,11 @@
    "uf": null,
    "indice_legado": 153,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "daniel-lopes-monteiro",
@@ -2473,7 +3078,11 @@
    "uf": null,
    "indice_legado": 154,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "gabino-kruschewsky-advogados-associados",
@@ -2488,7 +3097,10 @@
    "uf": null,
    "indice_legado": 155,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "eugenio-kruschewsky",
@@ -2503,7 +3115,10 @@
    "uf": null,
    "indice_legado": 156,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "alves-correa-verissimo-advocacia",
@@ -2518,7 +3133,11 @@
    "uf": null,
    "indice_legado": 157,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb"
+   ]
   },
   {
    "id": "dalide-barbosa-alves-correa",
@@ -2533,7 +3152,10 @@
    "uf": null,
    "indice_legado": 158,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "marcus-vinicius-furtado-coelho",
@@ -2548,7 +3170,10 @@
    "uf": null,
    "indice_legado": 159,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "queiroga-vieira-queiroz-e-ramos-advocacia",
@@ -2566,6 +3191,10 @@
    "aliases": [
     "Queiroga, Vieira, Queiroz e Ramos Advocacia",
     "QVQR"
+   ],
+   "temas": [
+    "caso-master",
+    "precatorios"
    ]
   },
   {
@@ -2581,7 +3210,10 @@
    "uf": null,
    "indice_legado": 161,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "consult-inteligencia-tributaria",
@@ -2596,7 +3228,10 @@
    "uf": null,
    "indice_legado": 162,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "lewandowski-advocacia",
@@ -2611,7 +3246,10 @@
    "uf": null,
    "indice_legado": 163,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "laguz-i-e-reag-legal-claims",
@@ -2629,6 +3267,10 @@
    "aliases": [
     "Laguz I e Reag Legal Claims",
     "fundos da Reag"
+   ],
+   "temas": [
+    "caso-master",
+    "brb"
    ]
   },
   {
@@ -2646,6 +3288,9 @@
    "origem": "teia",
    "aliases": [
     "Havengate"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2661,7 +3306,10 @@
    "uf": null,
    "indice_legado": 166,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "metropoles-marketing-e-propaganda",
@@ -2676,7 +3324,10 @@
    "uf": null,
    "indice_legado": 167,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "luiz-estevao",
@@ -2691,7 +3342,11 @@
    "uf": null,
    "indice_legado": 168,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "grupo-massa-ratinho",
@@ -2709,6 +3364,9 @@
    "aliases": [
     "Grupo Massa / Ratinho",
     "SBT"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2724,7 +3382,10 @@
    "uf": null,
    "indice_legado": 170,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "luciano-huck",
@@ -2739,7 +3400,10 @@
    "uf": null,
    "indice_legado": 171,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "diario-do-centro-do-mundo",
@@ -2757,6 +3421,9 @@
    "aliases": [
     "Diário do Centro do Mundo",
     "DCM"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2772,7 +3439,10 @@
    "uf": null,
    "indice_legado": 173,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "leo-dias-comunicacao-e-jornalismo",
@@ -2790,6 +3460,9 @@
    "aliases": [
     "Leo Dias Comunicação e Jornalismo",
     "Léo Dias"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2805,7 +3478,10 @@
    "uf": null,
    "indice_legado": 175,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "malu-gaspar",
@@ -2820,7 +3496,10 @@
    "uf": null,
    "indice_legado": 176,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "thiago-miranda",
@@ -2835,7 +3514,10 @@
    "uf": null,
    "indice_legado": 177,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "influenciadores-abordados",
@@ -2853,6 +3535,9 @@
    "aliases": [
     "Influenciadores abordados",
     "Projeto DV"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2868,7 +3553,10 @@
    "uf": null,
    "indice_legado": 179,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "fabio-wajngarten",
@@ -2883,7 +3571,10 @@
    "uf": null,
    "indice_legado": 180,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "go-up-entertainment",
@@ -2898,7 +3589,10 @@
    "uf": null,
    "indice_legado": 181,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "mario-frias",
@@ -2913,7 +3607,10 @@
    "uf": null,
    "indice_legado": 182,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "destilaria-alcidia",
@@ -2931,6 +3628,9 @@
    "aliases": [
     "Destilaria Alcídia",
     "grupo Atvos"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -2946,7 +3646,11 @@
    "uf": null,
    "indice_legado": 184,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "una-agroindustrial",
@@ -2961,7 +3665,11 @@
    "uf": null,
    "indice_legado": 185,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "companhia-acucareira-vale-do-ceara-mirim",
@@ -2976,7 +3684,11 @@
    "uf": null,
    "indice_legado": 186,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "usina-santa-tereza",
@@ -2994,6 +3706,10 @@
    "aliases": [
     "Usina Santa Tereza",
     "Caig"
+   ],
+   "temas": [
+    "caso-master",
+    "precatorios"
    ]
   },
   {
@@ -3009,7 +3725,11 @@
    "uf": null,
    "indice_legado": 188,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "agro-industrial-tabu",
@@ -3024,7 +3744,11 @@
    "uf": null,
    "indice_legado": 189,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "usina-cambahyba",
@@ -3039,7 +3763,10 @@
    "uf": null,
    "indice_legado": 190,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "raizen-energia",
@@ -3054,7 +3781,10 @@
    "uf": null,
    "indice_legado": 191,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "seis-usinas-cedidas-a-entre",
@@ -3072,6 +3802,9 @@
    "aliases": [
     "Seis usinas cedidas à Entre",
     "Sumaúma, Catende, São João, Paraíso, Outeiro, Baixa Grande"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -3087,7 +3820,10 @@
    "uf": null,
    "indice_legado": 193,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "ssa-fidc",
@@ -3102,7 +3838,10 @@
    "uf": null,
    "indice_legado": 194,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
   },
   {
    "id": "amazonita",
@@ -3119,6 +3858,9 @@
    "origem": "teia",
    "aliases": [
     "Amazonita"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -3136,6 +3878,9 @@
    "origem": "teia",
    "aliases": [
     "Sefer"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -3151,7 +3896,11 @@
    "uf": null,
    "indice_legado": 197,
    "origem": "teia",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "precatorios"
+   ]
   },
   {
    "id": "acesita",
@@ -3166,7 +3915,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "acominas",
@@ -3181,7 +3933,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "acos-villares",
@@ -3196,7 +3951,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "aecio-neves",
@@ -3211,7 +3969,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "africa-do-sul",
@@ -3228,6 +3989,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "ZAF"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "pares"
    ]
   },
   {
@@ -3243,7 +4008,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "aldo-rebelo",
@@ -3258,7 +4026,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "alessandro-molon",
@@ -3273,7 +4044,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "alexandre-silveira",
@@ -3288,7 +4062,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "aloizio-mercadante",
@@ -3303,7 +4080,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "aloysio-nunes-ferreira",
@@ -3318,7 +4098,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "altineu-cortes",
@@ -3333,7 +4116,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "ambev",
@@ -3348,7 +4134,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "americanas",
@@ -3363,7 +4152,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "andre-moura",
@@ -3378,7 +4170,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "antonio-anastasia",
@@ -3393,7 +4188,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "antonio-carlos-magalhaes",
@@ -3408,7 +4206,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "argentina",
@@ -3425,6 +4226,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "ARG"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "pares"
    ]
   },
   {
@@ -3440,7 +4245,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "arnaldo-madeira",
@@ -3455,7 +4263,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "arthur-lira",
@@ -3470,7 +4281,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "azul",
@@ -3485,7 +4299,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "banco-do-brasil",
@@ -3500,7 +4317,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "banco-real",
@@ -3515,7 +4335,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "bb-seguridade",
@@ -3530,7 +4353,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "beni-veras",
@@ -3545,7 +4371,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "bndes",
@@ -3560,7 +4389,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "bradesco",
@@ -3575,7 +4407,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "brasil",
@@ -3592,6 +4427,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "BRA"
+   ],
+   "temas": [
+    "pares"
    ]
   },
   {
@@ -3607,7 +4445,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "braskem",
@@ -3622,7 +4463,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "brf",
@@ -3637,7 +4481,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "bruno-araujo",
@@ -3652,7 +4499,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "caixa",
@@ -3667,7 +4517,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "camara-dos-deputados",
@@ -3684,6 +4537,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "Câmara"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "violencia"
    ]
   },
   {
@@ -3699,7 +4556,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "carlos-portinho",
@@ -3714,7 +4574,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "carlos-sampaio",
@@ -3729,7 +4592,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "casas-bahia",
@@ -3744,7 +4610,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "celso-russomanno",
@@ -3759,7 +4628,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "cemig",
@@ -3774,7 +4646,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "china",
@@ -3791,6 +4666,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "CHN"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "pares"
    ]
   },
   {
@@ -3806,7 +4685,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "claudio-cajado",
@@ -3821,7 +4703,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "colombia",
@@ -3838,6 +4723,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "COL"
+   ],
+   "temas": [
+    "pares"
    ]
   },
   {
@@ -3853,7 +4741,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "cosipa",
@@ -3868,7 +4759,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "csn",
@@ -3883,7 +4777,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "cst",
@@ -3898,7 +4795,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "cteep",
@@ -3913,7 +4813,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "daniel-silveira",
@@ -3928,7 +4831,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "delcidio-do-amaral",
@@ -3943,7 +4849,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "dem",
@@ -3960,6 +4869,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "PFL"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -3975,7 +4887,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "dilma-rousseff",
@@ -3992,6 +4907,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "Dilma"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -4007,7 +4925,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "eduardo-braga",
@@ -4022,7 +4943,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "eduardo-cunha",
@@ -4037,7 +4961,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "efraim-morais",
@@ -4052,7 +4979,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "eletrobras",
@@ -4067,7 +4997,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "eliziane-gama",
@@ -4082,7 +5015,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "embratel",
@@ -4097,7 +5033,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "eneas-carneiro",
@@ -4112,7 +5051,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "enio-verri",
@@ -4127,7 +5069,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "eunicio-oliveira",
@@ -4142,7 +5087,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "fe-brasil",
@@ -4160,6 +5108,9 @@
    "aliases": [
     "Federação PT/PCdoB/PV",
     "FE Brasil (PT/PCdoB/PV)"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -4175,7 +5126,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "fernando-henrique-cardoso",
@@ -4192,6 +5146,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "FHC"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -4207,7 +5164,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "garibaldi-alves-filho",
@@ -4222,7 +5182,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "geddel-vieira-lima",
@@ -4237,7 +5200,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "geraldo-alckmin",
@@ -4252,7 +5218,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "gerdau",
@@ -4267,7 +5236,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "gol",
@@ -4282,7 +5254,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "hamilton-mourao",
@@ -4297,7 +5272,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "heloisa-helena",
@@ -4312,7 +5290,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "henrique-eduardo-alves",
@@ -4327,7 +5308,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "henrique-fontana",
@@ -4342,7 +5326,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "hugo-napoleao",
@@ -4357,7 +5344,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "humberto-costa",
@@ -4372,7 +5362,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "india",
@@ -4389,6 +5382,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "IND"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "pares"
    ]
   },
   {
@@ -4406,6 +5403,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "IDN"
+   ],
+   "temas": [
+    "pares"
    ]
   },
   {
@@ -4421,7 +5421,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "itau-unibanco",
@@ -4439,6 +5442,11 @@
    "aliases": [
     "Itaú",
     "Itaú Holding"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
    ]
   },
   {
@@ -4454,7 +5462,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jader-barbalho",
@@ -4469,7 +5480,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jbs",
@@ -4484,7 +5498,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jefferson-peres",
@@ -4499,7 +5516,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "joao-maia",
@@ -4514,7 +5534,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "joao-paulo-cunha",
@@ -4529,7 +5552,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "joice-hasselmann",
@@ -4544,7 +5570,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-alencar",
@@ -4559,7 +5588,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-carlos-aleluia",
@@ -4574,7 +5606,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-dirceu",
@@ -4589,7 +5624,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-eduardo-cardozo",
@@ -4604,7 +5642,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-guimaraes",
@@ -4619,7 +5660,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-mucio-monteiro",
@@ -4634,7 +5678,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-pimentel",
@@ -4649,7 +5696,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-roberto-arruda",
@@ -4664,7 +5714,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jose-sarney",
@@ -4679,7 +5732,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jovair-arantes",
@@ -4694,7 +5750,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "jutahy-junior",
@@ -4709,7 +5768,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "leonardo-picciani",
@@ -4724,7 +5786,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "light",
@@ -4739,7 +5804,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "lindbergh-farias",
@@ -4754,7 +5822,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "luis-carlos-santos",
@@ -4769,7 +5840,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "luis-eduardo-magalhaes",
@@ -4784,7 +5858,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "luiz-sergio",
@@ -4799,7 +5876,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "major-vitor-hugo",
@@ -4814,7 +5894,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "marco-maciel",
@@ -4829,7 +5912,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "marco-maia",
@@ -4844,7 +5930,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "marina-silva",
@@ -4859,7 +5948,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "mdb",
@@ -4876,6 +5968,11 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "PMDB"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
    ]
   },
   {
@@ -4891,7 +5988,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "mexico",
@@ -4908,6 +6008,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "MEX"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "pares"
    ]
   },
   {
@@ -4923,7 +6027,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "miro-teixeira",
@@ -4938,7 +6045,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "moreira-franco",
@@ -4953,7 +6063,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "moses-rodrigues",
@@ -4968,7 +6081,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "odair-cunha",
@@ -4983,7 +6099,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "ogpar",
@@ -4998,7 +6117,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "oi",
@@ -5013,7 +6135,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "omar-aziz",
@@ -5028,7 +6153,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "outros-partidos",
@@ -5045,6 +6173,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "Outros"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -5060,7 +6191,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "paulo-souto",
@@ -5075,7 +6209,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "paulo-teixeira",
@@ -5090,7 +6227,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pcdob",
@@ -5105,7 +6245,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pdg-realty",
@@ -5120,7 +6263,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pdt",
@@ -5135,7 +6281,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pedro-novais",
@@ -5150,7 +6299,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "petrobras",
@@ -5165,7 +6317,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pl",
@@ -5182,6 +6337,11 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "PR"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
    ]
   },
   {
@@ -5197,7 +6357,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "podemos",
@@ -5212,7 +6375,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pp",
@@ -5230,6 +6396,11 @@
    "aliases": [
     "PPB",
     "PPR"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
    ]
   },
   {
@@ -5247,6 +6418,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "PP1993"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -5262,7 +6436,28 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "presidencia-da-republica",
+   "nome": "Presidência da República",
+   "tipo": "orgao_publico",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": null,
+   "uf": null,
+   "indice_legado": null,
+   "origem": "linha_do_tempo",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "professor-luizinho",
@@ -5277,7 +6472,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "professora-dorinha-seabra-rezende",
@@ -5292,7 +6490,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "prona",
@@ -5307,7 +6508,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "psb",
@@ -5322,7 +6526,12 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
+   ]
   },
   {
    "id": "psc",
@@ -5337,7 +6546,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "psd",
@@ -5352,7 +6564,11 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "psdb",
@@ -5367,7 +6583,12 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
+   ]
   },
   {
    "id": "psdb-cidadania",
@@ -5382,7 +6603,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "psl",
@@ -5397,7 +6621,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "psol-rede",
@@ -5412,7 +6639,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pt",
@@ -5427,7 +6657,12 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
+   ]
   },
   {
    "id": "ptb",
@@ -5442,7 +6677,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "pv",
@@ -5457,7 +6695,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "ramez-tebet",
@@ -5472,7 +6713,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "randolfe-rodrigues",
@@ -5487,7 +6731,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "rede",
@@ -5502,7 +6749,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "reginaldo-lopes",
@@ -5517,7 +6767,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "renan-calheiros",
@@ -5532,7 +6785,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "republicanos",
@@ -5549,6 +6805,11 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "PRB"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "brb"
    ]
   },
   {
@@ -5564,7 +6825,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "ricardo-ferraco",
@@ -5579,7 +6843,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "roberto-jefferson",
@@ -5594,7 +6861,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "rodrigo-maia",
@@ -5609,7 +6879,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "rodrigo-pacheco",
@@ -5624,7 +6897,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "rogerio-marinho",
@@ -5639,7 +6915,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "romero-juca",
@@ -5654,7 +6933,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "ronivon-santiago",
@@ -5669,7 +6951,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "rpps-araras",
@@ -5687,6 +6972,9 @@
    "aliases": [
     "Previdência de Araras",
     "RPPS de Araras"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -5705,6 +6993,9 @@
    "aliases": [
     "Previdência de Cajamar",
     "RPPS de Cajamar"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -5723,6 +7014,9 @@
    "aliases": [
     "Previdência de Congonhas",
     "RPPS de Congonhas"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -5741,6 +7035,9 @@
    "aliases": [
     "Previdência de Itaguaí",
     "RPPS de Itaguaí"
+   ],
+   "temas": [
+    "caso-master"
    ]
   },
   {
@@ -5758,6 +7055,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "RUS"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "pares"
    ]
   },
   {
@@ -5773,7 +7074,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "samuel-moreira",
@@ -5788,7 +7092,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "santander-brasil",
@@ -5803,7 +7110,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "senado-federal",
@@ -5820,6 +7130,11 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "Senado"
+   ],
+   "temas": [
+    "caso-master",
+    "brasil-ano-a-ano",
+    "precatorios"
    ]
   },
   {
@@ -5835,7 +7150,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "solidariedade",
@@ -5852,6 +7170,9 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "SD"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -5867,7 +7188,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "suzano",
@@ -5882,7 +7206,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "tasso-jereissati",
@@ -5897,7 +7224,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "telebras",
@@ -5912,7 +7242,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "telefonica-brasil",
@@ -5930,6 +7263,9 @@
    "aliases": [
     "Telefónica (Telesp e outras)",
     "Telesp"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
    ]
   },
   {
@@ -5945,7 +7281,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "telesp-celular-participacoes",
@@ -5960,7 +7299,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "tiao-viana",
@@ -5975,7 +7317,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "tiririca",
@@ -5990,7 +7335,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "turquia",
@@ -6007,6 +7355,10 @@
    "origem": "linha_do_tempo",
    "aliases": [
     "TUR"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "pares"
    ]
   },
   {
@@ -6022,7 +7374,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "unibanco",
@@ -6037,7 +7392,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "usiminas",
@@ -6052,7 +7410,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "vale",
@@ -6067,7 +7428,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "waldir-maranhao",
@@ -6082,7 +7446,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   },
   {
    "id": "zeca-dirceu",
@@ -6097,7 +7464,10 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
-   "aliases": []
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
   }
  ],
  "indice_alias": {
@@ -6476,6 +7846,7 @@
   "pps": "pps",
   "pr": "pl",
   "prb": "republicanos",
+  "presidencia da republica": "presidencia-da-republica",
   "previdencia de araras": "rpps-araras",
   "previdencia de cajamar": "rpps-cajamar",
   "previdencia de congonhas": "rpps-congonhas",

@@ -29,6 +29,9 @@ async def main():
                 print(" -", t.name, "|", sorted(t.input_schema.get("properties", {})))
             res = await s.call_tool("buscar_entidade", {"consulta": "Vorcaro", "limite": 2})
             print("buscar_entidade('Vorcaro') ->", json.loads(res.content[0].text)["id"] if not res.is_error else res)
+            res = await s.call_tool("listar_temas", {})
+            temas = [json.loads(c.text)["id"] for c in res.content] if not res.is_error else res
+            print("listar_temas ->", temas)
             res = await s.call_tool("resumo_banco", {})
             print("resumo_banco ->", res.content[0].text[:160], "...")
     shutil.rmtree(tmp)

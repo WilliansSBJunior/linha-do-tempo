@@ -1,0 +1,24 @@
+{
+ "descricao": "Regras de scripts/curadoria.py:gerar_relacoes_mandato (mandato -> relações institucionais da teia). rotulos: cargo -> rótulo da relação; orgao_por_cargo: órgão quando mandato.orgao_id é NULL (presidente/vice); partido_manual: texto de mandato.partido -> entidade quando o alias não resolve sozinho; sem_filiacao: textos de partido que não são filiação. Sem entidade de partido (ficam sem filiação, listados no relatório): PRTB (Hamilton Mourão) e PSOL (Heloísa Helena); 'PSOL-Rede' é uma bancada combinada, não o PSOL.",
+ "rotulos": {
+  "presidente": "Presidente da República",
+  "vice_presidente": "Vice-presidente da República",
+  "presidente_camara": "Presidente da Câmara dos Deputados",
+  "presidente_senado": "Presidente do Senado Federal",
+  "ministro": "Ministro de Estado",
+  "senador": "Senador",
+  "deputado": "Deputado federal",
+  "governador": "Governador",
+  "outro": "Mandato"
+ },
+ "orgao_por_cargo": {
+  "presidente": "presidencia-da-republica",
+  "vice_presidente": "presidencia-da-republica"
+ },
+ "partido_manual": {
+  "União": "uniao-brasil"
+ },
+ "sem_filiacao": [
+  "sem partido (ex-DEM)"
+ ]
+}

@@ -474,3 +474,196 @@ def aplicar_ligacoes(con):
                 ordem += 1
                 n += 1
     return {"eventos": len(itens), "ligacoes": n, "ignorados": n_ign}
+
+
+# ======================================================================== 5. teia <-> timeline: mandato/bancada -> relações institucionais
+def _ano(s):
+    return int(str(s)[:4])
+
+
+def _mais_cedo(a, b):
+    return a if (_ano(a), len(str(a))) <= (_ano(b), len(str(b))) else b
+
+
+def _mais_tarde(a, b):
+    return a if (_ano(a), len(str(a))) >= (_ano(b), len(str(b))) else b
+
+
+def gerar_relacoes_mandato(con):
+    """Cria relações `institucional` (origem='linha_do_tempo', natureza documentada, status publicada) a partir de `mandato`:
+      - subtipo 'mandato:<cargo>': pessoa -> órgão (Presidência, Câmara, Senado), uma por linha de `mandato`, com o período dela;
+      - subtipo 'filiacao': pessoa -> partido, uma por sequência contínua de mandatos do mesmo partido (período inferido dos mandatos).
+    Regras e exceções em data/curadoria/mandato-relacoes.json. Retorna dict para o relatório."""
+    cfg = ler_json("mandato-relacoes.json", {})
+    rotulos, orgao_cargo = cfg.get("rotulos", {}), cfg.get("orgao_por_cargo", {})
+    sem_filiacao = set(cfg.get("sem_filiacao", []))
+    por_norm = collections.defaultdict(set)
+    for r in con.execute("""SELECT a.alias_norm, a.entidade_id FROM entidade_alias a JOIN entidade e ON e.id=a.entidade_id WHERE e.tipo='partido'"""):
+        por_norm[r["alias_norm"]].add(r["entidade_id"])
+    manual = {alias_norm(k): v for k, v in cfg.get("partido_manual", {}).items()}
+
+    def partido_de(txt):
+        if not txt or txt in sem_filiacao:
+            return None
+        n = alias_norm(txt)
+        if n in manual:
+            return manual[n]
+        c = por_norm.get(n, set())
+        return next(iter(c)) if len(c) == 1 else None
+
+    ts = "2026-10-16T00:00:00Z"
+    ins = """INSERT INTO relacao(de,para,tipo,subtipo,rotulo,descricao,natureza_id,periodo_inicio,periodo_fim,periodo_aprox,periodo_texto,
+                                direcional,origem,origem_ref,status,criado_em,atualizado_em)
+             VALUES(?,?,'institucional',?,?,?,'documentada',?,?,?,?,1,'linha_do_tempo',?,'publicada',?,?)"""
+    n_mand = n_fil = 0
+    sem_orgao, sem_partido, por_cargo = [], [], collections.Counter()
+    fil = collections.defaultdict(list)  # (pessoa, partido_id) -> [(inicio, fim, sigla, cargo, mandato_id, evidencia_id)]
+    for m in con.execute("SELECT * FROM mandato ORDER BY id").fetchall():
+        orgao = m["orgao_id"] or orgao_cargo.get(m["cargo"])
+        if not orgao or not con.execute("SELECT 1 FROM entidade WHERE id=?", (orgao,)).fetchone():
+            sem_orgao.append((m["id"], m["entidade_id"], m["cargo"]))
+            continue
+        destaque = m["motivo"] is not None  # parlamentar em destaque da timeline: o período é o ano do destaque, não o mandato inteiro
+        rot = rotulos.get(m["cargo"], m["cargo"])
+        fim = m["fim"] or m["inicio"]
+        desc = f"{rot}" + (f" ({m['partido']})" if m["partido"] else "") + f", {m['inicio']}" + (f" a {fim}" if fim != m["inicio"] else "") + "."
+        if destaque:
+            desc += f" Parlamentar em destaque na linha do tempo de {m['inicio']} ({m['motivo']}); o período é o ano do destaque, não o mandato inteiro."
+        cur = con.execute(ins, (m["entidade_id"], orgao, f"mandato:{m['cargo']}", rot, desc, m["inicio"], fim, int(destaque),
+                                m["periodo_texto"], f"mandato:{m['id']}", ts, ts))
+        if m["evidencia_id"]:
+            con.execute("INSERT INTO relacao_evidencia(relacao_id,evidencia_id,ordem) VALUES(?,?,0)", (cur.lastrowid, m["evidencia_id"]))
+        n_mand += 1
+        por_cargo[m["cargo"]] += 1
+        p = partido_de(m["partido"])
+        if m["partido"] and p is None and m["partido"] not in sem_filiacao:
+            sem_partido.append((m["id"], m["entidade_id"], m["partido"]))
+        if p and p != m["entidade_id"]:
+            fil[(m["entidade_id"], p)].append((m["inicio"], fim, m["partido"], m["cargo"], m["id"], m["evidencia_id"]))
+    for (pessoa, partido), itens in sorted(fil.items()):
+        itens.sort(key=lambda x: (_ano(x[0]), len(str(x[0])), x[4]))
+        runs = []
+        for it in itens:
+            if runs and _ano(it[0]) <= _ano(runs[-1]["fim"]) + 1:
+                r = runs[-1]
+                r["fim"] = _mais_tarde(r["fim"], it[1])
+                r["itens"].append(it)
+            else:
+                runs.append({"inicio": it[0], "fim": it[1], "itens": [it]})
+        for r in runs:
+            it0 = r["itens"][0]
+            cargos = sorted({i[3] for i in r["itens"]})
+            nome_p = con.execute("SELECT nome FROM entidade WHERE id=?", (partido,)).fetchone()[0]
+            rot = f"Filiado ao {it0[2]}"
+            desc = (f"Partido registrado em {len(r['itens'])} mandato(s) da linha do tempo ({', '.join(cargos)}); {nome_p}. "
+                    "O período é inferido dos mandatos, não da data de filiação.")
+            cur = con.execute(ins, (pessoa, partido, "filiacao", rot, desc, r["inicio"], r["fim"], 1, "inferido dos mandatos",
+                                    f"filiacao:{pessoa}:{partido}:{r['inicio']}", ts, ts))
+            ev = next((i[5] for i in r["itens"] if i[5]), None)
+            if ev:
+                con.execute("INSERT INTO relacao_evidencia(relacao_id,evidencia_id,ordem) VALUES(?,?,0)", (cur.lastrowid, ev))
+            n_fil += 1
+    return {"mandato": n_mand, "filiacao": n_fil, "por_cargo": dict(por_cargo), "sem_orgao": sem_orgao, "sem_partido": sem_partido}
+
+
+# ======================================================================== 6. temas (data/curadoria/temas.json)
+def _padrao(p):
+    """Padrão de texto -> regex sobre texto normalizado (alias_norm): palavra inteira; '*' no fim = prefixo ('precatorio*')."""
+    estrela = p.endswith("*")
+    n = alias_norm(p.rstrip("*"))
+    return re.compile(r"(?<![a-z0-9])" + re.escape(n).replace(r"\ ", " ") + (r"[a-z0-9]*" if estrela else "") + r"(?![a-z0-9])")
+
+
+def _casa(rg, alvo, reg, atuais, ents, texto, pats):
+    """A regra casa com o registro? `atuais`: temas que o registro já tem; `ents`: entidades (relação: de/para; evento: evento_entidade)."""
+    if rg.get("dentro_de") and not (set(rg["dentro_de"]) & atuais):
+        return False
+    if "origem" in rg and reg.get("origem") not in rg["origem"]:
+        return False
+    if "canal" in rg and (alvo == "relacao" or reg.get("canal") not in rg["canal"]):
+        return False
+    if "entidade" in rg and not (ents & set(rg["entidade"])):
+        return False
+    if pats and not any(p.search(texto) for p in pats):
+        return False
+    return True
+
+
+def _alvos(rg):
+    return ["relacao", "evento"] if rg["alvo"] == "ambos" else [rg["alvo"]]
+
+
+def inferir_temas_relacao(con, de, para, rotulo, descricao=None):
+    """Temas para uma relação nova (MCP). Base = temas principais comuns às duas entidades (v_entidade_tema; se não houver comum, a união);
+    depois as regras de temas.json por entidade/texto (as por origem/canal só valem na carga). Sem nada: ['a-classificar']."""
+    cfg = ler_json("temas.json", {"regras": []})
+    def principais(e):
+        return {r[0] for r in con.execute("SELECT v.tema_id FROM v_entidade_tema v JOIN tema t ON t.id=v.tema_id WHERE v.entidade_id=? AND t.principal=1", (e,))}
+    a, b = principais(de), principais(para)
+    atuais = set(a & b or a | b)
+    texto = alias_norm(f"{rotulo} {descricao or ''}")
+    for rg in cfg["regras"]:
+        if "relacao" not in _alvos(rg) or "origem" in rg or "canal" in rg:
+            continue
+        if rg["tema"] not in atuais and _casa(rg, "relacao", {}, atuais, {de, para}, texto, [_padrao(x) for x in rg.get("texto", [])]):
+            atuais.add(rg["tema"])
+    return sorted(atuais) or ["a-classificar"]
+
+
+def aplicar_temas(con):
+    """Semeia `tema` e atribui relacao_tema/evento_tema pelas regras de temas.json, na ordem; depois exceções (por origem_ref da relação ou id do
+    evento); o que sobrar sem tema vai para 'a-classificar'. Regra: {id, tema, alvo: relacao|evento|ambos, e UM OU MAIS filtros (E):
+    origem[], canal[] (só evento), entidade[] (relação: de/para; evento: evento_entidade), texto[] (relação: rótulo+descrição; evento:
+    título+descrição+contexto+resposta), dentro_de[] (só registros que já têm um desses temas)}."""
+    cfg = ler_json("temas.json", {"temas": [], "regras": [], "excecoes": []})
+    for t in cfg["temas"]:
+        con.execute("INSERT INTO tema(id,nome,descricao,cor,ordem,principal) VALUES(?,?,?,?,?,?)",
+                    (t["id"], t["nome"], t.get("descricao"), t.get("cor"), t["ordem"], int(bool(t.get("principal")))))
+    validos = {t["id"] for t in cfg["temas"]}
+    rel = {r["id"]: dict(r) for r in con.execute("SELECT id, de, para, origem, origem_ref, rotulo, descricao FROM relacao ORDER BY id")}
+    evs = {r["id"]: dict(r) for r in con.execute("SELECT id, canal, origem, titulo, descricao, contexto, resposta FROM evento ORDER BY id")}
+    ent_ev = collections.defaultdict(set)
+    for r in con.execute("SELECT evento_id, entidade_id FROM evento_entidade"):
+        ent_ev[r["evento_id"]].add(r["entidade_id"])
+    texto_rel = {i: alias_norm(f"{r['rotulo']} {r['descricao'] or ''}") for i, r in rel.items()}
+    texto_ev = {i: alias_norm(f"{r['titulo']} {r['descricao'] or ''} {r['contexto'] or ''} {r['resposta'] or ''}") for i, r in evs.items()}
+    atrib = {"relacao": collections.defaultdict(dict), "evento": collections.defaultdict(dict)}  # tipo -> id -> {tema: (origem, regra)}
+    stats = collections.defaultdict(lambda: {"relacao": 0, "evento": 0})
+    ids_regra = set()
+    for rg in cfg["regras"]:
+        assert rg["id"] not in ids_regra, f"regra repetida: {rg['id']}"
+        assert rg["tema"] in validos, f"tema inexistente: {rg['tema']}"
+        ids_regra.add(rg["id"])
+        pats = [_padrao(p) for p in rg.get("texto", [])]
+        for alvo in _alvos(rg):
+            for i, r in (rel if alvo == "relacao" else evs).items():
+                ents = {r["de"], r["para"]} if alvo == "relacao" else ent_ev[i]
+                texto = texto_rel[i] if alvo == "relacao" else texto_ev[i]
+                if _casa(rg, alvo, r, set(atrib[alvo][i]), ents, texto, pats) and rg["tema"] not in atrib[alvo][i]:
+                    atrib[alvo][i][rg["tema"]] = ("regra", rg["id"])
+                    stats[rg["id"]][alvo] += 1
+    por_ref = {r["origem_ref"]: i for i, r in rel.items() if r["origem_ref"]}
+    n_exc = 0
+    for ex in cfg.get("excecoes", []):
+        alvo = ex["alvo"]
+        i = por_ref.get(ex["ref"]) if alvo == "relacao" else ex["ref"]
+        assert i is not None and i in (rel if alvo == "relacao" else evs), f"exceção para registro inexistente: {ex}"
+        for t in ex.get("incluir", []):
+            assert t in validos, t
+            atrib[alvo][i][t] = ("excecao", f"excecao:{ex['ref']}")
+        for t in ex.get("excluir", []):
+            atrib[alvo][i].pop(t, None)
+        n_exc += 1
+    n_fallback = {"relacao": 0, "evento": 0}
+    for alvo, base in (("relacao", rel), ("evento", evs)):
+        for i in base:
+            if not atrib[alvo][i]:
+                atrib[alvo][i]["a-classificar"] = ("regra", "fallback")
+                n_fallback[alvo] += 1
+    for i in sorted(rel):
+        for t, (o, rg) in sorted(atrib["relacao"][i].items()):
+            con.execute("INSERT INTO relacao_tema(relacao_id,tema_id,origem,regra) VALUES(?,?,?,?)", (i, t, o, rg))
+    for i in sorted(evs):
+        for t, (o, rg) in sorted(atrib["evento"][i].items()):
+            con.execute("INSERT INTO evento_tema(evento_id,tema_id,origem,regra) VALUES(?,?,?,?)", (i, t, o, rg))
+    return {"regras": cfg["regras"], "por_regra": {k: dict(v) for k, v in stats.items()}, "excecoes": n_exc, "fallback": n_fallback}

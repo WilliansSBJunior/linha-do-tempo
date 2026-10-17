@@ -29,15 +29,20 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 390 |
+| entidade | 391 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 192 |
-| entidade_alias | 504 |
+|   extras (timeline/pares) | 193 |
+| entidade_alias | 505 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
-| relacao total | 367 |
+| relacao (origem linha_do_tempo: mandato/filiação) | 451 |
+| relacao total | 818 |
 | evento total | 505 |
+| tema | 10 |
+| relacao_tema | 905 |
+| evento_tema | 631 |
+| fonte (era video) | 0 |
 | evidencia | 1116 |
 | relacao_evidencia | 729 |
 | evento_evidencia | 2907 |
@@ -326,7 +331,7 @@ URLs repetidas dentro da mesma relação/evento após normalização (descartada
 - `ranking_empresa.posicao` = posição na lista do ano (a lista original não traz posição explícita).
 - Países em `pares` viram entidades `pais` (alias sigla = ISO3); `serie.dimensao` usa `pais=<ISO3>`. Destinos de exportação usam `pais=<nome>` (sem ISO na fonte).
 - `serie` de pares = pontos não nulos dos 18 indicadores (4.806) + PISA (leitura/matemática/ciências e matemática por estado da Índia).
-- Desvios do DDL proposto (marcados `-- DESVIO:` em `scripts/schema.sql`): o DDL original roda sem erro no SQLite 3.45 (incl. STRICT, colunas geradas e FTS5); acrescentados `entidade.ind_legado`, `evento.valor_brl`, `evento.canal='brb'`, `evento.origem='dossie'`, `ordem` em `relacao_evidencia`/`evento_evidencia`/`evento_entidade`/`nota_entidade`, `mandato.motivo`/`mandato.votos`; `evento.contexto`/`resposta` passam a significar o que os dados dizem (ver acima).
+- Desvios do DDL proposto (marcados `-- DESVIO:` em `scripts/schema.sql`): o DDL original roda sem erro no SQLite 3.45 (incl. STRICT, colunas geradas e FTS5); acrescentados `entidade.ind_legado`, `evento.valor_brl`, `evento.canal='brb'`, `evento.origem='dossie'`, `ordem` em `relacao_evidencia`/`evento_evidencia`/`evento_entidade`/`nota_entidade`, `mandato.motivo`/`mandato.votos`; `evento.contexto`/`resposta` passam a significar o que os dados dizem (ver acima). Rodada de modelo (seções 14 a 16): `tema`/`relacao_tema`/`evento_tema`/`v_entidade_tema`, `fonte` no lugar de `video` (e `trecho.fonte_id`), `relacao.origem='linha_do_tempo'`.
 - Passo 3 do plano (ligar eventos a entidades por alias): feito pela curadoria, seção 12. Continua não feita a extração de eventos a partir de datas internas de `N.d`/`desc`.
 - `evento_evidencia.rotulo` (desvio) guarda o rótulo da fonte como veio no original; `evidencia.veiculo` guarda só o do primeiro uso da URL. O exportador usa o rótulo.
 
@@ -548,3 +553,83 @@ Vinculados pelo mapa manual (as aproximações estão justificadas em `justifica
 - `meta.paginas` do dossiê fica em `nota` (chave `meta.paginas`, JSON) e as `meta` do banco ganham `pares.gerado_em`, `pares.anos` e `pares.ordem_paises`.
 - `dossie.json` inclui os 30 eventos BRB como no original (os fundidos saem de `evento_alias.original_json`); `teia.json` e `origens.json` refletem a curadoria (eventos fundidos saem da lista; `mapa_indices.json` ainda resolve os índices antigos).
 
+
+## 14. Tema como dimensão N:N (`data/curadoria/temas.json`)
+
+Tabelas: `tema(id, nome, descricao, cor, ordem, principal)`, `relacao_tema(relacao_id, tema_id, origem, regra)`, `evento_tema(evento_id, tema_id, origem, regra)`. **A entidade não tem tabela**: `v_entidade_tema` (view) deriva a pertinência: a entidade está no tema se tem relação ou evento nele; acrescentei como fontes estruturais `mandato`/`bancada`/`ranking_empresa` -> `brasil-ano-a-ano`, `forum` -> `pares` e o dossiê relacional (par, ente de previdência, pagamento) -> `caso-master` (sem isso empresas do ranking, partidos da bancada e países de `forum` ficariam sem tema, e as 'fusões' dependem disso). `entidade.categoria_id` continua sendo a categoria da teia. `migrar.py` aplica `temas.json` por último (`curadoria.aplicar_temas`), depois de fusões, ligações evento-entidade e relações de mandato; `exportar_json.py` emite `tema` em cada relação/evento de `teia.json` (e nos eventos de `origens.json`), `temas` em cada entidade de `entities.json` e o novo `temas.json`.
+
+Regras (aplicadas na ordem; filtros combinados com E; `dentro_de` = só registros que já têm aquele tema; texto = palavra inteira, sem acento/caixa, `*` = prefixo):
+
+| regra | tema | alvo | filtros | relações | eventos |
+|---|---|---|---|---|---|
+| master-relacoes | caso-master | relacao | origem=['teia', 'origens'] | 367 | 0 |
+| master-eventos | caso-master | evento | canal=['teia', 'banco', 'familia', 'ida', 'volta', 'precatorios', 'brb'] | 0 | 215 |
+| brasil-eventos | brasil-ano-a-ano | evento | canal=['brasil'] | 0 | 280 |
+| brasil-relacoes | brasil-ano-a-ano | relacao | origem=['linha_do_tempo'] | 451 | 0 |
+| pares-eventos | pares | evento | canal=['pares'] | 0 | 0 |
+| violencia-eventos | violencia | evento | canal=['violencia'] | 0 | 10 |
+| brb-canal | brb | evento | canal=['brb'] | 0 | 18 |
+| brb-entidade | brb | ambos | dentro_de=['caso-master']; entidade=['brb'] | 10 | 15 |
+| brb-texto | brb | ambos | dentro_de=['caso-master']; texto=['BRB', 'Banco de Brasília'] | 18 | 1 |
+| precatorios-canal | precatorios | evento | canal=['precatorios'] | 0 | 35 |
+| precatorios-texto | precatorios | ambos | dentro_de=['caso-master']; texto=['precatorio*'] | 11 | 2 |
+| inss-entidade | inss | ambos | entidade=['inss', 'cpmi-do-inss'] | 9 | 14 |
+| inss-texto | inss | ambos | texto=['INSS', 'Sem Desconto', 'consignado*'] | 12 | 4 |
+| pcc-entidade | pcc | ambos | entidade=['pcc', 'operacao-carbono-oculto', 'operacao-quasar'] | 7 | 8 |
+| pcc-texto | pcc | ambos | dentro_de=['caso-master']; texto=['PCC', 'Carbono Oculto', 'Quasar', 'Tank', 'Usina Itajobi'] | 7 | 1 |
+| lagoinha-entidade | lagoinha | ambos | entidade=['igreja-batista-da-lagoinha', 'lagoinha-belvedere'] | 9 | 26 |
+| lagoinha-texto | lagoinha | ambos | dentro_de=['caso-master']; texto=['Lagoinha'] | 8 | 6 |
+
+Exceções (`excecoes` em `temas.json`; falso positivo de texto removido à mão, com motivo):
+
+| alvo | ref | incluir | excluir | motivo |
+|---|---|---|---|---|
+| evento | `fam10` | - | inss | Credcesta/Bahia é consignado estadual, não INSS |
+| evento | `fam16` | - | inss | Credcesta/Bahia é consignado estadual, não INSS |
+| evento | `fam21` | - | inss | Credcesta/Bahia é consignado estadual, não INSS |
+| evento | `max5` | - | inss | 'consignado' só descreve a carreira anterior do empresário |
+| relacao | `E[65].r[0]` | - | inss | Credcesta/Bahia é consignado estadual, não INSS |
+| relacao | `E[318].r[0]` | - | inss | INSS aparece só como a CPMI de onde vêm os documentos (palestra de Tony Blair) |
+| relacao | `E[212].r[0]` | - | inss | INSS aparece só como a CPMI de onde vem a nota do escritório (honorários de precatório) |
+| relacao | `E[130].r[0]` | - | inss | INSS aparece só como a CPMI que recebeu o IR de Vorcaro (ganho com cotas do Hans II) |
+
+Contagens por tema (entidades vêm da view; um registro pode estar em vários temas):
+
+| tema | relações | eventos | entidades |
+|---|---|---|---|
+| `caso-master` (Caso Master) | 367 | 215 | 212 |
+| `brasil-ano-a-ano` (Brasil ano a ano) | 451 | 280 | 206 |
+| `pares` (Comparação de países) | 0 | 0 | 10 |
+| `violencia` (Violência) | 0 | 10 | 1 |
+| `inss` (INSS) | 17 | 14 | 26 |
+| `pcc` (PCC e crime organizado) | 14 | 9 | 25 |
+| `brb` (BRB) | 28 | 34 | 41 |
+| `precatorios` (Precatórios) | 11 | 37 | 24 |
+| `lagoinha` (Lagoinha) | 17 | 32 | 27 |
+| `a-classificar` (A classificar) | 0 | 0 | 0 |
+
+Em mais de um tema: 82 relações, 118 eventos, 115 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).
+
+Limites conhecidos: (a) os temas por texto (`inss`, `pcc`, `brb`, `precatorios`, `lagoinha`) marcam **citação**, não centralidade: uma relação que só menciona a CPMI do INSS como origem de um documento entra em `inss` (retirei os casos mais óbvios nas exceções); (b) `usinas` ficou de fora do `pcc-texto` (a maior parte das ocorrências é o setor sucroalcooleiro dos precatórios, não o PCC); só 'Usina Itajobi'; (c) `pares` não tem relação nem evento (só 10 países via `forum`), e `violencia` só 10 eventos: séries (`indicador`/`serie`) **não** têm tema ainda; (d) eventos novos não entram por MCP (não há ferramenta), só por migração.
+
+
+## 15. Fonte genérica (`fonte` no lugar de `video`)
+
+`video` virou `fonte(id, tipo, plataforma?, url?, titulo, canal, canal_entidade_id, publicado_em, duracao_s, texto, hash_texto, arquivo_texto, resumo, evidencia_id, ...)` com `tipo IN ('video','reportagem','documento','pdf','depoimento','decisao','transcricao','outro')`. `texto` substitui `transcricao` (conteúdo extraído; para vídeo é a transcrição) e `hash_texto` é o sha256 do texto. `evidencia_id` é obrigatório quando há `url` (CHECK) e a evidência tem a mesma URL normalizada; sem URL (depoimento oral, documento físico) fica NULL. `trecho.video_id` virou `trecho.fonte_id`; `inicio_s`/`fim_s` passaram a ser opcionais (trigger exige para fonte tipo video) e entrou `localizacao` (página/parágrafo). `corte` continua com a coluna `video_id`, agora referenciando `fonte(id)`; triggers `trg_corte_so_video_*` recusam corte em fonte que não seja `video` (e a troca de tipo de uma fonte com cortes). A view `video` reproduz as colunas antigas (somente leitura; `transcricao` = `texto`). `busca_fts` ganhou linhas `fonte` (título, canal, resumo, texto).
+
+Dados migrados: a tabela `video` estava vazia (0 linhas), então não houve conversão de registros: 0 fontes agora. Nota: `migrar.py` recria o banco do zero a partir de `data/raw/` + `data/curadoria/`; o que o MCP gravou (vídeos, relações `classificador`) só sobrevive no `dump.sql` versionado, não numa nova migração.
+
+
+## 16. Teia <-> timeline: mandato e bancada -> relações institucionais (`data/curadoria/mandato-relacoes.json`)
+
+`curadoria.gerar_relacoes_mandato` cria **451 relações novas** (`tipo='institucional'`, `natureza='documentada'`, `origem='linha_do_tempo'`, `status='publicada'`, tema `brasil-ano-a-ano`), depois de toda a carga bruta (ids novos, os antigos não mudam):
+
+- **311 de mandato** (`subtipo='mandato:<cargo>'`, pessoa -> órgão, uma por linha de `mandato`, `origem_ref='mandato:<id>'`, período = o do mandato): deputado 163, presidente 6, presidente_camara 16, presidente_senado 14, senador 107, vice_presidente 5.
+- **140 de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.
+- Órgãos: `camara-dos-deputados`, `senado-federal` (já existiam, origem timeline) e **`presidencia-da-republica`** (nova, `orgao_publico`; presidente e vice-presidente, em que `mandato.orgao_id` é NULL).
+- `mandato.evidencia_id` está NULL em todas as linhas: nenhuma relação ganhou evidência (o código liga se existir).
+- **Parlamentares em destaque** (`deputado`/`senador`, `mandato` de um ano = ano do destaque na timeline): a relação tem `periodo_aprox=1` e a descrição avisa que o período é o ano do destaque, não o mandato inteiro.
+- Mandatos sem filiação (partido sem entidade): hamilton-mourao (PRTB), heloisa-helena (PSOL). Não criei entidade de partido (PRTB, PSOL); decisão pendente.
+- Mandatos sem órgão resolvido: 0.
+
+Entidades da teia que aparecem na timeline (as 10 fusões da seção 5 mais as ligadas por eventos `brasil`): 20, todas em `brasil-ano-a-ano` **e** `caso-master` pela view: `alexandre-de-moraes`, `bcb`, `btg-pactual`, `davi-alcolumbre`, `edson-fachin`, `eduardo-bolsonaro`, `estados-e-municipios`, `flavio-bolsonaro`, `flavio-dino`, `gilmar-mendes`, `hugo-motta`, `ibaneis-rocha`, `jair-bolsonaro`, `jaques-wagner`, `luiz-estevao`, `luiz-inacio-lula-da-silva`, `michel-temer`, `nikolas-ferreira`, `pf`, `stf`.

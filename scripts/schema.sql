@@ -92,8 +92,8 @@ CREATE TABLE relacao (
   valor_texto TEXT,                              -- 'US$ 30 milhões'
   resposta TEXT,                                 -- r.resp
   direcional INTEGER NOT NULL DEFAULT 1 CHECK (direcional IN (0,1)),
-  origem TEXT NOT NULL DEFAULT 'manual' CHECK (origem IN ('teia','origens','classificador','manual')),
-  origem_ref TEXT,                               -- 'E[17].r[0]' | 'trecho:123'
+  origem TEXT NOT NULL DEFAULT 'manual' CHECK (origem IN ('teia','origens','classificador','manual','linha_do_tempo')), -- DESVIO: + 'linha_do_tempo' (mandato/filiação derivados da timeline)
+  origem_ref TEXT,                               -- 'E[17].r[0]' | 'trecho:123' | 'mandato:57' | 'filiacao:<pessoa>:<partido>:<início>'
   status TEXT NOT NULL DEFAULT 'publicada' CHECK (status IN ('rascunho','revisar','publicada','descartada')),
   criado_em TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
   atualizado_em TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
@@ -140,6 +140,33 @@ CREATE TABLE evento_relacao (
   PRIMARY KEY (evento_id, relacao_id)
 ) STRICT;
 
+-- Tema: dimensão N:N (um registro pode estar em vários temas). Seed e regras de atribuição: data/curadoria/temas.json.
+-- A pertinência de ENTIDADE a tema é derivada (view v_entidade_tema, fim do arquivo); `categoria_id` da entidade continua sendo a categoria da teia.
+CREATE TABLE tema (
+  id TEXT PRIMARY KEY CHECK (id GLOB '[a-z0-9]*' AND id NOT GLOB '*[^a-z0-9-]*'),  -- slug: 'caso-master'
+  nome TEXT NOT NULL UNIQUE,
+  descricao TEXT,
+  cor TEXT CHECK (cor IS NULL OR cor GLOB '#[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]*'),
+  ordem INTEGER NOT NULL DEFAULT 0,
+  principal INTEGER NOT NULL DEFAULT 0 CHECK (principal IN (0,1))  -- DESVIO: 1 = tema de domínio (caso-master, brasil-ano-a-ano...); o MCP o usa para inferir o tema de relação nova
+) STRICT;
+CREATE TABLE relacao_tema (
+  relacao_id INTEGER NOT NULL REFERENCES relacao(id) ON DELETE CASCADE,
+  tema_id TEXT NOT NULL REFERENCES tema(id),
+  origem TEXT NOT NULL DEFAULT 'regra' CHECK (origem IN ('regra','excecao','manual','mcp')),
+  regra TEXT,                                    -- identificador da regra de temas.json que atribuiu
+  PRIMARY KEY (relacao_id, tema_id)
+) STRICT;
+CREATE INDEX ix_relacao_tema ON relacao_tema(tema_id);
+CREATE TABLE evento_tema (
+  evento_id TEXT NOT NULL REFERENCES evento(id) ON DELETE CASCADE,
+  tema_id TEXT NOT NULL REFERENCES tema(id),
+  origem TEXT NOT NULL DEFAULT 'regra' CHECK (origem IN ('regra','excecao','manual','mcp')),
+  regra TEXT,
+  PRIMARY KEY (evento_id, tema_id)
+) STRICT;
+CREATE INDEX ix_evento_tema ON evento_tema(tema_id);
+
 -- Evidência (uma linha por URL)
 CREATE TABLE evidencia (
   id INTEGER PRIMARY KEY,
@@ -179,26 +206,41 @@ CREATE TABLE evento_alias (
 ) STRICT;
 CREATE INDEX ix_evento_alias_evento ON evento_alias(evento_id);
 
--- Vídeo / trecho / corte (saída do classificador)
-CREATE TABLE video (
-  id TEXT PRIMARY KEY,                           -- 'yt:<id>'
-  plataforma TEXT NOT NULL CHECK (plataforma IN ('youtube','instagram','tiktok','x','podcast','outro')),
-  url TEXT NOT NULL UNIQUE, titulo TEXT NOT NULL, canal TEXT,
+-- Fonte genérica (vídeo, reportagem, documento, PDF, depoimento, decisão, transcrição...) / trecho / corte (saída do classificador)
+-- DESVIO: `video` virou `fonte` (tipo + plataforma opcional + texto extraído); `video` agora é uma VIEW de compatibilidade (fim deste arquivo).
+CREATE TABLE fonte (
+  id TEXT PRIMARY KEY CHECK (id <> '' AND id NOT GLOB '*[ ]*'),  -- vídeo: 'yt:<id>'; demais: 'src:<hash12>' ou slug livre
+  tipo TEXT NOT NULL CHECK (tipo IN ('video','reportagem','documento','pdf','depoimento','decisao','transcricao','outro')),
+  plataforma TEXT CHECK (plataforma IS NULL OR plataforma IN ('youtube','instagram','tiktok','x','podcast','outro')), -- obrigatória só para tipo='video'
+  url TEXT UNIQUE,                               -- opcional (depoimento oral, documento físico); URL normalizada em evidencia.url
+  titulo TEXT NOT NULL, canal TEXT,              -- canal: canal do vídeo / veículo / órgão emissor
   canal_entidade_id TEXT REFERENCES entidade(id),
-  publicado_em TEXT, duracao_s INTEGER, transcricao TEXT, arquivo_transcricao TEXT, resumo TEXT,
+  publicado_em TEXT, duracao_s INTEGER,
+  texto TEXT,                                    -- conteúdo extraído (vídeo: transcrição; reportagem/PDF: texto)
+  hash_texto TEXT,                               -- sha256 do texto (strip), preenchido junto com `texto`
+  arquivo_texto TEXT, resumo TEXT,
+  evidencia_id INTEGER REFERENCES evidencia(id), -- toda fonte com URL gera/aponta uma evidencia (mesma URL normalizada)
   classificado_em TEXT, classificador_versao TEXT,
   status TEXT NOT NULL DEFAULT 'classificado' CHECK (status IN ('pendente','classificado','revisado','descartado')),
-  criado_em TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now'))
+  criado_em TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ','now')),
+  CHECK (tipo <> 'video' OR (plataforma IS NOT NULL AND url IS NOT NULL)),
+  CHECK (url IS NULL OR evidencia_id IS NOT NULL),
+  CHECK ((texto IS NULL) = (hash_texto IS NULL))
 ) STRICT;
+CREATE INDEX ix_fonte_tipo ON fonte(tipo);
 CREATE TABLE trecho (
   id INTEGER PRIMARY KEY,
-  video_id TEXT NOT NULL REFERENCES video(id) ON DELETE CASCADE,
-  ordem INTEGER NOT NULL, inicio_s REAL NOT NULL, fim_s REAL NOT NULL CHECK (fim_s >= inicio_s),
+  fonte_id TEXT NOT NULL REFERENCES fonte(id) ON DELETE CASCADE,  -- DESVIO: era video_id
+  ordem INTEGER NOT NULL,
+  inicio_s REAL, fim_s REAL,                     -- obrigatórios só quando a fonte é tipo='video' (trigger); NULL nas demais
+  localizacao TEXT,                              -- fontes sem tempo: página, parágrafo, seção
   texto_original TEXT, afirmacao TEXT NOT NULL,
   natureza_id TEXT NOT NULL REFERENCES natureza(id),
   confianca REAL NOT NULL CHECK (confianca BETWEEN 0 AND 1),
   potencial_corte INTEGER NOT NULL DEFAULT 0 CHECK (potencial_corte BETWEEN 0 AND 5),
-  UNIQUE (video_id, ordem)
+  UNIQUE (fonte_id, ordem),
+  CHECK ((inicio_s IS NULL) = (fim_s IS NULL)),
+  CHECK (fim_s IS NULL OR fim_s >= inicio_s)
 ) STRICT;
 CREATE TABLE trecho_entidade (
   trecho_id INTEGER NOT NULL REFERENCES trecho(id) ON DELETE CASCADE,
@@ -216,7 +258,7 @@ CREATE TABLE trecho_relacao (
   PRIMARY KEY (trecho_id, relacao_id)
 ) STRICT;
 CREATE TABLE corte (
-  id INTEGER PRIMARY KEY, video_id TEXT NOT NULL REFERENCES video(id) ON DELETE CASCADE,
+  id INTEGER PRIMARY KEY, video_id TEXT NOT NULL REFERENCES fonte(id) ON DELETE CASCADE, -- DESVIO: referencia fonte; só tipo='video' (triggers abaixo)
   titulo TEXT NOT NULL, inicio_s REAL NOT NULL, fim_s REAL NOT NULL CHECK (fim_s > inicio_s),
   justificativa TEXT, tema TEXT, url_publicado TEXT,
   status TEXT NOT NULL DEFAULT 'sugerido' CHECK (status IN ('sugerido','aprovado','publicado','descartado')),
@@ -226,6 +268,23 @@ CREATE TABLE corte_trecho (corte_id INTEGER NOT NULL REFERENCES corte(id) ON DEL
   trecho_id INTEGER NOT NULL REFERENCES trecho(id) ON DELETE CASCADE, PRIMARY KEY (corte_id, trecho_id)) STRICT;
 CREATE TABLE relacao_corte (relacao_id INTEGER NOT NULL REFERENCES relacao(id) ON DELETE CASCADE,
   corte_id INTEGER NOT NULL REFERENCES corte(id) ON DELETE CASCADE, PRIMARY KEY (relacao_id, corte_id)) STRICT;
+
+-- Corte só faz sentido para fonte tipo='video'; trecho de vídeo exige tempo.
+CREATE TRIGGER trg_corte_so_video_ins BEFORE INSERT ON corte
+WHEN (SELECT tipo FROM fonte WHERE id = NEW.video_id) IS NOT 'video'
+BEGIN SELECT RAISE(ABORT, 'corte só faz sentido para fonte do tipo video'); END;
+CREATE TRIGGER trg_corte_so_video_upd BEFORE UPDATE OF video_id ON corte
+WHEN (SELECT tipo FROM fonte WHERE id = NEW.video_id) IS NOT 'video'
+BEGIN SELECT RAISE(ABORT, 'corte só faz sentido para fonte do tipo video'); END;
+CREATE TRIGGER trg_fonte_tipo_com_corte BEFORE UPDATE OF tipo ON fonte
+WHEN OLD.tipo = 'video' AND NEW.tipo <> 'video' AND EXISTS (SELECT 1 FROM corte WHERE video_id = OLD.id)
+BEGIN SELECT RAISE(ABORT, 'fonte com cortes tem de continuar tipo video'); END;
+CREATE TRIGGER trg_trecho_video_exige_tempo_ins BEFORE INSERT ON trecho
+WHEN NEW.inicio_s IS NULL AND (SELECT tipo FROM fonte WHERE id = NEW.fonte_id) = 'video'
+BEGIN SELECT RAISE(ABORT, 'trecho de vídeo exige inicio_s e fim_s'); END;
+CREATE TRIGGER trg_trecho_video_exige_tempo_upd BEFORE UPDATE OF inicio_s, fim_s, fonte_id ON trecho
+WHEN NEW.inicio_s IS NULL AND (SELECT tipo FROM fonte WHERE id = NEW.fonte_id) = 'video'
+BEGIN SELECT RAISE(ABORT, 'trecho de vídeo exige inicio_s e fim_s'); END;
 
 -- Notas editoriais (SINT, SEM, LAC, NARR, tese/placar do dossiê)
 CREATE TABLE nota (
@@ -358,3 +417,29 @@ CREATE TABLE forum (
   primeiro_teste INTEGER,                        -- nuclear: primeiro_teste_nuclear
   PRIMARY KEY (pais_entidade_id, forum)
 ) STRICT;
+
+-- Views --------------------------------------------------------------------------------------------------------------
+-- Compatibilidade com o modelo antigo: `video` = fontes do tipo video (somente leitura; escreva em `fonte`).
+CREATE VIEW video AS
+  SELECT id, plataforma, url, titulo, canal, canal_entidade_id, publicado_em, duracao_s, texto AS transcricao,
+         arquivo_texto AS arquivo_transcricao, resumo, classificado_em, classificador_versao, status, criado_em
+  FROM fonte WHERE tipo = 'video';
+
+-- Entidade x tema, derivada: a entidade pertence ao tema se tem relação ou evento nele. Fontes estruturais acrescentadas (sem elas
+-- a empresa do ranking, o partido da bancada e o país de `forum` não teriam relação/evento): mandato/bancada/ranking_empresa -> 'brasil-ano-a-ano',
+-- forum -> 'pares', dossiê relacional (par, ente de previdência, pagamento) -> 'caso-master'.
+CREATE VIEW v_entidade_tema AS
+  SELECT DISTINCT entidade_id, tema_id FROM (
+    SELECT r.de AS entidade_id, t.tema_id FROM relacao r JOIN relacao_tema t ON t.relacao_id = r.id
+    UNION ALL SELECT r.para, t.tema_id FROM relacao r JOIN relacao_tema t ON t.relacao_id = r.id
+    UNION ALL SELECT x.entidade_id, t.tema_id FROM evento_entidade x JOIN evento_tema t ON t.evento_id = x.evento_id
+    UNION ALL SELECT entidade_id, 'brasil-ano-a-ano' FROM mandato
+    UNION ALL SELECT orgao_id, 'brasil-ano-a-ano' FROM mandato WHERE orgao_id IS NOT NULL
+    UNION ALL SELECT partido_id, 'brasil-ano-a-ano' FROM bancada
+    UNION ALL SELECT entidade_id, 'brasil-ano-a-ano' FROM ranking_empresa
+    UNION ALL SELECT pais_entidade_id, 'pares' FROM forum
+    UNION ALL SELECT ator_entidade_id, 'caso-master' FROM dossie_par WHERE ator_entidade_id IS NOT NULL
+    UNION ALL SELECT entidade_id, 'caso-master' FROM previdencia_ente WHERE entidade_id IS NOT NULL
+    UNION ALL SELECT para_entidade_id, 'caso-master' FROM pagamento WHERE para_entidade_id IS NOT NULL
+    UNION ALL SELECT de_entidade_id, 'caso-master' FROM pagamento WHERE de_entidade_id IS NOT NULL
+  ) WHERE tema_id IN (SELECT id FROM tema);

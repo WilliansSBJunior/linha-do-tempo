@@ -63,6 +63,10 @@ class Base(unittest.TestCase):
         return self.sql(f"SELECT count(*) c FROM {tabela}")[0]["c"]
 
     def validar(self):
+        # data/*.json são derivados do banco (entities.json traz `temas` por entidade, temas.json as contagens): depois de uma escrita
+        # ficam defasados até exportar_json.py (a ferramenta `exportar()` faz os dois passos); o teste faz o mesmo na cópia.
+        e = subprocess.run([sys.executable, str(self.repo / "scripts" / "exportar_json.py"), "--db", str(self.db)], capture_output=True, text=True)
+        assert e.returncode == 0, e.stdout + e.stderr
         p = subprocess.run([sys.executable, str(self.repo / "scripts" / "validar.py"), "--db", str(self.db)], capture_output=True, text=True)
         return p.returncode, p.stdout[-1500:] + p.stderr
 
@@ -203,10 +207,19 @@ class TestInserirVideo(Base):
         nova = self.sql("SELECT * FROM relacao WHERE id=?", r["relacoes_criadas"][0])[0]
         self.assertEqual((nova["origem"], nova["status"], nova["natureza_id"], nova["confianca"], nova["periodo_inicio"], nova["periodo_fim"]),
                          ("classificador", "revisar", "opiniao", 0.55, "2024", "2025"))
-        t1 = self.sql("SELECT * FROM trecho WHERE video_id='yt:TESTE000001' AND ordem=1")[0]
+        t1 = self.sql("SELECT * FROM trecho WHERE fonte_id='yt:TESTE000001' AND ordem=1")[0]
         self.assertEqual(t1["natureza_id"], "alegacao")
         self.assertEqual(self.sql("SELECT valor, moeda FROM trecho_valor WHERE trecho_id=?", t1["id"])[0]["moeda"], "BRL")
         self.assertEqual([x["ano"] for x in self.sql("SELECT ano FROM trecho_ano WHERE trecho_id=?", t1["id"])], [2022])
+        # fonte tipo video + evidência da URL + view de compatibilidade + texto/hash (transcricao = nome antigo de texto)
+        f = self.sql("SELECT * FROM fonte WHERE id='yt:TESTE000001'")[0]
+        self.assertEqual((f["tipo"], f["plataforma"], f["hash_texto"]), ("video", "youtube", S._hash_texto(("texto completo " * 50).strip())))
+        self.assertEqual(self.sql("SELECT url FROM evidencia WHERE id=?", f["evidencia_id"])[0]["url"], f["url"])
+        self.assertEqual(self.sql("SELECT transcricao, titulo FROM video WHERE id='yt:TESTE000001'")[0]["titulo"], "Vídeo fictício de teste")
+        self.assertEqual(r["fonte_id"], r["video_id"])
+        # tema da relação nova: inferido (as duas entidades estão no caso-master) e gravado
+        self.assertIn("caso-master", r["temas_das_relacoes_criadas"][r["relacoes_criadas"][0]])
+        self.assertEqual([x["tema_id"] for x in self.sql("SELECT tema_id FROM relacao_tema WHERE relacao_id=?", r["relacoes_criadas"][0])][:1], ["caso-master"])
         # a relação existente (publicada) não mudou de status/natureza
         ex = self.sql("SELECT status FROM relacao WHERE id=?", r["relacoes_existentes_reutilizadas"][0])[0]
         self.assertEqual(ex["status"], "publicada")
@@ -274,6 +287,151 @@ class TestInserirVideo(Base):
         row = self.sql("SELECT url FROM video WHERE id='yt:TESTE000002'")[0]
         self.assertEqual(row["url"], "https://www.youtube.com/watch?v=TESTE000002")
         self.assertEqual(self.sql("SELECT periodo_fim FROM relacao WHERE id=?", r["relacoes_criadas"][0])[0]["periodo_fim"], None)
+
+
+def reportagem_ficticia(**kw):
+    f = dict(tipo="reportagem", url="https://exemplo.com/materia-teste?utm_source=x#frag", titulo="Reportagem fictícia de teste", canal="Jornal Teste",
+             publicado_em="2026-10-02", texto="Corpo da matéria de teste. " * 20, temas=None)
+    f.update(kw)
+    return dict(
+        fonte=f,
+        trechos=[dict(ordem=1, localizacao="parágrafo 3", texto_original="Vorcaro e a CVM", afirmacao="Vorcaro teria se reunido com a CVM (teste)",
+                      natureza="alegacao", entidades=["daniel-vorcaro", "cvm"],
+                      relacoes=[dict(de="daniel-vorcaro", para="cvm", tipo="politica", rotulo="Reunião reportada (teste de fonte)", periodo="2024")],
+                      anos_referidos=[2024], confianca=0.7, potencial_corte=1)])
+
+
+class TestFonte(Base):
+    def test_reportagem_sem_tempo_evidencia_hash_e_filtros(self):
+        r = S.inserir_fonte(**reportagem_ficticia())
+        self.assertTrue(r["ok"], r)
+        self.assertEqual((r["tipo"], r["cortes"]), ("reportagem", 0))
+        self.assertNotIn("video_id", r)
+        fid = r["fonte_id"]
+        self.assertTrue(fid.startswith("src:"))
+        f = self.sql("SELECT * FROM fonte WHERE id=?", fid)[0]
+        self.assertEqual(f["url"], "https://exemplo.com/materia-teste")  # normalizada
+        ev = self.sql("SELECT * FROM evidencia WHERE id=?", f["evidencia_id"])[0]
+        self.assertEqual((ev["url"], ev["tipo"], ev["veiculo"]), (f["url"], "reportagem", "Jornal Teste"))
+        self.assertEqual(f["hash_texto"], S._hash_texto(f["texto"]))
+        t = self.sql("SELECT * FROM trecho WHERE fonte_id=?", fid)[0]
+        self.assertEqual((t["inicio_s"], t["fim_s"], t["localizacao"]), (None, None, "parágrafo 3"))
+        # a relação nova leva a fonte como evidência e ganha tema
+        rid = r["relacoes_criadas"][0]
+        self.assertEqual(self.sql("SELECT evidencia_id FROM relacao_evidencia WHERE relacao_id=?", rid)[0]["evidencia_id"], f["evidencia_id"])
+        self.assertTrue(r["temas_das_relacoes_criadas"][rid])
+        # não aparece na view video; filtros novos de buscar_trechos
+        self.assertEqual(self.sql("SELECT count(*) c FROM video WHERE id=?", fid)[0]["c"], 0)
+        self.assertEqual([x["ordem"] for x in S.buscar_trechos(fonte=fid)], [1])
+        self.assertEqual(len(S.buscar_trechos(tipo="reportagem")), 1)
+        self.assertEqual(S.buscar_trechos(tipo="video"), [])
+        self.assertEqual(len(S.buscar_trechos(fonte="https://exemplo.com/materia-teste")), 1)
+        self.assertEqual(S.buscar_trechos(texto="CVM", tipo="reportagem")[0]["fonte_tipo"], "reportagem")
+        self.assertFalse(S.buscar_trechos(video=fid)["ok"])  # `video` (legado) só enxerga fonte tipo video
+        self.assertFalse(S.buscar_trechos(tipo="gibi")["ok"])
+        # texto da fonte entra na busca textual de fontes
+        self.assertTrue(self.sql("SELECT 1 FROM busca_fts WHERE origem_tabela='fonte' AND busca_fts MATCH 'matéria'"))
+        cod, saida = self.validar()
+        self.assertEqual(cod, 0, saida)
+        # idempotente por id (mesma URL)
+        r2 = S.inserir_fonte(**reportagem_ficticia())
+        self.assertEqual((r2["fonte_id"], r2["substituiu_insercao_anterior"], r2["relacoes_criadas"]), (fid, {"trechos": 1, "cortes": 0}, []))
+        self.assertEqual(self.n("fonte"), 1)
+
+    def test_cortes_e_tempo_so_para_video(self):
+        c0 = (self.n("fonte"), self.n("trecho"), self.n("relacao"))
+        v = reportagem_ficticia()
+        v["cortes_sugeridos"] = [dict(titulo="x", inicio_s=1, fim_s=2)]
+        r = S.inserir_fonte(**v)
+        self.assertFalse(r["ok"])
+        self.assertIn("video", r["erro"])
+        # vídeo sem tempo nos trechos
+        sem_tempo = video_ficticio()
+        sem_tempo["trechos"][0].pop("inicio_s")
+        r = S.inserir_video(**sem_tempo)
+        self.assertFalse(r["ok"])
+        self.assertTrue(any("obrigatórios" in e for e in r["erros"]), r)
+        # tipo inválido / vídeo sem plataforma
+        self.assertFalse(S.inserir_fonte(**reportagem_ficticia(tipo="gibi"))["ok"])
+        self.assertFalse(S.inserir_fonte(**reportagem_ficticia(tipo="video"))["ok"])
+        self.assertEqual((self.n("fonte"), self.n("trecho"), self.n("relacao")), c0)
+
+    def test_banco_recusa_corte_em_fonte_que_nao_e_video(self):
+        S.inserir_fonte(**reportagem_ficticia())
+        S.inserir_video(**video_ficticio())
+        fid = self.sql("SELECT id FROM fonte WHERE tipo='reportagem'")[0]["id"]
+        con = sqlite3.connect(str(self.db))
+        try:
+            with self.assertRaises(sqlite3.IntegrityError):
+                con.execute("INSERT INTO corte(video_id, titulo, inicio_s, fim_s) VALUES(?,?,?,?)", (fid, "x", 1, 2))
+            with self.assertRaises(sqlite3.IntegrityError):  # trecho de vídeo sem tempo
+                con.execute("INSERT INTO trecho(fonte_id, ordem, afirmacao, natureza_id, confianca) VALUES('yt:TESTE000001', 99, 'a', 'alegacao', 0.5)")
+            with self.assertRaises(sqlite3.IntegrityError):  # fonte com cortes não deixa de ser vídeo
+                con.execute("UPDATE fonte SET tipo='outro' WHERE id='yt:TESTE000001'")
+        finally:
+            con.close()
+
+    def test_depoimento_sem_url_e_aviso_sem_evidencia(self):
+        v = reportagem_ficticia(tipo="depoimento", url=None, titulo="Depoimento oral de teste", texto=None)
+        r = S.inserir_fonte(**v)
+        self.assertTrue(r["ok"], r)
+        f = self.sql("SELECT * FROM fonte WHERE id=?", r["fonte_id"])[0]
+        self.assertEqual((f["url"], f["evidencia_id"], f["texto"], f["hash_texto"]), (None, None, None, None))
+        self.assertTrue(any("sem evidência" in a for a in r["avisos"]), r["avisos"])
+        cod, saida = self.validar()
+        self.assertEqual(cod, 0, saida)
+
+    def test_video_compat_view_e_transcricao(self):
+        r = S.inserir_video(**video_ficticio())
+        self.assertTrue(r["ok"], r)
+        row = self.sql("SELECT * FROM video WHERE id='yt:TESTE000001'")[0]
+        self.assertEqual((row["plataforma"], row["duracao_s"]), ("youtube", 600))
+        self.assertEqual(row["transcricao"], ("texto completo " * 50).strip())
+        self.assertEqual(self.n("video"), self.sql("SELECT count(*) c FROM fonte WHERE tipo='video'")[0]["c"])
+        self.assertEqual(len(S.buscar_trechos(video="yt:TESTE000001")), 2)
+        self.assertEqual(len(S.buscar_trechos(tipo="video", fonte="yt:TESTE000001")), 2)
+
+
+class TestTemas(Base):
+    def test_listar_temas(self):
+        ts = {t["id"]: t for t in S.listar_temas()}
+        self.assertEqual(set(ts), {"caso-master", "brasil-ano-a-ano", "pares", "violencia", "inss", "pcc", "brb", "precatorios", "lagoinha", "a-classificar"})
+        self.assertGreater(ts["caso-master"]["n_relacoes"], 300)
+        self.assertGreater(ts["brasil-ano-a-ano"]["n_eventos"], 200)
+
+    def test_relacao_nova_herda_ou_recebe_temas(self):
+        a, b = self.par_sem_relacao()
+        r = S.inserir_relacao(de=a, para=b, tipo="financeira", rotulo="Teste de tema", natureza="rep")
+        self.assertTrue(r["ok"], r)
+        self.assertIn("temas_inferidos", r)
+        self.assertIn("caso-master", r["temas"])  # os dois são nós da teia
+        self.assertEqual(S.buscar_relacoes(de=a, para=b)[0]["temas"], r["temas"])
+        # explícitos: validados, não criam tema; em relação existente só acrescentam
+        ruim = S.inserir_relacao(de=a, para=b, tipo="financeira", rotulo="Teste de tema", natureza="rep", temas=["inss", "tema-que-nao-existe"])
+        self.assertFalse(ruim["ok"])
+        self.assertIn("tema-que-nao-existe", ruim["erro"])
+        self.assertEqual(self.n("tema"), 10)
+        ok = S.inserir_relacao(de=a, para=b, tipo="financeira", rotulo="Teste de tema", natureza="rep", temas=["inss"])
+        self.assertEqual(ok["acao"], "atualizada")
+        self.assertEqual(set(ok["temas"]), set(r["temas"]) | {"inss"})
+        self.assertIn(ok["relacao_id"], [x["id"] for x in S.buscar_relacoes(tema="inss", limite=500)])
+        self.assertFalse(S.buscar_relacoes(tema="nada")["ok"])
+        # explícitos numa relação nova substituem a inferência
+        outro = self.sql("SELECT a.id a, b.id b FROM entidade a, entidade b WHERE a.id<b.id AND a.origem='teia' AND b.origem='teia' AND NOT EXISTS (SELECT 1 FROM relacao r WHERE (r.de=a.id AND r.para=b.id) OR (r.de=b.id AND r.para=a.id)) AND (a.id<>? OR b.id<>?) ORDER BY a.id DESC, b.id DESC LIMIT 1", a, b)[0]
+        n = S.inserir_relacao(de=outro["a"], para=outro["b"], tipo="pessoal", rotulo="Tema explícito", natureza="rep", temas=["lagoinha"])
+        self.assertEqual(n["temas"], ["lagoinha"])
+        self.assertEqual(n["temas_informados"], ["lagoinha"])
+        cod, saida = self.validar()
+        self.assertEqual(cod, 0, saida)
+
+    def test_tema_inexistente_na_fonte_rejeita_tudo(self):
+        c0 = (self.n("fonte"), self.n("relacao"))
+        r = S.inserir_fonte(**reportagem_ficticia(temas=["nao-existe"]))
+        self.assertFalse(r["ok"])
+        self.assertEqual((self.n("fonte"), self.n("relacao")), c0)
+        ok = S.inserir_fonte(**reportagem_ficticia(temas=["pcc"]))
+        self.assertTrue(ok["ok"], ok)
+        self.assertEqual(list(ok["temas_das_relacoes_criadas"].values()), [["pcc"]])
 
 
 class TestRAG(Base):
@@ -431,6 +589,9 @@ class TestExtras(Base):
         r = S.resumo_banco()
         self.assertGreater(r["entidade"], 300)
         self.assertIn("publicada", r["relacao_por_status"])
+        self.assertEqual(r["tema"], 10)
+        self.assertIn("linha_do_tempo", r["relacao_por_origem"])
+        self.assertIn("fonte_por_tipo", r)
 
 
 if __name__ == "__main__":

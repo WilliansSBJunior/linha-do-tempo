@@ -1,11 +1,12 @@
 # mcp/ — servidor MCP da Linha do Tempo
 
 Servidor MCP (stdio, SDK oficial `mcp`) sobre `data/linha-do-tempo.sqlite`. **É o único escritor do banco.** O classificador de vídeos
-(sessão separada) não abre o sqlite: chama `inserir_video`.
+(sessão separada) não abre o sqlite: chama `inserir_video` (vídeo) ou `inserir_fonte` (reportagem, documento, PDF, depoimento, decisão, transcrição...).
 
 Regras de ouro:
 - **Nunca cria entidade.** `de`/`para`/`entidades` precisam existir; senão o servidor devolve erro com até 3 sugestões por id.
-- Relações novas entram com `status='revisar'` (nunca rebaixa uma relação `publicada`).
+- Relações novas entram com `status='revisar'` (nunca rebaixa uma relação `publicada`) e **sempre com ao menos um tema** (informado ou inferido; ver "Temas").
+- **Nunca cria tema** (os temas ficam em `data/curadoria/temas.json`; use `listar_temas`).
 - Toda escrita = uma transação (`BEGIN IMMEDIATE` → `foreign_key_check` → `COMMIT`) e, em seguida, **regrava `data/dump.sql`** de forma
   determinística (`scripts/comum.gerar_dump`, via arquivo temporário + rename).
 - **O commit no git é manual**: depois de uma sessão de escrita, `git add data/ && git commit`. O `.sqlite` é ignorado.
@@ -55,22 +56,24 @@ Os argumentos abaixo são os do `tools/call`.
 → [{"id":"daniel-vorcaro","nome":"Daniel Vorcaro","tipo":"pessoa","categoria":"hub","cargo":null,"descricao":"…","aliases":["Daniel Bueno Vorcaro","Daniel Vorcaro"],"n_relacoes":69,"casou_por":"alias (palavra)"}, …]
 ```
 
-**`buscar_relacoes(entidade|de|para, tipo, natureza, ano_inicio, ano_fim, status, limite=50)`** — `entidade` casa `de` OU `para`; os três aceitam id ou
-alias exato e único. `natureza` aceita qualquer vocabulário. Anos: sobreposição de período (sem `periodo_fim` conta como pontual; sem início é excluída
+**`buscar_relacoes(entidade|de|para, tipo, natureza, ano_inicio, ano_fim, status, limite=50, tema=None)`** — `entidade` casa `de` OU `para`; os três aceitam id ou
+alias exato e único. `tema` filtra por slug (ver `listar_temas`); cada relação volta com `temas`. `natureza` aceita qualquer vocabulário. Anos: sobreposição de período (sem `periodo_fim` conta como pontual; sem início é excluída
 quando há filtro de ano). Cada relação traz `evidencias` (url, veiculo, titulo, data, tipo, papel) e `cortes`.
 ```json
 {"entidade": "banco-master", "natureza": "doc", "ano_inicio": 2024, "limite": 10}
 ```
 
-**`buscar_trechos(texto, entidade, video, natureza, limite=50)`** — FTS em afirmação + texto original; `video` = id (`yt:…`) ou url. Devolve entidades, anos,
-valores, relações e cortes de cada trecho.
+**`buscar_trechos(texto, entidade, video, natureza, limite=50, fonte=None, tipo=None)`** — FTS em afirmação + texto original. `fonte` = id (`yt:…`, `src:…`) ou url de qualquer
+fonte; `tipo` = tipo da fonte (`video reportagem documento pdf depoimento decisao transcricao outro`); `video` = id/url de uma fonte **tipo video** (nome antigo, continua valendo).
+Devolve fonte (`fonte_id/tipo/titulo/url`; também `video_*` por compatibilidade), `localizacao`, entidades, anos, valores, relações e cortes de cada trecho.
 ```json
-{"texto": "Valadão", "entidade": "banco-master"}
+{"texto": "Valadão", "entidade": "banco-master", "tipo": "reportagem"}
 ```
 
-**`inserir_relacao(de, para, tipo, rotulo, natureza, descricao?, subtipo?, periodo_inicio?, periodo_fim?, valor_brl?, valor_texto?, resposta?, evidencias?, origem='manual', status='revisar')`**
-Upsert pela chave `(de, para, tipo, rotulo, periodo_inicio)`. Evidências: upsert por URL normalizada (sem `#frag`, `utm_*`, barra final). Retorna
-`{"ok":true,"acao":"criada|atualizada","relacao_id":…}`.
+**`inserir_relacao(de, para, tipo, rotulo, natureza, descricao?, subtipo?, periodo_inicio?, periodo_fim?, valor_brl?, valor_texto?, resposta?, evidencias?, origem='manual', status='revisar', temas?)`**
+Upsert pela chave `(de, para, tipo, rotulo, periodo_inicio)`. Evidências: upsert por URL normalizada (sem `#frag`, `utm_*`, barra final). `temas`: slugs; sem eles uma
+relação nova recebe os temas inferidos (ver "Temas"); numa relação existente `temas` só acrescenta. Retorna
+`{"ok":true,"acao":"criada|atualizada","relacao_id":…,"temas":[…],"temas_inferidos"|"temas_informados":[…]}`.
 ```json
 {"de":"banco-master","para":"andre-valadao","tipo":"financeira","rotulo":"Patrocínio X","natureza":"rep","periodo_inicio":"2023",
  "evidencias":[{"url":"https://exemplo.com/materia","veiculo":"Exemplo","titulo":"…","data":"2024-01-10","tipo":"reportagem"}]}
@@ -78,7 +81,9 @@ Upsert pela chave `(de, para, tipo, rotulo, periodo_inicio)`. Evidências: upser
 Tipos: `financeira societaria contratual juridica investigacao politica pessoal familiar profissional institucional religiosa midia outra`.
 Naturezas aceitas: `doc inv rep ale nc` · `fato_documentado alegacao opiniao` · `documentada investigacao reportada alegacao opiniao nao_classificada`.
 
-**`inserir_video(video, trechos, cortes_sugeridos)`** — ver contrato abaixo.
+**`inserir_fonte(fonte, trechos, cortes_sugeridos?)`** — grava qualquer fonte e seus trechos; contrato abaixo ("Contrato de `inserir_fonte`").
+**`inserir_video(video, trechos, cortes_sugeridos)`** — atalho: o mesmo código com `tipo='video'` (contrato do classificador, mais abaixo).
+**`listar_temas()`** — temas (`id, nome, descricao, principal`) com nº de relações, eventos e entidades.
 
 **`buscar_semantica(texto, tabelas=None, limite=20, k_fts=50)`** — busca híbrida: candidatos do FTS5 (`busca_fts`, consulta OR sem stopwords, top `k_fts`) ∪ top-`k_fts`
 vetorial; reordenação por RRF (`Σ 1/(60+posição)`). `tabelas` ⊂ `trecho evidencia relacao evento entidade` (+`nota`, só FTS). Cada resultado:
@@ -96,10 +101,51 @@ Cada item traz `cos` e `reutilizaria_na_insercao` (mesmo `de,para,tipo` na mesma
 → {"ok":true,"modelo":"hash-ngram-256-v1","limiar_cos":0.45,"limiar_dedup":0.6,"similares":[{"id":59,"rotulo":"Mesada de R$ 300-500 mil (segundo a PF)","cos":0.5497,"invertida":true,"reutilizaria_na_insercao":false,…}]}
 ```
 
-**`resumo_banco()`** — contagens por tabela e distribuição de relações/cortes. **`exportar()`** — roda `scripts/exportar_json.py` e `scripts/validar.py` no banco
+**`resumo_banco()`** — contagens por tabela (inclui `fonte`, `tema`; `video` é a view) e distribuição de relações/fontes/cortes/temas. **`exportar()`** — roda `scripts/exportar_json.py` e `scripts/validar.py` no banco
 configurado e devolve a saída e os códigos de saída (esses scripts gravam em `data/` do repo).
 
+## Temas
+
+`tema` é N:N com relação e evento (`relacao_tema`, `evento_tema`); a pertinência de entidade é derivada (`v_entidade_tema`). Temas atuais: `caso-master`, `brasil-ano-a-ano`, `pares`,
+`violencia`, `inss`, `pcc`, `brb`, `precatorios`, `lagoinha` e a caixa `a-classificar`. O servidor atribui tema a toda relação que cria:
+
+1. `temas` informados (na chamada de `inserir_relacao`, em `fonte.temas` ou em `relacoes[].temas`, nessa ordem de precedência) — validados contra a tabela `tema`;
+2. senão, **inferidos** (`curadoria.inferir_temas_relacao`): os temas *principais* (`principal=1`: caso-master, brasil-ano-a-ano, pares, violencia) comuns às duas entidades
+   (se não houver comum, a união) + as regras por entidade/texto de `data/curadoria/temas.json` (as por origem/canal só valem na carga);
+3. sem nada: `a-classificar` (o `validar.py` avisa; revise e reclassifique em `temas.json`/por `inserir_relacao(..., temas=[...])`).
+
+A inferência é heurística: confira `temas_inferidos` na resposta. Eventos não têm ferramenta de escrita (entram só pela migração).
+
+## Contrato JSON de `inserir_fonte`
+
+```json
+{
+  "fonte": {
+    "tipo": "reportagem",                // video|reportagem|documento|pdf|depoimento|decisao|transcricao|outro  (obrigatório)
+    "titulo": "…",                       // obrigatório
+    "url": "https://…",                  // opcional (depoimento/documento físico); com URL a fonte gera/aponta uma `evidencia` (URL normalizada)
+    "id": "src:abc123",                  // opcional; sem id: video/youtube => yt:<id>; demais => src:<sha256(url normalizada ou tipo|título|data)[:12]>
+    "plataforma": "youtube",             // youtube|instagram|tiktok|x|podcast|outro — obrigatória só para tipo=video
+    "canal": "…", "publicado_em": "2026-10-02", "duracao_s": 3600,   // opcionais (canal = veículo/órgão/canal)
+    "texto": "…",                        // conteúdo extraído (transcrição, corpo da matéria, texto do PDF); `hash_texto` (sha256) é calculado
+    "resumo": "…", "classificador_versao": "v1",
+    "evidencia_tipo": "reportagem",      // opcional; padrão por tipo: video->video, reportagem->reportagem, decisao->decisao_judicial, demais->outro
+    "temas": ["caso-master"]             // opcional; vale para as relações novas sem `temas` próprio
+  },
+  "trechos": [ { "ordem": 1, "localizacao": "parágrafo 3",     // fonte sem tempo: localizacao no lugar de inicio_s/fim_s (obrigatórios só em video)
+                 "afirmacao": "…", "natureza": "alegacao", "confianca": 0.7, "entidades": ["…"],
+                 "relacoes": [{"de": "…", "para": "…", "tipo": "politica", "rotulo": "…", "periodo": "2024", "temas": ["…"]}] } ],
+  "cortes_sugeridos": []                 // só para tipo=video (rejeitado nas demais)
+}
+```
+Mesmo comportamento transacional de `inserir_video` (abaixo): entidade desconhecida ou erro de formato rejeita a fonte inteira; idempotente por `fonte.id`; relações novas `status='revisar'`,
+`origem='classificador'`, ligadas à evidência da fonte (se houver URL; sem URL a resposta traz um aviso). Resposta: `fonte_id, tipo, evidencia_id, trechos, cortes, relacoes_criadas,
+relacoes_existentes_reutilizadas, temas_das_relacoes_criadas {id: [temas]}, dedup, substituiu_insercao_anterior, avisos, embeddings, dump` (+ `video_id` quando tipo=video).
+
 ## Contrato JSON de `inserir_video` (colar no prompt do classificador)
+
+`inserir_video(video, …)` = `inserir_fonte({**video, "tipo": "video"}, …)`; `video.transcricao` é o nome antigo de `fonte.texto` (continua aceito). A resposta ganha `fonte_id`, `evidencia_id` e
+`temas_das_relacoes_criadas`, e mantém `video_id`. `video.temas` (opcional) fixa o tema das relações novas.
 
 ```json
 {
@@ -110,7 +156,7 @@ configurado e devolve a saída e os códigos de saída (esses scripts gravam em 
     "titulo": "…", "canal": "…",
     "publicado_em": "2026-10-01",        // opcional
     "duracao_s": 3600,                   // opcional
-    "transcricao": "…",                  // opcional (texto inteiro, guardado em video.transcricao)
+    "transcricao": "…",                  // opcional (texto inteiro, guardado em fonte.texto; a view `video` o expõe como `transcricao`)
     "classificador_versao": "v1"         // opcional
   },
   "trechos": [
@@ -142,8 +188,8 @@ configurado e devolve a saída e os códigos de saída (esses scripts gravam em 
 ```
 
 Comportamento:
-- **Uma transação**: video → trecho → trecho_entidade/ano/valor → relacao (upsert; nova = `origem='classificador'`, `status='revisar'`, natureza e `confianca`
-  do trecho, `origem_ref='trecho:<id>'`, vídeo ligado como evidência `tipo=video`) → trecho_relacao → corte → corte_trecho → relacao_corte.
+- **Uma transação**: fonte (+ evidência da URL) → trecho → trecho_entidade/ano/valor → relacao (upsert; nova = `origem='classificador'`, `status='revisar'`, natureza e `confianca`
+  do trecho, `origem_ref='trecho:<id>'`, vídeo ligado como evidência `tipo=video`, tema informado ou inferido) → trecho_relacao → corte → corte_trecho → relacao_corte.
 - **Relação existente** (mesma chave) não muda natureza/status/confiança nem ganha evidência; só ganha o vínculo com o trecho (e `periodo_fim` se estava vazio).
   `relacoes_cobertas` casa por `(de, para, tipo)`, preferindo relações ligadas aos trechos deste vídeo.
 - **Entidade desconhecida** (em `entidades`, `relacoes` ou `relacoes_cobertas`): o vídeo inteiro é rejeitado, nada é gravado. Resposta:
@@ -181,14 +227,14 @@ Comportamento:
 
 - **Concorrência**: escritas são serializadas por `threading.Lock` + `flock` em `data/.mcp-escrita.lock` + `BEGIN IMMEDIATE` (vários servidores, ex. Desktop e Code,
   podem coexistir). Leituras não bloqueiam (WAL). O lock de arquivo exige filesystem local (não NFS).
-- **Transcrição**: guardada inteira em `video.transcricao` e, portanto, também em `data/dump.sql` (cada linha do dump é um INSERT; transcrições longas
-  incham o dump e o diff do git). Não há limite no servidor; o limite prático é o do cliente MCP. Considere enviar só trechos e deixar `transcricao` de fora.
+- **Texto da fonte**: guardado inteiro em `fonte.texto` (vídeo: a transcrição) e, portanto, também em `data/dump.sql` (cada linha do dump é um INSERT; transcrições longas
+  incham o dump e o diff do git). Não há limite no servidor; o limite prático é o do cliente MCP. Considere enviar só trechos e deixar `texto`/`transcricao` de fora.
 - **Dump/commit**: se a regravação do dump falhar após o COMMIT, os dados ficam no sqlite e a resposta traz `dump.dump_status` com o erro; rode `exportar()`.
   Se `LDT_EXPORT_JSON=1` e a exportação falhar, o código/saída aparecem em `dump.exportar_json`. O commit no git nunca é feito pelo servidor.
 - **`validar.py` não roda a cada escrita** (só na ferramenta `exportar()`); dentro da transação o servidor checa `foreign_key_check` e os CHECK/UNIQUE do schema, e desfaz tudo se falhar.
   Se `validar.py` falhar depois de uma inserção, nada é revertido automaticamente: leia a saída, corrija com outra chamada de `inserir_relacao`/`inserir_video`, ou descarte
   tudo com `git checkout data/dump.sql && python3 scripts/importar.py --force` (reconstrói o sqlite do último dump commitado).
-  Atenção: `validar.py` compara `data/*.json` com o export do banco; se a inserção criou um `tipo` de relação inédito, `tipos_relacao` de `entities.json` muda — rode `exportar()`.
+  Atenção: `validar.py` compara `data/*.json` com o export do banco. Como `entities.json` traz `temas` por entidade e `temas.json` as contagens, **toda inserção que cria relação os deixa defasados** (e um `tipo` de relação inédito muda `tipos_relacao`): rode `exportar()` (ou use `LDT_EXPORT_JSON=1`) antes do `validar.py`.
 - Reinserir um vídeo apaga seus cortes anteriores, inclusive os já `aprovado`/`publicado` (a resposta traz um aviso). Relações criadas por uma versão anterior do mesmo vídeo
   permanecem (com `status='revisar'`) mesmo que a nova versão não as repita.
 - **Qualidade do fallback `hash`**: busca "venda do banco ao BRB" coloca a relação Banco Master↔BRB em 5º (entidades "Banco …" vêm antes por casarem em "banco"); dedup só

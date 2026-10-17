@@ -5,6 +5,7 @@ Uso: python3 scripts/validar.py [--db caminho.sqlite]
 Se data/*.json e data/dump.sql existirem, confere também que estão iguais ao que o banco exporta agora.
 """
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -53,7 +54,8 @@ def contagens(con, raw, orig):
     tabela("entidade:", [(r["origem"], r["c"]) for r in q(con, "SELECT origem, count(*) c FROM entidade GROUP BY origem ORDER BY origem")]
            + [("TOTAL", q(con, "SELECT count(*) FROM entidade")[0][0])])
     tabela("entidade_alias:", [("total", q(con, "SELECT count(*) FROM entidade_alias")[0][0])])
-    rel_origem = [("E[].r (teia)", "origem_ref LIKE 'E[%'"), ("fam_de", "origem_ref LIKE '%.fam_de'"), ("lig_de", "origem_ref LIKE '%.lig_de'")]
+    rel_origem = [("E[].r (teia)", "origem_ref LIKE 'E[%'"), ("fam_de", "origem_ref LIKE '%.fam_de'"), ("lig_de", "origem_ref LIKE '%.lig_de'"),
+                  ("linha_do_tempo (mandato/filiacao)", "origem='linha_do_tempo'"), ("classificador/manual (MCP)", "origem IN ('classificador','manual','origens')")]
     tabela("relacao por origem:", [(n, q(con, f"SELECT count(*) FROM relacao WHERE {w}")[0][0]) for n, w in rel_origem]
            + [("TOTAL", q(con, "SELECT count(*) FROM relacao")[0][0])])
     tabela("evento por canal:", [(r["canal"], r["c"]) for r in q(con, "SELECT canal, count(*) c FROM evento GROUP BY canal ORDER BY canal")]
@@ -71,7 +73,7 @@ def contagens(con, raw, orig):
     h_teia = {r["natureza_id"]: r["c"] for r in q(con, "SELECT natureza_id, count(*) c FROM relacao WHERE origem_ref LIKE 'E[%' GROUP BY natureza_id")}
     tabela("relacoes da teia (E[].r):", sorted(h_teia.items()))
     esperar("relações da teia por natureza", h_teia, {"documentada": 127, "investigacao": 94, "reportada": 114, "alegacao": 8})
-    h_fl = {r["natureza_id"]: r["c"] for r in q(con, "SELECT natureza_id, count(*) c FROM relacao WHERE origem_ref NOT LIKE 'E[%' GROUP BY natureza_id")}
+    h_fl = {r["natureza_id"]: r["c"] for r in q(con, "SELECT natureza_id, count(*) c FROM relacao WHERE origem_ref LIKE 'N[%' GROUP BY natureza_id")}
     tabela("relacoes fam_de/lig_de:", sorted(h_fl.items()))
     tabela("eventos por natureza:", [(r["n"], r["c"]) for r in q(con, "SELECT COALESCE(natureza_id,'(NULL)') n, count(*) c FROM evento GROUP BY n ORDER BY n")])
     tabela("eventos com natureza NULL por canal:", [(r["canal"], r["c"]) for r in q(con, "SELECT canal, count(*) c FROM evento WHERE natureza_id IS NULL GROUP BY canal ORDER BY canal")])
@@ -125,7 +127,8 @@ def orfaos(con):
                   AND NOT EXISTS (SELECT 1 FROM serie s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM ranking_empresa s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM dossie_par_evidencia s WHERE s.evidencia_id=e.id)
-                  AND NOT EXISTS (SELECT 1 FROM mandato s WHERE s.evidencia_id=e.id)""")[0][0]
+                  AND NOT EXISTS (SELECT 1 FROM mandato s WHERE s.evidencia_id=e.id)
+                  AND NOT EXISTS (SELECT 1 FROM fonte s WHERE s.evidencia_id=e.id)""")[0][0]
     esperar("evidências sem nenhum uso", n, 0)
     n = q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id) AND canal IN ('teia','banco','familia','ida','volta','precatorios','brb')")[0][0]
     esperar("eventos de fonte única (teia/origens/prec/brb) sem evidência", n, 0)
@@ -437,6 +440,91 @@ def curadoria(con):
     esperar("evento_entidade citado com entidade inexistente", n, 0)
 
 
+def modelo_v2(con, exp):
+    """Tema N:N, fonte genérica e ligação teia <-> timeline (mandato/bancada -> relações institucionais)."""
+    secao("Temas (relacao_tema, evento_tema, v_entidade_tema)")
+    cfg = json.loads((CURADORIA / "temas.json").read_text(encoding="utf-8"))
+    esperar("tema == data/curadoria/temas.json", [r[0] for r in q(con, "SELECT id FROM tema ORDER BY ordem, id")], [t["id"] for t in sorted(cfg["temas"], key=lambda t: (t["ordem"], t["id"]))])
+    tabela("relações por tema:", [(r[0], r[1]) for r in q(con, "SELECT tema_id, count(*) FROM relacao_tema GROUP BY tema_id ORDER BY tema_id")])
+    tabela("eventos por tema:", [(r[0], r[1]) for r in q(con, "SELECT tema_id, count(*) FROM evento_tema GROUP BY tema_id ORDER BY tema_id")])
+    tabela("entidades por tema (view):", [(r[0], r[1]) for r in q(con, "SELECT tema_id, count(*) FROM v_entidade_tema GROUP BY tema_id ORDER BY tema_id")])
+    esperar("relações sem nenhum tema", q(con, "SELECT count(*) FROM relacao r WHERE NOT EXISTS (SELECT 1 FROM relacao_tema x WHERE x.relacao_id=r.id)")[0][0], 0)
+    esperar("eventos sem nenhum tema", q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_tema x WHERE x.evento_id=e.id)")[0][0], 0)
+    esperar("entidades sem nenhum tema (v_entidade_tema)", q(con, "SELECT count(*) FROM entidade e WHERE NOT EXISTS (SELECT 1 FROM v_entidade_tema v WHERE v.entidade_id=e.id)")[0][0], 0)
+    n_ac = q(con, "SELECT (SELECT count(*) FROM relacao_tema WHERE tema_id='a-classificar'), (SELECT count(*) FROM evento_tema WHERE tema_id='a-classificar')")[0]
+    print(f"  {'aviso' if n_ac[0] + n_ac[1] else 'info '}: registros em 'a-classificar': {n_ac[0]} relações, {n_ac[1]} eventos")
+    # regras puramente por origem/canal têm de valer em 100% dos registros (as por texto/entidade são conferidas pela exportação == banco)
+    for rg in cfg["regras"]:
+        if "texto" in rg or "entidade" in rg or "dentro_de" in rg:
+            continue
+        falt = 0
+        if rg["alvo"] in ("relacao", "ambos") and "origem" in rg:
+            falt += q(con, f"SELECT count(*) FROM relacao r WHERE origem IN ({','.join('?' * len(rg['origem']))}) AND NOT EXISTS (SELECT 1 FROM relacao_tema x WHERE x.relacao_id=r.id AND x.tema_id=?)", *rg["origem"], rg["tema"])[0][0]
+        if rg["alvo"] in ("evento", "ambos") and "canal" in rg:
+            falt += q(con, f"SELECT count(*) FROM evento e WHERE canal IN ({','.join('?' * len(rg['canal']))}) AND NOT EXISTS (SELECT 1 FROM evento_tema x WHERE x.evento_id=e.id AND x.tema_id=?)", *rg["canal"], rg["tema"])[0][0]
+        esperar(f"regra {rg['id']}: registros sem o tema {rg['tema']}", falt, 0)
+    for ex in cfg.get("excecoes", []):
+        if ex["alvo"] == "relacao":
+            i = q(con, "SELECT id FROM relacao WHERE origem_ref=?", ex["ref"])[0][0]
+            tb, col = "relacao_tema", "relacao_id"
+        else:
+            i, tb, col = ex["ref"], "evento_tema", "evento_id"
+        tem = {r[0] for r in q(con, f"SELECT tema_id FROM {tb} WHERE {col}=?", i)}
+        if set(ex.get("excluir", [])) & tem or not set(ex.get("incluir", [])) <= tem:
+            falha(f"exceção de tema não aplicada: {ex['ref']}")
+    t = exp["teia.json"]
+    sem = sum(1 for e in t["E"] for r in e["r"] if not r["tema"]) + sum(1 for e in t["EV"] if not e["tema"]) + sum(1 for e in t["PREC"] if not e["tema"])
+    esperar("teia.json: relações/eventos/PREC sem `tema`", sem, 0)
+    esperar("origens.json: eventos sem `tema`", sum(1 for e in exp["origens.json"]["EV"] if not e["tema"]), 0)
+
+    secao("Fonte genérica (fonte, trecho.fonte_id, view video)")
+    tabela("fonte por tipo:", [(r[0], r[1]) for r in q(con, "SELECT tipo, count(*) FROM fonte GROUP BY tipo ORDER BY tipo")] + [("TOTAL", q(con, "SELECT count(*) FROM fonte")[0][0])])
+    esperar("view video == fontes tipo video", q(con, "SELECT count(*) FROM video")[0][0], q(con, "SELECT count(*) FROM fonte WHERE tipo='video'")[0][0])
+    esperar("view video expõe as colunas antigas", [r[1] for r in q(con, "PRAGMA table_info(video)")][:6], ["id", "plataforma", "url", "titulo", "canal", "canal_entidade_id"])
+    esperar("fonte com URL sem evidência", q(con, "SELECT count(*) FROM fonte WHERE url IS NOT NULL AND evidencia_id IS NULL")[0][0], 0)
+    esperar("fonte cuja evidência tem outra URL", q(con, "SELECT count(*) FROM fonte f JOIN evidencia e ON e.id=f.evidencia_id WHERE e.url<>f.url")[0][0], 0)
+    ruins = [r["id"] for r in q(con, "SELECT id, texto, hash_texto FROM fonte WHERE texto IS NOT NULL") if hashlib.sha256(r["texto"].encode("utf-8")).hexdigest() != r["hash_texto"]]
+    esperar("fonte com hash_texto diferente do sha256(texto)", len(ruins), 0)
+    esperar("corte em fonte que não é vídeo", q(con, "SELECT count(*) FROM corte c JOIN fonte f ON f.id=c.video_id WHERE f.tipo<>'video'")[0][0], 0)
+    esperar("trecho de vídeo sem inicio_s/fim_s", q(con, "SELECT count(*) FROM trecho t JOIN fonte f ON f.id=t.fonte_id WHERE f.tipo='video' AND t.inicio_s IS NULL")[0][0], 0)
+    esperar("trecho órfão de fonte", q(con, "SELECT count(*) FROM trecho t WHERE NOT EXISTS (SELECT 1 FROM fonte f WHERE f.id=t.fonte_id)")[0][0], 0)
+    sem_trecho = [r["id"] for r in q(con, "SELECT id FROM fonte f WHERE NOT EXISTS (SELECT 1 FROM trecho t WHERE t.fonte_id=f.id)")]
+    print(f"  {'aviso' if sem_trecho else 'info '}: fontes sem nenhum trecho: {len(sem_trecho)}" + (" -> " + ", ".join(sem_trecho[:10]) if sem_trecho else ""))
+
+    secao("Teia <-> timeline (mandato/bancada -> relações institucionais)")
+    n_m = q(con, "SELECT count(*) FROM mandato")[0][0]
+    esperar("relações subtipo mandato:* == linhas de mandato", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND subtipo LIKE 'mandato:%'")[0][0], n_m)
+    esperar("cada mandato tem a sua relação (origem_ref mandato:<id>)", q(con, "SELECT count(*) FROM mandato m WHERE NOT EXISTS (SELECT 1 FROM relacao r WHERE r.origem_ref='mandato:'||m.id AND r.de=m.entidade_id AND r.periodo_inicio=m.inicio AND r.periodo_fim=COALESCE(m.fim,m.inicio))")[0][0], 0)
+    esperar("relações linha_do_tempo: natureza/tipo/status", q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND (natureza_id<>'documentada' OR tipo<>'institucional' OR status<>'publicada')")[0][0], 0)
+    esperar("relações linha_do_tempo sem o tema brasil-ano-a-ano", q(con, "SELECT count(*) FROM relacao r WHERE origem='linha_do_tempo' AND NOT EXISTS (SELECT 1 FROM relacao_tema x WHERE x.relacao_id=r.id AND x.tema_id='brasil-ano-a-ano')")[0][0], 0)
+    esperar("mandato: de=pessoa, para=orgao_publico", q(con, "SELECT count(*) FROM relacao r JOIN entidade d ON d.id=r.de JOIN entidade p ON p.id=r.para WHERE r.subtipo LIKE 'mandato:%' AND (d.tipo<>'pessoa' OR p.tipo<>'orgao_publico')")[0][0], 0)
+    esperar("filiação: de=pessoa, para=partido", q(con, "SELECT count(*) FROM relacao r JOIN entidade d ON d.id=r.de JOIN entidade p ON p.id=r.para WHERE r.subtipo='filiacao' AND (d.tipo<>'pessoa' OR p.tipo<>'partido')")[0][0], 0)
+    manual = json.loads((CURADORIA / "mandato-relacoes.json").read_text(encoding="utf-8")).get("partido_manual", {})
+    por_alias = {(r[0], r[1]) for r in q(con, "SELECT alias, entidade_id FROM entidade_alias")}
+    mand = {}
+    for m in q(con, "SELECT entidade_id, partido, inicio, COALESCE(fim, inicio) fim FROM mandato WHERE partido IS NOT NULL"):
+        mand.setdefault(m["entidade_id"], []).append((m["partido"], int(m["inicio"][:4]), int(m["fim"][:4])))
+    sem = 0
+    for r in q(con, "SELECT de, para, ano_inicio, ano_fim FROM relacao WHERE subtipo='filiacao'"):
+        if not any((manual.get(p) == r["para"] or (p, r["para"]) in por_alias) and r["ano_inicio"] <= a <= b <= r["ano_fim"]
+                   for p, a, b in mand.get(r["de"], [])):
+            sem += 1
+    esperar("filiação sem mandato no mesmo partido dentro do período", sem, 0)
+    esperar("presidencia-da-republica existe (orgao_publico)", [tuple(r) for r in q(con, "SELECT id, tipo FROM entidade WHERE id='presidencia-da-republica'")], [("presidencia-da-republica", "orgao_publico")])
+    n_pr = q(con, "SELECT count(*) FROM relacao WHERE para='presidencia-da-republica' AND subtipo IN ('mandato:presidente','mandato:vice_presidente')")[0][0]
+    esperar("presidentes + vices ligados à Presidência", n_pr, q(con, "SELECT count(*) FROM mandato WHERE cargo IN ('presidente','vice_presidente')")[0][0])
+    # entidade da timeline que coincide com nó da teia aparece nos dois temas
+    fundidas = [r[0] for r in q(con, """SELECT e.id FROM entidade e WHERE e.origem='teia' AND (
+        EXISTS (SELECT 1 FROM mandato m WHERE m.entidade_id=e.id OR m.orgao_id=e.id) OR EXISTS (SELECT 1 FROM bancada b WHERE b.partido_id=e.id)
+        OR EXISTS (SELECT 1 FROM ranking_empresa k WHERE k.entidade_id=e.id)
+        OR EXISTS (SELECT 1 FROM evento_entidade x JOIN evento v ON v.id=x.evento_id WHERE x.entidade_id=e.id AND v.canal='brasil')) ORDER BY e.id""")]
+    faltam = [e for e in fundidas if {"brasil-ano-a-ano", "caso-master"} - {r[0] for r in q(con, "SELECT tema_id FROM v_entidade_tema WHERE entidade_id=?", e)}]
+    print(f"  entidades da teia que também aparecem na timeline: {len(fundidas)} ({', '.join(fundidas)})")
+    esperar("... delas fora de brasil-ano-a-ano ou caso-master", faltam, [])
+    n_ent_tl = q(con, "SELECT count(*) FROM entidade WHERE origem='teia' AND id IN (SELECT entidade_id FROM v_entidade_tema WHERE tema_id='brasil-ano-a-ano')")[0][0]
+    print(f"  info: nós da teia no tema brasil-ano-a-ano: {n_ent_tl}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=str(SQLITE))
@@ -473,6 +561,7 @@ def main():
     esperar("mapa_indices.EV cobre os 167 EV (fundidos apontam para o mantido)", len(mapa["EV"]), len(raw["EV"]))
     dossie_e_pares(con, exp)
     curadoria(con)
+    modelo_v2(con, exp)
 
     secao("Arquivos exportados em disco")
     for nome, obj in exp.items():

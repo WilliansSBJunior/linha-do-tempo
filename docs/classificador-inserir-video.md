@@ -11,7 +11,10 @@
 - Você **não abre o SQLite** e **não cria entidades**. O servidor é o único escritor.
 - Reenviar o mesmo `video.id` é seguro: substitui os trechos/cortes anteriores daquele vídeo e não duplica relações.
 - Relações novas entram com `status='revisar'`, `origem='classificador'`; nada vira `publicada` sem revisão humana.
-- Além de `inserir_video`, você tem leitura: `buscar_entidade`, `buscar_relacoes`, `buscar_trechos`, `buscar_semantica`, `relacoes_similares`.
+- Além de `inserir_video`, você tem leitura: `buscar_entidade`, `buscar_relacoes`, `buscar_trechos`, `buscar_semantica`, `relacoes_similares`, `listar_temas`.
+- **Mudou (modelo v2)**: o banco guarda qualquer fonte, não só vídeo (`fonte`, com `tipo`). `inserir_video` continua igual para vídeos (é o atalho de `inserir_fonte` com `tipo='video'`; `video.transcricao` vira `fonte.texto`).
+  Para reportagem, PDF, documento, depoimento ou decisão use `inserir_fonte` (contrato em `mcp/README.md`): sem `inicio_s`/`fim_s` (use `localizacao`) e sem cortes. Toda relação nova recebe **tema**
+  (veja a seção 3: `temas`); `buscar_trechos` ganhou os filtros `fonte` e `tipo`.
 
 ## 2. Regra de IDs canônicos (obrigatória)
 
@@ -50,6 +53,10 @@
 
 **`video.plataforma`**: `youtube` · `instagram` · `tiktok` · `x` · `podcast` · `outro`
 
+**`temas`** (opcional em `video.temas` e em `relacoes[].temas`; slugs de `listar_temas`; tema inexistente rejeita o vídeo inteiro): `caso-master` · `brasil-ano-a-ano` · `pares` · `violencia` · `inss` · `pcc` · `brb` · `precatorios` · `lagoinha`
+(+ `a-classificar`, caixa de entrada que o servidor usa sozinho). **Se você não informar, o servidor infere** pelos temas das duas entidades e por palavras do rótulo e devolve `temas_das_relacoes_criadas`;
+informe `temas` quando o assunto do vídeo for claro (ex.: vídeo sobre a fraude do INSS -> `["inss"]`).
+
 **`valores[].moeda`**: `BRL` · `USD` · `EUR` · `pct` · `outro` (aceita também `R$`, `US$`, `€`, `%`; qualquer outra vira `outro`)
 
 **Faixas**: `confianca` 0..1 · `potencial_corte` 0..5 · `periodo`: `"AAAA"`, `"AAAA-MM"`, `"AAAA-MM-DD"`, `"AAAA-AAAA"` ou `{"inicio": …, "fim": …}`
@@ -65,7 +72,8 @@
     "titulo": "…", "canal": "…",
     "publicado_em": "2026-10-01",        // opcional
     "duracao_s": 3600,                   // opcional
-    "transcricao": "…",                  // opcional (texto inteiro, guardado em video.transcricao)
+    "transcricao": "…",                  // opcional (texto inteiro, guardado em fonte.texto; a view `video` o expõe como `transcricao`)
+    "temas": ["caso-master"],            // opcional; tema das relações novas (senão o servidor infere)
     "classificador_versao": "v1"         // opcional
   },
   "trechos": [
@@ -98,15 +106,15 @@
 (Os comentários `//` acima são só explicação: o JSON enviado não pode tê-los.)
 
 Comportamento do servidor:
-- **Uma transação**: video → trecho → trecho_entidade/ano/valor → relacao (upsert; nova = `origem='classificador'`, `status='revisar'`, natureza e `confianca` do trecho,
-  `origem_ref='trecho:<id>'`, vídeo ligado como evidência `tipo=video`) → trecho_relacao → corte → corte_trecho → relacao_corte.
+- **Uma transação**: fonte (tipo video; a URL vira uma `evidencia`) → trecho → trecho_entidade/ano/valor → relacao (upsert; nova = `origem='classificador'`, `status='revisar'`, natureza e `confianca` do trecho,
+  `origem_ref='trecho:<id>'`, vídeo ligado como evidência `tipo=video`, tema informado ou inferido) → trecho_relacao → corte → corte_trecho → relacao_corte.
 - **Relação existente** (mesma chave, ou rótulo equivalente por embedding no mesmo `de,para,tipo`) não muda natureza/status/confiança nem ganha evidência; só ganha o vínculo com o trecho
   (e `periodo_fim` se estava vazio). `relacoes_cobertas` casa por `(de, para, tipo)`, preferindo relações ligadas aos trechos deste vídeo.
 - **Entidade desconhecida** (em `entidades`, `relacoes` ou `relacoes_cobertas`): o vídeo inteiro é rejeitado, nada é gravado.
 - **Erro de formato** (natureza inválida, `fim_s < inicio_s`, tipo fora do vocabulário, `ordem` repetida…): rejeitado inteiro com `{"ok":false,"erro":"entrada inválida; nada foi gravado","erros":[…]}`.
 - **Idempotente por `video.id`**: reenviar substitui trechos e cortes anteriores daquele vídeo (ids novos), sem duplicar relações; `status` do vídeo é preservado.
   Atenção: cortes já `aprovado`/`publicado` daquele vídeo também são substituídos (a resposta traz aviso). Relações criadas por uma versão anterior permanecem.
-- `transcricao` é opcional e vai inteira para `data/dump.sql` (incha o diff do git). Prefira **não enviar a transcrição**; envie só os trechos.
+- `transcricao` é opcional e vai inteira para `fonte.texto` e para `data/dump.sql` (incha o diff do git). Prefira **não enviar a transcrição**; envie só os trechos.
 
 ## 5. Checklist de qualidade por trecho
 
@@ -176,11 +184,15 @@ Chamada (`tools/call` → `inserir_video`). O rótulo "Mesada de R$ 300 mil" é 
 ```json
 {
   "ok": true,
+  "fonte_id": "yt:EXEMPLO12345",
+  "tipo": "video",
   "video_id": "yt:EXEMPLO12345",
+  "evidencia_id": 1117,
   "trechos": 1,
   "cortes": 1,
   "relacoes_criadas": [],
   "relacoes_existentes_reutilizadas": [59],
+  "temas_das_relacoes_criadas": {},
   "dedup": [
     {"trecho": 1, "dedup_por": "embedding", "cos": 0.6609, "relacao_id": 59,
      "rotulo_enviado": "Mesada de R$ 300 mil", "rotulo_existente": "Mesada de R$ 300-500 mil (segundo a PF)"}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exporta o banco para JSON (e regenera data/dump.sql). Só lê o banco.
 
-Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, dump.sql.
+Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, temas.json, dump.sql.
 Uso: python3 scripts/exportar_json.py [--db caminho.sqlite]
 """
 import argparse
@@ -33,6 +33,14 @@ def _fontes(con, tabela, col):
     for r in con.execute(f"""SELECT x.{col} AS dono, {rot} AS veiculo, e.url FROM {tabela} x JOIN evidencia e ON e.id=x.evidencia_id
                              ORDER BY x.{col}, x.ordem"""):
         out[r["dono"]].append([r["veiculo"], r["url"]])
+    return out
+
+
+def _temas_de(con, tabela, col):
+    """dono -> [tema_id] na ordem de tema.ordem."""
+    out = defaultdict(list)
+    for r in con.execute(f"SELECT x.{col} AS dono, x.tema_id FROM {tabela} x JOIN tema t ON t.id=x.tema_id ORDER BY x.{col}, t.ordem, t.id"):
+        out[r["dono"]].append(r["tema_id"])
     return out
 
 
@@ -76,6 +84,7 @@ def montar_teia(con):
             n["lig_de"], n["lig_de_id"] = idx[lig[e["id"]]], lig[e["id"]]
         N.append(n)
     fontes_rel = _fontes(con, "relacao_evidencia", "relacao_id")
+    tema_rel, tema_ev = _temas_de(con, "relacao_tema", "relacao_id"), _temas_de(con, "evento_tema", "evento_id")
     por_aresta = defaultdict(dict)
     for r in con.execute("SELECT * FROM relacao WHERE origem_ref LIKE 'E[%'"):
         m = re.fullmatch(r"E\[(\d+)\]\.r\[(\d+)\]", r["origem_ref"])
@@ -85,7 +94,7 @@ def montar_teia(con):
             ("rot", r["rotulo"]), ("desc", r["descricao"]), ("st", st_inv[r["natureza_id"]]), ("tipo", r["tipo"]),
             ("de", None if r["periodo_inicio"] is None else int(r["periodo_inicio"])),
             ("ate", None if r["periodo_fim"] is None else int(r["periodo_fim"])),
-            ("val", _num(r["valor_brl"])), ("resp", r["resposta"]), ("f", fontes_rel.get(r["id"], []))])
+            ("val", _num(r["valor_brl"])), ("resp", r["resposta"]), ("f", fontes_rel.get(r["id"], [])), ("tema", tema_rel[r["id"]])])
         por_aresta[ei][ri] = rel
     leg = {r["e_idx"]: (r["a"], r["b"]) for r in con.execute("SELECT e_idx, a, b FROM aresta_legado")}
     E = []
@@ -103,7 +112,7 @@ def montar_teia(con):
         i = int(re.search(r"teia:EV\[(\d+)\]", r["origem_ref"]).group(1))
         ev = OrderedDict([("d", r["data_texto"] or r["data"]), ("y", r["ano"]), ("t", r["titulo"]), ("x", r["descricao"]),
                           ("p", r["peso"]), ("f", fontes_ev.get(r["id"], [])),
-                          ("n", [idx[s] for s in ents_ev[r["id"]]]), ("ids", ents_ev[r["id"]]), ("id", r["id"])])
+                          ("n", [idx[s] for s in ents_ev[r["id"]]]), ("ids", ents_ev[r["id"]]), ("id", r["id"]), ("tema", tema_ev[r["id"]])])
         if r["natureza_id"]:
             ev["st"] = st_inv[r["natureza_id"]]
         evs.append((i, ev))
@@ -141,7 +150,7 @@ def montar_teia(con):
     for r in con.execute("SELECT * FROM evento WHERE canal='precatorios'"):
         i = int(re.fullmatch(r"PREC\[(\d+)\]", r["origem_ref"]).group(1))
         prec.append((i, OrderedDict([("d", r["data_texto"] or r["data"]), ("t", r["titulo"]), ("x", r["descricao"]),
-                                     ("st", st_inv[r["natureza_id"]]), ("f", fontes_ev.get(r["id"], []))])))
+                                     ("st", st_inv[r["natureza_id"]]), ("f", fontes_ev.get(r["id"], [])), ("tema", tema_ev[r["id"]])])))
     PREC = [p for _, p in sorted(prec, key=lambda x: x[0])]
     return OrderedDict([("cats", cats), ("N", N), ("E", E), ("EV", EV), ("SINT", SINT), ("SEM", SEM), ("LAC", LAC),
                         ("NUM", NUM), ("PREC", PREC)])
@@ -150,13 +159,14 @@ def montar_teia(con):
 def montar_origens(con):
     st_inv = _st_inverso(con)
     fontes_ev = _fontes(con, "evento_evidencia", "evento_id")
+    tema_ev = _temas_de(con, "evento_tema", "evento_id")
     evs = []
     for r in con.execute("SELECT * FROM evento WHERE origem_ref LIKE '%origens:EV[%'"):
         k = int(re.search(r"origens:EV\[(\d+)\]", r["origem_ref"]).group(1))
         evs.append((k, OrderedDict([
             ("id", r["id"]), ("ch", r["canal"]), ("d", r["data_texto"] or r["data"]), ("y", r["ano"]), ("t", r["titulo"]),
             ("x", r["descricao"]), ("st", st_inv[r["natureza_id"]]), ("r", r["resposta"] or ""), ("v", _num(r["valor_brl"])),
-            ("f", fontes_ev.get(r["id"], []))])))
+            ("f", fontes_ev.get(r["id"], [])), ("tema", tema_ev[r["id"]])])))
     EV = [e for _, e in sorted(evs, key=lambda x: x[0])]
     NARR, LAC = OrderedDict(), OrderedDict()
     for r in con.execute("SELECT chave, texto FROM nota WHERE pagina='origens' AND tipo='narrativa' ORDER BY id"):
@@ -205,12 +215,13 @@ def montar_entities(con):
     alias_por = defaultdict(list)
     for r in con.execute("SELECT alias, alias_norm, entidade_id FROM entidade_alias ORDER BY entidade_id, tipo_alias, alias"):
         alias_por[r["entidade_id"]].append(r["alias"])
+    tema_ent = _temas_de(con, "v_entidade_tema", "entidade_id")
     for r in con.execute("""SELECT * FROM entidade ORDER BY (ind_legado IS NULL), ind_legado, id"""):
         al = [a for a in dict.fromkeys(alias_por[r["id"]]) if a != r["nome"]]
         d = OrderedDict([("id", r["id"]), ("nome", r["nome"]), ("tipo", r["tipo"]), ("categoria", r["categoria_id"]),
                          ("grupo", r["grupo"]), ("partido", r["partido"]), ("campo", r["campo"]), ("cargo", r["cargo"]),
                          ("descricao", r["descricao"]), ("uf", r["uf"]), ("indice_legado", r["ind_legado"]),
-                         ("origem", r["origem"]), ("aliases", al)])
+                         ("origem", r["origem"]), ("aliases", al), ("temas", tema_ent[r["id"]])])
         ents.append(d)
     por_norm = defaultdict(set)
     for r in con.execute("SELECT alias_norm, entidade_id FROM entidade_alias"):
@@ -376,6 +387,26 @@ def montar_pares(con):
                         ("foruns", foruns), ("notas", notas)])
 
 
+def montar_temas(con):
+    """Temas com contagens e a pertinência de relações (id), eventos (id) e entidades (id, derivada de v_entidade_tema)."""
+    def membros(tabela, col):
+        out = defaultdict(list)
+        for r in con.execute(f"SELECT x.tema_id, x.{col} AS dono FROM {tabela} x ORDER BY x.tema_id, x.{col}"):
+            out[r["tema_id"]].append(r["dono"])
+        return out
+    rel, ev, ent = membros("relacao_tema", "relacao_id"), membros("evento_tema", "evento_id"), membros("v_entidade_tema", "entidade_id")
+    temas = [OrderedDict([("id", r["id"]), ("nome", r["nome"]), ("descricao", r["descricao"]), ("cor", r["cor"]), ("ordem", r["ordem"]),
+                          ("principal", bool(r["principal"])), ("n_relacoes", len(rel[r["id"]])), ("n_eventos", len(ev[r["id"]])),
+                          ("n_entidades", len(ent[r["id"]]))]) for r in con.execute("SELECT * FROM tema ORDER BY ordem, id")]
+    return OrderedDict([("versao", VERSAO), ("gerado_em", TS_MIGRACAO),
+                        ("descricao", "Tema é N:N. `relacoes` usa relacao.id e `eventos` usa evento.id; `entidades` é derivada (view v_entidade_tema): "
+                                      "a entidade pertence ao tema se tem relação/evento nele (ou mandato/bancada/ranking -> brasil-ano-a-ano, forum -> pares, dossiê -> caso-master). "
+                                      "Cada relação/evento de teia.json e origens.json traz `tema`."),
+                        ("temas", temas), ("relacoes", OrderedDict((t["id"], rel[t["id"]]) for t in temas)),
+                        ("eventos", OrderedDict((t["id"], ev[t["id"]]) for t in temas)),
+                        ("entidades", OrderedDict((t["id"], ent[t["id"]]) for t in temas))])
+
+
 def salvar(nome, obj):
     (DATA / nome).write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
@@ -383,7 +414,7 @@ def salvar(nome, obj):
 def todos(con):
     return {"entities.json": montar_entities(con), "teia.json": montar_teia(con), "origens.json": montar_origens(con),
             "series.json": montar_series(con), "mapa_indices.json": mapa_indices(con),
-            "dossie.json": montar_dossie(con), "pares.json": montar_pares(con)}
+            "dossie.json": montar_dossie(con), "pares.json": montar_pares(con), "temas.json": montar_temas(con)}
 
 
 def main():

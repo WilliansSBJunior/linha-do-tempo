@@ -16,8 +16,9 @@ TS_MIGRACAO = "2026-10-16T00:00:00Z"
 
 # Tabelas na ordem de dependência (FK) usada no dump. natureza/natureza_mapa vêm no schema.sql.
 TABELAS = ["meta", "categoria", "entidade", "entidade_alias", "evidencia", "relacao", "evento", "evento_alias",
+           "tema", "relacao_tema", "evento_tema",
            "evento_entidade", "evento_relacao", "relacao_evidencia", "evento_evidencia",
-           "video", "trecho", "trecho_entidade", "trecho_ano", "trecho_valor", "trecho_relacao",
+           "fonte", "trecho", "trecho_entidade", "trecho_ano", "trecho_valor", "trecho_relacao",
            "corte", "corte_trecho", "relacao_corte", "nota", "nota_entidade", "indicador", "serie",
            "ranking_empresa", "mandato", "bancada", "aresta_legado",
            "dossie_par", "dossie_par_evidencia", "previdencia_ente", "pagamento", "indicio_maquina", "limite", "forum"]
@@ -67,6 +68,8 @@ def popular_fts(con):
         SELECT 'relacao', CAST(id AS TEXT), rotulo || ' ' || COALESCE(descricao,'') FROM relacao ORDER BY id""")
     con.execute("""INSERT INTO busca_fts(origem_tabela, origem_id, texto)
         SELECT 'nota', CAST(id AS TEXT), COALESCE(titulo,'') || ' ' || texto FROM nota ORDER BY id""")
+    con.execute("""INSERT INTO busca_fts(origem_tabela, origem_id, texto)
+        SELECT 'fonte', id, titulo || ' ' || COALESCE(canal,'') || ' ' || COALESCE(resumo,'') || ' ' || COALESCE(texto,'') FROM fonte ORDER BY id""")
     con.commit()
 
 

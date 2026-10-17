@@ -6,7 +6,7 @@ Variáveis de ambiente (todas opcionais):
   LDT_DUMP         caminho do dump.sql          (padrão data/dump.sql)
   LDT_EXPORT_JSON  "1" => após cada escrita roda scripts/exportar_json.py (padrão: não)
   LDT_EMBED_PROVIDER / LDT_EMBED_MODEL / LDT_EMBED_API_KEY / LDT_EMBED_URL  provedor de embeddings (ver scripts/embeddings.py)
-  LDT_DEDUP_EMBEDDING  "0" => não reutiliza relações semanticamente iguais em inserir_relacao/inserir_video (padrão: ligado)
+  LDT_DEDUP_EMBEDDING  "0" => não reutiliza relações semanticamente iguais em inserir_relacao/inserir_fonte/inserir_video (padrão: ligado)
   LDT_SIM_MIN / LDT_SIM_DEDUP  limiares de cosseno (padrão depende do provedor: 0.80/0.90 modelos reais, 0.45/0.60 fallback hash)
 
 Toda ferramenta de escrita: lock de arquivo -> BEGIN IMMEDIATE -> ... -> foreign_key_check -> COMMIT -> regrava o dump.
@@ -14,6 +14,7 @@ O commit no git é manual.
 """
 import contextlib
 import fcntl
+import hashlib
 import json
 import os
 import re
@@ -29,6 +30,7 @@ RAIZ = AQUI.parent
 sys.path.insert(0, str(RAIZ / "scripts"))
 from comum import DUMP, SQLITE, dominio_de, gerar_dump, normalizar_url  # noqa: E402
 from slug import alias_norm, slugify  # noqa: E402
+import curadoria as CUR  # noqa: E402  (regras de temas: inferir_temas_relacao)
 try:  # RAG: precisa de numpy; sem ele as ferramentas semânticas respondem erro e a escrita segue sem embeddings
     import embeddings as EMB  # noqa: E402
 except ImportError as _e:  # pragma: no cover
@@ -43,10 +45,14 @@ except Exception:  # SDK 2.x
 TIPOS_RELACAO = ["financeira", "societaria", "contratual", "juridica", "investigacao", "politica", "pessoal",
                  "familiar", "profissional", "institucional", "religiosa", "midia", "outra"]
 STATUS_RELACAO = ["rascunho", "revisar", "publicada", "descartada"]
-ORIGENS_RELACAO = ["teia", "origens", "classificador", "manual"]
+ORIGENS_RELACAO = ["teia", "origens", "classificador", "manual", "linha_do_tempo"]
 TIPOS_EVIDENCIA = ["reportagem", "documento_oficial", "decisao_judicial", "processo", "comunicado", "relatorio",
                    "dado_oficial", "wiki", "video", "outro"]
 PLATAFORMAS = ["youtube", "instagram", "tiktok", "x", "podcast", "outro"]
+TIPOS_FONTE = ["video", "reportagem", "documento", "pdf", "depoimento", "decisao", "transcricao", "outro"]
+# tipo da fonte -> evidencia.tipo (neutro quando não há como saber: 'documento'/'pdf' podem ser qualquer coisa)
+EVIDENCIA_DE_FONTE = {"video": "video", "reportagem": "reportagem", "decisao": "decisao_judicial", "documento": "outro", "pdf": "outro",
+                      "depoimento": "outro", "transcricao": "outro", "outro": "outro"}
 MOEDAS = {"BRL": "BRL", "R$": "BRL", "REAL": "BRL", "REAIS": "BRL", "USD": "USD", "US$": "USD", "$": "USD",
           "DOLAR": "USD", "EUR": "EUR", "€": "EUR", "EURO": "EUR", "PCT": "pct", "%": "pct", "PERCENT": "pct"}
 
@@ -164,7 +170,7 @@ def _texto_trecho(r):
 
 
 def sincronizar_fts(con):
-    """Trechos e relações novas entram em busca_fts (importar.py/popular_fts não cobrem 'trecho')."""
+    """Trechos, relações e fontes novos entram em busca_fts (importar.py/popular_fts não cobrem 'trecho')."""
     con.execute("DELETE FROM busca_fts WHERE origem_tabela='trecho' AND CAST(origem_id AS INTEGER) NOT IN (SELECT id FROM trecho)")
     for r in con.execute("""SELECT id, afirmacao, texto_original FROM trecho
                             WHERE CAST(id AS TEXT) NOT IN (SELECT origem_id FROM busca_fts WHERE origem_tabela='trecho')""").fetchall():
@@ -173,6 +179,10 @@ def sincronizar_fts(con):
     con.execute("""INSERT INTO busca_fts(origem_tabela, origem_id, texto)
         SELECT 'relacao', CAST(id AS TEXT), rotulo || ' ' || COALESCE(descricao,'') FROM relacao
         WHERE CAST(id AS TEXT) NOT IN (SELECT origem_id FROM busca_fts WHERE origem_tabela='relacao')""")
+    con.execute("DELETE FROM busca_fts WHERE origem_tabela='fonte' AND origem_id NOT IN (SELECT id FROM fonte)")
+    con.execute("""INSERT INTO busca_fts(origem_tabela, origem_id, texto)
+        SELECT 'fonte', id, titulo || ' ' || COALESCE(canal,'') || ' ' || COALESCE(resumo,'') || ' ' || COALESCE(texto,'') FROM fonte
+        WHERE id NOT IN (SELECT origem_id FROM busca_fts WHERE origem_tabela='fonte')""")
 
 
 def _fts_trechos_defasado(con):
@@ -302,6 +312,7 @@ def _relacao_dict(con, r):
          "natureza": r["natureza_id"], "confianca": r["confianca"], "periodo_inicio": r["periodo_inicio"],
          "periodo_fim": r["periodo_fim"], "valor_brl": r["valor_brl"], "valor_texto": r["valor_texto"],
          "resposta": r["resposta"], "status": r["status"], "origem": r["origem"], "origem_ref": r["origem_ref"]}
+    d["temas"] = [x[0] for x in con.execute("SELECT x.tema_id FROM relacao_tema x JOIN tema t ON t.id=x.tema_id WHERE x.relacao_id=? ORDER BY t.ordem, t.id", (r["id"],))]
     d["evidencias"] = [dict(x) for x in con.execute(
         """SELECT e.url, e.veiculo, e.titulo, e.data, e.tipo, x.papel FROM relacao_evidencia x JOIN evidencia e ON e.id=x.evidencia_id
            WHERE x.relacao_id=? ORDER BY x.ordem, e.id""", (r["id"],))]
@@ -311,9 +322,25 @@ def _relacao_dict(con, r):
     return d
 
 
+def _checar_temas(con, temas, campo="temas"):
+    """Lista de slugs de tema existentes (sem repetição, ordem preservada)."""
+    out = []
+    validos = [r[0] for r in con.execute("SELECT id FROM tema ORDER BY ordem, id")]
+    for t in temas or []:
+        t = str(t).strip()
+        if t not in validos:
+            raise Rejeitado(f"{campo}: tema '{t}' não existe; este servidor nunca cria temas", validos=validos)
+        if t not in out:
+            out.append(t)
+    return out
+
+
 def buscar_relacoes_core(con, entidade=None, de=None, para=None, tipo=None, natureza=None, ano_inicio=None, ano_fim=None,
-                         status=None, limite=50):
+                         status=None, limite=50, tema=None):
     w, p = [], []
+    if tema:
+        t = _checar_temas(con, [tema], "tema")[0]
+        w.append("id IN (SELECT relacao_id FROM relacao_tema WHERE tema_id=?)"); p.append(t)
     if entidade:
         e = _resolver_ref(con, entidade, "entidade")
         w.append("(de=? OR para=?)"); p += [e, e]
@@ -337,9 +364,19 @@ def buscar_relacoes_core(con, entidade=None, de=None, para=None, tipo=None, natu
     return [_relacao_dict(con, r) for r in rows]
 
 
-def buscar_trechos_core(con, texto=None, entidade=None, video=None, natureza=None, limite=50):
+def _resolver_fonte(con, ref, tipo=None):
+    """id ou URL (normalizada ou como veio) de uma fonte; `tipo` restringe (ex.: 'video')."""
+    ref = str(ref).strip()
+    r = con.execute("SELECT id FROM fonte WHERE (id=? OR url=? OR url=?)" + (" AND tipo=?" if tipo else ""),
+                    [ref, ref, normalizar_url(ref)] + ([tipo] if tipo else [])).fetchone()
+    if not r:
+        raise Rejeitado(f"{'vídeo' if tipo == 'video' else 'fonte'} '{ref}' não encontrad{'o' if tipo == 'video' else 'a'}")
+    return r["id"]
+
+
+def buscar_trechos_core(con, texto=None, entidade=None, video=None, natureza=None, limite=50, fonte=None, tipo=None):
     w, p = [], []
-    ordem = "t.video_id, t.ordem"
+    ordem = "t.fonte_id, t.ordem"
     if texto:
         expr = _fts_expr(texto, "AND")
         if not expr:
@@ -349,19 +386,23 @@ def buscar_trechos_core(con, texto=None, entidade=None, video=None, natureza=Non
     if entidade:
         e = _resolver_ref(con, entidade, "entidade")
         w.append("t.id IN (SELECT trecho_id FROM trecho_entidade WHERE entidade_id=?)"); p.append(e)
-    if video:
-        v = con.execute("SELECT id FROM video WHERE id=? OR url=?", (video, video)).fetchone()
-        if not v:
-            raise Rejeitado(f"vídeo '{video}' não encontrado")
-        w.append("t.video_id=?"); p.append(v["id"])
+    if video:  # legado: só fontes tipo video
+        w.append("t.fonte_id=?"); p.append(_resolver_fonte(con, video, "video"))
+    if fonte:
+        w.append("t.fonte_id=?"); p.append(_resolver_fonte(con, fonte))
+    if tipo:
+        if tipo not in TIPOS_FONTE:
+            raise Rejeitado(f"tipo '{tipo}' inválido", validos=TIPOS_FONTE)
+        w.append("f.tipo=?"); p.append(tipo)
     if natureza:
         w.append("t.natureza_id=?"); p.append(natureza_id(con, natureza))
-    sql = ("SELECT t.*, v.titulo AS video_titulo, v.url AS video_url FROM trecho t JOIN video v ON v.id=t.video_id"
+    sql = ("SELECT t.*, f.titulo AS fonte_titulo, f.url AS fonte_url, f.tipo AS fonte_tipo FROM trecho t JOIN fonte f ON f.id=t.fonte_id"
            + (" WHERE " + " AND ".join(w) if w else "") + f" ORDER BY {ordem} LIMIT ?")
     out = []
     for t in con.execute(sql, p + [max(1, int(limite))]).fetchall():
-        d = {k: t[k] for k in ("id", "video_id", "video_titulo", "video_url", "ordem", "inicio_s", "fim_s", "texto_original",
-                               "afirmacao", "confianca", "potencial_corte")}
+        d = {k: t[k] for k in ("id", "fonte_id", "fonte_tipo", "fonte_titulo", "fonte_url", "ordem", "inicio_s", "fim_s", "localizacao",
+                               "texto_original", "afirmacao", "confianca", "potencial_corte")}
+        d.update(video_id=t["fonte_id"], video_titulo=t["fonte_titulo"], video_url=t["fonte_url"])  # nomes antigos (compatibilidade)
         d["natureza"] = t["natureza_id"]
         d["entidades"] = [x[0] for x in con.execute("SELECT entidade_id FROM trecho_entidade WHERE trecho_id=? ORDER BY entidade_id", (t["id"],))]
         d["anos_referidos"] = [x[0] for x in con.execute("SELECT ano FROM trecho_ano WHERE trecho_id=? ORDER BY ano", (t["id"],))]
@@ -472,8 +513,22 @@ def _inserir_relacao_tx(con, d, existente=None):
     return cur.lastrowid, "criada"
 
 
+def _atribuir_temas(con, rid, temas, origem="mcp"):
+    """Liga a relação aos temas (só acrescenta; nunca remove). -> temas efetivos da relação."""
+    for t in temas:
+        con.execute("INSERT OR IGNORE INTO relacao_tema(relacao_id, tema_id, origem, regra) VALUES(?,?,?,NULL)", (rid, t, origem))
+    return [x[0] for x in con.execute("SELECT x.tema_id FROM relacao_tema x JOIN tema t ON t.id=x.tema_id WHERE x.relacao_id=? ORDER BY t.ordem, t.id", (rid,))]
+
+
+def _temas_nova_relacao(con, explicitos, de, para, rotulo, descricao):
+    """Temas informados (validados) ou inferidos (curadoria.inferir_temas_relacao; sem nada: 'a-classificar')."""
+    if explicitos:
+        return _checar_temas(con, explicitos), "informados"
+    return CUR.inferir_temas_relacao(con, de, para, rotulo, descricao), "inferidos"
+
+
 def inserir_relacao_core(de, para, tipo, rotulo, natureza, descricao=None, subtipo=None, periodo_inicio=None, periodo_fim=None,
-                         valor_brl=None, valor_texto=None, resposta=None, evidencias=None, origem="manual", status="revisar"):
+                         valor_brl=None, valor_texto=None, resposta=None, evidencias=None, origem="manual", status="revisar", temas=None):
     def tx(con):
         _checar_entidade(con, "de", de)
         _checar_entidade(con, "para", para)
@@ -502,23 +557,39 @@ def inserir_relacao_core(de, para, tipo, rotulo, natureza, descricao=None, subti
         novas = 0
         for ev in evs:
             novas += _ligar_evidencia(con, rid, _upsert_evidencia(con, ev), "sustenta")
+        if acao == "criada":
+            tm, como = _temas_nova_relacao(con, temas, d["de"], d["para"], d["rotulo"], d.get("descricao"))
+            extra["temas_" + como] = tm
+            efetivos = _atribuir_temas(con, rid, tm)
+        else:  # existente: só acrescenta temas pedidos; sem pedido, não mexe
+            efetivos = _atribuir_temas(con, rid, _checar_temas(con, temas) if temas else [])
         _emb_gravar(con, nota, {"relacao": [rid], "relacao_rotulo": [rid]})
-        return {"acao": acao, "relacao_id": rid, "evidencias_novas_ligadas": novas, **extra, "embeddings": nota}
+        return {"acao": acao, "relacao_id": rid, "temas": efetivos, "evidencias_novas_ligadas": novas, **extra, "embeddings": nota}
 
     return operacao_escrita(tx)
 
 
-# --------------------------------------------------------------------------- vídeo
-def _normalizar_video(v):
+# --------------------------------------------------------------------------- fonte (vídeo, reportagem, documento, PDF, depoimento...)
+def _hash_texto(t):
+    return hashlib.sha256(t.encode("utf-8")).hexdigest()
+
+
+def _normalizar_fonte(v, rotulo="fonte"):
+    """dict de entrada -> colunas de `fonte`. `rotulo` ('video'|'fonte') só muda o texto das mensagens."""
     if not isinstance(v, dict):
-        raise Rejeitado("'video' deve ser um objeto")
-    plat = str(v.get("plataforma") or "").strip().lower()
+        raise Rejeitado(f"'{rotulo}' deve ser um objeto")
+    tipo = str(v.get("tipo") or "").strip().lower()
+    if tipo not in TIPOS_FONTE:
+        raise Rejeitado(f"{rotulo}.tipo '{v.get('tipo')}' inválido", validos=TIPOS_FONTE)
+    plat = str(v.get("plataforma") or "").strip().lower() or None
     plat = {"yt": "youtube"}.get(plat, plat)
-    if plat not in PLATAFORMAS:
-        raise Rejeitado(f"video.plataforma '{v.get('plataforma')}' inválida", validos=PLATAFORMAS)
-    vid, url = (v.get("id") or "").strip(), (v.get("url") or "").strip()
+    if plat is not None and plat not in PLATAFORMAS:
+        raise Rejeitado(f"{rotulo}.plataforma '{v.get('plataforma')}' inválida", validos=PLATAFORMAS)
+    if tipo == "video" and plat is None:
+        raise Rejeitado(f"{rotulo}.plataforma é obrigatória para tipo 'video'", validos=PLATAFORMAS)
+    fid, url = (v.get("id") or "").strip(), (v.get("url") or "").strip()
     if plat == "youtube":
-        if not vid and url:
+        if not fid and url:
             u = urlsplit(url)
             yid = (parse_qs(u.query).get("v") or [None])[0] if "youtube" in u.netloc else None
             if "youtu.be" in u.netloc:
@@ -527,28 +598,40 @@ def _normalizar_video(v):
                 m = re.search(r"/(?:shorts|embed|live)/([\w-]{6,})", u.path)
                 yid = m.group(1) if m else None
             if not yid:
-                raise Rejeitado(f"não consegui extrair o id do YouTube de '{url}'; passe video.id")
-            vid = "yt:" + yid
-        elif vid and ":" not in vid:
-            vid = "yt:" + vid
-        if not url and vid.startswith("yt:"):
-            url = "https://www.youtube.com/watch?v=" + vid[3:]
-    if not vid or not url:
+                raise Rejeitado(f"não consegui extrair o id do YouTube de '{url}'; passe {rotulo}.id")
+            fid = "yt:" + yid
+        elif fid and ":" not in fid:
+            fid = "yt:" + fid
+        if not url and fid.startswith("yt:"):
+            url = "https://www.youtube.com/watch?v=" + fid[3:]
+    if tipo == "video" and (not fid or not url):
         raise Rejeitado("video precisa de 'id' e 'url' (para plataformas não-YouTube, ambos)" if plat != "youtube" else "video precisa de 'id' ou 'url'")
     if not v.get("titulo"):
-        raise Rejeitado("video.titulo é obrigatório")
-    return dict(id=vid, plataforma=plat, url=url, titulo=v["titulo"], canal=v.get("canal"), publicado_em=v.get("publicado_em"),
-                duracao_s=int(v["duracao_s"]) if v.get("duracao_s") is not None else None, transcricao=v.get("transcricao"),
-                classificador_versao=v.get("classificador_versao"))
+        raise Rejeitado(f"{rotulo}.titulo é obrigatório")
+    if not fid:  # fonte sem id: derivado da URL normalizada (ou do título + data, para depoimento/documento sem URL)
+        base = normalizar_url(url) if url else f"{tipo}|{v['titulo']}|{v.get('publicado_em') or ''}"
+        fid = "src:" + hashlib.sha256(base.encode("utf-8")).hexdigest()[:12]
+    if re.search(r"\s", fid):
+        raise Rejeitado(f"{rotulo}.id '{fid}' não pode ter espaços")
+    texto = v.get("texto", v.get("transcricao"))  # 'transcricao' = nome antigo de video.transcricao
+    texto = texto.strip() if isinstance(texto, str) and texto.strip() else None
+    ev_tipo = v.get("evidencia_tipo") or EVIDENCIA_DE_FONTE[tipo]
+    if ev_tipo not in TIPOS_EVIDENCIA:
+        raise Rejeitado(f"{rotulo}.evidencia_tipo '{ev_tipo}' inválido", validos=TIPOS_EVIDENCIA)
+    return dict(id=fid, tipo=tipo, plataforma=plat, url=normalizar_url(url) if url else None, titulo=v["titulo"], canal=v.get("canal"),
+                publicado_em=v.get("publicado_em"), duracao_s=int(v["duracao_s"]) if v.get("duracao_s") is not None else None,
+                texto=texto, hash_texto=_hash_texto(texto) if texto else None, resumo=v.get("resumo"),
+                classificador_versao=v.get("classificador_versao"), evidencia_tipo=ev_tipo, temas=list(v.get("temas") or []))
 
 
 def _ent_id(x):
     return (x.get("id") if isinstance(x, dict) else x)
 
 
-def _validar_video(con, video, trechos, cortes):
-    """Valida tudo sem escrever. Rejeita o vídeo inteiro (entidades desconhecidas listadas com sugestões)."""
+def _validar_fonte(con, fonte, trechos, cortes):
+    """Valida tudo sem escrever. Rejeita a fonte inteira (entidades desconhecidas listadas com sugestões)."""
     erros, nao_res = [], {}
+    eh_video = fonte["tipo"] == "video"
 
     def ent(eid, onde):
         eid = str(_ent_id(eid) or "").strip()
@@ -558,6 +641,8 @@ def _validar_video(con, video, trechos, cortes):
 
     if not isinstance(trechos, list) or not trechos:
         raise Rejeitado("'trechos' deve ser uma lista não vazia")
+    if cortes and not eh_video:
+        raise Rejeitado(f"cortes_sugeridos só se aplica a fonte do tipo 'video' (esta é '{fonte['tipo']}')")
     ordens = set()
     for i, t in enumerate(trechos):
         loc = f"trechos[{i}]"
@@ -568,9 +653,17 @@ def _validar_video(con, video, trechos, cortes):
             if o in ordens:
                 erros.append(f"{loc}: ordem {o} repetida")
             ordens.add(o); t["ordem"] = o
-            t["inicio_s"], t["fim_s"] = float(t["inicio_s"]), float(t["fim_s"])
-            if t["fim_s"] < t["inicio_s"]:
-                erros.append(f"{loc}: fim_s < inicio_s")
+            tem_i, tem_f = t.get("inicio_s") is not None, t.get("fim_s") is not None
+            if eh_video and not (tem_i and tem_f):
+                erros.append(f"{loc}: inicio_s e fim_s são obrigatórios em fonte do tipo video")
+            elif tem_i != tem_f:
+                erros.append(f"{loc}: informe inicio_s e fim_s juntos (ou nenhum)")
+            if tem_i and tem_f:
+                t["inicio_s"], t["fim_s"] = float(t["inicio_s"]), float(t["fim_s"])
+                if t["fim_s"] < t["inicio_s"]:
+                    erros.append(f"{loc}: fim_s < inicio_s")
+            else:
+                t["inicio_s"] = t["fim_s"] = None
             if not t.get("afirmacao"):
                 erros.append(f"{loc}: afirmacao obrigatória")
             t["_nat"] = natureza_id(con, t.get("natureza"), f"{loc}.natureza")
@@ -598,7 +691,7 @@ def _validar_video(con, video, trechos, cortes):
                     erros.append(f"{rl}: tipo '{r.get('tipo')}' inválido (validos: {', '.join(TIPOS_RELACAO)})")
                 ini, fim = parse_periodo(r.get("periodo"))
                 t["_rels"].append(dict(de=de, para=para, tipo=r.get("tipo"), rotulo=(r.get("rotulo") or "").strip() or None,
-                                       periodo_inicio=ini, periodo_fim=fim))
+                                       periodo_inicio=ini, periodo_fim=fim, temas=list(r.get("temas") or [])))
         except Rejeitado as e:
             erros.append(f"{loc}: {e}")
         except (KeyError, TypeError, ValueError) as e:
@@ -620,8 +713,15 @@ def _validar_video(con, video, trechos, cortes):
                 c["_cob"].append((ent(r.get("de"), rl + ".de"), ent(r.get("para"), rl + ".para"), r.get("tipo")))
         except (KeyError, TypeError, ValueError) as e:
             erros.append(f"{loc}: campo ausente/inválido ({type(e).__name__}: {e})")
+    try:
+        fonte["temas"] = _checar_temas(con, fonte.get("temas"), f"{'video' if eh_video else 'fonte'}.temas")
+        for t in trechos:
+            for r in t.get("_rels", []):
+                r["temas"] = _checar_temas(con, r.get("temas"), "relacoes[].temas")
+    except Rejeitado as e:
+        erros.append(str(e))
     if nao_res:
-        raise Rejeitado("entidades desconhecidas: o vídeo inteiro foi rejeitado (nada foi gravado). Peça cadastro ou corrija os ids.",
+        raise Rejeitado("entidades desconhecidas: a fonte inteira foi rejeitada (nada foi gravado). Peça cadastro ou corrija os ids.",
                         nao_resolvidas=[{"id": k, "usado_em": v, "sugestoes": _sugestoes(con, k) if k else []} for k, v in nao_res.items()],
                         outros_erros=erros)
     if erros:
@@ -637,50 +737,57 @@ def _escolher_relacao_existente(con, r):
     return rows[0]["id"] if rows else None, len(rows)
 
 
-def inserir_video_core(video, trechos, cortes_sugeridos=None):
+def inserir_fonte_core(fonte, trechos, cortes_sugeridos=None, rotulo="fonte"):
+    """Núcleo único de gravação de fonte + trechos (+ cortes, só vídeo). `inserir_video_core` chama isto com tipo='video'."""
     cortes = list(cortes_sugeridos or [])
 
     def tx(con):
-        v = _normalizar_video(video)
-        _validar_video(con, v, trechos, cortes)
-        outro = con.execute("SELECT id FROM video WHERE url=? AND id<>?", (v["url"], v["id"])).fetchone()
-        if outro:
-            raise Rejeitado(f"a url já pertence ao vídeo '{outro['id']}'; ids divergentes para o mesmo vídeo")
+        v = _normalizar_fonte(fonte, rotulo)
+        eh_video = v["tipo"] == "video"
+        _validar_fonte(con, v, trechos, cortes)
+        if v["url"]:
+            outro = con.execute("SELECT id FROM fonte WHERE url=? AND id<>?", (v["url"], v["id"])).fetchone()
+            if outro:
+                raise Rejeitado(f"a url já pertence {'ao vídeo' if eh_video else 'à fonte'} '{outro['id']}'; ids divergentes para a mesma fonte")
         avisos, t0 = [], agora()
-        antigo = con.execute("SELECT * FROM video WHERE id=?", (v["id"],)).fetchone()
+        antigo = con.execute("SELECT * FROM fonte WHERE id=?", (v["id"],)).fetchone()
         substituiu = None
         canal_ent = None
         if v["canal"]:
             ca = _candidatos(con, v["canal"])
             ex = [k for k, (s, _) in ca.items() if s >= 90]
             canal_ent = ex[0] if len(ex) == 1 else None
+        ev_fonte = None
+        if v["url"]:  # toda fonte com URL gera/aponta uma evidência (mesma URL normalizada)
+            ev_fonte = _upsert_evidencia(con, {"url": v["url"], "veiculo": v["canal"] or v["plataforma"], "titulo": v["titulo"],
+                                               "data": v["publicado_em"], "tipo": v["evidencia_tipo"]})
         if antigo:
-            ids_t = [r[0] for r in con.execute("SELECT id FROM trecho WHERE video_id=?", (v["id"],))]
+            ids_t = [r[0] for r in con.execute("SELECT id FROM trecho WHERE fonte_id=?", (v["id"],))]
             perdidos = [dict(r) for r in con.execute("SELECT id, titulo, status FROM corte WHERE video_id=? AND status<>'sugerido'", (v["id"],))]
             if perdidos:
                 avisos.append(f"cortes com status avançado foram substituídos: {perdidos}")
             substituiu = {"trechos": len(ids_t), "cortes": con.execute("SELECT count(*) FROM corte WHERE video_id=?", (v["id"],)).fetchone()[0]}
             con.execute("DELETE FROM corte WHERE video_id=?", (v["id"],))
-            con.execute("DELETE FROM trecho WHERE video_id=?", (v["id"],))  # cascata: trecho_entidade/ano/valor/relacao, corte_trecho
+            con.execute("DELETE FROM trecho WHERE fonte_id=?", (v["id"],))  # cascata: trecho_entidade/ano/valor/relacao, corte_trecho
             status = antigo["status"] if antigo["status"] != "pendente" else "classificado"
-            con.execute("""UPDATE video SET plataforma=?, url=?, titulo=?, canal=?, canal_entidade_id=?, publicado_em=?, duracao_s=?,
-                           transcricao=COALESCE(?, transcricao), classificado_em=?, classificador_versao=?, status=? WHERE id=?""",
-                        (v["plataforma"], v["url"], v["titulo"], v["canal"], canal_ent, v["publicado_em"], v["duracao_s"], v["transcricao"],
-                         t0, v["classificador_versao"], status, v["id"]))
+            con.execute("""UPDATE fonte SET tipo=?, plataforma=?, url=?, titulo=?, canal=?, canal_entidade_id=?, publicado_em=?, duracao_s=?,
+                           texto=COALESCE(?, texto), hash_texto=COALESCE(?, hash_texto), resumo=COALESCE(?, resumo), evidencia_id=?,
+                           classificado_em=?, classificador_versao=?, status=? WHERE id=?""",
+                        (v["tipo"], v["plataforma"], v["url"], v["titulo"], v["canal"], canal_ent, v["publicado_em"], v["duracao_s"],
+                         v["texto"], v["hash_texto"], v["resumo"], ev_fonte, t0, v["classificador_versao"], status, v["id"]))
+            con.execute("DELETE FROM busca_fts WHERE origem_tabela='fonte' AND origem_id=?", (v["id"],))  # sincronizar_fts reindexa
         else:
-            con.execute("""INSERT INTO video(id, plataforma, url, titulo, canal, canal_entidade_id, publicado_em, duracao_s, transcricao,
-                           classificado_em, classificador_versao, status, criado_em) VALUES(?,?,?,?,?,?,?,?,?,?,?,'classificado',?)""",
-                        (v["id"], v["plataforma"], v["url"], v["titulo"], v["canal"], canal_ent, v["publicado_em"], v["duracao_s"],
-                         v["transcricao"], t0, v["classificador_versao"], t0))
-        ev_video = _upsert_evidencia(con, {"url": v["url"], "veiculo": v["canal"] or v["plataforma"], "titulo": v["titulo"],
-                                           "data": v["publicado_em"], "tipo": "video"})
+            con.execute("""INSERT INTO fonte(id, tipo, plataforma, url, titulo, canal, canal_entidade_id, publicado_em, duracao_s, texto, hash_texto,
+                           resumo, evidencia_id, classificado_em, classificador_versao, status, criado_em) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'classificado',?)""",
+                        (v["id"], v["tipo"], v["plataforma"], v["url"], v["titulo"], v["canal"], canal_ent, v["publicado_em"], v["duracao_s"],
+                         v["texto"], v["hash_texto"], v["resumo"], ev_fonte, t0, v["classificador_versao"], t0))
         tid_por_ordem, criadas, existentes, rel_por_trecho = {}, [], [], {}
-        nota_emb, dedups = _nota_emb(), []
+        nota_emb, dedups, temas_rel = _nota_emb(), [], {}
         for t in sorted(trechos, key=lambda x: x["ordem"]):
-            cur = con.execute("""INSERT INTO trecho(video_id, ordem, inicio_s, fim_s, texto_original, afirmacao, natureza_id, confianca, potencial_corte)
-                                 VALUES(?,?,?,?,?,?,?,?,?)""",
-                              (v["id"], t["ordem"], t["inicio_s"], t["fim_s"], t.get("texto_original"), t["afirmacao"], t["_nat"],
-                               t["confianca"], t["potencial_corte"]))
+            cur = con.execute("""INSERT INTO trecho(fonte_id, ordem, inicio_s, fim_s, localizacao, texto_original, afirmacao, natureza_id, confianca, potencial_corte)
+                                 VALUES(?,?,?,?,?,?,?,?,?,?)""",
+                              (v["id"], t["ordem"], t["inicio_s"], t["fim_s"], t.get("localizacao"), t.get("texto_original"), t["afirmacao"],
+                               t["_nat"], t["confianca"], t["potencial_corte"]))
             tid = cur.lastrowid
             tid_por_ordem[t["ordem"]] = tid
             ents = list(t["_ents"])
@@ -697,6 +804,7 @@ def inserir_video_core(video, trechos, cortes_sugeridos=None):
             rel_por_trecho[t["ordem"]] = []
             for r in t["_rels"]:
                 rid = None
+                pedidos = r["temas"] or v["temas"]  # tema da relação > tema da fonte > inferido
                 if r["rotulo"] is None:
                     rid, n = _escolher_relacao_existente(con, r)
                     if n > 1:
@@ -722,10 +830,17 @@ def inserir_video_core(video, trechos, cortes_sugeridos=None):
                     else:
                         rid, _ = _inserir_relacao_tx(con, novo)
                         criadas.append(rid)
+                        tm = pedidos or CUR.inferir_temas_relacao(con, r["de"], r["para"], r["rotulo"], None)
+                        temas_rel[rid] = _atribuir_temas(con, rid, tm)
                         _emb_gravar(con, nota_emb, {"relacao": [rid], "relacao_rotulo": [rid]})  # já vale para o dedup dos próximos trechos
-                        _ligar_evidencia(con, rid, ev_video, "sustenta", t["afirmacao"])
+                        if ev_fonte:
+                            _ligar_evidencia(con, rid, ev_fonte, "sustenta", t["afirmacao"])
+                        else:
+                            avisos.append(f"relação {rid} criada sem evidência: a fonte não tem URL")
                 else:
                     existentes.append(rid)
+                if rid in existentes and pedidos and r["temas"]:  # tema pedido explicitamente numa relação reaproveitada: só acrescenta
+                    temas_rel[rid] = _atribuir_temas(con, rid, pedidos)
                 con.execute("INSERT OR IGNORE INTO trecho_relacao(trecho_id, relacao_id, papel) VALUES(?,?,'afirma')", (tid, rid))
                 rel_por_trecho[t["ordem"]].append(rid)
         n_cortes = 0
@@ -749,12 +864,23 @@ def inserir_video_core(video, trechos, cortes_sugeridos=None):
                     con.execute("INSERT OR IGNORE INTO relacao_corte(relacao_id, corte_id) VALUES(?,?)", (rid, cid))
         if EMB is not None:
             EMB.limpar_orfaos(con)  # trechos antigos apagados na reinserção
-        _emb_gravar(con, nota_emb, {"trecho": list(tid_por_ordem.values()), "evidencia": [ev_video]})
-        return {"video_id": v["id"], "trechos": len(trechos), "cortes": n_cortes, "relacoes_criadas": sorted(set(criadas)),
-                "relacoes_existentes_reutilizadas": sorted(set(existentes) - set(criadas)), "dedup": dedups,
-                "substituiu_insercao_anterior": substituiu, "avisos": avisos, "embeddings": nota_emb}
+        _emb_gravar(con, nota_emb, {"trecho": list(tid_por_ordem.values()), "evidencia": [ev_fonte] if ev_fonte else []})
+        out = {"fonte_id": v["id"], "tipo": v["tipo"], "evidencia_id": ev_fonte, "trechos": len(trechos), "cortes": n_cortes,
+               "relacoes_criadas": sorted(set(criadas)),
+               "relacoes_existentes_reutilizadas": sorted(set(existentes) - set(criadas)), "temas_das_relacoes_criadas": temas_rel,
+               "dedup": dedups, "substituiu_insercao_anterior": substituiu, "avisos": avisos, "embeddings": nota_emb}
+        if eh_video:
+            out["video_id"] = v["id"]  # nome antigo (compatibilidade)
+        return out
 
     return operacao_escrita(tx)
+
+
+def inserir_video_core(video, trechos, cortes_sugeridos=None):
+    """Atalho: grava como fonte tipo='video' (aceita 'transcricao' como nome antigo de 'texto')."""
+    if not isinstance(video, dict):
+        return Rejeitado("'video' deve ser um objeto").payload
+    return inserir_fonte_core({**video, "tipo": "video"}, trechos, cortes_sugeridos, rotulo="video")
 
 
 # --------------------------------------------------------------------------- RAG (embeddings)
@@ -840,8 +966,9 @@ def _resumo_hit(con, tabela, oid):
         r = con.execute("SELECT * FROM evidencia WHERE id=?", (oid,)).fetchone()
         return (r["titulo"] or r["veiculo"], cut(r["resumo"] or r["url"]), {"url": r["url"], "veiculo": r["veiculo"]}) if r else None
     if tabela == "trecho":
-        r = con.execute("SELECT t.*, v.titulo vt, v.url vu FROM trecho t JOIN video v ON v.id=t.video_id WHERE t.id=?", (oid,)).fetchone()
-        return (f"{r['vt']} #{r['ordem']} ({r['inicio_s']:.0f}s)", cut(r["afirmacao"]), {"video_id": r["video_id"], "video_url": r["vu"]}) if r else None
+        r = con.execute("SELECT t.*, f.titulo vt, f.url vu, f.tipo ft FROM trecho t JOIN fonte f ON f.id=t.fonte_id WHERE t.id=?", (oid,)).fetchone()
+        return (f"{r['vt']} #{r['ordem']}" + (f" ({r['inicio_s']:.0f}s)" if r["inicio_s"] is not None else ""), cut(r["afirmacao"]),
+                {"fonte_id": r["fonte_id"], "fonte_tipo": r["ft"], "video_id": r["fonte_id"], "video_url": r["vu"], "fonte_url": r["vu"]}) if r else None
     if tabela == "nota":
         r = con.execute("SELECT * FROM nota WHERE id=?", (oid,)).fetchone()
         return (r["titulo"] or r["tipo"], cut(r["texto"]), {"pagina": r["pagina"]}) if r else None
@@ -955,14 +1082,27 @@ def relacoes_similares_core(rotulo, de=None, para=None, limite=10, cos_min=None,
 # --------------------------------------------------------------------------- extras
 def resumo_banco_core():
     with leitura() as con:
-        tabelas = ["entidade", "entidade_alias", "relacao", "evidencia", "evento", "video", "trecho", "corte", "nota", "serie"]
-        out = {t: con.execute(f"SELECT count(*) FROM {t}").fetchone()[0] for t in tabelas}
+        tabelas = ["entidade", "entidade_alias", "relacao", "evidencia", "evento", "fonte", "video", "trecho", "corte", "nota", "serie", "tema"]
+        out = {t: con.execute(f"SELECT count(*) FROM {t}").fetchone()[0] for t in tabelas}  # video = view (fontes tipo video)
+        out["fonte_por_tipo"] = {r[0]: r[1] for r in con.execute("SELECT tipo, count(*) FROM fonte GROUP BY tipo")}
+        out["relacao_por_tema"] = {r[0]: r[1] for r in con.execute("SELECT tema_id, count(*) FROM relacao_tema GROUP BY tema_id ORDER BY tema_id")}
+        out["evento_por_tema"] = {r[0]: r[1] for r in con.execute("SELECT tema_id, count(*) FROM evento_tema GROUP BY tema_id ORDER BY tema_id")}
         out["relacao_por_status"] = {r[0]: r[1] for r in con.execute("SELECT status, count(*) FROM relacao GROUP BY status")}
         out["relacao_por_origem"] = {r[0]: r[1] for r in con.execute("SELECT origem, count(*) FROM relacao GROUP BY origem")}
         out["relacao_por_natureza"] = {r[0]: r[1] for r in con.execute("SELECT natureza_id, count(*) FROM relacao GROUP BY natureza_id")}
         out["corte_por_status"] = {r[0]: r[1] for r in con.execute("SELECT status, count(*) FROM corte GROUP BY status")}
         out["banco"] = str(caminho_db())
         return out
+
+
+def listar_temas_core():
+    with leitura() as con:
+        ents = {r[0]: r[1] for r in con.execute("SELECT tema_id, count(*) FROM v_entidade_tema GROUP BY tema_id")}
+        rels = {r[0]: r[1] for r in con.execute("SELECT tema_id, count(*) FROM relacao_tema GROUP BY tema_id")}
+        evs = {r[0]: r[1] for r in con.execute("SELECT tema_id, count(*) FROM evento_tema GROUP BY tema_id")}
+        return [{"id": t["id"], "nome": t["nome"], "descricao": t["descricao"], "principal": bool(t["principal"]),
+                 "n_relacoes": rels.get(t["id"], 0), "n_eventos": evs.get(t["id"], 0), "n_entidades": ents.get(t["id"], 0)}
+                for t in con.execute("SELECT * FROM tema ORDER BY ordem, id")]
 
 
 def exportar_core():
@@ -991,20 +1131,23 @@ def buscar_entidade(consulta: str, tipo: str | None = None, limite: int = 20) ->
 
 def buscar_relacoes(entidade: str | None = None, de: str | None = None, para: str | None = None, tipo: str | None = None,
                     natureza: str | None = None, ano_inicio: int | None = None, ano_fim: int | None = None,
-                    status: str | None = None, limite: int = 50) -> list[dict] | dict:
+                    status: str | None = None, limite: int = 50, tema: str | None = None) -> list[dict] | dict:
     """Relações com evidências (url, veiculo, ...) e cortes ligados. `entidade` casa de OU para; `de`/`para` aceitam id ou alias exato.
     `natureza` aceita qualquer vocabulário (doc/inv/rep/ale/nc, fato_documentado/alegacao/opiniao, ou canônico).
-    ano_inicio/ano_fim filtram por sobreposição de período (relação sem fim conta como pontual)."""
+    ano_inicio/ano_fim filtram por sobreposição de período (relação sem fim conta como pontual). `tema`: slug de tema (ver listar_temas);
+    cada relação volta com `temas`."""
     try:
         with leitura() as con:
-            return buscar_relacoes_core(con, entidade, de, para, tipo, natureza, ano_inicio, ano_fim, status, limite)
+            return buscar_relacoes_core(con, entidade, de, para, tipo, natureza, ano_inicio, ano_fim, status, limite, tema)
     except Rejeitado as r:
         return r.payload
 
 
 def buscar_trechos(texto: str | None = None, entidade: str | None = None, video: str | None = None, natureza: str | None = None,
-                   limite: int = 50) -> list[dict] | dict:
-    """Trechos de vídeo (FTS em afirmação+texto original, mais filtros) com entidades, anos, valores, relações e cortes do trecho."""
+                   limite: int = 50, fonte: str | None = None, tipo: str | None = None) -> list[dict] | dict:
+    """Trechos de qualquer fonte (FTS em afirmação+texto original, mais filtros) com entidades, anos, valores, relações e cortes do trecho.
+    `fonte` = id ou URL de uma fonte; `tipo` = tipo da fonte (video, reportagem, documento, pdf, depoimento, decisao, transcricao, outro);
+    `video` = id/URL de uma fonte tipo video (nome antigo, continua valendo)."""
     try:
         if texto:
             with leitura() as con:
@@ -1013,7 +1156,7 @@ def buscar_trechos(texto: str | None = None, entidade: str | None = None, video:
                 with escrita() as (con, _):
                     sincronizar_fts(con)
         with leitura() as con:
-            return buscar_trechos_core(con, texto, entidade, video, natureza, limite)
+            return buscar_trechos_core(con, texto, entidade, video, natureza, limite, fonte, tipo)
     except Rejeitado as r:
         return r.payload
 
@@ -1021,20 +1164,39 @@ def buscar_trechos(texto: str | None = None, entidade: str | None = None, video:
 def inserir_relacao(de: str, para: str, tipo: str, rotulo: str, natureza: str, descricao: str | None = None,
                     subtipo: str | None = None, periodo_inicio: str | None = None, periodo_fim: str | None = None,
                     valor_brl: float | None = None, valor_texto: str | None = None, resposta: str | None = None,
-                    evidencias: list[dict] | None = None, origem: str = "manual", status: str = "revisar") -> dict:
+                    evidencias: list[dict] | None = None, origem: str = "manual", status: str = "revisar",
+                    temas: list[str] | None = None) -> dict:
     """Cria ou atualiza (upsert por de+para+tipo+rotulo+periodo_inicio) uma relação. `de`/`para` devem ser ids existentes (senão erro com
     sugestões; nunca cria entidade). `natureza` aceita doc/inv/rep/ale/nc, fato_documentado/alegacao/opiniao ou canônico.
     `evidencias`: [{url, veiculo?, titulo?, data?, tipo?}], upsert por URL normalizada. Uma única transação; regrava data/dump.sql.
-    Não rebaixa relação 'publicada' para 'revisar'."""
+    Não rebaixa relação 'publicada' para 'revisar'. `temas`: slugs de tema (ver listar_temas); sem eles, uma relação nova recebe os temas
+    principais comuns às duas entidades + as regras por entidade/texto de data/curadoria/temas.json (resposta traz temas_inferidos);
+    numa relação existente só acrescenta."""
     return inserir_relacao_core(de, para, tipo, rotulo, natureza, descricao, subtipo, periodo_inicio, periodo_fim, valor_brl,
-                                valor_texto, resposta, evidencias, origem, status)
+                                valor_texto, resposta, evidencias, origem, status, temas)
+
+
+def inserir_fonte(fonte: dict, trechos: list[dict], cortes_sugeridos: list[dict] | None = None) -> dict:
+    """Grava uma fonte de qualquer tipo (video, reportagem, documento, pdf, depoimento, decisao, transcricao, outro) e seus trechos em UMA
+    transação: fonte (com evidência quando há URL), trechos, entidades/anos/valores, relações em upsert (origem='classificador', status='revisar',
+    com tema), cortes (só tipo video). Entidades desconhecidas: rejeita a fonte inteira e lista sugestões. Idempotente por fonte.id.
+    `fonte`: {tipo, titulo, url?, id?, plataforma? (obrigatória p/ video), canal?, publicado_em?, duracao_s?, texto?, resumo?, temas?, evidencia_tipo?}.
+    Trechos de fonte sem tempo usam `localizacao` (página, parágrafo) no lugar de inicio_s/fim_s. Contrato completo em mcp/README.md."""
+    return inserir_fonte_core(fonte, trechos, cortes_sugeridos)
 
 
 def inserir_video(video: dict, trechos: list[dict], cortes_sugeridos: list[dict] | None = None) -> dict:
-    """Grava a saída do classificador em UMA transação (video, trechos, entidades/anos/valores, relações em upsert com origem='classificador'
-    e status='revisar', cortes). Entidades desconhecidas: rejeita o vídeo inteiro e lista sugestões. Idempotente por video.id: reinserir
-    substitui trechos e cortes anteriores sem duplicar relações. Contrato completo em mcp/README.md."""
+    """Atalho de inserir_fonte com tipo='video' (contrato do classificador de vídeos: 'transcricao' = texto da fonte). Grava a saída do
+    classificador em UMA transação (fonte, trechos, entidades/anos/valores, relações em upsert com origem='classificador' e status='revisar',
+    cortes). Entidades desconhecidas: rejeita o vídeo inteiro e lista sugestões. Idempotente por video.id: reinserir substitui trechos e
+    cortes anteriores sem duplicar relações. Contrato completo em mcp/README.md."""
     return inserir_video_core(video, trechos, cortes_sugeridos)
+
+
+def listar_temas() -> list[dict]:
+    """Temas (id, nome, descrição, principal) com contagem de relações, eventos e entidades. Use os ids em `temas` de inserir_relacao/inserir_fonte
+    e no filtro `tema` de buscar_relacoes. Este servidor nunca cria temas (ficam em data/curadoria/temas.json)."""
+    return listar_temas_core()
 
 
 def buscar_semantica(texto: str, tabelas: list[str] | None = None, limite: int = 20, k_fts: int = 50) -> dict:
@@ -1073,9 +1235,10 @@ def exportar() -> dict:
 def criar_servidor():
     srv = _Server("linha-do-tempo", instructions=(
         "Banco da Linha do Tempo política brasileira. Este servidor é o único escritor do SQLite. Nunca cria entidades: "
-        "use buscar_entidade antes de inserir. Relações novas entram com status 'revisar'."))
-    for f in (buscar_entidade, buscar_relacoes, buscar_trechos, buscar_semantica, relacoes_similares, inserir_relacao, inserir_video,
-              resumo_banco, exportar):
+        "use buscar_entidade antes de inserir (e listar_temas para os temas). Relações novas entram com status 'revisar'. "
+        "inserir_fonte grava qualquer tipo de fonte (vídeo, reportagem, documento...); inserir_video é o atalho para vídeos."))
+    for f in (buscar_entidade, buscar_relacoes, buscar_trechos, buscar_semantica, relacoes_similares, inserir_relacao, inserir_fonte,
+              inserir_video, listar_temas, resumo_banco, exportar):
         srv.tool()(f)
     return srv
 
