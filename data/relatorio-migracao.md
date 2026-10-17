@@ -43,10 +43,10 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 907 |
 | evento_tema | 631 |
 | fonte (era video) | 0 |
-| evidencia | 1326 |
+| evidencia | 1486 |
 | relacao_evidencia | 1238 |
-| evento_evidencia | 2995 |
-| evento_entidade | 934 |
+| evento_evidencia | 3175 |
+| evento_entidade | 935 |
 | nota | 254 |
 | indicador | 83 |
 | serie | 6837 |
@@ -392,9 +392,9 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
     (fica NULL, a justificativa é obrigatória).
 ```
 
-- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 74, investigacao 9, nao_classificada 199, reportada 30.
+- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 156, investigacao 9, nao_classificada 33, reportada 114.
 - Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 290.
-- R5 por canal e natureza: brasil/documentada 53, brasil/nao_classificada 199, brasil/reportada 28, violencia/documentada 10.
+- R5 por canal e natureza: brasil/documentada 135, brasil/nao_classificada 33, brasil/reportada 112, violencia/documentada 10.
 - Classificação manual (`eventos-natureza-manual.json`): 41 entradas, 41 aplicadas (alegacao 5, investigacao 11, reportada 25), 0 ignoradas (já tinham natureza), 0 exceções explícitas (ficam NULL).
 - Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 63 ganharam natureza pelas regras R1-R4 ou à mão, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 0 seguem NULL.
 - **Ficaram NULL: 0 eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: 0.
@@ -409,7 +409,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1326 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1486 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -422,7 +422,7 @@ Candidatos: eventos sem nenhuma linha em `evento_entidade` (origens, PREC, brb, 
 - siglas (alias em maiúsculas ou `tipo_alias='sigla'`) só em maiúsculas e não seguidas de número (evita 'PL 2338' e 'pl').
 - entidades excluídas: brasil (aparece em tudo). Exigem inicial maiúscula: vale, rede, caixa, senado, camara. Contextos barrados: 'camara' seguido de do/legislativa/municipal/distrital; 'vale' seguido de do/da/de; 'caixa' seguido de de; 'senado' precedido de radio; 'camara' precedido de radio.
 
-- Resultado: 206 eventos receberam ligação, 425 linhas novas em `evento_entidade`.
+- Resultado: 206 eventos receberam ligação, 426 linhas novas em `evento_entidade`.
 - Eventos ainda sem entidade por canal: banco 2, brasil 124, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
 
 Aliases com mais de 15 ligações (suspeitos por volume; são nomes de órgãos e partidos que aparecem muito nos textos da timeline; a amostra abaixo não achou falso positivo entre eles, mas vale conferir os eventos):
@@ -439,35 +439,35 @@ Amostra de 30 ligações para conferência (a cada k-ésima, em ordem de evento)
 | evento | título | alias -> entidade |
 |---|---|---|
 | `max23` | CRSFN pauta recurso de Sabbá e das empresas Máxima em processo da CVM | CVM -> `cvm` |
-| `ev-1997-novas-mesas-da-camara-e-do-senado` | Novas Mesas da Câmara e do Senado | Senado -> `senado-federal` |
-| `ev-1998-privatizacao-do-sistema-telebras` | Privatização do Sistema Telebrás | Telebrás -> `telebras` |
-| `ev-2000-eleicoes-municipais` | Eleições municipais | PT -> `pt` |
-| `ev-2001-violacao-do-painel-do-senado-e-renuncia` | Violação do painel do Senado e renúncia de ACM | Senado -> `senado-federal` |
-| `ev-2002-tse-impoe-a-verticalizacao-das` | TSE impõe a verticalização das coligações | Miro Teixeira -> `miro-teixeira` |
-| `ev-2004-eleicoes-municipais-de-2004` | Eleições municipais de 2004 | PMDB -> `mdb` |
-| `ev-2005-eleicao-e-renuncia-de-severino` | Eleição e renúncia de Severino Cavalcanti | PP -> `pp` |
-| `ev-2006-stf-derruba-a-clausula-de-barreira` | STF derruba a cláusula de barreira | STF -> `stf` |
-| `ev-2008-operacao-satiagraha-prende-daniel-dantas` | Operação Satiagraha prende Daniel Dantas | STF -> `stf` |
-| `ev-2010-china-a-frente-do-japao-e-principal` | China à frente do Japão e principal destino das exportações brasileiras | China -> `china` |
-| `ev-2012-instalada-a-comissao-nacional-da-verdade` | Instalada a Comissão Nacional da Verdade | Dilma Rousseff -> `dilma-rousseff` |
-| `ev-2013-camara-mantem-o-mandato-de-natan-donadon` | Câmara mantém o mandato de Natan Donadon | STF -> `stf` |
-| `ev-2014-reeleicao-de-dilma-rousseff` | Reeleição de Dilma Rousseff | Aécio Neves -> `aecio-neves` |
-| `ev-2015-manifestacoes-contra-o-governo` | Manifestações contra o governo | Dilma Rousseff -> `dilma-rousseff` |
-| `ev-2016-pec-do-teto-de-gastos-vira-a-emenda` | PEC do teto de gastos vira a Emenda Constitucional 95 | Senado -> `senado-federal` |
-| `ev-2017-reforma-trabalhista-e-aprovada-e` | Reforma trabalhista é aprovada e sancionada | Câmara -> `camara-dos-deputados` |
-| `ev-2019-bolsonaro-anuncia-novo-partido-o-alianca` | Bolsonaro anuncia novo partido, o Aliança pelo Brasil | Jair Bolsonaro -> `jair-bolsonaro` |
-| `ev-2021-atos-de-7-de-setembro-e-carta-de` | Atos de 7 de Setembro e carta de Bolsonaro | STF -> `stf` |
-| `ev-2021-lira-e-pacheco-sao-eleitos-presidentes` | Lira e Pacheco são eleitos presidentes das Casas | MDB -> `mdb` |
-| `ev-2022-lula-derrota-bolsonaro-na-eleicao` | Lula derrota Bolsonaro na eleição presidencial | Jair Bolsonaro -> `jair-bolsonaro` |
-| `ev-2023-ataques-de-8-de-janeiro-em-brasilia` | Ataques de 8 de janeiro em Brasília | Ibaneis Rocha -> `ibaneis-rocha` |
-| `ev-2023-tse-torna-bolsonaro-inelegivel-por-oito` | TSE torna Bolsonaro inelegível por oito anos | PDT -> `pdt` |
-| `ev-2024-presos-por-suposto-plano-de-golpe-pf` | Presos por suposto plano de golpe; PF indicia Bolsonaro | STF -> `stf` |
-| `ev-2024-06-comeca-segundo-a-pf-a-mesada-a-ciro` | Começa, segundo a PF, a mesada a Ciro Nogueira | PF -> `pf` |
-| `ev-2025-08-28-voo-no-jato-de-vorcaro-com-ciro-nogueira` | Voo no jato de Vorcaro com Ciro Nogueira, Isnaldo Bulhões, Rodrigo Gambale e Fáb | Fábio Faria -> `fabio-faria` |
-| `ida21` | PF prende Henrique Vorcaro na 6a fase da Compliance Zero | PF -> `pf` |
-| `ev-2023-12-valores-de-16-precatorios-depositados-em` | Valores de 16 precatórios depositados em contas judiciais | AGU -> `agu` |
-| `ev-2025-06-03-alcidia-2a-turma-decide-3x2-pelo` | Alcídia: 2ª Turma decide 3x2 pelo pagamento | Camilla Ramos -> `camilla-ramos` |
-| `ev-2026-09-29-fachin-responde-a-gilmar` | Fachin responde a Gilmar | TCU -> `tcu` |
+| `ev-1997-novas-mesas-da-camara-e-do-senado` | Novas Mesas da Câmara e do Senado | Câmara -> `camara-dos-deputados` |
+| `ev-1998-fhc-e-reeleito-no-primeiro-turno` | FHC é reeleito no primeiro turno | PPS -> `pps` |
+| `ev-2000-cassacao-do-senador-luiz-estevao` | Cassação do senador Luiz Estêvão | Senado -> `senado-federal` |
+| `ev-2001-jader-barbalho-deixa-a-presidencia-do` | Jader Barbalho deixa a presidência do Senado | PMDB -> `mdb` |
+| `ev-2002-lula-e-eleito-presidente` | Lula é eleito presidente | PSDB -> `psdb` |
+| `ev-2003-sarney-volta-a-presidencia-do-senado` | Sarney volta à presidência do Senado | PMDB -> `mdb` |
+| `ev-2005-eleicao-e-renuncia-de-severino` | Eleição e renúncia de Severino Cavalcanti | Severino Cavalcanti -> `severino-cavalcanti` |
+| `ev-2006-sancionada-a-lei-maria-da-penha` | Sancionada a Lei Maria da Penha | Lula -> `luiz-inacio-lula-da-silva` |
+| `ev-2008-operacao-satiagraha-prende-daniel-dantas` | Operação Satiagraha prende Daniel Dantas | Polícia Federal -> `pf` |
+| `ev-2009-stf-mantem-a-demarcacao-da-raposa-serra` | STF mantém a demarcação da Raposa Serra do Sol | STF -> `stf` |
+| `ev-2012-argentina-reestatiza-a-petroleira-ypf` | Argentina reestatiza a petroleira YPF | Câmara -> `camara-dos-deputados` |
+| `ev-2013-camara-mantem-o-mandato-de-natan-donadon` | Câmara mantém o mandato de Natan Donadon | Câmara -> `camara-dos-deputados` |
+| `ev-2014-reeleicao-de-dilma-rousseff` | Reeleição de Dilma Rousseff | PT -> `pt` |
+| `ev-2015-eduardo-cunha-assume-a-camara` | Eduardo Cunha assume a Câmara | Arlindo Chinaglia -> `arlindo-chinaglia` |
+| `ev-2016-pec-do-teto-de-gastos-vira-a-emenda` | PEC do teto de gastos vira a Emenda Constitucional 95 | Câmara -> `camara-dos-deputados` |
+| `ev-2017-primeira-greve-geral-em-cerca-de-20-anos` | Primeira greve geral em cerca de 20 anos | Temer -> `michel-temer` |
+| `ev-2019-alberto-fernandez-derrota-macri-na` | Alberto Fernández derrota Macri na Argentina | Argentina -> `argentina` |
+| `ev-2021-atos-de-7-de-setembro-e-carta-de` | Atos de 7 de Setembro e carta de Bolsonaro | Alexandre de Moraes -> `alexandre-de-moraes` |
+| `ev-2021-lira-e-pacheco-sao-eleitos-presidentes` | Lira e Pacheco são eleitos presidentes das Casas | Câmara -> `camara-dos-deputados` |
+| `ev-2022-lula-derrota-bolsonaro-na-eleicao` | Lula derrota Bolsonaro na eleição presidencial | PT -> `pt` |
+| `ev-2023-ataques-de-8-de-janeiro-em-brasilia` | Ataques de 8 de janeiro em Brasília | STF -> `stf` |
+| `ev-2023-tse-torna-bolsonaro-inelegivel-por-oito` | TSE torna Bolsonaro inelegível por oito anos | Jair Bolsonaro -> `jair-bolsonaro` |
+| `ev-2024-presos-por-suposto-plano-de-golpe-pf` | Presos por suposto plano de golpe; PF indicia Bolsonaro | Jair Bolsonaro -> `jair-bolsonaro` |
+| `ev-2025-tarifas-dos-eua-sobre-o-brasil` | Tarifas dos EUA sobre o Brasil | Alexandre de Moraes -> `alexandre-de-moraes` |
+| `ev-2025-08-28-voo-no-jato-de-vorcaro-com-ciro-nogueira` | Voo no jato de Vorcaro com Ciro Nogueira, Isnaldo Bulhões, Rodrigo Gambale e Fáb | Ciro Nogueira -> `ciro-nogueira` |
+| `fam29` | CVM aplica multas a Daniel, Henrique e Felipe Vorcaro e ao Master no caso do fun | Banco Master -> `banco-master` |
+| `ev-2023-10-05-banco-central-publica-regra-prudencial` | Banco Central publica regra prudencial sobre precatórios | Banco Central -> `bcb` |
+| `ev-2025-01-presidencia-do-trf-1-nega-levantar-a` | Presidência do TRF-1 nega levantar a suspensão | TRF-1 -> `trf-1` |
+| `ev-2026-09-28-segunda-cautelar-do-cnj-e-oficios-de` | Segunda cautelar do CNJ e ofícios de Gilmar a Fachin e ao STJ | CNJ -> `cnj` |
 
 ## 13. Dossiê e fóruns relacionais (`scripts/dossie_rel.py`)
 

@@ -29,7 +29,7 @@
    "decisao": "aceitar",
    "de": "com 54,28% dos votos",
    "para": "com cerca de 54,3% dos votos válidos",
-   "motivo": "Fundação FHC (fonte ligada ao evento): 54,3% dos válidos; o 54,28% vinha da Wikipédia. O TSE foi citado por um pesquisador com 55,22%, mas sem URL aberta — sem a página, o número não entra.",
+   "motivo": "Fundação FHC (fonte ligada ao evento): 54,3% dos válidos; o 54,28% vinha da Wikipédia. A página oficial do TSE para 1994 só traz o resultado do exterior (55,22% ali); não há número nacional oficial aberto. Fica 54,3% (Fundação FHC).",
    "ressalvas": [
     "r009",
     "r010"
@@ -256,6 +256,246 @@
    "ressalvas": [
     "r070"
    ]
+  },
+  {
+   "evento_id": "ev-1996-criacao-da-cpmf",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "com alíquota inicial de 0,25%",
+   "para": "com alíquota inicial de 0,20%",
+   "motivo": "Lei 9.311, art. 7º.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-1997-pacote-de-resgate-de-us-17-bilhoes-a",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "US$ 2,9 bilhões aprovados em 20 de agosto",
+   "para": "US$ 3,9 bilhões do FMI aprovados em 20 de agosto",
+   "motivo": "Cronologia do Ministério das Finanças do Japão.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-1997-queda-em-hong-kong-e-em-wall-street",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Entre 20 e 23 de outubro de 1997 o índice Hang Seng caiu 23% e,",
+   "para": "No fim de outubro de 1997 o índice Hang Seng sofreu quedas de dois dígitos em um único dia e,",
+   "motivo": "A queda de 23% entre 20 e 23/10 não foi confirmada; as fontes dão -14% em um dia.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-1998-russia-desvaloriza-o-rublo-e-declara",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "desvalorizou o rublo, deixou de pagar dívida interna e declarou moratória da dívida externa, um mês depois de um pacote de US$ 22,6 bilhões do FMI e do Banco Mundial, aprovado em 13 de julho.",
+   "para": "desvalorizou o rublo e declarou moratória de 90 dias sobre a dívida externa, um mês depois de um pacote de US$ 22,6 bilhões do FMI e do Banco Mundial, aprovado em 20 de julho.",
+   "motivo": "Fonte: aprovação em 20/7; moratória externa de 90 dias; a suspensão da dívida interna não foi verificada.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-1997-denuncia-de-compra-de-votos-pela",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "o governo nega envolvimento e não há investigação formal.",
+   "para": "o governo nega envolvimento; um inquérito da PF não teve resultado, a PGR não denunciou e a CPI não foi instalada.",
+   "motivo": "Poder360.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2002-fmi-aprova-o-maior-emprestimo-da",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "um stand-by de cerca de US$ 30 bilhões para o Brasil, o maior crédito do Fundo até então, com US$ 6 bilhões liberados antes da eleição de outubro.",
+   "para": "um stand-by de US$ 30,4 bilhões para o Brasil, o maior crédito do Fundo até então, com cerca de US$ 3 bilhões liberados de imediato e o restante condicionado a revisões.",
+   "motivo": "Comunicado do FMI (PR 02/40).",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2004-eleicoes-municipais-de-2004",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "PSDB 870, PFL 789 e PT 411",
+   "para": "PSDB 871, PFL 789 e PT 409",
+   "motivo": "Agência Brasil, 1/11/2004.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2004-lei-das-parcerias-publico-privadas",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "valor mínimo de R$ 10 milhões",
+   "para": "valor mínimo de R$ 20 milhões (reduzido a R$ 10 milhões pela Lei 13.529/2017)",
+   "motivo": "Lei 11.079, art. 2º §4º, texto original.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2004-petroleo-passa-de-us-50-o-barril",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "superou US$ 50 o barril em outubro de 2004",
+   "para": "superou US$ 50 o barril em 28 de setembro de 2004",
+   "motivo": "NPR, 28/9/2004.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2007-corrida-ao-northern-rock-no-reino-unido",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "a primeira grande corrida bancária britânica em 150 anos.",
+   "para": "a primeira grande corrida bancária britânica desde 1866.",
+   "motivo": "Relatório do Treasury Committee (Câmara dos Comuns).",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2008-eleicoes-municipais-de-2008",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "o PMDB elege o maior número de prefeitos (1.202), seguido por PSDB (791) e PT (557).",
+   "para": "o PMDB elege o maior número de prefeitos (1.193 já no 1º turno), seguido por PSDB (778) e PT (545).",
+   "motivo": "Congresso em Foco, 7/10/2008; os totais finais não foram verificados.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2008-petroleo-bate-recorde-e-despenca",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "O petróleo chegou a US$ 147,27 o barril em 11 de julho de 2008 e caiu para cerca de US$ 32 em dezembro, com a recessão global.",
+   "para": "O petróleo WTI chegou a US$ 147,27 o barril em 11 de julho de 2008 (Brent a 147,50) e desabou no fim do ano, com a recessão global.",
+   "motivo": "Fonte identifica o contrato; a queda a US$ 32 não foi verificada.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2009-crise-dos-atos-secretos-no-senado",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "e as 11 representações apresentadas contra Sarney",
+   "para": "e as representações apresentadas contra Sarney",
+   "motivo": "O total de 11 não foi confirmado.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2009-grecia-revela-deficit-de-12-7-do-pib",
+   "campo": "titulo",
+   "decisao": "aceitar",
+   "de": "Grécia revela déficit de 12,7% do PIB",
+   "para": "Grécia revela déficit de cerca de 12,5% do PIB",
+   "motivo": "ESM (Safeguarding the euro).",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2009-grecia-revela-deficit-de-12-7-do-pib",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "revisou a previsão do déficit de 6% a 8% para 12,7% do PIB,",
+   "para": "revisou o déficit de 2009 para cerca de 12,5% do PIB, mais que o triplo dos 3,7% projetados pelo governo anterior,",
+   "motivo": "ESM (Safeguarding the euro).",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2013-camara-mantem-o-mandato-de-natan-donadon",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "em voto secreto em 28-29/8",
+   "para": "em voto secreto em 28/8",
+   "motivo": "Agência Câmara.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2013-governo-lanca-o-programa-mais-medicos",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "com meta de 15 mil profissionais.",
+   "para": "com estimativa inicial de 10 mil vagas.",
+   "motivo": "A meta de 15 mil só aparece na Wikipédia; a fonte da época fala em 10 mil.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2014-argentina-entra-em-default-seletivo",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "que detinham cerca de US$ 4 bilhões em títulos.",
+   "para": "com sentença de cerca de US$ 1,33 bilhão.",
+   "motivo": "La República.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2016-opep-faz-seu-primeiro-corte-de-producao",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Rússia e outros dez produtores",
+   "para": "Rússia e outros onze produtores",
+   "motivo": "Exame, 10/12/2016: 12 produtores de fora da Opep.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2017-mercosul-suspende-a-venezuela-por-tempo",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "aplicada em 1º de dezembro de 2016",
+   "para": "aplicada em dezembro de 2016",
+   "motivo": "O dia 1º não consta da fonte.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2019-queimadas-na-amazonia-chegam-a-agenda-do",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "77% mais focos de incêndio",
+   "para": "78,6% mais focos de incêndio na Amazônia",
+   "motivo": "Aos Fatos, com dados do Inpe.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2022-acordo-de-graos-do-mar-negro",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "cerca de 33 milhões de toneladas",
+   "para": "mais de 32 milhões de toneladas",
+   "motivo": "DevelopmentAid/ONU.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2023-milei-e-eleito-e-o-peso-argentino-e",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "em 12 de dezembro o câmbio oficial passou de 366,5 para 800 pesos por dólar, desvalorização de 54%.",
+   "para": "em 12 de dezembro o governo anunciou a desvalorização do câmbio oficial, de 366,5 para cerca de 800 pesos por dólar (54%), em vigor no dia seguinte.",
+   "motivo": "InfoMoney: anúncio em 12/12, abertura a ~801 em 13/12.",
+   "ressalvas": [],
+   "rodada": 2
+  },
+  {
+   "evento_id": "ev-2022-stf-condena-o-deputado-daniel-silveira",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "concede-lhe indulto",
+   "para": "concede-lhe graça constitucional (perdão individual)",
+   "motivo": "A fonte (Poder360) chama o ato de graça constitucional, não de indulto; aplicada porque \"indulto\" ocorre exatamente uma vez na descrição (evento localizado pelo título, o id sugerido no pedido não existe).",
+   "ressalvas": [],
+   "rodada": 2
   }
  ],
  "ressalvas_mantidas_com_nota": {
@@ -300,5 +540,43 @@
   ],
   "nota": "Ressalvas dos pesquisadores aceitas como estão: o banco não muda e a nota segue em evento_evidencia/relacao_evidencia (coluna nota). Só entram na contagem do relatório."
  },
- "fontes_fracas": "As 51 continuam marcadas 'fraca' para a rodada de substituição por fontes primárias; nenhuma foi removida."
+ "fontes_fracas": "As 51 continuam marcadas 'fraca' para a rodada de substituição por fontes primárias; nenhuma foi removida.",
+ "nao_encontrados_rodada2": [
+  {
+   "evento_id": "ev-1995-posse-de-fernando-henrique-cardoso",
+   "motivo": "sem fonte aberta nesta rodada",
+   "tentativas": "Nenhuma busca/fetch feita (orçamento priorizado); não verificado: posse em 1/1/1995, 54,3% dos votos válidos."
+  },
+  {
+   "evento_id": "ev-1999-cpis-do-judiciario-e-do-sistema",
+   "motivo": "sem fonte aberta nesta rodada",
+   "tentativas": "2 buscas + oantagonista, jus.com.br, pt.wikipedia: nenhuma traz as datas 8/4 e 14/4/1999. Wikipédia pt diz CPI do Judiciário 'criada em março de 1999' (possível contradição), jus.com.br sem data."
+  },
+  {
+   "evento_id": "ev-1998-tse-rejeita-candidatura-de-collor",
+   "motivo": "sem fonte aberta nesta rodada",
+   "tentativas": "2 buscas + tre-rj, pt.wikipedia: nada confirma a rejeição em 12/8/1998 por unanimidade. Wikipédia só diz que a candidatura foi revogada pela Justiça Eleitoral. O TSE tinha prazo até 13/8/1998 para julgar registros."
+  },
+  {
+   "evento_id": "ev-2001-argentina-suspende-pagamento-da-divida",
+   "motivo": "sem fonte aberta nesta rodada",
+   "tentativas": "WebSearch default 2001/US$93 bi; Wikipedia en (404) e IMF IEO pdf (erro de fetch); sem página aberta que confirme"
+  },
+  {
+   "evento_id": "ev-2002-argentina-abandona-a-conversibilidade-do",
+   "motivo": "sem fonte aberta nesta rodada",
+   "tentativas": "WebSearch conversibilidade 2002; fetch Wikipedia (404) e IMF IEO pdf (erro); não confirmado"
+  },
+  {
+   "evento_id": "ev-2001-racionamento-de-energia-eletrica",
+   "motivo": "sem fonte aberta nesta rodada",
+   "tentativas": "2 WebSearch (resultados só de 2021/2014) e fetch Wikipédia pt (404); nada aberto"
+  },
+  {
+   "evento_id": "ev-2017-brent-sobe-para-us-54-89-de-media-com",
+   "motivo": "sem fonte aberta nesta rodada",
+   "tentativas": "Busca por série de preços do Brent/FMI (WEO, commodity data) retornou apenas PDFs e páginas genéricas; nenhuma página aberta confirmou a média de US$ 54,89 em 2017 nem US$ 45,08 em 2016."
+  }
+ ],
+ "manter_com_nota_rodada2": "Todas as demais notas (não confirmado em página aberta; nuance de terminologia; Jader em Belém vs Tocantins; 38 vs 37 réus; Estatuto do Idoso renomeado; euro 1/3/2002; ITA 1/7/1997 vs 13/3/1997; Seattle 'suspensa') ficam como estão, registradas no relatório."
 }

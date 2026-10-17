@@ -1220,7 +1220,7 @@ def aplicar_evidencias_adicionais(con):
     Roda depois das relações de mandato/filiação (que precisam existir) e antes dos temas. -> dict para o relatório."""
     entradas = ler_json("evidencias-adicionais.json", [])
     r = {"entradas": entradas, "alvos": {}, "evid_novas": collections.Counter(), "evid_reaproveitadas": 0, "ligacoes": 0, "ja_ligadas": 0,
-         "descricoes_trocadas": [], "descricoes_mantidas": [], "substituidas": []}
+         "descricoes_trocadas": [], "descricoes_mantidas": [], "substituidas": [], "promovidas": 0}
     chaves, criadas = set(), set()
     for e in entradas:
         tab, col, aid = _alvo_evidencia(con, e)
@@ -1259,7 +1259,20 @@ def aplicar_evidencias_adicionais(con):
         else:
             cur = con.execute("INSERT OR IGNORE INTO relacao_evidencia(relacao_id,evidencia_id,papel,trecho_citado,ordem,nota,qualidade) VALUES(?,?,'sustenta',?,?,?,?)",
                               (aid, evid, e["trecho"], ordem, nota, e["qualidade"]))
-        if cur is not None:
+        if cur is not None and not cur.rowcount and tab == "evento_evidencia":
+            # a URL já estava ligada ao evento por uma carga anterior (fonte de `contexto` do bloco-ano de brasil-fontes.json, ou `sustenta` por slug), sem trecho
+            # nem avaliação: a pesquisa leu a página e confirma que ela sustenta o evento, então a ligação sobe para `sustenta` com rótulo, trecho, nota e qualidade
+            up = con.execute("UPDATE evento_evidencia SET papel='sustenta', rotulo=?, trecho_citado=?, nota=?, qualidade=? "
+                             "WHERE evento_id=? AND evidencia_id=? AND trecho_citado IS NULL AND qualidade IS NULL",
+                             (e["titulo"], e["trecho"], nota, e["qualidade"], aid, evid))
+            if up.rowcount:
+                r["promovidas"] += 1
+                promovida = True
+            else:
+                promovida = False
+        else:
+            promovida = False
+        if cur is not None and not promovida:
             r["ligacoes" if cur.rowcount else "ja_ligadas"] += 1
         if e.get("descricao_nova"):
             atual = con.execute("SELECT descricao FROM relacao WHERE id=?", (aid,)).fetchone()[0] or ""
@@ -1456,6 +1469,7 @@ def relatorio_revisao_evidencias(con, E, Rl):
     w(f"| eventos corrigidos | {len(E['aplicadas'])} |")
     w(f"| &nbsp;&nbsp;campo `descricao` | {sum(1 for c in E['aplicadas'] if c['campo'] == 'descricao')} |")
     w(f"| &nbsp;&nbsp;campo `titulo` | {sum(1 for c in E['aplicadas'] if c['campo'] == 'titulo')} |")
+    w(f"| &nbsp;&nbsp;da rodada 2 (eventos da linha do tempo sem fonte própria) | {sum(1 for c in E['aplicadas'] if c.get('rodada') == 2)} |")
     w(f"| relações de linha do tempo corrigidas (período/descrição) | {len(ap_per)} |")
     w(f"| vínculos da teia ajustados (subtipo/rótulo/tipo) | {len(ap_vin)} |")
     w(f"| &nbsp;&nbsp;`subtipo` definido | {campos['subtipo']} |")
@@ -1489,8 +1503,9 @@ def relatorio_revisao_evidencias(con, E, Rl):
     return "\n".join(L) + "\n"
 
 
-def relatorio_evidencias_adicionais(con, R):
-    """Markdown determinístico (data/relatorio-evidencias-adicionais.md) a partir do resultado de aplicar_evidencias_adicionais."""
+def relatorio_evidencias_adicionais(con, R, E=None):
+    """Markdown determinístico (data/relatorio-evidencias-adicionais.md) a partir do resultado de aplicar_evidencias_adicionais
+    (e, se dado, de aplicar_evento_correcoes: `E`, para a seção da rodada 2)."""
     esc = lambda s: str(s).replace("|", "\\|").replace("\n", " ")
     entradas = R["entradas"]
     rot = {r["id"]: r for r in con.execute("SELECT id, origem_ref, rotulo, descricao, de, para FROM relacao")}
@@ -1539,6 +1554,7 @@ def relatorio_evidencias_adicionais(con, R):
     w(f"| evidências novas (linhas em `evidencia`) | {sum(R['evid_novas'].values())} |")
     w(f"| ligações a URLs que já existiam em `evidencia` antes desta etapa (reaproveitadas; veículo e tipo intactos) | {R['evid_reaproveitadas']} |")
     w(f"| ligações criadas | {R['ligacoes']} |")
+    w(f"| ligações que já existiam (fonte de contexto do bloco-ano) e passaram a `sustenta` com trecho, nota e qualidade | {R['promovidas']} |")
     w(f"| qualidade `boa` | {len(entradas) - len(todas_fracas)} |")
     w(f"| qualidade `fraca` (no arquivo, inclusive as substituídas, que ficam como histórico) | {len(todas_fracas)} |")
     w(f"| qualidade `fraca` ligadas ao alvo no banco | {len(fracas)} |")
@@ -1595,4 +1611,57 @@ def relatorio_evidencias_adicionais(con, R):
     w("| alvo | fonte | nota |\n|---|---|---|")
     for e in com_nota:
         w(f"| {alvo(e)} | {esc(e['veiculo'])}: {esc(e['url'])} | {esc(e['nota'])} |")
+    L += _secao_rodada2(con, entradas, E, esc)
     return "\n".join(L) + "\n"
+
+
+def _secao_rodada2(con, entradas, E, esc):
+    """Seção "Rodada 2": entradas de evidencias-adicionais.json com `"rodada": 2` (eventos da linha do tempo sem fonte própria), as correções de
+    evento-correcoes.json com `"rodada": 2` e a lista `nao_encontrados_rodada2`."""
+    r2 = [e for e in entradas if e.get("rodada") == 2]
+    if not r2:
+        return []
+    cfg = ler_json("evento-correcoes.json", {})
+    corr = [c for c in (E["aplicadas"] if E else []) if c.get("rodada") == 2]
+    nao = cfg.get("nao_encontrados_rodada2", [])
+    eventos = sorted({e["evento_id"] for e in r2})
+    fracas = [e for e in r2 if e["qualidade"] == "fraca"]
+    por_tipo = collections.Counter(e["tipo"] for e in r2)
+    nat = lambda i: (con.execute("SELECT COALESCE(natureza_id,'(NULL)') FROM evento WHERE id=?", (i,)).fetchone() or ["(inexistente)"])[0]
+    por_nat = collections.Counter(nat(i) for i in eventos)
+    nat_nao = collections.Counter(nat(n["evento_id"]) for n in nao)
+    L = []
+    w = L.append
+    w("\n## Rodada 2 — eventos da linha do tempo sem fonte própria\n")
+    w("Pesquisa de fonte aberta para eventos factuais da linha do tempo (canais `brasil` e `violencia`) que só tinham fontes de contexto do bloco-ano e, por isso, ficavam "
+      "`nao_classificada` pela regra R5. As entradas desta rodada trazem `\"rodada\": 2` em `evidencias-adicionais.json`; as correções textuais, em `evento-correcoes.json`. "
+      "Todas entram como papel `sustenta`; `fraca` = wiki, tipo `outro`, veículo fora dos estabelecidos ou nota do pesquisador dizendo que a fonte não confirma parte do evento.\n")
+    w("| | |\n|---|---:|")
+    w(f"| eventos cobertos | {len(eventos)} |")
+    w(f"| entradas (evento, URL) | {len(r2)} |")
+    w(f"| qualidade `boa` | {len(r2) - len(fracas)} |")
+    w(f"| qualidade `fraca` | {len(fracas)} |")
+    w(f"| eventos com descrição/título corrigidos | {len({c['id_efetivo'] for c in corr})} |")
+    w(f"| correções aplicadas (campo) | {len(corr)} |")
+    w(f"| eventos sem fonte aberta (não encontrados) | {len(nao)} |")
+    w("\nEntradas por tipo de evidência:\n")
+    w("| tipo | entradas | fracas |\n|---|---:|---:|")
+    for t, n in sorted(por_tipo.items()):
+        w(f"| {t} | {n} | {sum(1 for e in fracas if e['tipo'] == t)} |")
+    w("\nNatureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):\n")
+    w("| natureza | eventos |\n|---|---:|")
+    for t, n in sorted(por_nat.items()):
+        w(f"| {t} | {n} |")
+    w("\n### Correções aplicadas\n")
+    w("| evento | campo | de -> para | motivo |\n|---|---|---|---|")
+    for c in sorted(corr, key=lambda c: (c["id_efetivo"], c["campo"])):
+        w(f"| `{c['id_efetivo']}` | {c['campo']} | {esc(c['de'])} -> {esc(c['para'])} | {esc(c['motivo'])} |")
+    w("\n### Não encontrados (continuam `nao_classificada`)\n")
+    w(f"{len(nao)} eventos; natureza no banco: " + ", ".join(f"{k} {v}" for k, v in sorted(nat_nao.items())) + ".\n")
+    w("| evento | motivo | tentativas |\n|---|---|---|")
+    tit = {x["id"]: x["titulo"] for x in con.execute("SELECT id, titulo FROM evento")}
+    for n in nao:
+        w(f"| `{n['evento_id']}` ({esc(tit.get(n['evento_id'], ''))}) | {esc(n['motivo'])} | {esc(n.get('tentativas', ''))} |")
+    if cfg.get("manter_com_nota_rodada2"):
+        w("\nRessalvas mantidas com nota (o banco não muda; a nota segue em `evento_evidencia.nota`): " + esc(cfg["manter_com_nota_rodada2"]) + "\n")
+    return L

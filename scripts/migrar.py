@@ -776,7 +776,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
         con.commit()
     if escrever:
         gerar_dump(con)
-        (DATA / "relatorio-evidencias-adicionais.md").write_text(curadoria.relatorio_evidencias_adicionais(con, R["evid_adic"]), encoding="utf-8")
+        (DATA / "relatorio-evidencias-adicionais.md").write_text(curadoria.relatorio_evidencias_adicionais(con, R["evid_adic"], R["evento_corr"]), encoding="utf-8")
         (DATA / "relatorio-revisao-evidencias.md").write_text(curadoria.relatorio_revisao_evidencias(con, R["evento_corr"], R["relacao_corr"]), encoding="utf-8")
 
         # ================================================================ RELATÓRIO

@@ -5,6 +5,7 @@ Uso: python3 scripts/validar.py [--db caminho.sqlite]
 Se data/*.json e data/dump.sql existirem, confere também que estão iguais ao que o banco exporta agora.
 """
 import argparse
+import collections
 import hashlib
 import json
 import re
@@ -519,6 +520,9 @@ def revisao_evidencias(con):
         if c["de"] in valor and c["de"] not in c["para"]:
             ruins.append(f"{c['evento_id']}/{c['campo']}: `de` ainda presente")
     esperar("evento-correcoes.json: correções com `para` presente e `de` ausente (divergências)", len(ruins), 0)
+    nao = [n["evento_id"] for n in cfg_e.get("nao_encontrados_rodada2", [])]
+    ruim_nao = [i for i in nao if (q(con, "SELECT natureza_id FROM evento WHERE id=?", i) or [[None]])[0][0] != "nao_classificada"]
+    esperar("evento-correcoes.json: não encontrados da rodada 2 existem e continuam nao_classificada (divergências)", ruim_nao, [])
     for x in ruins[:20]:
         print("   -", x)
     ruins = []
@@ -672,7 +676,12 @@ def curadoria(con):
     ok = sum(1 for it in lig for e in it["entidades"] if q(con, "SELECT 1 FROM evento_entidade WHERE evento_id=? AND entidade_id=? AND papel='citado'", it["evento_id"], e["id"]))
     esperar("evento-entidade-auto.json: ligações presentes", ok, sum(len(it["entidades"]) for it in lig))
     fon = json.loads((CURADORIA / "brasil-fontes.json").read_text(encoding="utf-8"))
-    ok = sum(1 for it in fon if q(con, "SELECT count(*) FROM evento_evidencia WHERE evento_id=?", it["evento_id"])[0][0] == len(it["sustenta"]) + len(it["contexto"]))
+    adic = collections.defaultdict(set)   # URLs que evidencias-adicionais.json liga a cada evento (as fracas substituídas não são ligadas)
+    for x in json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")):
+        if x["alvo_tipo"] == "evento" and not (x["qualidade"] == "fraca" and x.get("substituida_por")):
+            adic[x["evento_id"]].add(normalizar_url(x["url"]))
+    ok = sum(1 for it in fon if {normalizar_url(r[0]) for r in q(con, "SELECT e.url FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.evento_id=?", it["evento_id"])}
+             == {normalizar_url(u) for u in it["sustenta"] + it["contexto"]} | adic.get(it["evento_id"], set()))
     esperar("brasil-fontes.json: eventos com todas as fontes ligadas", ok, len(fon))
     n_sem = q(con, "SELECT count(*) FROM evento e WHERE canal='brasil' AND NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)")[0][0]
     print(f"  info: eventos da timeline Brasil sem fonte (sem item no bruto): {n_sem}")
