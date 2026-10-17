@@ -36,6 +36,27 @@ def _fontes(con, tabela, col):
     return out
 
 
+# ordem das fontes ricas: oficiais primeiro, depois reportagem, depois o resto (estável dentro de cada faixa: x.ordem)
+_FAIXA_TIPO = {"documento_oficial": 0, "dado_oficial": 0, "decisao_judicial": 0, "reportagem": 1}
+
+
+def _fontes_ricas(con, tabela, col, qualidade=True):
+    """dono -> [{url, veiculo, tipo, titulo, data[, qualidade]}] (campo aditivo `fontes`; `f` continua como era).
+    Em evento_evidencia o rótulo da ligação vale como título quando a evidência não tem título e o rótulo não é só o veículo."""
+    out = defaultdict(list)
+    rot = "x.rotulo" if tabela == "evento_evidencia" else "NULL"
+    for r in con.execute(f"""SELECT x.{col} AS dono, e.url, e.veiculo, e.tipo, e.titulo, e.data, x.qualidade, {rot} AS rotulo
+                             FROM {tabela} x JOIN evidencia e ON e.id=x.evidencia_id ORDER BY x.{col}, x.ordem"""):
+        titulo = r["titulo"] or (r["rotulo"] if r["rotulo"] and r["rotulo"] != r["veiculo"] else None)
+        d = OrderedDict([("url", r["url"]), ("veiculo", r["veiculo"]), ("tipo", r["tipo"]), ("titulo", titulo), ("data", r["data"])])
+        if qualidade:
+            d["qualidade"] = r["qualidade"]
+        out[r["dono"]].append(d)
+    for v in out.values():
+        v.sort(key=lambda d: _FAIXA_TIPO.get(d["tipo"], 2))
+    return out
+
+
 def _temas_de(con, tabela, col):
     """dono -> [tema_id] na ordem de tema.ordem."""
     out = defaultdict(list)
@@ -65,9 +86,13 @@ def montar_teia(con):
     ents = [dict(r) for r in con.execute("SELECT * FROM entidade WHERE ind_legado IS NOT NULL ORDER BY ind_legado")]
     idx = {e["id"]: e["ind_legado"] for e in ents}
     cats = [[r["id"], r["nome"]] for r in con.execute("SELECT id, nome FROM categoria WHERE ordem>0 ORDER BY ordem")]
-    fam, lig = {}, {}
-    for r in con.execute("SELECT de, para, origem_ref FROM relacao WHERE origem_ref LIKE 'N[%'"):
+    fam, lig, sat = {}, {}, {}
+    fontes_rel = _fontes(con, "relacao_evidencia", "relacao_id")
+    fontes_rel_r = _fontes_ricas(con, "relacao_evidencia", "relacao_id")
+    for r in con.execute("SELECT id, de, para, origem_ref, rotulo, descricao FROM relacao WHERE origem_ref LIKE 'N[%'"):
         (fam if r["origem_ref"].endswith(".fam_de") else lig)[r["de"]] = r["para"]
+        # aditivo: a relação implícita do satélite (familiar/escritório -> autoridade) com descrição atual e fontes
+        sat[r["de"]] = OrderedDict([("rot", r["rotulo"]), ("desc", r["descricao"]), ("fontes", fontes_rel_r.get(r["id"], []))])
     N = []
     for e in ents:
         n = {"n": e["nome"], "c": e["categoria_id"], "t": e["tipo"], "g": e["cargo"] or "", "d": e["descricao"] or "", "id": e["id"]}
@@ -82,8 +107,9 @@ def montar_teia(con):
             n["fam_de"], n["fam_de_id"] = idx[fam[e["id"]]], fam[e["id"]]
         if e["id"] in lig:
             n["lig_de"], n["lig_de_id"] = idx[lig[e["id"]]], lig[e["id"]]
+        if e["id"] in sat:
+            n["sat"] = sat[e["id"]]
         N.append(n)
-    fontes_rel = _fontes(con, "relacao_evidencia", "relacao_id")
     tema_rel, tema_ev = _temas_de(con, "relacao_tema", "relacao_id"), _temas_de(con, "evento_tema", "evento_id")
     por_aresta = defaultdict(dict)
     for r in con.execute("SELECT * FROM relacao WHERE origem_ref LIKE 'E[%'"):
@@ -94,7 +120,8 @@ def montar_teia(con):
             ("rot", r["rotulo"]), ("desc", r["descricao"]), ("st", st_inv[r["natureza_id"]]), ("tipo", r["tipo"]),
             ("de", None if r["periodo_inicio"] is None else int(r["periodo_inicio"])),
             ("ate", None if r["periodo_fim"] is None else int(r["periodo_fim"])),
-            ("val", _num(r["valor_brl"])), ("resp", r["resposta"]), ("f", fontes_rel.get(r["id"], [])), ("tema", tema_rel[r["id"]])])
+            ("val", _num(r["valor_brl"])), ("resp", r["resposta"]), ("f", fontes_rel.get(r["id"], [])), ("tema", tema_rel[r["id"]]),
+            ("fontes", fontes_rel_r.get(r["id"], []))])
         por_aresta[ei][ri] = rel
     leg = {r["e_idx"]: (r["a"], r["b"]) for r in con.execute("SELECT e_idx, a, b FROM aresta_legado")}
     E = []
@@ -104,6 +131,7 @@ def montar_teia(con):
         E.append(OrderedDict([("a", idx[a]), ("b", idx[b]), ("r", rs)]))
     # EV
     fontes_ev = _fontes(con, "evento_evidencia", "evento_id")
+    fontes_ev_r = _fontes_ricas(con, "evento_evidencia", "evento_id", qualidade=False)
     ents_ev = defaultdict(list)
     for r in con.execute("SELECT evento_id, entidade_id FROM evento_entidade ORDER BY evento_id, ordem"):
         ents_ev[r["evento_id"]].append(r["entidade_id"])
@@ -112,7 +140,8 @@ def montar_teia(con):
         i = int(re.search(r"teia:EV\[(\d+)\]", r["origem_ref"]).group(1))
         ev = OrderedDict([("d", r["data_texto"] or r["data"]), ("y", r["ano"]), ("t", r["titulo"]), ("x", r["descricao"]),
                           ("p", r["peso"]), ("f", fontes_ev.get(r["id"], [])),
-                          ("n", [idx[s] for s in ents_ev[r["id"]]]), ("ids", ents_ev[r["id"]]), ("id", r["id"]), ("tema", tema_ev[r["id"]])])
+                          ("n", [idx[s] for s in ents_ev[r["id"]]]), ("ids", ents_ev[r["id"]]), ("id", r["id"]), ("tema", tema_ev[r["id"]]),
+                          ("fontes", fontes_ev_r.get(r["id"], []))])
         if r["natureza_id"]:
             ev["st"] = st_inv[r["natureza_id"]]
         evs.append((i, ev))
