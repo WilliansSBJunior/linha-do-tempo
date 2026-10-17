@@ -1120,12 +1120,12 @@
     "desc": "Advogado, filho do ministro Kassio Nunes Marques; teria recebido pagamentos da consultoria Consult, que recebeu repasses do Master e da JBS.",
     "fontes": [
      {
-      "url": "https://www.bahianoticias.com.br/noticia/314946-filho-do-ministro-nunes-marques-do-stf-foi-pago-por-empresa-que-recebeu-r-18-milhoes-do-master-e-da-jbs",
-      "veiculo": "bahianoticias.com.br",
+      "url": "https://www.metropoles.com/brasil/consultoria-ligada-ao-master-e-a-jbs-contratou-filho-de-nunes-marques",
+      "veiculo": "metropoles.com",
       "tipo": "reportagem",
       "titulo": null,
       "data": null,
-      "qualidade": "fraca"
+      "qualidade": "boa"
      }
     ]
    }
@@ -1144,12 +1144,12 @@
     "desc": "Advogado, filho do ministro Luiz Fux; mensagens do celular de Vorcaro mostram contato frequente com ele (sem indicar participação do ministro).",
     "fontes": [
      {
-      "url": "https://www.correiodamanha.com.br/politica/2026/09/319139-filho-de-fux-ofereceu-tapete-vermelho-a-vorcaro-e-manteve-contato-por-mais-de-um-ano.html",
-      "veiculo": "Correio da Manhã",
+      "url": "https://www.jb.com.br/brasil/justica/2026/09/1060924-tapete-vermelho-irmao-policia-federal-encontra-mensagens-telefonicas-mostrando-proximidade-entre-rodrigo-fux-filho-do-ministro-e-daniel-vorcaro.html",
+      "veiculo": "Jornal do Brasil",
       "tipo": "reportagem",
-      "titulo": "Filho de Fux ofereceu 'tapete vermelho' a Vorcaro e manteve contato por mais de um ano",
-      "data": "2026-09-15",
-      "qualidade": "fraca"
+      "titulo": "'Tapete vermelho', 'irmão': PF encontra mensagens mostrando proximidade entre Rodrigo Fux, filho do ministro, e Daniel Vorcaro",
+      "data": "2026-09-16",
+      "qualidade": "boa"
      }
     ]
    }
@@ -1192,12 +1192,12 @@
     "desc": "Irmãos do ministro Dias Toffoli, sócios da empresa Maridt, que negociou participação em resort com fundo ligado a Vorcaro.",
     "fontes": [
      {
-      "url": "https://www.infomoney.com.br/politica/toffoli-admite-ser-socio-de-empresa-que-negociou-resort-com-fundo-ligado-a-vorcaro/amp",
-      "veiculo": "InfoMoney (Agência O Globo)",
+      "url": "https://www.poder360.com.br/poder-justica/toffoli-viajou-em-jato-de-empresa-ligada-a-vorcaro-diz-jornal",
+      "veiculo": "Poder360",
       "tipo": "reportagem",
-      "titulo": "Toffoli admite ser sócio de empresa que negociou resort com fundo ligado a Vorcaro",
-      "data": "2026-02-12",
-      "qualidade": "fraca"
+      "titulo": "Toffoli viajou em jato de empresa ligada a Vorcaro, diz jornal",
+      "data": "2026-04-02",
+      "qualidade": "boa"
      }
     ]
    }
@@ -1216,12 +1216,12 @@
     "desc": "Primo do ministro Dias Toffoli; controlava em 2020 a empresa que administra o resort Tayayá e foi sócio de empreendimento com participação de fundo ligado à rede do caso Master.",
     "fontes": [
      {
-      "url": "https://brasilagro.com.br/conteudo/parentes-de-toffoli-foram-socios-de-fundo-ligado-a-rede-do-caso-master.html",
-      "veiculo": "Brasilagro (republica Folha)",
+      "url": "https://www.poder360.com.br/poder-justica/toffoli-viajou-em-jato-de-empresa-ligada-a-vorcaro-diz-jornal",
+      "veiculo": "Poder360",
       "tipo": "reportagem",
-      "titulo": "Parentes de Toffoli foram sócios de fundo ligado à rede do caso Master",
-      "data": "2026-01-12",
-      "qualidade": "fraca"
+      "titulo": "Toffoli viajou em jato de empresa ligada a Vorcaro, diz jornal",
+      "data": "2026-04-02",
+      "qualidade": "boa"
      }
     ]
    }
@@ -1264,12 +1264,12 @@
     "desc": "Filho do procurador-geral da República Paulo Gonet; segundo a PF, foi incluído em viagem a Londres custeada por Vorcaro.",
     "fontes": [
      {
-      "url": "https://ohoje.com/2026/09/01/filho-de-paulo-gonet-foi-incluido-em-viagem-a-londres-custeada-por-vorcaro-aponta-pf",
-      "veiculo": "O Hoje",
+      "url": "https://sbtnews.sbt.com.br/noticia/politica/pgr-pediu-para-vorcaro-levar-filho-a-londres-com-tudo-pago",
+      "veiculo": "sbtnews.sbt.com.br",
       "tipo": "reportagem",
-      "titulo": "Filho de Paulo Gonet foi incluído em viagem a Londres custeada por Vorcaro, aponta PF",
-      "data": "2026-09-01",
-      "qualidade": "fraca"
+      "titulo": null,
+      "data": null,
+      "qualidade": "boa"
      }
     ]
    }
@@ -1357,15 +1357,15 @@
    "fam_de_id": "jaques-wagner",
    "sat": {
     "rot": "Empresa de familiar de",
-    "desc": "Empresa da qual a nora de Jaques Wagner, Bonnie Bonilha, é sócia; recebeu pagamentos do Banco Master segundo a imprensa.",
+    "desc": "Empresa da qual a nora de Jaques Wagner, Bonnie Bonilha, é sócia; recebeu pagamentos do Banco Master segundo a imprensa. A grafia \"BK Financeira\" é a das matérias de março; \"BN Financeira\", a de junho.",
     "fontes": [
      {
-      "url": "https://www.metropoles.com/colunas/milena-teixeira/boletos-altos-enteado-de-jaques-wagner-tambem-foi-alvo-da-pf",
-      "veiculo": "Metrópoles",
+      "url": "https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner",
+      "veiculo": "metropoles.com",
       "tipo": "reportagem",
-      "titulo": "'Boletos altos': enteado de Jaques Wagner também foi alvo da PF",
-      "data": "2026-06-18",
-      "qualidade": "fraca"
+      "titulo": null,
+      "data": null,
+      "qualidade": "boa"
      }
     ]
    }
@@ -1432,12 +1432,12 @@
     "desc": "Empresa que, segundo a PF, pertenceria ao senador Ciro Nogueira (administrada formalmente pelo irmão dele); comprou 30% de firma de Vorcaro.",
     "fontes": [
      {
-      "url": "https://sbtnews.sbt.com.br/colunas/coluna-do-gayer/empresa-de-ciro-nogueira-comprou-30-de-firma-de-vorcaro-por-valor-abaixo-do-mercado-diz-pf",
-      "veiculo": "SBT News (Coluna do Gayer)",
+      "url": "https://www.cnnbrasil.com.br/politica/quem-e-irmao-ciro-alvo-pf",
+      "veiculo": "CNN Brasil",
       "tipo": "reportagem",
-      "titulo": "Empresa de Ciro Nogueira comprou 30% de firma de Vorcaro por valor abaixo do mercado, diz PF",
+      "titulo": "Quem é o irmão de Ciro Nogueira, alvo de operação da PF nesta quinta-feira",
       "data": "2026-05-07",
-      "qualidade": "fraca"
+      "qualidade": "boa"
      }
     ]
    }
@@ -1528,12 +1528,12 @@
     "desc": "Esposa do deputado Cezinha de Madureira; associada a mala com R$ 510 mil apreendida em Congonhas, segundo decisão citada do ministro Dino.",
     "fontes": [
      {
-      "url": "https://midiamax.com.br/brasil/2026/esposa-cezinha-estava-mala-r-510-mil-apreendida-congonhas-segundo-dino",
-      "veiculo": "Midiamax",
+      "url": "https://www.jb.com.br/brasil/policia/2026/09/amp/1060905-pf-mira-cezinha-de-madureira-em-operacao-sobre-tribunais-superiores.html",
+      "veiculo": "Jornal do Brasil",
       "tipo": "reportagem",
-      "titulo": "Esposa de Cezinha estava com mala de R$ 510 mil apreendida em Congonhas, segundo Dino",
+      "titulo": "PF mira Cezinha de Madureira em operação sobre tribunais superiores",
       "data": "2026-09-14",
-      "qualidade": "fraca"
+      "qualidade": "boa"
      }
     ]
    }
@@ -1736,12 +1736,12 @@
     "desc": "Escritório de advocacia ligado ao governador Ibaneis Rocha firmou contrato de venda de honorários de precatórios a fundo ligado à Reag; a defesa diz que ele está afastado do escritório desde 2018.",
     "fontes": [
      {
-      "url": "https://www.correiobraziliense.com.br/cidades-df/2026/03/amp/7372684-master-brb-contrato-de-escritorio-de-ibaneis-com-reag-turbina-a-crise-no-df.html",
-      "veiculo": "correiobraziliense.com.br",
+      "url": "https://www.metropoles.com/colunas/grande-angular/escritorio-ibaneis-advocacia-recebeu-r-738-milhoes-por-venda-de-honorarios-em-13-contratos",
+      "veiculo": "metropoles.com",
       "tipo": "reportagem",
       "titulo": null,
       "data": null,
-      "qualidade": "fraca"
+      "qualidade": "boa"
      }
     ]
    }
@@ -1765,7 +1765,7 @@
    "lig_de_id": "ricardo-lewandowski",
    "sat": {
     "rot": "Escritório ligado a",
-    "desc": "Escritório de Lewandowski que recebeu R$ 5 milhões do Banco Master, inclusive com ele já como ministro; depois representado pelo filho.",
+    "desc": "Escritório de Lewandowski que recebeu R$ 6,5 milhões brutos do Banco Master, dos quais R$ 5,25 milhões depois de ele assumir o Ministério da Justiça, em janeiro de 2024; depois representado pelo filho.",
     "fontes": [
      {
       "url": "https://www.metropoles.com/brasil/politica-brasil/master-pagou-r-5-milhoes-a-escritorio-de-lewandowski-ja-como-ministro",
