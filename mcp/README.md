@@ -244,3 +244,93 @@ Comportamento:
 - Evidências não estão no FTS (`busca_fts` não as indexa): em `buscar_semantica` elas só entram pelo lado vetorial.
 - `busca_fts` não é preenchida para `trecho` por `importar.py`; o servidor a sincroniza na subida e a cada escrita.
 - Entidades novas só entram por migração/script editorial, não por este servidor.
+
+## Extração (inserir_fonte)
+
+`ingerir` (módulo `mcp/extracao.py`, registrado por uma linha no fim de `server.py`) é a ponta de entrada para **qualquer coisa**: URL de reportagem/PDF, arquivo local
+(`.pdf`, `.html`, `.txt`) ou texto colado. Ele extrai o texto, segmenta, resolve entidades e **propõe** trechos no contrato de `inserir_fonte`. Não há modelo de
+linguagem no servidor: ele não entende o que o texto afirma; quem entende e enriquece é o Claude no modo `rascunho`.
+
+`ingerir(url=None, arquivo=None, texto=None, titulo=None, tipo=None, temas=None, modo='rascunho'|'gravar')` — informe **exatamente um** entre `url`, `arquivo`, `texto`.
+
+- **Extração** (`extrair`): HTML via `urllib` + `trafilatura` se instalada, senão parser `html.parser` da stdlib (ignora script/style/nav/header/footer/aside/form e blocos com
+  classe `cookie|share|related|newsletter|sidebar|comments|ad…`; escolhe o `<article>` ou o contêiner que concentra a maior parte dos `<p>`). PDF via `pypdf` se instalado, senão `pdftotext`
+  (poppler); **PDF escaneado não tem OCR** (falha com erro claro). Data: meta `article:published_time` (e variantes) > `datePublished` do JSON-LD > `<time datetime>` > primeira data
+  nas primeiras linhas do texto (avisa que foi deduzida). Veículo = domínio sem `www`. Tipo detectado: `reportagem` (HTML), `pdf`, `decisao` (texto com ementa/relator/acórdão…),
+  `documento` (texto colado); `tipo=` sobrescreve.
+- **Segmentação**: trechos de 1 a 3 frases, até 600 caracteres, sem atravessar parágrafos; descarta boilerplate (cookies, "assine", "leia também", newsletter, "foto:"…).
+- **Anotação**: entidades por `entidade_alias` com as mesmas regras de `scripts/curadoria.py` (palavra inteira, sem acento, siglas só em maiúsculas, sobrenomes ambíguos de
+  `data/curadoria/evento-entidade-regras.json` barrados); anos `19xx/20xx`; valores (`R$ 1,5 bi`, `US$ 30 milhões`, `300 mil reais`, `10%`) em `trecho_valor`; tema sugerido por
+  `curadoria.inferir_temas_relacao` (regras de `temas.json`).
+- **Relações**: só **co-citação**. Trecho com 2 ou 3 entidades resolvidas e ao menos uma pessoa/empresa/banco: cada par (não órgão↔órgão) vira relação `tipo='outra'`, rótulo
+  `Co-citação em <veículo> (<data>)`, natureza `reportada`, `confianca=0.3`, `status='revisar'`. Par que **já tem relação** (qualquer direção, exceto descartada) não ganha co-citação:
+  aparece em `pares_ja_relacionados` do trecho (com o cosseno de `relacoes_similares` quando há RAG).
+- Todo trecho sai com `natureza='reportada'`, `confianca=0.3`, `localizacao='parágrafo N'`, `afirmacao` = o próprio texto do trecho (trocar por uma afirmação de verdade é o trabalho do Claude).
+
+**`modo='rascunho'`** (padrão, não grava) devolve:
+`{ok, modo, gravado:false, fonte_id, extracao:{tipo, metodo, veiculo, data_publicacao, data_origem, hash, n_caracteres, n_trechos}, fonte:{tipo, titulo, canal, publicado_em, texto, temas, id, url?},
+trechos:[{ordem, localizacao, texto_original, afirmacao, natureza, confianca, potencial_corte, entidades:[ids], mencoes:[{id,nome,tipo,mencao}], anos_referidos, valores:[{valor,moeda,descricao}],
+relacoes:[{de,para,tipo,rotulo,temas}], temas_sugeridos, pares_ja_relacionados?}], cortes_sugeridos:[], relacoes_propostas:[...], entidades_nao_resolvidas:[{mencao, n, trechos, sugestoes:[≤3]}],
+ja_gravada, avisos, proximo_passo}`.
+`{fonte, trechos}` vai direto para `inserir_fonte` (campos extras são ignorados); `entidades_nao_resolvidas` são sequências capitalizadas/siglas sem alias — **lista de sugestão com ruído**; o servidor nunca cria entidade.
+
+**`modo='gravar'`** grava fonte (+ evidência se houver URL), trechos, entidades/anos/valores e as co-citações a revisar, numa transação, via o mesmo núcleo de `inserir_fonte`. **Idempotente**:
+mesmo `hash_texto` ou mesma URL normalizada com texto idêntico → `{idempotente:true, gravado:false}` sem escrever. URL já existente com texto diferente: os trechos são substituídos (aviso).
+URL já existente **sem texto extraído e com trechos** (curadoria manual): recusa, para não apagar trechos curados. O `id` da fonte é `src:<sha256(url normalizada)[:12]>` ou `src:<hash do texto[:12]>`.
+
+Limitações: sem LLM a extração de relações é só co-citação (nada de "quem pagou a quem"); o parser HTML da stdlib é heurístico (sites com texto fora de `<p>`, paywall ou conteúdo renderizado por JS
+saem incompletos — use `texto` colado); `texto` completo é guardado em `fonte.texto` (e no `dump.sql`); sem URL as relações novas ficam sem evidência; sem OCR; a rede depende do proxy do ambiente.
+Testes: `python3 mcp/test_extracao.py -v` (rede real só com `LDT_TEST_REDE=1`).
+
+## Revisão
+
+Tudo que entra automático (classificador de vídeo, `inserir_fonte`, `ingerir`) fica `relacao.status='revisar'` e os cortes `sugerido`; sem
+fila a teia infla. Código em `mcp/revisao.py` (registrado por uma linha no fim de `server.py`), testes em `mcp/test_revisao.py`.
+
+| Ferramenta | O que faz |
+|---|---|
+| `listar_pendencias(tipo=None, tema=None, limite=50)` | `tipo` ∈ `relacao` (revisar/rascunho, com evidências, trecho de origem com link no tempo do vídeo, relações do mesmo par e `similares` por embedding), `corte` (sugerido), `evento_natureza` (eventos sem natureza; hoje 41, todos da teia; `brasil` e `violencia` ficam de fora por desenho), `evento_fusao` (os 10 candidatos de `data/curadoria/eventos-candidatos.md`, ou de `eventos-candidatos.json` `[{n, data, eventos:[ids], motivo}]` se existir; some da fila ao fundir ou `manter_separados`), `entidade` (em `a-classificar` ou sem tema). `limite` vale por tipo; `contagem` traz os totais. |
+| `revisar_relacao(id, acao, alvo_id=None, campos=None, motivo=None)` | `aprovar` → `publicada` (mantém `origem`; `campos` corrige antes), `descartar` → `descartada` (nada é apagado), `fundir_em` → move evidências, trechos, cortes, eventos e temas para `alvo_id` e descarta a origem, `editar` (`campos` ⊂ rotulo, descricao, tipo, subtipo, natureza, confianca, periodo_inicio, periodo_fim, valor_brl, valor_texto, resposta, de, para, temas). |
+| `revisar_corte(id, acao, campos=None, motivo=None)` | `aprovar` / `descartar` / `editar`. |
+| `revisar_evento(id, acao, alvo_id=None, natureza=None, campos=None, motivo=None)` | `natureza`, `fundir_em` (mesma regra de `curadoria.aplicar_fusoes`, exige a mesma data, **e grava em `eventos-fusoes.json`**), `editar`, `manter_separados` (fecha um candidato). |
+| `fundir_entidade(de, para, motivo=None)` | Realoca relações (as que colidem com uma igual em `para` são fundidas nela; a relação entre as duas é apagada), eventos, aliases, trechos, mandatos, dossiê, fóruns; grava o nome de `de` como alias `nome_antigo`; apaga `de`. Idempotente. Recusa nó da teia original (`ind_legado`): para esses use `scripts/fusoes.json` + `migrar.py`. |
+| `desfazer(decisao_id, motivo=None)` | Reverte pelo log de linhas e appenda `{tipo:'desfazer'}`. Recusa se uma decisão posterior mexeu nas mesmas linhas (desfaça da mais nova para a mais antiga). |
+| `listar_decisoes(limite=20)` | Últimas decisões, com `desfeita`. |
+
+Cada decisão, numa transação com o mesmo lock das outras escritas: aplica no sqlite, guarda as linhas antes/depois em `revisao_log`
+(tabela só do sqlite, fora do dump; é o que permite `desfazer`), regrava `data/dump.sql` e **appenda** uma linha em
+`data/curadoria/decisoes.jsonl` `{id, quando, tipo, alvo, acao, campos, motivo}`. `alvo` traz o id e a chave natural (relação: de, para, tipo,
+rótulo, início; corte: vídeo, início, fim, título), porque ids inteiros mudam numa remigração. Repetir uma decisão já aplicada devolve
+`ja_aplicada` e não appenda. Se a transação falhar, o jsonl e `eventos-fusoes.json` voltam ao que eram.
+
+**Remigração.** `migrar.py` recria o banco a partir de raw + curadoria e não lê o jsonl. Até a integração, rode o aplicador logo depois:
+
+```
+python3 scripts/migrar.py && python3 scripts/aplicar_decisoes.py && python3 scripts/exportar_json.py && python3 scripts/validar.py
+```
+
+`scripts/aplicar_decisoes.py [--db] [--decisoes] [--dump]` usa o mesmo núcleo, numa transação, é idempotente, pula as desfeitas e lista as
+que não acharam o alvo (ex.: relação criada pelo MCP a partir de um vídeo, que a migração não recria: reinsira a fonte antes). Fusão de evento já
+vem de `eventos-fusoes.json`; depois de fundir, rode `gerar_curadoria.py` para os JSON gerados pararem de citar o id fundido.
+
+**Página local** (não vai para o GitHub Pages; fica em `ferramentas/`, fora de `paginas/`):
+
+```
+python3 scripts/servir_revisao.py [--porta 8765] [--db data/linha-do-tempo.sqlite]   # abre em http://127.0.0.1:8765/
+```
+
+Serve `ferramentas/revisao.html` e `GET /api/pendencias`, `GET /api/decisoes`, `POST /api/decidir`
+(`{tipo: relacao|corte|evento|entidade|desfazer, id, acao, alvo_id?, natureza?, campos?, motivo?}`) chamando as mesmas funções e o mesmo lock
+do servidor MCP (os dois podem rodar juntos). A fila mostra contador, filtro por tipo e tema, de→para, rótulo, natureza (no traço da legenda da
+teia), confiança, trecho de origem, evidências com link e relações parecidas para fundir. Teclas: A aprovar, D descartar (ou manter
+separados), F fundir, E editar, 1–5 natureza, J/K próximo/anterior, U desfaz a última. Escuta só em 127.0.0.1; POST exige JSON e origem local.
+
+Limitações:
+- `decisoes.jsonl` só cresce (inclusive as linhas `desfazer`); compactar exige reescrevê-lo à mão.
+- Dois revisores decidindo o mesmo item: as escritas são serializadas, a segunda vê o estado novo (repetir dá `ja_aplicada`; ação diferente vira
+  outra decisão, e quem vale na reaplicação é a ordem do arquivo). Decisões em máquinas diferentes que alteram o mesmo jsonl dão conflito de merge no git.
+- `desfazer` depende de `revisao_log` no sqlite: num banco reconstruído (`importar.py`/`migrar.py`) o log se perde e o desfazer é recusado;
+  aí apague a linha do jsonl e remigre, ou tome a decisão contrária.
+- Editar texto, data ou natureza de relação/evento que veio do raw (teia/origens/PREC) faz `validar.py` acusar a diferença no round-trip
+  (a resposta avisa). Fundir em relação da teia acrescenta evidência em `teia.json` (também acusada). Decisões em itens do MCP não têm esse problema.
+- `migrar.py` ainda não chama `aplicar_decisoes.py`; `validar.py` não confere o jsonl.

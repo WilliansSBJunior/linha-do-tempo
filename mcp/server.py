@@ -1257,6 +1257,10 @@ def preparar():
         con.close()
 
 
+import extracao as _extracao; _extracao.registrar(sys.modules[__name__])  # ferramenta `ingerir` (mcp/extracao.py)
+import revisao as _revisao; _revisao.registrar(sys.modules[__name__])  # fila de revisão (mcp/revisao.py)
+
+
 if __name__ == "__main__":
     preparar()
     criar_servidor().run("stdio")

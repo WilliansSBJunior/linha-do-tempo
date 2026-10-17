@@ -755,6 +755,17 @@ def main(destino=SQLITE, pular=(), escrever=True):
     con.commit()
     popular_fts(con)
     con.commit()
+    # decisões humanas da fila de revisão (data/curadoria/decisoes.jsonl), aplicadas por scripts/aplicar_decisoes.py
+    decisoes = CURADORIA / "decisoes.jsonl"
+    if "decisoes" not in pular and decisoes.exists():
+        import subprocess
+        r = subprocess.run([sys.executable, str(SCRIPTS / "aplicar_decisoes.py"), "--db", str(destino),
+                            "--decisoes", str(decisoes)], capture_output=True, text=True)
+        print(r.stdout.strip())
+        if r.returncode != 0:
+            raise SystemExit("aplicar_decisoes.py falhou:\n" + r.stdout + r.stderr)
+        popular_fts(con)
+        con.commit()
     if escrever:
         gerar_dump(con)
 

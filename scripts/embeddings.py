@@ -261,8 +261,8 @@ def textos_de(con, tabela, ids=None):
         ids = list(ids)
         if not ids:
             return {}
-        chave = {"relacao": "r.id", "entidade": "e.id"}.get(tabela, "id")
-        sql += (" WHERE " if " WHERE " not in sql else " AND ") + f"{chave} IN ({','.join('?' * len(ids))})"
+        # subselect: evita colar WHERE/AND numa consulta que já tem WHERE interno (caso 'entidade')
+        sql = f"SELECT id, t FROM ({sql}) WHERE id IN ({','.join('?' * len(ids))})"
         p = ids
     return {r[0]: _limpo(r[1]) for r in con.execute(sql, p)}
 

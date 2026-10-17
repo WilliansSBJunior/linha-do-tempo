@@ -51,3 +51,7 @@ Os arquivos gerados são regenerados por `gerar_curadoria.py`; para corrigir um 
 Git versiona `data/dump.sql` e os JSONs; `data/linha-do-tempo.sqlite` fica no `.gitignore`.
 Só o servidor MCP escreve no banco; estes scripts não gravam nele fora da migração (`exportar_json.py` e `validar.py` só leem).
 `data/raw/` é cópia congelada dos dados de origem (não editar; `migrar.py` recusa rodar se um hash mudar).
+
+## Decisões humanas (fila de revisão)
+
+`migrar.py` reaplica automaticamente `data/curadoria/decisoes.jsonl` (gravado pelas ferramentas `revisar_*` do MCP e pela página local `ferramentas/revisao.html`, servida por `python3 scripts/servir_revisao.py`). Para reaplicar à mão ou num banco reconstruído por `importar.py`: `python3 scripts/aplicar_decisoes.py [--db ...]` (idempotente). Pule com `migrar.py --pular decisoes` se a função `main` for chamada com `pular=("decisoes",)`.
