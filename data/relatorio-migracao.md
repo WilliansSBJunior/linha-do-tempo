@@ -613,7 +613,7 @@ Entidades da teia que aparecem na timeline (as 10 fusões da seção 5 mais as l
 
 ## 17. Estimativas em R$ por entidade (`data/curadoria/entidade-valores.json`)
 
-`curadoria.aplicar_entidade_valores` grava **14 valores em 9 entidades** na tabela aditiva `entidade_valor` (9 principais, 3 com fonte fraca), depois dos metadados de evidência. Cada valor tem uma `natureza` (o que o número mede); números de naturezas diferentes não se somam. A URL de cada valor é uma `evidencia` (8 novas, 5 reaproveitadas; título preenchido em 3 e data em 3 que estavam NULL). No arquivo, só como registro: 1 valor descartado e 1 entidade sem estimativa encontrada.
+`curadoria.aplicar_entidade_valores` grava **14 valores em 9 entidades** na tabela aditiva `entidade_valor` (9 principais, 3 com fonte fraca), depois dos metadados de evidência. Cada valor tem uma `natureza` (o que o número mede); números de naturezas diferentes não se somam. A URL de cada valor é uma `evidencia` (8 novas, 2 reaproveitadas; título preenchido em 2 e data em 2 que estavam NULL). No arquivo, só como registro: 1 valor descartado e 1 entidade sem estimativa encontrada.
 
 | natureza | n |
 |---|---|
@@ -632,16 +632,16 @@ Entidades da teia que aparecem na timeline (as 10 fusões da seção 5 mais as l
 | `banco-master` |  | passivo | 83.200.000.000 | Banco Central (IFData), via Agência Estado | boa |
 | `cpmi-do-inss` | sim | desviado | 3.300.000.000 | Relatório da maioria da CPMI do INSS | fraca |
 | `daniel-vorcaro` | sim | bloqueado | 5.700.000.000 | STF (Dias Toffoli), via JOTA | fraca |
-| `operacao-carbono-oculto` | sim | movimentado | 52.000.000.000 | Receita Federal | boa |
-| `operacao-carbono-oculto` |  | sonegado | 7.600.000.000 | Investigação (MP-SP/Receita/PF), segundo CNN Brasil | boa |
+| `operacao-carbono-oculto` | sim | movimentado | 52.000.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
+| `operacao-carbono-oculto` |  | sonegado | 8.670.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
 | `operacao-compliance-zero` | sim | investigado | 12.000.000.000 | Polícia Federal (Andrei Rodrigues, em depoimento à CPI do Crime Organizado) | boa |
 | `operacao-compliance-zero` |  | outro | 12.200.000.000 | PF e MPF (segundo reportagem) | boa |
 | `operacao-compliance-zero` |  | bloqueado | 5.700.000.000 | STF (relator Dias Toffoli), via JOTA | fraca |
 | `operacao-credito-oculto` | sim | outro | 153.000.000 | Investigação (Receita/Gaeco), segundo JB | boa |
 | `operacao-quasar` | sim | bloqueado | 1.200.000.000 | Justiça Federal / PF | boa |
 | `operacao-sem-desconto` | sim | desviado | 6.300.000.000 | PF e CGU | boa |
-| `pcc` | sim | movimentado | 52.000.000.000 | Receita Federal / investigação, segundo CNN Brasil | boa |
-| `pcc` |  | sonegado | 7.600.000.000 | Investigação, segundo CNN Brasil | boa |
+| `pcc` | sim | movimentado | 52.000.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
+| `pcc` |  | sonegado | 8.670.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
 
 Na teia (`teia.json`), cada nó com valores ganha `val` (a lista, principal primeiro) e `val_lig` (soma de `relacao.valor_brl` das ligações `E[].r` do nó e quantas têm valor): a soma das ligações é outra coisa que a estimativa do escândalo e não se soma a ela.
 

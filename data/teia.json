@@ -597,31 +597,32 @@
      "brl": 52000000000,
      "nat": "movimentado",
      "txt": "R$ 52 bilhões movimentados entre 2020 e 2024 (Receita Federal, ago/2025)",
-     "quem": "Receita Federal",
-     "data": "2025-08-28",
+     "quem": "Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026)",
+     "data": "2026-03-31",
      "principal": true,
      "qual": "boa",
+     "nota": "Relatório nº 1/2026/SPC-CREG/SPC-e da ANP (31/3/2026, SEI 48610.223164/2025-18, pg. 20-22) transcreve a nota da Receita Federal de 28/8/2025 sobre a Carbono Oculto (nota 16; a página da Receita em gov.br passou a exigir login). Aberto pelo Chrome do usuário em 18/10/2026; PDF arquivado em data/raw/oficial/anp-relatorio-1-2026.pdf. Antes: Diario de Pernambuco/Estadão Conteúdo e CNN Brasil, que citavam o mesmo número.",
      "fonte": {
-      "url": "https://www.diariodepernambuco.com.br/amp/brasil/2025/08/11694363-receita-estima-que-organizacao-criminosa-movimentou-rs-52-bilhoes-em-postos-de-combustivel.html",
-      "veiculo": "Diario de Pernambuco (Estadão Conteúdo)",
-      "tipo": "reportagem",
-      "titulo": "Receita estima que organização criminosa movimentou R$ 52 bilhões em postos de combustível"
+      "url": "https://www.gov.br/anp/pt-br/acesso-a-informacao/acoes-e-programas/relatorio-1-ranp-852-sei-5760233.pdf",
+      "veiculo": "ANP (gov.br)",
+      "tipo": "documento_oficial",
+      "titulo": "Relatório nº 1/2026/SPC-CREG/SPC-e — Avaliação de Resultado Regulatório (Resolução ANP 852/2021)"
      }
     },
     {
-     "brl": 7600000000,
+     "brl": 8670000000,
      "nat": "sonegado",
-     "txt": "R$ 7,6 bilhões em tributos sonegados (investigação, ago/2025)",
-     "quem": "Investigação (MP-SP/Receita/PF), segundo CNN Brasil",
-     "data": "2025-08-28",
+     "txt": "Mais de R$ 8,67 bilhões em créditos tributários federais constituídos pela Receita contra integrantes do esquema (ago/2025)",
+     "quem": "Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026)",
+     "data": "2026-03-31",
      "principal": false,
      "qual": "boa",
-     "nota": "Estadão Conteúdo (Diario de Pernambuco) cita perdas de R$ 8,6 bi e créditos tributários de R$ 8,67 bi; CNN cita R$ 7,6 bi só de sonegação. Divergência não resolvida; sem página oficial da Receita/MP-SP aberta.",
+     "nota": "Relatório nº 1/2026/SPC-CREG/SPC-e da ANP (31/3/2026, SEI 48610.223164/2025-18, pg. 20-22) transcreve a nota da Receita Federal de 28/8/2025 sobre a Carbono Oculto (nota 16; a página da Receita em gov.br passou a exigir login). Aberto pelo Chrome do usuário em 18/10/2026; PDF arquivado em data/raw/oficial/anp-relatorio-1-2026.pdf. Resolve a divergência CNN (R$ 7,6 bi 'sonegação') × Estadão Conteúdo (R$ 8,6 bi): o número da Receita é R$ 8,67 bi em créditos tributários constituídos. Os postos foram autuados em mais de R$ 891 milhões; uma fintech do grupo movimentou mais de R$ 46 bilhões (2020-2024).",
      "fonte": {
-      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
-      "veiculo": "cnnbrasil.com.br",
-      "tipo": "reportagem",
-      "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski"
+      "url": "https://www.gov.br/anp/pt-br/acesso-a-informacao/acoes-e-programas/relatorio-1-ranp-852-sei-5760233.pdf",
+      "veiculo": "ANP (gov.br)",
+      "tipo": "documento_oficial",
+      "titulo": "Relatório nº 1/2026/SPC-CREG/SPC-e — Avaliação de Resultado Regulatório (Resolução ANP 852/2021)"
      }
     }
    ],
@@ -706,31 +707,32 @@
      "brl": 52000000000,
      "nat": "movimentado",
      "txt": "R$ 52 bilhões movimentados por ~1.000 postos ligados ao grupo, 2020-2024 (ago/2025)",
-     "quem": "Receita Federal / investigação, segundo CNN Brasil",
-     "data": "2025-08-28",
+     "quem": "Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026)",
+     "data": "2026-03-31",
      "principal": true,
      "qual": "boa",
+     "nota": "Relatório nº 1/2026/SPC-CREG/SPC-e da ANP (31/3/2026, SEI 48610.223164/2025-18, pg. 20-22) transcreve a nota da Receita Federal de 28/8/2025 sobre a Carbono Oculto (nota 16; a página da Receita em gov.br passou a exigir login). Aberto pelo Chrome do usuário em 18/10/2026; PDF arquivado em data/raw/oficial/anp-relatorio-1-2026.pdf. Antes: Diario de Pernambuco/Estadão Conteúdo e CNN Brasil, que citavam o mesmo número.",
      "fonte": {
-      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
-      "veiculo": "cnnbrasil.com.br",
-      "tipo": "reportagem",
-      "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski"
+      "url": "https://www.gov.br/anp/pt-br/acesso-a-informacao/acoes-e-programas/relatorio-1-ranp-852-sei-5760233.pdf",
+      "veiculo": "ANP (gov.br)",
+      "tipo": "documento_oficial",
+      "titulo": "Relatório nº 1/2026/SPC-CREG/SPC-e — Avaliação de Resultado Regulatório (Resolução ANP 852/2021)"
      }
     },
     {
-     "brl": 7600000000,
+     "brl": 8670000000,
      "nat": "sonegado",
-     "txt": "R$ 7,6 bilhões em tributos sonegados (ago/2025)",
-     "quem": "Investigação, segundo CNN Brasil",
-     "data": "2025-08-28",
+     "txt": "Mais de R$ 8,67 bilhões em créditos tributários federais constituídos pela Receita contra integrantes do esquema (ago/2025)",
+     "quem": "Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026)",
+     "data": "2026-03-31",
      "principal": false,
      "qual": "boa",
-     "nota": "Estadão Conteúdo (Diario de Pernambuco) cita perdas de R$ 8,6 bi e créditos tributários de R$ 8,67 bi; CNN cita R$ 7,6 bi só de sonegação. Divergência não resolvida; sem página oficial da Receita/MP-SP aberta.",
+     "nota": "Relatório nº 1/2026/SPC-CREG/SPC-e da ANP (31/3/2026, SEI 48610.223164/2025-18, pg. 20-22) transcreve a nota da Receita Federal de 28/8/2025 sobre a Carbono Oculto (nota 16; a página da Receita em gov.br passou a exigir login). Aberto pelo Chrome do usuário em 18/10/2026; PDF arquivado em data/raw/oficial/anp-relatorio-1-2026.pdf. Resolve a divergência CNN (R$ 7,6 bi 'sonegação') × Estadão Conteúdo (R$ 8,6 bi): o número da Receita é R$ 8,67 bi em créditos tributários constituídos. Os postos foram autuados em mais de R$ 891 milhões; uma fintech do grupo movimentou mais de R$ 46 bilhões (2020-2024).",
      "fonte": {
-      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
-      "veiculo": "cnnbrasil.com.br",
-      "tipo": "reportagem",
-      "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski"
+      "url": "https://www.gov.br/anp/pt-br/acesso-a-informacao/acoes-e-programas/relatorio-1-ranp-852-sei-5760233.pdf",
+      "veiculo": "ANP (gov.br)",
+      "tipo": "documento_oficial",
+      "titulo": "Relatório nº 1/2026/SPC-CREG/SPC-e — Avaliação de Resultado Regulatório (Resolução ANP 852/2021)"
      }
     }
    ],
@@ -25522,8 +25524,8 @@
      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
      "veiculo": "cnnbrasil.com.br",
      "tipo": "reportagem",
-     "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski",
-     "data": "2025-08-28",
+     "titulo": null,
+     "data": null,
      "papel": "sustenta"
     }
    ],
