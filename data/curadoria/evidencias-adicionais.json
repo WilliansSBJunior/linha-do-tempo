@@ -46,7 +46,8 @@
   "trecho": "coordinated a $50 billion bailout package in January 1995, to be administered by the IMF ... impact of Mexico's crisis in Chile and Brazil became known as the 'Tequila effect'",
   "nota": "Fonte wiki; fontes não-wiki abertas não sustentam US$ 50 bi em janeiro: Terceiro Mundo (fev/1995, rima.ufrrj.br) cita fundo de ~US$ 7 bi em 22/12/1994 dobrado para US$ 18 bi duas semanas depois; BBC Mundo (acento.com.do) fala em ~US$ 50 bi no total, 'a comienzos de 1995', sem citar o Brasil.",
   "qualidade": "fraca",
-  "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://www.csmonitor.com/layout/set/amphtml/1995/0201/01032.html"
  },
  {
   "alvo_tipo": "evento",
@@ -109,7 +110,8 @@
   "trecho": "Eleito Presidente da República, no primeiro turno ... com 34.337.198 votos (54,3%), 3 de outubro",
   "nota": "Fonte institucional (não TSE). Confirma 1º turno e 54,3%; não confirma posse em 1/1/1995 (apenas 'Presidente 1995-2002'). A Wikipédia en (1994 Brazilian general election) traz 54.28%. Biblioteca digital do TSE cita 55,22% (provável base diferente, votos totais vs. válidos) e preparaenem.com cita 55% dos válidos.",
   "qualidade": "fraca",
-  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://fundacaofhc.org.br/files/artigo/3.pdf"
  },
  {
   "alvo_tipo": "evento",
@@ -122,7 +124,8 @@
   "trecho": "No dia 1º de janeiro de 1995 iniciou-se a 'Era FHC'.",
   "nota": "Site educacional, usado só para a data da posse; informa 55% dos votos válidos, divergindo dos 54,28% da descrição.",
   "qualidade": "fraca",
-  "motivo_fraca": "site educacional, não é fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento"
+  "motivo_fraca": "site educacional, não é fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
+  "substituida_por": "https://fundacaofhc.org.br/files/artigo/3.pdf"
  },
  {
   "alvo_tipo": "evento",
@@ -237,7 +240,8 @@
   "trecho": "At its trough on October 9, 2002, the NASDAQ-100 had dropped to 1,114, down 78% from its peak.",
   "nota": "A página dá pico do Composite de 5.048,62 em 10/3/2000; os 78% referem-se ao Nasdaq-100. International Banker (internationalbanker.com) confirma o pico 5.048,62 em 10/3/2000, mas diz queda 'more than 75 percent' até out/2002.",
   "qualidade": "fraca",
-  "motivo_fraca": "fonte wiki (não é fonte primária)"
+  "motivo_fraca": "fonte wiki (não é fonte primária)",
+  "substituida_por": "https://fortune.com/2015/04/23/nasdaq-supasses-internet-bubble-peak-to-set-new-record"
  },
  {
   "alvo_tipo": "evento",
@@ -1724,7 +1728,8 @@
   "qualidade": "fraca",
   "motivo_fraca": "veículo regional (Diario de Pernambuco); a nota do pesquisador diz que a fonte não confirma o vínculo ou o nome como o grafo registra: a fonte grafa o nome do escritório de outro modo e a sigla QVQR não aparece",
   "descricao_nova": "Escritório Queiroga, Vieira, Queiroz & Ramos, de propriedade da esposa do desembargador Newton Ramos; contrato com Vorcaro previa até R$ 427 milhões em honorários.",
-  "divergencia_rotulo": "escritório da esposa (nome diferente na fonte)"
+  "divergencia_rotulo": "escritório da esposa (nome diferente na fonte)",
+  "substituida_por": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html"
  },
  {
   "alvo_tipo": "relacao",
@@ -1759,7 +1764,8 @@
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma o vínculo ou o nome como o grafo registra: o nome 'Lewandowski Advocacia' não foi conferido literalmente no trecho",
   "descricao_nova": "Escritório de Lewandowski que recebeu R$ 5 milhões do Banco Master, inclusive com ele já como ministro; depois representado pelo filho.",
-  "divergencia_rotulo": "escritório (nome não conferido literalmente)"
+  "divergencia_rotulo": "escritório (nome não conferido literalmente)",
+  "substituida_por": "https://www.metropoles.com/brasil/politica-brasil/master-pagou-r-5-milhoes-a-escritorio-de-lewandowski-ja-como-ministro"
  },
  {
   "alvo_tipo": "relacao",
@@ -1776,7 +1782,8 @@
   "qualidade": "fraca",
   "motivo_fraca": "veículo fora da lista de veículos estabelecidos; republica matéria da CNBC",
   "descricao_nova": "Ex-cunhado do ministro Gilmar Mendes; contratado por empresa ligada a Vorcaro por R$ 500 mil mensais.",
-  "divergencia_rotulo": "ex-cunhado"
+  "divergencia_rotulo": "ex-cunhado",
+  "substituida_por": "https://www.poder360.com.br/poder-justica/lobista-diz-ter-tratado-de-master-com-zanin-que-nega-contato/"
  },
  {
   "alvo_tipo": "relacao",
@@ -2421,7 +2428,8 @@
   "nota": "Fonte secundária (tabela); não achei página do Federal Reserve com a série. Tabela também confirma alta de 25/3/1997 para 5,50%.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; site de tabela de juros, fonte secundária",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -2531,7 +2539,8 @@
   "nota": "Temer assume em 5/2/1997 (Wikipédia); a Câmara (camara.leg.br/Ex_presidentesCD_Republica/leduardo.html) confirma que o mandato de Luís Eduardo terminou em 5/2/1997.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao"
  },
  {
   "alvo_tipo": "evento",
@@ -2559,7 +2568,8 @@
   "nota": "Valor R$ 3,3 bi confirmado. Dia 6/5/1997 inferido (matéria de 6/5/2019 diz 'há 22 anos'). A matéria é ambígua sobre o vencedor: 'liderado pelo grupo Vicunha, com a CSN' e depois 'liderado pela CSN'. Veículo é de viés crítico; preferível achar fonte neutra.",
   "qualidade": "fraca",
   "motivo_fraca": "fundação partidária (PT); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.brasildefato.com.br/2022/05/06/25-anos-da-privatizacao-da-vale-lucros-e-crimes-cometidos-evidenciam-mau-negocio-para-o-pais/"
  },
  {
   "alvo_tipo": "evento",
@@ -2573,7 +2583,8 @@
   "nota": "Adoção em 11/12/1997 e MDL (países fora do Anexo I) confirmados. Não cita o Brasil nominalmente.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://unfccc.int/kyoto_protocol"
  },
  {
   "alvo_tipo": "evento",
@@ -2587,7 +2598,11 @@
   "nota": "CONTRADIÇÃO/LACUNA: Dow confirmado. A página diz Hang Seng -6% em 27/10 e ~-14% em 28/10; a queda de 23% entre 20 e 23/10 NÃO foi confirmada (NPR de 23/10/1997 cita -14% em um dia).",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://money.cnn.com/1997/10/27/markets/marketwrap/",
+   "https://www.npr.org/1997/10/23/1027667/hong-kong-market-drop"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -2614,7 +2629,8 @@
   "nota": "Fonte secundária; datas e níveis batem com a descrição.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; site de tabela de juros, fonte secundária",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -2628,7 +2644,8 @@
   "nota": "Compilação acadêmica a partir de dados do TSE; percentuais e votos batem (Lula 31,71%, Ciro 10,97%). Data 4/10/1998 não aparece na tabela.",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://bibliotecadigital.tse.jus.br/bitstreams/00a5f6b9-7813-4e26-8e44-d1254570c364/download"
  },
  {
   "alvo_tipo": "evento",
@@ -2696,7 +2713,11 @@
   "nota": "Think tank (não é veículo da lista). CONTRADIÇÃO: a fonte situa a aprovação do FMI em 20/7/1998; 13/7 seria a data de declaração de Stanley Fischer. Moratória declarada é da dívida externa por 90 dias; a suspensão da dívida interna não foi verificada.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; think tank, não é veículo estabelecido; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://www.imf.org/external/np/sec/pr/1998/PR9831.HTM",
+   "https://www.imf.org/external/np/sec/nb/1998/nb9830.htm"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -2723,7 +2744,11 @@
   "nota": "Enciclopédia. Confirma 3/12/1999, 40 mil+ manifestantes e divergências; descreve como 'suspensão'. WTO (wto.org/english/thewto_e/minist_e/min99_e/min99_e.htm) confirma datas 30/11 a 3/12.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://archive.seattletimes.com/archive/19991204/2999245/talks-collapse-meeting-ends----group-will-leave-here-without-an-agreement",
+   "https://www.wto.org/english/thewto_e/minist_e/min99_e/min99_e.htm"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -2737,7 +2762,11 @@
   "nota": "ECU substituído 1:1 e 11 moedas nacionais confirmados.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://www.ecb.europa.eu/euro/intro/html/index.en.html",
+   "https://www.bde.es/wbe/en/sobre-banco/actividad-europea/eurosistema-sebc/historia-eurosistema/uem/fases-uem/"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -2764,7 +2793,8 @@
   "nota": "Fonte secundária; datas e níveis batem.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; site de tabela de juros, fonte secundária",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -2818,7 +2848,8 @@
   "nota": "Confirma Temer reeleito em 1999; a data exata 1/2/1999 não consta nesta página.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo regional/especializado, não é fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao"
  },
  {
   "alvo_tipo": "evento",
@@ -2859,7 +2890,8 @@
   "nota": "Confirma 283 votos e 56%; os votos de Inocêncio Oliveira (117) e Mercadante (81) não constam na página.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo regional/especializado, não é fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www2.camara.leg.br/a-camara/conheca/historia/Ex_presidentesCD_Republica/aecio.html"
  },
  {
   "alvo_tipo": "evento",
@@ -2939,7 +2971,8 @@
   "nota": "Wikipédia é inconsistente: introdução diz renúncia ao mandato em 4/10, seção detalhada diz 5/10. Congresso em Foco (2010) confirma saída 'para escapar da cassação', cita Sudam e Banpará mas não o Incra (cita Ministério da Reforma Agrária).",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.congressoemfoco.com.br/noticia/63468/jader-gasta-r-100-mil-para-divulgar-mandato"
  },
  {
   "alvo_tipo": "evento",
@@ -2994,7 +3027,8 @@
   "nota": "Confirma data, Belém, habeas corpus e eleição a deputado. Congresso em Foco (2010, 'Jader: o rei do Valle de los Caídos') diz que ficou 16h detido na sede da PF no Tocantins, o que diverge de 'em Belém'; a data exata da soltura (dia seguinte) não foi verificada.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://noticias.stf.jus.br/postsnoticias/stf-recebe-reclamacao-de-procuradores-de-jader-barbalho-preso-em-palmas-republicacao/"
  },
  {
   "alvo_tipo": "evento",
@@ -3008,7 +3042,8 @@
   "nota": "Números e datas (6/10 e 27/10) conferem.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://memoria.ebc.com.br/agenciabrasil//node/576441"
  },
  {
   "alvo_tipo": "evento",
@@ -3035,7 +3070,8 @@
   "nota": "Artigo jurídico (não é veículo da lista, mas cita Res. 21.002, Consulta 715, julgada em 26/2/2002 e publicada em 15/3/2002). A consulta foi de deputados do PDT, incluindo Miro Teixeira.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; artigo jurídico em portal, não é veículo estabelecido",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://sintse.tse.jus.br/documentos/2002/Mar/15/diario-da-justica-secao-1/resolucao-no-21-002-de-26-de-fevereiro-de-2002-consulta-coligacoes"
  },
  {
   "alvo_tipo": "evento",
@@ -3049,7 +3085,8 @@
   "nota": "FRACA: artigo de opinião (Marcelo de Paiva Abreu, Estadão) escrito antes do fim da reunião; confirma G-20 (Brasil, Índia, África do Sul etc.) e subsídios, mas não o término sem acordo nem a data 20/8.",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.everycrsreport.com/reports/RS21664.html"
  },
  {
   "alvo_tipo": "evento",
@@ -3063,7 +3100,11 @@
   "nota": "",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://georgewbush-whitehouse.archives.gov/news/releases/2003/03/text/20030319-17.html",
+   "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -3237,7 +3278,11 @@
   "nota": "Cita expulsões de Heloísa Helena, Babá, João Fontes e Luciana Genro do PT como antecedente.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://memoria.ebc.com.br/agenciabrasil//noticia/2004-06-06/pt-dissidents-found-socialism-and-liberty-party",
+   "https://www12.senado.leg.br/noticias/materias/2005/09/16/tse-concede-registro-definitivo-para-o-psol"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -3265,7 +3310,8 @@
   "nota": "A própria página é inconsistente (introdução diz 'segunda maior votação'). Superação em 2018 não verificada.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.moneytimes.com.br/eduardo-bolsonaro-e-o-mais-votado-do-brasil-com-184-milhao-de-votos/"
  },
  {
   "alvo_tipo": "evento",
@@ -3292,7 +3338,8 @@
   "nota": "Confirma 8/12/2004 e o status de associados concedido aos quatro membros do Mercosul em 7/7/2005. Só Wikipédia encontrada; a página sice.oas.org não trouxe o acordo.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://sice.oas.org/TPD/AND_MER/AND_MER_e.asp"
  },
  {
   "alvo_tipo": "evento",
@@ -3727,7 +3774,8 @@
   "nota": "Confirma 2/4/2009, US$ 1,1 tri e aumento de US$ 500 bi nos recursos do FMI. Só Wikipédia: g20.utoronto.ca não exibiu o texto e mofa.go.jp falhou.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://g7g20-documents.org/database/document/2009-g20-united-kingdom-leaders-leaders-language-london-summit-leaders-statement"
  },
  {
   "alvo_tipo": "evento",
@@ -3822,7 +3870,8 @@
   "nota": "Confirma 10 a 1, 1,7 milhão de ha e saída dos produtores rurais. O texto cita dois ministros divergentes (Joaquim Barbosa e Marco Aurélio), o que não bate com o placar de um voto contrário; veículo regional, não grande.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo regional (MS); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.congressoemfoco.com.br/noticia/74311/supremo-mantem-demarcacao-da-raposa-serra-do-sol"
  },
  {
   "alvo_tipo": "evento",
@@ -3862,7 +3911,11 @@
   "nota": "Confirma o início em 15/2/2011 e produção de cerca de 1,6 mi bpd antes da guerra; não confirma a interrupção da produção.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://www.aljazeera.com/economy/2011/3/9/libya-oil-output-drops-drastically",
+   "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -4011,7 +4064,8 @@
   "nota": "Republicação de matéria de imprensa; confirma instalação em 16/5/2012 e sete membros. Fonte secundária de menor peso.",
   "qualidade": "fraca",
   "motivo_fraca": "republicação de matéria sindical/imprensa em site universitário",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.jb.com.br/pais/noticias/2012/05/16/amp/dilma-da-posse-aos-sete-membros-da-comissao-da-verdade.html"
  },
  {
   "alvo_tipo": "evento",
@@ -4025,7 +4079,8 @@
   "nota": "Confirma início em 2/8/2012 e 38 réus; veículo partidário (PCdoB).",
   "qualidade": "fraca",
   "motivo_fraca": "veículo partidário (PCdoB)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.camara.leg.br/noticias/380717-stf-comeca-hoje-a-julgar-os-38-reus-do-chamado-mensalao/"
  },
  {
   "alvo_tipo": "evento",
@@ -4052,7 +4107,8 @@
   "nota": "Confirma 13 a 22/6/2012, cerca de 45 mil pessoas e documento 'não vinculativo'. Não achei fonte da ONU aberta; o título '88 chefes de Estado' do id não foi verificado.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://press.un.org/en/2012/envdev1310.doc.htm"
  },
  {
   "alvo_tipo": "evento",
@@ -4132,7 +4188,11 @@
   "nota": "Confirma espionagem da NSA e cancelamento da visita; a página é de 15/9 e relata a decisão como não finalizada pelo Planalto. Não confirma a data 1/9 nem o discurso da ONU em 24/9.",
   "qualidade": "fraca",
   "motivo_fraca": "a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://www.jb.com.br/pais/noticias/2013/09/17/amp/planalto-confirma-cancelamento-da-viagem-de-dilma-aos-eua.html",
+   "https://www.jb.com.br/internacional/noticias/2013/09/24/amp/espionagem-e-grave-violacao-dos-direitos-humanos-critica-dilma-na-onu.html"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -4172,7 +4232,8 @@
   "nota": "Confirma 1/10, 16 dias, ~800 mil servidores e fim do impasse do teto da dívida; a lei foi aprovada no fim de 16/10 e sancionada logo após a meia-noite de 17/10.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.appropriations.senate.gov/news/minority/chairwoman-mikulski-requests-omb-report-on-impacts-of-shutdown"
  },
  {
   "alvo_tipo": "evento",
@@ -4186,7 +4247,8 @@
   "nota": "Esta fonte fala em estimativa de 10 mil vagas, não 15 mil; a meta de 15 mil aparece apenas na Wikipédia (en.wikipedia.org/wiki/Mais_M%C3%A9dicos). Veículo partidário.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo partidário (PCdoB)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.camara.leg.br/noticias/413337-programa-mais-medicos-e-tema-de-debate-no-plenario/"
  },
  {
   "alvo_tipo": "evento",
@@ -4213,7 +4275,8 @@
   "nota": "Confirma início em 6/6 contra o aumento de R$ 0,20 em SP. Não confirma 'mais de 500 cidades' (cita 130 cidades em 20/6).",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; site educacional, não é fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.camara.leg.br/noticias/407612-lideres-partidarios-avaliam-propostas-de-dilma-em-resposta-a-protestos"
  },
  {
   "alvo_tipo": "evento",
@@ -4279,7 +4342,8 @@
   "nota": "Confirma a primeira fase em 17/3/2014 com prisão de Youssef; Paulo Roberto Costa foi preso nesta fase conforme a página.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://agenciabrasil.ebc.com.br/geral/noticia/2014-03/policia-federal-prende-ex-diretor-da-petrobras-suspeito-de-lavagem-de-dinheiro"
  },
  {
   "alvo_tipo": "evento",
@@ -4428,7 +4492,8 @@
   "nota": "Confirma 304 x 227 e que Clinton teve ~2,9 milhões de votos a mais no total nacional. Página observa que Trump venceu 306 delegados comprometidos; 304 reflete eleitores infiéis. Parte da campanha contra acordos de livre comércio não verificada.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; site de mapas eleitorais, não é fonte primária; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.archives.gov/electoral-college/2016"
  },
  {
   "alvo_tipo": "evento",
@@ -4455,7 +4520,11 @@
   "nota": "Acordo tratado como 'ontem' (30/11). Brent abaixo de US$ 30 em janeiro e média de US$ 45,08 não verificados.",
   "qualidade": "fraca",
   "motivo_fraca": "site setorial que republica matéria da imprensa; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": [
+   "https://www.opec.org/pr-detail/458-30-nov-2016.html",
+   "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  ]
  },
  {
   "alvo_tipo": "evento",
@@ -4483,7 +4552,8 @@
   "nota": "Tabela confirma Leave 51,89% (17.410.742), Remain 48,11% e participação de 72,21%. Fonte wiki; tentativa de página da Electoral Commission falhou.",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://commonslibrary.parliament.uk/research-briefings/cbp-7639/"
  },
  {
   "alvo_tipo": "evento",
@@ -4619,7 +4689,8 @@
   "nota": "Fonte sindical (CUT). Confirma greve em 28/4 contra as reformas; 'mais de 150 cidades' e 'primeira em cerca de 20 anos' não confirmados.",
   "qualidade": "fraca",
   "motivo_fraca": "republicação de matéria sindical/imprensa em site universitário; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.congressoemfoco.com.br/noticia/40246/greve-geral-paralisa-professores-rodoviarios-bancarios-e-diversas-categorias-contra-reformas-de-temer"
  },
  {
   "alvo_tipo": "evento",
@@ -4864,7 +4935,8 @@
   "nota": "Confirma Fernández 48,24% x Macri 40,28%. Fonte wiki (nenhuma melhor aberta).",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.lanacion.com.ar/politica/elecciones-2019-finalizo-escrutinio-definitivo-alberto-fernandez-nid2303923"
  },
  {
   "alvo_tipo": "evento",
@@ -4891,7 +4963,8 @@
   "nota": "Fonte wiki; sem busca dedicada a fonte melhor (orçamento de buscas esgotado).",
   "qualidade": "fraca",
   "motivo_fraca": "fonte wiki (não é fonte primária)",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www12.senado.leg.br/noticias/materias/2019/01/01/jair-bolsonaro-toma-posse-no-congresso-e-se-torna-38o-presidente-do-brasil"
  },
  {
   "alvo_tipo": "evento",
@@ -5172,7 +5245,8 @@
   "nota": "DIVERGÊNCIA: fonte diz mais de 32 milhões de toneladas até jul/2023, não 33 milhões.",
   "qualidade": "fraca",
   "motivo_fraca": "agregador de notícias do setor de desenvolvimento; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://www.ungeneva.org/en/news-media/press-release/2023/07/operational-update-office-un-coordinator-black-sea-grain"
  },
  {
   "alvo_tipo": "evento",

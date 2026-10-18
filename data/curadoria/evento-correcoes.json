@@ -600,6 +600,72 @@
    "ressalvas": [],
    "rodada": 3,
    "fonte_url": "https://congressoemfoco.com.br/noticia/85879/rj-morre-o-deputado-eneas-carneiro"
+  },
+  {
+   "evento_id": "ev-2003-comeca-a-invasao-do-iraque",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "US$ 28,78, ante US$ 25,12 em 2002",
+   "para": "US$ 28,85, ante US$ 24,99 em 2002",
+   "motivo": "Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2003 = 28,85; 2002 = 24,99).",
+   "ressalvas": [],
+   "rodada": 4,
+   "fonte_url": "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  },
+  {
+   "evento_id": "ev-2004-petroleo-passa-de-us-50-o-barril",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "US$ 38,23, ante US$ 28,78 em 2003",
+   "para": "US$ 38,26, ante US$ 28,85 em 2003",
+   "motivo": "Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2004 = 38,26; 2003 = 28,85).",
+   "ressalvas": [],
+   "rodada": 4,
+   "fonte_url": "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  },
+  {
+   "evento_id": "ev-2011-guerra-na-libia-e-brent-a-us-111-54",
+   "campo": "titulo",
+   "decisao": "aceitar",
+   "de": "US$ 111,54",
+   "para": "US$ 111,26",
+   "motivo": "Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2011 = 111,26).",
+   "ressalvas": [],
+   "rodada": 4,
+   "fonte_url": "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  },
+  {
+   "evento_id": "ev-2011-guerra-na-libia-e-brent-a-us-111-54",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "US$ 111,54, ante US$ 79,81 em 2010",
+   "para": "US$ 111,26, ante US$ 79,61 em 2010",
+   "motivo": "Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2011 = 111,26; 2010 = 79,61).",
+   "ressalvas": [],
+   "rodada": 4,
+   "fonte_url": "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  },
+  {
+   "evento_id": "ev-2016-opep-faz-seu-primeiro-corte-de-producao",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "média de US$ 45,08",
+   "para": "média de US$ 43,64",
+   "motivo": "Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2016 = 43,64).",
+   "ressalvas": [],
+   "rodada": 4,
+   "fonte_url": "https://fred.stlouisfed.org/data/ACOILBRENTEU"
+  },
+  {
+   "evento_id": "ev-2014-inicio-da-operacao-lava-jato",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": ", que investiga o doleiro Alberto Youssef e o executivo da Petrobras Paulo Roberto Costa em esquema",
+   "para": ", com a prisão do doleiro Alberto Youssef; o ex-diretor da Petrobras Paulo Roberto Costa é preso em 20/3, em esquema",
+   "motivo": "Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): Agência Brasil (20/3/2014): Paulo Roberto Costa foi preso em 20/3, depois da fase de 17/3.",
+   "ressalvas": [],
+   "rodada": 4,
+   "fonte_url": "https://agenciabrasil.ebc.com.br/geral/noticia/2014-03/policia-federal-prende-ex-diretor-da-petrobras-suspeito-de-lavagem-de-dinheiro"
   }
  ],
  "ressalvas_mantidas_com_nota": {

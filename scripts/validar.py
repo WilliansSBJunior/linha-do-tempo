@@ -435,10 +435,177 @@ def _rodada3():
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
+def _rodada4():
+    p = CURADORIA / "substituicoes-rodada4.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
 def _evidencias_adicionais():
-    """Entradas de evidencias-adicionais.json seguidas das `evidencias` de evidencias-rodada3.json (mesma lista que curadoria.ler_evidencias_adicionais
-    aplica; lida aqui de forma independente)."""
-    return json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")) + _rodada3().get("evidencias", [])
+    """Entradas de evidencias-adicionais.json seguidas das `evidencias` de evidencias-rodada3.json e de substituicoes-rodada4.json (mesma lista
+    que curadoria.ler_evidencias_adicionais aplica; lida aqui de forma independente)."""
+    return (json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")) + _rodada3().get("evidencias", [])
+            + _rodada4().get("evidencias", []))
+
+
+def _subst_por(e):
+    """URLs normalizadas de `substituida_por` (uma URL ou, se duas fontes novas substituem a mesma fraca, uma lista)."""
+    s = e.get("substituida_por")
+    return [normalizar_url(u) for u in (s if isinstance(s, list) else [s])] if s else []
+
+
+def _alvo(e):
+    return (e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]))
+
+
+def _repeticoes_rodada4(ent):
+    """{índice da entrada: 'reavaliada' | 'ja_ligada'} para as entradas da rodada 4 cuja (alvo, URL) já aparece antes na lista: 'reavaliada' = a
+    própria fraca substituída tem a mesma URL (a página foi relida); 'ja_ligada' = a URL nova já era entrada `boa` do alvo (rodadas 2-3).
+    Qualquer outra repetição fica de fora (e é falha em evidencias_adicionais)."""
+    vistos, out = {}, {}
+    for i, e in enumerate(ent):
+        k = (_alvo(e), normalizar_url(e["url"]))
+        if k in vistos:
+            ant = vistos[k]
+            if e.get("rodada") == 4 and ant["qualidade"] == "fraca" and normalizar_url(e.get("substitui") or "") == k[1] and k[1] in _subst_por(ant):
+                out[i] = "reavaliada"
+            elif e.get("rodada") == 4 and ant["qualidade"] == "boa" and not ant.get("substituida_por"):
+                out[i] = "ja_ligada"
+            continue
+        vistos[k] = e
+    return out
+
+
+def _fontes_brasil():
+    """{evento_id: URLs normalizadas (sustenta + contexto) de brasil-fontes.json}: as ligações da carga bruta da timeline."""
+    fon = json.loads((CURADORIA / "brasil-fontes.json").read_text(encoding="utf-8"))
+    return {it["evento_id"]: {normalizar_url(u) for u in it["sustenta"] + it["contexto"]} for it in fon}
+
+
+# Fontes fracas que ficam no banco depois da rodada 4 (substituicoes-rodada4.json, `continuam_fracas` + `nao_encontrados`): (alvo, URL).
+# Nenhuma outra fraca ficou sem substituta (as 47 restantes foram cobertas pela rodada 4).
+FRACAS_RESTANTES_RODADA4 = sorted([
+    (("evento", "ev-1999-segundo-mandato-de-fhc"), "https://pt.wikipedia.org/wiki/Fernando_Henrique_Cardoso"),
+    (("evento", "ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos"), "https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades"),
+    (("evento", "ev-2018-guerra-comercial-eua-china-tarifas-sobre"), "https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation"),
+    (("relacao", ("teia", "N[138].fam_de")), "https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master"),
+])
+
+
+def _fracas_no_banco(con):
+    """[(alvo, URL)] das ligações com qualidade 'fraca' (evento por id; relação por origem + origem_ref), ordenadas."""
+    ev = [(("evento", r[0]), r[1]) for r in q(con, "SELECT l.evento_id, v.url FROM evento_evidencia l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.qualidade='fraca'")]
+    rl = [(("relacao", (r[0], r[1])), r[2]) for r in q(con, """SELECT r.origem, r.origem_ref, v.url FROM relacao_evidencia l JOIN evidencia v ON v.id=l.evidencia_id
+                                                               JOIN relacao r ON r.id=l.relacao_id WHERE l.qualidade='fraca'""")]
+    return sorted(ev + rl)
+
+
+def rodada4(con):
+    """Rodada 4 (data/curadoria/substituicoes-rodada4.json): substituição das fontes fracas restantes. O conteúdo de cada entrada contra o banco
+    já é conferido em evidencias_adicionais (a lista inclui a rodada 4); aqui: contagens == arquivo; toda substituta ligada ao alvo como
+    'sustenta'/'boa'; toda fraca de `substitui` registrada no arquivo de origem com `substituida_por` e desligada do alvo (ou rebaixada a
+    'contexto' quando a URL é também fonte bruta do bloco-ano); fracas restantes no banco == FRACAS_RESTANTES_RODADA4 == `continuam_fracas`
+    == `nao_encontrados`; aviso de trecho no lote A; e as decisões de correção presentes em evento-correcoes.json/relacao-correcoes.json."""
+    cfg = _rodada4()
+    if not cfg:
+        return
+    secao("Rodada 4 (substituicoes-rodada4.json aplicada: substituição das fontes fracas)")
+    ent = cfg.get("evidencias", [])
+    todas = _evidencias_adicionais()
+    base = len(todas) - len(ent)
+    rep = {i - base: c for i, c in _repeticoes_rodada4(todas).items() if i >= base}
+    esperar("substituicoes-rodada4.json: toda entrada tem \"rodada\": 4, `substitui` e qualidade boa",
+            sum(1 for e in ent if e.get("rodada") == 4 and e.get("substitui") and e.get("qualidade") == "boa"), len(ent))
+    n_ev = sum(1 for e in ent if e["alvo_tipo"] == "evento")
+    n_rl = sum(1 for e in ent if e["alvo_tipo"] == "relacao")
+    print(f"  info: rodada 4: {len(ent)} entradas ({n_ev} de evento, {n_rl} de relação), {len({_alvo(e) for e in ent})} alvos, "
+          f"{len({(_alvo(e), normalizar_url(e['substitui'])) for e in ent})} fracas distintas substituídas; "
+          f"{sum(1 for c in rep.values() if c == 'ja_ligada')} substitutas já ligadas desde a rodada 2/3, {sum(1 for c in rep.values() if c == 'reavaliada')} reavaliações (mesma URL)")
+    fb = _fontes_brasil()
+    origem = {}   # (alvo, url) -> entrada fraca anterior (evidencias-adicionais.json / rodada 3)
+    for e in todas[:base]:
+        origem.setdefault((_alvo(e), normalizar_url(e["url"])), e)
+
+    def ligacao(alvo, url):
+        if alvo[0] == "evento":
+            return q(con, """SELECT l.papel, l.qualidade, l.trecho_citado, l.nota, l.rotulo FROM evento_evidencia l JOIN evidencia v ON v.id=l.evidencia_id
+                             WHERE v.url=? AND l.evento_id IN (SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?)""",
+                     url, alvo[1], alvo[1])
+        return q(con, """SELECT l.papel, l.qualidade, l.trecho_citado, l.nota, NULL AS rotulo FROM relacao_evidencia l JOIN evidencia v ON v.id=l.evidencia_id
+                         JOIN relacao r ON r.id=l.relacao_id WHERE v.url=? AND r.origem=? AND r.origem_ref=?""", url, *alvo[1])
+    ruins, n_lig, n_desl, n_rebx, n_reav = [], 0, 0, 0, 0
+    for i, e in enumerate(ent):
+        a, u, uf = _alvo(e), normalizar_url(e["url"]), normalizar_url(e["substitui"])
+        lig = ligacao(a, u)
+        if len(lig) != 1 or (lig[0]["papel"], lig[0]["qualidade"]) != ("sustenta", "boa"):
+            ruins.append(f"substituta não ligada como sustenta/boa: {a} {e['url']} {[tuple(x) for x in lig]}")
+        else:
+            n_lig += 1
+        fr = origem.get((a, uf))
+        if not fr or fr["qualidade"] != "fraca":
+            ruins.append(f"`substitui` sem fonte fraca registrada no alvo: {a} {e['substitui']}")
+            continue
+        if u not in _subst_por(fr):
+            ruins.append(f"fraca {e['substitui']} sem `substituida_por` com a substituta {e['url']} ({a})")
+        if uf == u:   # reavaliação: a mesma URL, agora com o trecho/nota da rodada 4
+            n_reav += 1
+            if rep.get(i) != "reavaliada" or not lig or lig[0]["trecho_citado"] != e["trecho"]:
+                ruins.append(f"reavaliação sem a ligação da rodada 4: {a} {e['url']}")
+            continue
+        lf = ligacao(a, uf)
+        if not lf:
+            n_desl += 1
+        elif (len(lf) == 1 and a[0] == "evento" and uf in fb.get(a[1], set()) and lf[0]["papel"] == "contexto"
+              and (lf[0]["qualidade"], lf[0]["trecho_citado"], lf[0]["nota"], lf[0]["rotulo"]) == (None, None, None, None)):
+            n_rebx += 1   # fonte do bloco-ano (brasil-fontes.json): volta a ser só contexto, sem avaliação
+        else:
+            ruins.append(f"fraca substituída ainda ligada ao alvo: {a} {e['substitui']} {[tuple(x) for x in lf]}")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("rodada 4: substituições conferidas (divergências)", len(ruins), 0)
+    esperar("rodada 4: substitutas ligadas como sustenta/boa == entradas do arquivo", n_lig, len(ent))
+    esperar("rodada 4: substituições == desligadas + rebaixadas a contexto (fonte do bloco-ano) + reavaliadas", n_desl + n_rebx + n_reav, len(ent))
+    print(f"  info: rodada 4: {n_desl} substituições com a fraca desligada, {n_rebx} com a fraca de volta a contexto do bloco-ano, {n_reav} reavaliações")
+    # nenhuma ligação 'sustenta' de fonte bruta sem avaliação aponta para uma fraca substituída (a ligação fraca some de 'sustenta')
+    ruins = []
+    for e in todas[:base]:
+        if e["qualidade"] == "fraca" and e.get("substituida_por") and e["alvo_tipo"] == "evento":
+            for x in ligacao(_alvo(e), normalizar_url(e["url"])):
+                if x["papel"] == "sustenta" and normalizar_url(e["url"]) not in _subst_por(e):
+                    ruins.append(f"{e['evento_id']}: {e['url']}")
+    esperar("fracas substituídas (todas as rodadas) ligadas como 'sustenta'", ruins, [])
+    # fracas restantes
+    restam = _fracas_no_banco(con)
+    for r in restam:
+        print("   - continua fraca:", r[0], r[1])
+    esperar("fracas no banco depois da rodada 4 == lista explícita (FRACAS_RESTANTES_RODADA4)", restam, FRACAS_RESTANTES_RODADA4)
+    cobertas = {(_alvo(e), normalizar_url(e["substitui"])) for e in ent}
+    esperar("fracas no banco cobertas por um `substitui` da rodada 4", [r for r in restam if (r[0], normalizar_url(r[1])) in cobertas], [])
+    nao = sorted(_alvo(dict(n, alvo_tipo=n.get("alvo_tipo", "evento"))) for n in cfg.get("nao_encontrados", []))
+    esperar("alvos das fracas restantes == alvos de `nao_encontrados`", sorted(r[0] for r in restam), nao)
+    cont = cfg.get("decisoes", {}).get("continuam_fracas", [])
+    ids_cont = sorted(re.match(r"(ev-[a-z0-9-]+)", c).group(1) for c in cont if c.startswith("ev-"))
+    esperar("`continuam_fracas`: uma linha por fraca restante", len(cont), len(restam))
+    esperar("`continuam_fracas`: eventos == eventos das fracas restantes", ids_cont, sorted(r[0][1] for r in restam if r[0][0] == "evento"))
+    # aviso de trecho no lote A
+    lote_a = ent[:27]
+    sem = [e["url"] for e in lote_a if "[trecho via resumo do WebFetch]" not in (e.get("nota") or "") and "literal" not in (e.get("nota") or "").lower()]
+    esperar("rodada 4, lote A (27 primeiras): nota com 'trecho via resumo do WebFetch' (ou trecho declarado literal)", sem, [])
+    # decisões de correção
+    corr_e = json.loads((CURADORIA / "evento-correcoes.json").read_text(encoding="utf-8"))["correcoes"]
+    c4 = collections.Counter((c["evento_id"], c["campo"]) for c in corr_e if c.get("rodada") == 4 and c.get("decisao") == "aceitar")
+    dec = cfg.get("decisoes", {}).get("correcoes", [])
+    esperado = collections.Counter((d["evento_id"], campo) for d in dec if d.get("alvo_tipo", "evento") == "evento" for campo in d["campo"].split("+"))
+    esperar("rodada 4: correções de evento (evento, campo) em evento-correcoes.json == decisões do arquivo", sorted(c4.items()), sorted(esperado.items()))
+    corr_r = _correcoes_relacao()
+    for d in dec:
+        if d.get("alvo_tipo") == "relacao":
+            c = corr_r.get(d["relacao_origem_ref"], {})
+            ok = d["campo"] in c.get("para", {}) and (c.get("rodada_campos") or {}).get(d["campo"]) == 4
+            esperar(f"rodada 4: correção de relação {d['relacao_origem_ref']}.{d['campo']} em relacao-correcoes.json", ok, True)
+            row = q(con, "SELECT " + d["campo"] + " FROM relacao WHERE origem=? AND origem_ref=?", d["relacao_origem"], d["relacao_origem_ref"])
+            esperar(f"rodada 4: {d['relacao_origem_ref']}.{d['campo']} no banco == para", row and row[0][0] == c.get("para", {}).get(d["campo"]), True)
+    p = DATA / "relatorio-evidencias-adicionais.md"
+    esperar("relatorio-evidencias-adicionais.md tem a seção Rodada 4", "## Rodada 4" in p.read_text(encoding="utf-8"), True)
 
 
 def rodada3(con):
@@ -492,19 +659,30 @@ def rodada3(con):
 
 
 def evidencias_adicionais(con):
-    secao("Evidências adicionais (data/curadoria/evidencias-adicionais.json + evidencias-rodada3.json aplicadas)")
+    secao("Evidências adicionais (data/curadoria/evidencias-adicionais.json + evidencias-rodada3.json + substituicoes-rodada4.json aplicadas)")
     n = q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)")[0][0]
     esperar("eventos sem nenhuma evidência", n, 0)
     n = q(con, "SELECT count(*) FROM relacao r WHERE r.status='publicada' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id)")[0][0]
     esperar("relações publicadas sem nenhuma evidência", n, 0)
     ent = _evidencias_adicionais()
     revistas = _revisoes_qualidade()   # (alvo_tipo, alvo, url) que a revisão do critério devolveu a 'boa'
+    rep4 = _repeticoes_rodada4(ent)    # repetições aceitas da rodada 4 (reavaliada: mesma URL da fraca; ja_ligada: a URL já era `boa` no alvo)
+    fb = _fontes_brasil()
     chaves, ruins, fracas, n_revistas = set(), [], 0, 0
-    for e in ent:
+    for i, e in enumerate(ent):
         k = (e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"]))
-        if k in chaves:
+        if k in chaves and i not in rep4:
             ruins.append(f"entrada repetida: {k}")
         chaves.add(k)
+        if rep4.get(i) == "ja_ligada":
+            # a ligação é a da entrada anterior (trecho/nota da rodada 2/3, já conferidos acima); aqui só papel e qualidade
+            a = q(con, "SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?", e["evento_id"], e["evento_id"]) \
+                if e["alvo_tipo"] == "evento" else []
+            lig = q(con, "SELECT l.papel, l.qualidade FROM evento_evidencia l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.evento_id=? AND v.url=?",
+                    a[0][0], k[2]) if a else []
+            if [tuple(x) for x in lig] != [("sustenta", "boa")]:
+                ruins.append(f"substituta já ligada sem ligação sustenta/boa: {k}")
+            continue
         if e["qualidade"] not in ("boa", "fraca") or (e["qualidade"] == "fraca") != bool(e.get("motivo_fraca")):
             ruins.append(f"qualidade/motivo_fraca inconsistentes: {k}")
         if e.get("substituida_por") and e["qualidade"] != "fraca":
@@ -513,24 +691,32 @@ def evidencias_adicionais(con):
             ruins.append(f"entrada ao mesmo tempo substituída e substituta: {k}")
         subs_url = bool(e.get("substituida_por")) and e["qualidade"] == "fraca"
         fracas += e["qualidade"] == "fraca" and not subs_url
-        if e.get("substituida_por"):   # a nova fonte tem de estar no arquivo, no mesmo alvo, apontando de volta (`substitui`) e ligada
+        for su in _subst_por(e):   # cada nova fonte tem de estar no arquivo, no mesmo alvo, apontando de volta (`substitui`) e ligada
             nova = [x for x in ent if (x["alvo_tipo"], x.get("evento_id") or (x["relacao_origem"], x["relacao_origem_ref"])) == k[:2]
-                    and normalizar_url(x["url"]) == normalizar_url(e["substituida_por"])]
-            if len(nova) != 1 or not nova[0].get("substitui"):
-                ruins.append(f"substituida_por sem entrada substituta (com `substitui`) no mesmo alvo: {k}")
+                    and normalizar_url(x["url"]) == su and x.get("substitui")]
+            if any(x.get("rodada") == 4 for x in nova):   # rodada 4: a substituta aponta exatamente para esta fraca
+                nova = [x for x in nova if x.get("rodada") == 4 and normalizar_url(x["substitui"]) == k[2]]
+            if len(nova) != 1:
+                ruins.append(f"substituida_por sem entrada substituta (com `substitui`) no mesmo alvo: {k} -> {su}")
             elif nova[0]["qualidade"] != "boa":
                 ruins.append(f"substituta não é de qualidade boa: {k}")
         ev = q(con, "SELECT id FROM evidencia WHERE url=?", normalizar_url(e["url"]))
-        if subs_url:   # fraca substituída: fica só no arquivo (histórico); não pode estar ligada ao alvo
+        if subs_url:   # fraca substituída: fica só no arquivo (histórico); não pode estar ligada ao alvo como fonte avaliada
             if e["alvo_tipo"] == "evento":
                 a = q(con, "SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?", e["evento_id"], e["evento_id"])
-                lig = q(con, "SELECT 1 FROM evento_evidencia WHERE evento_id=? AND evidencia_id=?", a[0][0], ev[0][0]) if a and ev else []
+                lig = q(con, "SELECT papel, qualidade, trecho_citado, nota, rotulo FROM evento_evidencia WHERE evento_id=? AND evidencia_id=?",
+                        a[0][0], ev[0][0]) if a and ev else []
             else:
                 a = q(con, "SELECT id FROM relacao WHERE origem=? AND origem_ref=?", e["relacao_origem"], e["relacao_origem_ref"])
-                lig = q(con, "SELECT 1 FROM relacao_evidencia WHERE relacao_id=? AND evidencia_id=?", a[0][0], ev[0][0]) if a and ev else []
+                lig = q(con, "SELECT papel, qualidade, trecho_citado, nota, NULL AS rotulo FROM relacao_evidencia WHERE relacao_id=? AND evidencia_id=?",
+                        a[0][0], ev[0][0]) if a and ev else []
             if not a:
                 ruins.append(f"alvo ausente: {k}")
-            if lig:
+            if lig and k[2] in _subst_por(e):
+                pass   # reavaliação (rodada 4): a mesma URL foi relida; a ligação é a da substituta, conferida na entrada dela
+            elif lig and not (e["alvo_tipo"] == "evento" and k[2] in fb.get(e["evento_id"], set()) and lig[0]["papel"] == "contexto"
+                              and (lig[0]["qualidade"], lig[0]["trecho_citado"], lig[0]["nota"], lig[0]["rotulo"]) == (None, None, None, None)):
+                # única ligação aceita: a fonte bruta do bloco-ano (brasil-fontes.json) de volta a `contexto`, sem avaliação
                 ruins.append(f"fonte fraca substituída ainda ligada ao alvo: {k}")
             continue
         if not ev:
@@ -596,8 +782,8 @@ def evidencia_qualidade(con):
     cfg = json.loads(p.read_text(encoding="utf-8"))
     rev = cfg.get("revisoes", [])
     adic = {}
-    for e in _evidencias_adicionais():
-        adic[(e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"]))] = e
+    for e in _evidencias_adicionais():   # a primeira entrada de cada (alvo, URL): as repetições aceitas da rodada 4 não são fontes novas a avaliar
+        adic.setdefault((e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"])), e)
     ruins, vistos, aplic, sobre_subst, repetidas = [], {}, 0, 0, 0
     for x in rev:
         k = (x["alvo_tipo"], x.get("evento_id") or (x["relacao_origem"], x["relacao_origem_ref"]), normalizar_url(x["url"]))
@@ -1144,6 +1330,7 @@ def main():
     evidencias_adicionais(con)
     evidencia_qualidade(con)
     rodada3(con)
+    rodada4(con)
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)

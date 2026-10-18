@@ -325,13 +325,19 @@
    },
    "decisao": "aceitar",
    "de": {
-    "subtipo": null
+    "subtipo": null,
+    "descricao": "Ex-cunhado do ministro Gilmar Mendes; contratado por empresa ligada a Vorcaro por R$ 500 mil mensais."
    },
    "para": {
-    "subtipo": "ex-cunhado"
+    "subtipo": "ex-cunhado",
+    "descricao": "Irmão da ex-mulher do ministro Gilmar Mendes (ex-cunhado); prestou serviços a empresa ligada a Vorcaro — o valor de R$ 500 mil mensais citado por uma fonte não tem confirmação documental."
    },
-   "motivo": "Fonte: ex-cunhado.",
-   "ressalvas": []
+   "motivo": "Fonte: ex-cunhado. Descrição: rodada 4 (substituicoes-rodada4.json, decisoes.correcoes), Poder360: irmão da ex-mulher do ministro; R$ 500 mil mensais sem confirmação documental.",
+   "ressalvas": [],
+   "rodada_campos": {
+    "descricao": 4
+   },
+   "fonte_url": "https://www.poder360.com.br/poder-justica/lobista-diz-ter-tratado-de-master-com-zanin-que-nega-contato/"
   },
   {
    "origem": "teia",

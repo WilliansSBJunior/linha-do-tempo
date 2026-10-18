@@ -1081,7 +1081,8 @@ def secoes_modelo(con, R, w):
         w("| alvo | fraca | substituída por |\n|---|---|---|")
         for x in eq["substituidas"]:
             a = x["evento_id"] if x["alvo_tipo"] == "evento" else f"{x['relacao_origem']} {x['relacao_origem_ref']}"
-            w(f"| `{a}` | {x['url']} | {x['substituida_por']} |")
+            sp = x["substituida_por"]
+            w(f"| `{a}` | {x['url']} | {', '.join(sp) if isinstance(sp, list) else sp} |")
     if eq["duplicadas"]:
         w("\nRepetidas (idênticas a uma entrada anterior; contadas uma vez):\n")
         for x in eq["duplicadas"]:
@@ -1112,6 +1113,27 @@ def secoes_modelo(con, R, w):
         for r in q("SELECT COALESCE(natureza_id,'(NULL)') n, count(*) c FROM evento GROUP BY 1 ORDER BY 1"):
             w(f"| {r['n']} | {r['c']} |")
         w(f"\nEventos `nao_classificada` depois da rodada: {len(restam)}" + (" (" + ", ".join(f"`{i}`" for i in restam) + ")." if restam else "."))
+    # ---------------------------------------------------------------- 20
+    ea = R["evid_adic"]
+    r4 = [e for e in ea["entradas"] if e.get("rodada") == 4]
+    if r4:
+        corr4 = [c for c in R["evento_corr"]["aplicadas"] if c.get("rodada") == 4]
+        fr_dist = {(curadoria._chave_alvo(e), curadoria.normalizar_url(e["substitui"])) for e in r4}
+        nf = sum(eq["depois"].values())
+        w("\n## 20. Rodada 4: substituição das fontes fracas (`data/curadoria/substituicoes-rodada4.json`)\n")
+        w(f"{len(r4)} fontes novas (`boa`, papel `sustenta`) para {len({curadoria._chave_alvo(e) for e in r4})} alvos, cada uma com `substitui`; "
+          f"{len(fr_dist)} fontes fracas distintas substituídas (todas registradas em `evidencias-adicionais.json`, que ganham `substituida_por`). "
+          "Aplicadas por `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das rodadas 1-3), conferidas antes por "
+          "`curadoria.conferir_substituicoes`. Uma fraca substituída deixa de ser ligada ao alvo; se a URL também é fonte bruta do bloco-ano do evento "
+          f"(`brasil-fontes.json`), a ligação volta a ser `contexto` sem avaliação ({len(ea['contexto_mantidas'])} já eram `contexto`; "
+          f"{len(ea['rebaixadas'])} eram `sustenta` por slug e foram rebaixadas). {len(ea['r4_ja_ligadas'])} substitutas já eram fonte `boa` do alvo "
+          f"(rodadas 2-3; a ligação existente fica), {len(ea['r4_reavaliadas'])} são a mesma URL relida (reavaliação) e {len(ea['r4_promovidas'])} eram "
+          f"`contexto` do bloco-ano e subiram a `sustenta`. Ligações `fraca` no banco: {nf + len(fr_dist)} -> {nf}. "
+          f"Correções de texto: {len(corr4)} em `evento-correcoes.json` (`\"rodada\": 4`) e a descrição de `N[197].fam_de` em `relacao-correcoes.json`. "
+          "Detalhe em `relatorio-evidencias-adicionais.md`, seção \"Rodada 4\".\n")
+        w("| natureza (todos os eventos) | eventos |\n|---|---:|")
+        for r in q("SELECT COALESCE(natureza_id,'(NULL)') n, count(*) c FROM evento GROUP BY 1 ORDER BY 1"):
+            w(f"| {r['n']} | {r['c']} |")
 
 
 def tokens(s):

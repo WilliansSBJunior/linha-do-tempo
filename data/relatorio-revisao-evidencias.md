@@ -10,11 +10,13 @@ Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta foram corrigidos 
 
 | | |
 |---|---:|
-| eventos corrigidos | 57 |
-| &nbsp;&nbsp;campo `descricao` | 51 |
-| &nbsp;&nbsp;campo `titulo` | 6 |
+| eventos corrigidos | 63 |
+| &nbsp;&nbsp;campo `descricao` | 56 |
+| &nbsp;&nbsp;campo `titulo` | 7 |
 | &nbsp;&nbsp;da rodada 2 (eventos da linha do tempo sem fonte própria) | 24 |
 | &nbsp;&nbsp;da rodada 3 (eventos que continuavam `nao_classificada`; decisões de `evidencias-rodada3.json`) | 7 |
+| &nbsp;&nbsp;da rodada 4 (substituição das fontes fracas; decisões de `substituicoes-rodada4.json`) | 6 |
+| &nbsp;&nbsp;eventos com correção em mais de uma rodada (aplicadas em sequência, cada `de` no texto já corrigido) | 2 |
 | relações de linha do tempo corrigidas (período/descrição) | 5 |
 | vínculos da teia ajustados (subtipo/rótulo/tipo) | 12 |
 | &nbsp;&nbsp;`subtipo` definido | 11 |
@@ -22,8 +24,9 @@ Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta foram corrigidos 
 | &nbsp;&nbsp;`tipo` trocado | 1 |
 | itens mantidos com nota (relações/vínculos sem mudança) | 2 |
 | ressalvas mantidas com nota, sem mudança no banco (ids de ressalva) | 37 |
+| vínculos da teia com campo corrigido na rodada 4 (`rodada_campos`) | 1 |
 
-Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de substituição por fontes primárias; nenhuma foi removida (`data/relatorio-evidencias-adicionais.md`, seção "Fontes fracas").
+Fontes fracas: a rodada 4 (`substituicoes-rodada4.json`) substituiu as que tinham fonte aberta melhor; ficam 4 ligações `fraca` no banco, marcadas (`data/relatorio-evidencias-adicionais.md`, seções "Fontes fracas" e "Rodada 4"). As substituídas ficam no arquivo como histórico.
 
 ## Eventos corrigidos
 
@@ -43,11 +46,13 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | `ev-2000-lei-de-responsabilidade-fiscal` | descricao | os relatores foram Pedro Novais na Câmara e Jefferson Peres no Senado. -> no Senado, Jefferson Péres foi o relator na CAE e Álvaro Dias na CCJ. | Pedro Novais como relator na Câmara não foi confirmado em nenhuma fonte; o Senado confirma Péres (CAE) e Álvaro Dias (CCJ). | r016 |
 | `ev-2002-eneas-e-o-deputado-federal-mais-votado` | descricao | cerca de 1,57 milhão de votos -> cerca de 1,5 milhão de votos | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): Congresso em Foco: 'o maior número de votos da história: 1,5 milhão'; o número exato 1,57 mi não foi confirmado. A superação em 2018 fica como está (não verificada; nota na evidência). |  |
 | `ev-2002-fmi-aprova-o-maior-emprestimo-da` | descricao | um stand-by de cerca de US$ 30 bilhões para o Brasil, o maior crédito do Fundo até então, com US$ 6 bilhões liberados antes da eleição de outubro. -> um stand-by de US$ 30,4 bilhões para o Brasil, o maior crédito do Fundo até então, com cerca de US$ 3 bilhões liberados de imediato e o restante condicionado a revisões. | Comunicado do FMI (PR 02/40). |  |
+| `ev-2003-comeca-a-invasao-do-iraque` | descricao | US$ 28,78, ante US$ 25,12 em 2002 -> US$ 28,85, ante US$ 24,99 em 2002 | Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2003 = 28,85; 2002 = 24,99). |  |
 | `ev-2003-estatuto-do-desarmamento` | descricao | A Lei 10.826, publicada em 22/12/2003, -> A Lei 10.826, sancionada em 22/12/2003 e publicada no DOU em 23/12/2003, | evidencia-qualidade-revisao.json, correcoes_pendentes idx 86: a fonte anexada (Planalto, texto da Lei 10.826) traz "Brasília, 22 de dezembro de 2003" e "publicado no DOU de 23.12.2003"; a descrição dizia publicada em 22/12. |  |
 | `ev-2004-eleicoes-municipais-de-2004` | descricao | PSDB 870, PFL 789 e PT 411 -> PSDB 871, PFL 789 e PT 409 | Agência Brasil, 1/11/2004. |  |
 | `ev-2004-lei-das-parcerias-publico-privadas` | descricao | valor mínimo de R$ 10 milhões -> valor mínimo de R$ 20 milhões (reduzido a R$ 10 milhões pela Lei 13.529/2017) | Lei 11.079, art. 2º §4º, texto original. |  |
 | `ev-2004-mercosul-e-comunidade-andina-firmam` | descricao | Em 8 de dezembro de 2004 a Comunidade Andina assinou um acordo de cooperação com o Mercosul, que levou os quatro membros plenos do bloco a se tornarem associados da CAN em julho de 2005. -> Em 18 de outubro de 2004 a Comunidade Andina e o Mercosul assinaram o Acordo de Complementação Econômica nº 59 (ACE 59); posteriormente, os membros plenos do Mercosul tornaram-se associados da CAN. | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): OEA/SICE: ACE 59 assinado em 18/10/2004 (8/12/2004 é a Declaração de Cusco). A associação em 7/2005 não foi confirmada em fonte aberta: fica vaga ('posteriormente'). |  |
 | `ev-2004-petroleo-passa-de-us-50-o-barril` | descricao | superou US$ 50 o barril em outubro de 2004 -> superou US$ 50 o barril em 28 de setembro de 2004 | NPR, 28/9/2004. |  |
+| `ev-2004-petroleo-passa-de-us-50-o-barril` | descricao | US$ 38,23, ante US$ 28,78 em 2003 -> US$ 38,26, ante US$ 28,85 em 2003 | Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2004 = 38,26; 2003 = 28,85). |  |
 | `ev-2005-cassacoes-de-roberto-jefferson-e-jose` | descricao | e o de José Dirceu em 30/11/2005, -> e o de José Dirceu na madrugada de 1/12/2005 (sessão iniciada em 30/11), | Congresso em Foco: votação concluída logo após a meia-noite. | r020 |
 | `ev-2005-katrina-e-petroleo-mais-caro` | descricao | o Brent teve média anual de US$ 54,68 em 2005, ante US$ 38,23 em 2004. -> o Brent teve média anual de US$ 54,57 em 2005, ante US$ 38,26 em 2004 (série da EIA). | Os números do banco não batem com a série anexada (EIA/FRED); a evidência manda. | r027 |
 | `ev-2007-corrida-ao-northern-rock-no-reino-unido` | descricao | a primeira grande corrida bancária britânica em 150 anos. -> a primeira grande corrida bancária britânica desde 1866. | Relatório do Treasury Committee (Câmara dos Comuns). |  |
@@ -58,16 +63,20 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | `ev-2009-grecia-revela-deficit-de-12-7-do-pib` | titulo | Grécia revela déficit de 12,7% do PIB -> Grécia revela déficit de cerca de 12,5% do PIB | ESM (Safeguarding the euro). |  |
 | `ev-2010-china-a-frente-do-japao-e-principal` | descricao | O PIB nominal da China (US$ 6,19 tri) ficou acima do japonês (US$ 5,81 tri) em 2010 -> O PIB nominal da China (US$ 5,88 tri, pelos dados oficiais divulgados em fevereiro de 2011) ficou acima do japonês (US$ 5,47 tri) em 2010 | Os valores do banco não têm fonte; os da evidência são os divulgados pelos dois governos. | r032 |
 | `ev-2010-primeiro-resgate-da-grecia` | descricao | Em 3 de maio de 2010 -> Em 2 de maio de 2010 | O comunicado do Eurogrupo/FMI é de 2/5/2010. | r038 |
+| `ev-2011-guerra-na-libia-e-brent-a-us-111-54` | descricao | US$ 111,54, ante US$ 79,81 em 2010 -> US$ 111,26, ante US$ 79,61 em 2010 | Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2011 = 111,26; 2010 = 79,61). |  |
+| `ev-2011-guerra-na-libia-e-brent-a-us-111-54` | titulo | US$ 111,54 -> US$ 111,26 | Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2011 = 111,26). |  |
 | `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` | descricao | cerca de 45,4 mil participantes credenciados -> cerca de 46 mil participantes | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): ONU (press.un.org, ENV/DEV/1310): 'total participation at close to 46,000'. Fonte oficial. |  |
 | `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` | titulo | reúne 88 chefes -> reúne mais de 100 chefes | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): ONU (press.un.org, ENV/DEV/1310): 'over 100 Heads of State and Government'. Fonte oficial. |  |
 | `ev-2013-camara-mantem-o-mandato-de-natan-donadon` | descricao | em voto secreto em 28-29/8 -> em voto secreto em 28/8 | Agência Câmara. |  |
 | `ev-2013-governo-lanca-o-programa-mais-medicos` | descricao | com meta de 15 mil profissionais. -> com estimativa inicial de 10 mil vagas. | A meta de 15 mil só aparece na Wikipédia; a fonte da época fala em 10 mil. |  |
 | `ev-2014-argentina-entra-em-default-seletivo` | descricao | que detinham cerca de US$ 4 bilhões em títulos. -> com sentença de cerca de US$ 1,33 bilhão. | La República. |  |
+| `ev-2014-inicio-da-operacao-lava-jato` | descricao | , que investiga o doleiro Alberto Youssef e o executivo da Petrobras Paulo Roberto Costa em esquema -> , com a prisão do doleiro Alberto Youssef; o ex-diretor da Petrobras Paulo Roberto Costa é preso em 20/3, em esquema | Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): Agência Brasil (20/3/2014): Paulo Roberto Costa foi preso em 20/3, depois da fase de 17/3. |  |
 | `ev-2015-acordo-de-paris-na-cop21` | descricao | 195 países-membros da UNFCCC e a União Europeia chegaram a consenso sobre o texto do Acordo de Paris na COP21. -> as 195 Partes da UNFCCC (incluindo a União Europeia) adotaram o Acordo de Paris na COP21. | A UNFCCC conta 195 Partes já com a UE; 'consenso' não consta das fontes. | r040 |
 | `ev-2015-colapso-do-preco-das-commodities` | descricao | o do minério de ferro de US$ 97,39 para US$ 56,14 por tonelada (séries do FMI). -> o do minério de ferro de US$ 96,8 para US$ 55,2 por tonelada (séries do FMI, boletim de janeiro de 2016). | Alinhado ao boletim do FMI anexado como evidência. | r041 |
 | `ev-2015-manifestacoes-contra-o-governo` | descricao | reúnem centenas de milhares de pessoas contra o governo -> reúnem multidões contra o governo (cerca de 2 milhões em 15/3, 560 mil em 12/4 e 795 mil em 16/8, por estimativas das polícias militares) | A fonte dá números muito acima de 'centenas de milhares'. | r044 |
 | `ev-2015-turbulencia-na-china-bolsa-e-yuan` | descricao | A bolsa de Xangai caiu de mais de 5.000 pontos em meados de junho para menos de 3.000 no fim de agosto, -> A bolsa de Xangai fechou abaixo de 3.000 pontos em 25 de agosto de 2015, | O pico acima de 5.000 em junho não foi confirmado em fonte aberta. | r048 |
 | `ev-2016-opep-faz-seu-primeiro-corte-de-producao` | descricao | Rússia e outros dez produtores -> Rússia e outros onze produtores | Exame, 10/12/2016: 12 produtores de fora da Opep. |  |
+| `ev-2016-opep-faz-seu-primeiro-corte-de-producao` | descricao | média de US$ 45,08 -> média de US$ 43,64 | Rodada 4 (substituicoes-rodada4.json, decisoes.correcoes): série anual do Brent EIA/FRED (2016 = 43,64). |  |
 | `ev-2017-brent-sobe-para-us-54-89-de-media-com` | descricao | média de US$ 54,89 por barril, ante US$ 45,08 em 2016, segundo o FMI. -> média de US$ 54,13 por barril, ante US$ 43,64 em 2016, segundo a série da EIA. | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): alinhado à série anexada (EIA, Brent spot: 2017 = 54,13; 2016 = 43,64); a fonte citada passa de FMI a EIA. |  |
 | `ev-2017-brent-sobe-para-us-54-89-de-media-com` | titulo | US$ 54,89 -> US$ 54,13 | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): alinhado à série anexada (EIA, Brent spot, média anual 2017 = 54,13), como já feito para 2005. |  |
 | `ev-2017-mercosul-suspende-a-venezuela-por-tempo` | descricao | aplicada em 1º de dezembro de 2016 -> aplicada em dezembro de 2016 | O dia 1º não consta da fonte. |  |
@@ -120,7 +129,8 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | 363 `N[142].fam_de` | Camilla Ramos -> Newton Ramos | subtipo | (vazio) -> conjuge | Fonte: esposa. |
 | 364 `N[160].lig_de` | Queiroga, Vieira, Queiroz e Ramos Advocacia (QVQR) -> Newton Ramos | subtipo | escritorio_ligado -> escritorio_do_conjuge | Escritório é da esposa; rótulo 'Escritório ligado a' mantido, com subtipo que explicita o caminho. |
 | 366 `N[163].lig_de` | Lewandowski Advocacia -> Ricardo Lewandowski | descricao | Escritório de Lewandowski que recebeu R$ 5 milhões do Banco Master, inclusive com ele já como ministro; depois representado pelo filho. -> Escritório de Lewandowski que recebeu R$ 6,5 milhões brutos do Banco Master, dos quais R$ 5,25 milhões depois de ele assumir o Ministério da Justiça, em janeiro de 2024; depois representado pelo filho. | Metrópoles (26/1/2026): total bruto de R$ 6,5 mi, R$ 5,25 mi pagos após ele virar ministro (jan/2024). |
-| 367 `N[197].fam_de` | Chiquinho Feitosa -> Gilmar Mendes | subtipo | (vazio) -> ex-cunhado | Fonte: ex-cunhado. |
+| 367 `N[197].fam_de` | Chiquinho Feitosa -> Gilmar Mendes | subtipo | (vazio) -> ex-cunhado | Fonte: ex-cunhado. Descrição: rodada 4 (substituicoes-rodada4.json, decisoes.correcoes), Poder360: irmão da ex-mulher do ministro; R$ 500 mil mensais sem confirmação documental. |
+| 367 `N[197].fam_de` | Chiquinho Feitosa -> Gilmar Mendes | descricao | Ex-cunhado do ministro Gilmar Mendes; contratado por empresa ligada a Vorcaro por R$ 500 mil mensais. -> Irmão da ex-mulher do ministro Gilmar Mendes (ex-cunhado); prestou serviços a empresa ligada a Vorcaro — o valor de R$ 500 mil mensais citado por uma fonte não tem confirmação documental. | Fonte: ex-cunhado. Descrição: rodada 4 (substituicoes-rodada4.json, decisoes.correcoes), Poder360: irmão da ex-mulher do ministro; R$ 500 mil mensais sem confirmação documental. |
 
 ## Mantidos com nota (nada mudou)
 

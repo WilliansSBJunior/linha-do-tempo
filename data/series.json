@@ -55940,8 +55940,17 @@
    "titulo": "Posse de Fernando Henrique Cardoso",
    "descricao": "Em 1/1/1995 toma posse o presidente Fernando Henrique Cardoso (PSDB), eleito em 1994 no primeiro turno, com cerca de 54,3% dos votos válidos, após o Plano Real.",
    "peso": 4,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://fundacaofhc.org.br/files/artigo/3.pdf",
+     "veiculo": "Fundacao FHC (texto do discurso de posse)",
+     "tipo": "documento_oficial",
+     "titulo": "Discurso de posse de Fernando Henrique Cardoso no Congresso Nacional",
+     "data": "1995-01-01",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.poder360.com.br/midia/fhc-questiona-reeleicao-em-documentario-que-estreia-no-dia-31",
      "veiculo": "Poder360",
@@ -55949,24 +55958,6 @@
      "titulo": "FHC questiona reeleição em documentário que estreia no dia 31",
      "data": "2022-03-16",
      "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://fundacaofhc.org.br/wp-content/uploads/2025/12/curriculo-fhc-2025.pdf",
-     "veiculo": "fundacaofhc.org.br",
-     "tipo": "outro",
-     "titulo": "Currículo Fernando Henrique Cardoso (Fundação FHC)",
-     "data": "2025",
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://www.preparaenem.com/historia-do-brasil/eleicoes-de-1994.htm",
-     "veiculo": "preparaenem.com",
-     "tipo": "outro",
-     "titulo": "Eleições de 1994",
-     "data": null,
-     "qualidade": "fraca",
      "papel": "sustenta"
     }
    ]
@@ -56063,12 +56054,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Mexican_peso_crisis",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Mexican peso crisis",
-     "data": "2026",
-     "qualidade": "fraca",
+     "url": "https://www.csmonitor.com/layout/set/amphtml/1995/0201/01032.html",
+     "veiculo": "The Christian Science Monitor",
+     "tipo": "reportagem",
+     "titulo": "Clinton, Facing Fight On Mexican Bailout, Drafts Rescue Plan",
+     "data": "1995-02-01",
+     "qualidade": "boa",
      "papel": "sustenta"
     }
    ]
@@ -57017,12 +57008,12 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
-     "veiculo": "fedprimerate.com",
-     "tipo": "outro",
-     "titulo": "Federal funds rate history",
-     "data": "1996-01-31",
-     "qualidade": "fraca",
+     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
+     "veiculo": "federalreserve.gov",
+     "tipo": "documento_oficial",
+     "titulo": "FOMC - Historical Archive: rate changes (1996)",
+     "data": null,
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -57033,15 +57024,6 @@
      "data": "1996-01-31",
      "qualidade": "boa",
      "papel": "sustenta"
-    },
-    {
-     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
-     "veiculo": "federalreserve.gov",
-     "tipo": "documento_oficial",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
     },
     {
      "url": "https://www.upi.com/Archives/1996/06/25/Chile-signs-up-with-Mercosur/3797835675200",
@@ -57305,12 +57287,12 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://fpabramo.org.br/ha-22-anos-vale-era-privatizada-a-preco-de-banana",
-     "veiculo": "fpabramo.org.br",
+     "url": "https://www.brasildefato.com.br/2022/05/06/25-anos-da-privatizacao-da-vale-lucros-e-crimes-cometidos-evidenciam-mau-negocio-para-o-pais",
+     "veiculo": "Brasil de Fato",
      "tipo": "reportagem",
-     "titulo": "Há 22 anos, Vale era privatizada a preço de banana",
-     "data": "2019-05-06",
-     "qualidade": "fraca",
+     "titulo": "25 anos da privatização da Vale",
+     "data": "2022-05-06",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -57536,15 +57518,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Michel Temer",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc16.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -57725,12 +57698,21 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/October_27,_1997,_mini-crash",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "October 27, 1997, mini-crash",
+     "url": "https://money.cnn.com/1997/10/27/markets/marketwrap",
+     "veiculo": "CNN Money",
+     "tipo": "reportagem",
+     "titulo": "Markets wrap 27/10/1997",
      "data": "1997-10-27",
-     "qualidade": "fraca",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.npr.org/1997/10/23/1027667/hong-kong-market-drop",
+     "veiculo": "NPR",
+     "tipo": "reportagem",
+     "titulo": "Hong Kong market drop",
+     "data": "1997-10-23",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -57773,16 +57755,16 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Kyoto_Protocol",
+     "url": "https://en.wikipedia.org/wiki/1997_Asian_financial_crisis",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
-     "titulo": "Kyoto Protocol",
+     "titulo": null,
      "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
+     "qualidade": null,
+     "papel": "contexto"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/1997_Asian_financial_crisis",
+     "url": "https://en.wikipedia.org/wiki/Kyoto_Protocol",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
@@ -57803,12 +57785,12 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://pdba.georgetown.edu/Elecdata/Brazil/pres98.html",
-     "veiculo": "pdba.georgetown.edu",
-     "tipo": "dado_oficial",
-     "titulo": "Brazil 1998 presidential election results (Georgetown PDBA)",
+     "url": "https://bibliotecadigital.tse.jus.br/bitstreams/00a5f6b9-7813-4e26-8e44-d1254570c364/download",
+     "veiculo": "Paraná Eleitoral (TRE-PR) / Biblioteca Digital do TSE",
+     "tipo": "relatorio",
+     "titulo": "Artigo sobre a eleição presidencial de 1998 no Paraná",
      "data": "1998",
-     "qualidade": "fraca",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -58427,7 +58409,7 @@
    "titulo": "Rússia desvaloriza o rublo e declara moratória",
    "descricao": "Em 17 de agosto de 1998 a Rússia desvalorizou o rublo e declarou moratória de 90 dias sobre a dívida externa, um mês depois de um pacote de US$ 22,6 bilhões do FMI e do Banco Mundial, aprovado em 20 de julho.",
    "peso": 5,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://www.npr.org/1998/08/17/1033966/russia-economy",
@@ -58448,12 +58430,21 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://www.heritage.org/node/20069",
-     "veiculo": "heritage.org",
-     "tipo": "outro",
-     "titulo": "The IMF's $22.6 Billion Failure in Russia",
-     "data": "1998",
-     "qualidade": "fraca",
+     "url": "https://www.imf.org/external/np/sec/pr/1998/PR9831.HTM",
+     "veiculo": "FMI (IMF)",
+     "tipo": "comunicado",
+     "titulo": "Press Release 98/31: IMF Approves Augmentation of Russia Extended Arrangement and Credit under CCFF",
+     "data": "1998-07-20",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.imf.org/external/np/sec/nb/1998/nb9830.htm",
+     "veiculo": "FMI (IMF)",
+     "tipo": "comunicado",
+     "titulo": "News Brief 98/30: Camdessus Comments on Russian Actions",
+     "data": "1998-08-17",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -58580,12 +58571,12 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
-     "veiculo": "fedprimerate.com",
-     "tipo": "outro",
-     "titulo": "Federal funds rate history",
-     "data": "1996-01-31",
-     "qualidade": "fraca",
+     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
+     "veiculo": "federalreserve.gov",
+     "tipo": "documento_oficial",
+     "titulo": "FOMC - Historical Archive: rate changes (1998)",
+     "data": null,
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -58614,15 +58605,6 @@
      "data": "1998-09-29",
      "qualidade": "boa",
      "papel": "sustenta"
-    },
-    {
-     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
-     "veiculo": "federalreserve.gov",
-     "tipo": "documento_oficial",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
     },
     {
      "url": "https://money.cnn.com/1998/11/13/economy/imf",
@@ -58976,15 +58958,6 @@
      "titulo": "Conheça os presidentes do Senado eleitos desde a redemocratização",
      "data": null,
      "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://jornalcontabil.com.br/noticia/resultados-das-eleicoes-para-presidente-da-camara-das-ultimas-dez-legislaturas/amp",
-     "veiculo": "jornalcontabil.com.br",
-     "tipo": "reportagem",
-     "titulo": "Resultados das eleições para presidente da Câmara das últimas dez legislaturas",
-     "data": "2023-02-01",
-     "qualidade": "fraca",
      "papel": "sustenta"
     },
     {
@@ -59423,12 +59396,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Euro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Euro",
-     "data": null,
-     "qualidade": "fraca",
+     "url": "https://www.bde.es/wbe/en/sobre-banco/actividad-europea/eurosistema-sebc/historia-eurosistema/uem/fases-uem",
+     "veiculo": "Banco de España (Eurosistema)",
+     "tipo": "documento_oficial",
+     "titulo": "Fases da UEM",
+     "data": "1999-01-01",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -59444,6 +59417,15 @@
      "url": "https://fred.stlouisfed.org/data/POILBREUSDA.txt",
      "veiculo": "fred.stlouisfed.org",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Euro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -59471,12 +59453,12 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
-     "veiculo": "fedprimerate.com",
-     "tipo": "outro",
-     "titulo": "Federal funds rate history",
-     "data": "1996-01-31",
-     "qualidade": "fraca",
+     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
+     "veiculo": "federalreserve.gov",
+     "tipo": "documento_oficial",
+     "titulo": "FOMC - Historical Archive: rate changes (1999)",
+     "data": null,
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -59496,15 +59478,6 @@
      "data": "1999-06-30",
      "qualidade": "boa",
      "papel": "sustenta"
-    },
-    {
-     "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
-     "veiculo": "federalreserve.gov",
-     "tipo": "documento_oficial",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
     },
     {
      "url": "https://fred.stlouisfed.org/data/POILBREUSDA.txt",
@@ -59564,12 +59537,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://www.britannica.com:443/print/article/1948945",
-     "veiculo": "britannica.com",
-     "tipo": "outro",
-     "titulo": "Seattle WTO protests of 1999",
-     "data": "1999-12-03",
-     "qualidade": "fraca",
+     "url": "https://archive.seattletimes.com/archive/19991204/2999245/talks-collapse-meeting-ends----group-will-leave-here-without-an-agreement",
+     "veiculo": "The Seattle Times",
+     "tipo": "reportagem",
+     "titulo": "Talks Collapse; Meeting Ends -- Group Will Leave Here Without An Agreement",
+     "data": "1999-12-04",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -59789,12 +59762,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Dot-com_bubble",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Dot-com bubble",
-     "data": "2026",
-     "qualidade": "fraca",
+     "url": "https://fortune.com/2015/04/23/nasdaq-supasses-internet-bubble-peak-to-set-new-record",
+     "veiculo": "Fortune",
+     "tipo": "reportagem",
+     "titulo": "Nasdaq surpasses internet bubble peak to set new record",
+     "data": "2015-04-23",
+     "qualidade": "boa",
      "papel": "sustenta"
     }
    ]
@@ -60086,18 +60059,27 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Jader_Barbalho",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Jader Barbalho – Wikipédia",
-     "data": null,
-     "qualidade": "fraca",
+     "url": "https://www.congressoemfoco.com.br/noticia/63468/jader-gasta-r-100-mil-para-divulgar-mandato",
+     "veiculo": "Congresso em Foco",
+     "tipo": "reportagem",
+     "titulo": "Jader gasta R$ 100 mil para divulgar mandato",
+     "data": "2010",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
      "url": "https://www.senado.gov.br/Relatorios_SGM/RelPresi/2000/009-Lideres.pdf",
      "veiculo": "senado.gov.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Jader_Barbalho",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -60176,15 +60158,6 @@
      "titulo": "Aécio Neves – Portal da Câmara dos Deputados",
      "data": "2001-02-14",
      "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://jornalcontabil.com.br/noticia/resultados-das-eleicoes-para-presidente-da-camara-das-ultimas-dez-legislaturas/amp",
-     "veiculo": "jornalcontabil.com.br",
-     "tipo": "reportagem",
-     "titulo": "Resultados das eleições para presidente da Câmara das últimas dez legislaturas",
-     "data": "2023-02-01",
-     "qualidade": "fraca",
      "papel": "sustenta"
     },
     {
@@ -60536,15 +60509,6 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://pt.wikipedia.org/wiki/Jader_Barbalho",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Jader Barbalho – Wikipédia",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://noticias.stf.jus.br/postsnoticias/stf-recebe-reclamacao-de-procuradores-de-jader-barbalho-preso-em-palmas-republicacao",
      "veiculo": "noticias.stf.jus.br",
      "tipo": "comunicado",
@@ -60602,6 +60566,15 @@
      "url": "https://www.tribunapr.com.br/noticias/economia/brasil-faz-acordo-e-pega-us-30-bilhoes-do-fmi/amp",
      "veiculo": "tribunapr.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Jader_Barbalho",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -60680,16 +60653,25 @@
    "titulo": "TSE impõe a verticalização das coligações",
    "descricao": "Em 26/2/2002 o TSE, em resposta a consulta do deputado Miro Teixeira (PDT-RJ), decide pela Resolução 21.002 que partidos coligados na eleição presidencial não podem se coligar nos estados com legendas que tenham candidato próprio à Presidência.",
    "peso": 3,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://sintse.tse.jus.br/documentos/2002/Mar/15/diario-da-justica-secao-1/resolucao-no-21-002-de-26-de-fevereiro-de-2002-consulta-coligacoes",
+     "veiculo": "TSE (Diário da Justiça)",
+     "tipo": "decisao_judicial",
+     "titulo": "Resolução nº 21.002, de 26 de fevereiro de 2002 - Consulta (Coligações)",
+     "data": "2002-02-26",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://jus.com.br/artigos/3211/a-verticalizacao-das-coligacoes-partidarias-nas-eleicoes-gerais-de-2002",
      "veiculo": "jus.com.br",
      "tipo": "reportagem",
-     "titulo": "A verticalização das coligações partidárias nas eleições gerais de 2002",
+     "titulo": null,
      "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
+     "qualidade": null,
+     "papel": "contexto"
     },
     {
      "url": "https://www.congressoemfoco.com.br/noticia/100984/entenda-a-polemica-da-verticalizacao-do-tse",
@@ -61106,21 +61088,21 @@
      "papel": "sustenta"
     },
     {
+     "url": "https://www.moneytimes.com.br/eduardo-bolsonaro-e-o-mais-votado-do-brasil-com-184-milhao-de-votos",
+     "veiculo": "moneytimes.com.br",
+     "tipo": "reportagem",
+     "titulo": "Eduardo Bolsonaro é o mais votado do Brasil com 1,84 milhão de votos",
+     "data": null,
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
      "url": "https://pt.wikipedia.org/wiki/Enéas_Carneiro",
      "veiculo": "pt.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/En%C3%A9as_Carneiro",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Enéas Carneiro – Wikipédia",
-     "data": "2002",
-     "qualidade": "fraca",
      "papel": "sustenta"
     },
     {
@@ -61262,15 +61244,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/2002_Brazilian_general_election",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "2002 Brazilian general election",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://jus.com.br/artigos/3211/a-verticalizacao-das-coligacoes-partidarias-nas-eleicoes-gerais-de-2002",
      "veiculo": "jus.com.br",
      "tipo": "reportagem",
@@ -61354,6 +61327,15 @@
     {
      "url": "https://pt.wikipedia.org/wiki/Enéas_Carneiro",
      "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/2002_Brazilian_general_election",
+     "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
      "data": null,
@@ -62757,7 +62739,7 @@
    "secao": "intl",
    "ordem": 0,
    "titulo": "Começa a invasão do Iraque",
-   "descricao": "A invasão do Iraque teve início em 20 de março de 2003, e o Brent teve média anual de US$ 28,78, ante US$ 25,12 em 2002.",
+   "descricao": "A invasão do Iraque teve início em 20 de março de 2003, e o Brent teve média anual de US$ 28,85, ante US$ 24,99 em 2002.",
    "peso": 4,
    "natureza": "documentada",
    "fontes": [
@@ -62771,12 +62753,21 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/2003_invasion_of_Iraq",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "2003 invasion of Iraq",
-     "data": "2003-03-20",
-     "qualidade": "fraca",
+     "url": "https://georgewbush-whitehouse.archives.gov/news/releases/2003/03/text/20030319-17.html",
+     "veiculo": "Casa Branca (arquivo George W. Bush)",
+     "tipo": "documento_oficial",
+     "titulo": "President Bush Addresses the Nation",
+     "data": "2003-03-19",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://fred.stlouisfed.org/data/ACOILBRENTEU",
+     "veiculo": "fred.stlouisfed.org (dados da EIA)",
+     "tipo": "dado_oficial",
+     "titulo": "Table Data - Crude Oil Prices: Brent - Europe",
+     "data": "2005",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -62921,12 +62912,12 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Oesp03.09.15.pdf",
-     "veiculo": "Estadão (via PUC-Rio)",
-     "tipo": "reportagem",
-     "titulo": "Colhendo o que se plantou",
-     "data": "2003-09-15",
-     "qualidade": "fraca",
+     "url": "https://www.everycrsreport.com/reports/RS21664.html",
+     "veiculo": "Congressional Research Service (via EveryCRSReport)",
+     "tipo": "relatorio",
+     "titulo": "The WTO Cancún Ministerial (RS21664)",
+     "data": "2003-11-06",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -63314,7 +63305,7 @@
    "titulo": "Fundação do PSOL",
    "descricao": "O PSOL é fundado em 6/6/2004 por Heloísa Helena, Babá, Luciana Genro e João Fontes, expulsos do PT em dezembro de 2003; o registro definitivo no TSE sai em 15/9/2005.",
    "peso": 2,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://memoria.ebc.com.br/agenciabrasil//noticia/2004-06-06/pt-dissidents-found-socialism-and-liberty-party",
@@ -63326,21 +63317,21 @@
      "papel": "sustenta"
     },
     {
+     "url": "https://www12.senado.leg.br/noticias/materias/2005/09/16/tse-concede-registro-definitivo-para-o-psol",
+     "veiculo": "Agência Senado",
+     "tipo": "reportagem",
+     "titulo": "TSE concede registro definitivo para o PSOL",
+     "data": "2005-09-16",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
      "url": "https://pt.wikipedia.org/wiki/Heloísa_Helena",
      "veiculo": "pt.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Partido_Socialismo_e_Liberdade",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Partido Socialismo e Liberdade – Wikipédia",
-     "data": null,
-     "qualidade": "fraca",
      "papel": "sustenta"
     },
     {
@@ -63399,6 +63390,15 @@
     },
     {
      "url": "https://pt.wikipedia.org/wiki/Waldomiro_Diniz",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Partido_Socialismo_e_Liberdade",
      "veiculo": "pt.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
@@ -64029,7 +64029,7 @@
    "secao": "intl",
    "ordem": 1,
    "titulo": "Petróleo passa de US$ 50 o barril",
-   "descricao": "O petróleo superou US$ 50 o barril em 28 de setembro de 2004 e o Brent teve média anual de US$ 38,23, ante US$ 28,78 em 2003.",
+   "descricao": "O petróleo superou US$ 50 o barril em 28 de setembro de 2004 e o Brent teve média anual de US$ 38,26, ante US$ 28,85 em 2003.",
    "peso": 3,
    "natureza": "reportada",
    "fontes": [
@@ -64175,15 +64175,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Andean_Community",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Andean Community",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
@@ -64212,6 +64203,15 @@
     },
     {
      "url": "https://en.wikipedia.org/wiki/Brazil%E2%80%93United_States_cotton_dispute",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Andean_Community",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
@@ -67391,12 +67391,12 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://www.campograndenews.com.br/cidades/stf-encerra-julgamento-e-determina-demarcacao-continua-03-19-2009",
-     "veiculo": "campograndenews.com.br",
+     "url": "https://www.congressoemfoco.com.br/noticia/74311/supremo-mantem-demarcacao-da-raposa-serra-do-sol",
+     "veiculo": "Congresso em Foco",
      "tipo": "reportagem",
-     "titulo": "STF encerra julgamento e determina demarcação contínua",
+     "titulo": "Supremo mantém demarcação da Raposa Serra do Sol",
      "data": "2009-03-19",
-     "qualidade": "fraca",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -67769,15 +67769,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/2009_G20_London_summit",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "2009 G20 London summit",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.npr.org/2012/01/02/144587105/brazil-sets-trade-records-due-to-chinese-demand",
      "veiculo": "npr.org",
      "tipo": "reportagem",
@@ -67790,6 +67781,15 @@
      "url": "https://www.jb.com.br/economia/noticias/2009/10/05/brasil-confirma-compra-de-us10-bi-em-titulos-do-fmi.html",
      "veiculo": "jb.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/2009_G20_London_summit",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -68993,8 +68993,8 @@
    "ano": 2011,
    "secao": "intl",
    "ordem": 3,
-   "titulo": "Guerra na Líbia e Brent a US$ 111,54",
-   "descricao": "A guerra civil na Líbia, iniciada em 15 de fevereiro de 2011, interrompeu a produção do país (cerca de 1,6 milhão de barris por dia), e o Brent teve média anual de US$ 111,54, ante US$ 79,81 em 2010.",
+   "titulo": "Guerra na Líbia e Brent a US$ 111,26",
+   "descricao": "A guerra civil na Líbia, iniciada em 15 de fevereiro de 2011, interrompeu a produção do país (cerca de 1,6 milhão de barris por dia), e o Brent teve média anual de US$ 111,26, ante US$ 79,61 em 2010.",
    "peso": 3,
    "natureza": "documentada",
    "fontes": [
@@ -69008,12 +69008,21 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Libyan_civil_war_(2011)",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Libyan civil war (2011)",
-     "data": null,
-     "qualidade": "fraca",
+     "url": "https://fred.stlouisfed.org/data/ACOILBRENTEU",
+     "veiculo": "fred.stlouisfed.org (dados da EIA)",
+     "tipo": "dado_oficial",
+     "titulo": "Table Data - Crude Oil Prices: Brent - Europe",
+     "data": "2005",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.aljazeera.com/economy/2011/3/9/libya-oil-output-drops-drastically",
+     "veiculo": "Al Jazeera",
+     "tipo": "reportagem",
+     "titulo": "Libya oil output drops drastically",
+     "data": "2011-03-09",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -69051,6 +69060,15 @@
      "data": null,
      "qualidade": null,
      "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Libyan_civil_war_(2011)",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
     }
    ]
   },
@@ -69062,23 +69080,23 @@
    "titulo": "Julgamento do mensalão no STF",
    "descricao": "Em 2/8/2012 o STF inicia o julgamento da Ação Penal 470, contra 38 réus; o processo se estende por 69 sessões até dezembro e entre os condenados está José Dirceu, com pena inicial de 10 anos e 10 meses.",
    "peso": 5,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
-    {
-     "url": "https://vermelho.org.br/2012/08/02/comeca-hoje-julgamento-do-mensalao-no-stf",
-     "veiculo": "vermelho.org.br",
-     "tipo": "reportagem",
-     "titulo": "Começa hoje julgamento do 'mensalão' no STF",
-     "data": "2012-08-02",
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
     {
      "url": "https://www.gazetadopovo.com.br/vida-publica/dirceu-e-condenado-a-quase-11-anos-de-prisao-delubio-8-e-genoino-quase-7-1xtb4ek5u4nb1m0d912bl0g9a",
      "veiculo": "gazetadopovo.com.br",
      "tipo": "reportagem",
      "titulo": "Dirceu é condenado a quase 11 anos de prisão; Delúbio 8 e Genoino quase 7",
      "data": "2012-11-12",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.camara.leg.br/noticias/380717-stf-comeca-hoje-a-julgar-os-38-reus-do-chamado-mensalao",
+     "veiculo": "Agência Câmara",
+     "tipo": "reportagem",
+     "titulo": "STF começa hoje a julgar os 38 réus do chamado mensalão",
+     "data": "2012-08-02",
      "qualidade": "boa",
      "papel": "sustenta"
     },
@@ -69212,12 +69230,12 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://ihu.unisinos.br/noticias/509554-direito-a-historia-pautara-solenidade-hoje-no-planalto",
-     "veiculo": "ihu.unisinos.br",
+     "url": "https://www.jb.com.br/pais/noticias/2012/05/16/amp/dilma-da-posse-aos-sete-membros-da-comissao-da-verdade.html",
+     "veiculo": "Jornal do Brasil",
      "tipo": "reportagem",
-     "titulo": "Direito à 'história' pautará solenidade hoje no Planalto",
+     "titulo": "Dilma dá posse aos sete membros da Comissão da Verdade",
      "data": "2012-05-16",
-     "qualidade": "fraca",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -69917,15 +69935,6 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://pt.wikipedia.org/wiki/Rio%2B20",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Rio+20",
-     "data": "2012",
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://press.un.org/en/2012/envdev1310.doc.htm",
      "veiculo": "press.un.org",
      "tipo": "comunicado",
@@ -69980,7 +69989,7 @@
    "titulo": "Jornadas de Junho",
    "descricao": "Protestos iniciados em 6/6/2013 em São Paulo contra o aumento de R$ 0,20 na tarifa de ônibus se espalham por mais de 500 cidades, e Dilma Rousseff responde em junho com a proposta de cinco pactos nacionais.",
    "peso": 5,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://exame.com/brasil/5-pactos-foram-a-resposta-do-governo-federal-aos-protestos",
@@ -69988,6 +69997,15 @@
      "tipo": "reportagem",
      "titulo": "5 pactos foram a resposta do governo federal aos protestos",
      "data": "2013-12-31",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.camara.leg.br/noticias/407612-lideres-partidarios-avaliam-propostas-de-dilma-em-resposta-a-protestos",
+     "veiculo": "Agência Câmara",
+     "tipo": "reportagem",
+     "titulo": "Líderes partidários avaliam propostas de Dilma em resposta a protestos",
+     "data": "2013-06-24",
      "qualidade": "boa",
      "papel": "sustenta"
     },
@@ -70016,15 +70034,6 @@
      "titulo": null,
      "data": null,
      "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://www.politize.com.br/por-que-junho-de-2013-marcou-o-brasil",
-     "veiculo": "politize.com.br",
-     "tipo": "outro",
-     "titulo": "Por que junho de 2013 marcou o Brasil",
-     "data": "2013",
-     "qualidade": "fraca",
      "papel": "sustenta"
     },
     {
@@ -70259,12 +70268,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://vermelho.org.br/2013/07/08/programa-mais-medicos-e-lancado-com-bolsa-de-r-10-mil",
-     "veiculo": "vermelho.org.br",
+     "url": "https://www.camara.leg.br/noticias/413337-programa-mais-medicos-e-tema-de-debate-no-plenario",
+     "veiculo": "Agência Câmara",
      "tipo": "reportagem",
-     "titulo": "Programa Mais Médicos é lançado com bolsa de R$ 10 mil",
-     "data": "2013-07-08",
-     "qualidade": "fraca",
+     "titulo": "Programa Mais Médicos é tema de debate no Plenário",
+     "data": "2013-09-04",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -70712,12 +70721,21 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://www.congressoemfoco.com.br/noticia/55258/jornais-dilma-decide-cancelar-visita-de-estado-a-obama",
-     "veiculo": "congressoemfoco.com.br",
+     "url": "https://www.jb.com.br/pais/noticias/2013/09/17/amp/planalto-confirma-cancelamento-da-viagem-de-dilma-aos-eua.html",
+     "veiculo": "Jornal do Brasil",
      "tipo": "reportagem",
-     "titulo": "Jornais: Dilma decide cancelar visita de Estado a Obama",
-     "data": "2013-09-15",
-     "qualidade": "fraca",
+     "titulo": "Planalto confirma cancelamento da viagem de Dilma aos EUA",
+     "data": "2013-09-17",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.jb.com.br/internacional/noticias/2013/09/24/amp/espionagem-e-grave-violacao-dos-direitos-humanos-critica-dilma-na-onu.html",
+     "veiculo": "Jornal do Brasil",
+     "tipo": "reportagem",
+     "titulo": "Espionagem é grave violação dos direitos humanos, critica Dilma na ONU",
+     "data": "2013-09-24",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -70868,7 +70886,7 @@
    "titulo": "Governo dos EUA fica paralisado por 16 dias",
    "descricao": "A paralisação do governo americano começou em 1º de outubro de 2013, durou 16 dias, afastou cerca de 800 mil servidores e coincidiu com o impasse sobre o teto da dívida, resolvido por lei aprovada em 16 de outubro.",
    "peso": 2,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://www.timesofisrael.com/congress-votes-to-end-shutdown-avoid-us-default",
@@ -70880,12 +70898,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2013",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "United States federal government shutdown of 2013",
-     "data": "2013-10-01",
-     "qualidade": "fraca",
+     "url": "https://www.appropriations.senate.gov/news/minority/chairwoman-mikulski-requests-omb-report-on-impacts-of-shutdown",
+     "veiculo": "Comitê de Apropriações do Senado dos EUA",
+     "tipo": "comunicado",
+     "titulo": "Chairwoman Mikulski Requests OMB Report on Impacts of Shutdown",
+     "data": "2013-10-30",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -71070,7 +71088,7 @@
    "secao": "pol",
    "ordem": 1,
    "titulo": "Início da Operação Lava Jato",
-   "descricao": "Em 17/3/2014 a Polícia Federal deflagra a primeira fase da Lava Jato, que investiga o doleiro Alberto Youssef e o executivo da Petrobras Paulo Roberto Costa em esquema de lavagem de dinheiro.",
+   "descricao": "Em 17/3/2014 a Polícia Federal deflagra a primeira fase da Lava Jato, com a prisão do doleiro Alberto Youssef; o ex-diretor da Petrobras Paulo Roberto Costa é preso em 20/3, em esquema de lavagem de dinheiro.",
    "peso": 4,
    "natureza": "reportada",
    "fontes": [
@@ -71084,12 +71102,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Lava_Jato",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Operação Lava Jato",
-     "data": null,
-     "qualidade": "fraca",
+     "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2014-03/policia-federal-prende-ex-diretor-da-petrobras-suspeito-de-lavagem-de-dinheiro",
+     "veiculo": "Agência Brasil (EBC)",
+     "tipo": "reportagem",
+     "titulo": "Polícia Federal prende ex-diretor da Petrobras suspeito de lavagem de dinheiro",
+     "data": "2014-03-20",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -71114,6 +71132,15 @@
      "url": "https://www.congressoemfoco.com.br/noticias/eduardo-cunha-e-o-novo-lider-do-pmdb-na-camara",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Lava_Jato",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -72761,15 +72788,6 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://en.wikipedia.org/wiki/2016_United_Kingdom_European_Union_membership_referendum",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "2016 United Kingdom European Union membership referendum",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-7639",
      "veiculo": "commonslibrary.parliament.uk",
      "tipo": "relatorio",
@@ -72791,6 +72809,15 @@
      "url": "https://fred.stlouisfed.org/data/POILBREUSDA.txt",
      "veiculo": "fred.stlouisfed.org",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/2016_United_Kingdom_European_Union_membership_referendum",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -72842,15 +72869,6 @@
      "titulo": "2016 Electoral College Results | National Archives",
      "data": "2016",
      "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://www.270towin.com/2016-election",
-     "veiculo": "270towin.com",
-     "tipo": "outro",
-     "titulo": "Presidential Election of 2016",
-     "data": "2016-11-08",
-     "qualidade": "fraca",
      "papel": "sustenta"
     },
     {
@@ -72981,17 +72999,17 @@
    "secao": "intl",
    "ordem": 3,
    "titulo": "Opep faz seu primeiro corte de produção desde 2008",
-   "descricao": "Em 30 de novembro de 2016 a Opep acordou cortar a produção e, em 10 de dezembro, Rússia e outros onze produtores de fora do cartel aderiram, depois de o Brent cair abaixo de US$ 30 em janeiro e fechar o ano com média de US$ 45,08.",
+   "descricao": "Em 30 de novembro de 2016 a Opep acordou cortar a produção e, em 10 de dezembro, Rússia e outros onze produtores de fora do cartel aderiram, depois de o Brent cair abaixo de US$ 30 em janeiro e fechar o ano com média de US$ 43,64.",
    "peso": 3,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://www.novacana.com/noticias/opep-acordo-cortar-producao-petroleo-011216",
-     "veiculo": "novacana.com (republicação WSJ)",
-     "tipo": "reportagem",
-     "titulo": "Opep fecha acordo histórico para cortar produção de petróleo",
-     "data": "2016-12-01",
-     "qualidade": "fraca",
+     "url": "https://fred.stlouisfed.org/data/ACOILBRENTEU",
+     "veiculo": "fred.stlouisfed.org (dados da EIA)",
+     "tipo": "dado_oficial",
+     "titulo": "Table Data - Crude Oil Prices: Brent - Europe",
+     "data": "2005",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -73000,6 +73018,15 @@
      "tipo": "reportagem",
      "titulo": "Petroleiras fora da Opep também vão cortar produção",
      "data": "2016-12-10",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.opec.org/pr-detail/458-30-nov-2016.html",
+     "veiculo": "OPEP",
+     "tipo": "comunicado",
+     "titulo": "OPEC 171st Meeting concludes",
+     "data": "2016-11-30",
      "qualidade": "boa",
      "papel": "sustenta"
     },
@@ -73070,12 +73097,12 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://www.ihu.unisinos.br/567133-cut-paralisacao-e-a-maior-da-historia-35-milhoes-de-brasileiros-deixam-de-trabalhar",
-     "veiculo": "ihu.unisinos.br (republica CUT)",
+     "url": "https://www.congressoemfoco.com.br/noticia/40246/greve-geral-paralisa-professores-rodoviarios-bancarios-e-diversas-categorias-contra-reformas-de-temer",
+     "veiculo": "Congresso em Foco",
      "tipo": "reportagem",
-     "titulo": "CUT: paralisação é a maior da história; 35 milhões de brasileiros deixam de trabalhar",
-     "data": "2017-04-29",
-     "qualidade": "fraca",
+     "titulo": "Greve geral paraliza professores, rodoviários, bancários e diversas categorias contra reformas de Temer",
+     "data": "2017-06-30",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -75221,15 +75248,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Posse_de_Jair_Bolsonaro",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Posse de Jair Bolsonaro",
-     "data": "2019-01-01",
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -76568,15 +76586,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/2019_Argentine_general_election",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "2019 Argentine general election",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190731a.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
@@ -76614,6 +76623,15 @@
     },
     {
      "url": "https://en.wikipedia.org/wiki/2019_Amazon_rainforest_wildfires",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/2019_Argentine_general_election",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
@@ -79877,12 +79895,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://www.developmentaid.org/news-stream/post/164532/black-sea-initiative-grain",
-     "veiculo": "developmentaid.org",
-     "tipo": "reportagem",
-     "titulo": "One year of the Black Sea Initiative: Key facts and figures",
-     "data": "2023-07-12",
-     "qualidade": "fraca",
+     "url": "https://www.ungeneva.org/en/news-media/press-release/2023/07/operational-update-office-un-coordinator-black-sea-grain",
+     "veiculo": "ONU Genebra (Escritório do Coordenador da ONU para a Iniciativa)",
+     "tipo": "comunicado",
+     "titulo": "Operational update from the Office of the UN Coordinator for the Black Sea Grain Initiative, 15 July 2023",
+     "data": "2023-07-17",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {

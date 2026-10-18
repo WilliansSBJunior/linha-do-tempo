@@ -9,7 +9,7 @@
    "titulo": "Clinton, Facing Fight On Mexican Bailout, Drafts Rescue Plan",
    "data": "1995-02-01",
    "trecho": "will provide Mexico with $20 billion from the Treasury Department's Emergency Exchange Fund. [...] It will also provide $17.7 billion from the International Monetary Fund, [...] another $10 billion in short-term financing from the Swiss-based Bank of International Settlements.",
-   "nota": "CONFIRMA em parte: pacote anunciado no inicio de fev/1995 soma 20 + 17,7 + 10 = ~US$ 47,7 bi (aprox. 50 bi; EBSCO fala em US$ 52 bi anunciados em 31/1/1995). Materia nao menciona Brasil nem contagio; o efeito Tequila sobre o Brasil nao foi sustentado por fonte aberta nesta rodada (artigo PUC-Rio de M. Garcia cita 'efeito tequila... contagiaria a Argentina, chegando em seguida ao Brasil', mas e academico).",
+   "nota": "CONFIRMA em parte: pacote anunciado no inicio de fev/1995 soma 20 + 17,7 + 10 = ~US$ 47,7 bi (aprox. 50 bi; EBSCO fala em US$ 52 bi anunciados em 31/1/1995). Materia nao menciona Brasil nem contagio; o efeito Tequila sobre o Brasil nao foi sustentado por fonte aberta nesta rodada (artigo PUC-Rio de M. Garcia cita 'efeito tequila... contagiaria a Argentina, chegando em seguida ao Brasil', mas e academico). [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/Mexican_peso_crisis",
    "rodada": 4
@@ -23,7 +23,7 @@
    "titulo": "Discurso de posse de Fernando Henrique Cardoso no Congresso Nacional",
    "data": "1995-01-01",
    "trecho": "BRASÍLIA, DF, 1O DE JANEIRO DE 1995",
-   "nota": "CONFIRMA a data da posse (1/1/1995) por dateline do discurso de posse; hospedado na Fundacao FHC (institucional, texto primario). Percentual: pagina oficial do TSE (resultados 1994) abriu apenas a tabela do EXTERIOR, onde FHC tem 55,22% (14.744 votos) - isso explica o 55,22% citado antes da Biblioteca do TSE: e base exterior, nao nacional. 54,3% nacional NAO verificado por fonte oficial.",
+   "nota": "CONFIRMA a data da posse (1/1/1995) por dateline do discurso de posse; hospedado na Fundacao FHC (institucional, texto primario). Percentual: pagina oficial do TSE (resultados 1994) abriu apenas a tabela do EXTERIOR, onde FHC tem 55,22% (14.744 votos) - isso explica o 55,22% citado antes da Biblioteca do TSE: e base exterior, nao nacional. 54,3% nacional NAO verificado por fonte oficial. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://fundacaofhc.org.br/wp-content/uploads/2025/12/curriculo-fhc-2025.pdf",
    "rodada": 4
@@ -37,7 +37,7 @@
    "titulo": "Discurso de posse de Fernando Henrique Cardoso no Congresso Nacional",
    "data": "1995-01-01",
    "trecho": "BRASÍLIA, DF, 1O DE JANEIRO DE 1995",
-   "nota": "CONFIRMA data da posse 1/1/1995. Os 55% do preparaenem divergem dos 54,3% da descricao, mas TSE (tabela exterior) mostra 55,22% so para votos no exterior; nacional nao verificado.",
+   "nota": "CONFIRMA data da posse 1/1/1995. Os 55% do preparaenem divergem dos 54,3% da descricao, mas TSE (tabela exterior) mostra 55,22% so para votos no exterior; nacional nao verificado. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://www.preparaenem.com/historia-do-brasil/eleicoes-de-1994.htm",
    "rodada": 4
@@ -51,7 +51,7 @@
    "titulo": "FOMC - Historical Archive: rate changes (1996)",
    "data": "1996-01-31",
    "trecho": "1996 | Date: January 31 | Increase: ... | Decrease: 25 | Level (%): 5.25",
-   "nota": "CONFIRMA: 31/1/1996, corte de 25 pb, nivel 5,25%. Mesma tabela oficial traz 25/3/1997 alta de 25 pb para 5,50%. Trecho reproduz a linha da tabela.",
+   "nota": "CONFIRMA: 31/1/1996, corte de 25 pb, nivel 5,25%. Mesma tabela oficial traz 25/3/1997 alta de 25 pb para 5,50%. Trecho reproduz a linha da tabela. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
    "rodada": 4
@@ -65,7 +65,7 @@
    "titulo": "Conheça os presidentes do Senado eleitos desde a redemocratização",
    "data": "1997-02-04",
    "trecho": "4/FEV Antônio C. Magalhães PFL-BA 52 votos",
-   "nota": "CONFIRMA ACM eleito com 52 votos; a data na lista e 4/2/1997. Temer nao consta nesta pagina; Camara (camara.leg.br Ex_presidentesCD_Republica/leduardo.html) diz que Luis Eduardo exerceu o cargo 'de 2 de fevereiro de 1995 a 05 de fevereiro de 1997'. Eleicao de Temer em si nao verificada em fonte oficial.",
+   "nota": "CONFIRMA ACM eleito com 52 votos; a data na lista e 4/2/1997. Temer nao consta nesta pagina; Camara (camara.leg.br Ex_presidentesCD_Republica/leduardo.html) diz que Luis Eduardo exerceu o cargo 'de 2 de fevereiro de 1995 a 05 de fevereiro de 1997'. Eleicao de Temer em si nao verificada em fonte oficial. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/Michel_Temer",
    "rodada": 4
@@ -79,7 +79,7 @@
    "titulo": "25 anos da privatização da Vale",
    "data": "2022-05-06",
    "trecho": "num leilão realizado em 6 de maio de 1997 [...] O negócio envolveu, na época, cerca de R$ 3,3 bilhões.",
-   "nota": "CONFIRMA data (leilao em 6/5/1997) e valor (~R$ 3,3 bi) explicitamente. Nao nomeia CSN/Consorcio Brasil ('grupo de empresas privadas e fundos de pensao'); veiculo de vies critico - sem fonte neutra aberta encontrada.",
+   "nota": "CONFIRMA data (leilao em 6/5/1997) e valor (~R$ 3,3 bi) explicitamente. Nao nomeia CSN/Consorcio Brasil ('grupo de empresas privadas e fundos de pensao'); veiculo de vies critico - sem fonte neutra aberta encontrada. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://fpabramo.org.br/ha-22-anos-vale-era-privatizada-a-preco-de-banana",
    "rodada": 4
@@ -93,7 +93,7 @@
    "titulo": "The Kyoto Protocol",
    "data": "1997-12-11",
    "trecho": "The Kyoto Protocol was adopted on 11 December 1997. [...] only binds developed countries.",
-   "nota": "CONFIRMA adocao em 11/12/1997 e que so obriga paises desenvolvidos; descreve o MDL como mecanismo voltado ao mundo em desenvolvimento. Nao cita o Brasil nominalmente.",
+   "nota": "CONFIRMA adocao em 11/12/1997 e que so obriga paises desenvolvidos; descreve o MDL como mecanismo voltado ao mundo em desenvolvimento. Nao cita o Brasil nominalmente. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/Kyoto_Protocol",
    "rodada": 4
@@ -107,7 +107,7 @@
    "titulo": "Markets wrap 27/10/1997",
    "data": "1997-10-27",
    "trecho": "the Dow tumbled 554.26 points, or 7.18 percent, to 7,161.15 [...] after Hong Kong's benchmark Hang Seng index lost almost 6 percent overnight",
-   "nota": "CONFIRMA Dow -554 pts (7,18%) em 27/10/1997. CONTRADIÇÃO parcial: em 27/10 o Hang Seng caiu ~6% (nao dois digitos); a queda de dois digitos em um dia (-14%) e de 28/10 (ver NPR); queda de 23% entre 20 e 23/10 nao confirmada.",
+   "nota": "CONFIRMA Dow -554 pts (7,18%) em 27/10/1997. CONTRADIÇÃO parcial: em 27/10 o Hang Seng caiu ~6% (nao dois digitos); a queda de dois digitos em um dia (-14%) e de 28/10 (ver NPR); queda de 23% entre 20 e 23/10 nao confirmada. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/October_27,_1997,_mini-crash",
    "rodada": 4
@@ -121,7 +121,7 @@
    "titulo": "Hong Kong market drop",
    "data": "1997-10-23",
    "trecho": "The Hang Seng Index plunged 14%, the worst drop since markets crashed in October 1987.",
-   "nota": "CONFIRMA queda de dois digitos (-14%) em um unico dia no Hang Seng no fim de outubro/1997; a pagina nao traz data de pregao explicita (veiculada 23/10/1997).",
+   "nota": "CONFIRMA queda de dois digitos (-14%) em um unico dia no Hang Seng no fim de outubro/1997; a pagina nao traz data de pregao explicita (veiculada 23/10/1997). [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/October_27,_1997,_mini-crash",
    "rodada": 4
@@ -135,7 +135,7 @@
    "titulo": "FOMC - Historical Archive: rate changes (1998)",
    "data": "1998-11-17",
    "trecho": "1998 | November 17: Decrease 25, Level 4.75 | October 15: Decrease 25, Level 5.00 | September 29: Decrease 25, Level 5.25",
-   "nota": "CONFIRMA datas e niveis (29/9 5,25%; 15/10 5,00%; 17/11 4,75%), total 75 pb. Trecho reproduz linhas da tabela oficial.",
+   "nota": "CONFIRMA datas e niveis (29/9 5,25%; 15/10 5,00%; 17/11 4,75%), total 75 pb. Trecho reproduz linhas da tabela oficial. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
    "rodada": 4
@@ -149,7 +149,7 @@
    "titulo": "Artigo sobre a eleição presidencial de 1998 no Paraná",
    "data": "1998",
    "trecho": "reelegeu-se com 53,1% dos votos no primeiro turno",
-   "nota": "CONFIRMA 53,1% no 1o turno; Tabela 1 traz FHC 35.936.382 votos (~35,9 mi), Lula 31,7% (21.475.211), Ciro 11,0% (7.426.187) - arredondamentos compativeis com 53,06/31,71/10,97. A data 4/10/1998 nao aparece. Fonte e artigo academico de periodico da Justica Eleitoral, nao tabela do TSE.",
+   "nota": "CONFIRMA 53,1% no 1o turno; Tabela 1 traz FHC 35.936.382 votos (~35,9 mi), Lula 31,7% (21.475.211), Ciro 11,0% (7.426.187) - arredondamentos compativeis com 53,06/31,71/10,97. A data 4/10/1998 nao aparece. Fonte e artigo academico de periodico da Justica Eleitoral, nao tabela do TSE. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://pdba.georgetown.edu/Elecdata/Brazil/pres98.html",
    "rodada": 4
@@ -163,7 +163,7 @@
    "titulo": "Press Release 98/31: IMF Approves Augmentation of Russia Extended Arrangement and Credit under CCFF",
    "data": "1998-07-20",
    "trecho": "July 20, 1998 [...] has approved financial support totaling SDR 8.5 billion (about US$11.2 billion) for the Russian Federation.",
-   "nota": "CONFIRMA aprovacao do FMI em 20/7/1998 (resolve a duvida 13/7 vs 20/7: 20/7). CONTRADIÇÃO parcial: o FMI informa SDR 8,5 bi (~US$ 11,2 bi) do proprio Fundo; os US$ 22,6 bi (FMI + Banco Mundial + Japao) nao aparecem neste comunicado.",
+   "nota": "CONFIRMA aprovacao do FMI em 20/7/1998 (resolve a duvida 13/7 vs 20/7: 20/7). CONTRADIÇÃO parcial: o FMI informa SDR 8,5 bi (~US$ 11,2 bi) do proprio Fundo; os US$ 22,6 bi (FMI + Banco Mundial + Japao) nao aparecem neste comunicado. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://www.heritage.org/node/20069",
    "rodada": 4
@@ -177,7 +177,7 @@
    "titulo": "News Brief 98/30: Camdessus Comments on Russian Actions",
    "data": "1998-08-17",
    "trecho": "a change in exchange rate policy, restructuring of government debt [...] a temporary restriction on capital payments abroad",
-   "nota": "CONFIRMA que em 17/8/1998 o governo russo anunciou medidas (mudanca cambial, reestruturacao da divida publica, restricao temporaria a pagamentos de capital ao exterior). CONTRADIÇÃO: o texto nao usa 'desvalorizacao' nem 'moratoria de 90 dias'.",
+   "nota": "CONFIRMA que em 17/8/1998 o governo russo anunciou medidas (mudanca cambial, reestruturacao da divida publica, restricao temporaria a pagamentos de capital ao exterior). CONTRADIÇÃO: o texto nao usa 'desvalorizacao' nem 'moratoria de 90 dias'. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://www.heritage.org/node/20069",
    "rodada": 4
@@ -191,7 +191,7 @@
    "titulo": "Talks Collapse; Meeting Ends -- Group Will Leave Here Without An Agreement",
    "data": "1999-12-04",
    "trecho": "the World Trade Organization said late last night that it was unable to bridge differences among its member nations [...] would leave Seattle without a declaration to start a new round of global trade talks",
-   "nota": "CONFIRMA fim sem declaracao/nova rodada na noite de 3/12/1999 (materia de 4/12 diz 'late last night'). Numero de manifestantes (40 mil) nao verificado nesta fonte.",
+   "nota": "CONFIRMA fim sem declaracao/nova rodada na noite de 3/12/1999 (materia de 4/12 diz 'late last night'). Numero de manifestantes (40 mil) nao verificado nesta fonte. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://www.britannica.com:443/print/article/1948945",
    "rodada": 4
@@ -205,7 +205,7 @@
    "titulo": "Seattle Ministerial Conference 1999",
    "data": "1999-12-03",
    "trecho": "The Third WTO Ministerial Conference was held in Seattle, Washington State, US between 30 November and 3 December 1999.",
-   "nota": "CONFIRMA datas 30/11 a 3/12/1999; a pagina nao descreve o resultado.",
+   "nota": "CONFIRMA datas 30/11 a 3/12/1999; a pagina nao descreve o resultado. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://www.britannica.com:443/print/article/1948945",
    "rodada": 4
@@ -219,7 +219,7 @@
    "titulo": "The euro (ECB)",
    "data": "1999-01-01",
    "trecho": "The euro was launched on 1 January 1999, when it became the currency of more than 300 million people in Europe.",
-   "nota": "CONFIRMA lancamento em 1/1/1999. Nao traz ECU 1:1 nem 'onze Estados' (ver Banco de Espanha: '11 Member States that initially participated in the EMU').",
+   "nota": "CONFIRMA lancamento em 1/1/1999. Nao traz ECU 1:1 nem 'onze Estados' (ver Banco de Espanha: '11 Member States that initially participated in the EMU'). [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/Euro",
    "rodada": 4
@@ -233,7 +233,7 @@
    "titulo": "Fases da UEM",
    "data": "1999-01-01",
    "trecho": "on 1 January 1999 Stage Three began with the irrevocable fixing of the exchange rates for the currencies of the 11 Member States that initially participated in the EMU",
-   "nota": "CONFIRMA 1/1/1999 e 11 Estados-membros. A conversao ECU 1:1 nao aparece nesta pagina.",
+   "nota": "CONFIRMA 1/1/1999 e 11 Estados-membros. A conversao ECU 1:1 nao aparece nesta pagina. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/Euro",
    "rodada": 4
@@ -247,7 +247,7 @@
    "titulo": "FOMC - Historical Archive: rate changes (1999)",
    "data": "1999-11-16",
    "trecho": "1999 | November 16: Increase 25, Level 5.50 | August 24: Increase 25, Level 5.25 | June 30: Increase 25, Level 5.00",
-   "nota": "CONFIRMA datas e niveis (30/6 5,00%; 24/8 5,25%; 16/11 5,50%). Trecho reproduz linhas da tabela oficial.",
+   "nota": "CONFIRMA datas e niveis (30/6 5,00%; 24/8 5,25%; 16/11 5,50%). Trecho reproduz linhas da tabela oficial. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
    "rodada": 4
@@ -261,7 +261,7 @@
    "titulo": "Conheça os presidentes do Senado eleitos desde a redemocratização",
    "data": "1999-02-01",
    "trecho": "1°/FEV Antônio C. Magalhães PFL-BA 70 votos",
-   "nota": "CONFIRMA ACM com 70 votos em 1/2/1999 (data exata confirmada). Reeleicao de Temer na Camara nao verificada em fonte oficial (Congresso em Foco diz que ocupou o cargo 'por dois bienios, entre 1997 e 2001').",
+   "nota": "CONFIRMA ACM com 70 votos em 1/2/1999 (data exata confirmada). Reeleicao de Temer na Camara nao verificada em fonte oficial (Congresso em Foco diz que ocupou o cargo 'por dois bienios, entre 1997 e 2001'). [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://jornalcontabil.com.br/noticia/resultados-das-eleicoes-para-presidente-da-camara-das-ultimas-dez-legislaturas/amp",
    "rodada": 4
@@ -275,7 +275,7 @@
    "titulo": "Nasdaq surpasses internet bubble peak to set new record",
    "data": "2015-04-23",
    "trecho": "The index's last record close of 5,048.62 was hit on March 10, 2000.",
-   "nota": "CONFIRMA pico 5.048,62 em 10/3/2000. A queda de 78% (Nasdaq-100) ate out/2002 nao verificada nesta fonte.",
+   "nota": "CONFIRMA pico 5.048,62 em 10/3/2000. A queda de 78% (Nasdaq-100) ate out/2002 nao verificada nesta fonte. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/Dot-com_bubble",
    "rodada": 4
@@ -289,7 +289,7 @@
    "titulo": "Aécio Neves - Ex-presidentes da Câmara",
    "data": "2001-02-14",
    "trecho": "no período de 14 de fevereiro de 2001 a 17 de dezembro de 2002",
-   "nota": "CONFIRMA data (14/2/2001) e que Aecio presidiu a Camara ate 17/12/2002. Nao traz votos (283/117/81) nem primeiro turno.",
+   "nota": "CONFIRMA data (14/2/2001) e que Aecio presidiu a Camara ate 17/12/2002. Nao traz votos (283/117/81) nem primeiro turno. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://jornalcontabil.com.br/noticia/resultados-das-eleicoes-para-presidente-da-camara-das-ultimas-dez-legislaturas/amp",
    "rodada": 4
@@ -303,7 +303,7 @@
    "titulo": "Jader gasta R$ 100 mil para divulgar mandato",
    "data": "2010",
    "trecho": "Data de 18 de setembro de 2001, quando renunciou à presidência do Senado.",
-   "nota": "CONTRADIÇÃO: a materia da 18/9/2001 para a renuncia a presidencia do Senado (descricao diz 19/9); legenda da foto diz que renunciou ao mandato. Em outra materia (noticia/77239) diz que renunciou 'à presidência do Senado e ao mandato para escapar da cassação', 'outubro de 2001'. Agencia Senado confirma Jader eleito em 14/2/2001 com 41 votos. Incra nao confirmado. Ano da materia aproximado.",
+   "nota": "CONTRADIÇÃO: a materia da 18/9/2001 para a renuncia a presidencia do Senado (descricao diz 19/9); legenda da foto diz que renunciou ao mandato. Em outra materia (noticia/77239) diz que renunciou 'à presidência do Senado e ao mandato para escapar da cassação', 'outubro de 2001'. Agencia Senado confirma Jader eleito em 14/2/2001 com 41 votos. Incra nao confirmado. Ano da materia aproximado. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://pt.wikipedia.org/wiki/Jader_Barbalho",
    "rodada": 4
@@ -317,7 +317,7 @@
    "titulo": "Eduardo Bolsonaro é o mais votado do Brasil com 1,84 milhão de votos",
    "data": "2018-10-07",
    "trecho": "Até então, o recorde de votos era de Enéas Carneiro, que em 2002 conquistou 1,57 milhão de votos.",
-   "nota": "CONFIRMA Enéas com 1,57 milhao de votos em 2002 como recorde ate a superacao em 2018 por Eduardo Bolsonaro (1,84 milhao). A descricao diz 'cerca de 1,5 milhao': o valor e 1,57.",
+   "nota": "CONFIRMA Enéas com 1,57 milhao de votos em 2002 como recorde ate a superacao em 2018 por Eduardo Bolsonaro (1,84 milhao). A descricao diz 'cerca de 1,5 milhao': o valor e 1,57. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://pt.wikipedia.org/wiki/En%C3%A9as_Carneiro",
    "rodada": 4
@@ -331,7 +331,7 @@
    "titulo": "STF recebe Reclamação de procuradores de Jader Barbalho, preso em Palmas",
    "data": "2002-02-16",
    "trecho": "Jader foi preso às 9h30 em Belém e transferido para a Superintendência da Polícia Federal em Palmas (TO) às 11h30.",
-   "nota": "CONFIRMA preso pela PF em Belém (9h30) e levado a Palmas (TO): resolve a divergencia Belem x Tocantins (ambos corretos). Noticia datada de 16/02/2002 diz que o mandado saiu 'ontem'. Habeas corpus e soltura no dia seguinte nao tratados (a noticia trata de Reclamacao ao STF). Congresso em Foco: 16h detido na PF de Tocantins.",
+   "nota": "CONFIRMA preso pela PF em Belém (9h30) e levado a Palmas (TO): resolve a divergencia Belem x Tocantins (ambos corretos). Noticia datada de 16/02/2002 diz que o mandado saiu 'ontem'. Habeas corpus e soltura no dia seguinte nao tratados (a noticia trata de Reclamacao ao STF). Congresso em Foco: 16h detido na PF de Tocantins. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://pt.wikipedia.org/wiki/Jader_Barbalho",
    "rodada": 4
@@ -345,7 +345,7 @@
    "titulo": "TSE proclaims election results",
    "data": "2002-10-29",
    "trecho": "According to the TSE, Luiz Inácio Lula da Silva had 61.27% of valid votes, totalling 52,792,927.",
-   "nota": "CONFIRMA 2o turno: 61,27% dos validos, 52.792.927 votos (tabela da CNN Brasil traz 52.793.364; descricao diz 52,8 mi - ok). 1o turno (46,44%, 6/10) e 27/10 nao cobertos pela pagina.",
+   "nota": "CONFIRMA 2o turno: 61,27% dos validos, 52.792.927 votos (tabela da CNN Brasil traz 52.793.364; descricao diz 52,8 mi - ok). 1o turno (46,44%, 6/10) e 27/10 nao cobertos pela pagina. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://en.wikipedia.org/wiki/2002_Brazilian_general_election",
    "rodada": 4
@@ -359,7 +359,7 @@
    "titulo": "Resolução nº 21.002, de 26 de fevereiro de 2002 - Consulta (Coligações)",
    "data": "2002-02-26",
    "trecho": "Os partidos políticos que ajustarem coligação para eleição de presidente da República não poderão formar coligações para eleição de governador [...] senador, deputado federal e deputado estadual ou distrital com outros partidos políticos que tenham [...] lançado candidato",
-   "nota": "CONFIRMA: Consulta 715, relator Min. Garcia Vieira, consulente 'Miro Teixeira e outros', decisao em 26/2/2002 (publicada 15/3/2002), ementa conforme descricao; vencidos Pertence e Sálvio de Figueiredo. Resposta 'negativamente' por maioria.",
+   "nota": "CONFIRMA: Consulta 715, relator Min. Garcia Vieira, consulente 'Miro Teixeira e outros', decisao em 26/2/2002 (publicada 15/3/2002), ementa conforme descricao; vencidos Pertence e Sálvio de Figueiredo. Resposta 'negativamente' por maioria. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://jus.com.br/artigos/3211/a-verticalizacao-das-coligacoes-partidarias-nas-eleicoes-gerais-de-2002",
    "rodada": 4
@@ -373,7 +373,7 @@
    "titulo": "The WTO Cancún Ministerial (RS21664)",
    "data": "2003-11-06",
    "trecho": "took place in Cancún, Mexico on September 10-14, 2003. [...] broke up without reaching agreement. [...] deep cuts in developed country agricultural subsidies.",
-   "nota": "CONFIRMA datas 10-14/9/2003, fim sem acordo, G-20 com Brasil, India, Africa do Sul e pedido de cortes nos subsidios agricolas. Data de formacao do G-20 (20/8) nao confirmada.",
+   "nota": "CONFIRMA datas 10-14/9/2003, fim sem acordo, G-20 com Brasil, India, Africa do Sul e pedido de cortes nos subsidios agricolas. Data de formacao do G-20 (20/8) nao confirmada. [trecho via resumo do WebFetch]",
    "qualidade": "boa",
    "substitui": "https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Oesp03.09.15.pdf",
    "rodada": 4
