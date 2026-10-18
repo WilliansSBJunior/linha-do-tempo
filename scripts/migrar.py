@@ -814,6 +814,8 @@ def main(destino=SQLITE, pular=(), escrever=True):
         {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}   # rodada 9: depois da 8 (Folha, 2009-2012)
     R["ranking_corr10"] = curadoria.aplicar_ranking_empresa_correcoes(con, curadoria.ARQ_RANKING_CORR_R10) if "ranking_correcoes" not in pular else \
         {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}   # rodada 10: depois da 9 (fontes primárias da web)
+    R["ranking_corr11"] = curadoria.aplicar_ranking_empresa_correcoes(con, curadoria.ARQ_RANKING_CORR_R11) if "ranking_correcoes" not in pular else \
+        {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}   # rodada 11: depois da 10 (BR GAAP do Santander; 6-K de Itaú e Bradesco)
     R["evento_corr"] = curadoria.aplicar_evento_correcoes(con)      # à mão; decisões sobre as ressalvas das evidências adicionais; antes dos temas (leem título/descrição)
     R["relacao_corr"] = curadoria.aplicar_relacao_correcoes(con)
     R["evid_qualidade"] = curadoria.aplicar_evidencia_qualidade(con)   # à mão; revisão do critério 'fraca'; depois de tudo que grava qualidade
@@ -1215,6 +1217,37 @@ def secoes_modelo(con, R, w):
     secao_rodada8(con, R, w)
     secao_rodada9(con, R, w)
     secao_rodada10(con, R, w)
+    secao_rodada11(con, R, w)
+
+
+def secao_rodada11(con, R, w):
+    """Seção 28: rodada 11 (BR GAAP do Santander; 6-K de Itaú e Bradesco 2013-2015; ranking-empresa-correcoes-r11.json, aplicado depois da rodada 10)."""
+    q = lambda s, *a: con.execute(s, a).fetchall()
+    rk = R.get("ranking_corr11") or {}
+    if not (rk.get("atualizadas") or rk.get("inseridas")):
+        return
+    cfg = curadoria.ler_json(curadoria.ARQ_RANKING_CORR_R11, {})
+    w("\n## 28. Rodada 11: Santander em BR GAAP (2009-2011 e 2015) e fontes primárias de Itaú, Bradesco, BB e BNDES em 2013-2015\n")
+    w("Arquivo à mão: `ranking-empresa-correcoes-r11.json` (mesmo formato das rodadas 6-10, aplicado por `curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R11)` "
+      "logo depois da 10; aceita a chave opcional `reclassificar`, que só troca o papel/nota de ligações já existentes da linha; `gerar_curadoria.py` também o pula no banco temporário). "
+      "Material: 6-K da SEC (Santander, Itaú e Bradesco), Relatório Anual 2015 do BB, notícia do site do BNDES, lidos pelo WebFetch; nem Folha nem Wikipédia. "
+      "Regra R7: banco em BR GAAP/COSIF (lucro de manchete); o IFRS dos 20-F, o 'gerencial' e o 'ajustado' ficam como contexto. "
+      "O Santander 2009-2011 e 2015 passa do IFRS/gerencial para o BR GAAP; o Bradesco 2013 passa do Adjusted Net Income (DIEESE) para o Book Net Income. A cobertura dos anos não muda.\n")
+    w("| ano | empresa | o que mudou | fonte principal |\n|---|---|---|---|")
+    princ = lambda a, e: q("SELECT v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", a, e)[0][0]
+    for x in sorted(rk["inseridas"] + rk["atualizadas"], key=lambda x: (x["ano"], x["entidade_id"])):
+        if "campos" in x:
+            o = "; ".join(f"{k} {v['de']} -> {v['para']}" for k, v in x["campos"].items() if k != "obs") + ("; obs" if "obs" in x["campos"] else "")
+            o = o.strip("; ") or ("só fonte (contexto)" if all(f["papel"] == "contexto" for f in x["fontes"]) else "só fonte")
+        else:
+            o = f"**inserida** ({x['lucro_brl_bi']})"
+        w(f"| {x['ano']} | `{x['entidade_id']}` | {o} | {princ(x['ano'], x['entidade_id'])} |")
+    w("\nPosições que mudaram (`entidade`: antes -> depois):\n")
+    for a in sorted(rk["posicoes"]):
+        w(f"- {a}: " + ", ".join(f"`{e}` {p0} -> {p1}" for e, p0, p1 in rk["posicoes"][a]))
+    w(f"\n{rk['ligacoes']} ligações novas em `ranking_evidencia` ({len(rk['evid_novas'])} evidências novas). Registro no arquivo: "
+      f"{len(cfg.get('nao_aplicados', []))} blocos `nao_aplicados`. Lacunas: "
+      + " ".join(f"({i + 1}) {t}" for i, t in enumerate(cfg.get("lacunas", []))) + "\n")
 
 
 def secao_rodada10(con, R, w):

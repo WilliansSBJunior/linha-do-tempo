@@ -33,5 +33,12 @@
   "de": "reportagem",
   "para": "relatorio",
   "motivo": "Apresentação de resultados da própria Cielo (api.mziq.com é o repositório de RI da empresa), principal do ranking de lucros de 2015 (3.511,4 mi); material da empresa, não matéria jornalística."
+ },
+ {
+  "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/40c47fd1-5af8-4dd5-aa70-b2287e8f1f81?origin=2",
+  "campo": "tipo",
+  "de": "reportagem",
+  "para": "relatorio",
+  "motivo": "Relatório Anual 2015 da própria Itaúsa (api.mziq.com é o repositório de RI da empresa; tabela 'Lucro líquido (R$ milhões)', controladora e consolidado, 2013-2015, aberta na rodada 11), principal do ranking de lucros de 2014 e 2015; material da empresa, não matéria jornalística."
  }
 ]

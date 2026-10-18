@@ -1,0 +1,442 @@
+{
+ "_doc": "Rodada 11 (18/10/2026): Santander Brasil em BR GAAP e fontes primárias para as maiores empresas de 2013-2015 que só tinham imprensa, DIEESE ou Wikipédia. Mesmo formato e mesmo mecanismo das rodadas 6-10, aplicado logo depois da 10 por curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R11): os `de` são os valores que as rodadas anteriores gravaram. Novidade de formato (opcional, só desta rodada): `reclassificar`, lista de {url, papel, nota} dentro de um `atualizar`, que só troca o papel (sustenta/contexto) e a nota de ligações que a linha já tem (usada para rebaixar a `contexto` a Folha de 2010 e as matérias que ficaram com o valor da base antiga ou com 10 milhões de diferença). Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época; REGRA R7 (regras-fontes.json): banco em BR GAAP/COSIF (lucro de manchete), IFRS dos 20-F sempre `contexto`; não financeiras em IFRS a partir de 2010; recorrente/gerencial/ajustado, reapresentações e US GAAP só `contexto`. `tipo`: documento na SEC = documento_oficial; relatório/notícia no site da empresa = relatorio. Resultado: (1) Santander Brasil passa do IFRS/gerencial para o BR GAAP consolidado dos 6-K 'Demonstrações Financeiras BR GAAP': 2010 7,383 -> 3,863 (6-K do 4T10, arquivado em 2011-02-03; o 6-K do 4T11 repete 3,863 no comparativo), 2011 7,756 -> 3,557 (6-K do 4T11, 2012-01-31), 2015 6,624 -> 6,998 (6-K do 4T15, 2016-01-27, 'NET INCOME' 12M15 = 6.998,3) e 2009 1,805 (derivado de US$) -> 1,806 direto em R$ (comparativo do 6-K do 4T10; `derivado` vira 0). O IFRS do 20-F de 2011 (7,383 e 7,756), o gerencial do Relatório Anual 2015 e a Istoé de 2009 ficam como `contexto`. (2) Bradesco 2013 passa de 12,202 para 12,011: o 12,202 era o Adjusted Net Income (DIEESE) e o Book Net Income do 6-K do 4T13 é 12.011; 2014 15,088 -> 15,089 e 2015 17,18 -> 17,19 (Book Net Income dos 6-K do 4T14 e do 4T15). (3) Itaú Unibanco 2015 passa de 23,35 para 23,36 (MD&A do 4T15: lucro contábil 23.360; a imprensa deu 23,35); 2013 e 2014 mantêm 15,696 e 20,242 e trocam a Wikipédia por 6-K (Manual das Assembleias de 2014 e MD&A do 4T14). (4) Banco do Brasil 2014 (Relatório Anual 2015 do BB, tabela com 15.758 | 11.246 | 14.400) e BNDES 2014 (notícia do site do BNDES) mantêm o valor e trocam Wikipédia/Exame por fonte da própria empresa. Itaúsa 2014 e 2015 já tinham o Relatório Anual 2015 da Itaúsa como principal, tipado como `reportagem`; a rodada abriu o documento e o retipou para `relatorio` em evidencia-correcoes.json. A cobertura dos anos não muda (`cobertura: []`). Sem entidades novas. Datas de arquivamento (Filing Date) do índice EDGAR de cada accession. Posições: 2010 Santander 8º -> 9º (Itaúsa 9º -> 8º); 2011 Santander 8º -> 12º (Caixa, CSN, Itaúsa e Telefônica Brasil sobem uma posição); sem mudança em 2009, 2013, 2014 e 2015; 1º lugar sem mudança em todos os anos tocados.",
+ "cobertura": [],
+ "atualizar": [
+  {
+   "ano": 2009,
+   "entidade_id": "santander-brasil",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 1.805,
+     "para": 1.806
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado de US$ 1,037 bi (Economática) x 1,741. Valor direto em R$ não achado. O 20-F de 2009 traz o lucro em IFRS, 'Consolidated profit for the period' de R$ 5.508 mi (o de 2011 repete 5.508 no comparativo), outra base (R7: IFRS de banco é contexto); o lucro em BR GAAP em R$ de 2009 não foi localizado nos trechos lidos do 20-F (a tabela em Brazilian GAAP do item 3.A só cobre 2006 e 2005), de modo que o 1,805 derivado de US$ segue como valor da linha e é provavelmente baixo demais: a Folha de 4/2/2011 (ligada em 2010), com alta de 34% sobre 2009 e lucro de R$ 7,382 bi em 2010, implica cerca de R$ 5,5 bi, a base IFRS.",
+     "para": "BR GAAP (6-K do 4T10, relatório da administração): lucro líquido consolidado de R$ 1.806 mi em 2009, após amortização de ágio de R$ 2.877 mi; substitui o 1,805 derivado de US$ (Economática x câmbio). O IFRS do 20-F de 2009 (5,508) é outra base (R7: IFRS de banco é contexto). É o comparativo de 2009 publicado em fevereiro de 2011; o 6-K do 4T09 (fev/2010) não foi aberto."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000129281411000268/bsbrdfbrgaap4q10_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Banco Santander (Brasil) S.A. - 6-K - Demonstrações financeiras BR GAAP 4T10",
+     "data": "2011-02-03",
+     "trecho": "compared to R$1,806 million in year 2009",
+     "nota": "Relatório da administração das demonstrações financeiras BR GAAP (Brazilian Corporate Law) de 31/12/2010: 'Banco Santander concluded the year ended December 31, 2010 with a net income of R$ 3,863 million ... compared to R$1,806 million in year 2009'; amortização de ágio de R$ 3.241 mi (2010) e R$ 2.877 mi (2009). Consolidado, R$ milhões. Comparativo de 2009 publicado em 2011 (o 6-K do 4T09 não foi aberto).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Istoé Dinheiro): US$ 1,037 bi convertidos pela Economática (R$ 1,805 bi); aproxima o BR GAAP (R$ 1,806 bi), mantida como contexto.",
+    "url": "https://istoedinheiro.com.br/bancos-brasileiros-sao-os-mais-rentaveis-de-al-e-eua"
+   },
+   "motivo": "6-K do 4T10 (SEC): BR GAAP de 2009 em R$ (1.806 mi) no lugar do valor derivado de US$ (1,805)."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "santander-brasil",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 7.383,
+     "para": 3.863
+    },
+    "obs": {
+     "de": "Base IFRS (20-F 2011, 'Consolidated profit for the year', coluna 2010); BR GAAP da época não localizado, série em base diferente de 2012 (2,69, BR GAAP). É o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial; o 20-F de 2011 só remete o BR GAAP à nota 45 das demonstrações.",
+     "para": "BR GAAP (6-K do 4T10: 'net income of R$ 3,863 million', consolidado, após amortização de ágio de R$ 3.241 mi), a base do lucro de manchete de banco (R7) e a mesma do 2,69 de 2012. O 7,383 que a linha trazia é o IFRS do 20-F de 2011 ('Consolidated profit for the year'), que o DIEESE chama de 'LL gerencial' e a imprensa da época deu como lucro da filial: outra base, contexto."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000129281411000268/bsbrdfbrgaap4q10_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Banco Santander (Brasil) S.A. - 6-K - Demonstrações financeiras BR GAAP 4T10",
+     "data": "2011-02-03",
+     "trecho": "Banco Santander concluded the year ended December 31, 2010 with a net income of R$ 3,863 million",
+     "nota": "Relatório da administração das demonstrações financeiras BR GAAP (Brazilian Corporate Law) de 31/12/2010; consolidado, R$ milhões, após amortização de ágio de R$ 3.241 mi. O 20-F de 2011 (IFRS) traz 7.383 (outra base, contexto).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000129281412000173/bsbrdfbrgaap4q11_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Banco Santander (Brasil) S.A. - 6-K - Demonstrações financeiras BR GAAP 4T11",
+     "data": "2012-01-31",
+     "trecho": "with net income of R$3,557 million, compared to R$3,863 million in exercise 2010.",
+     "nota": "Relatório da administração das demonstrações financeiras BR GAAP de 31/12/2011 (6-K de janeiro de 2012): confirma R$ 3.863 mi em 2010 como comparativo.",
+     "papel": "sustenta"
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (20-F de 2011, 'Consolidated profit for the year' 7,383): IFRS, outra base (R7: IFRS de banco é contexto).",
+    "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm"
+   },
+   "reclassificar": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me0402201115.htm",
+     "papel": "contexto",
+     "nota": "Folha de 4/2/2011: lucro de R$ 7,382 bi em 2010, a base gerencial/IFRS; o BR GAAP de manchete é R$ 3,863 bi (6-K do 4T10). Contexto."
+    }
+   ],
+   "motivo": "6-K do 4T10 (SEC): BR GAAP de 2010 (3.863 mi) no lugar do IFRS do 20-F (7.383, agora contexto)."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "santander-brasil",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 7.756,
+     "para": 3.557
+    },
+    "obs": {
+     "de": "Base IFRS (20-F 2011, 'Consolidated profit for the year', coluna 2011); BR GAAP da época não localizado, série em base diferente de 2012 (2,69, BR GAAP). É o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial; o 20-F de 2011 só remete o BR GAAP à nota 45 das demonstrações.",
+     "para": "BR GAAP (6-K do 4T11: 'net income of R$3,557 million', consolidado, após amortização de ágio de R$ 3.104 mi), a base do lucro de manchete de banco (R7) e a mesma do 2,69 de 2012 (o 6-K do 4T12 repete 3.557 no comparativo). O 7,756 que a linha trazia é o IFRS do 20-F de 2011 ('Consolidated profit for the year'), o mesmo número que o DIEESE chama de 'LL gerencial': outra base, contexto."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000129281412000173/bsbrdfbrgaap4q11_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Banco Santander (Brasil) S.A. - 6-K - Demonstrações financeiras BR GAAP 4T11",
+     "data": "2012-01-31",
+     "trecho": "with net income of R$3,557 million, compared to R$3,863 million in exercise 2010.",
+     "nota": "Relatório da administração das demonstrações financeiras BR GAAP (Brazilian Corporate Law) de 31/12/2011; consolidado, R$ milhões, após amortização de ágio de R$ 3.104 mi (2011) e R$ 3.241 mi (2010). O 6-K do 4T12 repete 3.557 no comparativo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (20-F de 2011, 'Consolidated profit for the year' 7,756): IFRS, outra base (R7: IFRS de banco é contexto).",
+    "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm"
+   },
+   "motivo": "6-K do 4T11 (SEC): BR GAAP de 2011 (3.557 mi) no lugar do IFRS do 20-F (7.756, agora contexto)."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "santander-brasil",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 6.624,
+     "para": 6.998
+    },
+    "obs": {
+     "de": "base gerencial (Relatório Anual 2015); IFRS 9,784",
+     "para": "BR GAAP (6-K do 4T15, 'NET INCOME' 12M15 = R$ 6.998,3 mi, consolidado), a base do lucro de manchete de banco (R7). O 6,624 que a linha trazia era a base gerencial do Relatório Anual 2015; o IFRS é 9,784 (contexto)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000129281416003390/bsbrdfbrgaap4q15_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Banco Santander (Brasil) S.A. - 6-K - Demonstrações financeiras BR GAAP 4T15",
+     "data": "2016-01-27",
+     "trecho": "NET INCOME | 6,998.3 | 2,161.2",
+     "nota": "Demonstração do resultado consolidada BR GAAP do 6-K de janeiro de 2016 (colunas 12M15 | 12M14 | variação anual % | 4T15 | 3T15 | variação trimestral %; R$ milhões): 6.998,3 em 2015 e 2.161,2 em 2014. Os R$ 9.780,4 mi do texto do relatório são o lucro excluída a amortização de ágio (não é lucro líquido).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Relatório Anual 2015 do Santander, base gerencial 6,624): outra base, contexto (R7: só o BR GAAP é lucro de manchete de banco).",
+    "url": "https://cms.santander.com.br/sites/WPS/documentos/arq-central-de-resultados-anuais-acordeao-2015-download-1/18-08-28_193833_relat%C3%B3rio+anual+2015.pdf"
+   },
+   "reclassificar": [
+    {
+     "url": "https://vermelho.org.br/?p=341267",
+     "papel": "contexto",
+     "nota": "Matéria com o lucro gerencial de R$ 6,6 bi; o BR GAAP do 6-K do 4T15 é R$ 6,998 bi. Contexto."
+    }
+   ],
+   "motivo": "6-K do 4T15 (SEC): BR GAAP de 2015 (6.998,3 mi) no lugar do 6,624 gerencial."
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "itau-unibanco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001132597/000094787114000185/ss207556_ex9901.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Itaú Unibanco Holding S.A. - 6-K - General Stockholders' Meetings Manual 2014 (Officers' Comments, item 10.1)",
+     "data": "2014-03-25",
+     "trecho": "consolidated net income amounted to R$15,696 million",
+     "nota": "Manual das Assembleias de 2014 (6-K de 25/3/2014; Attachment I, item 10.1(a), R$ milhões, consolidado, ROE médio anualizado de 20,7%). Lucro líquido contábil (BRGAAP) de 2013, divulgado na época.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/1132597/000114420415006738/v400373_ex99-1.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Itaú Unibanco Holding S.A. - 6-K - Management Discussion & Analysis 4T14",
+     "data": "2015-02-06",
+     "trecho": "Net Income | 5,520 | 5,404 | 4,646 | 20,242 | 15,696",
+     "nota": "Tabela 'Highlights' (colunas 4T14 | 3T14 | 4T13 | 2014 | 2013; R$ milhões): lucro líquido contábil de 2014 (20.242) e de 2013 (15.696).",
+     "papel": "sustenta"
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia, Itaú Unibanco): mesmo valor; Wikipédia nunca sustenta (R6), contexto.",
+    "url": "https://pt.wikipedia.org/wiki/Itaú_Unibanco"
+   },
+   "motivo": "6-K da SEC (Manual das Assembleias de 2014 e MD&A do 4T14): documento oficial no lugar da Wikipédia; valor igual."
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "itau-unibanco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/1132597/000114420415006738/v400373_ex99-1.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Itaú Unibanco Holding S.A. - 6-K - Management Discussion & Analysis 4T14",
+     "data": "2015-02-06",
+     "trecho": "Net Income | 5,520 | 5,404 | 4,646 | 20,242 | 15,696",
+     "nota": "Tabela 'Highlights' (colunas 4T14 | 3T14 | 4T13 | 2014 | 2013; R$ milhões): lucro líquido contábil de 2014 (20.242) e de 2013 (15.696).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia, Itaú Unibanco): mesmo valor; Wikipédia nunca sustenta (R6), contexto.",
+    "url": "https://pt.wikipedia.org/wiki/Itaú_Unibanco"
+   },
+   "motivo": "MD&A do 4T14 (6-K da SEC): documento oficial no lugar da Wikipédia; valor igual."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "itau-unibanco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 23.35,
+     "para": 23.36
+    },
+    "obs": {
+     "de": "BR GAAP; IFRS (20-F) 25,74",
+     "para": "BR GAAP (6-K do 4T15: lucro líquido contábil R$ 23.360 mi; a imprensa da época deu R$ 23,35 bi); IFRS (20-F) 25,74"
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001132597/000114420416081111/v430347_ex99-1.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Itaú Unibanco Holding S.A. - 6-K - Management Discussion & Analysis 4T15",
+     "data": "2016-02-12",
+     "trecho": "Net Income | 5,698 | 5,945 | 5,520 | 23,360 | 20,242",
+     "nota": "Tabela 'Highlights' (colunas 4T15 | 3T15 | 4T14 | 2015 | 2014; R$ milhões): lucro líquido contábil de 2015 (23.360) e de 2014 (20.242). O texto traz o lucro recorrente (R$ 23.832 mi), que não é o da linha.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Exame): R$ 23,35 bi, arredondado/truncado; o 6-K do 4T15 traz R$ 23.360 mi. Contexto.",
+    "url": "https://exame.com/negocios/lucro-liquido-do-itau-em-2015-chega-a-r-23-35-bilhoes"
+   },
+   "reclassificar": [
+    {
+     "url": "https://www.infomoney.com.br/?p=377271",
+     "papel": "contexto",
+     "nota": "R$ 23,35 bi na imprensa; o 6-K do 4T15 traz R$ 23.360 mi. Contexto."
+    }
+   ],
+   "motivo": "MD&A do 4T15 (6-K da SEC): lucro contábil de 2015 = 23.360 mi (a imprensa deu 23,35)."
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 12.202,
+     "para": 12.011
+    },
+    "obs": {
+     "de": "Exame/Economática: R$ 12,0 bi.",
+     "para": "Book Net Income (lucro contábil) do 6-K do 4T13: R$ 12.011 mi. O 12,202 que a linha trazia é o Adjusted Net Income (DIEESE), outra base (gerencial/ajustado, contexto)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001160330/000129281414000222/bbdbook4q13_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Bradesco - 6-K - Report on Economic and Financial Analysis, December 2013",
+     "data": "2014-02-07",
+     "trecho": "Book Net Income | 12,011 | 11,381 | 3,079 | 3,064",
+     "nota": "Seção 'Book Net Income vs. Adjusted Net Income' (R$ milhões; colunas 12M13, 12M12, 4Q13, 3Q13). A mesma tabela traz o Adjusted Net Income de 12.202 (12M13), que é o valor que a linha trazia.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (DIEESE, tabela de 2015): 12.202 é o Adjusted Net Income do Bradesco, não o lucro contábil (12.011); contexto.",
+    "url": "https://bancariosdf.com.br/portal/wp-content/uploads/2015/04/desempenhoBancos2014.pdf"
+   },
+   "motivo": "6-K do 4T13 (SEC): Book Net Income = 12.011 mi no lugar do Adjusted Net Income (12.202)."
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 15.088,
+     "para": 15.089
+    },
+    "obs": {
+     "de": "Exame/Economática (+25,6%); o DIEESE traz R$ 15,359 bi (outra base).",
+     "para": "Book Net Income do 6-K do 4T14: R$ 15.089 mi (Exame/Economática deu 15,088 e o DIEESE traz R$ 15,359 bi, outra base)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001160330/000129281415000249/bbdbook4q14_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Bradesco - 6-K - Report on Economic and Financial Analysis, December 2014",
+     "data": "2015-02-06",
+     "trecho": "Book Net Income | 15,089 | 12,011 | 3,993 | 3,875",
+     "nota": "Seção 'Book Net Income vs. Adjusted Net Income' (R$ milhões; colunas 12M14, 12M13, 4Q14, 3Q14).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Exame/Economática): R$ 15,088 bi, um milhão a menos que o Book Net Income do 6-K; contexto.",
+    "url": "https://exame.com/negocios/as-20-empresas-brasileiros-com-os-maiores-lucros-de-2014"
+   },
+   "motivo": "6-K do 4T14 (SEC): Book Net Income = 15.089 mi (a imprensa deu 15,088)."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 17.18,
+     "para": 17.19
+    },
+    "obs": {
+     "de": "BR GAAP; IFRS (20-F) 18,13",
+     "para": "BR GAAP (Book Net Income do 6-K do 4T15: R$ 17.190 mi; a imprensa deu R$ 17,18 bi); IFRS (20-F) 18,13"
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001160330/000129281416003473/bbdbook4q15_6k.htm",
+     "veiculo": "sec.gov",
+     "tipo": "documento_oficial",
+     "titulo": "Bradesco - 6-K - Report on Economic and Financial Analysis, December 2015",
+     "data": "2016-02-05",
+     "trecho": "Book Net Income | 17,190 | 15,089 | 4,353 | 4,120",
+     "nota": "Seção 'Book Net Income vs. Adjusted Net Income' (R$ milhões; colunas 12M15, 12M14, 4Q15, 3Q15).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Gazeta do Povo): R$ 17,18 bi; o Book Net Income do 6-K do 4T15 é R$ 17.190 mi. Contexto.",
+    "url": "https://www.gazetadopovo.com.br/economia/juntos-itau-bradesco-e-santander-lucram-r-47-bilhoes-2xylka4uhahoi027cwei4ozcg"
+   },
+   "reclassificar": [
+    {
+     "url": "https://www.gazetadopovo.com.br/economia/lucro-do-bradesco-aumenta-139-em-2015-para-r-17180-bilhoes-5b78p565pguo8zygz9p3ebh0w",
+     "papel": "contexto",
+     "nota": "R$ 17,180 bi na imprensa; o Book Net Income do 6-K do 4T15 é R$ 17.190 mi. Contexto."
+    }
+   ],
+   "motivo": "6-K do 4T15 (SEC): Book Net Income = 17.190 mi (a imprensa deu 17,18)."
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "banco-do-brasil",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/0501147c-6489-4fc5-8ac2-a39baa2721b9/0356392e-5816-866a-bc0d-e4a5b3d257de?origin=1",
+     "veiculo": "RI Banco do Brasil",
+     "tipo": "relatorio",
+     "titulo": "Banco do Brasil, Relatório Anual 2015",
+     "data": "2016",
+     "trecho": "Lucro Líquido 15.758 11.246 14.400 28,0",
+     "nota": "Tabela 'Resultado do Período (R$ milhões)' do Relatório Anual 2015 do BB (colunas 2013, 2014, 2015 e variação 15/14 %): lucro líquido de 2014 = 11.246. É o comparativo de 2014 no relatório do ano seguinte (o release do 4T14 não foi localizado).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia, Banco do Brasil): mesmo valor; Wikipédia nunca sustenta (R6), contexto.",
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil"
+   },
+   "motivo": "Relatório Anual 2015 do BB (RI): tabela com o lucro de 2014 no lugar da Wikipédia; valor igual."
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "bndes",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://bndes.gov.br/SiteBNDES/bndes/bndes_en/conteudos/noticia/BNDES-profit-rises-5.4-reaching-R$-8.59-billion-in-2014/",
+     "veiculo": "BNDES (site oficial)",
+     "tipo": "relatorio",
+     "titulo": "BNDES' profit rises 5.4% reaching R$ 8.59 billion in 2014",
+     "data": "2015-03-30",
+     "trecho": "posted net earnings of R$ 8.594 billion in 2014, up 5.4% against the R$ 8.150 billion registered in 2013.",
+     "nota": "Notícia do site do próprio BNDES (30/3/2015), com o lucro de 2014 e o de 2013 (8,150, que a linha de 2013 traz).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "papel": "sustenta",
+    "nota": "Fonte anterior (Exame): mesmo valor (R$ 8,594 bi); mantida como `sustenta`.",
+    "url": "https://exame.com/negocios/bndes-lucra-r-8-594-bilhoes-em-2014"
+   },
+   "motivo": "Site do BNDES: fonte da própria empresa no lugar da matéria da Exame; valor igual."
+  }
+ ],
+ "inserir": [],
+ "lacunas": [
+  "Santander Brasil 2013 (5,744) e 2014 (5,85): fora do pedido, mas o mesmo 6-K do 4T15 mostra que o BR GAAP de 2014 é 2.161,2 (coluna 12M14 da demonstração) e que os R$ 5.850,0 mi do texto do relatório são o lucro 'excluída a amortização de ágio', uma base não contábil; a linha de 2014 (5,85) e provavelmente a de 2013 estão fora da R7 e não foram alteradas. Para a próxima rodada: 6-K do 4T13 e do 4T14 (BR GAAP). O 2,69 de 2012 confere com o 6-K do 4T12 (R$ 2.692 mi).",
+  "Santander Brasil 2009: o 1,806 é o comparativo de 2009 no relatório da administração do 6-K do 4T10 (arquivado em 2011-02-03), não o balanço de 2009 em si; o 6-K do 4T09 (fevereiro de 2010) não foi aberto. Em 2010, 2011 e 2015 o valor vem do relatório da administração (2010 e 2011) ou da demonstração do resultado (2015) do mesmo 6-K; nos 6-K de 2011 e 2012 a demonstração do resultado fica além dos 100.000 caracteres que o WebFetch devolve por chamada e não foi lida (nenhuma divisão controladores/não controladores conferida; o valor é o 'net income' consolidado do relatório).",
+  "Itaú Unibanco 2013: o principal é o Manual das Assembleias de 2014 (6-K de 2014-03-25, 'consolidated net income amounted to R$15,696 million'), com a MD&A do 4T14 (comparativo 2013) como `sustenta`; o MD&A do 4T13 (fevereiro de 2014) não foi localizado pelas buscas. O cabeçalho da tabela de destaques da MD&A diz '$ million' e o texto 'R$ million' (R$).",
+  "Banco do Brasil 2014 (11,246): o BB não é registrante na SEC; a fonte é o comparativo de 2014 no Relatório Anual 2015 do próprio BB (tabela 'Resultado do Período'), não o release do 4T14, que as buscas não devolveram (só matérias, tabelas do DIEESE e releases de outros períodos no api.mziq.com). O mesmo relatório traz 15.758 (2013) e 14.400 (2015), iguais aos do banco. Um mesmo Relatório Anual 2015 do BB cita 'R$ 14,1 bilhões' no Perfil e 14,4 na mensagem e na tabela; vale 14,4.",
+  "Itaú e Bradesco 2015 e Bradesco 2014: a imprensa da época (Exame 23,35 e 15,088; Gazeta do Povo 17,18/17,180; Infomoney 23,35) difere do balanço em R$ 10 milhões ou menos (arredondamento); o 6-K prevalece, e essas matérias ficaram `contexto`. O Itaúsa 2014 e 2015 (8,161 e 8,868) não foram revistos além da retipagem da fonte: são o consolidado/controladora do Relatório Anual 2015 da Itaúsa, holding do Itaú (dupla contagem).",
+  "Conferência por abertura de documento só onde o banco tinha imprensa, DIEESE ou Wikipédia: Itaú 2013-2015, Bradesco 2013-2015, BB 2014, BNDES 2014 e Itaúsa. Petrobras 2013 (6-K do 4T14, comparativo 23,57), AmBev 2013 (6-K do 4T13), AmBev 2014 (20-F) e AmBev 2015 (XBRL da SEC) já eram documento oficial da SEC e não foram reabertos; Vale 2013 (0,115) não está entre as cinco maiores. BB 2013 e 2015 já tinham relatório do próprio BB. Caixa 2013-2015 (6ª/7ª) e BNDES 2013 ficaram fora do top 5; Caixa 2015 (7,2, Brasil 247) segue sem fonte primária (robots.txt, como na rodada 10).",
+  "Usiminas 2009: duas buscas pelo release do 4T09 / demonstrações de 2009 só devolveram arquivos do repositório de RI (api.mziq.com) sem título, de períodos que não são 2009 (as da rodada 10 eram de 2020 e 2024), e uma matéria de 2009 do 1T no SteelOrbis (secundária); nenhum documento do 4T09 achado, a linha não foi inserida e o top 15 de 2009 pode ainda estar incompleto.",
+  "Acesso: a listagem de diretório da SEC (https://www.sec.gov/Archives/edgar/data/1471055/) vem em ordem decrescente e truncada em jan/2015, de modo que os 6-K foram achados por WebSearch e as datas de arquivamento conferidas nos índices -index.htm; browse-edgar, rad.cvm.gov.br e www.santander.com.br não foram tentados. Os trechos vêm do texto devolvido pelo WebFetch (um modelo menor lê a página) e foram reproduzidos como devolvidos; os valores dos 6-K de Itaú e Bradesco conferem com os comparativos dos 6-K seguintes (Itaú 2014 em duas MD&A; Bradesco 2014 e 2013 em duas tabelas). 43 chamadas web usadas."
+ ],
+ "nao_aplicados": [
+  {
+   "url": "https://www.sec.gov/Archives/edgar/data/1471055/000129281413000136/bsbrdfbrgaap4q12_6k.htm",
+   "ano": 2011,
+   "motivo": "6-K do 4T12 (BR GAAP, janeiro de 2013): repete R$ 3.557 mi de 2011 e traz R$ 2.692 mi de 2012 no relatório da administração; usado só como conferência (a obs de 2011 o cita), não ligado."
+  },
+  {
+   "url": "https://bancariosdf.com.br/portal/wp-content/uploads/2014/11/destaques-demonstracoes-financeirasBB2014.pdf",
+   "ano": 2014,
+   "motivo": "BB 2014: 'destaques' das demonstrações do BB hospedados pelo sindicato dos bancários (bancariosdf.com.br), cópia secundária; não aberto e não ligado, a fonte do BB é o Relatório Anual 2015 no RI do próprio banco."
+  }
+ ],
+ "confirmados": []
+}

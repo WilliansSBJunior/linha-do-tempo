@@ -1085,7 +1085,7 @@ As entradas ficam em `data/curadoria/evidencias-rodada6.json` (formato idêntico
 | alvos | 16 |
 | URLs distintas | 14 |
 | linhas de mandato novas com fonte própria (mandatos-adicionais.json) | 13 |
-| ligações do ranking de empresas (ranking_evidencia) | 292 |
+| ligações do ranking de empresas (ranking_evidencia) | 315 |
 
 | alvo | fonte | tipo | data | nota |
 |---|---|---|---|---|
