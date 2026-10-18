@@ -796,7 +796,11 @@ def rodada6(con, exp):
     def principal(ano, ent):
         r = q(con, "SELECT v.url, v.tipo FROM ranking_empresa k LEFT JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", ano, ent)
         return (r[0]["url"], r[0]["tipo"]) if r else (None, None)
+    _cob_depois = {c["ano"] for arq in ("ranking-empresa-correcoes-r7.json", "ranking-empresa-correcoes-r8.json")
+                   for c in (json.load(open(CURADORIA / arq, encoding="utf-8")) if (CURADORIA / arq).exists() else {}).get("cobertura", [])}
     for c in rk.get("cobertura", []):
+        if c["ano"] in _cob_depois:      # rodada posterior reescreveu a cobertura deste ano (ex.: 2002 completa -> parcial na rodada 8)
+            continue
         if {r[0] for r in q(con, "SELECT cobertura FROM ranking_empresa WHERE ano=?", c["ano"])} != {c["para"]}:
             ruins.append(f"cobertura {c['ano']} != {c['para']}")
     for x in rk.get("atualizar", []) + rk.get("inserir", []):
@@ -1003,7 +1007,7 @@ def rodada8(con, exp):
     esperar("r8: arquivo traz 72 linhas inseridas e 34 atualizações", (len(ins), len(ats)), (72, 34))
     esperar("r8: atualizações com valor novo (lucro_brl_bi) == 17; só obs/fonte == 17",
             (sum(1 for x in ats if "lucro_brl_bi" in x["campos"]), sum(1 for x in ats if "lucro_brl_bi" not in x["campos"])), (17, 17))
-    esperar("r8: `cobertura` vazia (a Folha não é ranking fechado: nenhum ano muda de cobertura)", rk.get("cobertura"), [])
+    esperar("r8: `cobertura` só rebaixa 2002 de completa para parcial (a Folha não é ranking fechado: nenhum ano sobe de cobertura)", [(c["ano"], c["de"], c["para"]) for c in rk.get("cobertura", [])], [(2002, "completa", "parcial")])
     ruins = []
     for x in ats + ins:
         a, e = x["ano"], x["entidade_id"]
@@ -1069,8 +1073,8 @@ def rodada8(con, exp):
     esperar("r8: anos 1997-2009 com posição contígua, lucros decrescentes e depois prejuízos, pct_total == round(lucro/PIB*100, 3)", ruins, [])
     esperar("r8: toda inserida está no top 15 de lucros do ano ou é prejuízo de R$ 0,2 bi ou mais", corte, [])
     cob = {a: sorted(c for (c,) in q(con, "SELECT DISTINCT cobertura FROM ranking_empresa WHERE ano=?", a)) for a in range(1997, 2010)}
-    esperar("r8: cobertura de 1997-2009 sem mudança (parcial; 2002 completa, decisão da rodada 6)",
-            cob, {a: ["completa"] if a == 2002 else ["parcial"] for a in range(1997, 2010)})
+    esperar("r8: cobertura de 1997-2009 toda parcial (2002 rebaixada de completa para parcial na rodada 8)",
+            cob, {a: ["parcial"] for a in range(1997, 2010)})
     esperar("r8: Petrobras 1997 presente (1,53; Folha de 13/2/1999)",
             [tuple(r) for r in q(con, "SELECT k.lucro_brl_bi, k.derivado, v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=1997 AND k.entidade_id='petrobras'")],
             [(1.53, 0, "https://www1.folha.uol.com.br/fsp/dinheiro/fi13029916.htm")])

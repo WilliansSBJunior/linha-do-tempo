@@ -41933,7 +41933,7 @@
    "controle": "estatal",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Relatorio Anual 2002: 'lucro liquido de R$ 8,1 bilhoes'; consistente com 17,795 / 2,20 = ~8,09 (2003 foi +120%).",
    "evidencia": "https://bibliotecadigital.aepet.org.br/wp-content/uploads/2024/01/Relatorio-anual-2002.pdf",
    "nome": "Petrobras"
@@ -41949,7 +41949,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Banespa (Santander), 2002 (Folha, 4/2/2003: 'o Banespa divulgou que teve lucro líquido de R$ 2,8 bilhões'), valor arredondado; a Folha de 12/3/2003 diz que só o Banespa lucrou mais que o Itaú (2,377) em 2002.",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0402200322.htm",
    "nome": "Santander Brasil",
@@ -41966,7 +41966,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Banco Itau Holding, BR GAAP (US GAAP: R$ 2,828 bi).",
    "evidencia": "https://www.sec.gov/Archives/edgar/data/1132597/000089109204001563/e17277ex99-1.htm",
    "nome": "Itaú Unibanco",
@@ -41983,7 +41983,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Lei societária (tese PUC-Rio: 'R$ 2,043 bilhões'); coerente com US$ 680 mi (US GAAP) x R$ 2,998 = R$ 2,04 bi. Tabela do Monitor Mercantil traz R$ 4,140 bi: divergência não resolvida.",
    "evidencia": "https://www.maxwell.vrac.puc-rio.br/6590/6590_5.PDF",
    "nome": "Vale"
@@ -41999,7 +41999,7 @@
    "controle": "estatal",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "evidencia": "https://www.tribunapr.com.br/noticias/economia/banco-do-brasil-teve-lucro-recorde-de-r-23-bilhoes",
    "nome": "Banco do Brasil"
   },
@@ -42014,7 +42014,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "BR GAAP (US GAAP: R$ 2,142 bi).",
    "evidencia": "https://www.tribunapr.com.br/noticias/economia/bradesco-fecha-2003-com-lucro-14-superior-ao-do-ano-anterior",
    "nome": "Bradesco"
@@ -42031,7 +42031,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "BR GAAP, 20-F 2004.",
    "evidencia": "https://www.sec.gov/Archives/edgar/data/0001113172/000095015705000542/form20-f.htm",
    "nome": "Ambev"
@@ -42047,7 +42047,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "ABN Amro Real (banco Real e empresas ABN Amro no Brasil), balanço de 2002 (Folha, 14/2/2003).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200309.htm",
    "nome": "Banco Real",
@@ -42064,7 +42064,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Embraer, 2002 (Folha, 27/3/2003, a partir de comunicado interno do diretor-presidente aos trabalhadores, véspera da divulgação oficial do balanço).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200319.htm",
    "nome": "Embraer"
@@ -42080,7 +42080,7 @@
    "controle": "estatal",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Eletrobras, balanço de 2002 (Folha, 14/3/2003), valor arredondado; a desvalorização cambial reduziu o lucro em 66%.",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200315.htm",
    "nome": "Eletrobras"
@@ -42096,7 +42096,7 @@
    "controle": "estatal",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Caixa Econômica Federal, 2002 (Folha, 1/3/2003: 'lucro de R$ 1,081 bilhão', o maior da história da instituição).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0103200312.htm",
    "nome": "Caixa"
@@ -42112,7 +42112,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Telesp (operadora fixa do grupo Telefônica em São Paulo), 2002 (Folha, 12/2/2003).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1202200311.htm",
    "nome": "Telefônica Brasil",
@@ -42129,7 +42129,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "BR GAAP.",
    "evidencia": "https://www.sec.gov/Archives/edgar/data/1038584/000129281404000054/uh_form20f.htm",
    "nome": "Unibanco"
@@ -42145,7 +42145,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 1,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Derivado: US$ 231,8 mi (US GAAP consolidado) x R$ 2,998/US$.",
    "evidencia": "https://www.sec.gov/Archives/edgar/data/0001073404/000091142005000268/d1064809.txt",
    "nome": "Gerdau"
@@ -42161,7 +42161,7 @@
    "controle": "privado",
    "holding": 1,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Brasil Telecom Participações (holding), 2002 (Folha, 21/2/2003, com Folha Online e Reuters).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2102200308.htm",
    "nome": "Brasil Telecom Participações"
@@ -42177,7 +42177,7 @@
    "controle": "estatal",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Cesp, prejuízo recorde de 2002 (sobra de energia e dívida em dólar; Folha, 15/3/2003, com a Economática).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1503200302.htm",
    "nome": "Cesp"
@@ -42193,7 +42193,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Light, prejuízo de 2002, com provisão de R$ 866 mi para ajuste de créditos tributários (Folha, 27/3/2003).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200326.htm",
    "nome": "Light"
@@ -42210,7 +42210,7 @@
    "controle": "privado",
    "holding": 1,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Lei societária, 20-F 2003.",
    "evidencia": "https://www.sec.gov/Archives/edgar/data/1071337/000095012304008074/y98693e20vf.htm",
    "nome": "Telesp Celular Participações"
@@ -42226,7 +42226,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Eletropaulo Metropolitana (AES), prejuízo de 2002 segundo a ata do Conselho de Administração (Folha, 26/3/2003).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2603200315.htm",
    "nome": "Eletropaulo"
@@ -42243,7 +42243,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Lei societária, 20-F 2003.",
    "evidencia": "https://www.sec.gov/Archives/edgar/data/0001066117/000119312504093082/d20f.htm",
    "nome": "Embratel"
@@ -42260,7 +42260,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Tele Norte Leste Participações (TNL), holding; a operadora Telemar Norte Leste lucrou R$ 0,687 bi. Lei societária (BR GAAP, 20-F 2004; US GAAP: prejuízo de R$ 1,4 bi).",
    "evidencia": "https://www.sec.gov/Archives/edgar/data/0001066113/000095012305007975/y10162e20vf.htm",
    "nome": "Telemar"
@@ -42276,7 +42276,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Usiminas (sistema Usiminas, com a Cosipa), prejuízo de 2002, comparativo do balanço de 2003 (Folha, 5/3/2004).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0503200417.htm",
    "nome": "Usiminas"
@@ -42292,7 +42292,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "CSN, prejuízo de 2002 pela amortização de impactos cambiais diferidos de 1999 e 2001 (R$ 409 mi líquidos; Folha, 27/3/2003).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200320.htm",
    "nome": "CSN"
@@ -42308,7 +42308,7 @@
    "controle": "privado",
    "holding": 0,
    "derivado": 0,
-   "cobertura": "completa",
+   "cobertura": "parcial",
    "obs": "Klabin, prejuízo de 2002, comparativo do balanço de 2003 (Folha, 19/2/2004).",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200425.htm",
    "nome": "Klabin"

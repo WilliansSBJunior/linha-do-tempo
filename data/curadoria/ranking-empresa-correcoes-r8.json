@@ -1,6 +1,13 @@
 {
  "_doc": "Rodada 8 (18/10/2026): ranking de lucros (ranking_empresa) de 1997-2009 com a Folha de S.Paulo (acervo www1.folha.uol.com.br/fsp aberto pelo Chrome do usuário; /home/claude/transfer/folha_idx/: 145 blocos de texto literal + 4 matérias de resultados de 1998), trechos literais. Mesmo formato e mesmo mecanismo das rodadas 6 e 7, aplicado logo depois da 7 por curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R8): os `de` são os valores que as rodadas 6 e 7 gravaram. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época (reapresentações, IFRS, US GAAP, 'recorrente' só como contexto/obs). Atualiza onde a Folha diverge do banco além do arredondamento (ou onde o banco tinha valor derivado/aproximado), insere as empresas que entram no top 15 de lucros do ano (e prejuízos >= R$ 0,2 bi), e liga a Folha como `sustenta` adicional só onde o valor já era igual e a fonte do banco não era imprensa nem documento primário da época (monografia/tese, Wikipédia, tabela secundária, matéria posterior); onde a principal era a Wikipédia, a Folha passa a principal e a Wikipédia fica como contexto. Empresas que mudaram de nome usam a entidade de hoje com `nome_epoca`: Banespa/Santander Banespa -> santander-brasil (o Banespa é o antecessor jurídico do Banco Santander (Brasil)); Real -> banco-real com 'ABN Amro Real' (2000-2007); Telemar -> telemar com 'Oi' (2007-2009); Telesp -> telefonica-brasil com 'Telesp'. Entidades novas em entidades-adicionais.json: furnas, eletropaulo, cesp, embraer, klabin, belgo-mineira, aracruz, tam. A cobertura dos anos não muda (a Folha não é ranking fechado).",
- "cobertura": [],
+ "cobertura": [
+  {
+   "ano": 2002,
+   "de": "completa",
+   "para": "parcial",
+   "motivo": "Rodada 8 achou 13 linhas novas em 2002 (Banespa em 2º, ABN, Embraer, Eletrobras, Caixa, Telesp, Brasil Telecom e 6 prejuízos): o ano não estava completo. 'completa' da rodada 6 referia-se só aos 3 prejuízos confirmados na SEC."
+  }
+ ],
  "atualizar": [
   {
    "ano": 1997,
