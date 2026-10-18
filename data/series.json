@@ -55940,23 +55940,23 @@
    "titulo": "Posse de Fernando Henrique Cardoso",
    "descricao": "Em 1/1/1995 toma posse o presidente Fernando Henrique Cardoso (PSDB), eleito em 1994 no primeiro turno, com cerca de 54,3% dos votos válidos, após o Plano Real.",
    "peso": 4,
-   "natureza": "documentada",
+   "natureza": "reportada",
    "fontes": [
-    {
-     "url": "https://fundacaofhc.org.br/files/artigo/3.pdf",
-     "veiculo": "Fundacao FHC (texto do discurso de posse)",
-     "tipo": "documento_oficial",
-     "titulo": "Discurso de posse de Fernando Henrique Cardoso no Congresso Nacional",
-     "data": "1995-01-01",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
     {
      "url": "https://www.poder360.com.br/midia/fhc-questiona-reeleicao-em-documentario-que-estreia-no-dia-31",
      "veiculo": "Poder360",
      "tipo": "reportagem",
      "titulo": "FHC questiona reeleição em documentário que estreia no dia 31",
      "data": "2022-03-16",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://fundacaofhc.org.br/files/artigo/3.pdf",
+     "veiculo": "Fundacao FHC (texto do discurso de posse)",
+     "tipo": "relatorio",
+     "titulo": "Discurso de posse de Fernando Henrique Cardoso no Congresso Nacional",
+     "data": "1995-01-01",
      "qualidade": "boa",
      "papel": "sustenta"
     }

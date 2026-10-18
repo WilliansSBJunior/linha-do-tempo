@@ -790,7 +790,7 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 ### Não encontrados (continuam `nao_classificada`)
 
-7 eventos; natureza no banco: documentada 5, reportada 2.
+7 eventos; natureza no banco: documentada 4, reportada 3.
 
 | evento | motivo | tentativas |
 |---|---|---|
@@ -836,8 +836,8 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 | natureza | eventos |
 |---|---:|
-| documentada | 21 |
-| reportada | 12 |
+| documentada | 20 |
+| reportada | 13 |
 
 ### Correções aplicadas
 
@@ -894,8 +894,8 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 | natureza | eventos |
 |---|---:|
-| documentada | 30 |
-| reportada | 13 |
+| documentada | 29 |
+| reportada | 14 |
 
 ### Substituições
 

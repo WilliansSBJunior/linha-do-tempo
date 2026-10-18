@@ -393,9 +393,9 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
     (fica NULL, a justificativa é obrigatória).
 ```
 
-- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 181, investigacao 9, reportada 122.
+- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 180, investigacao 9, reportada 123.
 - Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 290.
-- R5 por canal e natureza: brasil/documentada 160, brasil/reportada 120, violencia/documentada 10.
+- R5 por canal e natureza: brasil/documentada 159, brasil/reportada 121, violencia/documentada 10.
 - Classificação manual (`eventos-natureza-manual.json`): 41 entradas, 41 aplicadas (alegacao 5, investigacao 11, reportada 25), 0 ignoradas (já tinham natureza), 0 exceções explícitas (ficam NULL).
 - Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 63 ganharam natureza pelas regras R1-R4 ou à mão, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 0 seguem NULL.
 - **Ficaram NULL: 0 eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: 0.
@@ -789,15 +789,15 @@ Repetidas (idênticas a uma entrada anterior; contadas uma vez):
 
 | natureza dos eventos cobertos | eventos |
 |---|---:|
-| documentada | 21 |
-| reportada | 12 |
+| documentada | 20 |
+| reportada | 13 |
 
 | natureza (todos os eventos) | eventos |
 |---|---:|
 | alegacao | 6 |
-| documentada | 241 |
+| documentada | 240 |
 | investigacao | 36 |
-| reportada | 222 |
+| reportada | 223 |
 
 Eventos `nao_classificada` depois da rodada: 0.
 
@@ -808,6 +808,6 @@ Eventos `nao_classificada` depois da rodada: 0.
 | natureza (todos os eventos) | eventos |
 |---|---:|
 | alegacao | 6 |
-| documentada | 241 |
+| documentada | 240 |
 | investigacao | 36 |
-| reportada | 222 |
+| reportada | 223 |

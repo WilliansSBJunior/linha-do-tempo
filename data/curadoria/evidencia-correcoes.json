@@ -1,11 +1,30 @@
 [
- {"url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/informacoes-relativas-a-grupo-master-reag-e-outras-entidades-conexas",
-  "campo": "tipo", "de": "reportagem", "para": "comunicado",
-  "motivo": "Comunicado institucional da CVM (gov.br/cvm, seção de notícias da própria autarquia), não matéria jornalística de terceiro."},
- {"url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2020/20201201_PAS_CVM_SEI_19957_009798_2019_01_voto_termo_compromisso_diretor_henrique_machado.pdf-49901aa4aaec4d11ab8f39b3ed6e6ca5",
-  "campo": "tipo", "de": "reportagem", "para": "documento_oficial",
-  "motivo": "Voto de diretor da CVM em termo de compromisso de processo administrativo sancionador (anexo PDF em gov.br/cvm): decisão/peça oficial."},
- {"url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/setembro/operacao-credito-oculto-receita-federal-e-gaeco-identificam-novas-conexoes-financeiras-de-investigados-da-operacao-carbono-oculto",
-  "campo": "tipo", "de": "reportagem", "para": "comunicado",
-  "motivo": "Nota de imprensa da própria Receita Federal (gov.br/receitafederal, seção de notícias do órgão), não matéria jornalística de terceiro."}
+ {
+  "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/informacoes-relativas-a-grupo-master-reag-e-outras-entidades-conexas",
+  "campo": "tipo",
+  "de": "reportagem",
+  "para": "comunicado",
+  "motivo": "Comunicado institucional da CVM (gov.br/cvm, seção de notícias da própria autarquia), não matéria jornalística de terceiro."
+ },
+ {
+  "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2020/20201201_PAS_CVM_SEI_19957_009798_2019_01_voto_termo_compromisso_diretor_henrique_machado.pdf-49901aa4aaec4d11ab8f39b3ed6e6ca5",
+  "campo": "tipo",
+  "de": "reportagem",
+  "para": "documento_oficial",
+  "motivo": "Voto de diretor da CVM em termo de compromisso de processo administrativo sancionador (anexo PDF em gov.br/cvm): decisão/peça oficial."
+ },
+ {
+  "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/setembro/operacao-credito-oculto-receita-federal-e-gaeco-identificam-novas-conexoes-financeiras-de-investigados-da-operacao-carbono-oculto",
+  "campo": "tipo",
+  "de": "reportagem",
+  "para": "comunicado",
+  "motivo": "Nota de imprensa da própria Receita Federal (gov.br/receitafederal, seção de notícias do órgão), não matéria jornalística de terceiro."
+ },
+ {
+  "url": "https://fundacaofhc.org.br/files/artigo/3.pdf",
+  "campo": "tipo",
+  "de": "documento_oficial",
+  "para": "relatorio",
+  "motivo": "Texto do discurso de posse hospedado pela Fundação FHC (instituição privada), não página oficial do Estado; é documento primário, mas não oficial — R5 passa a classificar o evento como reportada, não documentada."
+ }
 ]

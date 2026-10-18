@@ -146,8 +146,8 @@
  },
  {
   "id": "ev-1995-posse-de-fernando-henrique-cardoso",
-  "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, fundacaofhc.org.br)"
+  "natureza": "reportada",
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-1996-acordo-de-tecnologia-da-informacao-na",
