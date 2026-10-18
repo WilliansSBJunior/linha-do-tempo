@@ -523,6 +523,83 @@
    "para": "Bolsonaro lhe concede graça",
    "motivo": "Alinha o título à descrição já corrigida (graça constitucional, perdão individual, e não indulto), como diz a fonte (Poder360).",
    "ressalvas": []
+  },
+  {
+   "evento_id": "ev-1998-tse-rejeita-candidatura-de-collor",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "rejeita por unanimidade o registro",
+   "para": "rejeita o registro",
+   "motivo": "Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): a página do TSE (Resolução 20.297, de 12/8/1998) não informa se a decisão foi unânime; o detalhe sai.",
+   "ressalvas": [],
+   "rodada": 3,
+   "fonte_url": "https://www.tse.jus.br/jurisprudencia/julgados-historicos/collor"
+  },
+  {
+   "evento_id": "ev-2012-rio-20-reune-88-chefes-de-estado-e-de",
+   "campo": "titulo",
+   "decisao": "aceitar",
+   "de": "reúne 88 chefes",
+   "para": "reúne mais de 100 chefes",
+   "motivo": "Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): ONU (press.un.org, ENV/DEV/1310): 'over 100 Heads of State and Government'. Fonte oficial.",
+   "ressalvas": [],
+   "rodada": 3,
+   "fonte_url": "https://press.un.org/en/2012/envdev1310.doc.htm"
+  },
+  {
+   "evento_id": "ev-2012-rio-20-reune-88-chefes-de-estado-e-de",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "cerca de 45,4 mil participantes credenciados",
+   "para": "cerca de 46 mil participantes",
+   "motivo": "Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): ONU (press.un.org, ENV/DEV/1310): 'total participation at close to 46,000'. Fonte oficial.",
+   "ressalvas": [],
+   "rodada": 3,
+   "fonte_url": "https://press.un.org/en/2012/envdev1310.doc.htm"
+  },
+  {
+   "evento_id": "ev-2004-mercosul-e-comunidade-andina-firmam",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Em 8 de dezembro de 2004 a Comunidade Andina assinou um acordo de cooperação com o Mercosul, que levou os quatro membros plenos do bloco a se tornarem associados da CAN em julho de 2005.",
+   "para": "Em 18 de outubro de 2004 a Comunidade Andina e o Mercosul assinaram o Acordo de Complementação Econômica nº 59 (ACE 59); posteriormente, os membros plenos do Mercosul tornaram-se associados da CAN.",
+   "motivo": "Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): OEA/SICE: ACE 59 assinado em 18/10/2004 (8/12/2004 é a Declaração de Cusco). A associação em 7/2005 não foi confirmada em fonte aberta: fica vaga ('posteriormente').",
+   "ressalvas": [],
+   "rodada": 3,
+   "fonte_url": "https://sice.oas.org/TPD/AND_MER/AND_MER_e.asp"
+  },
+  {
+   "evento_id": "ev-2017-brent-sobe-para-us-54-89-de-media-com",
+   "campo": "titulo",
+   "decisao": "aceitar",
+   "de": "US$ 54,89",
+   "para": "US$ 54,13",
+   "motivo": "Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): alinhado à série anexada (EIA, Brent spot, média anual 2017 = 54,13), como já feito para 2005.",
+   "ressalvas": [],
+   "rodada": 3,
+   "fonte_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=A"
+  },
+  {
+   "evento_id": "ev-2017-brent-sobe-para-us-54-89-de-media-com",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "média de US$ 54,89 por barril, ante US$ 45,08 em 2016, segundo o FMI.",
+   "para": "média de US$ 54,13 por barril, ante US$ 43,64 em 2016, segundo a série da EIA.",
+   "motivo": "Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): alinhado à série anexada (EIA, Brent spot: 2017 = 54,13; 2016 = 43,64); a fonte citada passa de FMI a EIA.",
+   "ressalvas": [],
+   "rodada": 3,
+   "fonte_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=A"
+  },
+  {
+   "evento_id": "ev-2002-eneas-e-o-deputado-federal-mais-votado",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "cerca de 1,57 milhão de votos",
+   "para": "cerca de 1,5 milhão de votos",
+   "motivo": "Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): Congresso em Foco: 'o maior número de votos da história: 1,5 milhão'; o número exato 1,57 mi não foi confirmado. A superação em 2018 fica como está (não verificada; nota na evidência).",
+   "ressalvas": [],
+   "rodada": 3,
+   "fonte_url": "https://congressoemfoco.com.br/noticia/85879/rj-morre-o-deputado-eneas-carneiro"
   }
  ],
  "ressalvas_mantidas_com_nota": {

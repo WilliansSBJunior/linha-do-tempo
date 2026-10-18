@@ -430,13 +430,74 @@ def dossie_e_pares(con, exp):
     esperar("seções relacionais não estão mais em nota", n, 0)
 
 
+def _rodada3():
+    p = CURADORIA / "evidencias-rodada3.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
+def _evidencias_adicionais():
+    """Entradas de evidencias-adicionais.json seguidas das `evidencias` de evidencias-rodada3.json (mesma lista que curadoria.ler_evidencias_adicionais
+    aplica; lida aqui de forma independente)."""
+    return json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")) + _rodada3().get("evidencias", [])
+
+
+def rodada3(con):
+    """Rodada 3 (data/curadoria/evidencias-rodada3.json): o conteúdo de cada entrada contra o banco já é conferido em evidencias_adicionais
+    (a lista inclui a rodada 3); aqui: contagens == arquivo, toda entrada ligada ao evento com papel 'sustenta', correções da rodada
+    presentes em evento-correcoes.json e nenhum evento 'nao_classificada' (ou a lista explícita dos que restam)."""
+    cfg = _rodada3()
+    if not cfg:
+        return
+    secao("Rodada 3 de fontes (evidencias-rodada3.json aplicada)")
+    ent = cfg.get("evidencias", [])
+    esperar("evidencias-rodada3.json: toda entrada tem \"rodada\": 3 e alvo_tipo evento", sum(1 for e in ent if e.get("rodada") == 3 and e.get("alvo_tipo") == "evento"), len(ent))
+    eventos = {e["evento_id"] for e in ent}
+    urls = {normalizar_url(e["url"]) for e in ent}
+    ruins, ligadas = [], 0
+    for e in ent:
+        a = q(con, "SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?", e["evento_id"], e["evento_id"])
+        lig = q(con, """SELECT x.papel FROM evento_evidencia x JOIN evidencia v ON v.id=x.evidencia_id WHERE x.evento_id=? AND v.url=?""",
+                a[0][0], normalizar_url(e["url"])) if a else []
+        if not a:
+            ruins.append(f"evento inexistente: {e['evento_id']}")
+        elif len(lig) != 1 or lig[0]["papel"] != "sustenta":
+            ruins.append(f"{e['evento_id']}: {e['url']} não ligada com papel sustenta ({[r[0] for r in lig]})")
+        else:
+            ligadas += 1
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("rodada 3: entradas ligadas ao evento com papel 'sustenta' == entradas do arquivo", ligadas, len(ent))
+    n_ev = q(con, f"SELECT count(DISTINCT x.evento_id) FROM evento_evidencia x JOIN evidencia v ON v.id=x.evidencia_id "
+                  f"WHERE x.papel='sustenta' AND v.url IN ({','.join('?' * len(urls))})", *urls)[0][0] if urls else 0
+    print(f"  info: rodada 3: {len(ent)} entradas, {len(eventos)} eventos, {len(urls)} URLs distintas ({n_ev} eventos ligados a elas por 'sustenta')")
+    esperar("rodada 3: evidências no banco para as URLs do arquivo", q(con, f"SELECT count(*) FROM evidencia WHERE url IN ({','.join('?' * len(urls))})", *urls)[0][0], len(urls))
+    # correções: toda decisão com campo de texto tem correção 'rodada': 3 em evento-correcoes.json; 'nenhum' não gera correção
+    corr = json.loads((CURADORIA / "evento-correcoes.json").read_text(encoding="utf-8"))["correcoes"]
+    c3 = {c["evento_id"] for c in corr if c.get("rodada") == 3}
+    dec = cfg.get("decisoes", {}).get("correcoes", [])
+    falta = [d["evento_id"] for d in dec if d.get("campo") != "nenhum" and d["evento_id"] not in c3]
+    sobra = sorted(c3 - {d["evento_id"] for d in dec if d.get("campo") != "nenhum"})
+    esperar("rodada 3: decisões com campo de texto sem correção em evento-correcoes.json", falta, [])
+    esperar("rodada 3: correções 'rodada': 3 sem decisão no arquivo", sobra, [])
+    esperar("rodada 3: correções só em eventos da rodada", sorted(c3 - eventos), [])
+    for n in cfg.get("nao_encontrados", []):
+        esperar(f"rodada 3: não encontrado {n['evento_id']} tem evidência registrada mesmo assim", n["evento_id"] in eventos, True)
+    restam = [r[0] for r in q(con, "SELECT id FROM evento WHERE natureza_id='nao_classificada' ORDER BY data, id")]
+    for i in restam:
+        print("   - continua nao_classificada:", i)
+    esperar("eventos nao_classificada depois da rodada 3", len(restam), 0)
+    esperar("rodada 3: eventos cobertos que continuam nao_classificada", sorted(eventos & set(restam)), [])
+    p = DATA / "relatorio-evidencias-adicionais.md"
+    esperar("relatorio-evidencias-adicionais.md tem a seção Rodada 3", "## Rodada 3" in p.read_text(encoding="utf-8"), True)
+
+
 def evidencias_adicionais(con):
-    secao("Evidências adicionais (data/curadoria/evidencias-adicionais.json aplicada)")
+    secao("Evidências adicionais (data/curadoria/evidencias-adicionais.json + evidencias-rodada3.json aplicadas)")
     n = q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)")[0][0]
     esperar("eventos sem nenhuma evidência", n, 0)
     n = q(con, "SELECT count(*) FROM relacao r WHERE r.status='publicada' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id)")[0][0]
     esperar("relações publicadas sem nenhuma evidência", n, 0)
-    ent = json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8"))
+    ent = _evidencias_adicionais()
     revistas = _revisoes_qualidade()   # (alvo_tipo, alvo, url) que a revisão do critério devolveu a 'boa'
     chaves, ruins, fracas, n_revistas = set(), [], 0, 0
     for e in ent:
@@ -535,7 +596,7 @@ def evidencia_qualidade(con):
     cfg = json.loads(p.read_text(encoding="utf-8"))
     rev = cfg.get("revisoes", [])
     adic = {}
-    for e in json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")):
+    for e in _evidencias_adicionais():
         adic[(e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"]))] = e
     ruins, vistos, aplic, sobre_subst, repetidas = [], {}, 0, 0, 0
     for x in rev:
@@ -623,8 +684,11 @@ def revisao_evidencias(con):
             ruins.append(f"{c['evento_id']}/{c['campo']}: `de` ainda presente")
     esperar("evento-correcoes.json: correções com `para` presente e `de` ausente (divergências)", len(ruins), 0)
     nao = [n["evento_id"] for n in cfg_e.get("nao_encontrados_rodada2", [])]
-    ruim_nao = [i for i in nao if (q(con, "SELECT natureza_id FROM evento WHERE id=?", i) or [[None]])[0][0] != "nao_classificada"]
-    esperar("evento-correcoes.json: não encontrados da rodada 2 existem e continuam nao_classificada (divergências)", ruim_nao, [])
+    cobertos_r3 = {e["evento_id"] for e in _rodada3().get("evidencias", [])}   # a rodada 3 achou fonte para eles: deixam de ser nao_classificada
+    ruim_nao = [i for i in nao if (q(con, "SELECT natureza_id FROM evento WHERE id=?", i) or [[None]])[0][0] != "nao_classificada" and i not in cobertos_r3]
+    ruim_nao += [i for i in nao if not q(con, "SELECT 1 FROM evento WHERE id=?", i)]
+    print(f"  info: não encontrados da rodada 2: {len(nao)}, dos quais {len(set(nao) & cobertos_r3)} cobertos pela rodada 3")
+    esperar("evento-correcoes.json: não encontrados da rodada 2 existem e, se a rodada 3 não os cobriu, continuam nao_classificada (divergências)", ruim_nao, [])
     for x in ruins[:20]:
         print("   -", x)
     ruins = []
@@ -859,7 +923,7 @@ def curadoria(con):
     esperar("evento-entidade-auto.json: ligações presentes", ok, sum(len(it["entidades"]) for it in lig))
     fon = json.loads((CURADORIA / "brasil-fontes.json").read_text(encoding="utf-8"))
     adic = collections.defaultdict(set)   # URLs que evidencias-adicionais.json liga a cada evento (as fracas substituídas não são ligadas)
-    for x in json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")):
+    for x in _evidencias_adicionais():
         if x["alvo_tipo"] == "evento" and not (x["qualidade"] == "fraca" and x.get("substituida_por")):
             adic[x["evento_id"]].add(normalizar_url(x["url"]))
     ok = sum(1 for it in fon if {normalizar_url(r[0]) for r in q(con, "SELECT e.url FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.evento_id=?", it["evento_id"])}
@@ -1079,6 +1143,7 @@ def main():
     curadoria(con)
     evidencias_adicionais(con)
     evidencia_qualidade(con)
+    rodada3(con)
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)

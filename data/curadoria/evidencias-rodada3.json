@@ -269,7 +269,7 @@
    "titulo": "Argentina suspends foreign debt payments (matéria de 24/12/2001)",
    "data": "2001-12-24",
    "trecho": "The Argentine state will suspend the payment of the foreign debt.",
-   "nota": "CONTRADIÇÃO (valor): a fonte fala em suspender pagamento da divida de US$ 132 bilhoes (principal e juros), nao US$ 93 bi (US$ 93 bi e o valor comumente citado so de titulos em default; verificar). Corralito nao mencionado. Pagina sem titulo/data explicitos (data pela URL).",
+   "nota": "CONTRADIÇÃO (valor): a fonte fala em suspender pagamento da divida de US$ 132 bilhoes (principal e juros), nao US$ 93 bi (US$ 93 bi e o valor comumente citado so de titulos em default; verificar). Corralito nao mencionado. Pagina sem titulo/data explicitos (data pela URL). Decisão (rodada 3): mantidos os US$ 93 bi da descrição (dívida em títulos que entrou em default); os US$ 132 bi são a dívida pública total.",
    "qualidade": "boa",
    "rodada": 3
   },

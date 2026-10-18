@@ -43,9 +43,9 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 907 |
 | evento_tema | 631 |
 | fonte (era video) | 0 |
-| evidencia | 1494 |
+| evidencia | 1531 |
 | relacao_evidencia | 1238 |
-| evento_evidencia | 3175 |
+| evento_evidencia | 3215 |
 | evento_entidade | 935 |
 | nota | 549 |
 | indicador | 83 |
@@ -383,7 +383,7 @@ R4  o título começa por 'Folha liga' ou tem 'revelado/revelada', 'mensagens', 
 --  nenhuma das anteriores: continua NULL (nada é inventado)
 Precedência: R1, R2, R3, R4. R1-R4 só se aplicam a eventos do canal 'teia' com natureza_id NULL.
 R5  (canais 'brasil' e 'violencia', eventos factuais da linha do tempo; olha o tipo e o domínio das evidências ligadas ao evento com papel 'sustenta'):
-    ao menos uma evidência documento_oficial/dado_oficial/decisao_judicial (ou domínio oficial pela lista de R1) -> documentada;
+    ao menos uma evidência documento_oficial/dado_oficial/decisao_judicial/comunicado (ou domínio oficial pela lista de R1; `comunicado` = nota de órgão público, como press release do Fed ou da ONU, desde a rodada 3) -> documentada;
     senão, ao menos uma reportagem/relatorio -> reportada;
     senão (só wiki/outro/video, só fonte de papel 'contexto' ou nenhuma fonte) -> nao_classificada.
     Fontes 'contexto' (as URLs do bloco-ano de brasil-fontes.json, que o bruto não separa por evento) NÃO contam: não sustentam o fato do evento.
@@ -393,9 +393,9 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
     (fica NULL, a justificativa é obrigatória).
 ```
 
-- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 156, investigacao 9, nao_classificada 33, reportada 114.
+- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 173, investigacao 9, reportada 130.
 - Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 290.
-- R5 por canal e natureza: brasil/documentada 135, brasil/nao_classificada 33, brasil/reportada 112, violencia/documentada 10.
+- R5 por canal e natureza: brasil/documentada 152, brasil/reportada 128, violencia/documentada 10.
 - Classificação manual (`eventos-natureza-manual.json`): 41 entradas, 41 aplicadas (alegacao 5, investigacao 11, reportada 25), 0 ignoradas (já tinham natureza), 0 exceções explícitas (ficam NULL).
 - Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 63 ganharam natureza pelas regras R1-R4 ou à mão, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 0 seguem NULL.
 - **Ficaram NULL: 0 eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: 0.
@@ -410,7 +410,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1494 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1531 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -782,3 +782,21 @@ Repetidas (idênticas a uma entrada anterior; contadas uma vez):
 | `ev-2023-milei-e-eleito-e-o-peso-argentino-e` | https://www.noticel.com/mundo/20231129/asamblea-legislativa-argentina-consagra-el-triunfo-de-milei-con-el-55-65-de-los-votos | veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota |
 | `ev-2023-milei-e-eleito-e-o-peso-argentino-e` | https://www.infomoney.com.br/?p=2323239 | a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto |
 | `ev-2024-fed-corta-os-juros-em-1-ponto-e-chega-a` | https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm | fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte |
+
+## 19. Rodada 3 de fontes (`data/curadoria/evidencias-rodada3.json`)
+
+40 entradas para 33 eventos que a rodada 2 deixou `nao_classificada`, aplicadas por `curadoria.aplicar_evidencias_adicionais` junto com `evidencias-adicionais.json` (`curadoria.ler_evidencias_adicionais`), papel `sustenta`; as ligações wiki/outro que esses eventos já tinham ficam. A natureza vem de `eventos-natureza.json`, regerado (R5) depois da rodada. Decisão desta rodada: R5 passa a contar `comunicado` (nota de órgão público) como fonte oficial, como `documento_oficial`/`dado_oficial`/`decisao_judicial`; sem isso, 4 eventos sustentados só por press release do Fed e da ONU continuariam `nao_classificada` (nenhum outro evento muda). Correções de texto da rodada: 7 (`evento-correcoes.json`, `"rodada": 3`; detalhe em `relatorio-evidencias-adicionais.md`, seção "Rodada 3").
+
+| natureza dos eventos cobertos | eventos |
+|---|---:|
+| documentada | 17 |
+| reportada | 16 |
+
+| natureza (todos os eventos) | eventos |
+|---|---:|
+| alegacao | 6 |
+| documentada | 233 |
+| investigacao | 36 |
+| reportada | 230 |
+
+Eventos `nao_classificada` depois da rodada: 0.

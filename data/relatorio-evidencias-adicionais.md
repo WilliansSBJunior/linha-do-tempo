@@ -8,16 +8,16 @@ Pesquisa de fontes para os eventos e relações que a migração deixava sem nen
 
 | | |
 |---|---:|
-| entradas (alvo, URL) | 408 |
-| eventos cobertos | 249 |
+| entradas (alvo, URL) | 448 |
+| eventos cobertos | 255 |
 | relações cobertas | 45 |
 | eventos sem evidência antes -> depois | 59 -> 0 |
 | relações publicadas sem evidência antes -> depois | 45 -> 0 |
-| evidências novas (linhas em `evidencia`) | 265 |
+| evidências novas (linhas em `evidencia`) | 302 |
 | ligações a URLs que já existiam em `evidencia` antes desta etapa (reaproveitadas; veículo e tipo intactos) | 72 |
-| ligações criadas | 319 |
+| ligações criadas | 359 |
 | ligações que já existiam (fonte de contexto do bloco-ano) e passaram a `sustenta` com trecho, nota e qualidade | 55 |
-| qualidade `boa` | 234 |
+| qualidade `boa` | 274 |
 | qualidade `fraca` (no arquivo, inclusive as substituídas, que ficam como histórico) | 174 |
 | qualidade `fraca` ligadas ao alvo (como entraram) | 140 |
 | &nbsp;&nbsp;das quais voltaram a `boa` na revisão do critério (`evidencia-qualidade-revisao.json`, seção 18 de `relatorio-migracao.md`) | 89 |
@@ -29,12 +29,13 @@ Evidências novas por tipo:
 
 | tipo | evidências novas |
 |---|---:|
-| dado_oficial | 14 |
-| decisao_judicial | 1 |
-| documento_oficial | 84 |
+| comunicado | 8 |
+| dado_oficial | 15 |
+| decisao_judicial | 2 |
+| documento_oficial | 94 |
 | outro | 8 |
-| relatorio | 4 |
-| reportagem | 145 |
+| relatorio | 5 |
+| reportagem | 161 |
 | wiki | 9 |
 
 Onde ficam os dados (colunas aditivas, ver `-- DESVIO` em `scripts/schema.sql`): `trecho_citado` (em `relacao_evidencia` já existia; em `evento_evidencia` é novo), `nota` (ressalva do pesquisador) e `qualidade` ('boa'/'fraca'; NULL nas ligações antigas, que não foram avaliadas). `evidencia.veiculo`/`tipo` vêm da primeira entrada que criou a URL; `evento_evidencia.rotulo` = título da fonte.
@@ -102,7 +103,7 @@ Onde ficam os dados (colunas aditivas, ver `-- DESVIO` em `scripts/schema.sql`):
 | evento `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` (S&P rebaixa a nota dos Estados Unidos) | https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades | fonte wiki (não é fonte primária) |
 | evento `ev-2012-instalada-a-comissao-nacional-da-verdade` (Instalada a Comissão Nacional da Verdade) | https://ihu.unisinos.br/noticias/509554-direito-a-historia-pautara-solenidade-hoje-no-planalto | republicação de matéria sindical/imprensa em site universitário |
 | evento `ev-2012-julgamento-do-mensalao-no-stf` (Julgamento do mensalão no STF) | https://vermelho.org.br/2012/08/02/comeca-hoje-julgamento-do-mensalao-no-stf/ | veículo partidário (PCdoB) |
-| evento `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (Rio+20 reúne 88 chefes de Estado e de governo no Rio) | https://pt.wikipedia.org/wiki/Rio%2B20 | fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento |
+| evento `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (Rio+20 reúne mais de 100 chefes de Estado e de governo no Rio) | https://pt.wikipedia.org/wiki/Rio%2B20 | fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento |
 | evento `ev-2013-espionagem-da-nsa-leva-dilma-a-cancelar` (Espionagem da NSA leva Dilma a cancelar viagem aos EUA) | https://www.congressoemfoco.com.br/noticia/55258/jornais-dilma-decide-cancelar-visita-de-estado-a-obama | a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento |
 | evento `ev-2013-governo-dos-eua-fica-paralisado-por-16` (Governo dos EUA fica paralisado por 16 dias) | https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2013 | fonte wiki (não é fonte primária) |
 | evento `ev-2013-governo-lanca-o-programa-mais-medicos` (Governo lança o programa Mais Médicos) | https://vermelho.org.br/2013/07/08/programa-mais-medicos-e-lancado-com-bolsa-de-r-10-mil/ | veículo partidário (PCdoB) |
@@ -265,7 +266,7 @@ Sem substituto (continuam ligadas e marcadas):
 - evento `ev-2012-argentina-reestatiza-a-petroleira-ypf` (Argentina reestatiza a petroleira YPF): https://www.diariodecuyo.com.ar/noticias/la-reestatizacion-de-ypf-es-ley-765379.html
 - evento `ev-2012-instalada-a-comissao-nacional-da-verdade` (Instalada a Comissão Nacional da Verdade): https://ihu.unisinos.br/noticias/509554-direito-a-historia-pautara-solenidade-hoje-no-planalto
 - evento `ev-2012-julgamento-do-mensalao-no-stf` (Julgamento do mensalão no STF): https://vermelho.org.br/2012/08/02/comeca-hoje-julgamento-do-mensalao-no-stf/
-- evento `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (Rio+20 reúne 88 chefes de Estado e de governo no Rio): https://pt.wikipedia.org/wiki/Rio%2B20
+- evento `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (Rio+20 reúne mais de 100 chefes de Estado e de governo no Rio): https://pt.wikipedia.org/wiki/Rio%2B20
 - evento `ev-2012-stf-valida-a-ficha-limpa-eleicoes` (STF valida a Ficha Limpa; eleições municipais): https://noticias.stf.jus.br/postsnoticias/135-anos-do-stf-decisoes-da-corte-consolidam-a-lei-da-ficha-limpa-como-marco-da-moralidade-eleitoral/
 - evento `ev-2013-espionagem-da-nsa-leva-dilma-a-cancelar` (Espionagem da NSA leva Dilma a cancelar viagem aos EUA): https://www.congressoemfoco.com.br/noticia/55258/jornais-dilma-decide-cancelar-visita-de-estado-a-obama
 - evento `ev-2013-governo-dos-eua-fica-paralisado-por-16` (Governo dos EUA fica paralisado por 16 dias): https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2013
@@ -317,7 +318,7 @@ Sem substituto (continuam ligadas e marcadas):
 
 ## Contradições e ressalvas para decisão humana
 
-Todas as notas não vazias dos pesquisadores (345). Entre elas: Mercosul em 11/1/1995 e não 1/1; Efeito Tequila (US$ 50 bi não sustentado); LRF (Pedro Novais como relator não confirmado; Álvaro Dias foi relator na CCJ); Luiz Estêvão em 28/6 não confirmado; posse de FHC com 54,3% vs 55,22%; cassação de Dirceu já em 1/12/2005; médias do Brent 54,57 e 38,26; Grécia em 2/5/2010; manifestações de 2015 com cerca de 2 milhões e não "centenas de milhares"; minério de ferro 96,8 e 55,2; Pazuello em 15/5; Acordo de Paris com 195 Partes (a UE já está incluída); placar do STF sobre doações (8x2 ou 8x3); condenação de Bolsonaro a 27 anos e 3 meses; tarifa agrícola em 20/11/2025 (EO 14361); Bolsonaro deixou o PSL em 2019 (relação "PSL 2019-2022" inexata); Temer vice até 2016; posse definitiva de Temer em 31/8/2016; Lula e Alckmin com mandato até 2026; Alckmin no PSB desde março de 2022; Hugo Motta no biênio 2025-2026; Alencar no PRB em 2011; Maciel vice até 1/1/2003.
+Todas as notas não vazias dos pesquisadores (385). Entre elas: Mercosul em 11/1/1995 e não 1/1; Efeito Tequila (US$ 50 bi não sustentado); LRF (Pedro Novais como relator não confirmado; Álvaro Dias foi relator na CCJ); Luiz Estêvão em 28/6 não confirmado; posse de FHC com 54,3% vs 55,22%; cassação de Dirceu já em 1/12/2005; médias do Brent 54,57 e 38,26; Grécia em 2/5/2010; manifestações de 2015 com cerca de 2 milhões e não "centenas de milhares"; minério de ferro 96,8 e 55,2; Pazuello em 15/5; Acordo de Paris com 195 Partes (a UE já está incluída); placar do STF sobre doações (8x2 ou 8x3); condenação de Bolsonaro a 27 anos e 3 meses; tarifa agrícola em 20/11/2025 (EO 14361); Bolsonaro deixou o PSL em 2019 (relação "PSL 2019-2022" inexata); Temer vice até 2016; posse definitiva de Temer em 31/8/2016; Lula e Alckmin com mandato até 2026; Alckmin no PSB desde março de 2022; Hugo Motta no biênio 2025-2026; Alencar no PRB em 2011; Maciel vice até 1/1/2003.
 
 | alvo | fonte | nota |
 |---|---|---|
@@ -578,7 +579,7 @@ Todas as notas não vazias dos pesquisadores (345). Entre elas: Mercosul em 11/1
 | evento `ev-2012-instalada-a-comissao-nacional-da-verdade` (Instalada a Comissão Nacional da Verdade) | ihu.unisinos.br: https://ihu.unisinos.br/noticias/509554-direito-a-historia-pautara-solenidade-hoje-no-planalto | Republicação de matéria de imprensa; confirma instalação em 16/5/2012 e sete membros. Fonte secundária de menor peso. |
 | evento `ev-2012-julgamento-do-mensalao-no-stf` (Julgamento do mensalão no STF) | vermelho.org.br: https://vermelho.org.br/2012/08/02/comeca-hoje-julgamento-do-mensalao-no-stf/ | Confirma início em 2/8/2012 e 38 réus; veículo partidário (PCdoB). |
 | evento `ev-2012-julgamento-do-mensalao-no-stf` (Julgamento do mensalão no STF) | gazetadopovo.com.br: https://www.gazetadopovo.com.br/vida-publica/dirceu-e-condenado-a-quase-11-anos-de-prisao-delubio-8-e-genoino-quase-7-1xtb4ek5u4nb1m0d912bl0g9a | Confirma pena de Dirceu de 10 anos e 10 meses. Fala em 37 réus (e não 38) no julgamento final. As 69 sessões aparecem em congressoemfoco.com.br/noticia/50711. |
-| evento `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (Rio+20 reúne 88 chefes de Estado e de governo no Rio) | pt.wikipedia.org: https://pt.wikipedia.org/wiki/Rio%2B20 | Confirma 13 a 22/6/2012, cerca de 45 mil pessoas e documento 'não vinculativo'. Não achei fonte da ONU aberta; o título '88 chefes de Estado' do id não foi verificado. |
+| evento `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (Rio+20 reúne mais de 100 chefes de Estado e de governo no Rio) | pt.wikipedia.org: https://pt.wikipedia.org/wiki/Rio%2B20 | Confirma 13 a 22/6/2012, cerca de 45 mil pessoas e documento 'não vinculativo'. Não achei fonte da ONU aberta; o título '88 chefes de Estado' do id não foi verificado. |
 | evento `ev-2012-senado-cassa-demostenes-torres` (Senado cassa Demóstenes Torres) | congressoemfoco.com.br: https://www.congressoemfoco.com.br/noticia/60130/por-56-votos-19-senado-cassa-demostenes-torres | Texto resumido da página; confirma votos, abstenções e ligação com Carlinhos Cachoeira. |
 | evento `ev-2012-stf-valida-a-ficha-limpa-eleicoes` (STF valida a Ficha Limpa; eleições municipais) | noticias.stf.jus.br: https://noticias.stf.jus.br/postsnoticias/135-anos-do-stf-decisoes-da-corte-consolidam-a-lei-da-ficha-limpa-como-marco-da-moralidade-eleitoral/ | Confirma validade e aplicação em 2012; as datas dos turnos (7 e 28/10) não aparecem na página. |
 | evento `ev-2013-camara-mantem-o-mandato-de-natan-donadon` (Câmara mantém o mandato de Natan Donadon) | camara.leg.br: https://www.camara.leg.br/noticias/413103-camara-mantem-mandato-do-deputado-natan-donadon-preso-ha-dois-meses/ | Confirma voto secreto, 233 a favor e 257 necessários. A matéria dá 131 contra no placar, mas diz que o presidente anunciou 130; votação em 28/8 (não 28-29/8). |
@@ -666,6 +667,46 @@ Todas as notas não vazias dos pesquisadores (345). Entre elas: Mercosul em 11/1
 | evento `ev-2024-soja-cai-22-em-media-anual-e-minerio` (Soja cai 22% em média anual e minério recua) | fred.stlouisfed.org (série do FMI): https://fred.stlouisfed.org/data/PSOYBUSDA | Valores batem; queda de ~22%. |
 | evento `ev-2024-soja-cai-22-em-media-anual-e-minerio` (Soja cai 22% em média anual e minério recua) | fred.stlouisfed.org (série do FMI): https://fred.stlouisfed.org/data/PIORECRUSDA | Valores batem. |
 | evento `ev-2024-ue-e-mercosul-concluem-o-acordo-politico` (UE e Mercosul concluem o acordo político) | eunews.it: https://www.eunews.it/en/2024/12/06/eu-mercosur-deal-done-von-der-leyens-announcement-negotiations-concluded-partnership-unique-in-the-world/ | Confirma conclusão em 6/12/2024 (Montevidéu), ~25 anos de negociação e acordo político de 2019. |
+| evento `ev-1995-efeito-tequila-apos-a-crise-do-peso` (Efeito Tequila após a crise do peso mexicano) | clintonwhitehouse6.archives.gov (Casa Branca): https://clintonwhitehouse6.archives.gov/1995/01/1995-01-31-christopher-and-rubin-briefing-on-mexican-assistance.html | Confirma o pacote de socorro dos EUA/FMI ao México em jan/1995 e a queda forte do peso. Nao confirma o total de ~US$ 50 bi (fonte soma US$ 20 bi ESF + FMI 17,5/17,8 bi + outros) nem o contagio ao Brasil. FMI: 17,5 bi na fala vs 17,8 bi no comunicado conjunto. |
+| evento `ev-1995-posse-de-fernando-henrique-cardoso` (Posse de Fernando Henrique Cardoso) | Poder360: https://www.poder360.com.br/midia/fhc-questiona-reeleicao-em-documentario-que-estreia-no-dia-31/ | Confirma a posse em 1/1/1995. Nao confirma o percentual de 54,3% dos votos validos nem a eleicao no 1o turno (pagina do TSE consultada so exibia tabela do exterior, 55,22%, nao utilizavel). |
+| evento `ev-1996-fed-corta-juros-para-5-25` (Fed corta juros para 5,25%) | federalreserve.gov: https://www.federalreserve.gov/fomc/19960131default.htm | Confirma data e corte de 25 pb para 5,25%. Nao cobre a manutencao do nivel ate mar/1997. |
+| evento `ev-1997-protocolo-de-quioto-e-adotado` (Protocolo de Quioto é adotado) | unfccc.int (ONU): https://unfccc.int/kyoto_protocol | Confirma data de adocao. Nao confirma, nessa pagina, a ausencia de metas para o Brasil/Anexo I nem a participacao no MDL. |
+| evento `ev-1997-queda-em-hong-kong-e-em-wall-street` (Queda em Hong Kong e em Wall Street) | The Irish Times: https://irishtimes.com/news/crash-in-share-values-feared-after-dramatic-decline-on-wall-street-1.120093 | Confirma Dow -554 pontos (7,18%) na segunda-feira 27/10/1997. Esta materia cita queda de 'mais de 6%' do Hang Seng; a queda de dois digitos (13,7%) esta em reportagem da NPR de 28/10/1997 (npr.org/1997/10/28/1037556/winners-losers-in-h-k: 'the 13.7 percent drop in the value of the Hong Kong stock market'), nao nesta. |
+| evento `ev-1998-fed-corta-juros-tres-vezes-no-outono` (Fed corta juros três vezes no outono) | federalreserve.gov: https://www.federalreserve.gov/boarddocs/press/general/1998/19981117/ | Confirma o corte de 17/11 para 4,75%. |
+| evento `ev-1998-fed-corta-juros-tres-vezes-no-outono` (Fed corta juros três vezes no outono) | federalreserve.gov: https://www.federalreserve.gov/boarddocs/press/general/1998/19981015/ | Confirma o corte de 15/10 para 5,00%. |
+| evento `ev-1998-fed-corta-juros-tres-vezes-no-outono` (Fed corta juros três vezes no outono) | federalreserve.gov: https://www.federalreserve.gov/boarddocs/press/general/1998/19980929/ | Confirma o corte de 29/09 para 5,25%. |
+| evento `ev-1998-russia-desvaloriza-o-rublo-e-declara` (Rússia desvaloriza o rublo e declara moratória) | NPR: https://www.npr.org/1998/08/17/1033966/russia-economy | Confirma desvalorizacao do rublo e moratoria de 90 dias em 17/8/1998 (data pela URL/arquivo da NPR). Nao confirma o pacote FMI/Banco Mundial; ver evidencia complementar da RFE/RL. |
+| evento `ev-1998-russia-desvaloriza-o-rublo-e-declara` (Rússia desvaloriza o rublo e declara moratória) | Radio Free Europe/Radio Liberty: https://www.rferl.org/a/1089128.html | Confirma o pacote total de ~US$ 22,6 bi. Dateline 21/7/1998 (a pagina tambem exibe 9/7/1998, inconsistencia); a descricao diz aprovacao em 20/7. A materia trata o emprestimo do Banco Mundial (US$ 1,7 bi) separadamente. |
+| evento `ev-1999-conferencia-da-omc-em-seattle-termina` (Conferência da OMC em Seattle termina sem acordo) | Inter Press Service: https://www.ipsnews.net/?p=66695 | Confirma que Seattle terminou em 3/12 sem lancar a nova rodada e menciona protestos de milhares de ativistas. Nao confirma 'cerca de 40 mil' manifestantes. |
+| evento `ev-1999-conferencia-da-omc-em-seattle-termina` (Conferência da OMC em Seattle termina sem acordo) | wto.org: https://www.wto.org/english/thewto_e/minist_e/min99_e/min99_e.htm | Confirma apenas as datas da conferencia (30/11 a 3/12/1999); nao confirma o resultado. |
+| evento `ev-1999-cpis-do-judiciario-e-do-sistema` (CPIs do Judiciário e do sistema financeiro) | www25.senado.leg.br (Senado Federal): https://www25.senado.leg.br/web/atividade/materias/-/materia/1898 | PARCIAL. Requerimento da CPI do Judiciario apresentado em 25/03/1999 (concluida em 09/12/1999). A pagina nao informa a data de criacao/leitura (8/4 na descricao) - nao confirmada nem contradita. |
+| evento `ev-1999-cpis-do-judiciario-e-do-sistema` (CPIs do Judiciário e do sistema financeiro) | www25.senado.leg.br (Senado Federal): https://www25.senado.leg.br/web/atividade/materias/-/materia/1906 | PARCIAL. Requerimento da CPI do sistema financeiro apresentado em 05/04/1999 (encerrada em 14/12/1999). Data de criacao 14/4 nao informada na pagina. |
+| evento `ev-1999-cpis-do-judiciario-e-do-sistema` (CPIs do Judiciário e do sistema financeiro) | www25.senado.leg.br (Senado Federal): https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/parlamentar/17/1999/10 | Resumo oficial de discurso de 14/04/1999: confirma que a CPI do sistema financeiro ja iniciava trabalhos nessa data (compativel com criacao em 14/4). Nao confirma a CPI do Judiciario em 8/4. |
+| evento `ev-1999-euro-e-lancado-como-moeda-contabil` (Euro é lançado como moeda contábil) | ecb.europa.eu: https://www.ecb.europa.eu/euro/intro/html/index.en.html | Confirma lancamento em 1/1/1999 como moeda so contabil por tres anos. Nao confirma 'onze Estados-membros' nem a substituicao do ECU 1:1 (a pagina ecb.europa.eu/ecb/history/emu cita 11 Estados-membros iniciais). |
+| evento `ev-1999-fed-volta-a-subir-juros-para-5-50` (Fed volta a subir juros para 5,50%) | federalreserve.gov: https://www.federalreserve.gov/boarddocs/press/general/1999/19991116/ | Confirma a alta de 16/11/1999 para 5,50%. |
+| evento `ev-1999-fed-volta-a-subir-juros-para-5-50` (Fed volta a subir juros para 5,50%) | federalreserve.gov: https://www.federalreserve.gov/boarddocs/press/general/1999/19990630/ | Confirma a alta de 30/6/1999 para 5,00%. (Alta de 24/8 para 5,25% tambem conferida em federalreserve.gov/boarddocs/press/general/1999/19990824/.) |
+| evento `ev-1999-segundo-mandato-de-fhc` (Segundo mandato de FHC) | Poder360: https://www.poder360.com.br/midia/fhc-questiona-reeleicao-em-documentario-que-estreia-no-dia-31/ | Confirma o inicio do segundo mandato em 1/1/1999. |
+| evento `ev-2000-pico-e-inicio-do-estouro-da-bolha-da` (Pico e início do estouro da bolha da internet) | Fortune: https://www.fortune.com/2015/04/23/nasdaq-supasses-internet-bubble-peak-to-set-new-record | Confirma recorde de 5.048,62 em 10/3/2000. Nao confirma a queda de 78% do Nasdaq-100 ate out/2002. |
+| evento `ev-2001-argentina-suspende-pagamento-da-divida` (Argentina suspende pagamento da dívida externa) | The Washington Times: https://www.washingtontimes.com/news/2001/dec/24/20011224-034238-7953r/ | CONTRADIÇÃO (valor): a fonte fala em suspender pagamento da divida de US$ 132 bilhoes (principal e juros), nao US$ 93 bi (US$ 93 bi e o valor comumente citado so de titulos em default; verificar). Corralito nao mencionado. Pagina sem titulo/data explicitos (data pela URL). Decisão (rodada 3): mantidos os US$ 93 bi da descrição (dívida em títulos que entrou em default); os US$ 132 bi são a dívida pública total. |
+| evento `ev-2001-racionamento-de-energia-eletrica` (Racionamento de energia elétrica) | www25.senado.leg.br (Senado Federal): https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/315170 | Confirma redução obrigatoria de 20% em 2001 (discurso de senador, fonte oficial mas nao uma norma). Nao confirma a excecao do Sul nem a causa (estiagem). |
+| evento `ev-2002-argentina-abandona-a-conversibilidade-do` (Argentina abandona a conversibilidade do peso) | Dawn: https://www.dawn.com/news/13829 | Confirma o fim da paridade 1:1 em janeiro/2002. Nao confirma queda de 20% do PIB desde 1998 nem perda de 3/4 do valor da moeda no ano. |
+| evento `ev-2002-eneas-e-o-deputado-federal-mais-votado` (Enéas é o deputado federal mais votado) | congressoemfoco.com.br: https://congressoemfoco.com.br/noticia/85879/rj-morre-o-deputado-eneas-carneiro | Confirma eleição de Enéas em 2002 com recorde de ~1,5 milhão de votos. Não confirma o número exato (1,57 mi), o partido/estado nem que o recorde foi superado só em 2018. |
+| evento `ev-2002-jader-barbalho-e-preso-pela-policia` (Jader Barbalho é preso pela Polícia Federal) | noticias.stf.jus.br: https://noticias.stf.jus.br/postsnoticias/stf-recebe-reclamacao-de-procuradores-de-jader-barbalho-preso-em-palmas-republicacao/ | Confirma prisão de Jader em Belém em 16/2/2002 (caso Sudam) e transferência a Palmas. Não confirma soltura no dia seguinte por habeas corpus nem a eleição em outubro. Congresso em Foco (2010, /noticia/77239) diz que ele passou 16 horas preso na PF em Tocantins - possível imprecisão do 'solto no dia seguinte'. |
+| evento `ev-2002-lula-e-eleito-presidente` (Lula é eleito presidente) | memoria.ebc.com.br (Agência Brasil): https://memoria.ebc.com.br/agenciabrasil//node/576441 | Confirma 61,27% e 52,79 milhões no 2º turno (apuração quase final). Não confirma o 1º turno (46,44%, 6/10), a data 27/10 nem o resultado de Serra (38,73%). |
+| evento `ev-2004-fundacao-do-psol` (Fundação do PSOL) | memoria.ebc.com.br (Agência Brasil): https://memoria.ebc.com.br/agenciabrasil//noticia/2004-06-06/pt-dissidents-found-socialism-and-liberty-party | Confirma fundação do PSOL no encontro de 5-6/6/2004 com Heloísa Helena, Luciana Genro, João Fontes e Babá (dateline 7/6). Não confirma expulsões do PT em dez/2003 nem o registro no TSE em 15/9/2005. |
+| evento `ev-2004-mercosul-e-comunidade-andina-firmam` (Mercosul e Comunidade Andina firmam cooperação) | sice.oas.org (OEA): https://sice.oas.org/TPD/AND_MER/AND_MER_e.asp | CONTRADIÇÃO parcial: a fonte (OEA/SICE) data o acordo CAN-Mercosul (ACE 59) em 18/10/2004, não 8/12/2004 (8/12/2004 é a Declaração de Cusco/Comunidade Sul-Americana, não confirmada nesta página). Não confirma a condição de associados em jul/2005. |
+| evento `ev-2009-g20-de-londres-aprova-pacote-de-us-1-1` (G20 de Londres aprova pacote de US$ 1,1 trilhão) | g7g20-documents.org: https://g7g20-documents.org/database/document/2009-g20-united-kingdom-leaders-leaders-language-london-summit-leaders-statement | Texto do comunicado dos líderes de 2/4/2009 (base de documentos G7/G20). Par. 17: 'New Arrangements to Borrow, increased by up to $500 billion' - os US$ 500 bi são ampliação do NAB (recursos de empréstimo do FMI). g20.utoronto.ca abriu mas o corpo do texto não foi extraído. |
+| evento `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` (S&P rebaixa a nota dos Estados Unidos) | pbs.org: https://www.pbs.org/newshour/economy/sp-downgrades-us-credit-rating-from-aaa-for-first-time | Confirma rebaixamento de AAA para AA+ em 5/8/2011, inédito. Não confirma a queda de 5% a 7% das bolsas em 8/8. |
+| evento `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (Rio+20 reúne mais de 100 chefes de Estado e de governo no Rio) | press.un.org: https://press.un.org/en/2012/envdev1310.doc.htm | CONTRADIÇÃO: a ONU fala em mais de 100 chefes de Estado e de governo (título do evento diz 88) e ~46 mil participantes (descrição: 45,4 mil). Confirma adoção por consenso de 'The Future We Want' e encerramento em 22/6/2012; não afirma 13/6 como início nesta página. |
+| evento `ev-2013-governo-dos-eua-fica-paralisado-por-16` (Governo dos EUA fica paralisado por 16 dias) | timesofisrael.com (AP): https://www.timesofisrael.com/congress-votes-to-end-shutdown-avoid-us-default/ | Reportagem da AP (republicada). Confirma 16 dias, ~800 mil servidores afastados e ligação com o teto da dívida (US$ 16,7 tri). Não traz o dia 1/10 de início nem a data da sanção (16/10) no trecho extraído. |
+| evento `ev-2014-inicio-da-operacao-lava-jato` (Início da Operação Lava Jato) | congressoemfoco.com.br: https://www.congressoemfoco.com.br/noticia/54207/pf-cumpre-mandados-da-segunda-fase-da-operacao-lava-jato | Reportagem de 11/4/2014: confirma deflagração em 17/3 e prisões de Youssef e do ex-diretor da Petrobras (Costa). Não detalha 'lavagem de dinheiro' no trecho. |
+| evento `ev-2016-donald-trump-e-eleito-presidente-dos-eua` (Donald Trump é eleito presidente dos EUA) | archives.gov (National Archives): https://www.archives.gov/electoral-college/2016 | Resultado oficial do Colégio Eleitoral (vencedor 304, oponente Hillary Clinton 227). Não confirma a data 8/11 nem o voto popular na extração; a página tem asterisco sobre votos de 'faithless electors'. |
+| evento `ev-2016-reino-unido-vota-pela-saida-da-uniao` (Reino Unido vota pela saída da União Europeia (Brexit)) | commonslibrary.parliament.uk: https://commonslibrary.parliament.uk/research-briefings/cbp-7639/ | Relatório da Biblioteca da Câmara dos Comuns sobre o referendo de 23/6/2016: Leave 51,9%, Remain 48,1%, participação 72,2% (descrição usa 51,89/72,21, arredondamentos compatíveis). Não confirma a queda da libra a US$ 1,3777. electoralcommission.org.uk não abriu. |
+| evento `ev-2017-brent-sobe-para-us-54-89-de-media-com` (Brent sobe para US$ 54,13 de média com cortes Opep+) | eia.gov: https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=A | CONTRADIÇÃO de série: a EIA (preço spot) dá 54,13 em 2017 e 43,64 em 2016; a descrição (54,89 e 45,08) cita o FMI, outra série/método. Direção (alta ~US$ 10 após os cortes) confirmada; valores exatos do FMI não verificados. Trecho é leitura tabular da página, não frase corrida. |
+| evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | aljazeera.com: https://www.aljazeera.com/economy/2018/7/6/trade-war-begins-as-china-strikes-back-against-us-over-tariffs | Confirma tarifas dos EUA sobre US$ 34 bi em 6/7/2018 e contramedidas chinesas no mesmo dia; lista chinesa de US$ 34 bi incluía soja. Não trata do efeito sobre a soja brasileira. |
+| evento `ev-2019-alberto-fernandez-derrota-macri-na` (Alberto Fernández derrota Macri na Argentina) | lanacion.com.ar: https://www.lanacion.com.ar/politica/elecciones-2019-finalizo-escrutinio-definitivo-alberto-fernandez-nid2303923 | Confirma 48,24% x 40,28% no escrutínio definitivo. Não afirma a data 27/10 no trecho nem que Macri foi o primeiro presidente em exercício derrotado na reeleição. |
+| evento `ev-2019-bolsonaro-toma-posse-como-presidente` (Bolsonaro toma posse como presidente) | www12.senado.leg.br (Agência Senado): https://www12.senado.leg.br/noticias/materias/2019/01/01/jair-bolsonaro-toma-posse-no-congresso-e-se-torna-38o-presidente-do-brasil | Confirma tudo no núcleo: posse em 1/1/2019 como 38º presidente. Partido (PSL) e eleição em outubro de 2018 não constam do trecho. |
+| evento `ev-1998-tse-rejeita-candidatura-de-collor` (TSE rejeita candidatura de Collor) | tse.jus.br: https://www.tse.jus.br/jurisprudencia/julgados-historicos/collor | Página do TSE sobre a Resolução 20.297, de 12/8/1998: registro pedido pela Coligação Renova Brasil (PRN/PRTB) e impugnado pelo MP Eleitoral; o TSE entendeu que a inabilitação alcança mandato eletivo e barrou a candidatura (STF manteve no RE 234.223). A página não diz se foi unânime. |
 
 ## Rodada 2 — eventos da linha do tempo sem fonte própria
 
@@ -697,9 +738,8 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 | natureza | eventos |
 |---|---:|
-| documentada | 82 |
-| nao_classificada | 24 |
-| reportada | 84 |
+| documentada | 94 |
+| reportada | 96 |
 
 ### Correções aplicadas
 
@@ -732,7 +772,7 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 ### Não encontrados (continuam `nao_classificada`)
 
-7 eventos; natureza no banco: nao_classificada 7.
+7 eventos; natureza no banco: documentada 4, reportada 3.
 
 | evento | motivo | tentativas |
 |---|---|---|
@@ -742,7 +782,68 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 | `ev-2001-argentina-suspende-pagamento-da-divida` (Argentina suspende pagamento da dívida externa) | sem fonte aberta nesta rodada | WebSearch default 2001/US$93 bi; Wikipedia en (404) e IMF IEO pdf (erro de fetch); sem página aberta que confirme |
 | `ev-2002-argentina-abandona-a-conversibilidade-do` (Argentina abandona a conversibilidade do peso) | sem fonte aberta nesta rodada | WebSearch conversibilidade 2002; fetch Wikipedia (404) e IMF IEO pdf (erro); não confirmado |
 | `ev-2001-racionamento-de-energia-eletrica` (Racionamento de energia elétrica) | sem fonte aberta nesta rodada | 2 WebSearch (resultados só de 2021/2014) e fetch Wikipédia pt (404); nada aberto |
-| `ev-2017-brent-sobe-para-us-54-89-de-media-com` (Brent sobe para US$ 54,89 de média com cortes Opep+) | sem fonte aberta nesta rodada | Busca por série de preços do Brent/FMI (WEO, commodity data) retornou apenas PDFs e páginas genéricas; nenhuma página aberta confirmou a média de US$ 54,89 em 2017 nem US$ 45,08 em 2016. |
+| `ev-2017-brent-sobe-para-us-54-89-de-media-com` (Brent sobe para US$ 54,13 de média com cortes Opep+) | sem fonte aberta nesta rodada | Busca por série de preços do Brent/FMI (WEO, commodity data) retornou apenas PDFs e páginas genéricas; nenhuma página aberta confirmou a média de US$ 54,89 em 2017 nem US$ 45,08 em 2016. |
 
 Ressalvas mantidas com nota (o banco não muda; a nota segue em `evento_evidencia.nota`): Todas as demais notas (não confirmado em página aberta; nuance de terminologia; Jader em Belém vs Tocantins; 38 vs 37 réus; Estatuto do Idoso renomeado; euro 1/3/2002; ITA 1/7/1997 vs 13/3/1997; Seattle 'suspensa') ficam como estão, registradas no relatório.
 
+
+## Rodada 3 — eventos que continuavam `nao_classificada`
+
+Pesquisa de fonte aberta (oficial ou reportagem) para os eventos da linha do tempo que a rodada 2 deixou `nao_classificada` pela regra R5. As entradas ficam em `data/curadoria/evidencias-rodada3.json` (`evidencias`, formato idêntico ao de `evidencias-adicionais.json`, com `"rodada": 3`) e são aplicadas pela mesma `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das entradas de `evidencias-adicionais.json`): papel `sustenta`; as ligações wiki/outro já existentes desses eventos ficam como estavam. As correções textuais decididas no arquivo (`decisoes.correcoes`) estão em `evento-correcoes.json` com `"rodada": 3`.
+
+| | |
+|---|---:|
+| eventos cobertos | 33 |
+| entradas (evento, URL) | 40 |
+| qualidade `boa` | 40 |
+| qualidade `fraca` | 0 |
+| eventos com descrição/título corrigidos | 5 |
+| correções aplicadas (campo) | 7 |
+| decisões sem correção (`campo: "nenhum"`, só registro) | 2 |
+| `nao_encontrados` do arquivo (evidência parcial registrada mesmo assim) | 1 |
+| eventos `nao_classificada` no banco depois da rodada | 0 |
+
+Entradas por tipo de evidência:
+
+| tipo | entradas | fracas |
+|---|---:|---:|
+| comunicado | 8 | 0 |
+| dado_oficial | 2 | 0 |
+| decisao_judicial | 1 | 0 |
+| documento_oficial | 10 | 0 |
+| relatorio | 1 | 0 |
+| reportagem | 18 | 0 |
+
+Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
+
+| natureza | eventos |
+|---|---:|
+| documentada | 17 |
+| reportada | 16 |
+
+### Correções aplicadas
+
+| evento | campo | de -> para | motivo |
+|---|---|---|---|
+| `ev-1998-tse-rejeita-candidatura-de-collor` | descricao | rejeita por unanimidade o registro -> rejeita o registro | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): a página do TSE (Resolução 20.297, de 12/8/1998) não informa se a decisão foi unânime; o detalhe sai. |
+| `ev-2002-eneas-e-o-deputado-federal-mais-votado` | descricao | cerca de 1,57 milhão de votos -> cerca de 1,5 milhão de votos | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): Congresso em Foco: 'o maior número de votos da história: 1,5 milhão'; o número exato 1,57 mi não foi confirmado. A superação em 2018 fica como está (não verificada; nota na evidência). |
+| `ev-2004-mercosul-e-comunidade-andina-firmam` | descricao | Em 8 de dezembro de 2004 a Comunidade Andina assinou um acordo de cooperação com o Mercosul, que levou os quatro membros plenos do bloco a se tornarem associados da CAN em julho de 2005. -> Em 18 de outubro de 2004 a Comunidade Andina e o Mercosul assinaram o Acordo de Complementação Econômica nº 59 (ACE 59); posteriormente, os membros plenos do Mercosul tornaram-se associados da CAN. | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): OEA/SICE: ACE 59 assinado em 18/10/2004 (8/12/2004 é a Declaração de Cusco). A associação em 7/2005 não foi confirmada em fonte aberta: fica vaga ('posteriormente'). |
+| `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` | descricao | cerca de 45,4 mil participantes credenciados -> cerca de 46 mil participantes | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): ONU (press.un.org, ENV/DEV/1310): 'total participation at close to 46,000'. Fonte oficial. |
+| `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` | titulo | reúne 88 chefes -> reúne mais de 100 chefes | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): ONU (press.un.org, ENV/DEV/1310): 'over 100 Heads of State and Government'. Fonte oficial. |
+| `ev-2017-brent-sobe-para-us-54-89-de-media-com` | descricao | média de US$ 54,89 por barril, ante US$ 45,08 em 2016, segundo o FMI. -> média de US$ 54,13 por barril, ante US$ 43,64 em 2016, segundo a série da EIA. | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): alinhado à série anexada (EIA, Brent spot: 2017 = 54,13; 2016 = 43,64); a fonte citada passa de FMI a EIA. |
+| `ev-2017-brent-sobe-para-us-54-89-de-media-com` | titulo | US$ 54,89 -> US$ 54,13 | Rodada 3 (evidencias-rodada3.json, decisoes.correcoes): alinhado à série anexada (EIA, Brent spot, média anual 2017 = 54,13), como já feito para 2005. |
+
+### Decisões sem correção (o banco não muda; a nota segue em `evento_evidencia.nota`)
+
+| evento | decisão |
+|---|---|
+| `ev-2001-argentina-suspende-pagamento-da-divida` (Argentina suspende pagamento da dívida externa) | manter US$ 93 bi (valor da dívida em títulos que entrou em default; os US$ 132 bi do Washington Times são a dívida pública total). Registrar na nota da evidência. |
+| `ev-2002-jader-barbalho-e-preso-pela-policia` (Jader Barbalho é preso pela Polícia Federal) | manter com nota (decisão anterior: Belém vs Tocantins). |
+
+### Não encontrados
+
+Fonte aberta que confirme o evento como está descrito não foi achada; a evidência parcial encontrada foi registrada mesmo assim (com nota) e sustenta o que confirma, e a descrição foi ajustada ao que a fonte diz (ver correções acima).
+
+| evento | natureza no banco | motivo |
+|---|---|---|
+| `ev-2004-mercosul-e-comunidade-andina-firmam` (Mercosul e Comunidade Andina firmam cooperação) | documentada | Nenhuma fonte aberta confirma acordo de cooperação em 8/12/2004 nem associação em jul/2005. Tentado: sice.oas.org (data ACE 59 = 18/10/2004), cooperativa.cl (só Declaração de Cusco, 9/12/2004), argentina.gob.ar (Acta CMC 2/2005, sem menção), adesp.org (robots), FES (redirect). Evidência registrada só cobre o acordo CAN-Mercosul com data divergente. |

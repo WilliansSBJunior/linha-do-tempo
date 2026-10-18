@@ -55940,8 +55940,17 @@
    "titulo": "Posse de Fernando Henrique Cardoso",
    "descricao": "Em 1/1/1995 toma posse o presidente Fernando Henrique Cardoso (PSDB), eleito em 1994 no primeiro turno, com cerca de 54,3% dos votos válidos, após o Plano Real.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.poder360.com.br/midia/fhc-questiona-reeleicao-em-documentario-que-estreia-no-dia-31",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "FHC questiona reeleição em documentário que estreia no dia 31",
+     "data": "2022-03-16",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://fundacaofhc.org.br/wp-content/uploads/2025/12/curriculo-fhc-2025.pdf",
      "veiculo": "fundacaofhc.org.br",
@@ -56042,8 +56051,17 @@
    "titulo": "Efeito Tequila após a crise do peso mexicano",
    "descricao": "Após a desvalorização do peso em dezembro de 1994, os EUA e organismos internacionais montaram no início de 1995 um pacote de socorro de cerca de US$ 50 bilhões e a crise contagiou outros emergentes, incluindo o Brasil, no episódio conhecido como efeito Tequila.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://clintonwhitehouse6.archives.gov/1995/01/1995-01-31-christopher-and-rubin-briefing-on-mexican-assistance.html",
+     "veiculo": "clintonwhitehouse6.archives.gov (Casa Branca)",
+     "tipo": "documento_oficial",
+     "titulo": "Press Briefing by Secretary of State Warren Christopher and Secretary of the Treasury Robert Rubin",
+     "data": "1995-01-31",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/Mexican_peso_crisis",
      "veiculo": "en.wikipedia.org",
@@ -56996,7 +57014,7 @@
    "titulo": "Fed corta juros para 5,25%",
    "descricao": "Em 31 de janeiro de 1996 o Fed reduziu a meta dos fed funds em 25 pontos-base, para 5,25%, nível mantido até a alta de março de 1997.",
    "peso": 2,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
@@ -57005,6 +57023,15 @@
      "titulo": "Federal funds rate history",
      "data": "1996-01-31",
      "qualidade": "fraca",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.federalreserve.gov/fomc/19960131default.htm",
+     "veiculo": "federalreserve.gov",
+     "tipo": "comunicado",
+     "titulo": "FRB: Press Release -- FOMC statement -- January 31, 1996",
+     "data": "1996-01-31",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -57686,8 +57713,17 @@
    "titulo": "Queda em Hong Kong e em Wall Street",
    "descricao": "No fim de outubro de 1997 o índice Hang Seng sofreu quedas de dois dígitos em um único dia e, em 27 de outubro, o Dow Jones recuou 554 pontos (7,2%), levando a crise asiática aos mercados globais.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://irishtimes.com/news/crash-in-share-values-feared-after-dramatic-decline-on-wall-street-1.120093",
+     "veiculo": "The Irish Times",
+     "tipo": "reportagem",
+     "titulo": "Crash in share values feared after dramatic decline on Wall Street",
+     "data": "1997-10-28",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/October_27,_1997,_mini-crash",
      "veiculo": "en.wikipedia.org",
@@ -57725,8 +57761,17 @@
    "titulo": "Protocolo de Quioto é adotado",
    "descricao": "Em 11 de dezembro de 1997 foi adotado o Protocolo de Quioto, que não impôs metas obrigatórias ao Brasil, país fora do Anexo I, mas o admitiu no Mecanismo de Desenvolvimento Limpo.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://unfccc.int/kyoto_protocol",
+     "veiculo": "unfccc.int (ONU)",
+     "tipo": "documento_oficial",
+     "titulo": "The Kyoto Protocol | UNFCCC",
+     "data": "1997-12-11",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/Kyoto_Protocol",
      "veiculo": "en.wikipedia.org",
@@ -58251,10 +58296,19 @@
    "secao": "pol",
    "ordem": 4,
    "titulo": "TSE rejeita candidatura de Collor",
-   "descricao": "Em 12/8/1998 o Tribunal Superior Eleitoral rejeita por unanimidade o registro da candidatura de Fernando Collor de Mello à Presidência.",
+   "descricao": "Em 12/8/1998 o Tribunal Superior Eleitoral rejeita o registro da candidatura de Fernando Collor de Mello à Presidência.",
    "peso": 2,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www.tse.jus.br/jurisprudencia/julgados-historicos/collor",
+     "veiculo": "tse.jus.br",
+     "tipo": "decisao_judicial",
+     "titulo": "Collor — Julgados históricos (TSE)",
+     "data": "1998-08-12",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc19.htm",
      "veiculo": "planalto.gov.br",
@@ -58373,8 +58427,26 @@
    "titulo": "Rússia desvaloriza o rublo e declara moratória",
    "descricao": "Em 17 de agosto de 1998 a Rússia desvalorizou o rublo e declarou moratória de 90 dias sobre a dívida externa, um mês depois de um pacote de US$ 22,6 bilhões do FMI e do Banco Mundial, aprovado em 20 de julho.",
    "peso": 5,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.npr.org/1998/08/17/1033966/russia-economy",
+     "veiculo": "NPR",
+     "tipo": "reportagem",
+     "titulo": "Russia Economy",
+     "data": "1998-08-17",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.rferl.org/a/1089128.html",
+     "veiculo": "Radio Free Europe/Radio Liberty",
+     "tipo": "reportagem",
+     "titulo": "Russia: IMF Approves First Loan Package",
+     "data": "1998-07-21",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.heritage.org/node/20069",
      "veiculo": "heritage.org",
@@ -58505,7 +58577,7 @@
    "titulo": "Fed corta juros três vezes no outono",
    "descricao": "O Fed reduziu a meta dos fed funds para 5,25% em 29 de setembro, 5,00% em 15 de outubro e 4,75% em 17 de novembro de 1998, somando 75 pontos-base.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
@@ -58514,6 +58586,33 @@
      "titulo": "Federal funds rate history",
      "data": "1996-01-31",
      "qualidade": "fraca",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.federalreserve.gov/boarddocs/press/general/1998/19981117",
+     "veiculo": "federalreserve.gov",
+     "tipo": "comunicado",
+     "titulo": "FRB: Press Release -- FOMC statement -- November 17, 1998",
+     "data": "1998-11-17",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.federalreserve.gov/boarddocs/press/general/1998/19981015",
+     "veiculo": "federalreserve.gov",
+     "tipo": "comunicado",
+     "titulo": "FRB: Press Release -- FOMC statement -- October 15, 1998",
+     "data": "1998-10-15",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.federalreserve.gov/boarddocs/press/general/1998/19980929",
+     "veiculo": "federalreserve.gov",
+     "tipo": "comunicado",
+     "titulo": "FRB: Press Release -- FOMC statement",
+     "data": "1998-09-29",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -58637,8 +58736,17 @@
    "titulo": "Segundo mandato de FHC",
    "descricao": "Em 1/1/1999 Fernando Henrique Cardoso inicia o segundo mandato como presidente.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.poder360.com.br/midia/fhc-questiona-reeleicao-em-documentario-que-estreia-no-dia-31",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "FHC questiona reeleição em documentário que estreia no dia 31",
+     "data": "2022-03-16",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://pt.wikipedia.org/wiki/Governo_Fernando_Henrique_Cardoso",
      "veiculo": "pt.wikipedia.org",
@@ -58970,8 +59078,35 @@
    "titulo": "CPIs do Judiciário e do sistema financeiro",
    "descricao": "O Senado cria em abril de 1999 a CPI do Judiciário (8/4) e a CPI do sistema financeiro (14/4).",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/1898",
+     "veiculo": "www25.senado.leg.br (Senado Federal)",
+     "tipo": "documento_oficial",
+     "titulo": "RQS 118/1999 - Senado Federal",
+     "data": "1999-03-25",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/1906",
+     "veiculo": "www25.senado.leg.br (Senado Federal)",
+     "tipo": "documento_oficial",
+     "titulo": "RQS 127/1999 - Senado Federal",
+     "data": "1999-04-05",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/parlamentar/17/1999/10",
+     "veiculo": "www25.senado.leg.br (Senado Federal)",
+     "tipo": "documento_oficial",
+     "titulo": "Pronunciamentos do Senador Eduardo Suplicy - abril de 1999",
+     "data": "1999-04-14",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://pt.wikipedia.org/wiki/CPI_do_Judiciário",
      "veiculo": "pt.wikipedia.org",
@@ -59276,8 +59411,17 @@
    "titulo": "Euro é lançado como moeda contábil",
    "descricao": "Em 1º de janeiro de 1999 o euro foi introduzido nos mercados financeiros como moeda contábil de onze Estados-membros da União Europeia, substituindo o ECU na proporção de 1 para 1.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www.ecb.europa.eu/euro/intro/html/index.en.html",
+     "veiculo": "ecb.europa.eu",
+     "tipo": "documento_oficial",
+     "titulo": "Our money",
+     "data": "1999-01-01",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/Euro",
      "veiculo": "en.wikipedia.org",
@@ -59324,7 +59468,7 @@
    "titulo": "Fed volta a subir juros para 5,50%",
    "descricao": "O Fed elevou a meta dos fed funds em 25 pontos-base em 30 de junho (5,00%), 24 de agosto (5,25%) e 16 de novembro de 1999 (5,50%).",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://fedprimerate.com/fedfundsrate/federal_funds_rate_history.htm",
@@ -59333,6 +59477,24 @@
      "titulo": "Federal funds rate history",
      "data": "1996-01-31",
      "qualidade": "fraca",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.federalreserve.gov/boarddocs/press/general/1999/19991116",
+     "veiculo": "federalreserve.gov",
+     "tipo": "comunicado",
+     "titulo": "FRB: Press Release -- FOMC statement -- November 16, 1999",
+     "data": "1999-11-16",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.federalreserve.gov/boarddocs/press/general/1999/19990630",
+     "veiculo": "federalreserve.gov",
+     "tipo": "comunicado",
+     "titulo": "FRB: Press Release -- FOMC statement -- June 30, 1999",
+     "data": "1999-06-30",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -59381,8 +59543,26 @@
    "titulo": "Conferência da OMC em Seattle termina sem acordo",
    "descricao": "A conferência ministerial de Seattle terminou em 3 de dezembro de 1999 sem lançar uma nova rodada, em meio a protestos de cerca de 40 mil pessoas e a divergências entre países ricos e em desenvolvimento.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www.wto.org/english/thewto_e/minist_e/min99_e/min99_e.htm",
+     "veiculo": "wto.org",
+     "tipo": "documento_oficial",
+     "titulo": "3rd WTO Ministerial Conference, Seattle 1999",
+     "data": "1999-12-03",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.ipsnews.net/?p=66695",
+     "veiculo": "Inter Press Service",
+     "tipo": "reportagem",
+     "titulo": "TRADE: WTO Postpones Evaluation of Seattle Fiasco",
+     "data": "1999-12-17",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.britannica.com:443/print/article/1948945",
      "veiculo": "britannica.com",
@@ -59597,8 +59777,17 @@
    "titulo": "Pico e início do estouro da bolha da internet",
    "descricao": "O Nasdaq Composite atingiu o recorde de 5.048,62 pontos em 10 de março de 2000 e a bolha começou a estourar, com o Nasdaq-100 chegando a cair 78% até outubro de 2002.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.fortune.com/2015/04/23/nasdaq-supasses-internet-bubble-peak-to-set-new-record",
+     "veiculo": "Fortune",
+     "tipo": "reportagem",
+     "titulo": "Nasdaq surpasses Internet-bubble peak to set new record",
+     "data": "2015-04-23",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/Dot-com_bubble",
      "veiculo": "en.wikipedia.org",
@@ -59681,8 +59870,17 @@
    "titulo": "Racionamento de energia elétrica",
    "descricao": "O governo impõe redução obrigatória de cerca de 20% no consumo de energia elétrica na maior parte do país, exceto no Sul, após severa estiagem.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/315170",
+     "veiculo": "www25.senado.leg.br (Senado Federal)",
+     "tipo": "documento_oficial",
+     "titulo": "Pronunciamento de Carlos Patrocínio em 24/05/2001 (59ª Sessão Deliberativa Ordinária)",
+     "data": "2001-05-24",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
@@ -60146,8 +60344,17 @@
    "titulo": "Argentina suspende pagamento da dívida externa",
    "descricao": "Em dezembro de 2001 a Argentina impôs restrições a saques bancários (corralito) e, no fim do mês, deixou de pagar cerca de US$ 93 bilhões em dívida externa, em meio a grave crise política.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.washingtontimes.com/news/2001/dec/24/20011224-034238-7953r",
+     "veiculo": "The Washington Times",
+     "tipo": "reportagem",
+     "titulo": "Argentina suspends foreign debt payments (matéria de 24/12/2001)",
+     "data": "2001-12-24",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.imf.org/external/np/sec/pr/2001/pr0138.htm",
      "veiculo": "imf.org",
@@ -60326,7 +60533,7 @@
    "titulo": "Jader Barbalho é preso pela Polícia Federal",
    "descricao": "Em 16/2/2002 o ex-presidente do Senado Jader Barbalho é preso pela Polícia Federal em Belém, sob acusação de desvio de dinheiro público, e é solto no dia seguinte por habeas corpus; ele se elege deputado federal em outubro.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://pt.wikipedia.org/wiki/Jader_Barbalho",
@@ -60335,6 +60542,15 @@
      "titulo": "Jader Barbalho – Wikipédia",
      "data": null,
      "qualidade": "fraca",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://noticias.stf.jus.br/postsnoticias/stf-recebe-reclamacao-de-procuradores-de-jader-barbalho-preso-em-palmas-republicacao",
+     "veiculo": "noticias.stf.jus.br",
+     "tipo": "comunicado",
+     "titulo": "STF recebe Reclamação de procuradores de Jader Barbalho, preso em Palmas (republicação)",
+     "data": "2002-02-16",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -60876,10 +61092,19 @@
    "secao": "pol",
    "ordem": 4,
    "titulo": "Enéas é o deputado federal mais votado",
-   "descricao": "Nas eleições de outubro de 2002 Enéas Carneiro (PRONA-SP) obtém cerca de 1,57 milhão de votos para deputado federal, recorde que só seria superado em 2018.",
+   "descricao": "Nas eleições de outubro de 2002 Enéas Carneiro (PRONA-SP) obtém cerca de 1,5 milhão de votos para deputado federal, recorde que só seria superado em 2018.",
    "peso": 2,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://congressoemfoco.com.br/noticia/85879/rj-morre-o-deputado-eneas-carneiro",
+     "veiculo": "congressoemfoco.com.br",
+     "tipo": "reportagem",
+     "titulo": "RJ: morre o deputado Enéas Carneiro",
+     "data": "2007-05-06",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://pt.wikipedia.org/wiki/Enéas_Carneiro",
      "veiculo": "pt.wikipedia.org",
@@ -61025,8 +61250,17 @@
    "titulo": "Lula é eleito presidente",
    "descricao": "Em 6/10/2002 Lula (PT) obtém 46,44% dos votos válidos (39,5 milhões) no primeiro turno e, em 27/10, vence José Serra (PSDB) no segundo turno com 61,27% (52,8 milhões de votos) contra 38,73%.",
    "peso": 5,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://memoria.ebc.com.br/agenciabrasil//node/576441",
+     "veiculo": "memoria.ebc.com.br (Agência Brasil)",
+     "tipo": "reportagem",
+     "titulo": "TSE proclaims election results",
+     "data": "2002-10-28",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/2002_Brazilian_general_election",
      "veiculo": "en.wikipedia.org",
@@ -61163,8 +61397,17 @@
    "titulo": "Argentina abandona a conversibilidade do peso",
    "descricao": "Em janeiro de 2002 a Argentina abandonou formalmente a conversibilidade do peso; até o fim do ano a economia acumulava queda de 20% desde 1998 e a moeda perdera três quartos do valor.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.dawn.com/news/13829",
+     "veiculo": "Dawn",
+     "tipo": "reportagem",
+     "titulo": "Argentina devalues peso",
+     "data": "2002-01-08",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
      "veiculo": "federalreserve.gov",
@@ -63071,8 +63314,17 @@
    "titulo": "Fundação do PSOL",
    "descricao": "O PSOL é fundado em 6/6/2004 por Heloísa Helena, Babá, Luciana Genro e João Fontes, expulsos do PT em dezembro de 2003; o registro definitivo no TSE sai em 15/9/2005.",
    "peso": 2,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://memoria.ebc.com.br/agenciabrasil//noticia/2004-06-06/pt-dissidents-found-socialism-and-liberty-party",
+     "veiculo": "memoria.ebc.com.br (Agência Brasil)",
+     "tipo": "reportagem",
+     "titulo": "PT dissidents found Socialism and Liberty Party",
+     "data": "2004-06-06",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://pt.wikipedia.org/wiki/Heloísa_Helena",
      "veiculo": "pt.wikipedia.org",
@@ -63909,10 +64161,19 @@
    "secao": "intl",
    "ordem": 3,
    "titulo": "Mercosul e Comunidade Andina firmam cooperação",
-   "descricao": "Em 8 de dezembro de 2004 a Comunidade Andina assinou um acordo de cooperação com o Mercosul, que levou os quatro membros plenos do bloco a se tornarem associados da CAN em julho de 2005.",
+   "descricao": "Em 18 de outubro de 2004 a Comunidade Andina e o Mercosul assinaram o Acordo de Complementação Econômica nº 59 (ACE 59); posteriormente, os membros plenos do Mercosul tornaram-se associados da CAN.",
    "peso": 2,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://sice.oas.org/TPD/AND_MER/AND_MER_e.asp",
+     "veiculo": "sice.oas.org (OEA)",
+     "tipo": "documento_oficial",
+     "titulo": "Andean Community-MERCOSUR",
+     "data": "2004",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/Andean_Community",
      "veiculo": "en.wikipedia.org",
@@ -67496,8 +67757,17 @@
    "titulo": "G20 de Londres aprova pacote de US$ 1,1 trilhão",
    "descricao": "Em 2 de abril de 2009 a cúpula do G20 em Londres comprometeu US$ 1,1 trilhão em programas de crédito e recuperação, incluindo aumento de US$ 500 bilhões nos recursos de empréstimo do FMI.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://g7g20-documents.org/database/document/2009-g20-united-kingdom-leaders-leaders-language-london-summit-leaders-statement",
+     "veiculo": "g7g20-documents.org",
+     "tipo": "documento_oficial",
+     "titulo": "London Summit - Leaders' Statement (02/04/2009) - G7/G20 Documents Database",
+     "data": "2009-04-02",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/2009_G20_London_summit",
      "veiculo": "en.wikipedia.org",
@@ -68594,8 +68864,17 @@
    "titulo": "S&P rebaixa a nota dos Estados Unidos",
    "descricao": "Em 5 de agosto de 2011 a S&P tirou a nota dos EUA de AAA para AA+, a primeira vez na história, e em 8 de agosto os três principais índices de ações americanos caíram entre 5% e 7%.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.pbs.org/newshour/economy/sp-downgrades-us-credit-rating-from-aaa-for-first-time",
+     "veiculo": "pbs.org",
+     "tipo": "reportagem",
+     "titulo": "S&P Downgrades U.S. Credit Rating From AAA for First Time",
+     "data": "2011-08-05",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades",
      "veiculo": "en.wikipedia.org",
@@ -69632,10 +69911,10 @@
    "ano": 2012,
    "secao": "intl",
    "ordem": 3,
-   "titulo": "Rio+20 reúne 88 chefes de Estado e de governo no Rio",
-   "descricao": "A conferência da ONU sobre desenvolvimento sustentável, realizada de 13 a 22 de junho de 2012 no Rio de Janeiro, teve cerca de 45,4 mil participantes credenciados e aprovou o documento não vinculante 'O Futuro que Queremos'.",
+   "titulo": "Rio+20 reúne mais de 100 chefes de Estado e de governo no Rio",
+   "descricao": "A conferência da ONU sobre desenvolvimento sustentável, realizada de 13 a 22 de junho de 2012 no Rio de Janeiro, teve cerca de 46 mil participantes e aprovou o documento não vinculante 'O Futuro que Queremos'.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
     {
      "url": "https://pt.wikipedia.org/wiki/Rio%2B20",
@@ -69644,6 +69923,15 @@
      "titulo": "Rio+20",
      "data": "2012",
      "qualidade": "fraca",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://press.un.org/en/2012/envdev1310.doc.htm",
+     "veiculo": "press.un.org",
+     "tipo": "comunicado",
+     "titulo": "United Nations Conference on Sustainable Development Concludes with World Leaders Renewing Commitments to Save Planet",
+     "data": "2012-06-22",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -70580,8 +70868,17 @@
    "titulo": "Governo dos EUA fica paralisado por 16 dias",
    "descricao": "A paralisação do governo americano começou em 1º de outubro de 2013, durou 16 dias, afastou cerca de 800 mil servidores e coincidiu com o impasse sobre o teto da dívida, resolvido por lei aprovada em 16 de outubro.",
    "peso": 2,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.timesofisrael.com/congress-votes-to-end-shutdown-avoid-us-default",
+     "veiculo": "timesofisrael.com (AP)",
+     "tipo": "reportagem",
+     "titulo": "Congress votes to end shutdown, avoid US default",
+     "data": "2013-10-17",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/United_States_federal_government_shutdown_of_2013",
      "veiculo": "en.wikipedia.org",
@@ -70775,8 +71072,17 @@
    "titulo": "Início da Operação Lava Jato",
    "descricao": "Em 17/3/2014 a Polícia Federal deflagra a primeira fase da Lava Jato, que investiga o doleiro Alberto Youssef e o executivo da Petrobras Paulo Roberto Costa em esquema de lavagem de dinheiro.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.congressoemfoco.com.br/noticia/54207/pf-cumpre-mandados-da-segunda-fase-da-operacao-lava-jato",
+     "veiculo": "congressoemfoco.com.br",
+     "tipo": "reportagem",
+     "titulo": "PF cumpre mandados da segunda fase da Operação Lava-Jato",
+     "data": "2014-04-11",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Lava_Jato",
      "veiculo": "pt.wikipedia.org",
@@ -72452,7 +72758,7 @@
    "titulo": "Reino Unido vota pela saída da União Europeia (Brexit)",
    "descricao": "No referendo de 23 de junho de 2016 o 'Leave' venceu com 51,89% contra 48,11%, com participação de 72,21%, e a libra caiu a US$ 1,3777, o menor nível desde 1985.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
     {
      "url": "https://en.wikipedia.org/wiki/2016_United_Kingdom_European_Union_membership_referendum",
@@ -72461,6 +72767,15 @@
      "titulo": "2016 United Kingdom European Union membership referendum",
      "data": null,
      "qualidade": "fraca",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-7639",
+     "veiculo": "commonslibrary.parliament.uk",
+     "tipo": "relatorio",
+     "titulo": "Analysis of the EU Referendum results 2016",
+     "data": "2016",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -72518,8 +72833,17 @@
    "titulo": "Donald Trump é eleito presidente dos EUA",
    "descricao": "Em 8 de novembro de 2016 Trump venceu com 304 votos no Colégio Eleitoral contra 227 de Hillary Clinton, apesar de perder o voto popular, após campanha crítica a acordos de livre comércio.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www.archives.gov/electoral-college/2016",
+     "veiculo": "archives.gov (National Archives)",
+     "tipo": "dado_oficial",
+     "titulo": "2016 Electoral College Results | National Archives",
+     "data": "2016",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.270towin.com/2016-election",
      "veiculo": "270towin.com",
@@ -73760,11 +74084,20 @@
    "ano": 2017,
    "secao": "intl",
    "ordem": 2,
-   "titulo": "Brent sobe para US$ 54,89 de média com cortes Opep+",
-   "descricao": "No primeiro ano completo do acordo de cortes de dezembro de 2016 o Brent teve média de US$ 54,89 por barril, ante US$ 45,08 em 2016, segundo o FMI.",
+   "titulo": "Brent sobe para US$ 54,13 de média com cortes Opep+",
+   "descricao": "No primeiro ano completo do acordo de cortes de dezembro de 2016 o Brent teve média de US$ 54,13 por barril, ante US$ 43,64 em 2016, segundo a série da EIA.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=A",
+     "veiculo": "eia.gov",
+     "tipo": "dado_oficial",
+     "titulo": "Europe Brent Spot Price FOB, Annual (EIA)",
+     "data": "2005",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170920a.htm",
      "veiculo": "federalreserve.gov",
@@ -74639,8 +74972,17 @@
    "titulo": "Guerra comercial EUA-China: tarifas sobre US$ 34 bi",
    "descricao": "Em 6 de julho de 2018 entraram em vigor tarifas dos EUA sobre US$ 34 bilhões em bens chineses e a China retaliou, inclusive contra a soja americana, o que abriu espaço para a soja brasileira no mercado chinês.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.aljazeera.com/economy/2018/7/6/trade-war-begins-as-china-strikes-back-against-us-over-tariffs",
+     "veiculo": "aljazeera.com",
+     "tipo": "reportagem",
+     "titulo": "Trade war begins as China strikes back against US over tariffs",
+     "data": "2018-07-06",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation",
      "veiculo": "cscb.ca",
@@ -74849,8 +75191,17 @@
    "titulo": "Bolsonaro toma posse como presidente",
    "descricao": "Em 1/1/2019 Jair Bolsonaro (PSL), eleito em outubro de 2018, toma posse como 38º presidente da República.",
    "peso": 4,
-   "natureza": "nao_classificada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://www12.senado.leg.br/noticias/materias/2019/01/01/jair-bolsonaro-toma-posse-no-congresso-e-se-torna-38o-presidente-do-brasil",
+     "veiculo": "senado.leg.br (Agência Senado)",
+     "tipo": "documento_oficial",
+     "titulo": "Jair Bolsonaro toma posse no Congresso e se torna 38º presidente do Brasil",
+     "data": "2019-01-01",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
      "veiculo": "en.wikipedia.org",
@@ -76205,8 +76556,17 @@
    "titulo": "Alberto Fernández derrota Macri na Argentina",
    "descricao": "Em 27 de outubro de 2019 Alberto Fernández venceu no primeiro turno com 48,24% contra 40,28% de Mauricio Macri, que se tornou o primeiro presidente argentino em exercício derrotado ao buscar a reeleição.",
    "peso": 3,
-   "natureza": "nao_classificada",
+   "natureza": "reportada",
    "fontes": [
+    {
+     "url": "https://www.lanacion.com.ar/politica/elecciones-2019-finalizo-escrutinio-definitivo-alberto-fernandez-nid2303923",
+     "veiculo": "lanacion.com.ar",
+     "tipo": "reportagem",
+     "titulo": "Elecciones 2019: finalizó el escrutinio definitivo y Alberto Fernández se impuso con el 48,24%",
+     "data": "2019-11-06",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://en.wikipedia.org/wiki/2019_Argentine_general_election",
      "veiculo": "en.wikipedia.org",

@@ -1091,6 +1091,27 @@ def secoes_modelo(con, R, w):
     for x in eq["aplicadas"]:
         a = x["evento_id"] if x["alvo_tipo"] == "evento" else f"{x['relacao_origem']} {x['relacao_origem_ref']}"
         w(f"| `{a}` | {x['url']} | {x['motivo']} |")
+    # ---------------------------------------------------------------- 19
+    r3 = [e for e in R["evid_adic"]["entradas"] if e.get("rodada") == 3]
+    if r3:
+        ev3 = sorted({e["evento_id"] for e in r3})
+        nat3 = collections.Counter(con.execute("SELECT natureza_id FROM evento WHERE id=?", (i,)).fetchone()[0] for i in ev3)
+        corr3 = [c for c in R["evento_corr"]["aplicadas"] if c.get("rodada") == 3]
+        restam = [r[0] for r in q("SELECT id FROM evento WHERE natureza_id='nao_classificada' ORDER BY data, id")]
+        w("\n## 19. Rodada 3 de fontes (`data/curadoria/evidencias-rodada3.json`)\n")
+        w(f"{len(r3)} entradas para {len(ev3)} eventos que a rodada 2 deixou `nao_classificada`, aplicadas por `curadoria.aplicar_evidencias_adicionais` "
+          "junto com `evidencias-adicionais.json` (`curadoria.ler_evidencias_adicionais`), papel `sustenta`; as ligações wiki/outro que esses eventos já tinham ficam. "
+          "A natureza vem de `eventos-natureza.json`, regerado (R5) depois da rodada. Decisão desta rodada: R5 passa a contar `comunicado` (nota de órgão público) "
+          "como fonte oficial, como `documento_oficial`/`dado_oficial`/`decisao_judicial`; sem isso, 4 eventos sustentados só por press release do Fed e da ONU "
+          "continuariam `nao_classificada` (nenhum outro evento muda). "
+          f"Correções de texto da rodada: {len(corr3)} (`evento-correcoes.json`, `\"rodada\": 3`; detalhe em `relatorio-evidencias-adicionais.md`, seção \"Rodada 3\").\n")
+        w("| natureza dos eventos cobertos | eventos |\n|---|---:|")
+        for k, n in sorted(nat3.items()):
+            w(f"| {k} | {n} |")
+        w("\n| natureza (todos os eventos) | eventos |\n|---|---:|")
+        for r in q("SELECT COALESCE(natureza_id,'(NULL)') n, count(*) c FROM evento GROUP BY 1 ORDER BY 1"):
+            w(f"| {r['n']} | {r['c']} |")
+        w(f"\nEventos `nao_classificada` depois da rodada: {len(restam)}" + (" (" + ", ".join(f"`{i}`" for i in restam) + ")." if restam else "."))
 
 
 def tokens(s):

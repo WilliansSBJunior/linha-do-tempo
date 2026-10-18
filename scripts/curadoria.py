@@ -145,7 +145,7 @@ R4  o título começa por 'Folha liga' ou tem 'revelado/revelada', 'mensagens', 
 --  nenhuma das anteriores: continua NULL (nada é inventado)
 Precedência: R1, R2, R3, R4. R1-R4 só se aplicam a eventos do canal 'teia' com natureza_id NULL.
 R5  (canais 'brasil' e 'violencia', eventos factuais da linha do tempo; olha o tipo e o domínio das evidências ligadas ao evento com papel 'sustenta'):
-    ao menos uma evidência documento_oficial/dado_oficial/decisao_judicial (ou domínio oficial pela lista de R1) -> documentada;
+    ao menos uma evidência documento_oficial/dado_oficial/decisao_judicial/comunicado (ou domínio oficial pela lista de R1; `comunicado` = nota de órgão público, como press release do Fed ou da ONU, desde a rodada 3) -> documentada;
     senão, ao menos uma reportagem/relatorio -> reportada;
     senão (só wiki/outro/video, só fonte de papel 'contexto' ou nenhuma fonte) -> nao_classificada.
     Fontes 'contexto' (as URLs do bloco-ano de brasil-fontes.json, que o bruto não separa por evento) NÃO contam: não sustentam o fato do evento.
@@ -178,7 +178,7 @@ def classificar_natureza(titulo, urls):
 
 
 R5_PAPEIS = ("sustenta",)
-R5_TIPOS_OFICIAIS = ("documento_oficial", "dado_oficial", "decisao_judicial")
+R5_TIPOS_OFICIAIS = ("documento_oficial", "dado_oficial", "decisao_judicial", "comunicado")
 R5_TIPOS_IMPRENSA = ("reportagem", "relatorio")
 
 
@@ -1192,6 +1192,20 @@ def relatorio_mandato_oficial(cfg, nomes):
 
 
 # ======================================================================== 7. evidências adicionais (pesquisa de fontes para eventos/relações sem evidência)
+ARQ_RODADA3 = "evidencias-rodada3.json"
+
+
+def ler_evidencias_adicionais():
+    """Todas as entradas de evidência adicional, na ordem de aplicação: `evidencias-adicionais.json` (rodadas 1 e 2) seguido de `evidencias`
+    de `evidencias-rodada3.json` (rodada 3; o arquivo guarda também `decisoes` e `nao_encontrados` da rodada, que só vão para o relatório e
+    para evento-correcoes.json). Formato idêntico; toda entrada do arquivo da rodada 3 tem de trazer `"rodada": 3` (senão aborta)."""
+    r3 = ler_json(ARQ_RODADA3, {}).get("evidencias", [])
+    ruins = [e.get("url") for e in r3 if e.get("rodada") != 3]
+    if ruins:
+        raise SystemExit(f"{ARQ_RODADA3}: entradas sem \"rodada\": 3: {ruins}")
+    return ler_json("evidencias-adicionais.json", []) + r3
+
+
 def _alvo_evidencia(con, e):
     """(tabela_de_ligação, coluna, id do alvo) de uma entrada de evidencias-adicionais.json; falha se o alvo não existe.
     Evento: `evento_id` (via evento_alias se foi fundido). Relação: ids de relação são atribuídos na migração, então a chave estável é
@@ -1217,8 +1231,9 @@ def aplicar_evidencias_adicionais(con):
     `descricao_nova` dela ainda vale), liga em `evento_evidencia` (rotulo = titulo) ou `relacao_evidencia` (papel 'sustenta') e guarda por ligação
     `trecho_citado`, `nota` e `qualidade` ('boa'/'fraca'; colunas aditivas do schema). Nas relações da teia (entrada com `descricao_nova`) troca
     `relacao.descricao` só quando a atual começa com "Vínculo" e contém "sem descrição na fonte". Nunca muda rótulo, tipo, subtipo nem descrição de evento.
-    Roda depois das relações de mandato/filiação (que precisam existir) e antes dos temas. -> dict para o relatório."""
-    entradas = ler_json("evidencias-adicionais.json", [])
+    Roda depois das relações de mandato/filiação (que precisam existir) e antes dos temas. Lê também a rodada 3 (`evidencias-rodada3.json`,
+    via ler_evidencias_adicionais), com as mesmas regras. -> dict para o relatório."""
+    entradas = ler_evidencias_adicionais()
     r = {"entradas": entradas, "alvos": {}, "evid_novas": collections.Counter(), "evid_reaproveitadas": 0, "ligacoes": 0, "ja_ligadas": 0,
          "descricoes_trocadas": [], "descricoes_mantidas": [], "substituidas": [], "promovidas": 0}
     chaves, criadas = set(), set()
@@ -1445,7 +1460,7 @@ def aplicar_evidencia_qualidade(con):
     cfg = ler_json("evidencia-qualidade-revisao.json", {})
     revisoes = cfg.get("revisoes", [])
     adic = {}
-    for e in ler_json("evidencias-adicionais.json", []):
+    for e in ler_evidencias_adicionais():
         adic[_chave_revisao(e)] = e
     r = {"entradas": len(revisoes), "antes": _contar_fracas(con), "aplicadas": [], "duplicadas": [], "substituidas": [],
          "mantidas_fracas_arquivo": cfg.get("mantidas_fracas"),
@@ -1620,6 +1635,7 @@ def relatorio_revisao_evidencias(con, E, Rl):
     w(f"| &nbsp;&nbsp;campo `descricao` | {sum(1 for c in E['aplicadas'] if c['campo'] == 'descricao')} |")
     w(f"| &nbsp;&nbsp;campo `titulo` | {sum(1 for c in E['aplicadas'] if c['campo'] == 'titulo')} |")
     w(f"| &nbsp;&nbsp;da rodada 2 (eventos da linha do tempo sem fonte própria) | {sum(1 for c in E['aplicadas'] if c.get('rodada') == 2)} |")
+    w(f"| &nbsp;&nbsp;da rodada 3 (eventos que continuavam `nao_classificada`; decisões de `evidencias-rodada3.json`) | {sum(1 for c in E['aplicadas'] if c.get('rodada') == 3)} |")
     w(f"| relações de linha do tempo corrigidas (período/descrição) | {len(ap_per)} |")
     w(f"| vínculos da teia ajustados (subtipo/rótulo/tipo) | {len(ap_vin)} |")
     w(f"| &nbsp;&nbsp;`subtipo` definido | {campos['subtipo']} |")
@@ -1773,7 +1789,70 @@ def relatorio_evidencias_adicionais(con, R, E=None):
     for e in com_nota:
         w(f"| {alvo(e)} | {esc(e['veiculo'])}: {esc(e['url'])} | {esc(e['nota'])} |")
     L += _secao_rodada2(con, entradas, E, esc)
+    L += _secao_rodada3(con, entradas, E, esc)
     return "\n".join(L) + "\n"
+
+
+def _secao_rodada3(con, entradas, E, esc):
+    """Seção "Rodada 3": entradas de `evidencias-rodada3.json` (`"rodada": 3`; fontes para os eventos que a rodada 2 deixou `nao_classificada`),
+    as correções de evento-correcoes.json com `"rodada": 3`, as decisões sem correção (`campo: "nenhum"`) e `nao_encontrados` do arquivo."""
+    r3 = [e for e in entradas if e.get("rodada") == 3]
+    if not r3:
+        return []
+    cfg = ler_json(ARQ_RODADA3, {})
+    corr = [c for c in (E["aplicadas"] if E else []) if c.get("rodada") == 3]
+    sem_corr = [c for c in cfg.get("decisoes", {}).get("correcoes", []) if c.get("campo") == "nenhum"]
+    nao = cfg.get("nao_encontrados", [])
+    eventos = sorted({e["evento_id"] for e in r3})
+    fracas = [e for e in r3 if e["qualidade"] == "fraca"]
+    por_tipo = collections.Counter(e["tipo"] for e in r3)
+    nat = lambda i: (con.execute("SELECT COALESCE(natureza_id,'(NULL)') FROM evento WHERE id=?", (i,)).fetchone() or ["(inexistente)"])[0]
+    por_nat = collections.Counter(nat(i) for i in eventos)
+    restam = [r[0] for r in con.execute("SELECT id FROM evento WHERE natureza_id='nao_classificada' ORDER BY data, id")]
+    tit = {x["id"]: x["titulo"] for x in con.execute("SELECT id, titulo FROM evento")}
+    L = []
+    w = L.append
+    w("\n## Rodada 3 — eventos que continuavam `nao_classificada`\n")
+    w("Pesquisa de fonte aberta (oficial ou reportagem) para os eventos da linha do tempo que a rodada 2 deixou `nao_classificada` pela regra R5. "
+      "As entradas ficam em `data/curadoria/evidencias-rodada3.json` (`evidencias`, formato idêntico ao de `evidencias-adicionais.json`, com `\"rodada\": 3`) e são "
+      "aplicadas pela mesma `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das entradas de `evidencias-adicionais.json`): "
+      "papel `sustenta`; as ligações wiki/outro já existentes desses eventos ficam como estavam. As correções textuais decididas no arquivo (`decisoes.correcoes`) "
+      "estão em `evento-correcoes.json` com `\"rodada\": 3`.\n")
+    w("| | |\n|---|---:|")
+    w(f"| eventos cobertos | {len(eventos)} |")
+    w(f"| entradas (evento, URL) | {len(r3)} |")
+    w(f"| qualidade `boa` | {len(r3) - len(fracas)} |")
+    w(f"| qualidade `fraca` | {len(fracas)} |")
+    w(f"| eventos com descrição/título corrigidos | {len({c['id_efetivo'] for c in corr})} |")
+    w(f"| correções aplicadas (campo) | {len(corr)} |")
+    w(f"| decisões sem correção (`campo: \"nenhum\"`, só registro) | {len(sem_corr)} |")
+    w(f"| `nao_encontrados` do arquivo (evidência parcial registrada mesmo assim) | {len(nao)} |")
+    w(f"| eventos `nao_classificada` no banco depois da rodada | {len(restam)} |")
+    w("\nEntradas por tipo de evidência:\n")
+    w("| tipo | entradas | fracas |\n|---|---:|---:|")
+    for t, n in sorted(por_tipo.items()):
+        w(f"| {t} | {n} | {sum(1 for e in fracas if e['tipo'] == t)} |")
+    w("\nNatureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):\n")
+    w("| natureza | eventos |\n|---|---:|")
+    for t, n in sorted(por_nat.items()):
+        w(f"| {t} | {n} |")
+    if restam:
+        w("\nContinuam `nao_classificada`: " + ", ".join(f"`{i}`" for i in restam) + ".\n")
+    w("\n### Correções aplicadas\n")
+    w("| evento | campo | de -> para | motivo |\n|---|---|---|---|")
+    for c in sorted(corr, key=lambda c: (c["id_efetivo"], c["campo"])):
+        w(f"| `{c['id_efetivo']}` | {c['campo']} | {esc(c['de'])} -> {esc(c['para'])} | {esc(c['motivo'])} |")
+    w("\n### Decisões sem correção (o banco não muda; a nota segue em `evento_evidencia.nota`)\n")
+    w("| evento | decisão |\n|---|---|")
+    for c in sem_corr:
+        w(f"| `{c['evento_id']}` ({esc(tit.get(c['evento_id'], ''))}) | {esc(c['instrucao'])} |")
+    w("\n### Não encontrados\n")
+    w("Fonte aberta que confirme o evento como está descrito não foi achada; a evidência parcial encontrada foi registrada mesmo assim (com nota) e sustenta o "
+      "que confirma, e a descrição foi ajustada ao que a fonte diz (ver correções acima).\n")
+    w("| evento | natureza no banco | motivo |\n|---|---|---|")
+    for n in nao:
+        w(f"| `{n['evento_id']}` ({esc(tit.get(n['evento_id'], ''))}) | {nat(n['evento_id'])} | {esc(n['motivo'])} |")
+    return L
 
 
 def _secao_rodada2(con, entradas, E, esc):
