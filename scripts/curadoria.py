@@ -2322,6 +2322,7 @@ ARQ_MANDATOS_ADIC = "mandatos-adicionais.json"
 ARQ_RANKING_CORR = "ranking-empresa-correcoes.json"
 ARQ_RANKING_CORR_R7 = "ranking-empresa-correcoes-r7.json"   # rodada 7: mesmo formato, aplicado depois da rodada 6
 ARQ_RANKING_CORR_R8 = "ranking-empresa-correcoes-r8.json"   # rodada 8: mesmo formato, aplicado depois da rodada 7 (Folha, 1997-2009)
+ARQ_RANKING_CORR_R9 = "ranking-empresa-correcoes-r9.json"   # rodada 9: mesmo formato, aplicado depois da rodada 8 (Folha, 2009-2012)
 REGEX_REF_BRASIL = re.compile(r"Y\[(\d{4})\]\.(pol|intl)\.eventos\[(\d+)\]")
 
 
@@ -2461,7 +2462,7 @@ def aplicar_ranking_empresa_correcoes(con, arquivo=ARQ_RANKING_CORR):
     pct_total_ranking). Confere tudo antes de escrever e aborta sem aplicar nada se: entidade ou linha não existem; linha a inserir já existe;
     um `de` não bate; `anterior.url` não é a fonte principal atual (ou falta quando a principal muda); cobertura do ano não uniforme ou != `de`;
     mais de uma principal; PIB do ano ausente. `arquivo`: ARQ_RANKING_CORR (rodada 6), ARQ_RANKING_CORR_R7 (rodada 7, aplicado depois e sobre
-    o resultado da 6) ou ARQ_RANKING_CORR_R8 (rodada 8, depois da 7): o `de` é o valor que a rodada anterior gravou; quando a `anterior` já está em ranking_evidencia, a ligação é reclassificada em vez de
+    o resultado da 6), ARQ_RANKING_CORR_R8 (rodada 8, depois da 7) ou ARQ_RANKING_CORR_R9 (rodada 9, depois da 8): o `de` é o valor que a rodada anterior gravou; quando a `anterior` já está em ranking_evidencia, a ligação é reclassificada em vez de
     duplicada). -> dict para o relatório."""
     cfg = ler_json(arquivo, {})
     vazio = {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}

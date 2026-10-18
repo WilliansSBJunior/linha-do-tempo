@@ -5496,6 +5496,26 @@
    ]
   },
   {
+   "id": "hsbc-brasil",
+   "nome": "HSBC Brasil",
+   "tipo": "banco",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Filial brasileira do banco britânico HSBC (vendida ao Bradesco em 2016); no ranking de lucros de 2012 (Folha de S.Paulo, 6/3/2013).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "HSBC Bank Brasil"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "hugo-napoleao",
    "nome": "Hugo Napoleão",
    "tipo": "pessoa",
@@ -6119,6 +6139,26 @@
    "indice_legado": null,
    "origem": "linha_do_tempo",
    "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "marfrig",
+   "nome": "Marfrig",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Marfrig Alimentos, frigorífico; prejuízo de 2011 (Folha de S.Paulo, 27/3/2012).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Marfrig Alimentos"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -7250,6 +7290,26 @@
    ]
   },
   {
+   "id": "sabesp",
+   "nome": "Sabesp",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Companhia de Saneamento Básico do Estado de São Paulo, controlada pelo governo paulista até a privatização de 2024; no ranking de lucros de 2011 (Folha de S.Paulo, 25/3/2012).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Companhia de Saneamento Básico do Estado de São Paulo"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "sadia",
    "nome": "Sadia",
    "tipo": "empresa",
@@ -7569,6 +7629,26 @@
    ]
   },
   {
+   "id": "tim",
+   "nome": "TIM",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "TIM Participações, operadora de telefonia celular controlada pela Telecom Italia; no ranking de lucros de 2011 (Folha de S.Paulo, 17/2/2012).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "TIM Participações"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "tiririca",
    "nome": "Tiririca",
    "tipo": "pessoa",
@@ -7844,6 +7924,7 @@
   "comissao de valores mobiliarios": "cvm",
   "companhia acucareira vale do ceara mirim": "companhia-acucareira-vale-do-ceara-mirim",
   "companhia cervejaria brahma": "brahma",
+  "companhia de saneamento basico do estado de sao paulo": "sabesp",
   "companhia energetica de sao paulo": "cesp",
   "companhia siderurgica belgo mineira": "belgo-mineira",
   "conafer": "conafer",
@@ -7962,6 +8043,8 @@
   "henrique meirelles": "henrique-meirelles",
   "henrique moura vorcaro": "henrique-vorcaro",
   "henrique vorcaro": "henrique-vorcaro",
+  "hsbc bank brasil": "hsbc-brasil",
+  "hsbc brasil": "hsbc-brasil",
   "hugo motta": "hugo-motta",
   "hugo napoleao": "hugo-napoleao",
   "humberto costa": "humberto-costa",
@@ -8044,6 +8127,8 @@
   "marco maciel": "marco-maciel",
   "marco maia": "marco-maia",
   "marcus vinicius furtado coelho": "marcus-vinicius-furtado-coelho",
+  "marfrig": "marfrig",
+  "marfrig alimentos": "marfrig",
   "maridt participacoes": "maridt-participacoes",
   "marina silva": "marina-silva",
   "mario frias": "mario-frias",
@@ -8178,6 +8263,7 @@
   "rui costa": "rui-costa",
   "rus": "russia",
   "russia": "russia",
+  "sabesp": "sabesp",
   "sadia": "sadia",
   "samuel moreira": "samuel-moreira",
   "santander brasil": "santander-brasil",
@@ -8216,6 +8302,8 @@
   "temer": "michel-temer",
   "thiago miranda": "thiago-miranda",
   "tiao viana": "tiao-viana",
+  "tim": "tim",
+  "tim participacoes": "tim",
   "tiririca": "tiririca",
   "tirreno": "tirreno",
   "trf 1": "trf-1",

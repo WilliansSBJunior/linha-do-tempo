@@ -1,0 +1,785 @@
+{
+ "_doc": "Rodada 9 (18/10/2026): ranking de lucros (ranking_empresa) de 2009-2012 com a Folha de S.Paulo (acervo www1.folha.uol.com.br/fsp, cadernos Dinheiro e Mercado, aberto pelo Chrome do usuário; /home/claude/transfer/folha_idx/folha_lucros_2009_2012.txt: 37 blocos de texto literal, marcados pelo ano do RESULTADO), trechos literais. Mesmo formato e mesmo mecanismo das rodadas 6-8, aplicado logo depois da 8 por curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R9): os `de` são os valores que as rodadas 6-8 gravaram. Base: lucro líquido em R$ divulgado na época (de 2010 em diante o IFRS é a base societária das companhias abertas: vale o 'lucro líquido' do balanço; 'recorrente'/'gerencial'/ajustado só como contexto/obs). Valor do ano anterior citado na matéria do ano seguinte é aproveitado quando a linha não existe (CSN 2011 = R$ 3,7 bi no balanço de 2012); quando a linha existe com o valor da época e o comparativo diverge (reapresentação), fica o da época e a matéria entra como contexto. Atualiza onde a Folha diverge além do arredondamento, insere as empresas que entram no top 15 de lucros do ano (e prejuízos >= R$ 0,2 bi), e liga a Folha como `sustenta` adicional só onde o valor já era igual e a fonte do banco não era imprensa nem documento primário da época (DIEESE = tabela secundária de 2012-2013, Forbes de 2023 = matéria posterior); onde a principal era a Wikipédia, a Folha passa a principal e a Wikipédia fica como contexto. Nomes de época por `nome_epoca`, na convenção da rodada 8: Oi -> telemar com 'Oi' (2010-2011, como 2007-2009; a entidade `oi` só aparece de 2016 em diante), Telesp -> telefonica-brasil com 'Telesp' (2010; em 2011 já é Telefônica Brasil, sem nome de época). Entidades novas em entidades-adicionais.json: sabesp, marfrig, tim, hsbc-brasil (TAM, Gol, Embraer, Braskem, Suzano e CSN já existiam; OGX = `ogpar`, só fora do corte). A cobertura dos anos não muda (`cobertura: []`).",
+ "cobertura": [],
+ "atualizar": [
+  {
+   "ano": 2008,
+   "entidade_id": "tam",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0104201020.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Aviação: TAM registra em 2009 lucro de R$ 1,34 bi",
+     "data": "2010-04-01",
+     "trecho": "revertendo o prejuízo apresentado em 2008 (R$ 1,51 bilhão)",
+     "nota": "O balanço de 2009 dá R$ 1,51 bi de prejuízo para 2008 (comparativo, provável reapresentação); o banco mantém o 'da ordem de R$ 1,3 bilhão' do balanço de 2008 (Folha, 31/3/2009).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 9): número divergente de 2008 no balanço seguinte; valor mantido (base: o balanço da época)."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "telemar",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me0503201111.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefonia: Lucro da Oi vai a R$ 284 mi no 4º tri, mas recua no ano",
+     "data": "2011-03-05",
+     "trecho": "ante um ganho de R$ 5,09 bilhões em 2009",
+     "nota": "O balanço de 2010 da Oi dá lucro de R$ 5,09 bi para 2009 (comparativo reapresentado, provavelmente na adoção do IFRS completo em 2010; a matéria não explica); o banco mantém o prejuízo de R$ 436 mi do balanço de 2009 (Folha, 16/3/2010).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 9): número divergente de 2009 no balanço seguinte; valor mantido (base: o balanço da época)."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "itau-unibanco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me2302201129.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Itaú tem lucro recorde de R$ 13,3 bi",
+     "data": "2011-02-23",
+     "trecho": "O gigante Itaú Unibanco terminou 2010, ano de recuperação econômica e de aquecimento no crédito, com um lucro de R$ 13,3 bilhões -32,3% superior a 2009.",
+     "nota": "Confirma 13,323 (a Folha arredonda R$ 13,3 bi) em imprensa da época; a principal é o DIEESE (tabela secundária de 2012). +32,3% sobre 2009 confere com o 10,1 da linha de 2009.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 9): confirma o lucro de 2010 em imprensa da época."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "banco-do-brasil",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me1802201113.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BB aposta em empresa e tem lucro recorde",
+     "data": "2011-02-18",
+     "trecho": "No ano passado, o aquecimento do crédito e a redução da inadimplência deram ao banco um lucro de R$ 11,7 bilhões -o maior já obtido e 15,3% superior a 2009.",
+     "nota": "Confirma 11,703 (a Folha arredonda R$ 11,7 bi) em imprensa da época; a principal é o DIEESE (tabela secundária de 2012). +15,3% sobre 2009 confere com o 10,148.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 9): confirma o lucro de 2010 em imprensa da época."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "bradesco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me0102201126.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Com novo foco, Bradesco lucra R$ 10 bi",
+     "data": "2011-02-01",
+     "trecho": "conseguiu elevar o lucro para R$ 10,022 bilhões -25% mais do que em 2009.",
+     "nota": "Confirma 10,022 em imprensa da época; a principal é o DIEESE (tabela secundária de 2012). +25% sobre 2009 confere com o 8,012.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 9): confirma o lucro de 2010 em imprensa da época."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "santander-brasil",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me0402201115.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Lucro do Santander cai 8,5% no mundo, mas sobe 34% no Brasil",
+     "data": "2011-02-04",
+     "trecho": "O resultado mundial contrasta com o da filial brasileira, unidade de maior crescimento e que reportou ganho líquido de R$ 7,382 bilhões -alta de 34% em relação a 2009.",
+     "nota": "Confirma 7,383 (a Folha dá 7,382) em imprensa da época; a principal é o DIEESE (tabela secundária de 2012). A alta de 34% implica cerca de R$ 5,5 bi em 2009, outra base que o 1,805 da linha de 2009 (contábil, derivado de US$): o 7,382 é o número que o grupo divulga para a filial, sem dizer a base; o lucro contábil de 2010 (após a amortização do ágio do Real) não foi achado.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 9): confirma o número de 2010 em imprensa da época (base registrada na nota)."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/26334-vale-lucra-mais-que-petrobras-pela-1-vez.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Vale lucra mais que Petrobras pela 1ª vez",
+     "data": "2012-02-17",
+     "trecho": "A Vale obteve lucro recorde de R$ 37,8 bilhões em 2011, deixando para trás o ganho de R$ 33,3 bilhões da Petrobras",
+     "nota": "Confirma 37,81 (a Folha arredonda R$ 37,8 bi) em imprensa da época; a principal é matéria de 2023 (Forbes). O mesmo trecho confirma a Petrobras 2011 (33,313).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 9): confirma o lucro de 2011 em imprensa da época."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "banco-do-brasil",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/26003-bb-desacelera-lucro-com-aperto-no-credito.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BB desacelera lucro com aperto no crédito",
+     "data": "2012-02-15",
+     "trecho": "Apesar das medidas do BC, o banco teve lucro recorde de R$ 12,1 bilhões em 2011, resultado 3,6% superior a 2010.",
+     "nota": "Confirma 12,126 (a Folha arredonda R$ 12,1 bi) em imprensa da época; a principal é o DIEESE (tabela secundária de 2012). +3,6% sobre 2010 confere com o 11,703.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 9): confirma o lucro de 2011 em imprensa da época."
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "santander-brasil",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 6.329,
+     "para": 2.69
+    },
+    "obs": {
+     "de": "'LL gerencial' do DIEESE; o lucro contábil (BR GAAP, após ágio) é menor e não foi achado para 2012.",
+     "para": "Lucro líquido do Santander Brasil em 2012 (Folha, 1/2/2013: 'lucro líquido de R$ 2,69 bilhões no Brasil em 2012, com queda de 24% em relação ao ano anterior'), o lucro contábil que a linha não tinha. O 6,329 anterior era o 'LL gerencial' do DIEESE (sem a amortização do ágio do Real), outra base; fica como contexto. As linhas de 2010 e 2011 (7,383 e 7,756) continuam no número do DIEESE: a queda de 24% implica cerca de R$ 3,5 bi contábeis em 2011, valor que nenhuma matéria do material cita."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/91652-lucro-do-santander-no-brasil-cai-24-em-2012-e-atinge-r-27-bi.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Santander no Brasil cai 24% em 2012 e atinge R$ 2,7 bi",
+     "data": "2013-02-01",
+     "trecho": "O banco registrou lucro líquido de R$ 2,69 bilhões no Brasil em 2012, com queda de 24% em relação ao ano anterior.",
+     "nota": "Substitui 6,329 ('LL gerencial' do DIEESE, outra base).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2012.pdf",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (6,329, 'LL gerencial', sem a amortização do ágio): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 9): lucro líquido contábil de 2012 no lugar do gerencial."
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": null,
+     "para": "Balanço de 2012 (Folha, 22/2/2013: 'lucro líquido recorde de R$ 12,2 bilhões -0,7% mais que em 2011'; sem eventos não recorrentes, como o adiantamento de recursos pagos à Previ, R$ 10,7 bi). A Wikipédia pt (fonte anterior) traz 12,205."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/95021-bb-eleva-fatia-de-mercado-e-ganha-cliente-com-juro-baixo.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BB eleva fatia de mercado e ganha cliente com juro baixo",
+     "data": "2013-02-22",
+     "trecho": "O resultado foi um lucro líquido recorde de R$ 12,2 bilhões -0,7% mais que em 2011. Sem contar eventos não recorrentes, como o adiantamento de recursos pagos à Previ (fundo de pensão dos funcionários), os ganhos somaram R$ 10,7 bilhões",
+     "nota": "Confirma 12,205 (a Folha arredonda R$ 12,2 bi); a Folha passa a fonte principal no lugar da Wikipédia.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia pt): mesmo valor (12,205); mantida como contexto."
+   },
+   "motivo": "Folha (rodada 9): confirma o lucro de 2012 e substitui a Wikipédia como fonte principal."
+  }
+ ],
+ "inserir": [
+  {
+   "ano": 2009,
+   "entidade_id": "tam",
+   "lucro_brl_bi": 1.343,
+   "setor": "Outros",
+   "setor_k": "transporte",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "TAM Linhas Aéreas, 2009 (Folha, 1/4/2010: 'lucro líquido de R$ 1,343 bilhão no ano passado'). O balanço de 2010 (Folha, 1/3/2011: R$ 637,4 mi, 'queda de 48,9% em relação a 2009') implica cerca de R$ 1,25 bi para 2009, comparativo provavelmente reapresentado na adoção do IFRS completo; fica o valor divulgado na época.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0104201020.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Aviação: TAM registra em 2009 lucro de R$ 1,34 bi",
+     "data": "2010-04-01",
+     "trecho": "A companhia aérea TAM registrou lucro líquido de R$ 1,343 bilhão no ano passado, revertendo o prejuízo apresentado em 2008 (R$ 1,51 bilhão).",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2009 (14º lucro)."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "csn",
+   "lucro_brl_bi": 2.5,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "CSN, 2010 (Folha, 30/3/2011, da Reuters: 'o ganho da empresa caiu 4%, para R$ 2,5 bilhões'), valor arredondado; -4% sobre os R$ 2,6 bi de 2009, coerente.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me3003201121.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: Lucro da CSN tem recuo de 4% em 2010, para R$ 2,5 bi",
+     "data": "2011-03-30",
+     "trecho": "No acumulado de 2010, o ganho da empresa caiu 4%, para R$ 2,5 bilhões.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2010."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "telefonica-brasil",
+   "lucro_brl_bi": 2.4,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Telesp",
+   "obs": "Telesp (Telefônica, operadora fixa de SP; a Vivo só foi incorporada em 2011), 2010 (Folha, 17/2/2011: 'No ano, o lucro foi de R$ 2,4 bilhões (+8,8%)'), valor arredondado; +8,8% dá cerca de R$ 2,2 bi para 2009, coerente com o 2,173 da linha de 2009.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me1702201109.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefônica lucra R$ 2,4 bi em 2010, alta de 9%",
+     "data": "2011-02-17",
+     "trecho": "A Telefônica (Telesp) encerrou o quarto trimestre com lucro de R$ 622,7 milhões, alta de 9,2% ante o mesmo período de 2009. No ano, o lucro foi de R$ 2,4 bilhões (+8,8%).",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2010."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "braskem",
+   "lucro_brl_bi": 1.889,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Braskem, 2010 (Folha, 18/3/2011: 'lucro líquido de R$ 1,889 bilhão', alta de 374%, com créditos tributários e a contabilização de ativos adquiridos).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me1803201126.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Petroquímica: Lucro da Braskem cresce 374% em 2010",
+     "data": "2011-03-18",
+     "trecho": "O gigante do setor petroquímico teve lucro líquido de R$ 1,889 bilhão.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2010."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "telemar",
+   "lucro_brl_bi": 1.75,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Oi",
+   "obs": "Oi (Tele Norte Leste, já com a Brasil Telecom), 2010 (Folha, 5/3/2011: 'lucro líquido de R$ 1,75 bilhão'). O mesmo balanço dá lucro de R$ 5,09 bi para 2009 (comparativo reapresentado; a linha de 2009 fica com o prejuízo de R$ 436 mi divulgado na época), e o balanço de 2011 (R$ 1,006 bi, 'redução de 49%') implica cerca de R$ 1,97 bi para 2010, outra reapresentação.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me0503201111.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefonia: Lucro da Oi vai a R$ 284 mi no 4º tri, mas recua no ano",
+     "data": "2011-03-05",
+     "trecho": "O lucro líquido da Oi recuou 65,6% em 2010, na comparação com 2009. Em 2010, a empresa registrou lucro líquido de R$ 1,75 bilhão, ante um ganho de R$ 5,09 bilhões em 2009.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2010."
+  },
+  {
+   "ano": 2010,
+   "entidade_id": "suzano",
+   "lucro_brl_bi": 0.769,
+   "setor": "Papel e celulose",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Suzano Papel e Celulose, 2010 (Folha, 2/3/2011: 'O lucro líquido baixou para R$ 769 milhões, redução de 18,8% sobre o resultado de 2009').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/me0203201116.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Papel e celulose: Lucro líquido da Suzano cai 18,8% em relação a 2009",
+     "data": "2011-03-02",
+     "trecho": "O lucro líquido baixou para R$ 769 milhões, redução de 18,8% sobre o resultado de 2009.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): 15º lucro de 2010."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "telefonica-brasil",
+   "lucro_brl_bi": 5.1,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Telefônica Brasil (já com a Vivo, incorporada em 2011), 2011 (Folha, 17/2/2012: 'O lucro líquido da Telefônica chegou a R$ 5,1 bilhões'), valor arredondado; a alta de 18,2% é sobre o 2010 combinado com a Vivo (cerca de R$ 4,3 bi), não sobre os R$ 2,4 bi da Telesp sozinha.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/26329-telefonica-e-tim-tem-receita-e-lucro-maiores-em-2011.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefônica e TIM têm receita e lucro maiores em 2011",
+     "data": "2012-02-17",
+     "trecho": "O lucro líquido da Telefônica chegou a R$ 5,1 bilhões, com alta de 18,2% sobre o de 2010.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2011."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "csn",
+   "lucro_brl_bi": 3.7,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "CSN, 2011, comparativo do balanço de 2012 (Folha, 29/3/2013: 'após lucro de R$ 3,7 bilhões em 2011'), valor arredondado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/101037-csn-tem-lucro-trimestral-60-menor-e-fecha-2012-com-prejuizo.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "CSN tem lucro trimestral 60% menor e fecha 2012 com prejuízo",
+     "data": "2013-03-29",
+     "trecho": "A siderúrgica fechou 2012 com prejuízo de R$ 420,1 milhões -após lucro de R$ 3,7 bilhões em 2011.",
+     "nota": "Novo; valor de 2011 citado no balanço de 2012, arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2011 (valor citado no balanço seguinte)."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "tim",
+   "lucro_brl_bi": 1.3,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "TIM Participações, 2011 (Folha, 17/2/2012: 'cresceu 65,5% no ano passado, somando R$ 1,3 bilhão'), valor arredondado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/26329-telefonica-e-tim-tem-receita-e-lucro-maiores-em-2011.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefônica e TIM têm receita e lucro maiores em 2011",
+     "data": "2012-02-17",
+     "trecho": "Já o da TIM cresceu 65,5% no ano passado, somando R$ 1,3 bilhão.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2011."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "sabesp",
+   "lucro_brl_bi": 1.22,
+   "setor": "Outros",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Sabesp (controlada pelo Estado de São Paulo), 2011 (Folha, 25/3/2012: 'Sabesp tem lucro de R$ 1,22 bi em 2011', 25% abaixo de 2010).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/33288-sabesp-tem-lucro-de-r-122-bi-em-2011.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Sabesp tem lucro de R$ 1,22 bi em 2011",
+     "data": "2012-03-25",
+     "trecho": "Sabesp tem lucro de R$ 1,22 bi em 2011 O resultado é 25% inferior ao apurado no ano anterior.",
+     "nota": "Novo; o valor vem do título da matéria.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2011."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "telemar",
+   "lucro_brl_bi": 1.006,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Oi",
+   "obs": "Oi, 2011 (Folha, 31/3/2012: 'lucro líquido de R$ 1,006 bilhão em 2011, uma redução de 49% ante o ano anterior'); os 49% são sobre o 2010 reapresentado (cerca de R$ 1,97 bi), não sobre o R$ 1,75 bi divulgado em 2011.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/34424-lucro-da-oi-cai-49-apos-aumento-de-despesas.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Oi cai 49% após aumento de despesas",
+     "data": "2012-03-31",
+     "trecho": "A empresa de telefonia Oi obteve lucro líquido de R$ 1,006 bilhão em 2011, uma redução de 49% ante o ano anterior.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): 15º lucro de 2011."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "marfrig",
+   "lucro_brl_bi": -0.746,
+   "setor": "Bebidas e alimentos",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Marfrig Alimentos, prejuízo de 2011 (Folha, 27/3/2012: 'prejuízo líquido de R$ 746 milhões em 2011, ante lucro de R$ 146,1 milhões no ano anterior').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/33631-marfrig-tem-prejuizo-de-r-746-milhoes-em-2011.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Marfrig tem prejuízo de R$ 746 milhões em 2011",
+     "data": "2012-03-27",
+     "trecho": "A Marfrig divulgou que registrou prejuízo líquido de R$ 746 milhões em 2011, ante lucro de R$ 146,1 milhões no ano anterior.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): prejuízo de R$ 0,2 bi ou mais em 2011."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "gol",
+   "lucro_brl_bi": -0.7104,
+   "setor": "Outros",
+   "setor_k": "transporte",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Gol Linhas Aéreas, prejuízo de 2011 (Folha, 28/3/2012: 'encerrou 2011 com prejuízo de R$ 710,4 milhões'; em 2010, lucro de R$ 214,2 mi).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/33855-gol-corta-voos-depois-de-prejuizo-de-r-710-mi.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Gol corta voos depois de prejuízo de R$ 710 mi",
+     "data": "2012-03-28",
+     "trecho": "A empresa encerrou 2011 com prejuízo de R$ 710,4 milhões. No ano anterior, a Gol lucrou R$ 214,2 milhões.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): prejuízo de R$ 0,2 bi ou mais em 2011."
+  },
+  {
+   "ano": 2011,
+   "entidade_id": "tam",
+   "lucro_brl_bi": -0.3351,
+   "setor": "Outros",
+   "setor_k": "transporte",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "TAM Linhas Aéreas, prejuízo de 2011 (Folha, 14/2/2012: 'prejuízo de R$ 335,1 milhões no ano passado'), por combustível e câmbio.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/25750-tam-encerra-2011-com-prejuizo-de-r-335-milhoes.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "TAM encerra 2011 com prejuízo de R$ 335 milhões",
+     "data": "2012-02-14",
+     "trecho": "A TAM registrou prejuízo de R$ 335,1 milhões no ano passado, ante lucro de R$ 637,4 milhões em 2010.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): prejuízo de R$ 0,2 bi ou mais em 2011."
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "hsbc-brasil",
+   "lucro_brl_bi": 1.3,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "HSBC Brasil, 2012 (Folha, 6/3/2013: 'lucro líquido de R$ 1,3 bilhão em 2012, queda de 2,6% ante 2011'), valor arredondado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/97147-lucro-do-hsbc-brasil-cai-26-em-2012.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do HSBC Brasil cai 2,6% em 2012",
+     "data": "2013-03-06",
+     "trecho": "O HSBC Brasil informou ontem que teve lucro líquido de R$ 1,3 bilhão em 2012, queda de 2,6% ante 2011",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2012."
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "embraer",
+   "lucro_brl_bi": 0.698,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Embraer, 2012 (Folha, 13/3/2013: 'O lucro de 2012 foi de R$ 698 milhões, ante R$ 156,3 milhões em 2011').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/98347-lucro-da-embraer-sobe-347-em-2012.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Embraer sobe 347% em 2012",
+     "data": "2013-03-13",
+     "trecho": "O lucro de 2012 foi de R$ 698 milhões, ante R$ 156,3 milhões em 2011.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): entra no top 15 de 2012."
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "csn",
+   "lucro_brl_bi": -0.4201,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "CSN, prejuízo de 2012 pela reclassificação de perdas com ações da Usiminas (Folha, 29/3/2013: 'fechou 2012 com prejuízo de R$ 420,1 milhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/101037-csn-tem-lucro-trimestral-60-menor-e-fecha-2012-com-prejuizo.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "CSN tem lucro trimestral 60% menor e fecha 2012 com prejuízo",
+     "data": "2013-03-29",
+     "trecho": "A siderúrgica fechou 2012 com prejuízo de R$ 420,1 milhões -após lucro de R$ 3,7 bilhões em 2011. A CSN atribuiu o desempenho negativo à reclassificação de perdas com ações da Usiminas.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): prejuízo de R$ 0,2 bi ou mais em 2012."
+  },
+  {
+   "ano": 2012,
+   "entidade_id": "gol",
+   "lucro_brl_bi": -1.5,
+   "setor": "Outros",
+   "setor_k": "transporte",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Gol Linhas Aéreas, prejuízo de 2012 (Folha, 27/3/2013: 'prejuízo de R$ 1,5 bilhão no ano passado, o dobro das perdas registradas em 2011'), valor arredondado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/mercado/100723-so-a-agua-sera-gratuita-nos-voos-da-gol.shtml",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Só a água será gratuita nos voos da Gol",
+     "data": "2013-03-27",
+     "trecho": "A medida é tomada no momento em que a Gol anuncia prejuízo de R$ 1,5 bilhão no ano passado, o dobro das perdas registradas em 2011.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 9): prejuízo de R$ 0,2 bi ou mais em 2012."
+  }
+ ],
+ "lacunas": [
+  "Derivados, não inseridos (o trecho só dá a variação): Suzano 2009 (R$ 769 mi com queda de 18,8% ≈ R$ 0,95 bi), Sabesp 2010 (R$ 1,22 bi com queda de 25% ≈ R$ 1,63 bi; seria o 14º lucro de 2010), HSBC Brasil 2011 (R$ 1,3 bi com queda de 2,6% ≈ R$ 1,33 bi) e Santander Brasil 2011 contábil (R$ 2,69 bi com queda de 24% ≈ R$ 3,5 bi).",
+  "Santander Brasil: 2012 passa ao lucro contábil (2,69); 2010 e 2011 continuam no número do DIEESE (7,383 e 7,756, o mesmo que a Folha dá para 2010 sem dizer a base) e 2009 no contábil derivado de US$ (1,805): a série mistura bases até achar o contábil de 2010-2011.",
+  "Comparativos reapresentados (provavelmente na adoção do IFRS completo em 2010), valores da época mantidos: Oi 2009 (R$ 5,09 bi no balanço de 2010 contra o prejuízo de R$ 436 mi), Oi 2010 (≈ R$ 1,97 bi implícito no balanço de 2011 contra R$ 1,75 bi), TAM 2008 (R$ 1,51 bi de prejuízo no balanço de 2009 contra 'da ordem de R$ 1,3 bilhão') e TAM 2009 (≈ R$ 1,25 bi implícito no balanço de 2010 contra R$ 1,343 bi).",
+  "Itaú Unibanco 2012 (13,589, derivado, principal Wikipédia), Caixa 2010-2012 e Itaúsa 2010-2012: sem bloco da Folha com o valor anual.",
+  "Cobertura de 2010-2012 continua `completa`: em 2010 e 2011 as linhas novas ficam todas abaixo do 10º lucro (a lista conferida era a dos 10 maiores); em 2012 o Santander desce de 8º para 12º com o lucro contábil, sem empresa nova acima dele. Nenhum ano muda de cobertura por causa da Folha."
+ ],
+ "nao_aplicados": [
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/me2602201113.htm",
+   "ano": 2010,
+   "motivo": "Vale 2010: o lucro está em US$ (US$ 17,2 bi) com a conversão em R$ entre parênteses ('R$ 30 bilhões'); a mesma conversão dá R$ 23,4 bi para 2008, que não é o balanço em R$ (21,279): não é o lucro societário em R$. O banco tem 30,07; nada ligado."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/poder/32498-lucro-de-estatais-infla-superavit-do-governo.shtml",
+   "ano": 2011,
+   "motivo": "Dividendos recolhidos pela União das estatais (R$ 4,9 bi em fevereiro de 2012), sem o lucro anual de nenhuma empresa."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/94672-juro-e-tarifa-baixa-dao-lucro-recorde-a-caixa.shtml",
+   "ano": 2012,
+   "motivo": "Caixa 2012: o trecho disponível do bloco fala de crédito, juros e aporte da União, mas não traz o valor do lucro anual; o banco fica com 6,066 (DIEESE)."
+  }
+ ],
+ "fora_do_corte": [
+  {
+   "ano": 2009,
+   "entidade": "OGX",
+   "lucro_brl_bi": -0.1006,
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/me2703201122.htm",
+   "motivo": "Prejuízo menor que R$ 0,2 bi (comparativo de 2009 no balanço de 2010)."
+  },
+  {
+   "ano": 2010,
+   "entidade": "TAM",
+   "lucro_brl_bi": 0.6374,
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/me0103201114.htm",
+   "motivo": "16º lucro do ano: fora do top 15."
+  },
+  {
+   "ano": 2010,
+   "entidade": "Gol",
+   "lucro_brl_bi": 0.2142,
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/33855-gol-corta-voos-depois-de-prejuizo-de-r-710-mi.shtml",
+   "motivo": "17º lucro do ano: fora do top 15 (comparativo de 2010 no balanço de 2011)."
+  },
+  {
+   "ano": 2010,
+   "entidade": "Marfrig",
+   "lucro_brl_bi": 0.1461,
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/33631-marfrig-tem-prejuizo-de-r-746-milhoes-em-2011.shtml",
+   "motivo": "18º lucro do ano: fora do top 15 (comparativo de 2010 no balanço de 2011)."
+  },
+  {
+   "ano": 2010,
+   "entidade": "OGX",
+   "lucro_brl_bi": -0.1355,
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/me2703201122.htm",
+   "motivo": "Prejuízo menor que R$ 0,2 bi. MPX e LLX: 'somaram prejuízos de R$ 282 milhões' juntas, sem o valor de cada uma."
+  },
+  {
+   "ano": 2011,
+   "entidade": "Embraer",
+   "lucro_brl_bi": 0.1563,
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/98347-lucro-da-embraer-sobe-347-em-2012.shtml",
+   "motivo": "16º lucro do ano: fora do top 15 (comparativo de 2011 no balanço de 2012)."
+  }
+ ],
+ "confirmados": [
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/me2203201123.htm",
+   "ano": 2010,
+   "titulo": "Bancos: BNDES registra resultado recorde e lucra R$ 9,9 bilhões em 2010",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar. BNDES 2010: R$ 9,9 bi (banco 9,9, A Tarde); o trecho também dá o Bradesco 2010 (R$ 10,02 bi)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/25007-dolar-reduz-lucro-da-petrobras-em-2011.shtml",
+   "ano": 2011,
+   "titulo": "Dólar reduz lucro da Petrobras em 2011",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar. Petrobras 2011: R$ 33,3 bi (banco 33,313, Exame) e 2010: 'recorde de R$ 35,1 bilhões' (banco 35,189, Estado de Minas; a Folha trunca)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/28199-bndes-recupera-menos-credito-e-lucro-cai-9.shtml",
+   "ano": 2011,
+   "titulo": "BNDES recupera menos crédito, e lucro cai 9%",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar. BNDES 2011: R$ 9,048 bi (banco 9,0, Jornal Grande Bahia) e 2010: R$ 9,913 bi (banco 9,9)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/26139-lucro-da-vale-recua-17-no-4-trimestre.shtml",
+   "ano": 2011,
+   "titulo": "Lucro da Vale recua 17% no 4º trimestre",
+   "motivo": "Confirma Vale 2011 = R$ 37,8 bi; a Folha já ficou ligada a essa linha pela matéria de 17/2/2012 (26334); não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/92375-preco-defasado-derruba-lucro-da-petrobras.shtml",
+   "ano": 2012,
+   "titulo": "Preço defasado derruba lucro da Petrobras",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar. Petrobras 2012: R$ 21,2 bi (banco 21,182, 6-K)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/96075-vale-lucra-r-97-bi-em-2012-queda-de-74.shtml",
+   "ano": 2012,
+   "titulo": "Vale lucra R$ 9,7 bi em 2012, queda de 74%",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar. Vale 2012: R$ 9,7 bi (banco 9,734, Estado de Minas) e 2011: R$ 37,8 bi."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/95694-lucro-do-bndes-cai-96-em-2012-para-r-82-bilhoes.shtml",
+   "ano": 2012,
+   "titulo": "Lucro do BNDES cai 9,6% em 2012, para R$ 8,2 bilhões",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar. BNDES 2012: R$ 8,2 bi (banco 8,2, Estado de Minas)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/mercado/96080-cervejas-premium-turbinam-alta-de-22-no-lucro-da-ambev.shtml",
+   "ano": 2012,
+   "titulo": "Cervejas premium turbinam alta de 22% no lucro da Ambev",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar. AmBev 2012: R$ 10,5 bi (banco 10,508, 20-F)."
+  }
+ ]
+}

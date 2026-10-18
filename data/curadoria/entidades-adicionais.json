@@ -120,6 +120,46 @@
     "TAM Linhas Aéreas"
    ],
    "motivo": "ranking-empresa-correcoes-r8.json: prejuízo de 2008 (da ordem de R$ 1,3 bi), Folha de S.Paulo, 31/3/2009."
+  },
+  {
+   "id": "sabesp",
+   "nome": "Sabesp",
+   "tipo": "empresa",
+   "descricao": "Companhia de Saneamento Básico do Estado de São Paulo, controlada pelo governo paulista até a privatização de 2024; no ranking de lucros de 2011 (Folha de S.Paulo, 25/3/2012).",
+   "aliases": [
+    "Companhia de Saneamento Básico do Estado de São Paulo"
+   ],
+   "motivo": "ranking-empresa-correcoes-r9.json: lucro de 2011 (R$ 1,22 bi), Folha de S.Paulo, 25/3/2012."
+  },
+  {
+   "id": "marfrig",
+   "nome": "Marfrig",
+   "tipo": "empresa",
+   "descricao": "Marfrig Alimentos, frigorífico; prejuízo de 2011 (Folha de S.Paulo, 27/3/2012).",
+   "aliases": [
+    "Marfrig Alimentos"
+   ],
+   "motivo": "ranking-empresa-correcoes-r9.json: prejuízo de 2011 (R$ 746 mi), Folha de S.Paulo, 27/3/2012."
+  },
+  {
+   "id": "tim",
+   "nome": "TIM",
+   "tipo": "empresa",
+   "descricao": "TIM Participações, operadora de telefonia celular controlada pela Telecom Italia; no ranking de lucros de 2011 (Folha de S.Paulo, 17/2/2012).",
+   "aliases": [
+    "TIM Participações"
+   ],
+   "motivo": "ranking-empresa-correcoes-r9.json: lucro de 2011 (R$ 1,3 bi), Folha de S.Paulo, 17/2/2012."
+  },
+  {
+   "id": "hsbc-brasil",
+   "nome": "HSBC Brasil",
+   "tipo": "banco",
+   "descricao": "Filial brasileira do banco britânico HSBC (vendida ao Bradesco em 2016); no ranking de lucros de 2012 (Folha de S.Paulo, 6/3/2013).",
+   "aliases": [
+    "HSBC Bank Brasil"
+   ],
+   "motivo": "ranking-empresa-correcoes-r9.json: lucro de 2012 (R$ 1,3 bi), Folha de S.Paulo, 6/3/2013."
   }
  ]
 }

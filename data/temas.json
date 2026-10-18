@@ -23,7 +23,7 @@
    "principal": true,
    "n_relacoes": 461,
    "n_eventos": 282,
-   "n_entidades": 218
+   "n_entidades": 222
   },
   {
    "id": "pares",
@@ -2013,6 +2013,7 @@
    "heloisa-helena",
    "henrique-eduardo-alves",
    "henrique-fontana",
+   "hsbc-brasil",
    "hugo-motta",
    "hugo-napoleao",
    "humberto-costa",
@@ -2052,6 +2053,7 @@
    "major-vitor-hugo",
    "marco-maciel",
    "marco-maia",
+   "marfrig",
    "marina-silva",
    "mdb",
    "mendes-junior",
@@ -2111,6 +2113,7 @@
    "romero-juca",
    "ronivon-santiago",
    "russia",
+   "sabesp",
    "sadia",
    "samuel-moreira",
    "santander-brasil",
@@ -2129,6 +2132,7 @@
    "telesp",
    "telesp-celular-participacoes",
    "tiao-viana",
+   "tim",
    "tiririca",
    "turquia",
    "uniao-brasil",

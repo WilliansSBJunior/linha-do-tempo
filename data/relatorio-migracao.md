@@ -29,10 +29,10 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 403 |
+| entidade | 407 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 205 |
-| entidade_alias | 531 |
+|   extras (timeline/pares) | 209 |
+| entidade_alias | 539 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
@@ -43,14 +43,14 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 917 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1685 |
+| evidencia | 1709 |
 | relacao_evidencia | 1266 |
 | evento_evidencia | 3229 |
 | evento_entidade | 935 |
-| nota | 567 |
+| nota | 570 |
 | indicador | 83 |
 | serie | 6837 |
-| ranking_empresa | 485 |
+| ranking_empresa | 503 |
 | mandato | 317 |
 | bancada | 634 |
 | entidade_valor | 14 |
@@ -414,7 +414,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1685 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1709 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -574,7 +574,7 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | tema | relações | eventos | entidades |
 |---|---|---|---|
 | `caso-master` (Caso Master) | 367 | 215 | 212 |
-| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 218 |
+| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 222 |
 | `pares` (Comparação de países) | 0 | 0 | 10 |
 | `violencia` (Violência) | 0 | 10 | 1 |
 | `inss` (INSS) | 17 | 14 | 26 |
@@ -854,7 +854,7 @@ Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` po
 
 ## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024
 
-Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
+Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`, `sabesp`, `marfrig`, `tim`, `hsbc-brasil`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
 
 ### Ranking de empresas
 
@@ -1014,7 +1014,7 @@ Arquivo à mão: `ranking-empresa-correcoes-r8.json` (mesmo formato das rodadas 
 | 2006 | 15 | 5 | 1 | 2 | `petrobras` (25.919) |
 | 2007 | 15 | 4 | 1 | 3 | `petrobras` (21.512) |
 | 2008 | 20 | 7 | 1 | 0 | `petrobras` (33.9) |
-| 2009 | 15 | 4 | 1 | 2 | `petrobras` (28.982) |
+| 2009 | 16 | 4 | 1 | 2 | `petrobras` (28.982) |
 
 | ano | empresa | o que mudou | fonte principal |
 |---|---|---|---|
@@ -1142,4 +1142,55 @@ Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto 
 - 2009: `ambev` 6 -> 7, `caixa` 7 -> 8, `csn` 8 -> 9, `eletrobras` 11 -> 14, `santander-brasil` 10 -> 12, `telefonica-brasil` 9 -> 10
 
 137 ligações novas em `ranking_evidencia` (87 evidências novas). Registro no arquivo: 22 blocos `nao_aplicados` (sem o número anual claro, agregados, 'recorrente' ou outra base), 10 valores `fora_do_corte` (abaixo do 15º lucro do ano ou prejuízo menor que R$ 0,2 bi) e 41 blocos `confirmados` (valor igual ao do banco, que já tinha fonte primária ou imprensa da época). Lacunas: (1) Petrobras 2001 (9,9) e 2002 (8,1): a Folha dá 9,867/9,86 e 8,098 (consolidado); diferenças de arredondamento, valores mantidos (fonte primária da época já no banco). (2) Eletrobras 2000: continua o mínimo derivado (2,27); a Folha de 2003 dá 3,3 para 2001, o que sugere ≈ 2,49 (registrado na obs). (3) Bradesco 2009 e AmBev 2008-2009: não apareceram nos índices da Folha. (4) Eletrobras 2006 (1,161), Light 2007 (1,077) e outros: fora do top 15 (lista `fora_do_corte`). (5) Ano de 2002 continua `completa` (decisão da rodada 6) mesmo com 14 linhas novas da Folha, entre elas o Banespa em 2º lugar: a revisar pelo dono do projeto.
+
+
+## 26. Rodada 9: ranking de lucros de 2009-2012 com a Folha de S.Paulo
+
+Arquivo à mão: `ranking-empresa-correcoes-r9.json` (mesmo formato das rodadas 6-8, aplicado por `curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R9)` logo depois da 8; `gerar_curadoria.py` também o pula no banco temporário). Material: 37 blocos de texto literal de matérias da Folha (acervo `fsp`, cadernos Dinheiro e Mercado, abril de 2010 a março de 2013), marcados pelo ano do resultado. Base: lucro líquido em R$ divulgado na época; de 2010 em diante o IFRS é a base societária das companhias abertas e vale o 'lucro líquido' do balanço ('recorrente', 'gerencial' e ajustado só como contexto). O valor do ano anterior citado na matéria do ano seguinte é aproveitado quando a linha não existe (CSN 2011); quando a linha já tem o valor da época e o comparativo do balanço seguinte diverge (reapresentação), fica o da época e a matéria entra como contexto (TAM 2008, Oi 2009). Mesmas regras de inserção (top 15 de lucros do ano e prejuízos de R$ 0,2 bi ou mais), de ligação (`sustenta` adicional só onde a fonte do banco não era imprensa nem documento primário da época; principal no lugar da Wikipédia) e de nome de época da rodada 8 (Oi em `telemar`, Telesp em `telefonica-brasil` em 2010). Entidades novas em `entidades-adicionais.json`: `sabesp`, `marfrig`, `tim`, `hsbc-brasil`. A cobertura dos anos não muda (2009 `parcial`; 2010-2012 `completa`, porque as linhas novas ficam abaixo dos maiores lucros já conferidos).
+
+| ano | linhas | inseridas | valor atualizado | só fonte/obs | 1º lugar |
+|---|---:|---:|---:|---:|---|
+| 2008 | 20 | 0 | 0 | 1 | `petrobras` (33.9) |
+| 2009 | 16 | 1 | 0 | 1 | `petrobras` (28.982) |
+| 2010 | 15 | 5 | 0 | 4 | `petrobras` (35.189) |
+| 2011 | 18 | 8 | 0 | 2 | `vale` (37.81) |
+| 2012 | 17 | 4 | 1 | 1 | `petrobras` (21.182) |
+
+| ano | empresa | o que mudou | fonte principal |
+|---|---|---|---|
+| 2008 | `tam` | só fonte (contexto) | https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200938.htm |
+| 2009 | `tam` | **inserida** (1.343) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0104201020.htm |
+| 2009 | `telemar` | só fonte (contexto) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1603201028.htm |
+| 2010 | `banco-do-brasil` | só fonte | https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf |
+| 2010 | `bradesco` | só fonte | https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf |
+| 2010 | `braskem` | **inserida** (1.889) | https://www1.folha.uol.com.br/fsp/mercado/me1803201126.htm |
+| 2010 | `csn` | **inserida** (2.5) | https://www1.folha.uol.com.br/fsp/mercado/me3003201121.htm |
+| 2010 | `itau-unibanco` | só fonte | https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf |
+| 2010 | `santander-brasil` | só fonte | https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf |
+| 2010 | `suzano` | **inserida** (0.769) | https://www1.folha.uol.com.br/fsp/mercado/me0203201116.htm |
+| 2010 | `telefonica-brasil` | **inserida** (2.4, nome da época Telesp) | https://www1.folha.uol.com.br/fsp/mercado/me1702201109.htm |
+| 2010 | `telemar` | **inserida** (1.75, nome da época Oi) | https://www1.folha.uol.com.br/fsp/mercado/me0503201111.htm |
+| 2011 | `banco-do-brasil` | só fonte | https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf |
+| 2011 | `csn` | **inserida** (3.7) | https://www1.folha.uol.com.br/fsp/mercado/101037-csn-tem-lucro-trimestral-60-menor-e-fecha-2012-com-prejuizo.shtml |
+| 2011 | `gol` | **inserida** (-0.7104) | https://www1.folha.uol.com.br/fsp/mercado/33855-gol-corta-voos-depois-de-prejuizo-de-r-710-mi.shtml |
+| 2011 | `marfrig` | **inserida** (-0.746) | https://www1.folha.uol.com.br/fsp/mercado/33631-marfrig-tem-prejuizo-de-r-746-milhoes-em-2011.shtml |
+| 2011 | `sabesp` | **inserida** (1.22) | https://www1.folha.uol.com.br/fsp/mercado/33288-sabesp-tem-lucro-de-r-122-bi-em-2011.shtml |
+| 2011 | `tam` | **inserida** (-0.3351) | https://www1.folha.uol.com.br/fsp/mercado/25750-tam-encerra-2011-com-prejuizo-de-r-335-milhoes.shtml |
+| 2011 | `telefonica-brasil` | **inserida** (5.1) | https://www1.folha.uol.com.br/fsp/mercado/26329-telefonica-e-tim-tem-receita-e-lucro-maiores-em-2011.shtml |
+| 2011 | `telemar` | **inserida** (1.006, nome da época Oi) | https://www1.folha.uol.com.br/fsp/mercado/34424-lucro-da-oi-cai-49-apos-aumento-de-despesas.shtml |
+| 2011 | `tim` | **inserida** (1.3) | https://www1.folha.uol.com.br/fsp/mercado/26329-telefonica-e-tim-tem-receita-e-lucro-maiores-em-2011.shtml |
+| 2011 | `vale` | só fonte | https://forbes.com.br/forbes-money/2023/03/estes-sao-os-maiores-lucros-anuais-de-empresas-listadas-na-bolsa |
+| 2012 | `banco-do-brasil` | obs | https://www1.folha.uol.com.br/fsp/mercado/95021-bb-eleva-fatia-de-mercado-e-ganha-cliente-com-juro-baixo.shtml |
+| 2012 | `csn` | **inserida** (-0.4201) | https://www1.folha.uol.com.br/fsp/mercado/101037-csn-tem-lucro-trimestral-60-menor-e-fecha-2012-com-prejuizo.shtml |
+| 2012 | `embraer` | **inserida** (0.698) | https://www1.folha.uol.com.br/fsp/mercado/98347-lucro-da-embraer-sobe-347-em-2012.shtml |
+| 2012 | `gol` | **inserida** (-1.5) | https://www1.folha.uol.com.br/fsp/mercado/100723-so-a-agua-sera-gratuita-nos-voos-da-gol.shtml |
+| 2012 | `hsbc-brasil` | **inserida** (1.3) | https://www1.folha.uol.com.br/fsp/mercado/97147-lucro-do-hsbc-brasil-cai-26-em-2012.shtml |
+| 2012 | `santander-brasil` | lucro_brl_bi 6.329 -> 2.69; obs | https://www1.folha.uol.com.br/fsp/mercado/91652-lucro-do-santander-no-brasil-cai-24-em-2012-e-atinge-r-27-bi.shtml |
+
+Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto na posição final):
+
+- 2009: `eletrobras` 14 -> 15, `telemar` 15 -> 16
+- 2012: `caixa` 9 -> 8, `cemig` 12 -> 11, `eletrobras` 13 -> 15, `itausa` 10 -> 9, `santander-brasil` 8 -> 12, `telefonica-brasil` 11 -> 10
+
+30 ligações novas em `ranking_evidencia` (24 evidências novas). Registro no arquivo: 3 blocos `nao_aplicados` (sem o lucro anual em R$ ou outra base), 6 valores `fora_do_corte` (abaixo do 15º lucro do ano ou prejuízo menor que R$ 0,2 bi) e 8 blocos `confirmados` (valor igual ao do banco, que já tinha fonte primária ou imprensa da época). Lacunas: (1) Derivados, não inseridos (o trecho só dá a variação): Suzano 2009 (R$ 769 mi com queda de 18,8% ≈ R$ 0,95 bi), Sabesp 2010 (R$ 1,22 bi com queda de 25% ≈ R$ 1,63 bi; seria o 14º lucro de 2010), HSBC Brasil 2011 (R$ 1,3 bi com queda de 2,6% ≈ R$ 1,33 bi) e Santander Brasil 2011 contábil (R$ 2,69 bi com queda de 24% ≈ R$ 3,5 bi). (2) Santander Brasil: 2012 passa ao lucro contábil (2,69); 2010 e 2011 continuam no número do DIEESE (7,383 e 7,756, o mesmo que a Folha dá para 2010 sem dizer a base) e 2009 no contábil derivado de US$ (1,805): a série mistura bases até achar o contábil de 2010-2011. (3) Comparativos reapresentados (provavelmente na adoção do IFRS completo em 2010), valores da época mantidos: Oi 2009 (R$ 5,09 bi no balanço de 2010 contra o prejuízo de R$ 436 mi), Oi 2010 (≈ R$ 1,97 bi implícito no balanço de 2011 contra R$ 1,75 bi), TAM 2008 (R$ 1,51 bi de prejuízo no balanço de 2009 contra 'da ordem de R$ 1,3 bilhão') e TAM 2009 (≈ R$ 1,25 bi implícito no balanço de 2010 contra R$ 1,343 bi). (4) Itaú Unibanco 2012 (13,589, derivado, principal Wikipédia), Caixa 2010-2012 e Itaúsa 2010-2012: sem bloco da Folha com o valor anual. (5) Cobertura de 2010-2012 continua `completa`: em 2010 e 2011 as linhas novas ficam todas abaixo do 10º lucro (a lista conferida era a dos 10 maiores); em 2012 o Santander desce de 8º para 12º com o lucro contábil, sem empresa nova acima dele. Nenhum ano muda de cobertura por causa da Folha.
 
