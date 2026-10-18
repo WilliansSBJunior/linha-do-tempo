@@ -4215,6 +4215,26 @@
    ]
   },
   {
+   "id": "aracruz",
+   "nome": "Aracruz",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Aracruz Celulose, maior produtora mundial de celulose de eucalipto; prejuízo de 2008 com derivativos cambiais; em 2009 fundiu-se com a VCP na Fibria (Folha de S.Paulo, 28/3/2009).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Aracruz Celulose"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "argentina",
    "nome": "Argentina",
    "tipo": "pais",
@@ -4357,6 +4377,27 @@
    "indice_legado": null,
    "origem": "linha_do_tempo",
    "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "belgo-mineira",
+   "nome": "Belgo-Mineira",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Companhia Siderúrgica Belgo-Mineira, siderúrgica do grupo Arcelor (depois ArcelorMittal Brasil); no ranking de lucros de 2004 (Folha de S.Paulo, 2/3/2005).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Belgo",
+    "Companhia Siderúrgica Belgo-Mineira"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -4670,6 +4711,26 @@
    "indice_legado": null,
    "origem": "linha_do_tempo",
    "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "cesp",
+   "nome": "Cesp",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Companhia Energética de São Paulo, geradora estatal paulista; prejuízos de 2001 e 2002 no ranking de lucros (Folha de S.Paulo, 15/3/2003).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Companhia Energética de São Paulo"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -5044,6 +5105,26 @@
    ]
   },
   {
+   "id": "eletropaulo",
+   "nome": "Eletropaulo",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Eletropaulo Metropolitana, distribuidora de energia de São Paulo, privatizada em 1998 e controlada pela AES; no ranking de lucros de 1999, 2001 e 2002 (Folha de S.Paulo).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Eletropaulo Metropolitana"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "eliziane-gama",
    "nome": "Eliziane Gama",
    "tipo": "pessoa",
@@ -5057,6 +5138,26 @@
    "indice_legado": null,
    "origem": "linha_do_tempo",
    "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "embraer",
+   "nome": "Embraer",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Empresa Brasileira de Aeronáutica, fabricante de aviões privatizada em 1994; no ranking de lucros de 2001 e 2002 (Folha de S.Paulo).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Empresa Brasileira de Aeronáutica"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -5208,6 +5309,26 @@
    "indice_legado": null,
    "origem": "linha_do_tempo",
    "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "furnas",
+   "nome": "Furnas",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Furnas Centrais Elétricas, geradora estatal subsidiária da Eletrobras; no ranking de lucros de 1999 e 2000 (Folha de S.Paulo, 13/3/2001).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Furnas Centrais Elétricas"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -5812,6 +5933,26 @@
    "indice_legado": null,
    "origem": "linha_do_tempo",
    "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "klabin",
+   "nome": "Klabin",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Klabin Celulose e Papel, maior produtora de papel para embalagens do país; no ranking de lucros de 2002 e 2003 (Folha de S.Paulo, 19/2/2004).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Klabin Celulose e Papel"
+   ],
    "temas": [
     "brasil-ano-a-ano"
    ]
@@ -7277,6 +7418,26 @@
    ]
   },
   {
+   "id": "tam",
+   "nome": "TAM",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "TAM Linhas Aéreas, companhia aérea (depois Latam Brasil); prejuízo de 2008 com perdas cambiais (Folha de S.Paulo, 31/3/2009).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "TAM Linhas Aéreas"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "tasso-jereissati",
    "nome": "Tasso Jereissati",
    "tipo": "pessoa",
@@ -7598,6 +7759,8 @@
   "antonio carlos magalhaes": "antonio-carlos-magalhaes",
   "antonio rueda": "antonio-rueda",
   "aparecidaprev": "aparecidaprev",
+  "aracruz": "aracruz",
+  "aracruz celulose": "aracruz",
   "arandu partners holding": "arandu-partners-holding",
   "arg": "argentina",
   "argentina": "argentina",
@@ -7622,6 +7785,8 @@
   "bancos associados ao fgc": "bancos-associados-ao-fgc",
   "bb seguridade": "bb-seguridade",
   "bcb": "bcb",
+  "belgo": "belgo-mineira",
+  "belgo mineira": "belgo-mineira",
   "belline santana": "belline-santana",
   "benedito goncalves": "benedito-goncalves",
   "beni veras": "beni-veras",
@@ -7660,6 +7825,7 @@
   "cbsf dtvm": "reag-trust-dtvm",
   "celso russomanno": "celso-russomanno",
   "cemig": "cemig",
+  "cesp": "cesp",
   "cezinha de madureira": "cezinha-de-madureira",
   "china": "china",
   "chiquinho feitosa": "chiquinho-feitosa",
@@ -7678,6 +7844,8 @@
   "comissao de valores mobiliarios": "cvm",
   "companhia acucareira vale do ceara mirim": "companhia-acucareira-vale-do-ceara-mirim",
   "companhia cervejaria brahma": "brahma",
+  "companhia energetica de sao paulo": "cesp",
+  "companhia siderurgica belgo mineira": "belgo-mineira",
   "conafer": "conafer",
   "consult inteligencia tributaria": "consult-inteligencia-tributaria",
   "corregedoria nacional de justica": "cnj",
@@ -7724,8 +7892,12 @@
   "efraim morais": "efraim-morais",
   "elcio alvares": "elcio-alvares",
   "eletrobras": "eletrobras",
+  "eletropaulo": "eletropaulo",
+  "eletropaulo metropolitana": "eletropaulo",
   "eliziane gama": "eliziane-gama",
+  "embraer": "embraer",
   "embratel": "embratel",
+  "empresa brasileira de aeronautica": "embraer",
   "eneas": "eneas-carneiro",
   "eneas carneiro": "eneas-carneiro",
   "enio verri": "enio-verri",
@@ -7755,6 +7927,8 @@
   "fsw spe": "fsw-spe",
   "fundo garantidor de creditos": "fgc",
   "fundos da reag": "laguz-i-e-reag-legal-claims",
+  "furnas": "furnas",
+  "furnas centrais eletricas": "furnas",
   "gabino kruschewsky advogados associados": "gabino-kruschewsky-advogados-associados",
   "gabriel galipolo": "gabriel-galipolo",
   "gaeco mp sp": "gaeco-mp-sp",
@@ -7835,6 +8009,8 @@
   "jutahy junior": "jutahy-junior",
   "kassio nunes marques": "kassio-nunes-marques",
   "kevin de carvalho marques": "kevin-de-carvalho-marques",
+  "klabin": "klabin",
+  "klabin celulose e papel": "klabin",
   "lagoinha belvedere": "lagoinha-belvedere",
   "laguz i e reag legal claims": "laguz-i-e-reag-legal-claims",
   "laguz i e reag legal claims fundos da reag": "laguz-i-e-reag-legal-claims",
@@ -8026,6 +8202,8 @@
   "super empreendimentos": "super-empreendimentos",
   "supremo tribunal federal": "stf",
   "suzano": "suzano",
+  "tam": "tam",
+  "tam linhas aereas": "tam",
   "tarcisio de freitas": "tarcisio-de-freitas",
   "tasso jereissati": "tasso-jereissati",
   "tcu": "tcu",

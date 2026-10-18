@@ -1,0 +1,3305 @@
+{
+ "_doc": "Rodada 8 (18/10/2026): ranking de lucros (ranking_empresa) de 1997-2009 com a Folha de S.Paulo (acervo www1.folha.uol.com.br/fsp aberto pelo Chrome do usuário; /home/claude/transfer/folha_idx/: 145 blocos de texto literal + 4 matérias de resultados de 1998), trechos literais. Mesmo formato e mesmo mecanismo das rodadas 6 e 7, aplicado logo depois da 7 por curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R8): os `de` são os valores que as rodadas 6 e 7 gravaram. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época (reapresentações, IFRS, US GAAP, 'recorrente' só como contexto/obs). Atualiza onde a Folha diverge do banco além do arredondamento (ou onde o banco tinha valor derivado/aproximado), insere as empresas que entram no top 15 de lucros do ano (e prejuízos >= R$ 0,2 bi), e liga a Folha como `sustenta` adicional só onde o valor já era igual e a fonte do banco não era imprensa nem documento primário da época (monografia/tese, Wikipédia, tabela secundária, matéria posterior); onde a principal era a Wikipédia, a Folha passa a principal e a Wikipédia fica como contexto. Empresas que mudaram de nome usam a entidade de hoje com `nome_epoca`: Banespa/Santander Banespa -> santander-brasil (o Banespa é o antecessor jurídico do Banco Santander (Brasil)); Real -> banco-real com 'ABN Amro Real' (2000-2007); Telemar -> telemar com 'Oi' (2007-2009); Telesp -> telefonica-brasil com 'Telesp'. Entidades novas em entidades-adicionais.json: furnas, eletropaulo, cesp, embraer, klabin, belgo-mineira, aracruz, tam. A cobertura dos anos não muda (a Folha não é ranking fechado).",
+ "cobertura": [],
+ "atualizar": [
+  {
+   "ano": 1997,
+   "entidade_id": "souza-cruz",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi05029918.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Souza Cruz lucra em 98 R$ 480 mi",
+     "data": "1999-02-05",
+     "trecho": "registrou lucro líquido de R$ 480,5 milhões em 98 [...] 97, que atingiu R$ 313,5 milhões",
+     "nota": "O balanço de 1998 dá R$ 313,5 mi para 1997 (provável reapresentação); o banco mantém os R$ 308 mi do balanço de 1997 (Folha, 3/2/1998).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 8): número divergente de 1997 no balanço seguinte; valor mantido (base: o balanço da época)."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "itau-unibanco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.963,
+     "para": 0.88
+    },
+    "obs": {
+     "de": "Lucro líquido do conglomerado Itaúsa (Banco Itaú + seguros, industrial, imobiliário), relatório anual 2000 da Itaúsa.",
+     "para": "Banco Itaú, balanço de 1998 (Folha, 23/2/1999: 'fechou 98 com um lucro líquido de R$ 880 milhões, 22% superior ao de 97'; a matéria diz que o número consolida todo o lucro). Mesma base da linha de 1997 (0,721 × 1,22 ≈ 0,88). O 0,963 anterior era o do conglomerado Itaúsa (relatório anual 2000 da Itaúsa), outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi23029921.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Banco Itaú lucra R$ 880 milhões em 98",
+     "data": "1999-02-23",
+     "trecho": "fechou 98 com um lucro líquido de R$ 880 milhões, 22% superior ao de 97. [...] consolida todo o lucro.",
+     "nota": "Substitui 0,963 (Itaúsa, outra base).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (0,963, conglomerado Itaúsa): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): lucro do Banco Itaú em 1998, mesma base de 1995-1997."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "itau-unibanco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 1.955,
+     "para": 1.869
+    },
+    "obs": {
+     "de": "Lucro líquido do conglomerado Itaúsa (Banco Itaú + seguros, industrial, imobiliário), relatório anual 2000 da Itaúsa. O Banco Itaú S.A. consolidado teve R$ 1,869 bi.",
+     "para": "Banco Itaú, balanço de 1999 (Folha, 16/2/2000: 'o banco paulista lucrou R$ 1,869 bilhão'); a Folha de 21/2/2001 repete R$ 1,869 bi para 1999. O 1,955 anterior era o do conglomerado Itaúsa (relatório anual 2000 da Itaúsa), outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1602200004.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Itaú lucra R$ 1,869 bilhão, recorde no setor privado",
+     "data": "2000-02-16",
+     "trecho": "De acordo com o balanço divulgado ontem, o banco paulista lucrou R$ 1,869 bilhão.",
+     "nota": "Substitui 1,955 (Itaúsa, outra base).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2102200102.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Sistema financeiro: Itaú é banco com maior lucro em 2000",
+     "data": "2001-02-21",
+     "trecho": "Em 1999, o Itaú havia lucrado R$ 1,869 bilhão.",
+     "nota": "Confirma 1,869.",
+     "papel": "sustenta"
+    }
+   ],
+   "anterior": {
+    "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (1,955, conglomerado Itaúsa): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): Banco Itaú 1999 na base das outras linhas do banco."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.744,
+     "para": 1.105
+    },
+    "obs": {
+     "de": "Formulário 20-F de 2002; base contábil provavelmente US GAAP, pode diferir do balanço em Brazilian GAAP.",
+     "para": "Balanço anual de 1999 (Folha, 1/2/2000: 'lucrou R$ 1,105 bilhão em 1999', 9,1% acima de 1998, o que confere com os 1,014 de 1998). O 0,744 anterior vinha do 20-F de 2002 (provavelmente US GAAP), outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0102200015.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Banco lucra R$ 1,105 bi e cresce 9,1%",
+     "data": "2000-02-01",
+     "trecho": "O Bradesco, maior banco privado brasileiro, lucrou R$ 1,105 bilhão em 1999. É o maior lucro de sua história, 9,1% maior do que o resultado de 1998.",
+     "nota": "Substitui 0,744 (20-F, provável US GAAP).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001160330/000116033003000040/form20f2002.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (0,744, 20-F de 2002, provável US GAAP): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): balanço de 1999 em R$ (legislação societária)."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "csn",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.197,
+     "para": 0.332
+    },
+    "obs": {
+     "de": null,
+     "para": "Folha (1/3/2000): 'teve lucro de R$ 332 milhões no ano passado', 29% abaixo de 1998 (o que implicaria ≈ R$ 468 mi em 1998, contra os 0,435 do BNDES na linha de 1998; não alterada). O 0,197 anterior vinha do estudo do BNDES (base diversa)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0103200020.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: CSN se recupera no 4º trimestre e tem lucro de R$ 332 mi em 99",
+     "data": "2000-03-01",
+     "trecho": "A CSN (Companhia Siderúrgica Nacional) teve lucro de R$ 332 milhões no ano passado.",
+     "nota": "Substitui 0,197 (BNDES, base diversa).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://web.bndes.gov.br/bib/jspui/bitstream/1408/19860/1/PR_Inform%20Set%20%20AOI2%20Geset%20Min%20e%20Metal_213893_%20n%2039_BD.pdf",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (0,197, BNDES/Economática): base diversa; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): lucro anual de 1999 anunciado pela empresa."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2402200010.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: Vale lucra R$ 1,25 bi, seu terceiro recorde",
+     "data": "2000-02-24",
+     "trecho": "A Vale registrou lucro de R$ 1,251 bilhão no ano passado, um resultado 21,6% superior ao de 98 (R$ 1,029 bilhão).",
+     "nota": "Confirma 1,251 (e 1998 = 1,029) em imprensa da época; a principal é monografia da PUC-Rio.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma 1,251; o banco só tinha fonte secundária."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "petrobras",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 9.8,
+     "para": 9.942
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 5,342 bi (US GAAP, 20-F 2003) x R$ 1,835/US$ (media 2000, informada no 20-F da CVRD). Lucro societario em R$ nao localizado.",
+     "para": "Lucro consolidado de 2000 (Folha, 17/2/2001: 'No geral, o lucro foi de R$ 9,942 bilhões'; a controladora sozinha teve R$ 10,159 bi); a Folha de 9/2/2002 repete 'Em 2000, fora de R$ 9,94 bilhões' (consolidado). Mesma base consolidada das linhas de 2001-2003. O 9,8 anterior era derivado de US$ 5,342 bi (US GAAP, 20-F 2003) × R$ 1,835/US$."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1702200133.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Petroquímica: Petrobras tem maior lucro de sua história",
+     "data": "2001-02-17",
+     "trecho": "Os dados divulgados pela estatal referem-se apenas ao lucro dela própria, sem contar os números das subsidiárias. No geral, o lucro foi de R$ 9,942 bilhões (R$ 1,757 bilhão em 99).",
+     "nota": "Substitui 9,8 (derivado de US GAAP). Controladora: R$ 10,159 bi.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200220.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Energia: Lucro da Petrobras não afunda com P - 36",
+     "data": "2002-02-09",
+     "trecho": "Em 2001, o lucro líquido consolidado -que inclui todas as empresas do grupo- da Petrobras e de suas subsidiárias foi de R$ 9,86 bilhões. Em 2000, fora de R$ 9,94 bilhões.",
+     "nota": "Confirma o consolidado de 2000 (9,94).",
+     "papel": "sustenta"
+    }
+   ],
+   "anterior": {
+    "url": "https://sec.gov/Archives/edgar/data/1119639/000119312504112315/d20f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (9,8, derivado de US$ 5,342 bi US GAAP): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): consolidado em R$ pela legislação societária no lugar do derivado de US GAAP."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 1.799,
+     "para": 1.74
+    },
+    "obs": {
+     "de": "Base US GAAP (R$), nao lucro societario; BR GAAP nao encontrado.",
+     "para": "Balanço anual de 2000 (Folha, 6/2/2001: 'O Bradesco lucrou R$ 1,740 bilhões no ano passado', +57,51% sobre 1999, o que confere com os 1,105 de 1999). O 1,799 anterior era US GAAP (20-F), outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0602200118.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Resultado: Lucro do Bradesco sobe 57% e vai a R$ 1,7 bi",
+     "data": "2001-02-06",
+     "trecho": "O Bradesco lucrou R$ 1,740 bilhões no ano passado. Esse resultado é 57,51% maior do que o de 1999, segundo balanço anual do banco divulgado ontem.",
+     "nota": "Substitui 1,799 (US GAAP).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://sec.gov/Archives/edgar/data/1160330/000129281405000895/bbd_form20f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (1,799, US GAAP no 20-F): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): balanço de 2000 em R$ (legislação societária)."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "csn",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.5,
+     "para": 1.6
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 273 mi (US GAAP, 20-F 2004) x R$ 1,835/US$ (média 2000, 20-F da Vale). Base US GAAP pode diferir bastante do lucro societário.",
+     "para": "Folha (27/3/2002): 2001 ficou '81,5% menos do que o R$ 1,6 bilhão registrado em 2000' (lucro de 2000 inflado pela venda das participações na Light e na Vale, não recorrente); valor arredondado. O 0,5 anterior era derivado de US$ 273 mi (US GAAP, 20-F 2004) × R$ 1,835/US$."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200214.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Em 2001, lucro da CSN caiu para R$ 296 mi",
+     "data": "2002-03-27",
+     "trecho": "o resultado ficou em R$ 296 milhões -81,5% menos do que o R$ 1,6 bilhão registrado em 2000. \"Em 2000, a empresa teve um lucro não-recorrente e atípico.",
+     "nota": "Substitui 0,5 (derivado de US GAAP); valor de 2000 como comparativo do balanço de 2001.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001049659/000129281405000884/sid_form20f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (0,5, derivado de US$ 273 mi US GAAP): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): lucro societário de 2000 em R$ no lugar do derivado de US GAAP."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "eletrobras",
+   "campos": {
+    "obs": {
+     "de": "Derivado e MÍNIMO: lucro 2001 'supera R$ 3 bi' com alta de 32,4% implica >= ~R$ 2,27 bi em 2000; valor exato não confirmado.",
+     "para": "Derivado e MÍNIMO: lucro 2001 'supera R$ 3 bi' com alta de 32,4% implica >= ~R$ 2,27 bi em 2000; valor exato não confirmado. A Folha (14/3/2003) dá R$ 3,3 bi para 2001; com a alta de 32,4% isso implicaria ≈ R$ 2,49 bi em 2000 (derivação, não adotada)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200315.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Curto - circuito: Dólar alto faz lucro da Eletrobrás cair 66%",
+     "data": "2003-03-14",
+     "trecho": "a Eletrobrás teve lucro de R$ 1,1 bilhão em 2002, contra R$ 3,3 bilhões em 2001.",
+     "nota": "Só registro: 3,3/1,324 ≈ 2,49 para 2000; o 2,27 (mínimo) fica.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 8): registra que o mínimo de 2000 pode estar subestimado; valor mantido."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2202200108.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Mineração: Lucro da Vale cresce 70,5% no ano e ultrapassa R$ 2 bi",
+     "data": "2001-02-22",
+     "trecho": "A Companhia Vale do Rio Doce registrou no ano passado o maior lucro da sua história, totalizando R$ 2,133 bilhões, com crescimento de 70,5% sobre o resultado de 1999 (R$ 1,251 bilhão), o recorde anterior.",
+     "nota": "Confirma 2,133 em imprensa da época; a principal é monografia da PUC-Rio.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma 2,133."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 2.27,
+     "para": 2.17
+    },
+    "obs": {
+     "de": "Base US GAAP (R$), nao lucro societario; BR GAAP nao encontrado.",
+     "para": "Balanço de 2001 (Folha, 5/2/2002: 'lucro líquido de R$ 2,17 bilhões', +24,7% sobre 2000, o que confere com os 1,740 de 2000). O 2,27 anterior era US GAAP (20-F), outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0502200230.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Bradesco tem lucro recorde de R$ 2,17 bi",
+     "data": "2002-02-05",
+     "trecho": "O Bradesco obteve, no ano passado, lucro líquido de R$ 2,17 bilhões. O resultado é 24,7% maior do que o de 2000",
+     "nota": "Substitui 2,27 (US GAAP).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://sec.gov/Archives/edgar/data/1160330/000129281405000895/bbd_form20f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (2,27, US GAAP no 20-F): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): balanço de 2001 em R$ (legislação societária)."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "csn",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 1.24,
+     "para": 0.296
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 527 mi (US GAAP, 20-F 2004) x R$ 2,353/US$ (média 2001, 20-F da Vale). Base US GAAP; lucro societário pode diferir.",
+     "para": "Folha (27/3/2002): 'o resultado ficou em R$ 296 milhões' em 2001, depois do lucro não recorrente de 2000; a Folha de 27/3/2003 repete 'Em 2001 a empresa havia obtido lucro de R$ 296 milhões'. O 1,24 anterior era derivado de US$ 527 mi (US GAAP, 20-F 2004) × R$ 2,353/US$."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200214.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Em 2001, lucro da CSN caiu para R$ 296 mi",
+     "data": "2002-03-27",
+     "trecho": "A CSN (Companhia Siderúrgica Nacional) lucrou menos em 2001: o resultado ficou em R$ 296 milhões",
+     "nota": "Substitui 1,24 (derivado de US GAAP).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200320.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: CSN fecha ano com prejuízo de R$ 219 milhões",
+     "data": "2003-03-27",
+     "trecho": "Em 2001 a empresa havia obtido lucro de R$ 296 milhões.",
+     "nota": "Confirma 0,296.",
+     "papel": "sustenta"
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001049659/000129281405000884/sid_form20f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (1,24, derivado de US$ 527 mi US GAAP): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): lucro societário de 2001 em R$ no lugar do derivado de US GAAP."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "eletrobras",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 3.0,
+     "para": 3.3
+    },
+    "obs": {
+     "de": "Valor MINIMO: manchete diz 'supera os R$ 3 bilhoes' (+32,4%); valor exato nao confirmado (texto pago).",
+     "para": "Folha (14/3/2003): 'lucro de R$ 1,1 bilhão em 2002, contra R$ 3,3 bilhões em 2001' (comparativo do balanço de 2002, valor arredondado); coerente com a manchete da Brasil Energia ('supera os R$ 3 bilhões', +32,4%). O 3,0 anterior era o mínimo da manchete."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200315.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Curto - circuito: Dólar alto faz lucro da Eletrobrás cair 66%",
+     "data": "2003-03-14",
+     "trecho": "De acordo com o balanço divulgado ontem, a Eletrobrás teve lucro de R$ 1,1 bilhão em 2002, contra R$ 3,3 bilhões em 2001.",
+     "nota": "Substitui 3,0 (mínimo); valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://brasilenergia.com.br/petroleoegas/arquivo/lucro-da-eletrobras-em-2001-cresce-324-e-supera-os-r-3-bilhoes",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (3,0, mínimo da manchete 'supera os R$ 3 bilhões'): coerente; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): valor de 2001 no lugar do mínimo 'supera R$ 3 bi'."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2803200202.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Empresas: Vale tem o 5º lucro recorde seguido, R$ 3 bi",
+     "data": "2002-03-28",
+     "trecho": "Em 2001, o resultado atingiu R$ 3,051 bilhões -o maior da história da empresa e 43% superior aos R$ 2,133 bilhões de 2000.",
+     "nota": "Confirma 3,051 em imprensa da época (inclui R$ 1,702 bi da venda de participações em papel e celulose); a principal é monografia da PUC-Rio.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma 3,051."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2503200410.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Em alta: Lucro da Vale sobe 121% e fecha 2003 em R$ 4,5 bi",
+     "data": "2004-03-25",
+     "trecho": "A mineradora terminou o ano passado com lucro de R$ 4,509 bilhões, resultado 120,7% superior aos R$ 2,043 bilhões registrados em 2002.",
+     "nota": "Confirma 2,043 em imprensa (comparativo do balanço de 2003); a principal é tese da PUC-Rio.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma 2,043."
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "csn",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 1.63,
+     "para": 1.031
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 534 mi (US GAAP, 20-F 2004) x R$ 3,060/US$ (média 2003, 20-F da Vale). Lucro societário pode diferir.",
+     "para": "Folha (2/3/2005): a CSN 'lucrou R$ 1,982 bilhão em 2004, crescimento de 92,2% em relação ao resultado do ano anterior (R$ 1,031 bilhão)'; comparativo do balanço de 2004, legislação societária (a linha de 2004 é 1,982). O 1,63 anterior era derivado de US$ 534 mi (US GAAP, 20-F 2004) × R$ 3,060/US$."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200531.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanços: Aço em alta ajuda CSN a dobrar lucro em 2004",
+     "data": "2005-03-02",
+     "trecho": "a CSN (Companhia Siderúrgica Nacional) lucrou R$ 1,982 bilhão em 2004, crescimento de 92,2% em relação ao resultado do ano anterior (R$ 1,031 bilhão).",
+     "nota": "Substitui 1,63 (derivado de US GAAP); valor de 2003 como comparativo de 2004.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001049659/000129281405000884/sid_form20f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (1,63, derivado de US$ 534 mi US GAAP): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): lucro societário de 2003 em R$ no lugar do derivado de US GAAP."
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2503200410.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Em alta: Lucro da Vale sobe 121% e fecha 2003 em R$ 4,5 bi",
+     "data": "2004-03-25",
+     "trecho": "A mineradora terminou o ano passado com lucro de R$ 4,509 bilhões, resultado 120,7% superior aos R$ 2,043 bilhões registrados em 2002.",
+     "nota": "Confirma 4,509 em imprensa da época; a principal é tese da PUC-Rio.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma 4,509."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "gerdau",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 3.38,
+     "para": 3.235
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 1.158,4 mi (US GAAP consolidado, 20-F 2004) x R$ 2,917/US$ (média 2004, 20-F da Vale). Lucro societário em R$ não localizado.",
+     "para": "Grupo Gerdau, 2004 (Folha, 2/2/2005: 'lucro recorde de R$ 3,235 bilhões'); a Folha de 26/2/2005 cita R$ 3,34 bi para a Gerdau (provável outra empresa do grupo/base; não adotado). O 3,38 anterior era derivado de US$ 1.158,4 mi (US GAAP, 20-F 2004) × R$ 2,917/US$."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0202200514.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: Gerdau tem lucro de R$ 3,2 bi em 2004",
+     "data": "2005-02-02",
+     "trecho": "O grupo gaúcho Gerdau, maior fabricante de aços longos do continente americano, fechou 2004 com lucro recorde de R$ 3,235 bilhões",
+     "nota": "Substitui 3,38 (derivado de US GAAP).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2602200513.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanços: Usiminas tem lucro de mais de R$ 3 bilhões",
+     "data": "2005-02-26",
+     "trecho": "O grupo Gerdau também está na lista das seis empresas com lucros superiores a R$ 3 bilhões em 2004 (R$ 3,34 bi).",
+     "nota": "Número divergente (3,34) em outra matéria; não adotado.",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001073404/000091142005000268/d1064809.txt",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (3,38, derivado de US$ 1.158,4 mi US GAAP): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): lucro de 2004 em R$ no lugar do derivado de US GAAP."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2203200522.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Lucro da Vale só perde para o da Petrobras",
+     "data": "2005-03-22",
+     "trecho": "a companhia obteve lucro recorde de R$ 6,460 bilhões em 2004, 43,3% maior do que o de 2003 (R$ 4,509 bilhões).",
+     "nota": "Confirma 6,459 (a Folha arredonda 6,460); a principal é tabela secundária do Monitor Mercantil.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma 6,459 em imprensa da época."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": "Fonte secundária (Wikipédia pt, tabela a partir de 2000).",
+     "para": "Balanço de 2004 (Folha, 22/2/2005: 'o maior lucro em termos nominais de sua história ..., de R$ 3,024 bilhões em 2004'). A Wikipédia pt (fonte anterior) traz o mesmo valor."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2202200517.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanços: Crédito e tarifas levam BB a lucro recorde",
+     "data": "2005-02-22",
+     "trecho": "O Banco do Brasil anunciou ontem o maior lucro em termos nominais de sua história (desconsiderados os efeitos da inflação), de R$ 3,024 bilhões em 2004.",
+     "nota": "Confirma 3,024; a Folha passa a fonte principal no lugar da Wikipédia.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia pt, tabela a partir de 2000): mesmo valor; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): confirma 3,024 e substitui a Wikipédia como fonte principal."
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 5.5,
+     "para": 5.514
+    },
+    "obs": {
+     "de": "'Cerca de R$ 5,5 bi' (Sind. Bancários-DF); transcrição do 4T06 também cita R$ 5,5 bi.",
+     "para": "Balanço de 2005 (Folha, 23/2/2006: 'lucro líquido de R$ 5,514 bilhões', +80,2% sobre 2004, o que confere com os 3,06 de 2004); a Folha de 13/2/2007 repete 'em 2005, quando o lucro foi de R$ 5,514 bilhões'. O 5,5 anterior era 'cerca de R$ 5,5 bi' (Sindicato dos Bancários-DF)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2302200608.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Finanças: Lucro do Bradesco cresce 80% e vai a R$ 5,5 bi",
+     "data": "2006-02-23",
+     "trecho": "Com crescimento de 80,2% em relação a 2004, o Bradesco teve lucro líquido de R$ 5,514 bilhões",
+     "nota": "Substitui 5,5 (aproximado, fonte sindical).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1302200715.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Bradesco sobe 15% e supera R$ 6,3 bi em 2006",
+     "data": "2007-02-13",
+     "trecho": "quando o lucro foi de R$ 5,514 bilhões",
+     "nota": "Confirma 5,514.",
+     "papel": "sustenta"
+    }
+   ],
+   "anterior": {
+    "url": "https://bancariosdf.com.br/media/media_jornais/informativo1117-02.pdf",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor ('cerca de R$ 5,5 bi', Sindicato dos Bancários-DF): aproximado; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): valor exato do balanço no lugar do aproximado."
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": null,
+     "para": "Balanço de 2005 (Folha, 21/2/2006: 'Os ganhos do BB chegaram a R$ 4,154 bilhões', o maior lucro de sua história até então). A Wikipédia pt (fonte anterior) traz o mesmo valor."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2102200602.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Banco do Brasil aumenta o lucro em 37%",
+     "data": "2006-02-21",
+     "trecho": "Os ganhos do BB chegaram a R$ 4,154 bilhões, valor 37,4% maior do que o registrado no ano anterior.",
+     "nota": "Confirma 4,154; a Folha passa a fonte principal no lugar da Wikipédia.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia pt): mesmo valor; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): confirma 4,154 e substitui a Wikipédia como fonte principal."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "gerdau",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 3.547,
+     "para": 3.492
+    },
+    "obs": {
+     "de": "Valor IFRS (recalculado no 20-F de 2008); US GAAP original R$ 3,301 bi; a coleta anterior citava R$ 3,5 bi.",
+     "para": "Gerdau, 2006 (Folha, 8/2/2007: 'lucro líquido de R$ 3,492 bilhões no ano passado', +7,6% sobre 2005), balanço da época. O 3,547 anterior era o valor IFRS recalculado no 20-F de 2008 (US GAAP original R$ 3,301 bi), reapresentação."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0802200721.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Operações no exterior levam Gerdau a ter lucro maior",
+     "data": "2007-02-08",
+     "trecho": "A Gerdau, maior siderúrgica do Brasil, teve um lucro líquido de R$ 3,492 bilhões no ano passado, o que representou uma alta de 7,6% em relação a 2005.",
+     "nota": "Substitui 3,547 (IFRS reapresentado).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001073404/000110465909043268/a09-18172_120f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (3,547, IFRS recalculado no 20-F de 2008): reapresentação; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): valor divulgado na época no lugar do IFRS reapresentado."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": null,
+     "para": "Balanço de 2006 (Folha, 28/2/2007: 'lucro recorde de R$ 6,044 bilhões', com 'artifícios contábeis' que ajudaram a elevar o resultado). A Wikipédia pt (fonte anterior) traz o mesmo valor."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2802200730.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do BB avança 45,5% e vai a R$ 6 bi",
+     "data": "2007-02-28",
+     "trecho": "O Banco do Brasil, maior instituição financeira do país, encerrou 2006 comemorando lucro recorde de R$ 6,044 bilhões.",
+     "nota": "Confirma 6,044; a Folha passa a fonte principal no lugar da Wikipédia.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia pt): mesmo valor; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): confirma 6,044 e substitui a Wikipédia como fonte principal."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "caixa",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200726.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Caixa tem lucro recorde de R$ 2,4 bi",
+     "data": "2007-02-27",
+     "trecho": "não impediu que o banco oficial registrasse, em 2006, um lucro líquido recorde de R$ 2,386 bilhões.",
+     "nota": "Confirma 2,386 em imprensa da época; a principal é matéria posterior (Brasil 247).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma 2,386."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "ambev",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 5.003,
+     "para": 2.8
+    },
+    "obs": {
+     "de": "IFRS atribuível aos acionistas (20-F de 2009); o 20-F traz BR GAAP só até 2006.",
+     "para": "AmBev, 2007 (Folha, 29/2/2008: 'O lucro da cervejaria ... cresceu apenas 0,4% e ficou em R$ 2,8 bilhões'), balanço da época pela legislação societária (com amortização de ágio), valor arredondado; mesma base do 2,806 de 2006. O 5,003 anterior era IFRS atribuível aos acionistas (20-F de 2009), reapresentação."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200822.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Cervejaria: Lucro da AmBev estaciona e fica em R$ 2,8 bi em 2007",
+     "data": "2008-02-29",
+     "trecho": "O lucro da cervejaria, no entanto, cresceu apenas 0,4% e ficou em R$ 2,8 bilhões.",
+     "nota": "Substitui 5,003 (IFRS reapresentado); 2,806 × 1,004 ≈ 2,82.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001113172/000114420410021381/v181443_20f.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (5,003, IFRS atribuível no 20-F de 2009): reapresentação em outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): valor divulgado na época no lugar do IFRS reapresentado."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": null,
+     "para": "Balanço de 2007 (Folha, 27/2/2008: 'lucro líquido de R$ 5,058 bilhões, 16,3% menor do que os R$ 6,044 bilhões de 2006'). A Wikipédia pt (fonte anterior) traz o mesmo valor."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200840.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Na contramão do setor, lucro do BB cai 16%",
+     "data": "2008-02-27",
+     "trecho": "O maior banco do país teve lucro líquido de R$ 5,058 bilhões, 16,3% menor do que os R$ 6,044 bilhões de 2006.",
+     "nota": "Confirma 5,058; a Folha passa a fonte principal no lugar da Wikipédia.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia pt): mesmo valor; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): confirma 5,058 e substitui a Wikipédia como fonte principal."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "itau-unibanco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1302200802.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Itaú dobra e é o maior do setor",
+     "data": "2008-02-13",
+     "trecho": "ao computar lucro líquido de R$ 8,474 bilhões no ano passado -aumento de 96,7%.",
+     "nota": "Confirma 8,473 (a Folha dá 8,474) em imprensa da época; a principal é matéria de 2009. +96,7% sobre 2006 confere com o contábil 4,309.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma o lucro de 2007."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "caixa",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2302200817.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Crédito tributário infla lucro da Caixa",
+     "data": "2008-02-23",
+     "trecho": "Dos R$ 2,5 bi do ganho obtido pelo banco estatal em 2007, R$ 1,4 bi veio desse instrumento contábil",
+     "nota": "Confirma ≈ 2,51 (a Folha arredonda R$ 2,5 bi; R$ 1,4 bi vieram de créditos tributários).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma o lucro de 2007 em imprensa da época."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "petrobras",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 32.988,
+     "para": 33.9
+    },
+    "obs": {
+     "de": "Comparativo do 6-K de 2009; a manchete original/6-K/A traz R$ 33,915 bi em outra base contábil (não adotado).",
+     "para": "Balanço de 2008 divulgado na época (Folha, 7/3/2009: 'No acumulado de 2008, a Petrobras registrou ... seu maior lucro da história: R$ 33,9 bilhões'; o 6-K/A traz R$ 33,915 bi). O 32,988 anterior é o comparativo reapresentado no 6-K de 2009 (Lei 11.638), base que a Folha de 20/3/2010 também usa ('ante R$ 32,988 bilhões em 2008'); fica como contexto."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0703200908.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Queda no petróleo reduz lucro da Petrobras",
+     "data": "2009-03-07",
+     "trecho": "No acumulado de 2008, a Petrobras registrou, porém, seu maior lucro da história: R$ 33,9 bilhões, com expansão de 58% ante 2007.",
+     "nota": "Substitui 32,988 (comparativo reapresentado em 2009). O trecho segue com 'Se for usado padrão cont[ábil]...' (cortado no material).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2003201014.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Petrobras lucra 12% menos em 2009",
+     "data": "2010-03-20",
+     "trecho": "O ganho foi de R$ 28,982 bilhões no ano passado, ante R$ 32,988 bilhões em 2008.",
+     "nota": "Comparativo reapresentado de 2008 (32,988) no balanço de 2009.",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001119639/000129281410001042/pbrarmfbrgaap4q09_6k.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (32,988, comparativo reapresentado no 6-K de 2009): reapresentação; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): valor do balanço divulgado na época (a reapresentação de 2009 vira contexto)."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "csn",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 2.598,
+     "para": 2.6
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado do ranking Economática em US$ (US$ 1,492 bi x 1,741). Valor direto em R$ não achado.",
+     "para": "Folha (27/2/2010, da Reuters): 'teve lucro líquido de R$ 2,6 bilhões em 2009, queda de 55% ante os R$ 5,774 bilhões registrados em 2008' (a linha de 2008 é 5,774); valor arredondado, mas direto em R$. O 2,598 anterior era derivado do ranking Economática em US$ (US$ 1,492 bi × 1,741)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2702201022.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: CSN tem lucro 55% menor, mas vê reação",
+     "data": "2010-02-27",
+     "trecho": "teve lucro líquido de R$ 2,6 bilhões em 2009, queda de 55% ante os R$ 5,774 bilhões registrados em 2008",
+     "nota": "Substitui 2,598 (derivado de US$); mesmo valor arredondado, agora em R$.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.df.cl/empresas/petrobras-fue-la-empresa-lider-en-beneficios-en-america-latina-en-2009",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (2,598, derivado de US$ 1,492 bi da Economática): conversão; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): valor em R$ no lugar do convertido de US$."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": null,
+     "para": "Balanço de 2009 (Folha, 26/2/2010: 'lucro líquido anual recorde de R$ 10,15 bilhões', com R$ 3 bi de receitas do ajuste com a Previ; sem esses ganhos extras, R$ 6,9 bi). A Wikipédia pt (fonte anterior) traz 10,148."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2602201002.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BB tem lucro recorde com dinheiro da Previ",
+     "data": "2010-02-26",
+     "trecho": "O Banco do Brasil se apropriou de R$ 3 bilhões da Previ, o fundo de pensão dos seus funcionários, e encerrou 2009 com um lucro líquido anual recorde de R$ 10,15 bilhões",
+     "nota": "Confirma 10,148 (a Folha arredonda 10,15); a Folha passa a fonte principal no lugar da Wikipédia.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia pt): mesmo valor (10,148); mantida como contexto."
+   },
+   "motivo": "Folha (rodada 8): confirma o lucro de 2009 e substitui a Wikipédia como fonte principal."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "caixa",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1302201007.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Caixa amplia carteira de crédito em 55%, mas tem lucro menor",
+     "data": "2010-02-13",
+     "trecho": "O que a instituição financeira pública conseguiu foi um lucro líquido de R$ 3 bilhões em 2009, cifra 23% inferior ao registrado no ano anterior.",
+     "nota": "Confirma ≈ 3,0 em imprensa da época (arredondado); 3,0/0,77 ≈ 3,9 confere com 2008.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8): confirma o lucro de 2009."
+  }
+ ],
+ "inserir": [
+  {
+   "ano": 1997,
+   "entidade_id": "petrobras",
+   "lucro_brl_bi": 1.53,
+   "setor": "Petróleo e gás",
+   "setor_k": "industria_extrativa",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Petrobras, lucro líquido de 1997 pela legislação societária, como comparativo do balanço de 1998 (Folha, 13/2/1999: 'queda de 6,5% em relação ao resultado de 1997 (R$ 1,53 bilhão)'); 1,43/1,53 = -6,5%, coerente.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi13029916.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro líquido da Petrobrás tem queda de 6,5% em 98",
+     "data": "1999-02-13",
+     "trecho": "A Petrobrás registrou no seu balanço do ano passado um lucro líquido de R$ 1,43 bilhão, com queda de 6,5% em relação ao resultado de 1997 (R$ 1,53 bilhão).",
+     "nota": "Fecha a lacuna da Petrobras 1997 (rodadas 6 e 7). Valor de 1997 citado no balanço de 1998; 1998 (1,43) confere com o 1,433 do banco.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): fecha a lacuna Petrobras 1997."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "santander-brasil",
+   "lucro_brl_bi": 2.0,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Banespa",
+   "obs": "Banespa (Banco do Estado de São Paulo), lucro de 1997 'turbinado por uma injeção de recursos do Tesouro Nacional' no saneamento do banco (Folha, 16/2/2000); valor arredondado. Estatal (sob administração federal desde 1994; federalizado em 1997); privatizado em 2000 para o Santander, que o incorporou: daí a entidade `santander-brasil` com o nome da época.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1602200004.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Itaú lucra R$ 1,869 bilhão, recorde no setor privado",
+     "data": "2000-02-16",
+     "trecho": "O resultado do Itaú em 1999 só perde para o lucro de R$ 2,0 bilhões do Banespa em 1997. Mas há uma diferença. O lucro bilionário do Banespa foi turbinado por uma injeção de recursos do Tesouro Nacional, como parte do acordo para sanear o banco.",
+     "nota": "Valor arredondado (R$ 2,0 bi), citado em matéria de 16/2/2000 sobre o Itaú; balanço do Banespa de 1997 não aberto.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): Banespa 1997, 2º lugar do ano."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "banco-do-brasil",
+   "lucro_brl_bi": 0.87,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Banco do Brasil, balanço de 1998 (Folha, 9/2/1999: 'lucrou R$ 870 milhões em 1998').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi09029909.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BB lucra R$ 870 milhões, com taxa de rentabilidade de 13,1%",
+     "data": "1999-02-09",
+     "trecho": "O Banco do Brasil lucrou R$ 870 milhões em 1998, segundo balanço divulgado ontem, alcançando um resultado 51,6% maior que o do ano anterior.",
+     "nota": "Novo. +51,6% sobre 1997 implica ≈ R$ 574 mi, coerente com os 0,573 de 1997.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "souza-cruz",
+   "lucro_brl_bi": 0.4805,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Souza Cruz, balanço de 1998 (Folha, 5/2/1999: 'lucro líquido de R$ 480,5 milhões em 98'). Controlada pela British American Tobacco.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi05029918.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Souza Cruz lucra em 98 R$ 480 mi",
+     "data": "1999-02-05",
+     "trecho": "registrou lucro líquido de R$ 480,5 milhões em 98",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "banco-real",
+   "lucro_brl_bi": 0.253,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Banco Real, primeiro ano sob o controle do ABN Amro (Folha, 29/2/2000: 'lucrou R$ 253 milhões em 1999').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200015.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Real lucra R$ 253 mi no 1º ano \"holandês\"",
+     "data": "2000-02-29",
+     "trecho": "O banco Real lucrou R$ 253 milhões em 1999, no primeiro ano de atividade sob o controle do holandês ABN Amro.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "caixa",
+   "lucro_brl_bi": 0.3945,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Caixa Econômica Federal, 1999 (Folha, 30/3/2000: 'lucro ... de R$ 394,5 milhões em 99'), reduzido por provisões de R$ 4,3 bi.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3003200014.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Reserva alta para risco faz CEF ter lucro de apenas R$ 394,5 mi",
+     "data": "2000-03-30",
+     "trecho": "O lucro da Caixa Econômica Federal foi de R$ 394,5 milhões em 99, apenas 2% superior ao de 98.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 0.682,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 1999, comparativo do balanço de 2000 (Folha, 10/3/2001: 'resultado de 1999 (R$ 682 milhões)').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1003200113.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Lucro do BNDES cresce 27% em 2000",
+     "data": "2001-03-10",
+     "trecho": "O BNDES anunciou ontem que seu lucro em 2000 atingiu R$ 866,6 milhões, com crescimento de 27% sobre o resultado de 1999 (R$ 682 milhões).",
+     "nota": "Novo; valor de 1999 como comparativo do balanço de 2000.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "eletropaulo",
+   "lucro_brl_bi": 0.4044,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Eletropaulo Metropolitana (distribuidora de São Paulo, controlada pela AES desde 2000), 1999, comparativo do balanço de 2000 (Folha, 16/3/2001).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1603200120.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Panorâmica - Energia: Lucro da Eletropaulo cai 40% em 2000; companhia culpa Aneel por altos custos",
+     "data": "2001-03-16",
+     "trecho": "Mas, no mesmo período, o lucro caiu de R$ 404,4 milhões para R$ 238,9 milhões.",
+     "nota": "Novo; valor de 1999 como comparativo do balanço de 2000 ('caiu de R$ 404,4 milhões [99] para R$ 238,9 milhões [2000]').",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 1999."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "furnas",
+   "lucro_brl_bi": 0.334,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Furnas Centrais Elétricas, 1999, comparativo do balanço de 2000 (Folha, 13/3/2001). Subsidiária da Eletrobras: dupla contagem com a holding quando as duas estão no ano (como Telebrás e Embratel em 1997).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1303200137.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Geradora obtém lucro de R$ 629 mi em 2000",
+     "data": "2001-03-13",
+     "trecho": "Furnas Centrais Elétricas informou ontem que a estatal obteve no ano passado lucro líquido de R$ 629 milhões, com aumento de 88,2% sobre os R$ 334 milhões do ano anterior.",
+     "nota": "Novo; valor de 1999 como comparativo do balanço de 2000.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 1999."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 0.8666,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, balanço de 2000 (Folha, 10/3/2001: 'seu lucro em 2000 atingiu R$ 866,6 milhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1003200113.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Lucro do BNDES cresce 27% em 2000",
+     "data": "2001-03-10",
+     "trecho": "O BNDES anunciou ontem que seu lucro em 2000 atingiu R$ 866,6 milhões",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "banco-real",
+   "lucro_brl_bi": 0.6492,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "ABN Amro Real",
+   "obs": "Banco Real e empresas ABN Amro no Brasil, 2000, comparativo do balanço de 2001 (Folha, 9/3/2002: 'o grupo lucrou R$ 649,2 milhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0903200204.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Operações de crédito fazem Real obter lucro recorde de R$ 784,3 mi",
+     "data": "2002-03-09",
+     "trecho": "Esse resultado é 20,8% superior ao do ano passado, quando o grupo lucrou R$ 649,2 milhões.",
+     "nota": "Novo; valor de 2000 como comparativo do balanço de 2001 (banco Real + empresas ABN Amro no Brasil).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "telefonica-brasil",
+   "lucro_brl_bi": 1.47,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Telesp",
+   "obs": "Telesp (Telefônica São Paulo), 2000, comparativo do balanço consolidado de 2001 entregue à CVM (Folha, 27/2/2002). Mesma empresa das linhas de 2003-2009 (nome da época Telesp).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200210.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefônica lucra R$ 1,576 bilhão no ano passado",
+     "data": "2002-02-27",
+     "trecho": "A Telefônica São Paulo (Telesp) lucrou R$ 1,576 bilhão no ano passado, 7,2% mais do que o R$ 1,470 bilhão obtido em 2000.",
+     "nota": "Novo; valor de 2000 como comparativo do balanço consolidado de 2001.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2000,
+   "entidade_id": "furnas",
+   "lucro_brl_bi": 0.629,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Furnas Centrais Elétricas, 2000 (Folha, 13/3/2001: 'lucro líquido de R$ 629 milhões', ainda pendente de aprovação da assembleia). Subsidiária da Eletrobras: dupla contagem com a holding (como Telebrás e Embratel em 1997).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1303200137.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Geradora obtém lucro de R$ 629 mi em 2000",
+     "data": "2001-03-13",
+     "trecho": "Furnas Centrais Elétricas informou ontem que a estatal obteve no ano passado lucro líquido de R$ 629 milhões",
+     "nota": "Novo; números 'ainda pendentes de aprovação pela assembléia de acionistas'.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 2000."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "telefonica-brasil",
+   "lucro_brl_bi": 1.576,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Telesp",
+   "obs": "Telesp (Telefônica São Paulo), balanço consolidado de 2001 entregue à CVM (Folha, 27/2/2002); a Folha de 12/2/2003 repete R$ 1,576 bi.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200210.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefônica lucra R$ 1,576 bilhão no ano passado",
+     "data": "2002-02-27",
+     "trecho": "A Telefônica São Paulo (Telesp) lucrou R$ 1,576 bilhão no ano passado, 7,2% mais do que o R$ 1,470 bilhão obtido em 2000. O balanço consolidado do grupo foi entregue ontem à CVM (Comissão de Valores Mobiliários).",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "embraer",
+   "lucro_brl_bi": 1.1,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Embraer, balanço de 2001 (Folha, 27/3/2002: 'lucro recorde de R$ 1,1 bilhão'), valor arredondado; a Folha de 27/3/2003 dá 2002 = R$ 1,179 bi, +7,18%, o que implica ≈ R$ 1,100 bi em 2001.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200211.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Aviação regional: Embraer lucra R$ 1,1 bilhão dobrando dívida",
+     "data": "2002-03-27",
+     "trecho": "garantir um lucro recorde de R$ 1,1 bilhão no ano passado -70,5% superior ao de 2000.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "santander-brasil",
+   "lucro_brl_bi": 1.089,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Banespa",
+   "obs": "Banespa, balanço de 2001 entregue à Bovespa (Folha, 23/2/2002); controlado pelo Santander desde novembro de 2000 (que depois o incorporou: daí a entidade `santander-brasil` com o nome da época). Só o Banespa, sem o Banco Santander Brasil.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2302200223.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Banespa tem lucro de R$ 1,089 bi em 2001",
+     "data": "2002-02-23",
+     "trecho": "O lucro líquido em 2001 atingiu R$ 1,089 bilhão, conforme balanço entregue ontem à Bolsa de Valores de São Paulo.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "banco-real",
+   "lucro_brl_bi": 0.7843,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "ABN Amro Real",
+   "obs": "Banco Real e empresas ABN Amro no Brasil, balanço de 2001 (Folha, 9/3/2002: 'lucro líquido de R$ 784,3 milhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0903200204.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Operações de crédito fazem Real obter lucro recorde de R$ 784,3 mi",
+     "data": "2002-03-09",
+     "trecho": "Com lucro líquido de R$ 784,3 milhões no ano passado, o banco Real e as empresas ABN Amro batem recorde histórico",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "eletropaulo",
+   "lucro_brl_bi": 0.567,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Eletropaulo Metropolitana (AES), 2001, comparativo do balanço de 2002 (Folha, 26/3/2003: 'No ano anterior, a empresa havia obtido lucro de R$ 567 milhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2603200315.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Curto - circuito: Eletropaulo fecha 2002 com dívida de R$ 6,2 bi e prejuízo de R$ 871 mi",
+     "data": "2003-03-26",
+     "trecho": "A Eletropaulo teve um prejuízo líquido de R$ 871 milhões em 2002, conforme informações da ata da reunião do Conselho de Administração da companhia divulgada ontem. No ano anterior, a empresa havia obtido lucro de R$ 567 milhões.",
+     "nota": "Novo; valor de 2001 como comparativo de 2002.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 2001."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "caixa",
+   "lucro_brl_bi": -4.687,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Caixa Econômica Federal, prejuízo de 2001 pela provisão de R$ 4,3 bi contra calote de mutuários, apesar do socorro de R$ 9,35 bi do Tesouro (Folha, 12/3/2002, que antecipa o balanço; a de 1/3/2003 repete R$ 4,7 bi).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1203200221.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Caixa Federal tem prejuízo de R$ 4,687 bi",
+     "data": "2002-03-12",
+     "trecho": "A Caixa Econômica Federal, segundo maior banco do Brasil, fechou 2001 com prejuízo de R$ 4,687 bilhões.",
+     "nota": "Novo; a matéria antecipa o balanço ('Os números devem ser divulgados em duas semanas'); a Folha de 1/3/2003 confirma 'prejuízo de R$ 4,7 bi' em 2001.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): maior prejuízo do ano."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "light",
+   "lucro_brl_bi": -0.951,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Light, prejuízo de 2001, comparativo do balanço de 2002 (Folha, 27/3/2003).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200326.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Panorâmica - Curto",
+     "data": "2003-03-27",
+     "trecho": "A Light -distribuidora de energia do Rio- fechou 2002 com um prejuízo de R$ 1,255 bilhão, o que representa um crescimento de 32% em relação ao resultado do ano anterior (R$ 951 milhões).",
+     "nota": "Novo; prejuízo de 2001 como comparativo de 2002 (1,255/0,951 = +32%).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2001,
+   "entidade_id": "cesp",
+   "lucro_brl_bi": -0.813,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Cesp (Companhia Energética de São Paulo, estatal paulista), prejuízo de 2001, comparativo do balanço de 2002 (Folha, 15/3/2003).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1503200302.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Curto - circuito: Cesp tem prejuízo recorde de R$ 3,417 bi",
+     "data": "2003-03-15",
+     "trecho": "A sangria na Cesp foi 320% mais alta que a registrada no ano passado, quando a empresa de geração de energia amargou perdas de R$ 813 milhões.",
+     "nota": "Novo; o 'ano passado' da matéria é o ano anterior ao balanço de 2002, isto é 2001 (3,417/0,813 = +320%).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "santander-brasil",
+   "lucro_brl_bi": 2.8,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Banespa",
+   "obs": "Banespa (Santander), 2002 (Folha, 4/2/2003: 'o Banespa divulgou que teve lucro líquido de R$ 2,8 bilhões'), valor arredondado; a Folha de 12/3/2003 diz que só o Banespa lucrou mais que o Itaú (2,377) em 2002.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0402200322.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Bradesco fecha 2002 com lucro menor",
+     "data": "2003-02-04",
+     "trecho": "Na semana passada, o Banespa divulgou que teve lucro líquido de R$ 2,8 bilhões -158% maior que o registrado em 2001.",
+     "nota": "Novo; valor arredondado, citado na matéria sobre o Bradesco. 2,8/2,58 ≈ 1,09 confere com 2001.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): Banespa 2º lugar de 2002."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "banco-real",
+   "lucro_brl_bi": 1.208,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "ABN Amro Real",
+   "obs": "ABN Amro Real (banco Real e empresas ABN Amro no Brasil), balanço de 2002 (Folha, 14/2/2003).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200309.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: ABN e Unibanco lucram mais de R$ 1 bi",
+     "data": "2003-02-14",
+     "trecho": "O ABN-Amro teve desempenho ainda melhor: lucro líquido de R$ 1,208 bilhão, 54% superior ao resultado alcançado em 2001.",
+     "nota": "Novo; 1,208/1,54 ≈ 0,784 confere com 2001 (Real + ABN Amro).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "embraer",
+   "lucro_brl_bi": 1.179,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Embraer, 2002 (Folha, 27/3/2003, a partir de comunicado interno do diretor-presidente aos trabalhadores, véspera da divulgação oficial do balanço).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200319.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Panorâmica - Aviação: Dólar eleva a R$ 1,18 bi lucro da Embraer",
+     "data": "2003-03-27",
+     "trecho": "Segundo o informe, a Embraer registrou em 2002 uma receita de R$ 7,7 bilhões. Já o lucro líquido foi de R$ 1,179 bilhão.",
+     "nota": "Novo; comunicado interno da empresa antecipado pela Folha (balanço oficial no dia seguinte).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "eletrobras",
+   "lucro_brl_bi": 1.1,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Eletrobras, balanço de 2002 (Folha, 14/3/2003), valor arredondado; a desvalorização cambial reduziu o lucro em 66%.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200315.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Curto - circuito: Dólar alto faz lucro da Eletrobrás cair 66%",
+     "data": "2003-03-14",
+     "trecho": "De acordo com o balanço divulgado ontem, a Eletrobrás teve lucro de R$ 1,1 bilhão em 2002, contra R$ 3,3 bilhões em 2001.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "caixa",
+   "lucro_brl_bi": 1.081,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Caixa Econômica Federal, 2002 (Folha, 1/3/2003: 'lucro de R$ 1,081 bilhão', o maior da história da instituição).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0103200312.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Caixa lucra R$ 1,081 bilhão em 2002",
+     "data": "2003-03-01",
+     "trecho": "A Caixa Econômica Federal recuperou parte do prejuízo recorde que teve em 2001 e encerrou o ano passado com um lucro de R$ 1,081 bilhão",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "telefonica-brasil",
+   "lucro_brl_bi": 1.076,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Telesp",
+   "obs": "Telesp (operadora fixa do grupo Telefônica em São Paulo), 2002 (Folha, 12/2/2003).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1202200311.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Teles: Lucro da Telefônica em SP cai 31,7% em 2002",
+     "data": "2003-02-12",
+     "trecho": "A Telesp (operadora de telefonia fixa do grupo Telefônica em São Paulo) registrou queda de 31,7% no lucro em 2002 em relação ao ano anterior. A empresa obteve ganho de R$ 1,076 bilhão, ante R$ 1,576 bilhão em 2001.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "brasil-telecom-participacoes",
+   "lucro_brl_bi": 0.443,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 1,
+   "derivado": 0,
+   "obs": "Brasil Telecom Participações (holding), 2002 (Folha, 21/2/2003, com Folha Online e Reuters).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2102200308.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefonia fixa: Brasil Telecom lucra 69,7% a mais em 2002",
+     "data": "2003-02-21",
+     "trecho": "A Brasil Telecom Participações, empresa de telefonia fixa que atual nas regiões Sul e Centro-Oeste e nos Estados do Acre, Tocantins e Rondônia, fechou 2002 com lucro líquido de R$ 443 milhões, um crescimento de 69,7% sobre o ano anterior.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "cesp",
+   "lucro_brl_bi": -3.417,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Cesp, prejuízo recorde de 2002 (sobra de energia e dívida em dólar; Folha, 15/3/2003, com a Economática).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1503200302.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Curto - circuito: Cesp tem prejuízo recorde de R$ 3,417 bi",
+     "data": "2003-03-15",
+     "trecho": "A estatal registrou um prejuízo de R$ 3,417 bilhões em 2002, valor recorde em relação a todos os balanços daquele ano das companhias com ações em Bolsas divulgados até agora, de acordo com a consultoria Economática.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): maior prejuízo do ano."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "light",
+   "lucro_brl_bi": -1.255,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Light, prejuízo de 2002, com provisão de R$ 866 mi para ajuste de créditos tributários (Folha, 27/3/2003).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200326.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Panorâmica - Curto",
+     "data": "2003-03-27",
+     "trecho": "A Light -distribuidora de energia do Rio- fechou 2002 com um prejuízo de R$ 1,255 bilhão",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "eletropaulo",
+   "lucro_brl_bi": -0.871,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Eletropaulo Metropolitana (AES), prejuízo de 2002 segundo a ata do Conselho de Administração (Folha, 26/3/2003).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2603200315.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Curto - circuito: Eletropaulo fecha 2002 com dívida de R$ 6,2 bi e prejuízo de R$ 871 mi",
+     "data": "2003-03-26",
+     "trecho": "A Eletropaulo teve um prejuízo líquido de R$ 871 milhões em 2002, conforme informações da ata da reunião do Conselho de Administração da companhia divulgada ontem.",
+     "nota": "Novo; da ata do Conselho (balanço aprovado, ainda não divulgado oficialmente).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "usiminas",
+   "lucro_brl_bi": -0.321,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Usiminas (sistema Usiminas, com a Cosipa), prejuízo de 2002, comparativo do balanço de 2003 (Folha, 5/3/2004).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0503200417.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: Usiminas lucra R$ 1,3 bilhão em 2003",
+     "data": "2004-03-05",
+     "trecho": "A Usiminas lucrou R$ 1,3 bilhão em 2003, depois do prejuízo de R$ 321 milhões em 2002.",
+     "nota": "Novo; prejuízo de 2002 como comparativo de 2003 (sistema Usiminas, com a Cosipa).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "csn",
+   "lucro_brl_bi": -0.219,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "CSN, prejuízo de 2002 pela amortização de impactos cambiais diferidos de 1999 e 2001 (R$ 409 mi líquidos; Folha, 27/3/2003).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200320.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: CSN fecha ano com prejuízo de R$ 219 milhões",
+     "data": "2003-03-27",
+     "trecho": "A CSN (Companhia Siderúrgica Nacional) fechou o ano de 2002 com um prejuízo líquido de R$ 219 milhões no seu balanço",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "klabin",
+   "lucro_brl_bi": -0.208,
+   "setor": "Papel e celulose",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Klabin, prejuízo de 2002, comparativo do balanço de 2003 (Folha, 19/2/2004).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200425.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Celulose: Klabin sai do prejuízo e lucra R$ 1 bilhão",
+     "data": "2004-02-19",
+     "trecho": "A Klabin Celulose e Papel, maior produtora de papel para embalagens do país, reverteu o prejuízo de R$ 208 milhões registrado em 2002 e lucrou R$ 1 bilhão no ano passado.",
+     "nota": "Novo; prejuízo de 2002 como comparativo de 2003.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "caixa",
+   "lucro_brl_bi": 1.616,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Caixa Econômica Federal, 2003 (Folha, 12/2/2004: 'lucro recorde de R$ 1,616 bilhão').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1202200409.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Recorde, lucro da Caixa atinge R$ 1,616 bilhão",
+     "data": "2004-02-12",
+     "trecho": "A Caixa Econômica Federal teve lucro recorde de R$ 1,616 bilhão no ano passado, com crescimento de 49,5% em relação ao ganho de 2002.",
+     "nota": "Novo; 1,616/1,495 ≈ 1,081 confere com 2002.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "usiminas",
+   "lucro_brl_bi": 1.3,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Usiminas (sistema Usiminas, com a Cosipa), 2003 (Folha, 5/3/2004), valor arredondado; 3,019 em 2004 foi +131%, o que implica ≈ R$ 1,307 bi.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0503200417.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: Usiminas lucra R$ 1,3 bilhão em 2003",
+     "data": "2004-03-05",
+     "trecho": "A Usiminas lucrou R$ 1,3 bilhão em 2003, depois do prejuízo de R$ 321 milhões em 2002.",
+     "nota": "Novo; valor arredondado (sistema Usiminas, com a Cosipa).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 1.038,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 2003 (Folha, 26/3/2004), lucro viabilizado pelo acordo de renegociação da dívida da AES (sem ele, prejuízo).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2603200424.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: BNDES lucra R$ 1 bi após acordo com AES",
+     "data": "2004-03-26",
+     "trecho": "permitiu ao BNDES (Banco Nacional de Desenvolvimento Econômico e Social) transformar em lucro de R$ 1,038 bilhão em 2003 um resultado que até o mês de novembro apontava prejuízo de R$ 2,125 bilhões.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "klabin",
+   "lucro_brl_bi": 1.0,
+   "setor": "Papel e celulose",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Klabin Celulose e Papel, 2003 (Folha, 19/2/2004: 'lucrou R$ 1 bilhão'), valor arredondado; reflexo da reestruturação financeira e da venda de ativos.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200425.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Celulose: Klabin sai do prejuízo e lucra R$ 1 bilhão",
+     "data": "2004-02-19",
+     "trecho": "reverteu o prejuízo de R$ 208 milhões registrado em 2002 e lucrou R$ 1 bilhão no ano passado. O resultado foi reflexo da reestruturação financeira. A Klabin vendeu ativos para diminuir sua dívida líquida",
+     "nota": "Novo; valor arredondado (R$ 1 bilhão), com venda de ativos.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2003,
+   "entidade_id": "eletrobras",
+   "lucro_brl_bi": 0.323,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Eletrobras, 2003 (Folha, 31/3/2004), afetado pela queda do dólar.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200425.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Eletrobrás tem lucro 70% menor em 2003",
+     "data": "2004-03-31",
+     "trecho": "A Eletrobrás teve lucro de R$ 323 milhões em 2003. Influenciado pelo queda do dólar, o resultado é 70% menor do que o do registrado em 2002 (R$ 1,1 bilhão).",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "usiminas",
+   "lucro_brl_bi": 3.019,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Usiminas (sistema Usiminas, com a Cosipa), 2004 (Folha, 26/2/2005: 'lucro líquido de R$ 3,019 bilhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2602200513.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanços: Usiminas tem lucro de mais de R$ 3 bilhões",
+     "data": "2005-02-26",
+     "trecho": "O sistema Usiminas, que inclui a siderúrgica Cosipa, obteve lucro líquido de R$ 3,019 bilhões, crescimento de 131% em relação ao ano anterior.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "santander-brasil",
+   "lucro_brl_bi": 1.75,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Santander Banespa",
+   "obs": "Santander Banespa (grupo Santander no Brasil), 2004, comparativo do balanço de 2005 (Folha, 9/2/2006).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200616.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Lucro do Santander Banespa encolhe em 2005",
+     "data": "2006-02-09",
+     "trecho": "O lucro do Santander Banespa -que é controlado pelo espanhol Santander- encolheu, saindo de R$ 1,750 bilhão em 2004 para R$ 1,643 bilhão em 2005.",
+     "nota": "Novo; valor de 2004 como comparativo de 2005.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "cst",
+   "lucro_brl_bi": 1.624,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Companhia Siderúrgica de Tubarão, 2004 (Folha, 2/3/2005, na lista das siderúrgicas com lucro recorde).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200531.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanços: Aço em alta ajuda CSN a dobrar lucro em 2004",
+     "data": "2005-03-02",
+     "trecho": "No mês passado, outras siderúrgicas já haviam divulgado lucros recordes, também impulsionados pela alta do aço em 2004: Gerdau (R$ 3,2 bilhão), Usiminas (3,019 bilhões), CST (R$ 1,624 bilhão) e Belgo (R$ 1,291 bilhão).",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 2004."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "belgo-mineira",
+   "lucro_brl_bi": 1.291,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Companhia Siderúrgica Belgo-Mineira (grupo Arcelor), 2004 (Folha, 2/3/2005, na lista das siderúrgicas com lucro recorde).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200531.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanços: Aço em alta ajuda CSN a dobrar lucro em 2004",
+     "data": "2005-03-02",
+     "trecho": "No mês passado, outras siderúrgicas já haviam divulgado lucros recordes, também impulsionados pela alta do aço em 2004: Gerdau (R$ 3,2 bilhão), Usiminas (3,019 bilhões), CST (R$ 1,624 bilhão) e Belgo (R$ 1,291 bilhão).",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 2004."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 1.498,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 2004, comparativo do balanço de 2005 (Folha, 18/2/2006).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200616.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Lucro do BNDES aumenta 113% em 2005",
+     "data": "2006-02-18",
+     "trecho": "O resultado representa um crescimento de 113,7% em relação ao resultado de 2004, quando os ganhos havia somado R$ 1,498 bilhão.",
+     "nota": "Novo; valor de 2004 como comparativo de 2005.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "eletrobras",
+   "lucro_brl_bi": 1.29,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Eletrobras, 2004, comparativo do balanço de 2005 (Folha, 23/3/2006).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2303200613.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Setor energético: Eletrobrás tem queda de 24,6% em seus lucros",
+     "data": "2006-03-23",
+     "trecho": "divulgou ontem um lucro de R$ 974,6 milhões no balanço de 2005, um valor 24,6% menor do que o obtido em 2004, quando a companhia registrou lucro de R$ 1,29 bilhão.",
+     "nota": "Novo; valor de 2004 como comparativo de 2005.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "telesp-celular-participacoes",
+   "lucro_brl_bi": -0.4902,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 1,
+   "derivado": 0,
+   "obs": "Telesp Celular Participações (holding do grupo Vivo), prejuízo de 2004 (Folha, 19/2/2005).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200519.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefonia: Telesp Celular tem prejuízo de R$ 490 mi",
+     "data": "2005-02-19",
+     "trecho": "As perdas nos últimos três meses do ano elevaram o prejuízo acumulado pela empresa em 2004 para R$ 490,2 milhões.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2004,
+   "entidade_id": "embratel",
+   "lucro_brl_bi": -0.3393,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Embratel Participações (holding da operadora), prejuízo de 2004 (Folha, 2/2/2005); mesma base da linha de 2003 (0,224).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0202200531.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Teles 2: Embratel tem prejuízo de R$ 339 milhões",
+     "data": "2005-02-02",
+     "trecho": "A holding Embratel Participações, que controla a operadora de longa distância de mesmo nome, registrou prejuízo de R$ 339,3 milhões no ano passado, ante lucro de R$ 223,6 milhões em 2003.",
+     "nota": "Novo; 2003 (223,6) confere com o 0,224 do banco.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "usiminas",
+   "lucro_brl_bi": 3.91,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Grupo Usiminas (Usiminas e Cosipa), 2005 (Folha, 7/3/2007: 'contra R$ 3,91 bilhões no ano anterior'; a de 10/3/2006 arredonda R$ 3,9 bi).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0703200728.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: Lucro do grupo Usiminas cai 36% em 2006",
+     "data": "2007-03-07",
+     "trecho": "O lucro líquido acumulado em 2006 foi de R$ 2,51 bilhões, contra R$ 3,91 bilhões no ano anterior.",
+     "nota": "Novo; valor de 2005 como comparativo de 2006 (mais preciso que o 'R$ 3,9 bilhões' de 10/3/2006).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1003200613.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanços - Resultados 1: Lucro da Usiminas avança 30%",
+     "data": "2006-03-10",
+     "trecho": "Foram R$ 3,9 bilhões de lucro líquido, crescimento de 30% em relação a 2004",
+     "nota": "Balanço de 2005 da época, arredondado; confirma.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 3.202,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 2005 (Folha, 18/2/2006: 'lucro recorde de R$ 3,202 bilhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200616.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Lucro do BNDES aumenta 113% em 2005",
+     "data": "2006-02-18",
+     "trecho": "O BNDES (Banco Nacional de Desenvolvimento Econômico e Social) anunciou ontem lucro recorde de R$ 3,202 bilhões em 2005.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "santander-brasil",
+   "lucro_brl_bi": 1.643,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Santander Banespa",
+   "obs": "Santander Banespa (grupo Santander no Brasil), 2005 (Folha, 9/2/2006).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200616.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Lucro do Santander Banespa encolhe em 2005",
+     "data": "2006-02-09",
+     "trecho": "O lucro do Santander Banespa -que é controlado pelo espanhol Santander- encolheu, saindo de R$ 1,750 bilhão em 2004 para R$ 1,643 bilhão em 2005.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "banco-real",
+   "lucro_brl_bi": 1.4,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "ABN Amro Real",
+   "obs": "ABN Amro Real (banco holandês no Brasil), 2005, comparativo do balanço de 2006 (Folha, 9/2/2007), valor arredondado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200722.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do ABN sobe 43% e atinge R$ 2 bi",
+     "data": "2007-02-09",
+     "trecho": "O ABN Amro lucrou R$ 2 bilhões em 2006, cifra 43% superior ao resultado do ano anterior, quando o lucro do banco holandês no Brasil havia sido de R$ 1,4 bilhão.",
+     "nota": "Novo; valor de 2005 como comparativo de 2006, arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2005,
+   "entidade_id": "eletrobras",
+   "lucro_brl_bi": 0.9746,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Eletrobras, balanço de 2005 (Folha, 23/3/2006: 'lucro de R$ 974,6 milhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2303200613.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Setor energético: Eletrobrás tem queda de 24,6% em seus lucros",
+     "data": "2006-03-23",
+     "trecho": "A Eletrobrás, maior empresa brasileira de energia elétrica, divulgou ontem um lucro de R$ 974,6 milhões no balanço de 2005",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 6.331,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 2006 (Folha, 19/2/2008: 'ganho de R$ 6,331 bilhões de 2006'; a de 10/2/2007 arredonda R$ 6,3 bi).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200822.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BNDES tem lucro recorde de R$ 7,3 bilhões em 2007",
+     "data": "2008-02-19",
+     "trecho": "registrou lucro recorde de R$ 7,314 bilhões no ano passado, um aumento de 15,5% em relação ao ganho de R$ 6,331 bilhões de 2006.",
+     "nota": "Novo; valor exato de 2006 como comparativo de 2007.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1002200715.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BNDES dobra o lucro e bate recorde",
+     "data": "2007-02-10",
+     "trecho": "O BNDES (Banco Nacional de Desenvolvimento Econômico e Social) registrou lucro recorde de R$ 6,3 bilhões em 2006.",
+     "nota": "Balanço de 2006 da época, arredondado; confirma.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "usiminas",
+   "lucro_brl_bi": 2.51,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Grupo Usiminas (Usiminas e Cosipa), 2006 (Folha, 7/3/2007).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0703200728.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Siderurgia: Lucro do grupo Usiminas cai 36% em 2006",
+     "data": "2007-03-07",
+     "trecho": "O lucro líquido acumulado em 2006 foi de R$ 2,51 bilhões, contra R$ 3,91 bilhões no ano anterior.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "banco-real",
+   "lucro_brl_bi": 2.0,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "ABN Amro Real",
+   "obs": "ABN Amro Real (banco holandês no Brasil), 2006 (Folha, 9/2/2007: 'lucrou R$ 2 bilhões'), valor arredondado; 2007 (2,975) foi +45%, o que implica ≈ R$ 2,05 bi.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200722.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do ABN sobe 43% e atinge R$ 2 bi",
+     "data": "2007-02-09",
+     "trecho": "O ABN Amro lucrou R$ 2 bilhões em 2006, cifra 43% superior ao resultado do ano anterior",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "telemar",
+   "lucro_brl_bi": 1.3,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Telemar (já sob a marca Oi), 2006 (Folha, 9/3/2007), valor arredondado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0903200719.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Telemar sobe 18% e vai a R$ 1,3 bi",
+     "data": "2007-03-09",
+     "trecho": "O lucro líquido da Telemar, agora sob a marca Oi, atingiu R$ 1,3 bilhão em 2006, o que representa avanço de 18% sobre o resultado de 2005 e é o maior da história da companhia.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2006,
+   "entidade_id": "csn",
+   "lucro_brl_bi": 1.2,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "CSN, 2006 (Folha, 31/3/2007: 'lucro líquido de R$ 1,2 bilhão'), valor arredondado; 2007 (2,922) foi '150% mais', o que implica ≈ R$ 1,17 bi.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200726.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da CSN cai 41,8% em 2006",
+     "data": "2007-03-31",
+     "trecho": "A CSN (Companhia Siderúrgica Nacional) registou um lucro líquido de R$ 1,2 bilhão em 2006, queda de 41,8% em relação ao resultado do ano anterior.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 7.314,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 2007 (Folha, 19/2/2008: 'lucro recorde de R$ 7,314 bilhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200822.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BNDES tem lucro recorde de R$ 7,3 bilhões em 2007",
+     "data": "2008-02-19",
+     "trecho": "O BNDES (Banco Nacional de Desenvolvimento Econômico e Social) registrou lucro recorde de R$ 7,314 bilhões no ano passado",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "banco-real",
+   "lucro_brl_bi": 2.975,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "ABN Amro Real",
+   "obs": "ABN Amro Real, 2007 (Folha, 29/2/2008), último balanço antes da incorporação ao Santander (comprado em 2007).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200823.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Real lucra R$ 2,975 bi em 2007 e supera ganho do Santander",
+     "data": "2008-02-29",
+     "trecho": "Comprado no ano passado pelo espanhol Santander, o banco ABN Real teve lucro líquido de R$ 2,975 bilhões em 2007, resultado 45% maior do que o apurado no ano anterior.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "telemar",
+   "lucro_brl_bi": 2.358,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Oi",
+   "obs": "Oi (ex-Telemar), 2007 (Folha, 29/2/2008: 'lucro recorde de R$ 2,358 bilhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200832.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Oi cresce 80% e vai a R$ 2,36 bi",
+     "data": "2008-02-29",
+     "trecho": "A Oi (ex-Telemar) fechou o balanço de 2007 com o lucro recorde de R$ 2,358 bilhões (alta de 80% sobre 2006)",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2007,
+   "entidade_id": "santander-brasil",
+   "lucro_brl_bi": 1.86,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Santander no Brasil, 2007, sem o ABN Real (Folha, 29/2/2008: 'o R$ 1,86 bilhão obtidos no país pelo próprio banco espanhol').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200823.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos: Real lucra R$ 2,975 bi em 2007 e supera ganho do Santander",
+     "data": "2008-02-29",
+     "trecho": "O ganho supera o R$ 1,86 bilhão obtidos no país pelo próprio banco espanhol",
+     "nota": "Novo; sem o ABN Real, comprado em 2007 e incorporado em 2008.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 5.3,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 2008 (Folha, 17/2/2009: 'lucro de R$ 5,3 bilhões'), valor arredondado; 7,314 × 0,726 ≈ 5,31.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1702200904.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do BNDES cai 27,4%, primeira queda em seis anos",
+     "data": "2009-02-17",
+     "trecho": "O BNDES fechou 2008 com lucro de R$ 5,3 bilhões, queda de 27,4% em relação a 2007.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "cemig",
+   "lucro_brl_bi": 1.88,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Cemig, 2008, comparativo do balanço de 2009 (Folha, 24/3/2010: 'Naquele ano, o lucro foi de R$ 1,88 bilhão').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2403201009.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Resultado: Lucro da Cemig cai 1% e fica em R$ 1,86 bilhão em 2009",
+     "data": "2010-03-24",
+     "trecho": "A Cemig (Companhia Energética de Minas Gerais) apresentou lucro líquido em 2009 de R$ 1,86 bilhão, praticamente empatando com o resultado obtido em 2008, quando a economia se manteve aquecida nos três primeiros trimestres. Naquele ano, o lucro foi de R$ 1,88 bilhão.",
+     "nota": "Novo; valor de 2008 como comparativo de 2009.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 2008."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "telemar",
+   "lucro_brl_bi": 1.2,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Oi",
+   "obs": "Oi/Telemar, balanço de 2008 (Folha, 6/3/2009: 'lucro de R$ 1,2 bilhão'), valor arredondado; o pró-forma retroativo do grupo com a Brasil Telecom dá R$ 1,087 bi (Folha, 16/3/2010).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0603200926.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Aquisições e câmbio fazem lucro da Oi recuar 50%",
+     "data": "2009-03-06",
+     "trecho": "A Oi/Telemar fechou 2008 com lucro 50,2% menor do que o obtido em 2007. O balanço anual da empresa mostrou lucro de R$ 1,2 bilhão, contra R$ 2,3 bilhões do ano anterior.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1603201028.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefonia: Grupo Oi tem prejuízo de R$ 436 mi em 2009",
+     "data": "2010-03-16",
+     "trecho": "Em 2008, por essa estimativa, o grupo Oi teve lucro de R$ 1,087 bilhão.",
+     "nota": "Pró-forma retroativo do grupo Oi com a Brasil Telecom (outra base); não adotado.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 8): entra no top 15 de 2008."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "aracruz",
+   "lucro_brl_bi": -4.19,
+   "setor": "Papel e celulose",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Aracruz Celulose, prejuízo de 2008 por operações com derivativos cambiais (Folha, 28/3/2009); em 2009 fundiu-se com a VCP na Fibria.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2803200917.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Prejuízo da Aracruz chega a R$ 2,9 bi no 4º trimestre",
+     "data": "2009-03-28",
+     "trecho": "A Aracruz, maior produtora mundial de celulose de eucalipto que prepara uma fusão com a VCP (Votorantim Celulose e Papel), divulgou ontem um prejuízo de R$ 4,19 bilhões no exercício de 2008.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8): maior prejuízo do ano."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "braskem",
+   "lucro_brl_bi": -2.49,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Braskem, prejuízo de 2008 pela desvalorização cambial sobre a dívida (74% em moeda estrangeira; Folha, 6/3/2009).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0603200916.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Braskem tem prejuízo de R$ 2,5 bi com alta do dólar",
+     "data": "2009-03-06",
+     "trecho": "A Braskem, maior produtora de plásticos do Brasil e da América Latina, encerrou o ano de 2008 com um prejuízo líquido de R$ 2,49 bilhões, mostra o balanço da companhia divulgado ontem ao mercado.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "tam",
+   "lucro_brl_bi": -1.3,
+   "setor": "Outros",
+   "setor_k": "transporte",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "TAM Linhas Aéreas, prejuízo de 2008 por perdas cambiais (Folha, 31/3/2009: 'da ordem de R$ 1,3 bilhão'), valor aproximado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200938.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "TAM anuncia prejuízo de R$ 1,3 bilhão em 2008",
+     "data": "2009-03-31",
+     "trecho": "a companhia aérea divulgou que registrou prejuízo líquido da ordem de R$ 1,3 bilhão, valor semelhante ao apurado pela sua principal rival no mercado brasileiro, a Gol.",
+     "nota": "Novo; valor aproximado ('da ordem de').",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "suzano",
+   "lucro_brl_bi": -0.451,
+   "setor": "Papel e celulose",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Suzano Papel e Celulose, prejuízo de 2008 pela desvalorização cambial (Folha, 25/3/2009).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2503200921.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Papel e celulose: Suzano registra prejuízo de R$ 451 mi",
+     "data": "2009-03-25",
+     "trecho": "A Suzano Papel e Celulose fechou 2008 com prejuízo de R$ 451 milhões, depois de registrar lucro líquido de R$ 537 milhões em 2007.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "bndes",
+   "lucro_brl_bi": 6.7,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "BNDES, 2009 (Folha, 19/2/2010: 'lucro de R$ 6,7 bilhões'), valor arredondado.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1902201018.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BNDES bate recorde em crédito e lucra R$ 6,7 bi",
+     "data": "2010-02-19",
+     "trecho": "levou o banco a registrar um lucro de R$ 6,7 bilhões no ano passado -26,8% a mais do que os R$ 5,3 bilhões de 2008.",
+     "nota": "Novo; valor arredondado.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "cemig",
+   "lucro_brl_bi": 1.86,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Cemig, 2009 (Folha, 24/3/2010: 'lucro líquido em 2009 de R$ 1,86 bilhão').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2403201009.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Resultado: Lucro da Cemig cai 1% e fica em R$ 1,86 bilhão em 2009",
+     "data": "2010-03-24",
+     "trecho": "A Cemig (Companhia Energética de Minas Gerais) apresentou lucro líquido em 2009 de R$ 1,86 bilhão",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "cielo",
+   "lucro_brl_bi": 1.534,
+   "setor": "Outros",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Cielo (ex-Visanet), 2009 (Folha, 4/2/2010).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0402201022.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Cartões: Lucro da Cielo sobe 14% em 2009",
+     "data": "2010-02-04",
+     "trecho": "A credenciadora de cartões Cielo (ex-Visanet) registrou lucro de R$ 1,534 bilhão em 2009, avanço de 14,3% ante o ano anterior.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "telemar",
+   "lucro_brl_bi": -0.436,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "nome_epoca": "Oi",
+   "obs": "Grupo Oi, prejuízo de 2009, já fundido com a Brasil Telecom (Folha, 16/3/2010).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1603201028.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telefonia: Grupo Oi tem prejuízo de R$ 436 mi em 2009",
+     "data": "2010-03-16",
+     "trecho": "O grupo Oi (telefonia móvel e fixa) teve prejuízo líquido de R$ 436 milhões para o exercício de 2009.",
+     "nota": "Novo.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 8)."
+  }
+ ],
+ "lacunas": [
+  "Petrobras 2001 (9,9) e 2002 (8,1): a Folha dá 9,867/9,86 e 8,098 (consolidado); diferenças de arredondamento, valores mantidos (fonte primária da época já no banco).",
+  "Eletrobras 2000: continua o mínimo derivado (2,27); a Folha de 2003 dá 3,3 para 2001, o que sugere ≈ 2,49 (registrado na obs).",
+  "Bradesco 2009 e AmBev 2008-2009: não apareceram nos índices da Folha.",
+  "Eletrobras 2006 (1,161), Light 2007 (1,077) e outros: fora do top 15 (lista `fora_do_corte`).",
+  "Ano de 2002 continua `completa` (decisão da rodada 6) mesmo com 14 linhas novas da Folha, entre elas o Banespa em 2º lugar: a revisar pelo dono do projeto."
+ ],
+ "nao_aplicados": [
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0602200119.htm",
+   "ano": 2000,
+   "motivo": "Embratel: o trecho só diz que o lucro cresceu 40%, sem o valor em R$; o lucro de 2000 (R$ 577 mi) vem do bloco de 2001 (fi0602200217) e já está no banco (0,577, 20-F)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1702200138.htm",
+   "ano": 2000,
+   "motivo": "Estudo de consultoria: lucro agregado de 15 grupos privados em US$ (US$ 1,7 bi), sem valores por empresa."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0202200111.htm",
+   "ano": 2000,
+   "motivo": "Banespa: prejuízo de julho a novembro de 2000 (balancete de novembro, R$ 2,11 bi no período), não o resultado anual."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2502200321.htm",
+   "ano": 2002,
+   "motivo": "AmBev: o trecho não traz o valor ('lucro quase dobra', 4º maior lucro); o banco tem 1,5103 (20-F, BR GAAP)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200402.htm",
+   "ano": 2003,
+   "motivo": "Austin Asis: lucro somado dos sete maiores bancos (R$ 13,39 bi), sem valor por banco no trecho; a queda de 38% do Banespa não dá o valor anual."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0903200519.htm",
+   "ano": 2004,
+   "motivo": "Economática: lucro agregado de nove siderúrgicas (R$ 9,852 bi), sem valores por empresa no trecho."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200507.htm",
+   "ano": 2004,
+   "motivo": "Lucros das empresas dos Estados Unidos (Departamento de Comércio); fora do ranking."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2602200603.htm",
+   "ano": 2005,
+   "motivo": "Economática: concentração do lucro de 64 companhias (R$ 21,5 bi), sem valores por empresa no trecho."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1302200715.htm",
+   "ano": 2006,
+   "motivo": "Bradesco 2006: o trecho traz o lucro 'recorrente' (R$ 6,363 bi) e 'descontadas as aquisições' R$ 5,5 bi; o banco fica com o contábil 5,054 (6-K do 4T07). A matéria só serve de confirmação de 2005 (5,514, aplicado)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200713.htm",
+   "ano": 2006,
+   "motivo": "Itaú 2006: R$ 6,19 bi é o lucro sem os efeitos extraordinários (compra do BankBoston); o contábil (queda de 17,9% sobre 5,251, ≈ 4,31) é o 4,309 do banco, confirmado pela Folha de 13/2/2008 ('aumento de 96,7%' até 8,474)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1502200707.htm",
+   "ano": 2006,
+   "motivo": "Unibanco 2006: R$ 2,21 bi é antes da amortização de ágios; o contábil 'desce a R$ 1,75 bi' é o 1,75 do banco (20-F), que já tem fonte primária."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0503200814.htm",
+   "ano": 2007,
+   "motivo": "Lucro agregado do setor bancário (101 instituições, R$ 45,39 bi), sem valores por banco no trecho."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1302200903.htm",
+   "ano": 2008,
+   "motivo": "Caixa: só resultados trimestrais (4º tri) no trecho; o anual de 2008 (≈ 3,9, já no banco) só se deriva da matéria de 2009 (-23%)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0602200915.htm",
+   "ano": 2008,
+   "motivo": "Santander 2008: R$ 2,8 bi é o lucro 'recorrente' (exclui efeitos extraordinários, inclui o Real); o banco fica com o contábil 1,581."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200926.htm",
+   "ano": 2008,
+   "motivo": "Lucros das empresas dos Estados Unidos; fora do ranking."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0502201031.htm",
+   "ano": 2009,
+   "motivo": "Santander 2009: R$ 5,508 bi '41% mais do que em 2008' implicaria ≈ R$ 3,9 bi em 2008, incompatível com o contábil (1,581) e com o recorrente (2,8) de 2008; provavelmente outra base (sem a amortização do ágio do Real). O banco fica com 1,805 (derivado da Economática)."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2602201012.htm",
+   "ano": 2009,
+   "motivo": "Gerdau e Usiminas 2009: o trecho só traz as quedas percentuais (79% e 58%), sem valores em R$."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1002201009.htm",
+   "ano": 2009,
+   "motivo": "Itaú Unibanco 2009: R$ 10,067 bi confere, dentro do arredondamento, com o 10,1 do release (fonte primária já no banco); 2008 = 10,004 (pró-forma) também confere."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0103200020.htm",
+   "ano": 1998,
+   "motivo": "CSN 1998: só derivável (lucro de 1999 '29% abaixo' do de 1998 ≈ R$ 468 mi), não literal; a linha de 1998 fica com 0,435 (BNDES). O valor de 1999 foi aplicado."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3003200014.htm",
+   "ano": 1998,
+   "motivo": "Caixa 1998: só derivável (1999 'apenas 2% superior ao de 98' ≈ R$ 387 mi), não literal. O valor de 1999 foi aplicado."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200015.htm",
+   "ano": 1998,
+   "motivo": "Banco Real 1998: só derivável (1999 '24% maior' ≈ R$ 204 mi), não literal. O valor de 1999 foi aplicado."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200211.htm",
+   "ano": 2000,
+   "motivo": "Embraer 2000: só derivável (2001 '70,5% superior' ≈ R$ 645 mi), não literal. O valor de 2001 foi aplicado."
+  }
+ ],
+ "fora_do_corte": [
+  {
+   "ano": 2000,
+   "entidade": "Eletropaulo",
+   "lucro_brl_bi": 0.2389,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1603200120.htm",
+   "motivo": "17º lucro do ano: fora do top 15."
+  },
+  {
+   "ano": 2004,
+   "entidade": "Braskem",
+   "lucro_brl_bi": 0.69,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1702200524.htm",
+   "motivo": "18º lucro do ano: fora do top 15."
+  },
+  {
+   "ano": 2006,
+   "entidade": "Eletrobras",
+   "lucro_brl_bi": 1.161,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3003200731.htm",
+   "motivo": "16º lucro do ano: fora do top 15."
+  },
+  {
+   "ano": 2006,
+   "entidade": "Embraer",
+   "lucro_brl_bi": 0.6217,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200823.htm",
+   "motivo": "Fora do top 15 (comparativo do balanço de 2007)."
+  },
+  {
+   "ano": 2006,
+   "entidade": "Light",
+   "lucro_brl_bi": -0.1505,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200832.htm",
+   "motivo": "Prejuízo abaixo do corte de R$ 0,2 bi."
+  },
+  {
+   "ano": 2007,
+   "entidade": "Light",
+   "lucro_brl_bi": 1.077,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200832.htm",
+   "motivo": "16º lucro do ano: fora do top 15 (lucro inflado pela reversão de créditos fiscais de R$ 851 mi)."
+  },
+  {
+   "ano": 2007,
+   "entidade": "Aracruz",
+   "lucro_brl_bi": 1.04,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2803200917.htm",
+   "motivo": "Fora do top 15 (comparativo do balanço de 2008)."
+  },
+  {
+   "ano": 2007,
+   "entidade": "Embraer",
+   "lucro_brl_bi": 0.657,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200823.htm",
+   "motivo": "Fora do top 15."
+  },
+  {
+   "ano": 2007,
+   "entidade": "Braskem",
+   "lucro_brl_bi": 0.642,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0603200916.htm",
+   "motivo": "Fora do top 15 (comparativo do balanço de 2008)."
+  },
+  {
+   "ano": 2007,
+   "entidade": "Suzano",
+   "lucro_brl_bi": 0.537,
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2503200921.htm",
+   "motivo": "Fora do top 15 (comparativo do balanço de 2008)."
+  }
+ ],
+ "confirmados": [
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200221.htm",
+   "ano": 2001,
+   "titulo": "Telecomunicações: Telemar lucra R$ 140,4 milhões",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0503200217.htm",
+   "ano": 2001,
+   "titulo": "Empresas: Em ano fraco, lucro da AmBev sobe 67%",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0602200217.htm",
+   "ano": 2001,
+   "titulo": "Telecomunicações: Embratel tem prejuízo de R$ 554 milhões",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0603200203.htm",
+   "ano": 2001,
+   "titulo": "Finanças: Itaú supera o líder Bradesco no lucro e na rentabilidade",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2202200216.htm",
+   "ano": 2001,
+   "titulo": "Bancos: Unibanco tem lucro recorde de R$ 972 mi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200209.htm",
+   "ano": 2001,
+   "titulo": "Resultados: Juros e tarifas fazem BB ter lucro de R$ 1,08 bi em 2001",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1202200306.htm",
+   "ano": 2002,
+   "titulo": "Bancos: Lucro do BB sobe 87% e vai a R$ 2 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1203200331.htm",
+   "ano": 2002,
+   "titulo": "Bancos: Itaú lucra R$ 2,37 bi e é 2º lugar em 2002",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200323.htm",
+   "ano": 2002,
+   "titulo": "Energia: Petrobras tem lucro 18% menor em 2002",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0302200415.htm",
+   "ano": 2003,
+   "titulo": "Finanças: Bradesco lucra R$ 2,3 bi em 2003",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0402200425.htm",
+   "ano": 2003,
+   "titulo": "Telefonia: Embratel sai do vermelho e lucra R$ 224 mi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1302200415.htm",
+   "ano": 2003,
+   "titulo": "Bancos: Com real forte, lucro do Unibanco cresce só 4%",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200402.htm",
+   "ano": 2003,
+   "titulo": "Exuberância nacional: Lucro da Petrobras dobra e é o maior do país",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200404.htm",
+   "ano": 2003,
+   "titulo": "Itaú obtém maior lucro da história",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200429.htm",
+   "ano": 2003,
+   "titulo": "Telefonia: Telesp Celular tem prejuízo de R$ 640 mi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0102200511.htm",
+   "ano": 2004,
+   "titulo": "Exuberância nacional: Bradesco tem lucro recorde de R$ 3,06 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0303200533.htm",
+   "ano": 2004,
+   "titulo": "Bebidas: AmBev amplia vendas, mas lucra menos",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200534.htm",
+   "ano": 2004,
+   "titulo": "Balanços: Lucro do Unibanco sobe 22% e vai a R$ 1,3 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2302200511.htm",
+   "ano": 2004,
+   "titulo": "Balanços: Itaú tem lucro recorde na história dos bancos",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2602200508.htm",
+   "ano": 2004,
+   "titulo": "Balanços: Recorde, lucro da Petrobras cresce só 0,37%",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0703200611.htm",
+   "ano": 2005,
+   "titulo": "Balanços: Lucro da Vale sobe 62% e vai a R$ 10,4 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1702200613.htm",
+   "ano": 2005,
+   "titulo": "Bancos: Unibanco tem lucro recorde de R$ 1,8 bi em 2005",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200602.htm",
+   "ano": 2005,
+   "titulo": "Lucro da Petrobras sobe 40% e vai a R$ 23,7 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2202200624.htm",
+   "ano": 2005,
+   "titulo": "Sistema financeiro: Itaú registra lucro recorde de R$ 5,25 bilhões",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2402200629.htm",
+   "ano": 2005,
+   "titulo": "Indústria: Brasileiro bebe mais e eleva lucro da AmBev",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200728.htm",
+   "ano": 2006,
+   "titulo": "AmBev lucra mais e leva InBev a ser 1ª do mundo",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0803200715.htm",
+   "ano": 2006,
+   "titulo": "Lucro da Vale aumenta 29% e chega a R$ 13,4 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200702.htm",
+   "ano": 2006,
+   "titulo": "Aumento de custos na produção segura lucro da Petrobras",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2402200710.htm",
+   "ano": 2006,
+   "titulo": "Balanço: Lucro da Telefônica sobe 11% e atinge R$ 2,8 bi em 2006",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0403200802.htm",
+   "ano": 2007,
+   "titulo": "Lucro da Petrobras recua 17% em 2007",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1103200816.htm",
+   "ano": 2007,
+   "titulo": "Lucro da CSN cresce 150% e atinge recorde de R$ 2,9 bi em 2007",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1502200824.htm",
+   "ano": 2007,
+   "titulo": "Lucro do Unibanco dobra e vai a R$ 3,45 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2002200833.htm",
+   "ano": 2007,
+   "titulo": "Lucro da Telefônica cai 16% e fica em R$ 2,36 bi em 2007",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200820.htm",
+   "ano": 2007,
+   "titulo": "Vale alcança lucro recorde de R$ 20 bi",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi0302200913.htm",
+   "ano": 2008,
+   "titulo": "Lucro do Bradesco cai com maior provisão contra calote",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200930.htm",
+   "ano": 2008,
+   "titulo": "Teles 2: Telefônica tem lucro de R$ 2,4 bi em 2008",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2002200915.htm",
+   "ano": 2008,
+   "titulo": "Lucro da Vale tem queda de 16% no 4º trimestre",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2602200916.htm",
+   "ano": 2008,
+   "titulo": "Juntos, os dois bancos lucram R$ 10 bi em 2008",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1102201025.htm",
+   "ano": 2009,
+   "titulo": "Lucro da Vale recua 52% em 2009, na 1ª queda em 7 anos",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1202201027.htm",
+   "ano": 2009,
+   "titulo": "Telefônica tem queda de 10% no lucro",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  },
+  {
+   "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi3103201018.htm",
+   "ano": 2009,
+   "titulo": "Balanço: Lucro da Eletrobras recua 97% em 2009",
+   "motivo": "Confirma o valor do banco (igual ou dentro do arredondamento), que já tem fonte primária ou imprensa da época; não ligada para não duplicar."
+  }
+ ]
+}

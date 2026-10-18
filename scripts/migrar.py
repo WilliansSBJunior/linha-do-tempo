@@ -808,6 +808,8 @@ def main(destino=SQLITE, pular=(), escrever=True):
         {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}
     R["ranking_corr7"] = curadoria.aplicar_ranking_empresa_correcoes(con, curadoria.ARQ_RANKING_CORR_R7) if "ranking_correcoes" not in pular else \
         {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}   # rodada 7: depois da 6, sobre o que ela gravou
+    R["ranking_corr8"] = curadoria.aplicar_ranking_empresa_correcoes(con, curadoria.ARQ_RANKING_CORR_R8) if "ranking_correcoes" not in pular else \
+        {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}   # rodada 8: depois da 7 (Folha, 1997-2009)
     R["evento_corr"] = curadoria.aplicar_evento_correcoes(con)      # à mão; decisões sobre as ressalvas das evidências adicionais; antes dos temas (leem título/descrição)
     R["relacao_corr"] = curadoria.aplicar_relacao_correcoes(con)
     R["evid_qualidade"] = curadoria.aplicar_evidencia_qualidade(con)   # à mão; revisão do critério 'fraca'; depois de tudo que grava qualidade
@@ -1206,6 +1208,49 @@ def secoes_modelo(con, R, w):
     # ---------------------------------------------------------------- 23
     secao_rodada6(con, R, w)
     secao_rodada7(con, R, w)
+    secao_rodada8(con, R, w)
+
+
+def secao_rodada8(con, R, w):
+    """Seção 25: rodada 8 (ranking de lucros 1997-2009, Folha; ranking-empresa-correcoes-r8.json, aplicado depois da rodada 7)."""
+    q = lambda s, *a: con.execute(s, a).fetchall()
+    rk = R.get("ranking_corr8") or {}
+    if not (rk.get("atualizadas") or rk.get("inseridas")):
+        return
+    cfg = curadoria.ler_json(curadoria.ARQ_RANKING_CORR_R8, {})
+    novas = [n["id"] for n in curadoria.ler_json("entidades-adicionais.json", {}).get("entidades", []) if "r8" in (n.get("motivo") or "")]
+    w("\n## 25. Rodada 8: ranking de lucros de 1997-2009 com a Folha de S.Paulo\n")
+    w("Arquivo à mão: `ranking-empresa-correcoes-r8.json` (mesmo formato das rodadas 6 e 7, aplicado por `curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R8)` "
+      "logo depois da 7; `gerar_curadoria.py` também o pula no banco temporário). Material: 145 blocos de texto literal de matérias da Folha (acervo `fsp`, 1999-2010) e 4 matérias "
+      "de resultados de 1998. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época; reapresentações, IFRS, US GAAP e lucro 'recorrente' "
+      "só como contexto. Atualiza onde a Folha diverge além do arredondamento ou onde o banco tinha valor derivado/aproximado; insere as empresas que entram no top 15 de lucros "
+      "do ano (e prejuízos de R$ 0,2 bi ou mais); onde o valor já era igual, a Folha só é ligada (`sustenta`) se a fonte do banco não era imprensa nem documento primário da época, "
+      "e passa a principal onde a principal era a Wikipédia. Nomes de época por `nome_epoca` (Banespa e Santander Banespa em `santander-brasil`, ABN Amro Real em `banco-real`, "
+      "Oi em `telemar`, Telesp em `telefonica-brasil`). Entidades novas em `entidades-adicionais.json`: " + ", ".join(f"`{i}`" for i in novas) + ". "
+      "A cobertura dos anos não muda: a Folha não é ranking fechado.\n")
+    w("| ano | linhas | inseridas | valor atualizado | só fonte/obs | 1º lugar |\n|---|---:|---:|---:|---:|---|")
+    for a in sorted({x["ano"] for x in rk["inseridas"] + rk["atualizadas"]}):
+        at = [x for x in rk["atualizadas"] if x["ano"] == a]
+        p1 = q("SELECT entidade_id, lucro_brl_bi FROM ranking_empresa WHERE ano=? AND posicao=1", a)[0]
+        w(f"| {a} | {q('SELECT count(*) FROM ranking_empresa WHERE ano=?', a)[0][0]} | {sum(1 for x in rk['inseridas'] if x['ano'] == a)} | "
+          f"{sum(1 for x in at if 'lucro_brl_bi' in x['campos'])} | {sum(1 for x in at if 'lucro_brl_bi' not in x['campos'])} | `{p1[0]}` ({p1[1]}) |")
+    w("\n| ano | empresa | o que mudou | fonte principal |\n|---|---|---|---|")
+    princ = lambda a, e: q("SELECT v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", a, e)[0][0]
+    for x in sorted(rk["inseridas"] + rk["atualizadas"], key=lambda x: (x["ano"], x["entidade_id"])):
+        if "campos" in x:
+            o = "; ".join(f"{k} {v['de']} -> {v['para']}" for k, v in x["campos"].items() if k != "obs") + ("; obs" if "obs" in x["campos"] else "")
+            o = o.strip("; ") or "só fonte"
+        else:
+            o = f"**inserida** ({x['lucro_brl_bi']}" + (f", nome da época {x['nome_epoca']}" if x.get("nome_epoca") else "") + ")"
+        w(f"| {x['ano']} | `{x['entidade_id']}` | {o} | {princ(x['ano'], x['entidade_id'])} |")
+    w("\nPosições que mudaram (`entidade`: antes -> depois; as inseridas entram direto na posição final):\n")
+    for a in sorted(rk["posicoes"]):
+        w(f"- {a}: " + ", ".join(f"`{e}` {p0} -> {p1}" for e, p0, p1 in rk["posicoes"][a]))
+    w(f"\n{rk['ligacoes']} ligações novas em `ranking_evidencia` ({len(rk['evid_novas'])} evidências novas). Registro no arquivo: "
+      f"{len(cfg.get('nao_aplicados', []))} blocos `nao_aplicados` (sem o número anual claro, agregados, 'recorrente' ou outra base), "
+      f"{len(cfg.get('fora_do_corte', []))} valores `fora_do_corte` (abaixo do 15º lucro do ano ou prejuízo menor que R$ 0,2 bi) e "
+      f"{len(cfg.get('confirmados', []))} blocos `confirmados` (valor igual ao do banco, que já tinha fonte primária ou imprensa da época). Lacunas: "
+      + " ".join(f"({i + 1}) {t}" for i, t in enumerate(cfg.get("lacunas", []))) + "\n")
 
 
 def secao_rodada7(con, R, w):

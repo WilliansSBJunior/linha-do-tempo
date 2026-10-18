@@ -29,10 +29,10 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 395 |
+| entidade | 403 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 197 |
-| entidade_alias | 514 |
+|   extras (timeline/pares) | 205 |
+| entidade_alias | 531 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
@@ -43,14 +43,14 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 917 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1598 |
+| evidencia | 1685 |
 | relacao_evidencia | 1266 |
 | evento_evidencia | 3229 |
 | evento_entidade | 935 |
-| nota | 550 |
+| nota | 567 |
 | indicador | 83 |
 | serie | 6837 |
-| ranking_empresa | 413 |
+| ranking_empresa | 485 |
 | mandato | 317 |
 | bancada | 634 |
 | entidade_valor | 14 |
@@ -414,7 +414,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1598 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1685 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -574,7 +574,7 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | tema | relações | eventos | entidades |
 |---|---|---|---|
 | `caso-master` (Caso Master) | 367 | 215 | 212 |
-| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 210 |
+| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 218 |
 | `pares` (Comparação de países) | 0 | 0 | 10 |
 | `violencia` (Violência) | 0 | 10 | 1 |
 | `inss` (INSS) | 17 | 14 | 26 |
@@ -854,7 +854,7 @@ Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` po
 
 ## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024
 
-Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
+Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
 
 ### Ranking de empresas
 
@@ -864,11 +864,11 @@ Base do ranking: lucro líquido em R$ pela legislação societária (BR GAAP); U
 |---|---|---:|---:|---:|---:|
 | 1995 | fraca -> parcial | 13 | 6 | 1 | 1 |
 | 1996 | fraca -> parcial | 17 | 3 | 4 | 1 |
-| 1997 | fraca -> parcial | 16 | 1 | 3 | 2 |
-| 1998 | parcial | 13 | 0 | 2 | 4 |
-| 1999 | parcial | 13 | 0 | 1 | 1 |
-| 2002 | parcial -> completa | 11 | 0 | 0 | 3 |
-| 2008 | parcial | 13 | 0 | 0 | 1 |
+| 1997 | fraca -> parcial | 18 | 1 | 3 | 2 |
+| 1998 | parcial | 15 | 0 | 2 | 4 |
+| 1999 | parcial | 18 | 0 | 1 | 1 |
+| 2002 | parcial -> completa | 24 | 0 | 0 | 3 |
+| 2008 | parcial | 20 | 0 | 0 | 1 |
 | 2013 | parcial | 15 | 1 | 1 | 1 |
 | 2014 | parcial | 16 | 1 | 0 | 0 |
 | 2015 | parcial | 15 | 0 | 0 | 13 |
@@ -900,7 +900,7 @@ Base do ranking: lucro líquido em R$ pela legislação societária (BR GAAP); U
 | 1997 | `vale` | só fontes | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
 | 1998 | `bradesco` | lucro_brl_bi 0.539 -> 1.014; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi04039921.htm |
 | 1998 | `embratel` | só fontes | https://teletime.com.br/16/04/1999/embratel-divulga-resultados-do-exercicio-de-1998 |
-| 1998 | `itau-unibanco` | só fontes | https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2 |
+| 1998 | `itau-unibanco` | só fontes | https://www1.folha.uol.com.br/fsp/dinheiro/fi23029921.htm |
 | 1998 | `petrobras` | lucro_brl_bi 1.4 -> 1.433; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi1502200020.htm |
 | 1998 | `unibanco` | só fontes | https://www.sec.gov/Archives/edgar/data/0001038583/000103858303000017/form20f.htm |
 | 1998 | `vale` | só fontes | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
@@ -994,4 +994,152 @@ Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto 
 - 1997: `acominas` 14 -> 15, `banco-real` 11 -> 12, `cosipa` 15 -> 16, `cst` 13 -> 14, `gerdau` 12 -> 13
 
 17 ligações novas em `ranking_evidencia` (9 evidências novas). Lacunas registradas no arquivo: (1) Petrobras 1997 (R$ societário) (2) Eletrobras 1997 (não achada nos índices de fev–mai/1998) (3) Telebrás 1995 (4) Light 1995–97 anual (só 1º tri/97 e /98) (5) Banco Real 1995–97 (só ganho FCVS 1996) (6) Telebrás 1996: só a manchete da matéria foi aberta (o trecho é a própria manchete); não se distingue consolidado de controladora.
+
+
+## 25. Rodada 8: ranking de lucros de 1997-2009 com a Folha de S.Paulo
+
+Arquivo à mão: `ranking-empresa-correcoes-r8.json` (mesmo formato das rodadas 6 e 7, aplicado por `curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R8)` logo depois da 7; `gerar_curadoria.py` também o pula no banco temporário). Material: 145 blocos de texto literal de matérias da Folha (acervo `fsp`, 1999-2010) e 4 matérias de resultados de 1998. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época; reapresentações, IFRS, US GAAP e lucro 'recorrente' só como contexto. Atualiza onde a Folha diverge além do arredondamento ou onde o banco tinha valor derivado/aproximado; insere as empresas que entram no top 15 de lucros do ano (e prejuízos de R$ 0,2 bi ou mais); onde o valor já era igual, a Folha só é ligada (`sustenta`) se a fonte do banco não era imprensa nem documento primário da época, e passa a principal onde a principal era a Wikipédia. Nomes de época por `nome_epoca` (Banespa e Santander Banespa em `santander-brasil`, ABN Amro Real em `banco-real`, Oi em `telemar`, Telesp em `telefonica-brasil`). Entidades novas em `entidades-adicionais.json`: `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`. A cobertura dos anos não muda: a Folha não é ranking fechado.
+
+| ano | linhas | inseridas | valor atualizado | só fonte/obs | 1º lugar |
+|---|---:|---:|---:|---:|---|
+| 1997 | 18 | 2 | 0 | 1 | `telebras` (3.9) |
+| 1998 | 15 | 2 | 1 | 0 | `petrobras` (1.433) |
+| 1999 | 18 | 5 | 3 | 1 | `itau-unibanco` (1.869) |
+| 2000 | 16 | 4 | 3 | 2 | `petrobras` (9.942) |
+| 2001 | 21 | 8 | 3 | 1 | `petrobras` (9.9) |
+| 2002 | 24 | 13 | 0 | 1 | `petrobras` (8.1) |
+| 2003 | 19 | 5 | 1 | 1 | `petrobras` (17.795) |
+| 2004 | 19 | 8 | 1 | 2 | `petrobras` (17.861) |
+| 2005 | 15 | 5 | 1 | 1 | `petrobras` (23.725) |
+| 2006 | 15 | 5 | 1 | 2 | `petrobras` (25.919) |
+| 2007 | 15 | 4 | 1 | 3 | `petrobras` (21.512) |
+| 2008 | 20 | 7 | 1 | 0 | `petrobras` (33.9) |
+| 2009 | 15 | 4 | 1 | 2 | `petrobras` (28.982) |
+
+| ano | empresa | o que mudou | fonte principal |
+|---|---|---|---|
+| 1997 | `petrobras` | **inserida** (1.53) | https://www1.folha.uol.com.br/fsp/dinheiro/fi13029916.htm |
+| 1997 | `santander-brasil` | **inserida** (2.0, nome da época Banespa) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1602200004.htm |
+| 1997 | `souza-cruz` | só fonte | https://www1.folha.uol.com.br/fsp/dinheiro/fi03029808.htm |
+| 1998 | `banco-do-brasil` | **inserida** (0.87) | https://www1.folha.uol.com.br/fsp/dinheiro/fi09029909.htm |
+| 1998 | `itau-unibanco` | lucro_brl_bi 0.963 -> 0.88; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi23029921.htm |
+| 1998 | `souza-cruz` | **inserida** (0.4805) | https://www1.folha.uol.com.br/fsp/dinheiro/fi05029918.htm |
+| 1999 | `banco-real` | **inserida** (0.253) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200015.htm |
+| 1999 | `bndes` | **inserida** (0.682) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1003200113.htm |
+| 1999 | `bradesco` | lucro_brl_bi 0.744 -> 1.105; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0102200015.htm |
+| 1999 | `caixa` | **inserida** (0.3945) | https://www1.folha.uol.com.br/fsp/dinheiro/fi3003200014.htm |
+| 1999 | `csn` | lucro_brl_bi 0.197 -> 0.332; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0103200020.htm |
+| 1999 | `eletropaulo` | **inserida** (0.4044) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1603200120.htm |
+| 1999 | `furnas` | **inserida** (0.334) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1303200137.htm |
+| 1999 | `itau-unibanco` | lucro_brl_bi 1.955 -> 1.869; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi1602200004.htm |
+| 1999 | `vale` | só fonte | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
+| 2000 | `banco-real` | **inserida** (0.6492, nome da época ABN Amro Real) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0903200204.htm |
+| 2000 | `bndes` | **inserida** (0.8666) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1003200113.htm |
+| 2000 | `bradesco` | lucro_brl_bi 1.799 -> 1.74; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0602200118.htm |
+| 2000 | `csn` | lucro_brl_bi 0.5 -> 1.6; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200214.htm |
+| 2000 | `eletrobras` | obs | https://brasilenergia.com.br/petroleoegas/arquivo/lucro-da-eletrobras-em-2001-cresce-324-e-supera-os-r-3-bilhoes |
+| 2000 | `furnas` | **inserida** (0.629) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1303200137.htm |
+| 2000 | `petrobras` | lucro_brl_bi 9.8 -> 9.942; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi1702200133.htm |
+| 2000 | `telefonica-brasil` | **inserida** (1.47, nome da época Telesp) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200210.htm |
+| 2000 | `vale` | só fonte | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
+| 2001 | `banco-real` | **inserida** (0.7843, nome da época ABN Amro Real) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0903200204.htm |
+| 2001 | `bradesco` | lucro_brl_bi 2.27 -> 2.17; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0502200230.htm |
+| 2001 | `caixa` | **inserida** (-4.687) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1203200221.htm |
+| 2001 | `cesp` | **inserida** (-0.813) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1503200302.htm |
+| 2001 | `csn` | lucro_brl_bi 1.24 -> 0.296; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200214.htm |
+| 2001 | `eletrobras` | lucro_brl_bi 3.0 -> 3.3; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200315.htm |
+| 2001 | `eletropaulo` | **inserida** (0.567) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2603200315.htm |
+| 2001 | `embraer` | **inserida** (1.1) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200211.htm |
+| 2001 | `light` | **inserida** (-0.951) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200326.htm |
+| 2001 | `santander-brasil` | **inserida** (1.089, nome da época Banespa) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2302200223.htm |
+| 2001 | `telefonica-brasil` | **inserida** (1.576, nome da época Telesp) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200210.htm |
+| 2001 | `vale` | só fonte | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
+| 2002 | `banco-real` | **inserida** (1.208, nome da época ABN Amro Real) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1402200309.htm |
+| 2002 | `brasil-telecom-participacoes` | **inserida** (0.443) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2102200308.htm |
+| 2002 | `caixa` | **inserida** (1.081) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0103200312.htm |
+| 2002 | `cesp` | **inserida** (-3.417) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1503200302.htm |
+| 2002 | `csn` | **inserida** (-0.219) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200320.htm |
+| 2002 | `eletrobras` | **inserida** (1.1) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1403200315.htm |
+| 2002 | `eletropaulo` | **inserida** (-0.871) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2603200315.htm |
+| 2002 | `embraer` | **inserida** (1.179) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200319.htm |
+| 2002 | `klabin` | **inserida** (-0.208) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200425.htm |
+| 2002 | `light` | **inserida** (-1.255) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2703200326.htm |
+| 2002 | `santander-brasil` | **inserida** (2.8, nome da época Banespa) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0402200322.htm |
+| 2002 | `telefonica-brasil` | **inserida** (1.076, nome da época Telesp) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1202200311.htm |
+| 2002 | `usiminas` | **inserida** (-0.321) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0503200417.htm |
+| 2002 | `vale` | só fonte | https://www.maxwell.vrac.puc-rio.br/6590/6590_5.PDF |
+| 2003 | `bndes` | **inserida** (1.038) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2603200424.htm |
+| 2003 | `caixa` | **inserida** (1.616) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1202200409.htm |
+| 2003 | `csn` | lucro_brl_bi 1.63 -> 1.031; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200531.htm |
+| 2003 | `eletrobras` | **inserida** (0.323) | https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200425.htm |
+| 2003 | `klabin` | **inserida** (1.0) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200425.htm |
+| 2003 | `usiminas` | **inserida** (1.3) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0503200417.htm |
+| 2003 | `vale` | só fonte | https://www.maxwell.vrac.puc-rio.br/6590/6590_5.PDF |
+| 2004 | `banco-do-brasil` | obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2202200517.htm |
+| 2004 | `belgo-mineira` | **inserida** (1.291) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200531.htm |
+| 2004 | `bndes` | **inserida** (1.498) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200616.htm |
+| 2004 | `cst` | **inserida** (1.624) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0203200531.htm |
+| 2004 | `eletrobras` | **inserida** (1.29) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2303200613.htm |
+| 2004 | `embratel` | **inserida** (-0.3393) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0202200531.htm |
+| 2004 | `gerdau` | lucro_brl_bi 3.38 -> 3.235; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0202200514.htm |
+| 2004 | `santander-brasil` | **inserida** (1.75, nome da época Santander Banespa) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200616.htm |
+| 2004 | `telesp-celular-participacoes` | **inserida** (-0.4902) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200519.htm |
+| 2004 | `usiminas` | **inserida** (3.019) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2602200513.htm |
+| 2004 | `vale` | só fonte | https://monitormercantil.com.br/perdas-do-estado-na-privatizauuo-das-estatais-o-caso-vale |
+| 2005 | `banco-do-brasil` | obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2102200602.htm |
+| 2005 | `banco-real` | **inserida** (1.4, nome da época ABN Amro Real) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200722.htm |
+| 2005 | `bndes` | **inserida** (3.202) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1802200616.htm |
+| 2005 | `bradesco` | lucro_brl_bi 5.5 -> 5.514; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2302200608.htm |
+| 2005 | `eletrobras` | **inserida** (0.9746) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2303200613.htm |
+| 2005 | `santander-brasil` | **inserida** (1.643, nome da época Santander Banespa) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200616.htm |
+| 2005 | `usiminas` | **inserida** (3.91) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0703200728.htm |
+| 2006 | `banco-do-brasil` | obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2802200730.htm |
+| 2006 | `banco-real` | **inserida** (2.0, nome da época ABN Amro Real) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0902200722.htm |
+| 2006 | `bndes` | **inserida** (6.331) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200822.htm |
+| 2006 | `caixa` | só fonte | https://www.brasil247.com/?p=626399 |
+| 2006 | `csn` | **inserida** (1.2) | https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200726.htm |
+| 2006 | `gerdau` | lucro_brl_bi 3.547 -> 3.492; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0802200721.htm |
+| 2006 | `telemar` | **inserida** (1.3) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0903200719.htm |
+| 2006 | `usiminas` | **inserida** (2.51) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0703200728.htm |
+| 2007 | `ambev` | lucro_brl_bi 5.003 -> 2.8; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200822.htm |
+| 2007 | `banco-do-brasil` | obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2702200840.htm |
+| 2007 | `banco-real` | **inserida** (2.975, nome da época ABN Amro Real) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200823.htm |
+| 2007 | `bndes` | **inserida** (7.314) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1902200822.htm |
+| 2007 | `caixa` | só fonte | https://monitormercantil.com.br/?p=105425 |
+| 2007 | `itau-unibanco` | só fonte | https://jornaldaparaiba.com.br/_/116258 |
+| 2007 | `santander-brasil` | **inserida** (1.86) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200823.htm |
+| 2007 | `telemar` | **inserida** (2.358, nome da época Oi) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2902200832.htm |
+| 2008 | `aracruz` | **inserida** (-4.19) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2803200917.htm |
+| 2008 | `bndes` | **inserida** (5.3) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1702200904.htm |
+| 2008 | `braskem` | **inserida** (-2.49) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0603200916.htm |
+| 2008 | `cemig` | **inserida** (1.88) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2403201009.htm |
+| 2008 | `petrobras` | lucro_brl_bi 32.988 -> 33.9; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi0703200908.htm |
+| 2008 | `suzano` | **inserida** (-0.451) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2503200921.htm |
+| 2008 | `tam` | **inserida** (-1.3) | https://www1.folha.uol.com.br/fsp/dinheiro/fi3103200938.htm |
+| 2008 | `telemar` | **inserida** (1.2, nome da época Oi) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0603200926.htm |
+| 2009 | `banco-do-brasil` | obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2602201002.htm |
+| 2009 | `bndes` | **inserida** (6.7) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1902201018.htm |
+| 2009 | `caixa` | só fonte | https://www.brasil247.com/?p=626399 |
+| 2009 | `cemig` | **inserida** (1.86) | https://www1.folha.uol.com.br/fsp/dinheiro/fi2403201009.htm |
+| 2009 | `cielo` | **inserida** (1.534) | https://www1.folha.uol.com.br/fsp/dinheiro/fi0402201022.htm |
+| 2009 | `csn` | lucro_brl_bi 2.598 -> 2.6; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi2702201022.htm |
+| 2009 | `telemar` | **inserida** (-0.436, nome da época Oi) | https://www1.folha.uol.com.br/fsp/dinheiro/fi1603201028.htm |
+
+Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto na posição final):
+
+- 1997: `acominas` 15 -> 17, `banco-do-brasil` 5 -> 7, `banco-real` 12 -> 14, `bradesco` 2 -> 4, `brahma` 7 -> 9, `cosipa` 16 -> 18, `csn` 8 -> 10, `cst` 14 -> 16, `embratel` 6 -> 8, `gerdau` 13 -> 15, `itau-unibanco` 4 -> 6, `souza-cruz` 11 -> 13, `unibanco` 9 -> 11, `usiminas` 10 -> 12, `vale` 3 -> 5
+- 1998: `acesita` 11 -> 13, `acos-villares` 13 -> 15, `cosipa` 12 -> 14, `csn` 7 -> 9, `embratel` 10 -> 12, `gerdau` 9 -> 11, `unibanco` 6 -> 8, `usiminas` 8 -> 10
+- 1999: `acesita` 11 -> 16, `acos-villares` 13 -> 18, `banco-do-brasil` 4 -> 5, `bradesco` 5 -> 4, `csn` 9 -> 12, `cst` 12 -> 17, `gerdau` 7 -> 10, `telesp-celular-participacoes` 10 -> 15, `unibanco` 6 -> 7, `usiminas` 8 -> 13
+- 2000: `ambev` 11 -> 15, `banco-do-brasil` 6 -> 8, `csn` 10 -> 6, `embratel` 9 -> 14, `gerdau` 12 -> 16, `telemar` 8 -> 11, `unibanco` 7 -> 10
+- 2001: `ambev` 9 -> 11, `banco-do-brasil` 7 -> 9, `csn` 6 -> 15, `eletrobras` 3 -> 2, `embratel` 13 -> 21, `gerdau` 10 -> 14, `telemar` 11 -> 16, `telesp-celular-participacoes` 12 -> 18, `unibanco` 8 -> 10, `vale` 2 -> 3
+- 2002: `ambev` 6 -> 7, `banco-do-brasil` 4 -> 5, `bradesco` 5 -> 6, `embratel` 10 -> 20, `gerdau` 8 -> 14, `itau-unibanco` 2 -> 3, `telemar` 11 -> 21, `telesp-celular-participacoes` 9 -> 18, `unibanco` 7 -> 13, `vale` 3 -> 4
+- 2003: `brasil-telecom-participacoes` 14 -> 19, `csn` 6 -> 13, `embratel` 11 -> 16, `telemar` 12 -> 17, `telesp-celular-participacoes` 13 -> 18, `unibanco` 10 -> 11
+- 2004: `ambev` 10 -> 16, `csn` 8 -> 9, `telefonica-brasil` 7 -> 8, `telemar` 11 -> 17, `unibanco` 9 -> 15
+- 2005: `ambev` 10 -> 13, `caixa` 8 -> 10, `gerdau` 6 -> 7, `telefonica-brasil` 7 -> 9, `unibanco` 9 -> 11
+- 2006: `ambev` 8 -> 9, `banco-do-brasil` 3 -> 4, `bradesco` 4 -> 5, `caixa` 9 -> 11, `gerdau` 6 -> 7, `itau-unibanco` 5 -> 6, `telefonica-brasil` 7 -> 8, `unibanco` 10 -> 13
+- 2007: `ambev` 6 -> 11, `banco-do-brasil` 5 -> 6, `caixa` 10 -> 12, `csn` 9 -> 10, `telefonica-brasil` 11 -> 13
+- 2008: `ambev` 8 -> 9, `caixa` 10 -> 11, `gerdau` 9 -> 10, `sadia` 13 -> 18, `santander-brasil` 12 -> 14, `telefonica-brasil` 11 -> 12
+- 2009: `ambev` 6 -> 7, `caixa` 7 -> 8, `csn` 8 -> 9, `eletrobras` 11 -> 14, `santander-brasil` 10 -> 12, `telefonica-brasil` 9 -> 10
+
+137 ligações novas em `ranking_evidencia` (87 evidências novas). Registro no arquivo: 22 blocos `nao_aplicados` (sem o número anual claro, agregados, 'recorrente' ou outra base), 10 valores `fora_do_corte` (abaixo do 15º lucro do ano ou prejuízo menor que R$ 0,2 bi) e 41 blocos `confirmados` (valor igual ao do banco, que já tinha fonte primária ou imprensa da época). Lacunas: (1) Petrobras 2001 (9,9) e 2002 (8,1): a Folha dá 9,867/9,86 e 8,098 (consolidado); diferenças de arredondamento, valores mantidos (fonte primária da época já no banco). (2) Eletrobras 2000: continua o mínimo derivado (2,27); a Folha de 2003 dá 3,3 para 2001, o que sugere ≈ 2,49 (registrado na obs). (3) Bradesco 2009 e AmBev 2008-2009: não apareceram nos índices da Folha. (4) Eletrobras 2006 (1,161), Light 2007 (1,077) e outros: fora do top 15 (lista `fora_do_corte`). (5) Ano de 2002 continua `completa` (decisão da rodada 6) mesmo com 14 linhas novas da Folha, entre elas o Banespa em 2º lugar: a revisar pelo dono do projeto.
 
