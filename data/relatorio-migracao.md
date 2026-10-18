@@ -43,7 +43,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 907 |
 | evento_tema | 631 |
 | fonte (era video) | 0 |
-| evidencia | 1486 |
+| evidencia | 1494 |
 | relacao_evidencia | 1238 |
 | evento_evidencia | 3175 |
 | evento_entidade | 935 |
@@ -53,6 +53,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | ranking_empresa | 397 |
 | mandato | 311 |
 | bancada | 634 |
+| entidade_valor | 14 |
 
 Eventos por canal:
 
@@ -409,7 +410,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1486 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1494 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -605,3 +606,37 @@ Dados migrados: a tabela `video` estava vazia (0 linhas), então não houve conv
 - Mandatos sem órgão resolvido: 0.
 
 Entidades da teia que aparecem na timeline (as 10 fusões da seção 5 mais as ligadas por eventos `brasil`): 20, todas em `brasil-ano-a-ano` **e** `caso-master` pela view: `alexandre-de-moraes`, `bcb`, `btg-pactual`, `davi-alcolumbre`, `edson-fachin`, `eduardo-bolsonaro`, `estados-e-municipios`, `flavio-bolsonaro`, `flavio-dino`, `gilmar-mendes`, `hugo-motta`, `ibaneis-rocha`, `jair-bolsonaro`, `jaques-wagner`, `luiz-estevao`, `luiz-inacio-lula-da-silva`, `michel-temer`, `nikolas-ferreira`, `pf`, `stf`.
+
+## 17. Estimativas em R$ por entidade (`data/curadoria/entidade-valores.json`)
+
+`curadoria.aplicar_entidade_valores` grava **14 valores em 9 entidades** na tabela aditiva `entidade_valor` (9 principais, 3 com fonte fraca), depois dos metadados de evidência. Cada valor tem uma `natureza` (o que o número mede); números de naturezas diferentes não se somam. A URL de cada valor é uma `evidencia` (8 novas, 5 reaproveitadas; título preenchido em 3 e data em 3 que estavam NULL). No arquivo, só como registro: 1 valor descartado e 1 entidade sem estimativa encontrada.
+
+| natureza | n |
+|---|---|
+| bloqueado | 3 |
+| desviado | 2 |
+| investigado | 1 |
+| movimentado | 2 |
+| outro | 2 |
+| passivo | 1 |
+| prejuizo | 1 |
+| sonegado | 2 |
+
+| entidade | principal | natureza | valor (R$) | quem estima | qualidade |
+|---|---|---|---|---|---|
+| `banco-master` | sim | prejuizo | 40.600.000.000 | FGC, segundo Poder360 | boa |
+| `banco-master` |  | passivo | 83.200.000.000 | Banco Central (IFData), via Agência Estado | boa |
+| `cpmi-do-inss` | sim | desviado | 3.300.000.000 | Relatório da maioria da CPMI do INSS | fraca |
+| `daniel-vorcaro` | sim | bloqueado | 5.700.000.000 | STF (Dias Toffoli), via JOTA | fraca |
+| `operacao-carbono-oculto` | sim | movimentado | 52.000.000.000 | Receita Federal | boa |
+| `operacao-carbono-oculto` |  | sonegado | 7.600.000.000 | Investigação (MP-SP/Receita/PF), segundo CNN Brasil | boa |
+| `operacao-compliance-zero` | sim | investigado | 12.000.000.000 | Polícia Federal (Andrei Rodrigues, em depoimento à CPI do Crime Organizado) | boa |
+| `operacao-compliance-zero` |  | outro | 12.200.000.000 | PF e MPF (segundo reportagem) | boa |
+| `operacao-compliance-zero` |  | bloqueado | 5.700.000.000 | STF (relator Dias Toffoli), via JOTA | fraca |
+| `operacao-credito-oculto` | sim | outro | 153.000.000 | Investigação (Receita/Gaeco), segundo JB | boa |
+| `operacao-quasar` | sim | bloqueado | 1.200.000.000 | Justiça Federal / PF | boa |
+| `operacao-sem-desconto` | sim | desviado | 6.300.000.000 | PF e CGU | boa |
+| `pcc` | sim | movimentado | 52.000.000.000 | Receita Federal / investigação, segundo CNN Brasil | boa |
+| `pcc` |  | sonegado | 7.600.000.000 | Investigação, segundo CNN Brasil | boa |
+
+Na teia (`teia.json`), cada nó com valores ganha `val` (a lista, principal primeiro) e `val_lig` (soma de `relacao.valor_brl` das ligações `E[].r` do nó e quantas têm valor): a soma das ligações é outra coisa que a estimativa do escândalo e não se soma a ela.

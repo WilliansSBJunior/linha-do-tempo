@@ -423,6 +423,27 @@ CREATE TABLE forum (
   PRIMARY KEY (pais_entidade_id, forum)
 ) STRICT;
 
+-- DESVIO (aditivo): estimativa em R$ de um escândalo/entidade (data/curadoria/entidade-valores.json, curadoria.aplicar_entidade_valores).
+-- Cada linha mede uma `natureza` (o que o número é); números de naturezas diferentes não se somam. A URL da fonte é uma `evidencia`.
+CREATE TABLE entidade_valor (
+  id INTEGER PRIMARY KEY,
+  entidade_id TEXT NOT NULL REFERENCES entidade(id),
+  valor_brl REAL NOT NULL CHECK (valor_brl > 0),
+  natureza TEXT NOT NULL CHECK (natureza IN ('movimentado','sonegado','desviado','bloqueado','passivo','prejuizo','investigado','outro')),
+  texto TEXT NOT NULL,                           -- frase da estimativa como a fonte a sustenta
+  quem_estima TEXT NOT NULL,                     -- autoridade/órgão que fez a conta (e por qual veículo)
+  data TEXT CHECK (data IS NULL OR data GLOB '[0-9][0-9][0-9][0-9]*'),  -- data da estimativa (ISO parcial)
+  principal INTEGER NOT NULL DEFAULT 0 CHECK (principal IN (0,1)),   -- 1 = a que aparece como "Estimativa" no painel (no máximo uma por entidade: índice abaixo)
+  nota TEXT,                                     -- ressalva do pesquisador
+  qualidade TEXT NOT NULL CHECK (qualidade IN ('boa','fraca')),
+  motivo_fraca TEXT CHECK (qualidade = 'boa' OR motivo_fraca IS NOT NULL),
+  ordem INTEGER NOT NULL DEFAULT 0,              -- ordem no arquivo de curadoria, por entidade
+  evidencia_id INTEGER NOT NULL REFERENCES evidencia(id),
+  trecho_citado TEXT                             -- trecho da fonte que sustenta o número
+) STRICT;
+CREATE UNIQUE INDEX ux_entidade_valor_principal ON entidade_valor(entidade_id) WHERE principal = 1;
+CREATE UNIQUE INDEX ux_entidade_valor_ordem ON entidade_valor(entidade_id, ordem);
+
 -- Views --------------------------------------------------------------------------------------------------------------
 -- Compatibilidade com o modelo antigo: `video` = fontes do tipo video (somente leitura; escreva em `fonte`).
 CREATE VIEW video AS

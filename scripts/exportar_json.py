@@ -82,6 +82,31 @@ def mapa_indices(con):
         ("N", n), ("EV", OrderedDict((str(k), ev[k]) for k in sorted(ev))), ("evento_alias", alias)])
 
 
+def valores_entidade(con):
+    """entidade_id -> [{brl, nat, txt, quem, data, principal, qual[, motivo][, nota], fonte:{url, veiculo, tipo, titulo}}] (aditivo `val` de teia.N):
+    estimativas em R$ de `entidade_valor`, principal primeiro e depois a ordem da curadoria. Naturezas diferentes não se somam."""
+    out = defaultdict(list)
+    for r in con.execute("""SELECT v.*, e.url, e.veiculo, e.tipo, e.titulo FROM entidade_valor v JOIN evidencia e ON e.id=v.evidencia_id
+                            ORDER BY v.entidade_id, v.principal DESC, v.ordem, v.id"""):
+        d = OrderedDict([("brl", _num(r["valor_brl"])), ("nat", r["natureza"]), ("txt", r["texto"]), ("quem", r["quem_estima"]), ("data", r["data"]),
+                         ("principal", bool(r["principal"])), ("qual", r["qualidade"])])
+        if r["motivo_fraca"]:
+            d["motivo"] = r["motivo_fraca"]
+        if r["nota"]:
+            d["nota"] = r["nota"]
+        d["fonte"] = OrderedDict([("url", r["url"]), ("veiculo", r["veiculo"]), ("tipo", r["tipo"]), ("titulo", r["titulo"])])
+        out[r["entidade_id"]].append(d)
+    return out
+
+
+def valores_ligacoes(con):
+    """entidade_id -> {brl, n}: soma de relacao.valor_brl das ligações da teia (E[].r) em que a entidade é uma ponta e quantas têm valor
+    (aditivo `val_lig` de teia.N). É a soma das ligações, não uma estimativa do escândalo; não se soma a `val`."""
+    return {r["ent"]: OrderedDict([("brl", _num(r["s"])), ("n", r["n"])]) for r in con.execute(
+        """SELECT ent, SUM(valor_brl) s, COUNT(*) n FROM (SELECT de AS ent, valor_brl FROM relacao WHERE origem_ref LIKE 'E[%' AND valor_brl IS NOT NULL
+           UNION ALL SELECT para, valor_brl FROM relacao WHERE origem_ref LIKE 'E[%' AND valor_brl IS NOT NULL) GROUP BY ent ORDER BY ent""")}
+
+
 def montar_teia(con):
     st_inv = _st_inverso(con)
     ents = [dict(r) for r in con.execute("SELECT * FROM entidade WHERE ind_legado IS NOT NULL ORDER BY ind_legado")]
@@ -94,6 +119,7 @@ def montar_teia(con):
         (fam if r["origem_ref"].endswith(".fam_de") else lig)[r["de"]] = r["para"]
         # aditivo: a relação implícita do satélite (familiar/escritório -> autoridade) com descrição atual e fontes
         sat[r["de"]] = OrderedDict([("rot", r["rotulo"]), ("desc", r["descricao"]), ("fontes", fontes_rel_r.get(r["id"], []))])
+    vals, vlig = valores_entidade(con), valores_ligacoes(con)
     N = []
     for e in ents:
         n = {"n": e["nome"], "c": e["categoria_id"], "t": e["tipo"], "g": e["cargo"] or "", "d": e["descricao"] or "", "id": e["id"]}
@@ -110,6 +136,10 @@ def montar_teia(con):
             n["lig_de"], n["lig_de_id"] = idx[lig[e["id"]]], lig[e["id"]]
         if e["id"] in sat:
             n["sat"] = sat[e["id"]]
+        if e["id"] in vals:
+            n["val"] = vals[e["id"]]
+            if e["id"] in vlig:
+                n["val_lig"] = vlig[e["id"]]
         N.append(n)
     tema_rel, tema_ev = _temas_de(con, "relacao_tema", "relacao_id"), _temas_de(con, "evento_tema", "evento_id")
     por_aresta = defaultdict(dict)

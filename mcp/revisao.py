@@ -625,7 +625,8 @@ _LIGACOES_ENT = [("entidade_alias", "entidade_id", True), ("evento_entidade", "e
                  ("nota_entidade", "entidade_id", True), ("fonte", "canal_entidade_id", False), ("mandato", "entidade_id", False),
                  ("mandato", "orgao_id", False), ("bancada", "partido_id", True), ("ranking_empresa", "entidade_id", True),
                  ("dossie_par", "ator_entidade_id", False), ("previdencia_ente", "entidade_id", False),
-                 ("pagamento", "para_entidade_id", False), ("pagamento", "de_entidade_id", False), ("forum", "pais_entidade_id", True)]
+                 ("pagamento", "para_entidade_id", False), ("pagamento", "de_entidade_id", False), ("forum", "pais_entidade_id", True),
+                 ("entidade_valor", "entidade_id", False)]
 
 
 def _ap_entidade(con, dec, arq):

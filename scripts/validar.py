@@ -129,7 +129,8 @@ def orfaos(con):
                   AND NOT EXISTS (SELECT 1 FROM ranking_empresa s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM dossie_par_evidencia s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM mandato s WHERE s.evidencia_id=e.id)
-                  AND NOT EXISTS (SELECT 1 FROM fonte s WHERE s.evidencia_id=e.id)""")[0][0]
+                  AND NOT EXISTS (SELECT 1 FROM fonte s WHERE s.evidencia_id=e.id)
+                  AND NOT EXISTS (SELECT 1 FROM entidade_valor s WHERE s.evidencia_id=e.id)""")[0][0]
     esperar("evidências sem nenhum uso", n, 0)
     n = q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id) AND canal IN ('teia','banco','familia','ida','volta','precatorios','brb')")[0][0]
     esperar("eventos de fonte única (teia/origens/prec/brb) sem evidência", n, 0)
@@ -167,7 +168,8 @@ def comparar_teia(exp, raw, idx_slug, con):
     for i, (a, b) in enumerate(zip(N_raw, N_exp)):
         # `sat` (aditivo): relação implícita do satélite com a descrição ATUAL do banco e as fontes; o raw não tem esse campo.
         # Não entra no round-trip contra o raw; é conferido contra o banco logo abaixo (descrição e URLs).
-        b2 = {k: v for k, v in b.items() if k not in ("id", "fam_de_id", "lig_de_id", "sat")}
+        # `val`/`val_lig` (aditivos): estimativas em R$ e soma das ligações, do banco; conferidos contra o banco na seção "Valores".
+        b2 = {k: v for k, v in b.items() if k not in ("id", "fam_de_id", "lig_de_id", "sat", "val", "val_lig")}
         if a != b2:
             dif.append(f"N[{i}] difere: {a} != {b2}")
         sats = [k for k in ("fam_de", "lig_de") if k in a]
@@ -608,6 +610,86 @@ def evidencia_curadoria(con):
     print(f"  entradas de metadados: {len(meta)} ({sum(m['status'] == 'ok' for m in meta)} ok); correções de tipo: {len(corr)}")
 
 
+def valores(con, exp):
+    """Estimativas em R$ por entidade: entidade_valor == data/curadoria/entidade-valores.json e teia.json N[].val/val_lig == banco."""
+    secao("Valores (entidade-valores.json -> entidade_valor -> teia.json N[].val / val_lig)")
+    cfg = json.loads((CURADORIA / "entidade-valores.json").read_text(encoding="utf-8"))
+    vs = cfg.get("valores", [])
+    esperar("entidade_valor: linhas == entradas da curadoria", q(con, "SELECT count(*) FROM entidade_valor")[0][0], len(vs))
+    por_ent = collections.Counter(v["entidade_id"] for v in vs)
+    no_banco = {r[0]: r[1] for r in q(con, "SELECT entidade_id, count(*) FROM entidade_valor GROUP BY entidade_id")}
+    esperar("entidade_valor: valores por entidade == curadoria", no_banco, dict(por_ent))
+    esperar("entidade_valor: principais == curadoria", q(con, "SELECT count(*) FROM entidade_valor WHERE principal=1")[0][0],
+            sum(bool(v["principal"]) for v in vs))
+    esperar("entidades com mais de um principal", len(q(con, "SELECT entidade_id FROM entidade_valor WHERE principal=1 GROUP BY entidade_id HAVING count(*)>1")), 0)
+    nats = set(re.findall(r"'([a-z_]+)'", re.search(r"natureza TEXT NOT NULL CHECK \(natureza IN \(([^)]*)\)\),\n  texto TEXT NOT NULL,",
+                                                    (Path(__file__).parent / "schema.sql").read_text(encoding="utf-8")).group(1)))
+    esperar("naturezas do CHECK de entidade_valor", sorted(nats), sorted(cfg.get("naturezas", {})))
+    esperar("entidade_valor com natureza fora da lista", q(con, "SELECT count(*) FROM entidade_valor WHERE natureza NOT IN (%s)" % ",".join("?" * len(nats)), *sorted(nats))[0][0], 0)
+    esperar("entidade_valor sem evidência", q(con, "SELECT count(*) FROM entidade_valor v WHERE NOT EXISTS (SELECT 1 FROM evidencia e WHERE e.id=v.evidencia_id)")[0][0], 0)
+    esperar("entidade_valor fraca sem motivo", q(con, "SELECT count(*) FROM entidade_valor WHERE qualidade='fraca' AND motivo_fraca IS NULL")[0][0], 0)
+    # cada entrada da curadoria está no banco, campo a campo (chave: entidade + ordem dentro da entidade)
+    ruins, ordem = [], collections.Counter()
+    for v in vs:
+        k = v["entidade_id"]
+        r = q(con, """SELECT v.*, e.url FROM entidade_valor v JOIN evidencia e ON e.id=v.evidencia_id WHERE v.entidade_id=? AND v.ordem=?""", k, ordem[k])
+        ordem[k] += 1
+        if not r:
+            ruins.append(f"{k}[{ordem[k] - 1}]: ausente")
+            continue
+        r = r[0]
+        esp = (float(v["valor_brl"]), v["natureza"], v["texto"], v["quem_estima"], v.get("data"), int(v["principal"]), v["qualidade"],
+               v.get("motivo_fraca") or None, v.get("nota") or None, normalizar_url(v["url"]))
+        real = (r["valor_brl"], r["natureza"], r["texto"], r["quem_estima"], r["data"], r["principal"], r["qualidade"], r["motivo_fraca"], r["nota"], r["url"])
+        if esp != real:
+            ruins.append(f"{k}[{ordem[k] - 1}]: banco {real} != curadoria {esp}")
+    esperar("entidade_valor == entidade-valores.json campo a campo (divergências)", len(ruins), 0)
+    for x in ruins[:20]:
+        print("   -", x)
+    # teia.json
+    teia = exp["teia.json"]
+    ev_urls = {r[0] for r in q(con, "SELECT url FROM evidencia")}
+    ruins = []
+    banco = collections.defaultdict(list)
+    for r in q(con, """SELECT v.*, e.url, e.veiculo, e.tipo, e.titulo FROM entidade_valor v JOIN evidencia e ON e.id=v.evidencia_id
+                       ORDER BY v.entidade_id, v.principal DESC, v.ordem"""):
+        banco[r["entidade_id"]].append((r["valor_brl"], r["natureza"], r["texto"], r["quem_estima"], r["data"], bool(r["principal"]), r["qualidade"],
+                                        (r["url"], r["veiculo"], r["tipo"], r["titulo"])))
+    lig = {r[0]: (r[1], r[2]) for r in q(con, """SELECT ent, SUM(valor_brl), COUNT(*) FROM (
+                SELECT de AS ent, valor_brl FROM relacao WHERE origem_ref LIKE 'E[%' AND valor_brl IS NOT NULL
+                UNION ALL SELECT para, valor_brl FROM relacao WHERE origem_ref LIKE 'E[%' AND valor_brl IS NOT NULL) GROUP BY ent""")}
+    vistos = set()
+    for i, n in enumerate(teia["N"]):
+        if "val" not in n:
+            if "val_lig" in n:
+                ruins.append(f"N[{i}] ({n['id']}): val_lig sem val")
+            continue
+        vistos.add(n["id"])
+        exp_v = [(float(x["brl"]), x["nat"], x["txt"], x["quem"], x["data"], x["principal"], x["qual"],
+                  (x["fonte"]["url"], x["fonte"]["veiculo"], x["fonte"]["tipo"], x["fonte"]["titulo"])) for x in n["val"]]
+        if exp_v != banco.get(n["id"]):
+            ruins.append(f"N[{i}] ({n['id']}): val != banco")
+        if sum(x["principal"] for x in n["val"]) > 1 or (any(x["principal"] for x in n["val"]) and not n["val"][0]["principal"]):
+            ruins.append(f"N[{i}] ({n['id']}): mais de um principal ou principal fora da primeira posição")
+        for x in n["val"]:
+            if x["fonte"]["url"] not in ev_urls:
+                ruins.append(f"N[{i}] ({n['id']}): fonte.url fora de evidencia: {x['fonte']['url']}")
+        l = lig.get(n["id"])
+        if (l is None) != ("val_lig" not in n) or (l and (float(n["val_lig"]["brl"]), n["val_lig"]["n"]) != (l[0], l[1])):
+            ruins.append(f"N[{i}] ({n['id']}): val_lig {n.get('val_lig')} != banco {l}")
+    teia_ids = {r[0] for r in q(con, "SELECT id FROM entidade WHERE ind_legado IS NOT NULL")}
+    falt = sorted((set(banco) & teia_ids) - vistos)
+    if falt:
+        ruins.append("nós com valor no banco sem `val` em teia.json: " + ", ".join(falt))
+    fora = sorted(set(banco) - teia_ids)
+    print(f"  info: entidades com valor fora da teia (não aparecem no painel): {len(fora)}" + (" -> " + ", ".join(fora) if fora else ""))
+    esperar("teia.json N[].val / val_lig == banco; fonte.url ∈ evidencia (divergências)", len(ruins), 0)
+    for x in ruins[:20]:
+        print("   -", x)
+    print(f"  {len(vs)} valores em {len(por_ent)} entidades; {sum(v['qualidade'] == 'fraca' for v in vs)} com fonte fraca; "
+          f"{sum('val_lig' in n for n in teia['N'])} nós com soma das ligações")
+
+
 def natureza_eventos(con, gerado):
     """Nenhum evento sem natureza (salvo exceção explícita, com justificativa, em eventos-natureza-manual.json) e toda natureza
     aplicada por regra (R1-R5) ou à mão tem regra/justificativa registrada e igual à do banco."""
@@ -907,6 +989,7 @@ def main():
     evidencias_adicionais(con)
     revisao_evidencias(con)
     evidencia_curadoria(con)
+    valores(con, exp)
     modelo_v2(con, exp)
     paginas(con, exp)
 

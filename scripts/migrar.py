@@ -787,6 +787,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["evid_adic"] = curadoria.aplicar_evidencias_adicionais(con)   # à mão; precisa das relações de mandato/filiação; antes dos temas (que leem a descrição)
     R["evid_corr"] = curadoria.aplicar_evidencia_correcoes(con)     # à mão; tipo de evidências oficiais registradas como reportagem
     R["evid_meta"] = curadoria.aplicar_evidencia_metadados(con)     # título/data só onde NULL (rodadas de WebFetch)
+    R["ent_valores"] = curadoria.aplicar_entidade_valores(con)      # à mão; estimativas em R$ por entidade; depois dos metadados (só preenche título/data NULL)
     R["evento_corr"] = curadoria.aplicar_evento_correcoes(con)      # à mão; decisões sobre as ressalvas das evidências adicionais; antes dos temas (leem título/descrição)
     R["relacao_corr"] = curadoria.aplicar_relacao_correcoes(con)
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
@@ -1031,6 +1032,25 @@ def secoes_modelo(con, R, w):
         OR EXISTS (SELECT 1 FROM evento_entidade x JOIN evento v ON v.id=x.evento_id WHERE x.entidade_id=e.id AND v.canal='brasil')) ORDER BY e.id""")]
     w(f"Entidades da teia que aparecem na timeline (as 10 fusões da seção 5 mais as ligadas por eventos `brasil`): {len(fus)}, todas em `brasil-ano-a-ano` **e** `caso-master` pela view: "
       + ", ".join(f"`{e}`" for e in fus) + ".")
+    # ---------------------------------------------------------------- 17
+    ev = R["ent_valores"]
+    w("\n## 17. Estimativas em R$ por entidade (`data/curadoria/entidade-valores.json`)\n")
+    w(f"`curadoria.aplicar_entidade_valores` grava **{ev['entradas']} valores em {ev['entidades']} entidades** na tabela aditiva `entidade_valor` "
+      f"({ev['principais']} principais, {ev['fracas']} com fonte fraca), depois dos metadados de evidência. Cada valor tem uma `natureza` "
+      "(o que o número mede); números de naturezas diferentes não se somam. A URL de cada valor é uma `evidencia` "
+      f"({ev['evid_novas']} novas, {ev['evid_reaproveitadas']} reaproveitadas; título preenchido em {ev['titulos']} e data em {ev['datas']} que estavam NULL). "
+      f"No arquivo, só como registro: {ev['descartados']} valor descartado e {ev['sem_estimativa']} entidade sem estimativa encontrada.\n")
+    w("| natureza | n |\n|---|---|")
+    for k, n in sorted(ev["por_natureza"].items()):
+        w(f"| {k} | {n} |")
+    w("\n| entidade | principal | natureza | valor (R$) | quem estima | qualidade |\n|---|---|---|---|---|---|")
+    for r in q("""SELECT v.entidade_id, v.principal, v.natureza, v.valor_brl, v.quem_estima, v.qualidade FROM entidade_valor v
+                  ORDER BY v.entidade_id, v.ordem"""):
+        w(f"| `{r['entidade_id']}` | {'sim' if r['principal'] else ''} | {r['natureza']} | {format(r['valor_brl'], ',.0f').replace(',', '.')} | {r['quem_estima']} | {r['qualidade']} |")
+    if ev["sem_principal"]:
+        w("\nEntidades com valores mas sem principal (o painel mostra só as linhas secundárias): " + ", ".join(f"`{k}`" for k in ev["sem_principal"]) + ".")
+    w("\nNa teia (`teia.json`), cada nó com valores ganha `val` (a lista, principal primeiro) e `val_lig` (soma de `relacao.valor_brl` das ligações "
+      "`E[].r` do nó e quantas têm valor): a soma das ligações é outra coisa que a estimativa do escândalo e não se soma a ela.")
 
 
 def tokens(s):
@@ -1085,7 +1105,7 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
         ("evento_evidencia", "SELECT count(*) FROM evento_evidencia"), ("evento_entidade", "SELECT count(*) FROM evento_entidade"),
         ("nota", "SELECT count(*) FROM nota"), ("indicador", "SELECT count(*) FROM indicador"), ("serie", "SELECT count(*) FROM serie"),
         ("ranking_empresa", "SELECT count(*) FROM ranking_empresa"), ("mandato", "SELECT count(*) FROM mandato"),
-        ("bancada", "SELECT count(*) FROM bancada")]
+        ("bancada", "SELECT count(*) FROM bancada"), ("entidade_valor", "SELECT count(*) FROM entidade_valor")]
     w("| Depois (banco) | n |\n|---|---|")
     for k, s in depois:
         w(f"| {k} | {q(s)[0][0]} |")

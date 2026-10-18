@@ -56,7 +56,45 @@
    "t": "banco",
    "g": "",
    "d": "Conglomerado financeiro de Daniel Vorcaro, com liquidação extrajudicial decretada pelo Banco Central em 18/11/2025 e alvo da Operação Compliance Zero.",
-   "id": "banco-master"
+   "id": "banco-master",
+   "val": [
+    {
+     "brl": 40600000000,
+     "nat": "prejuizo",
+     "txt": "Rombo de R$ 40,6 bilhões no FGC com o conglomerado Master (fev/2026)",
+     "quem": "FGC, segundo Poder360",
+     "data": "2026-02-18",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Total das liquidações ligadas (Master + Will Bank + Pleno) = R$ 51,8 bi.",
+     "fonte": {
+      "url": "https://www.poder360.com.br/poder-justica/liquidacoes-ligadas-ao-master-criam-rombo-de-quase-r-52-bi-no-fgc",
+      "veiculo": "Poder360",
+      "tipo": "reportagem",
+      "titulo": "Liquidações ligadas ao Master criam rombo de quase R$ 52 bi no FGC"
+     }
+    },
+    {
+     "brl": 83200000000,
+     "nat": "passivo",
+     "txt": "R$ 83,2 bilhões em passivos exigíveis (IFData/BC, mar/2025)",
+     "quem": "Banco Central (IFData), via Agência Estado",
+     "data": "2025-11-18",
+     "principal": false,
+     "qual": "boa",
+     "nota": "Dado de março de 2025; R$ 62,2 bi em depósitos elegíveis ao FGC.",
+     "fonte": {
+      "url": "https://www.opovo.com.br/noticias/economia/2025/11/18/liquidacao-do-banco-master-e-uma-das-maiores-ja-feitas-no-sistema-financeiro-brasileiro.html",
+      "veiculo": "O Povo (Agência Estado)",
+      "tipo": "reportagem",
+      "titulo": "Liquidação do Banco Master é uma das maiores já feitas no sistema financeiro brasileiro"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 202544545800,
+    "n": 60
+   }
   },
   {
    "n": "Daniel Vorcaro",
@@ -64,7 +102,30 @@
    "t": "pessoa",
    "g": "Controlador do Banco Master; preso preventivamente desde 04/03/2026",
    "d": "Controlador do Banco Master, preso na Operação Compliance Zero em novembro de 2025 e novamente em março de 2026; nega irregularidades.",
-   "id": "daniel-vorcaro"
+   "id": "daniel-vorcaro",
+   "val": [
+    {
+     "brl": 5700000000,
+     "nat": "bloqueado",
+     "txt": "Mais de R$ 5,7 bilhões em bens e valores bloqueados pelo STF na investigação (jan/2026)",
+     "quem": "STF (Dias Toffoli), via JOTA",
+     "data": "2026-01-14",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "agregador (TagTeam/Harvard) republicando o JOTA; a página original do JOTA não abriu",
+     "nota": "Bloqueio na investigação, não necessariamente patrimônio pessoal de Vorcaro. Em jul/2026 Mendonça autorizou bloqueio de mais de R$ 2 bi em bens no exterior do Master (DGABC, 13/09/2026).",
+     "fonte": {
+      "url": "https://tagteam.harvard.edu/hub_feeds/3884/feed_items/17183860/content",
+      "veiculo": "JOTA (via Harvard TagTeam)",
+      "tipo": "reportagem",
+      "titulo": "PF faz operação em endereços de Vorcaro e STF determina bloqueio de R$ 5,7 bilhões"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 65983700000,
+    "n": 19
+   }
   },
   {
    "n": "Ciro Nogueira",
@@ -440,7 +501,61 @@
    "g": "",
    "d": "Operação da PF, sob relatoria do STF, sobre fraudes ligadas ao Banco Master, iniciada em 18/11/2025 e com fases em janeiro e março de 2026.",
    "id": "operacao-compliance-zero",
-   "sg": "PGR, MPF e PF"
+   "sg": "PGR, MPF e PF",
+   "val": [
+    {
+     "brl": 12000000000,
+     "nat": "investigado",
+     "txt": "Cerca de R$ 12 bilhões envolvidos no esquema (diretor-geral da PF, nov/2025)",
+     "quem": "Polícia Federal (Andrei Rodrigues, em depoimento à CPI do Crime Organizado)",
+     "data": "2025-11-18",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Apresentado como estimativa ('fala-se').",
+     "fonte": {
+      "url": "https://www.congressoemfoco.com.br/noticia/113970/fraudes-financeiras-podem-chegar-a-r-12-bilhoes-diz-diretor-da-pf",
+      "veiculo": "congressoemfoco.com.br",
+      "tipo": "reportagem",
+      "titulo": "Fraudes financeiras podem chegar a R$ 12 bilhões, diz diretor da PF"
+     }
+    },
+    {
+     "brl": 12200000000,
+     "nat": "outro",
+     "txt": "R$ 12,2 bilhões em carteiras de crédito inexistentes vendidas pelo Master ao BRB (investigação PF/MPF, nov/2025)",
+     "quem": "PF e MPF (segundo reportagem)",
+     "data": "2025-11-18",
+     "principal": false,
+     "qual": "boa",
+     "fonte": {
+      "url": "https://www.diariodepernambuco.com.br/economia/2025/11/11700839-investigacao-revela-venda-de-rs-122-bi-em-carteiras-inexistentes-do-master-ao-brb.html",
+      "veiculo": "Correio Braziliense / Diario de Pernambuco",
+      "tipo": "reportagem",
+      "titulo": "Investigação revela venda de R$ 12,2 bi em carteiras inexistentes do Master ao BRB"
+     }
+    },
+    {
+     "brl": 5700000000,
+     "nat": "bloqueado",
+     "txt": "Mais de R$ 5,7 bilhões em bens e valores bloqueados por determinação do STF (jan/2026)",
+     "quem": "STF (relator Dias Toffoli), via JOTA",
+     "data": "2026-01-14",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "agregador (TagTeam/Harvard) republicando o JOTA; a página original do JOTA não abriu",
+     "nota": "Página aberta é agregador do JOTA.",
+     "fonte": {
+      "url": "https://tagteam.harvard.edu/hub_feeds/3884/feed_items/17183860/content",
+      "veiculo": "JOTA (via Harvard TagTeam)",
+      "tipo": "reportagem",
+      "titulo": "PF faz operação em endereços de Vorcaro e STF determina bloqueio de R$ 5,7 bilhões"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 5700000000,
+    "n": 1
+   }
   },
   {
    "n": "CPI do Crime Organizado",
@@ -475,7 +590,44 @@
    "t": "operacao_policial",
    "g": "",
    "d": "Operação do MP-SP (Gaeco) com Receita Federal e PF, deflagrada em 28/08/2025, sobre sonegação, adulteração e lavagem de dinheiro ligada ao PCC no setor de combustíveis, com fases posteriores até 24/09/2026.",
-   "id": "operacao-carbono-oculto"
+   "id": "operacao-carbono-oculto",
+   "val": [
+    {
+     "brl": 52000000000,
+     "nat": "movimentado",
+     "txt": "R$ 52 bilhões movimentados entre 2020 e 2024 (Receita Federal, ago/2025)",
+     "quem": "Receita Federal",
+     "data": "2025-08-28",
+     "principal": true,
+     "qual": "boa",
+     "fonte": {
+      "url": "https://www.diariodepernambuco.com.br/amp/brasil/2025/08/11694363-receita-estima-que-organizacao-criminosa-movimentou-rs-52-bilhoes-em-postos-de-combustivel.html",
+      "veiculo": "Diario de Pernambuco (Estadão Conteúdo)",
+      "tipo": "reportagem",
+      "titulo": "Receita estima que organização criminosa movimentou R$ 52 bilhões em postos de combustível"
+     }
+    },
+    {
+     "brl": 7600000000,
+     "nat": "sonegado",
+     "txt": "R$ 7,6 bilhões em tributos sonegados (investigação, ago/2025)",
+     "quem": "Investigação (MP-SP/Receita/PF), segundo CNN Brasil",
+     "data": "2025-08-28",
+     "principal": false,
+     "qual": "boa",
+     "nota": "Estadão Conteúdo (Diario de Pernambuco) cita perdas de R$ 8,6 bi e créditos tributários de R$ 8,67 bi; CNN cita R$ 7,6 bi só de sonegação. Divergência não resolvida; sem página oficial da Receita/MP-SP aberta.",
+     "fonte": {
+      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
+      "veiculo": "cnnbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 79000000000,
+    "n": 2
+   }
   },
   {
    "n": "Operação Quasar",
@@ -483,7 +635,29 @@
    "t": "operacao_policial",
    "g": "",
    "d": "Desdobramento da Carbono Oculto conduzido pela PF em São Paulo, deflagrado em 28/08/2025, sobre lavagem por meio de fundos de investimento.",
-   "id": "operacao-quasar"
+   "id": "operacao-quasar",
+   "val": [
+    {
+     "brl": 1200000000,
+     "nat": "bloqueado",
+     "txt": "Bloqueio de bens e valores até cerca de R$ 1,2 bilhão (aut. fiscais), ago/2025",
+     "quem": "Justiça Federal / PF",
+     "data": "2025-08-28",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Equivale às autuações fiscais já feitas, segundo a matéria.",
+     "fonte": {
+      "url": "https://www.dgabc.com.br/Noticia/4254078/pf-realiza-duas-operacoes-em-conjunto-com-a-receita-federal",
+      "veiculo": "Diário do Grande ABC",
+      "tipo": "reportagem",
+      "titulo": "PF realiza duas operações em conjunto com a Receita Federal"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 1200000000,
+    "n": 1
+   }
   },
   {
    "n": "Operação Crédito Oculto",
@@ -491,7 +665,25 @@
    "t": "operacao_policial",
    "g": "",
    "d": "Terceira fase da Carbono Oculto (Receita e Gaeco/MP-SP), de 24/09/2026, sobre ocultação de donos de usina e da compra da distribuidora Tobras (Terrana) por fundos e fintechs.",
-   "id": "operacao-credito-oculto"
+   "id": "operacao-credito-oculto",
+   "val": [
+    {
+     "brl": 153000000,
+     "nat": "outro",
+     "txt": "Distribuidora (Terrana/Tobras) pode ter sido comprada por até R$ 153 milhões (set/2026)",
+     "quem": "Investigação (Receita/Gaeco), segundo JB",
+     "data": "2026-09-24",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Valor de compra, não de prejuízo; a matéria não liga o número à Tobras pelo nome.",
+     "fonte": {
+      "url": "https://www.jb.com.br/brasil/policia/2026/09/amp/1061010-operacao-credito-oculto-apura-lavagem-de-dinheiro-da-mafia-dos-combustiveis.html",
+      "veiculo": "Jornal do Brasil",
+      "tipo": "reportagem",
+      "titulo": "Operação Crédito Oculto atinge banqueiros, empresários e fundos ligados à máfia dos combustíveis nesta quinta-feira"
+     }
+    }
+   ]
   },
   {
    "n": "Gaeco/MP-SP",
@@ -507,7 +699,44 @@
    "t": "organizacao_criminosa",
    "g": "",
    "d": "Facção criminosa que, segundo MP-SP, Receita e PF, teria infiltrado o setor de combustíveis e o mercado financeiro para lavar dinheiro (Carbono Oculto, Quasar, Tank).",
-   "id": "pcc"
+   "id": "pcc",
+   "val": [
+    {
+     "brl": 52000000000,
+     "nat": "movimentado",
+     "txt": "R$ 52 bilhões movimentados por ~1.000 postos ligados ao grupo, 2020-2024 (ago/2025)",
+     "quem": "Receita Federal / investigação, segundo CNN Brasil",
+     "data": "2025-08-28",
+     "principal": true,
+     "qual": "boa",
+     "fonte": {
+      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
+      "veiculo": "cnnbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski"
+     }
+    },
+    {
+     "brl": 7600000000,
+     "nat": "sonegado",
+     "txt": "R$ 7,6 bilhões em tributos sonegados (ago/2025)",
+     "quem": "Investigação, segundo CNN Brasil",
+     "data": "2025-08-28",
+     "principal": false,
+     "qual": "boa",
+     "nota": "Estadão Conteúdo (Diario de Pernambuco) cita perdas de R$ 8,6 bi e créditos tributários de R$ 8,67 bi; CNN cita R$ 7,6 bi só de sonegação. Divergência não resolvida; sem página oficial da Receita/MP-SP aberta.",
+     "fonte": {
+      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
+      "veiculo": "cnnbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 52000000000,
+    "n": 1
+   }
   },
   {
    "n": "Mohamad Hussein Mourad (Primo)",
@@ -555,7 +784,29 @@
    "t": "operacao_policial",
    "g": "",
    "d": "Operação da PF e da CGU, deflagrada em 23/04/2025, sobre descontos associativos não autorizados em aposentadorias e pensões do INSS.",
-   "id": "operacao-sem-desconto"
+   "id": "operacao-sem-desconto",
+   "val": [
+    {
+     "brl": 6300000000,
+     "nat": "desviado",
+     "txt": "R$ 6,3 bilhões descontados de aposentadorias e pensões entre 2019 e 2024 (PF e CGU, abr/2025)",
+     "quem": "PF e CGU",
+     "data": "2025-04-30",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Reportagem ressalva que parte dos segurados autorizou os descontos. Chamado de 'prejuízo estimado' pelo InfoMoney (23/04/2025).",
+     "fonte": {
+      "url": "https://www.opovo.com.br/noticias/brasil/2025/04/30/como-funcionava-o-esquema-bilionario-de-fraude-no-inss.html",
+      "veiculo": "O Povo (DW)",
+      "tipo": "reportagem",
+      "titulo": "Como funcionava o esquema bilionário de fraude no INSS"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 9500000000,
+    "n": 2
+   }
   },
   {
    "n": "CPMI do INSS",
@@ -563,7 +814,30 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Comissão parlamentar mista de inquérito do Congresso sobre as fraudes no INSS, encerrada em 28/03/2026 sem relatório final aprovado.",
-   "id": "cpmi-do-inss"
+   "id": "cpmi-do-inss",
+   "val": [
+    {
+     "brl": 3300000000,
+     "nat": "desviado",
+     "txt": "Valor desviado pode chegar a R$ 3,3 bilhões (relatório da maioria da CPMI, mar/2026)",
+     "quem": "Relatório da maioria da CPMI do INSS",
+     "data": "2026-03",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "voto em separado (relatório da maioria) hospedado pelo PT, não o relatório aprovado pela comissão; data aproximada pela URL",
+     "nota": "Relatório de voto em separado, não aprovado pela comissão; PDF hospedado pelo PT. Data aproximada pela URL.",
+     "fonte": {
+      "url": "https://pt.org.br/wp-content/uploads/2026/03/cpmi-inss-relatorio-da-mairoria-sumario-executivo.pdf",
+      "veiculo": "pt.org.br",
+      "tipo": "relatorio",
+      "titulo": "Relatório da Maioria (voto em separado) - CPMI do INSS"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 441900000,
+    "n": 1
+   }
   },
   {
    "n": "Antônio Carlos Camilo Antunes (Careca do INSS)",
@@ -24242,8 +24516,8 @@
      "url": "https://www.cnnbrasil.com.br/nacional/brasil/operacao-contra-o-pcc-e-a-maior-da-historia-brasileira-diz-lewandowski",
      "veiculo": "cnnbrasil.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null
+     "titulo": "Operação contra PCC é uma das maiores da história do país, diz Lewandowski",
+     "data": "2025-08-28"
     }
    ],
    "st": "inv"
@@ -24984,8 +25258,8 @@
      "url": "https://www.congressoemfoco.com.br/noticia/113970/fraudes-financeiras-podem-chegar-a-r-12-bilhoes-diz-diretor-da-pf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null
+     "titulo": "Fraudes financeiras podem chegar a R$ 12 bilhões, diz diretor da PF",
+     "data": "2025-11-18"
     },
     {
      "url": "https://www.poder360.com.br/poder-economia/pf-prende-daniel-vorcaro-dono-do-banco-master",

@@ -1350,6 +1350,76 @@ def aplicar_evidencia_metadados(con):
     return r
 
 
+# ======================================================================== estimativas em R$ por entidade (escândalos)
+NATUREZAS_VALOR = ("movimentado", "sonegado", "desviado", "bloqueado", "passivo", "prejuizo", "investigado", "outro")
+
+
+def aplicar_entidade_valores(con):
+    """data/curadoria/entidade-valores.json (à mão): `valores` = [{entidade_id, valor_brl, natureza, texto, quem_estima, data, url, veiculo, tipo,
+    titulo, trecho, nota, principal, qualidade[, motivo_fraca]}]. Cada entrada vira uma linha de `entidade_valor` (tabela aditiva; `ordem` = posição
+    da entrada entre as da mesma entidade) ligada a uma `evidencia` pela URL normalizada: se a URL já existe, reaproveita e só preenche
+    titulo/data onde estão NULL (veiculo/tipo são NOT NULL e nunca mudam); senão cria com veiculo/tipo/titulo/data da entrada.
+    Todas as entradas são conferidas antes de qualquer escrita; aborta (sem aplicar nada) se a entidade não existe, a natureza não é válida,
+    há mais de um `principal` por entidade, `fraca` sem `motivo_fraca` ou falta campo obrigatório. -> dict com contagens."""
+    cfg = ler_json("entidade-valores.json", {})
+    entradas = cfg.get("valores", [])
+    r = {"entradas": len(entradas), "entidades": 0, "principais": 0, "fracas": 0, "evid_novas": 0, "evid_reaproveitadas": 0,
+         "titulos": 0, "datas": 0, "por_natureza": collections.Counter(), "descartados": len(cfg.get("descartados", [])),
+         "sem_estimativa": len(cfg.get("sem_estimativa", []))}
+    erros, princ, ordem = [], collections.Counter(), collections.Counter()
+    for i, e in enumerate(entradas):
+        ref = f"valores[{i}] ({e.get('entidade_id')})"
+        for c in ("entidade_id", "valor_brl", "natureza", "texto", "quem_estima", "url", "veiculo", "tipo", "qualidade"):
+            if e.get(c) in (None, ""):
+                erros.append(f"{ref}: campo obrigatório ausente: {c}")
+        if not con.execute("SELECT 1 FROM entidade WHERE id=?", (e.get("entidade_id"),)).fetchone():
+            erros.append(f"{ref}: entidade inexistente")
+        if e.get("natureza") not in NATUREZAS_VALOR:
+            erros.append(f"{ref}: natureza inválida {e.get('natureza')!r}")
+        if e.get("qualidade") not in ("boa", "fraca") or (e.get("qualidade") == "fraca" and not e.get("motivo_fraca")):
+            erros.append(f"{ref}: qualidade inválida ou `fraca` sem motivo_fraca")
+        if not isinstance(e.get("principal"), bool):
+            erros.append(f"{ref}: `principal` tem de ser true/false")
+        elif e["principal"]:
+            princ[e.get("entidade_id")] += 1
+    erros += [f"{k}: {n} valores com principal=true (máximo 1)" for k, n in sorted(princ.items()) if n > 1]
+    if erros:
+        raise SystemExit("entidade-valores.json: nada foi aplicado.\n  " + "\n  ".join(erros))
+    criadas = set()
+    for e in entradas:
+        url = normalizar_url(e["url"])
+        row = con.execute("SELECT id, titulo, data FROM evidencia WHERE url=?", (url,)).fetchone()
+        if row:
+            evid = row[0]
+            r["evid_reaproveitadas"] += url not in criadas
+            if row[1] is None and e.get("titulo"):
+                con.execute("UPDATE evidencia SET titulo=? WHERE id=?", (e["titulo"], evid))
+                r["titulos"] += 1
+            if row[2] is None and e.get("data"):
+                con.execute("UPDATE evidencia SET data=? WHERE id=?", (e["data"], evid))
+                r["datas"] += 1
+        else:
+            try:
+                evid = con.execute("INSERT INTO evidencia(url,veiculo,titulo,data,tipo,criado_em) VALUES(?,?,?,?,?,?)",
+                                   (url, e["veiculo"], e.get("titulo"), e.get("data"), e["tipo"], TS_MIGRACAO)).lastrowid
+            except Exception as ex:   # CHECK de evidencia.tipo
+                raise SystemExit(f"entidade-valores.json: {e['url']}: {ex}")
+            criadas.add(url)
+            r["evid_novas"] += 1
+        k = e["entidade_id"]
+        con.execute("""INSERT INTO entidade_valor(entidade_id,valor_brl,natureza,texto,quem_estima,data,principal,nota,qualidade,motivo_fraca,
+                       ordem,evidencia_id,trecho_citado) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                    (k, float(e["valor_brl"]), e["natureza"], e["texto"], e["quem_estima"], e.get("data"), int(e["principal"]),
+                     e.get("nota") or None, e["qualidade"], e.get("motivo_fraca") or None, ordem[k], evid, e.get("trecho") or None))
+        ordem[k] += 1
+        r["por_natureza"][e["natureza"]] += 1
+        r["fracas"] += e["qualidade"] == "fraca"
+    r["entidades"] = len(ordem)
+    r["principais"] = sum(princ.values())
+    r["sem_principal"] = sorted(k for k in ordem if not princ[k])
+    return r
+
+
 # ======================================================================== correções de revisão (ressalvas das evidências adicionais)
 CAMPOS_EVENTO_CORRECAO = ("titulo", "descricao")
 CAMPOS_RELACAO_CORRECAO = ("periodo_fim", "descricao", "subtipo", "rotulo", "tipo")

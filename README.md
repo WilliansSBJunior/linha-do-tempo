@@ -28,6 +28,7 @@ Não há build nem servidor: basta publicar esta pasta como está.
 - Cada página de `paginas/` também abre sozinha e traz no topo o link “← Página completa”.
 - `index.html#teia-3d` abre a teia já no modo 3D.
 - Na teia (2D e 3D), o painel de uma ligação lista as fontes que a comprovam (veículo, título com link, etiqueta oficial/reportagem/decisão/wiki, data; fontes fracas marcadas), e o painel de um nome mostra quantas fontes tem cada ligação. Com um `teia.json` antigo (sem `fontes`), volta a lista simples.
+- Na teia (2D e 3D), o painel de um escândalo com estimativa em R$ (`data/curadoria/entidade-valores.json`) traz, logo abaixo da descrição, o bloco “Estimativa”: o valor principal em destaque com o que ele mede, quem estima e quando, com link para a fonte e o tipo dela (fontes fracas marcadas); os demais valores em linhas menores; e, à parte, a soma dos valores citados nas ligações do nome, que não é estimativa do escândalo. Nomes sem estimativa não mostram o bloco.
 - O tema (automático, claro ou escuro) é escolhido no menu e repassado às seções; sozinhas, as páginas seguem o sistema ou `?tema=claro|escuro`.
 - As páginas usam fontes do Google Fonts; sem internet, caem nas fontes do sistema. Todos os links são relativos.
 - `.nojekyll` (vazio) faz o GitHub Pages servir os arquivos sem processá-los.
