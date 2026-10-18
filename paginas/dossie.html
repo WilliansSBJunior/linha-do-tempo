@@ -270,6 +270,9 @@ table{border-collapse:collapse;width:100%}
 .evsrc li.fraca a{font-weight:500;color:var(--ink2)}
 .evsrc .sfr{font-style:italic}
 .fx .sfnote{margin:4px 0 0;color:var(--muted)}
+.fwiki{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:6px 0 0;padding-top:6px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted);opacity:.75}
+.fwiki a{color:var(--muted);font-weight:400;overflow-wrap:anywhere}
+.fwiki .fwl{font-style:italic}
 
 footer{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--ink2)}
 </style>
@@ -448,12 +451,17 @@ const FTIPO = {documento_oficial:['oficial','doc'], dado_oficial:['oficial','doc
 const fhost = u => { try { return new URL(u).hostname.toLowerCase(); } catch (e) { return ''; } };
 const fonteTag = f => f.tipo === 'reportagem' && /(^|\.)(gov|jus|leg|mp)\.br$/.test(fhost(f.url)) ? FTIPO.documento_oficial : FTIPO[f.tipo] || FTIPO.outro;
 const fdata = d => { const m = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/.exec(String(d)); return !m ? String(d) : m[3] ? `${+m[3]} ${MESES[+m[2] - 1]} ${m[1]}` : m[2] ? `${MESES[+m[2] - 1]} ${m[1]}` : m[1]; };
+/* R6 (data/curadoria/regras-fontes.json): a Wikipédia nunca sustenta; fica numa linha final apagada, sem etiqueta de tipo, e não conta em "Fontes (n)" */
+const fwiki = f => f.tipo === 'wiki' || /(^|\.)wikipedia\.org$/.test(fhost(f.url));
+const wtit = f => { if (f.titulo) return f.titulo; try { const u = new URL(f.url), v = decodeURIComponent(u.pathname.split('/').pop()).replace(/_/g, ' '); return v ? `${v} (${u.hostname.split('.')[0]})` : f.veiculo; } catch (e) { return f.veiculo; } };
+const ctxHTML = (fs, rot) => fs.length ? `<p class="fwiki"><span class="fwl">${rot}</span>${fs.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(fwiki(f) ? wtit(f) : f.titulo || f.veiculo)}</a>`).join('')}</p>` : '';
 function fontesHTML(e){
-  const fs = Array.isArray(e.fontes) ? e.fontes : null;
-  if (!fs || !fs.length) return '';
+  const todas = Array.isArray(e.fontes) ? e.fontes : null;
+  if (!todas || !todas.length) return '';
+  const fs = todas.filter(f => f.papel !== 'contexto' && !fwiki(f)), cx = todas.filter(f => f.papel === 'contexto' && !fwiki(f)), wk = todas.filter(fwiki);
   const nfr = fs.filter(f => f.qualidade === 'fraca').length;
   return `<details class="fx"><summary><span class="n">Fontes (${fs.length})</span><span>veículo, título, tipo e data</span></summary><ul class="evsrc">${fs.map(f => { const [t, k] = fonteTag(f), fr = f.qualidade === 'fraca';
-    return `<li${fr ? ' class="fraca"' : ''}>${f.titulo ? `<span class="sv">${esc(f.veiculo)}</span>` : ''}<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo || f.veiculo)}</a><span class="sm"><span class="stype ${k}">${t}</span>${f.data ? `<span>${esc(fdata(f.data))}</span>` : ''}${fr ? '<span class="sfr" title="Marcada como fraca na revisão das evidências: confirma o fato só em parte, ou é coluna, republicação ou fonte secundária">fonte fraca</span>' : ''}</span></li>`; }).join('')}</ul>${nfr ? `<p class="sfnote">${nfr === 1 ? '1 fonte marcada como fraca' : nfr + ' fontes marcadas como fracas'} na revisão.</p>` : ''}</details>`;
+    return `<li${fr ? ' class="fraca"' : ''}>${f.titulo ? `<span class="sv">${esc(f.veiculo)}</span>` : ''}<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo || f.veiculo)}</a><span class="sm"><span class="stype ${k}">${t}</span>${f.data ? `<span>${esc(fdata(f.data))}</span>` : ''}${fr ? '<span class="sfr" title="Marcada como fraca na revisão das evidências: confirma o fato só em parte, ou é coluna, republicação ou fonte secundária">fonte fraca</span>' : ''}</span></li>`; }).join('')}</ul>${nfr ? `<p class="sfnote">${nfr === 1 ? '1 fonte marcada como fraca' : nfr + ' fontes marcadas como fracas'} na revisão.</p>` : ''}${ctxHTML(cx, 'Contexto')}${ctxHTML(wk, 'Wikipédia (contexto)')}</details>`;
 }
 function evHTML(e){
   return `<div class="ev ${esc(e.lado)}"><time datetime="${esc(e.d)}">${fdate(e.d)}</time><article class="card"><div class="top"><span class="side">${esc(LADO[e.lado]||e.lado)}</span>${pill(e.st)}</div><h4>${esc(e.t)}</h4>${e.x?`<p>${esc(e.x)}</p>`:''}<div class="src">${links(e.src)}</div>${fontesHTML(e)}</article></div>`;

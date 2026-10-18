@@ -388,6 +388,10 @@ R5  (canais 'brasil' e 'violencia', eventos factuais da linha do tempo; olha o t
     senão (só wiki/outro/video, só fonte de papel 'contexto' ou nenhuma fonte) -> nao_classificada.
     Fontes 'contexto' (as URLs do bloco-ano de brasil-fontes.json, que o bruto não separa por evento) NÃO contam: não sustentam o fato do evento.
     Muda-se isso em R5_PAPEIS.
+R6  (global; data/curadoria/regras-fontes.json, decisão do dono do projeto de 18/10/2026): fonte Wikipédia (evidencia.tipo 'wiki' ou domínio
+    *.wikipedia.org) nunca tem papel 'sustenta'; em evento_evidencia e relacao_evidencia é sempre 'contexto' (qualidade NULL: contexto não é
+    avaliado). Aplicada por aplicar_peso_wikipedia depois de todas as cargas de evidência e antes de gerar a natureza: a wiki não conta em R5,
+    nem no 'Fontes (n)' das páginas, e é exportada por último. Nenhum evento ou relação pode depender só de wiki (a migração aborta).
 M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descrição, fontes) e classificados à mão em data/curadoria/eventos-natureza-manual.json
     ([{"id","natureza","justificativa"}]), aplicado depois do gerado e só onde natureza_id IS NULL; entrada com "natureza": null é exceção explícita
     (fica NULL, a justificativa é obrigatória).
@@ -811,3 +815,28 @@ Eventos `nao_classificada` depois da rodada: 0.
 | documentada | 240 |
 | investigacao | 36 |
 | reportada | 223 |
+
+## 21. R6: peso da Wikipédia (`data/curadoria/regras-fontes.json`)
+
+Registro da decisão (`motivo` do arquivo): Dar menos peso à Wikipédia: fonte Wikipédia (evidencia.tipo='wiki' ou domínio *.wikipedia.org) nunca tem papel 'sustenta'; em evento_evidencia e relacao_evidencia é sempre 'contexto', não conta para a natureza (R5 só olha 'sustenta') nem no 'Fontes (n)' das páginas e aparece por último, apagada, como 'Wikipédia (contexto)'. Regra R6, global e permanente: decisão do dono do projeto, 18/10/2026.
+
+`curadoria.aplicar_peso_wikipedia` roda depois de todas as funções de evidência (inclusive `aplicar_evidencia_qualidade`, que exige a `fraca` ainda gravada) e antes de gerar a natureza (`gerar_curadoria.py --so natureza` parte de um banco com R6 aplicada; R5 só olha `sustenta`). Rebaixa toda ligação de fonte wiki (`evidencia.tipo='wiki'` ou domínio `*.wikipedia.org`) com papel `sustenta` para `contexto`, mantendo rótulo, trecho e nota; `qualidade` passa a NULL (contexto não é avaliado). Aborta sem mudar nada se algum evento ou relação ficaria sem fonte `sustenta` (nenhum dependia só de wiki).
+
+| | evento_evidencia | relacao_evidencia |
+|---|---:|---:|
+| wiki `sustenta` rebaixadas a `contexto` | 96 | 3 |
+| alvos distintos | 77 | 3 |
+
+Qualidade antes: 2 `fraca`, 0 `boa`, 97 não avaliadas (NULL). Wiki `sustenta` depois: 0.
+Ligações `fraca` no banco: 4 -> 2 (as wiki rebaixadas deixam de ser `fraca` por serem contexto; `validar.py` confere `FRACAS_RESTANTES_RODADA4` menos `FRACAS_REBAIXADAS_R6`).
+
+| alvo | wiki que era `fraca` (agora `contexto`, qualidade NULL) |
+|---|---|
+| evento `ev-1999-segundo-mandato-de-fhc` | https://pt.wikipedia.org/wiki/Fernando_Henrique_Cardoso |
+| evento `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` | https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades |
+
+| relação (origem_ref) | wiki rebaixada |
+|---|---|
+| `teia E[8].r[0]` | https://en.wikipedia.org/wiki/Rede_Super |
+| `teia E[11].r[0]` | https://en.wikipedia.org/wiki/Daniel_Vorcaro |
+| `teia E[13].r[0]` | https://en.wikipedia.org/wiki/Andr%C3%A9_Valad%C3%A3o |

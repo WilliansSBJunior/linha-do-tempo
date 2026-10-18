@@ -791,6 +791,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["evento_corr"] = curadoria.aplicar_evento_correcoes(con)      # à mão; decisões sobre as ressalvas das evidências adicionais; antes dos temas (leem título/descrição)
     R["relacao_corr"] = curadoria.aplicar_relacao_correcoes(con)
     R["evid_qualidade"] = curadoria.aplicar_evidencia_qualidade(con)   # à mão; revisão do critério 'fraca'; depois de tudo que grava qualidade
+    R["peso_wiki"] = curadoria.aplicar_peso_wikipedia(con)   # R6 (regras-fontes.json): wiki nunca 'sustenta'; depois de todas as funções de evidência
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
 
     # ================================================================ META, FTS, DUMP
@@ -1134,6 +1135,33 @@ def secoes_modelo(con, R, w):
         w("| natureza (todos os eventos) | eventos |\n|---|---:|")
         for r in q("SELECT COALESCE(natureza_id,'(NULL)') n, count(*) c FROM evento GROUP BY 1 ORDER BY 1"):
             w(f"| {r['n']} | {r['c']} |")
+    # ---------------------------------------------------------------- 21
+    pw = R["peso_wiki"]
+    if pw.get("ativo"):
+        fracas_depois = sum(curadoria._contar_fracas(con).values())
+        w("\n## 21. R6: peso da Wikipédia (`data/curadoria/regras-fontes.json`)\n")
+        w(f"Registro da decisão (`motivo` do arquivo): {pw['motivo']}\n")
+        w("`curadoria.aplicar_peso_wikipedia` roda depois de todas as funções de evidência (inclusive `aplicar_evidencia_qualidade`, que exige a `fraca` "
+          "ainda gravada) e antes de gerar a natureza (`gerar_curadoria.py --so natureza` parte de um banco com R6 aplicada; R5 só olha `sustenta`). "
+          "Rebaixa toda ligação de fonte wiki (`evidencia.tipo='wiki'` ou domínio `*.wikipedia.org`) com papel `sustenta` para `contexto`, mantendo "
+          "rótulo, trecho e nota; `qualidade` passa a NULL (contexto não é avaliado). Aborta sem mudar nada se algum evento ou relação ficaria sem "
+          "fonte `sustenta` (nenhum dependia só de wiki).\n")
+        w("| | evento_evidencia | relacao_evidencia |\n|---|---:|---:|")
+        w(f"| wiki `sustenta` rebaixadas a `contexto` | {len(pw['evento'])} | {len(pw['relacao'])} |")
+        w(f"| alvos distintos | {len({x[0] for x in pw['evento']})} | {len({x[0] for x in pw['relacao']})} |")
+        w(f"\nQualidade antes: {len(pw['fracas'])} `fraca`, {pw['boas']} `boa`, "
+          f"{len(pw['evento']) + len(pw['relacao']) - len(pw['fracas']) - pw['boas']} não avaliadas (NULL). Wiki `sustenta` depois: {pw['restantes']}.")
+        w(f"Ligações `fraca` no banco: {fracas_depois + len(pw['fracas'])} -> {fracas_depois} (as wiki rebaixadas deixam de ser `fraca` por serem contexto; "
+          "`validar.py` confere `FRACAS_RESTANTES_RODADA4` menos `FRACAS_REBAIXADAS_R6`).\n")
+        if pw["fracas"]:
+            w("| alvo | wiki que era `fraca` (agora `contexto`, qualidade NULL) |\n|---|---|")
+            for alvo, dono, url in pw["fracas"]:
+                w(f"| {alvo} `{dono}` | {url} |")
+        if pw["relacao"]:
+            w("\n| relação (origem_ref) | wiki rebaixada |\n|---|---|")
+            for dono, url, _ in pw["relacao"]:
+                ref = con.execute("SELECT origem || ' ' || origem_ref FROM relacao WHERE id=?", (dono,)).fetchone()[0]
+                w(f"| `{ref}` | {url} |")
 
 
 def tokens(s):

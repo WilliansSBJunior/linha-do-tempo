@@ -238,6 +238,9 @@ body.fs{overflow:hidden}
 .evsrc li.fraca a{font-weight:500;color:var(--ink2)}
 .evsrc .sfr{font-style:italic}
 .sfnote{font-size:12px;color:var(--muted)}
+.fwiki{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:6px 0 0;padding-top:6px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted);opacity:.75}
+.fwiki a{color:var(--muted);font-weight:400;overflow-wrap:anywhere}
+.fwiki .fwl{font-style:italic}
 .detail .fctx summary{cursor:pointer;font-size:12.5px;color:var(--ink2)}
 .detail .fctx[open] summary{margin-bottom:4px}
 .detail .ofic{font-size:12.5px;color:var(--ink2)}
@@ -842,10 +845,14 @@ function fontesHTML(fs){
     return `<li${fr ? ' class="fraca"' : ''}>${f.titulo ? `<span class="sv">${esc(f.veiculo)}</span>` : ''}<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo || f.veiculo)}</a><span class="sm"><span class="stype ${k}">${t}</span>${f.data ? `<span>${esc(fdata(f.data))}</span>` : ''}${fr ? '<span class="sfr" title="Marcada como fraca na revisão das evidências: confirma o fato só em parte, ou é coluna, republicação ou fonte secundária">fonte fraca</span>' : ''}</span></li>`; }).join('')}</ul>` +
     (nfr ? `<p class="sfnote">${nfr === 1 ? '1 fonte marcada como fraca' : nfr + ' fontes marcadas como fracas'} na revisão.</p>` : '');
 }
+/* R6 (data/curadoria/regras-fontes.json): a Wikipédia nunca sustenta; vai para o fim do grupo de contexto, numa linha apagada, sem etiqueta de tipo */
+const fwiki = f => f.tipo === 'wiki' || /(^|\.)wikipedia\.org$/.test(fhost(f.url));
+const wtit = f => { if (f.titulo) return f.titulo; try { const u = new URL(f.url), v = decodeURIComponent(u.pathname.split('/').pop()).replace(/_/g, ' '); return v ? `${v} (${u.hostname.split('.')[0]})` : f.veiculo; } catch (e) { return f.veiculo; } };
+const wikiHTML = ws => ws.length ? `<p class="fwiki"><span class="fwl">Wikipédia (contexto)</span>${ws.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(wtit(f))}</a>`).join('')}</p>` : '';
 function evFontes(e){
-  const fs = e.fontes || [], prop = fs.filter(f => f.papel !== 'contexto'), ctx = fs.filter(f => f.papel === 'contexto');
+  const fs = e.fontes || [], prop = fs.filter(f => f.papel !== 'contexto' && !fwiki(f)), ctx = fs.filter(f => f.papel === 'contexto' && !fwiki(f)), wk = fs.filter(fwiki);
   let h = `<div class="evf"><div class="lab">Fontes (${prop.length})</div>` + (prop.length ? fontesHTML(prop) : '<p class="note">Nenhuma fonte própria do fato nas fontes consultadas.</p>');
-  if (ctx.length) h += `<details class="fctx"><summary>Fontes de contexto do ano (${ctx.length})</summary><p class="sfnote">Fontes da coleta do ano que não tratam só deste fato.</p>${fontesHTML(ctx)}</details>`;
+  if (ctx.length || wk.length) h += `<details class="fctx"><summary>Fontes de contexto do ano (${ctx.length + wk.length})</summary><p class="sfnote">Fontes da coleta do ano que não tratam só deste fato.</p>${ctx.length ? fontesHTML(ctx) : ''}${wikiHTML(wk)}</details>`;
   return h + '</div>';
 }
 /* mandato com evidência oficial: com nome (grupo Câmara/Senado), "Presidência: fonte oficial de Fulano"; sem nome (o próprio parlamentar), só o link */

@@ -1,0 +1,4 @@
+{
+ "wikipedia": "contexto",
+ "motivo": "Dar menos peso à Wikipédia: fonte Wikipédia (evidencia.tipo='wiki' ou domínio *.wikipedia.org) nunca tem papel 'sustenta'; em evento_evidencia e relacao_evidencia é sempre 'contexto', não conta para a natureza (R5 só olha 'sustenta') nem no 'Fontes (n)' das páginas e aparece por último, apagada, como 'Wikipédia (contexto)'. Regra R6, global e permanente: decisão do dono do projeto, 18/10/2026."
+}

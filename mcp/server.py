@@ -471,6 +471,9 @@ def _upsert_evidencia(con, ev):
 def _ligar_evidencia(con, rid, eid, papel="sustenta", trecho_citado=None):
     if con.execute("SELECT 1 FROM relacao_evidencia WHERE relacao_id=? AND evidencia_id=?", (rid, eid)).fetchone():
         return False
+    ev = con.execute("SELECT tipo, url FROM evidencia WHERE id=?", (eid,)).fetchone()
+    if ev and papel == "sustenta" and CUR.eh_wiki(ev["tipo"], ev["url"]):
+        papel = "contexto"   # R6 (data/curadoria/regras-fontes.json): Wikipédia nunca sustenta
     ordem = con.execute("SELECT COALESCE(MAX(ordem)+1, 0) FROM relacao_evidencia WHERE relacao_id=?", (rid,)).fetchone()[0]
     con.execute("INSERT INTO relacao_evidencia(relacao_id, evidencia_id, papel, trecho_citado, ordem) VALUES(?,?,?,?,?)",
                 (rid, eid, papel, trecho_citado, ordem))

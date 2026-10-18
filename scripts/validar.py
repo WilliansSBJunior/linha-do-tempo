@@ -13,8 +13,9 @@ import sys
 import tempfile
 from pathlib import Path
 
+import curadoria as CUR
 import exportar_json as ex
-from comum import CURADORIA, DATA, DUMP, RAW, SQLITE, conectar, gerar_dump, normalizar_url
+from comum import CURADORIA, DATA, DUMP, RAW, SQLITE, conectar, dominio_de, gerar_dump, normalizar_url
 from slug import slug_para_nome
 
 FALHAS = []
@@ -489,6 +490,25 @@ FRACAS_RESTANTES_RODADA4 = sorted([
     (("evento", "ev-2018-guerra-comercial-eua-china-tarifas-sobre"), "https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation"),
     (("relacao", ("teia", "N[138].fam_de")), "https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master"),
 ])
+# R6 (data/curadoria/regras-fontes.json): das fracas acima, as da Wikipédia viraram `contexto` sem avaliação (qualidade NULL; trecho e nota ficam).
+# Ficam `fraca` no banco só as outras (FRACAS_DEPOIS_R6: cscb.ca e Brasil 247). As fórmulas de contagem descontam estas explicitamente.
+FRACAS_REBAIXADAS_R6 = sorted([
+    (("evento", "ev-1999-segundo-mandato-de-fhc"), "https://pt.wikipedia.org/wiki/Fernando_Henrique_Cardoso"),
+    (("evento", "ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos"), "https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades"),
+])
+FRACAS_DEPOIS_R6 = sorted(set(FRACAS_RESTANTES_RODADA4) - set(FRACAS_REBAIXADAS_R6))
+
+
+def _eh_wiki(tipo, url):
+    """R6, lida aqui de forma independente de curadoria.eh_wiki: tipo 'wiki' ou domínio *.wikipedia.org."""
+    h = dominio_de(url or "")
+    return tipo == "wiki" or h == "wikipedia.org" or h.endswith(".wikipedia.org")
+
+
+def _r6():
+    """Conteúdo de data/curadoria/regras-fontes.json ({} se não existe)."""
+    p = CURADORIA / "regras-fontes.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
 def _fracas_no_banco(con):
@@ -577,15 +597,29 @@ def rodada4(con):
     restam = _fracas_no_banco(con)
     for r in restam:
         print("   - continua fraca:", r[0], r[1])
-    esperar("fracas no banco depois da rodada 4 == lista explícita (FRACAS_RESTANTES_RODADA4)", restam, FRACAS_RESTANTES_RODADA4)
+    esperar("FRACAS_REBAIXADAS_R6 ⊆ FRACAS_RESTANTES_RODADA4 e todas da Wikipédia",
+            all(x in FRACAS_RESTANTES_RODADA4 and _eh_wiki(None, x[1]) for x in FRACAS_REBAIXADAS_R6), True)
+    esperar("FRACAS_DEPOIS_R6 sem Wikipédia", [x for x in FRACAS_DEPOIS_R6 if _eh_wiki(None, x[1])], [])
+    # sem a R6 (regras-fontes.json ausente), as wiki continuam fracas: a lista esperada volta a ser a da rodada 4
+    rebx = FRACAS_REBAIXADAS_R6 if _r6() else []
+    esperar("fracas no banco depois da rodada 4 e da R6 == FRACAS_RESTANTES_RODADA4 − FRACAS_REBAIXADAS_R6",
+            restam, FRACAS_DEPOIS_R6 if rebx else FRACAS_RESTANTES_RODADA4)
+    ruins = []
+    for a, u in rebx:   # a wiki que era fraca: continua ligada, agora `contexto`, sem avaliação, com o trecho e a nota da curadoria
+        lig = ligacao(a, normalizar_url(u))
+        if len(lig) != 1 or (lig[0]["papel"], lig[0]["qualidade"]) != ("contexto", None) or not lig[0]["trecho_citado"]:
+            ruins.append(f"{a} {u} {[tuple(x) for x in lig]}")
+    esperar("R6: fracas da Wikipédia ligadas como contexto, qualidade NULL, trecho mantido (divergências)", ruins, [])
+    antes_r6 = sorted(restam + rebx)
+    esperar("fracas depois da rodada 4 (antes da R6) == FRACAS_RESTANTES_RODADA4", antes_r6, FRACAS_RESTANTES_RODADA4)
     cobertas = {(_alvo(e), normalizar_url(e["substitui"])) for e in ent}
-    esperar("fracas no banco cobertas por um `substitui` da rodada 4", [r for r in restam if (r[0], normalizar_url(r[1])) in cobertas], [])
+    esperar("fracas no banco cobertas por um `substitui` da rodada 4", [r for r in antes_r6 if (r[0], normalizar_url(r[1])) in cobertas], [])
     nao = sorted(_alvo(dict(n, alvo_tipo=n.get("alvo_tipo", "evento"))) for n in cfg.get("nao_encontrados", []))
-    esperar("alvos das fracas restantes == alvos de `nao_encontrados`", sorted(r[0] for r in restam), nao)
+    esperar("alvos das fracas restantes da rodada 4 (fracas + rebaixadas pela R6) == alvos de `nao_encontrados`", sorted(r[0] for r in antes_r6), nao)
     cont = cfg.get("decisoes", {}).get("continuam_fracas", [])
     ids_cont = sorted(re.match(r"(ev-[a-z0-9-]+)", c).group(1) for c in cont if c.startswith("ev-"))
-    esperar("`continuam_fracas`: uma linha por fraca restante", len(cont), len(restam))
-    esperar("`continuam_fracas`: eventos == eventos das fracas restantes", ids_cont, sorted(r[0][1] for r in restam if r[0][0] == "evento"))
+    esperar("`continuam_fracas`: uma linha por fraca restante da rodada 4", len(cont), len(antes_r6))
+    esperar("`continuam_fracas`: eventos == eventos das fracas restantes da rodada 4", ids_cont, sorted(r[0][1] for r in antes_r6 if r[0][0] == "evento"))
     # aviso de trecho no lote A
     lote_a = ent[:27]
     sem = [e["url"] for e in lote_a if "[trecho via resumo do WebFetch]" not in (e.get("nota") or "") and "literal" not in (e.get("nota") or "").lower()]
@@ -668,7 +702,8 @@ def evidencias_adicionais(con):
     revistas = _revisoes_qualidade()   # (alvo_tipo, alvo, url) que a revisão do critério devolveu a 'boa'
     rep4 = _repeticoes_rodada4(ent)    # repetições aceitas da rodada 4 (reavaliada: mesma URL da fraca; ja_ligada: a URL já era `boa` no alvo)
     fb = _fontes_brasil()
-    chaves, ruins, fracas, n_revistas = set(), [], 0, 0
+    chaves, ruins, fracas, n_revistas, n_r6 = set(), [], 0, 0, 0
+    r6 = bool(_r6())
     for i, e in enumerate(ent):
         k = (e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"]))
         if k in chaves and i not in rep4:
@@ -700,7 +735,7 @@ def evidencias_adicionais(con):
                 ruins.append(f"substituida_por sem entrada substituta (com `substitui`) no mesmo alvo: {k} -> {su}")
             elif nova[0]["qualidade"] != "boa":
                 ruins.append(f"substituta não é de qualidade boa: {k}")
-        ev = q(con, "SELECT id FROM evidencia WHERE url=?", normalizar_url(e["url"]))
+        ev = q(con, "SELECT id, tipo FROM evidencia WHERE url=?", normalizar_url(e["url"]))
         if subs_url:   # fraca substituída: fica só no arquivo (histórico); não pode estar ligada ao alvo como fonte avaliada
             if e["alvo_tipo"] == "evento":
                 a = q(con, "SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?", e["evento_id"], e["evento_id"])
@@ -745,15 +780,19 @@ def evidencias_adicionais(con):
             if revista and e["qualidade"] != "fraca":
                 ruins.append(f"revisão de qualidade sobre entrada que não é fraca: {k}")
             n_revistas += revista
-            q_esp = "boa" if revista else e["qualidade"]
-            if (lig[0]["trecho_citado"], lig[0]["nota"], lig[0]["qualidade"], lig[0]["papel"]) != (e["trecho"], e["nota"] or None, q_esp, "sustenta"):
+            q_esp, p_esp = ("boa" if revista else e["qualidade"]), "sustenta"
+            if r6 and (_eh_wiki(e.get("tipo"), k[2]) or _eh_wiki(ev[0]["tipo"], k[2])):   # R6: wiki é `contexto`, sem avaliação
+                n_r6 += q_esp == "fraca"
+                q_esp, p_esp = None, "contexto"
+            if (lig[0]["trecho_citado"], lig[0]["nota"], lig[0]["qualidade"], lig[0]["papel"]) != (e["trecho"], e["nota"] or None, q_esp, p_esp):
                 ruins.append(f"trecho/nota/qualidade/papel diferem do arquivo: {k}")
     for r in ruins[:20]:
         print("   -", r)
     esperar("evidencias-adicionais.json: entradas aplicadas e idênticas ao banco (divergências)", len(ruins), 0)
     nf = (q(con, "SELECT count(*) FROM evento_evidencia WHERE qualidade='fraca'")[0][0] + q(con, "SELECT count(*) FROM relacao_evidencia WHERE qualidade='fraca'")[0][0])
-    esperar("ligações com qualidade 'fraca' no banco == entradas fracas do arquivo sem `substituida_por` − revistas para 'boa' "
-            f"({fracas} − {n_revistas})", nf, fracas - n_revistas)
+    esperar("ligações com qualidade 'fraca' no banco == entradas fracas do arquivo sem `substituida_por` − revistas para 'boa' − wiki rebaixadas pela R6 "
+            f"({fracas} − {n_revistas} − {n_r6})", nf, fracas - n_revistas - n_r6)
+    esperar("wiki fracas rebaixadas pela R6 (evidências adicionais) == FRACAS_REBAIXADAS_R6", n_r6, len(FRACAS_REBAIXADAS_R6) if r6 else 0)
     p = DATA / "relatorio-evidencias-adicionais.md"
     esperar("data/relatorio-evidencias-adicionais.md existe", p.exists(), True)
 
@@ -828,16 +867,110 @@ def evidencia_qualidade(con):
     ligadas_antes = len(fr_arq) - subst
     nf = {t: q(con, f"SELECT count(*) FROM {t} WHERE qualidade='fraca'")[0][0] for t in ("evento_evidencia", "relacao_evidencia")}
     print(f"  fracas no banco: evento_evidencia {nf['evento_evidencia']}, relacao_evidencia {nf['relacao_evidencia']}")
-    esperar(f"ligações 'fraca' no banco == fracas ligadas antes ({ligadas_antes}) − revistas ({aplic})", sum(nf.values()), ligadas_antes - aplic)
+    # R6: fracas ligadas, não revistas, da Wikipédia: viraram `contexto` sem avaliação (não contam mais como fracas)
+    r6 = sorted((k[:2], k[2]) for k, e in adic.items() if _r6() and e["qualidade"] == "fraca" and not e.get("substituida_por")
+                and k not in vistos and _eh_wiki(e.get("tipo"), k[2]))
+    esperar("R6: fracas da Wikipédia rebaixadas a contexto == FRACAS_REBAIXADAS_R6", [(a, normalizar_url(u)) for a, u in r6],
+            [(a, normalizar_url(u)) for a, u in FRACAS_REBAIXADAS_R6] if _r6() else [])
+    esperar(f"ligações 'fraca' no banco == fracas ligadas antes ({ligadas_antes}) − revistas ({aplic}) − rebaixadas pela R6 ({len(r6)})",
+            sum(nf.values()), ligadas_antes - aplic - len(r6))
     mant = cfg.get("mantidas_fracas")
     esperar("mantidas_fracas do arquivo == fracas em evidencias-adicionais.json − entradas de revisoes", mant, len(fr_arq) - len(rev))
-    esperar(f"ligações 'fraca' no banco == mantidas_fracas ({mant}) − substituídas ({subst}) + revisões sobre substituídas ({sobre_subst}) + repetidas ({repetidas})",
-            sum(nf.values()), mant - subst + sobre_subst + repetidas)
+    esperar(f"ligações 'fraca' no banco == mantidas_fracas ({mant}) − substituídas ({subst}) + revisões sobre substituídas ({sobre_subst}) + repetidas ({repetidas})"
+            f" − rebaixadas pela R6 ({len(r6)})",
+            sum(nf.values()), mant - subst + sobre_subst + repetidas - len(r6))
     # nenhuma fonte de origem diferente de evidencias-adicionais.json tem qualidade avaliada: toda 'fraca' no banco tem entrada fraca no arquivo
     fora = [r for t, c in (("evento_evidencia", "evento_id"), ("relacao_evidencia", "relacao_id"))
             for r in q(con, f"SELECT '{t}' t, {c} a, v.url FROM {t} l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.qualidade='fraca'")
             if not any(k[2] == r["url"] and e["qualidade"] == "fraca" and not e.get("substituida_por") for k, e in adic.items())]
     esperar("ligações 'fraca' no banco sem entrada fraca (não substituída) em evidencias-adicionais.json", len(fora), 0)
+
+
+_PAPEIS_FONTE = {"sustenta": 0, "contesta": 1, "contexto": 2}
+
+
+def _chave_fonte(f):
+    """Ordem especificada das listas `fontes` exportadas: sustenta (oficial, imprensa, outros), contexto, Wikipédia por último de tudo."""
+    oficial = f["tipo"] in ("documento_oficial", "dado_oficial", "decisao_judicial", "comunicado") or CUR.fonte_oficial(f["url"])
+    return (_eh_wiki(f["tipo"], f["url"]), _PAPEIS_FONTE.get(f.get("papel"), 9), 0 if oficial else 1 if f["tipo"] in ("reportagem", "relatorio") else 2)
+
+
+def peso_wikipedia(con, exp):
+    """R6 (data/curadoria/regras-fontes.json, curadoria.aplicar_peso_wikipedia): fonte Wikipédia nunca tem papel 'sustenta'; ligações wiki sem
+    avaliação; nenhum evento/relação com wiki fica sem fonte 'sustenta'; R6 não muda a natureza (R5 recalculado com as wiki como 'sustenta' ==
+    natureza no banco); e as listas `fontes` exportadas (teia E[].r/EV/N[].sat, series eventos, violencia marcos, dossie brb.eventos) trazem
+    `papel` em toda fonte, igual ao do banco, na ordem especificada (sustenta: oficial, imprensa, outros; contexto; Wikipédia por último;
+    empate pela ordem da ligação)."""
+    secao("R6: peso da Wikipédia (regras-fontes.json aplicada; fontes exportadas com papel e ordem)")
+    cfg = _r6()
+    esperar("regras-fontes.json: {\"wikipedia\": \"contexto\", \"motivo\": ...}", (cfg.get("wikipedia"), bool(cfg.get("motivo"))), ("contexto", True))
+    lig = {t: [x for x in q(con, f"SELECT x.{c} AS dono, x.papel, x.qualidade, x.ordem, v.url, v.tipo FROM {t} x JOIN evidencia v ON v.id=x.evidencia_id")]
+           for t, c in (("evento_evidencia", "evento_id"), ("relacao_evidencia", "relacao_id"))}
+    for t, ls in lig.items():
+        w = [x for x in ls if _eh_wiki(x["tipo"], x["url"])]
+        esperar(f"{t}: nenhuma ligação wiki com papel sustenta", sorted((str(x["dono"]), x["url"]) for x in w if x["papel"] == "sustenta"), [])
+        esperar(f"{t}: ligações wiki com qualidade avaliada (contexto não é avaliado)", sorted((str(x["dono"]), x["url"]) for x in w if x["qualidade"] is not None), [])
+        com_wiki = {x["dono"] for x in w}
+        com_sust = {x["dono"] for x in ls if x["papel"] == "sustenta"}
+        esperar(f"{t}: alvos com fonte wiki e sem nenhuma fonte 'sustenta'", sorted(map(str, com_wiki - com_sust)), [])
+        print(f"  info: {t}: {len(w)} ligações wiki, todas 'contexto', em {len(com_wiki)} alvos")
+    # R6 não muda a natureza: R5 com as wiki de volta a 'sustenta' (cota superior do que a R6 tirou) dá a mesma natureza do banco
+    gerado = json.loads((CURADORIA / "eventos-natureza.json").read_text(encoding="utf-8"))
+    por_ev = collections.defaultdict(list)
+    for x in sorted(lig["evento_evidencia"], key=lambda x: (x["dono"], x["ordem"])):
+        por_ev[x["dono"]].append((x["tipo"], x["url"], "sustenta" if _eh_wiki(x["tipo"], x["url"]) else x["papel"]))
+    muda, n_r5 = [], 0
+    for n in gerado:
+        if n["regra"].startswith("R5"):
+            n_r5 += 1
+            nat = q(con, "SELECT natureza_id FROM evento WHERE id=?", n["id"])
+            sem_r6 = CUR.classificar_natureza_r5(por_ev.get(n["id"], []))[0]
+            if not nat or sem_r6 != nat[0][0] or n["natureza"] != nat[0][0]:
+                muda.append((n["id"], n["natureza"], sem_r6))
+    print(f"  info: {n_r5} eventos com natureza por R5 conferidos")
+    esperar("R6 não muda a natureza de nenhum evento (R5 com as wiki como 'sustenta' == natureza no banco)", muda, [])
+    # fontes exportadas: papel em toda fonte, igual ao do banco, e ordem especificada
+    ordem_db = {t: {(x["dono"], x["url"]): (x["papel"], x["ordem"]) for x in ls} for t, ls in lig.items()}
+    rel_id = {r["origem_ref"]: r["id"] for r in q(con, "SELECT id, origem_ref FROM relacao WHERE origem='teia'")}
+    sat_id = {r["de"]: r["id"] for r in q(con, "SELECT id, de FROM relacao WHERE origem_ref LIKE 'N[%'")}
+    listas = []   # (onde, tabela, dono, fontes)
+    t = exp["teia.json"]
+    for i, e in enumerate(t["E"]):
+        for j, r in enumerate(e["r"]):
+            listas.append((f"teia E[{i}].r[{j}]", "relacao_evidencia", rel_id.get(f"E[{i}].r[{j}]"), r.get("fontes")))
+    for i, e in enumerate(t["EV"]):
+        listas.append((f"teia EV[{i}]", "evento_evidencia", e.get("id"), e.get("fontes")))
+    for i, n in enumerate(t["N"]):
+        if "sat" in n:
+            listas.append((f"teia N[{i}].sat", "relacao_evidencia", sat_id.get(n["id"]), n["sat"].get("fontes")))
+    for e in exp["series.json"]["eventos"]:
+        listas.append((f"series {e['id']}", "evento_evidencia", e["id"], e.get("fontes")))
+    for m in exp["violencia.json"]["marcos"]:
+        listas.append((f"violencia {m['id']}", "evento_evidencia", m["id"], m.get("fontes")))
+    for e in exp["dossie.json"]["brb"]["eventos"]:
+        listas.append((f"dossie brb {e.get('id')}", "evento_evidencia", e.get("id"), e.get("fontes")))
+    sem_papel, papel_dif, fora_ordem, n_f = [], [], [], 0
+    for onde, tab, dono, fs in listas:
+        if fs is None or dono is None:
+            sem_papel.append(f"{onde}: sem `fontes` ou sem alvo no banco")
+            continue
+        n_f += len(fs)
+        for f in fs:
+            db = ordem_db[tab].get((dono, f["url"]))
+            if "papel" not in f:
+                sem_papel.append(f"{onde}: {f['url']}")
+            elif not db or db[0] != f["papel"]:
+                papel_dif.append(f"{onde}: {f['url']} {f.get('papel')} != {db and db[0]}")
+        if all("papel" in f and (dono, f["url"]) in ordem_db[tab] for f in fs):
+            esperado = sorted(fs, key=lambda f: (_chave_fonte(f), ordem_db[tab][(dono, f["url"])][1]))
+            if [f["url"] for f in fs] != [f["url"] for f in esperado]:
+                fora_ordem.append(onde)
+    print(f"  info: {len(listas)} listas `fontes` exportadas, {n_f} fontes")
+    esperar("fontes exportadas sem `papel` (ou lista sem alvo)", sem_papel[:10], [])
+    esperar("fontes exportadas com `papel` diferente do banco", papel_dif[:10], [])
+    esperar("fontes exportadas fora da ordem (sustenta: oficial, imprensa, outros; contexto; Wikipédia por último; empate: ordem da ligação)", fora_ordem[:10], [])
+    wiki_sust = [onde for onde, _, _, fs in listas for f in (fs or []) if _eh_wiki(f["tipo"], f["url"]) and f.get("papel") != "contexto"]
+    esperar("fontes exportadas: Wikipédia sempre com papel contexto", wiki_sust[:10], [])
 
 
 def _correcoes_relacao():
@@ -1336,6 +1469,7 @@ def main():
     valores(con, exp)
     modelo_v2(con, exp)
     paginas(con, exp)
+    peso_wikipedia(con, exp)
 
     secao("Arquivos exportados em disco")
     for nome, obj in exp.items():

@@ -351,6 +351,9 @@ footer a { color: var(--ink); }
 .evsrc .sm { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .evsrc .stype { font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 3px; padding: 0 5px; white-space: nowrap; }
 .evsrc .stype.doc { color: var(--bg); background: var(--muted); border-color: var(--muted); }
+.fwiki { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 6px 0 0; padding-top: 6px; border-top: 1px dashed var(--line); font-size: 12px; color: var(--muted); opacity: .75; }
+.fwiki a { color: var(--muted); font-weight: 400; overflow-wrap: anywhere; }
+.fwiki .fwl { font-style: italic; }
 .evsrc li.fraca a { font-weight: 500; color: var(--muted); }
 .evsrc .sfr { font-style: italic; }
 .mfontes .sfnote { margin: 0; font-size: 12px; color: var(--muted); }
@@ -968,14 +971,22 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
   function fhost(u) { try { return new URL(u).hostname.toLowerCase(); } catch (e) { return ""; } }
   function fonteTag(f) { return f.tipo === "reportagem" && /(^|\.)(gov|jus|leg|mp)\.br$/.test(fhost(f.url)) ? FTIPO.documento_oficial : FTIPO[f.tipo] || FTIPO.outro; }
   function fdata(d) { var m = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/.exec(String(d)); return !m ? String(d) : m[3] ? +m[3] + " " + FMES[+m[2] - 1] + " " + m[1] : m[2] ? FMES[+m[2] - 1] + " " + m[1] : m[1]; }
-  function fontesHTML(fs) {
-    fs = fs || [];
-    if (!fs.length) return "";
+  // R6 (data/curadoria/regras-fontes.json): a Wikipédia nunca sustenta; fica numa linha final apagada, sem etiqueta de tipo, e não conta em "Fontes (n)"
+  function fwiki(f) { return f.tipo === "wiki" || /(^|\.)wikipedia\.org$/.test(fhost(f.url)); }
+  function wtit(f) { if (f.titulo) return f.titulo; try { var u = new URL(f.url), v = decodeURIComponent(u.pathname.split("/").pop()).replace(/_/g, " "); return v ? v + " (" + u.hostname.split(".")[0] + ")" : f.veiculo; } catch (e) { return f.veiculo; } }
+  function ctxHTML(fs, rot) {
+    return fs.length ? '<p class="fwiki"><span class="fwl">' + rot + "</span>" + fs.map(function (f) { return '<a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(fwiki(f) ? wtit(f) : f.titulo || f.veiculo) + "</a>"; }).join("") + "</p>" : "";
+  }
+  function fontesHTML(todas) {
+    todas = todas || [];
+    if (!todas.length) return "";
+    var fs = todas.filter(function (f) { return f.papel !== "contexto" && !fwiki(f); });
+    var cx = todas.filter(function (f) { return f.papel === "contexto" && !fwiki(f); }), wk = todas.filter(fwiki);
     var nfr = fs.filter(function (f) { return f.qualidade === "fraca"; }).length;
     return '<div class="mfontes"><span class="mlab">Fontes (' + fs.length + ')</span><ul class="evsrc">' + fs.map(function (f) {
       var t = fonteTag(f), fr = f.qualidade === "fraca";
       return "<li" + (fr ? ' class="fraca"' : "") + ">" + (f.titulo ? '<span class="sv">' + esc(f.veiculo) + "</span>" : "") + '<a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(f.titulo || f.veiculo) + '</a><span class="sm"><span class="stype ' + t[1] + '">' + t[0] + "</span>" + (f.data ? "<span>" + esc(fdata(f.data)) + "</span>" : "") + (fr ? '<span class="sfr" title="Marcada como fraca na revisão das evidências: confirma o fato só em parte, ou é coluna, republicação ou fonte secundária">fonte fraca</span>' : "") + "</span></li>";
-    }).join("") + "</ul>" + (nfr ? '<p class="sfnote">' + (nfr === 1 ? "1 fonte marcada como fraca" : nfr + " fontes marcadas como fracas") + " na revisão.</p>" : "") + "</div>";
+    }).join("") + "</ul>" + (nfr ? '<p class="sfnote">' + (nfr === 1 ? "1 fonte marcada como fraca" : nfr + " fontes marcadas como fracas") + " na revisão.</p>" : "") + ctxHTML(cx, "Contexto") + ctxHTML(wk, "Wikipédia (contexto)") + "</div>";
   }
 
   var cel = {

@@ -150,6 +150,10 @@ R5  (canais 'brasil' e 'violencia', eventos factuais da linha do tempo; olha o t
     senão (só wiki/outro/video, só fonte de papel 'contexto' ou nenhuma fonte) -> nao_classificada.
     Fontes 'contexto' (as URLs do bloco-ano de brasil-fontes.json, que o bruto não separa por evento) NÃO contam: não sustentam o fato do evento.
     Muda-se isso em R5_PAPEIS.
+R6  (global; data/curadoria/regras-fontes.json, decisão do dono do projeto de 18/10/2026): fonte Wikipédia (evidencia.tipo 'wiki' ou domínio
+    *.wikipedia.org) nunca tem papel 'sustenta'; em evento_evidencia e relacao_evidencia é sempre 'contexto' (qualidade NULL: contexto não é
+    avaliado). Aplicada por aplicar_peso_wikipedia depois de todas as cargas de evidência e antes de gerar a natureza: a wiki não conta em R5,
+    nem no 'Fontes (n)' das páginas, e é exportada por último. Nenhum evento ou relação pode depender só de wiki (a migração aborta).
 M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descrição, fontes) e classificados à mão em data/curadoria/eventos-natureza-manual.json
     ([{"id","natureza","justificativa"}]), aplicado depois do gerado e só onde natureza_id IS NULL; entrada com "natureza": null é exceção explícita
     (fica NULL, a justificativa é obrigatória)."""
@@ -1614,6 +1618,50 @@ def aplicar_evidencia_qualidade(con):
     return r
 
 
+# ======================================================================== R6: peso da Wikipédia (regras-fontes.json)
+def eh_wiki(tipo, url):
+    """Fonte Wikipédia: evidencia.tipo='wiki' ou domínio *.wikipedia.org (R6)."""
+    h = dominio_de(url or "")
+    return tipo == "wiki" or h == "wikipedia.org" or h.endswith(".wikipedia.org")
+
+
+def aplicar_peso_wikipedia(con):
+    """R6 (data/curadoria/regras-fontes.json, decisão do dono do projeto): fonte Wikipédia nunca tem papel 'sustenta'. Rebaixa toda ligação
+    evento_evidencia/relacao_evidencia de fonte wiki (eh_wiki) com papel 'sustenta' para 'contexto', mantendo rótulo, trecho e nota;
+    `qualidade` passa a NULL (contexto não é avaliado), e as que eram 'fraca' são contadas no relatório. Roda DEPOIS de todas as funções de
+    evidência (inclusive aplicar_evidencia_qualidade, que exige a 'fraca' ainda gravada) e antes de gerar a natureza (gerar_curadoria.py parte
+    de um banco com R6 aplicada; R5 só olha 'sustenta'). Sem o arquivo, não roda (devolve {"ativo": False}). Aborta sem mudar nada se o
+    arquivo não diz "wikipedia": "contexto" com motivo, ou se algum evento/relação ficaria sem nenhuma fonte 'sustenta' (dependia só de wiki)."""
+    cfg = ler_json("regras-fontes.json")
+    if cfg is None:
+        return {"ativo": False}
+    if cfg.get("wikipedia") != "contexto" or not cfg.get("motivo"):
+        raise SystemExit('regras-fontes.json: esperado {"wikipedia": "contexto", "motivo": "..."}; nada foi aplicado.')
+    r = {"ativo": True, "motivo": cfg["motivo"], "evento": [], "relacao": [], "fracas": [], "boas": 0}
+    erros = []
+    for tab, col, alvo in (("evento_evidencia", "evento_id", "evento"), ("relacao_evidencia", "relacao_id", "relacao")):
+        lig = [x for x in con.execute(f"""SELECT x.{col} AS dono, x.evidencia_id, x.qualidade, v.url, v.tipo FROM {tab} x
+                                          JOIN evidencia v ON v.id=x.evidencia_id WHERE x.papel='sustenta' ORDER BY x.{col}, x.ordem""")]
+        wiki = [x for x in lig if eh_wiki(x["tipo"], x["url"])]
+        resto = collections.Counter(x["dono"] for x in lig if not eh_wiki(x["tipo"], x["url"]))
+        for dono in sorted({x["dono"] for x in wiki}, key=str):
+            if not resto[dono]:
+                erros.append(f"{alvo} {dono}: só fonte Wikipédia sustenta")
+        r[alvo] = [(x["dono"], x["url"], x["qualidade"]) for x in wiki]
+    if erros:
+        raise SystemExit("regras-fontes.json (R6): nada foi aplicado.\n  " + "\n  ".join(erros))
+    for tab, col, alvo in (("evento_evidencia", "evento_id", "evento"), ("relacao_evidencia", "relacao_id", "relacao")):
+        for dono, url, qual in r[alvo]:
+            con.execute(f"""UPDATE {tab} SET papel='contexto', qualidade=NULL
+                            WHERE {col}=? AND evidencia_id=(SELECT id FROM evidencia WHERE url=?) AND papel='sustenta'""", (dono, url))
+            if qual == "fraca":
+                r["fracas"].append((alvo, dono, url))
+            r["boas"] += qual == "boa"
+    r["restantes"] = sum(eh_wiki(x[0], x[1]) for t in ("evento_evidencia", "relacao_evidencia")
+                         for x in con.execute(f"SELECT v.tipo, v.url FROM {t} x JOIN evidencia v ON v.id=x.evidencia_id WHERE x.papel='sustenta'"))
+    return r
+
+
 # ======================================================================== correções de revisão (ressalvas das evidências adicionais)
 CAMPOS_EVENTO_CORRECAO = ("titulo", "descricao")
 CAMPOS_RELACAO_CORRECAO = ("periodo_fim", "descricao", "subtipo", "rotulo", "tipo")
@@ -1819,6 +1867,7 @@ def relatorio_evidencias_adicionais(con, R, E=None):
                         (aid, normalizar_url(e["url"]))).fetchone()
         return x[0] if x else None
     revistas = [e for e in fracas if qual_banco(e) == "boa"]
+    r6w = [e for e in fracas if e not in revistas and qual_banco(e) is None and eh_wiki(e.get("tipo"), e["url"])]   # R6: wiki, hoje `contexto`
     L = []
     w = L.append
     w("# Evidências adicionais\n")
@@ -1842,7 +1891,9 @@ def relatorio_evidencias_adicionais(con, R, E=None):
     w(f"| qualidade `fraca` (no arquivo, inclusive as substituídas, que ficam como histórico) | {len(todas_fracas)} |")
     w(f"| qualidade `fraca` ligadas ao alvo (como entraram) | {len(fracas)} |")
     w(f"| &nbsp;&nbsp;das quais voltaram a `boa` na revisão do critério (`evidencia-qualidade-revisao.json`, seção 18 de `relatorio-migracao.md`) | {len(revistas)} |")
-    w(f"| &nbsp;&nbsp;continuam `fraca` no banco | {len(fracas) - len(revistas)} |")
+    if r6w:
+        w(f"| &nbsp;&nbsp;das quais, da Wikipédia, viraram `contexto` sem avaliação pela R6 (`regras-fontes.json`, seção 21 de `relatorio-migracao.md`) | {len(r6w)} |")
+    w(f"| &nbsp;&nbsp;continuam `fraca` no banco | {len(fracas) - len(revistas) - len(r6w)} |")
     w(f"| descrições de relação da teia substituídas | {len(R['descricoes_trocadas'])} |")
     w(f"| descrições mantidas (a atual já não era o texto padrão \"Vínculo ... sem descrição na fonte\") | {len(R['descricoes_mantidas'])} |")
     w("\nEvidências novas por tipo:\n")
@@ -1863,10 +1914,12 @@ def relatorio_evidencias_adicionais(con, R, E=None):
     w("\n## Fontes fracas (para substituição futura)\n")
     w(f"{len(fracas)} entradas ainda ligadas ao alvo ({len(n_parc)} com substituição parcial, {len(n_sem)} sem substituto); "
       f"as outras {len(n_subst)} foram substituídas e ficam no arquivo só como histórico. Das ligadas, {len(revistas)} voltaram a `boa` na revisão do critério "
-      f"(a nota do pesquisador fica); a tabela lista as {len(fracas) - len(revistas)} que continuam `fraca` no banco.\n")
+      f"(a nota do pesquisador fica)"
+      + (f" e {len(r6w)}, da Wikipédia, viraram `contexto` sem avaliação pela R6 ({', '.join(f'`{e['evento_id']}`' if e['alvo_tipo'] == 'evento' else f'`{e['relacao_origem_ref']}`' for e in r6w)})" if r6w else "")
+      + f"; a tabela lista as {len(fracas) - len(revistas) - len(r6w)} que continuam `fraca` no banco.\n")
     w("| alvo | url | motivo |\n|---|---|---|")
     for e in fracas:
-        if e not in revistas:
+        if e not in revistas and e not in r6w:
             w(f"| {alvo(e)} | {esc(e['url'])} | {esc(e['motivo_fraca'])} |")
     w("\n## Substituições de fontes fracas\n")
     w("Uma entrada `fraca` com `substituida_por` não é ligada ao alvo (continua no arquivo como histórico); a nova evidência (`boa`) traz `substitui: <url da fraca>`. "
@@ -1932,6 +1985,15 @@ def _secao_rodada4(con, R, E, esc, alvo):
     for t, c, extra in (("evento_evidencia", "evento_id", ""), ("relacao_evidencia", "relacao_id", "")):
         for r in con.execute(f"SELECT l.{c}, v.url FROM {t} l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.qualidade='fraca' ORDER BY l.{c}, v.url"):
             restam.append((t, r[0], r[1]))
+    # R6 (regras-fontes.json): fracas wiki que ficaram depois da rodada e hoje são `contexto` sem avaliação (aplicar_peso_wikipedia)
+    r6 = []
+    for e in R["entradas"]:
+        if e["qualidade"] == "fraca" and not e.get("substituida_por") and eh_wiki(e.get("tipo"), e["url"]):
+            tab, col, aid = _alvo_evidencia(con, e)
+            x = con.execute(f"SELECT l.papel, l.qualidade FROM {tab} l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.{col}=? AND v.url=?",
+                            (aid, normalizar_url(e["url"]))).fetchone()
+            if x and tuple(x) == ("contexto", None) and (tab, aid, normalizar_url(e["url"])) not in r6:
+                r6.append((tab, aid, normalizar_url(e["url"])))
     tit = {x["id"]: x["titulo"] for x in con.execute("SELECT id, titulo FROM evento")}
     nat = lambda i: (con.execute("SELECT COALESCE(natureza_id,'(NULL)') FROM evento WHERE id=?", (i,)).fetchone() or ["(inexistente)"])[0]
     eventos = sorted({e["evento_id"] for e in r4 if e["alvo_tipo"] == "evento"})
@@ -1980,7 +2042,9 @@ def _secao_rodada4(con, R, E, esc, alvo):
     w(f"| reavaliadas (mesma URL, trecho e nota novos) | {len(R['r4_reavaliadas'])} |")
     w(f"| substitutas que já eram fonte `boa` do alvo (rodadas 2-3; ligação existente mantida) | {len(R['r4_ja_ligadas'])} |")
     w(f"| substitutas que eram `contexto` do bloco-ano e subiram a `sustenta` | {len(R['r4_promovidas'])} |")
-    w(f"| ligações `fraca` no banco antes -> depois da rodada | {len(restam) + len(distintas)} -> {len(restam)} |")
+    w(f"| ligações `fraca` no banco antes -> depois da rodada | {len(restam) + len(r6) + len(distintas)} -> {len(restam) + len(r6)} |")
+    if r6:
+        w(f"| ligações `fraca` depois da R6 (wiki vira `contexto`, sem avaliação; `regras-fontes.json`) | {len(restam)} |")
     w(f"| correções de texto de evento (`evento-correcoes.json`, `\"rodada\": 4`) | {len(corr)} em {len({c['id_efetivo'] for c in corr})} eventos |")
     w(f"| correções de relação (`relacao-correcoes.json`, `rodada_campos`) | {len(corr_rel)} |")
     w("\nNatureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):\n")
@@ -2003,7 +2067,9 @@ def _secao_rodada4(con, R, E, esc, alvo):
     for m in dec.get("manter_com_nota", []):
         w(f"- {esc(m)}")
     w("\n### Continuam fracas\n")
-    w(f"{len(restam)} ligações `fraca` no banco depois da rodada (as que nenhuma fonte aberta substituiu; `continuam_fracas` e `nao_encontrados` do arquivo):\n")
+    w(f"{len(restam) + len(r6)} ligações `fraca` no banco depois da rodada (as que nenhuma fonte aberta substituiu; `continuam_fracas` e `nao_encontrados` do arquivo)"
+      + (f"; {len(r6)} delas, da Wikipédia, deixaram de ser `fraca` pela R6 (`regras-fontes.json`: wiki é sempre `contexto`, que não é avaliado) e ficam "
+         f"{len(restam)}" if r6 else "") + ":\n")
     w("| alvo | url |\n|---|---|")
     for t, a, u in restam:
         if t == "evento_evidencia":
@@ -2011,6 +2077,11 @@ def _secao_rodada4(con, R, E, esc, alvo):
         else:
             x = con.execute("SELECT r.origem_ref, d.nome dn, p.nome pn, r.rotulo FROM relacao r JOIN entidade d ON d.id=r.de JOIN entidade p ON p.id=r.para WHERE r.id=?", (a,)).fetchone()
             w(f"| relação {a} `{x['origem_ref']}` ({esc(x['dn'])} -> {esc(x['pn'])}: {esc(x['rotulo'])}) | {esc(u)} |")
+    if r6:
+        w("\nDa Wikipédia, hoje `contexto` (R6; o evento continua sustentado pelas outras fontes):\n")
+        w("| alvo | url |\n|---|---|")
+        for t, a, u in r6:
+            w(f"| evento `{a}` ({esc(tit.get(a, ''))}) | {esc(u)} |" if t == "evento_evidencia" else f"| relação {a} | {esc(u)} |")
     w("\nDecisão do pesquisador (`continuam_fracas`):\n")
     for m in dec.get("continuam_fracas", []):
         w(f"- {esc(m)}")

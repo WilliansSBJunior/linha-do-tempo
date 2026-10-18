@@ -11,6 +11,7 @@ import re
 from collections import OrderedDict, defaultdict
 
 from comum import DATA, DUMP, SQLITE, TS_MIGRACAO, conectar, gerar_dump
+from curadoria import R5_TIPOS_IMPRENSA, R5_TIPOS_OFICIAIS, eh_wiki, fonte_oficial
 
 PSEUDO_PARTIDOS = {"Ex-ministros e consultores", "Órgãos e partidos"}
 VERSAO = 1
@@ -37,24 +38,33 @@ def _fontes(con, tabela, col):
     return out
 
 
-# ordem das fontes ricas: oficiais primeiro, depois reportagem, depois o resto (estável dentro de cada faixa: x.ordem)
-_FAIXA_TIPO = {"documento_oficial": 0, "dado_oficial": 0, "decisao_judicial": 0, "reportagem": 1}
+# ordem das listas de fontes exportadas (`fontes` de teia/series/violencia/dossie): papel `sustenta` primeiro (`contesta` depois), `contexto`
+# por último e a Wikipédia (R6: sempre `contexto`) por último de tudo; dentro de cada faixa, oficial (tipos e domínios oficiais de R5),
+# imprensa (reportagem/relatório) e o resto; empate: x.ordem (sort estável sobre a consulta ordenada). Determinístico.
+_FAIXA_PAPEL = {"sustenta": 0, "contesta": 1, "contexto": 2}
+
+
+def faixa_fonte(d):
+    """Chave de ordenação de uma fonte exportada ({url, tipo, papel, ...})."""
+    oficial = d["tipo"] in R5_TIPOS_OFICIAIS or fonte_oficial(d["url"])
+    return (eh_wiki(d["tipo"], d["url"]), _FAIXA_PAPEL.get(d["papel"], 2), 0 if oficial else 1 if d["tipo"] in R5_TIPOS_IMPRENSA else 2)
 
 
 def _fontes_ricas(con, tabela, col, qualidade=True):
-    """dono -> [{url, veiculo, tipo, titulo, data[, qualidade]}] (campo aditivo `fontes`; `f` continua como era).
+    """dono -> [{url, veiculo, tipo, titulo, data[, qualidade], papel}] (campo aditivo `fontes`; `f` continua como era), na ordem de faixa_fonte.
     Em evento_evidencia o rótulo da ligação vale como título quando a evidência não tem título e o rótulo não é só o veículo."""
     out = defaultdict(list)
     rot = "x.rotulo" if tabela == "evento_evidencia" else "NULL"
-    for r in con.execute(f"""SELECT x.{col} AS dono, e.url, e.veiculo, e.tipo, e.titulo, e.data, x.qualidade, {rot} AS rotulo
+    for r in con.execute(f"""SELECT x.{col} AS dono, e.url, e.veiculo, e.tipo, e.titulo, e.data, x.qualidade, x.papel, {rot} AS rotulo
                              FROM {tabela} x JOIN evidencia e ON e.id=x.evidencia_id ORDER BY x.{col}, x.ordem"""):
         titulo = r["titulo"] or (r["rotulo"] if r["rotulo"] and r["rotulo"] != r["veiculo"] else None)
         d = OrderedDict([("url", r["url"]), ("veiculo", r["veiculo"]), ("tipo", r["tipo"]), ("titulo", titulo), ("data", r["data"])])
         if qualidade:
             d["qualidade"] = r["qualidade"]
+        d["papel"] = r["papel"]
         out[r["dono"]].append(d)
     for v in out.values():
-        v.sort(key=lambda d: _FAIXA_TIPO.get(d["tipo"], 2))
+        v.sort(key=faixa_fonte)
     return out
 
 
@@ -297,8 +307,8 @@ def montar_series(con):
 
 
 def _fontes_evento(con):
-    """evento -> [{url, veiculo, tipo, titulo, data, qualidade, papel}]: as de papel `sustenta`/`contesta` primeiro, depois as de
-    `contexto` (fontes do bloco-ano da linha do tempo); dentro de cada papel, oficiais/decisões, reportagem e o resto (como em teia.json)."""
+    """evento -> [{url, veiculo, tipo, titulo, data, qualidade, papel}] na ordem de faixa_fonte: `sustenta`/`contesta` primeiro, depois
+    `contexto` (fontes do bloco-ano da linha do tempo), a Wikipédia por último; dentro de cada faixa, oficial, imprensa e o resto (como em teia.json)."""
     out = defaultdict(list)
     for r in con.execute("""SELECT x.evento_id AS dono, e.url, e.veiculo, e.tipo, e.titulo, e.data, x.qualidade, x.papel, x.rotulo
                             FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id ORDER BY x.evento_id, x.ordem"""):
@@ -306,7 +316,7 @@ def _fontes_evento(con):
         out[r["dono"]].append(OrderedDict([("url", r["url"]), ("veiculo", r["veiculo"]), ("tipo", r["tipo"]), ("titulo", titulo),
                                            ("data", r["data"]), ("qualidade", r["qualidade"]), ("papel", r["papel"])]))
     for v in out.values():
-        v.sort(key=lambda d: (d["papel"] == "contexto", _FAIXA_TIPO.get(d["tipo"], 2)))
+        v.sort(key=faixa_fonte)
     return out
 
 

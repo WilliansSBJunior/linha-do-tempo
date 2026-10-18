@@ -162,12 +162,12 @@
  {
   "id": "ev-1996-criacao-da-cpmf",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-1996-eleicoes-municipais-com-urna-eletronica",
   "natureza": "documentada",
-  "regra": "R5: 1 de 3 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, tse.jus.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, tse.jus.br)"
  },
  {
   "id": "ev-1996-emenda-constitucional-14-e-criacao-do",
@@ -187,7 +187,7 @@
  {
   "id": "ev-1996-lei-kandir",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-1996-massacre-de-eldorado-dos-carajas",
@@ -207,7 +207,7 @@
  {
   "id": "ev-1997-lei-geral-de-telecomunicacoes",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-1997-novas-mesas-da-camara-e-do-senado",
@@ -257,7 +257,7 @@
  {
   "id": "ev-1998-privatizacao-do-sistema-telebras",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-1998-reforma-administrativa-ec-19",
@@ -277,7 +277,7 @@
  {
   "id": "ev-1998-socorro-ao-fundo-ltcm-nos-eua",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, federalreservehistory.org)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, federalreservehistory.org)"
  },
  {
   "id": "ev-1998-tse-rejeita-candidatura-de-collor",
@@ -292,7 +292,7 @@
  {
   "id": "ev-1999-cpis-do-judiciario-e-do-sistema",
   "natureza": "documentada",
-  "regra": "R5: 3 de 4 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www25.senado.leg.br)"
+  "regra": "R5: 3 de 3 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www25.senado.leg.br)"
  },
  {
   "id": "ev-1999-euro-e-lancado-como-moeda-contabil",
@@ -332,7 +332,7 @@
  {
   "id": "ev-1999-segundo-mandato-de-fhc",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2000-argentina-em-recessao",
@@ -377,7 +377,7 @@
  {
   "id": "ev-2001-aecio-neves-eleito-presidente-da-camara",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www2.camara.leg.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www2.camara.leg.br)"
  },
  {
   "id": "ev-2001-argentina-suspende-pagamento-da-divida",
@@ -432,7 +432,7 @@
  {
   "id": "ev-2002-eneas-e-o-deputado-federal-mais-votado",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 2 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2002-fed-corta-juros-para-1-25",
@@ -457,7 +457,7 @@
  {
   "id": "ev-2002-notas-e-moedas-de-euro-entram-em",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, ecb.europa.eu)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, ecb.europa.eu)"
  },
  {
   "id": "ev-2002-tse-impoe-a-verticalizacao-das",
@@ -497,12 +497,12 @@
  {
   "id": "ev-2003-posse-de-lula",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
  },
  {
   "id": "ev-2003-pt-expulsa-heloisa-helena-e-tres",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2003-sarney-volta-a-presidencia-do-senado",
@@ -517,12 +517,12 @@
  {
   "id": "ev-2004-caso-waldomiro-diniz",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2004-eleicoes-municipais-de-2004",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2004-fed-inicia-ciclo-de-alta-de-juros",
@@ -532,7 +532,7 @@
  {
   "id": "ev-2004-fundacao-do-psol",
   "natureza": "documentada",
-  "regra": "R5: 1 de 3 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
  },
  {
   "id": "ev-2004-lei-das-parcerias-publico-privadas",
@@ -637,7 +637,7 @@
  {
   "id": "ev-2006-negociacoes-da-rodada-doha-sao-suspensas",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2006-operacao-sanguessuga-e-cpmi-das",
@@ -652,7 +652,7 @@
  {
   "id": "ev-2006-sancionada-a-lei-maria-da-penha",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-2006-stf-derruba-a-clausula-de-barreira",
@@ -677,7 +677,7 @@
  {
   "id": "ev-2007-corrida-ao-northern-rock-no-reino-unido",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2007-fed-comeca-a-cortar-juros",
@@ -687,12 +687,12 @@
  {
   "id": "ev-2007-fidelidade-partidaria-mandato-pertence",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2007-petrobras-anuncia-a-descoberta-de-tupi",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2007-renan-calheiros-renuncia-a-presidencia",
@@ -707,17 +707,17 @@
  {
   "id": "ev-2007-stf-recebe-a-denuncia-do-mensalao",
   "natureza": "documentada",
-  "regra": "R5: 1 de 3 fonte(s) que sustentam o evento são oficiais (tipo decisao_judicial, noticias.stf.jus.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo decisao_judicial, noticias.stf.jus.br)"
  },
  {
   "id": "ev-2008-brasil-obtem-grau-de-investimento",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2008-eleicoes-municipais-de-2008",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2008-fed-abre-linha-de-swap-de-us-30-bilhoes",
@@ -732,12 +732,12 @@
  {
   "id": "ev-2008-marina-silva-deixa-o-ministerio-do-meio",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2008-operacao-satiagraha-prende-daniel-dantas",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2008-petroleo-bate-recorde-e-despenca",
@@ -747,7 +747,7 @@
  {
   "id": "ev-2008-quebra-do-lehman-brothers",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2009-brasil-compra-us-10-bilhoes-em-titulos",
@@ -762,7 +762,7 @@
  {
   "id": "ev-2009-crise-dos-atos-secretos-no-senado",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2009-g20-de-londres-aprova-pacote-de-us-1-1",
@@ -777,7 +777,7 @@
  {
   "id": "ev-2009-operacao-caixa-de-pandora-no-distrito",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 2 de 4 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2009-rio-de-janeiro-e-escolhida-sede-da",
@@ -787,12 +787,12 @@
  {
   "id": "ev-2009-sarney-e-temer-assumem-as-presidencias",
   "natureza": "documentada",
-  "regra": "R5: 1 de 4 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www2.camara.leg.br)"
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www2.camara.leg.br)"
  },
  {
   "id": "ev-2009-stf-mantem-a-demarcacao-da-raposa-serra",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2010-china-a-frente-do-japao-e-principal",
@@ -837,7 +837,7 @@
  {
   "id": "ev-2011-fed-lanca-a-operacao-twist",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, federalreserve.gov)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, federalreserve.gov)"
  },
  {
   "id": "ev-2011-guerra-na-libia-e-brent-a-us-111-54",
@@ -847,7 +847,7 @@
  {
   "id": "ev-2011-novo-codigo-florestal-avanca-no",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2011-palocci-deixa-a-casa-civil",
@@ -857,17 +857,17 @@
  {
   "id": "ev-2011-promulgada-a-lei-de-acesso-a-informacao",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2011-sancionada-a-lei-da-comissao-nacional-da",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-2011-segundo-resgate-a-grecia-e-contagio-na",
@@ -897,12 +897,12 @@
  {
   "id": "ev-2012-instalada-a-comissao-nacional-da-verdade",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2012-julgamento-do-mensalao-no-stf",
   "natureza": "documentada",
-  "regra": "R5: 1 de 4 fonte(s) que sustentam o evento são oficiais (tipo reportagem, camara.leg.br)"
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo reportagem, camara.leg.br)"
  },
  {
   "id": "ev-2012-rio-20-reune-88-chefes-de-estado-e-de",
@@ -912,12 +912,12 @@
  {
   "id": "ev-2012-sancionado-o-novo-codigo-florestal",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2012-senado-cassa-demostenes-torres",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2012-stf-valida-a-ficha-limpa-eleicoes",
@@ -932,7 +932,7 @@
  {
   "id": "ev-2013-camara-mantem-o-mandato-de-natan-donadon",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo reportagem, camara.leg.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo reportagem, camara.leg.br)"
  },
  {
   "id": "ev-2013-china-cresce-7-8-e-minerio-fica-acima-de",
@@ -957,17 +957,17 @@
  {
   "id": "ev-2013-governo-lanca-o-programa-mais-medicos",
   "natureza": "documentada",
-  "regra": "R5: 2 de 3 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 2 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-2013-jornadas-de-junho",
   "natureza": "documentada",
-  "regra": "R5: 1 de 5 fonte(s) que sustentam o evento são oficiais (tipo reportagem, camara.leg.br)"
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo reportagem, camara.leg.br)"
  },
  {
   "id": "ev-2013-prisao-dos-condenados-do-mensalao",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2014-argentina-entra-em-default-seletivo",
@@ -992,7 +992,7 @@
  {
   "id": "ev-2014-morte-de-eduardo-campos",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2014-petroleo-despenca-apos-a-opep-manter-a",
@@ -1007,12 +1007,12 @@
  {
   "id": "ev-2014-relatorio-final-da-comissao-nacional-da",
   "natureza": "documentada",
-  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
  },
  {
   "id": "ev-2014-sancionado-o-marco-civil-da-internet",
   "natureza": "documentada",
-  "regra": "R5: 2 de 3 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
+  "regra": "R5: 2 de 2 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
  },
  {
   "id": "ev-2015-abertura-do-processo-de-impeachment",
@@ -1062,12 +1062,12 @@
  {
   "id": "ev-2016-camara-autoriza-o-processo-de",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2016-cunha-tem-o-mandato-cassado-pela-camara",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2016-donald-trump-e-eleito-presidente-dos-eua",
@@ -1097,12 +1097,12 @@
  {
   "id": "ev-2016-senado-afasta-dilma-e-temer-assume",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 4 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2016-senado-aprova-o-impeachment-de-dilma",
   "natureza": "documentada",
-  "regra": "R5: 1 de 4 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo reportagem, www12.senado.leg.br)"
  },
  {
   "id": "ev-2017-brent-sobe-para-us-54-89-de-media-com",
@@ -1112,12 +1112,12 @@
  {
   "id": "ev-2017-camara-barra-denuncias-contra-temer",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 2 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2017-delacao-da-jbs-e-gravacao-envolvendo",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2017-fed-sobe-juros-a-1-25-1-50-e-inicia",
@@ -1137,12 +1137,12 @@
  {
   "id": "ev-2017-primeira-greve-geral-em-cerca-de-20-anos",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2017-reforma-trabalhista-e-aprovada-e",
   "natureza": "documentada",
-  "regra": "R5: 1 de 4 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 1 de 3 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-2017-trump-deixa-o-tpp-e-anuncia-saida-do",
@@ -1152,7 +1152,7 @@
  {
   "id": "ev-2018-bolsonaro-e-eleito-presidente",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2018-crise-da-lira-turca-assusta-os",
@@ -1172,7 +1172,7 @@
  {
   "id": "ev-2018-greve-dos-caminhoneiros",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 2 de 4 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2018-guerra-comercial-eua-china-tarifas-sobre",
@@ -1202,12 +1202,12 @@
  {
   "id": "ev-2019-bolsonaro-anuncia-novo-partido-o-alianca",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2019-bolsonaro-toma-posse-como-presidente",
   "natureza": "documentada",
-  "regra": "R5: 1 de 3 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
+  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
  },
  {
   "id": "ev-2019-congresso-promulga-a-reforma-da",
@@ -1232,7 +1232,7 @@
  {
   "id": "ev-2019-temer-e-preso-e-solto-dias-depois",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2019-ue-e-mercosul-fecham-acordo-politico",
@@ -1302,12 +1302,12 @@
  {
   "id": "ev-2021-atos-de-7-de-setembro-e-carta-de",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2021-biden-sanciona-pacote-de-us-1-9-trilhao",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2021-boom-de-commodities-minerio-soja-e",
@@ -1327,7 +1327,7 @@
  {
   "id": "ev-2021-cpi-da-covid-instalacao-e-relatorio",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2021-fed-anuncia-o-inicio-da-reducao-das",
@@ -1347,7 +1347,7 @@
  {
   "id": "ev-2021-pec-dos-precatorios-e-aprovada-e",
   "natureza": "documentada",
-  "regra": "R5: 2 de 5 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
+  "regra": "R5: 2 de 4 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, planalto.gov.br)"
  },
  {
   "id": "ev-2021-02-12-decretos-10-629-e-10-630",
@@ -1382,7 +1382,7 @@
  {
   "id": "ev-2022-lula-derrota-bolsonaro-na-eleicao",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2022-pec-da-transicao-vira-a-emenda",
@@ -1397,7 +1397,7 @@
  {
   "id": "ev-2022-stf-condena-o-deputado-daniel-silveira",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2022-stf-declara-inconstitucional-o-orcamento",
@@ -1412,7 +1412,7 @@
  {
   "id": "ev-2023-brics-convida-seis-paises-a-aderir",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2023-congresso-promulga-a-reforma-tributaria",
@@ -1437,12 +1437,12 @@
  {
   "id": "ev-2023-milei-e-eleito-e-o-peso-argentino-e",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 2 de 3 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2023-quebra-do-svb-e-venda-do-credit-suisse",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 2 de 4 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2023-stf-e-congresso-divergem-sobre-o-marco",

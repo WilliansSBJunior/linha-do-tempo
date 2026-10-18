@@ -21,7 +21,8 @@ Pesquisa de fontes para os eventos e relações que a migração deixava sem nen
 | qualidade `fraca` (no arquivo, inclusive as substituídas, que ficam como histórico) | 174 |
 | qualidade `fraca` ligadas ao alvo (como entraram) | 93 |
 | &nbsp;&nbsp;das quais voltaram a `boa` na revisão do critério (`evidencia-qualidade-revisao.json`, seção 18 de `relatorio-migracao.md`) | 89 |
-| &nbsp;&nbsp;continuam `fraca` no banco | 4 |
+| &nbsp;&nbsp;das quais, da Wikipédia, viraram `contexto` sem avaliação pela R6 (`regras-fontes.json`, seção 21 de `relatorio-migracao.md`) | 2 |
+| &nbsp;&nbsp;continuam `fraca` no banco | 2 |
 | descrições de relação da teia substituídas | 24 |
 | descrições mantidas (a atual já não era o texto padrão "Vínculo ... sem descrição na fonte") | 0 |
 
@@ -62,13 +63,11 @@ Onde ficam os dados (colunas aditivas, ver `-- DESVIO` em `scripts/schema.sql`):
 
 ## Fontes fracas (para substituição futura)
 
-93 entradas ainda ligadas ao alvo (4 com substituição parcial, 89 sem substituto); as outras 81 foram substituídas e ficam no arquivo só como histórico. Das ligadas, 89 voltaram a `boa` na revisão do critério (a nota do pesquisador fica); a tabela lista as 4 que continuam `fraca` no banco.
+93 entradas ainda ligadas ao alvo (4 com substituição parcial, 89 sem substituto); as outras 81 foram substituídas e ficam no arquivo só como histórico. Das ligadas, 89 voltaram a `boa` na revisão do critério (a nota do pesquisador fica) e 2, da Wikipédia, viraram `contexto` sem avaliação pela R6 (`ev-1999-segundo-mandato-de-fhc`, `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos`); a tabela lista as 2 que continuam `fraca` no banco.
 
 | alvo | url | motivo |
 |---|---|---|
 | relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de) | https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master | veículo fora da lista de veículos estabelecidos |
-| evento `ev-1999-segundo-mandato-de-fhc` (Segundo mandato de FHC) | https://pt.wikipedia.org/wiki/Fernando_Henrique_Cardoso | fonte wiki (não é fonte primária); a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento |
-| evento `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` (S&P rebaixa a nota dos Estados Unidos) | https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades | fonte wiki (não é fonte primária) |
 | evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation | tipo "outro": fonte secundária/não estabelecida; site de associação, não é veículo estabelecido; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento |
 
 ## Substituições de fontes fracas
@@ -887,6 +886,7 @@ As entradas ficam em `data/curadoria/substituicoes-rodada4.json` (`evidencias`, 
 | substitutas que já eram fonte `boa` do alvo (rodadas 2-3; ligação existente mantida) | 17 |
 | substitutas que eram `contexto` do bloco-ano e subiram a `sustenta` | 3 |
 | ligações `fraca` no banco antes -> depois da rodada | 51 -> 4 |
+| ligações `fraca` depois da R6 (wiki vira `contexto`, sem avaliação; `regras-fontes.json`) | 2 |
 | correções de texto de evento (`evento-correcoes.json`, `"rodada": 4`) | 6 em 5 eventos |
 | correções de relação (`relacao-correcoes.json`, `rodada_campos`) | 1 |
 
@@ -980,14 +980,19 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 ### Continuam fracas
 
-4 ligações `fraca` no banco depois da rodada (as que nenhuma fonte aberta substituiu; `continuam_fracas` e `nao_encontrados` do arquivo):
+4 ligações `fraca` no banco depois da rodada (as que nenhuma fonte aberta substituiu; `continuam_fracas` e `nao_encontrados` do arquivo); 2 delas, da Wikipédia, deixaram de ser `fraca` pela R6 (`regras-fontes.json`: wiki é sempre `contexto`, que não é avaliado) e ficam 2:
+
+| alvo | url |
+|---|---|
+| evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation |
+| relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de) | https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master |
+
+Da Wikipédia, hoje `contexto` (R6; o evento continua sustentado pelas outras fontes):
 
 | alvo | url |
 |---|---|
 | evento `ev-1999-segundo-mandato-de-fhc` (Segundo mandato de FHC) | https://pt.wikipedia.org/wiki/Fernando_Henrique_Cardoso |
 | evento `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` (S&P rebaixa a nota dos Estados Unidos) | https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades |
-| evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation |
-| relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de) | https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master |
 
 Decisão do pesquisador (`continuam_fracas`):
 

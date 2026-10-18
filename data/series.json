@@ -56147,24 +56147,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Eleições_municipais_no_Brasil_em_1996",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Celso_Russomanno",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc14.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -56177,6 +56159,24 @@
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Eleições_municipais_no_Brasil_em_1996",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Celso_Russomanno",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -56276,15 +56276,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/CPMF",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc14.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -56306,6 +56297,15 @@
      "url": "https://www.tse.jus.br/eleicoes/eleicoes-anteriores/eleicoes-1994/resultados-das-eleicoes-1994/sao-paulo/resultados-das-eleicoes-1994-sao-paulo-deputado-federal",
      "veiculo": "tse.jus.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/CPMF",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -56543,15 +56543,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Lei_Kandir",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc14.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -56573,6 +56564,15 @@
      "url": "https://www.tse.jus.br/eleicoes/eleicoes-anteriores/eleicoes-1994/resultados-das-eleicoes-1994/sao-paulo/resultados-das-eleicoes-1994-sao-paulo-deputado-federal",
      "veiculo": "tse.jus.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Lei_Kandir",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -57407,15 +57407,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Telebrás",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc16.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -57446,6 +57437,15 @@
      "url": "https://www.poder360.com.br/brasil/devo-reconhecer-que-foi-1-erro-diz-fhc-sobre-emenda-que-permitiu-reeleicao",
      "veiculo": "poder360.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Telebrás",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -57812,6 +57812,15 @@
      "papel": "contexto"
     },
     {
+     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
+     "veiculo": "fundacaofhc.org.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
      "url": "https://en.wikipedia.org/wiki/1998_Brazilian_general_election",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
@@ -57887,15 +57896,6 @@
      "url": "https://pt.wikipedia.org/wiki/Beni_Veras",
      "veiculo": "pt.wikipedia.org",
      "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
-    },
-    {
-     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
-     "veiculo": "fundacaofhc.org.br",
-     "tipo": "relatorio",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -57923,15 +57923,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Telebrás",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc19.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -57944,6 +57935,24 @@
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc20.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
+     "veiculo": "fundacaofhc.org.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Telebrás",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -58016,15 +58025,6 @@
      "url": "https://pt.wikipedia.org/wiki/Beni_Veras",
      "veiculo": "pt.wikipedia.org",
      "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
-    },
-    {
-     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
-     "veiculo": "fundacaofhc.org.br",
-     "tipo": "relatorio",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -58061,6 +58061,15 @@
      "papel": "contexto"
     },
     {
+     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
+     "veiculo": "fundacaofhc.org.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
      "url": "https://en.wikipedia.org/wiki/1998_Brazilian_general_election",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
@@ -58136,15 +58145,6 @@
      "url": "https://pt.wikipedia.org/wiki/Beni_Veras",
      "veiculo": "pt.wikipedia.org",
      "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
-    },
-    {
-     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
-     "veiculo": "fundacaofhc.org.br",
-     "tipo": "relatorio",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -58181,6 +58181,15 @@
      "papel": "contexto"
     },
     {
+     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
+     "veiculo": "fundacaofhc.org.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
      "url": "https://en.wikipedia.org/wiki/1998_Brazilian_general_election",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
@@ -58256,15 +58265,6 @@
      "url": "https://pt.wikipedia.org/wiki/Beni_Veras",
      "veiculo": "pt.wikipedia.org",
      "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
-    },
-    {
-     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
-     "veiculo": "fundacaofhc.org.br",
-     "tipo": "relatorio",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -58310,6 +58310,15 @@
      "papel": "contexto"
     },
     {
+     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
+     "veiculo": "fundacaofhc.org.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
      "url": "https://en.wikipedia.org/wiki/1998_Brazilian_general_election",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
@@ -58389,15 +58398,6 @@
      "data": null,
      "qualidade": null,
      "papel": "contexto"
-    },
-    {
-     "url": "https://fundacaofhc.org.br/files/artigo/1584.pdf",
-     "veiculo": "fundacaofhc.org.br",
-     "tipo": "relatorio",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "contexto"
     }
    ]
   },
@@ -58411,24 +58411,6 @@
    "peso": 5,
    "natureza": "documentada",
    "fontes": [
-    {
-     "url": "https://www.npr.org/1998/08/17/1033966/russia-economy",
-     "veiculo": "NPR",
-     "tipo": "reportagem",
-     "titulo": "Russia Economy",
-     "data": "1998-08-17",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://www.rferl.org/a/1089128.html",
-     "veiculo": "Radio Free Europe/Radio Liberty",
-     "tipo": "reportagem",
-     "titulo": "Russia: IMF Approves First Loan Package",
-     "data": "1998-07-21",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
     {
      "url": "https://www.imf.org/external/np/sec/pr/1998/PR9831.HTM",
      "veiculo": "FMI (IMF)",
@@ -58444,6 +58426,24 @@
      "tipo": "comunicado",
      "titulo": "News Brief 98/30: Camdessus Comments on Russian Actions",
      "data": "1998-08-17",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.npr.org/1998/08/17/1033966/russia-economy",
+     "veiculo": "NPR",
+     "tipo": "reportagem",
+     "titulo": "Russia Economy",
+     "data": "1998-08-17",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.rferl.org/a/1089128.html",
+     "veiculo": "Radio Free Europe/Radio Liberty",
+     "tipo": "reportagem",
+     "titulo": "Russia: IMF Approves First Loan Package",
+     "data": "1998-07-21",
      "qualidade": "boa",
      "papel": "sustenta"
     },
@@ -58514,15 +58514,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Long-Term_Capital_Management",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
@@ -58544,6 +58535,15 @@
      "url": "https://www.imf.org/external/np/sec/pr/1998/pr9859.htm",
      "veiculo": "imf.org",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Long-Term_Capital_Management",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -58730,24 +58730,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Governo_Fernando_Henrique_Cardoso",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Fernando_Henrique_Cardoso",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "Fernando Henrique Cardoso – Wikipédia",
-     "data": "1999",
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -58769,6 +58751,15 @@
      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp97.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Governo_Fernando_Henrique_Cardoso",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -58825,6 +58816,15 @@
      "tipo": "wiki",
      "titulo": null,
      "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Fernando_Henrique_Cardoso",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": "Fernando Henrique Cardoso – Wikipédia",
+     "data": "1999",
      "qualidade": null,
      "papel": "contexto"
     }
@@ -59081,15 +59081,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/CPI_do_Judiciário",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -59111,6 +59102,15 @@
      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp97.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/CPI_do_Judiciário",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -60161,15 +60161,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Aécio_Neves",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -60182,6 +60173,15 @@
      "url": "https://www.senado.gov.br/Relatorios_SGM/RelPresi/2000/009-Lideres.pdf",
      "veiculo": "senado.gov.br",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Aécio_Neves",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -61097,15 +61097,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Enéas_Carneiro",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://jus.com.br/artigos/3211/a-verticalizacao-das-coligacoes-partidarias-nas-eleicoes-gerais-de-2002",
      "veiculo": "jus.com.br",
      "tipo": "reportagem",
@@ -61154,6 +61145,15 @@
      "url": "https://www.tribunapr.com.br/noticias/economia/brasil-faz-acordo-e-pega-us-30-bilhoes-do-fmi/amp",
      "veiculo": "tribunapr.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Enéas_Carneiro",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -61514,15 +61514,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Euro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket_archive.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
@@ -61544,6 +61535,15 @@
      "url": "https://www.voanews.com/amp/a-13-a-2002-08-08-16-markets-67577427/388742.html",
      "veiculo": "voanews.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Euro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -61646,15 +61646,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Ramez_Tebet",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -61748,6 +61739,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/99617/quem-e-aldo-rebelo",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Ramez_Tebet",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -62195,15 +62195,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Heloísa_Helena",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -62306,6 +62297,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/99617/quem-e-aldo-rebelo",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Heloísa_Helena",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -63152,15 +63152,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Waldomiro_Diniz",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l10.836.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -63200,6 +63191,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/61842/dirceu-o-superministro-que-foi-parar-na-cadeia",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Waldomiro_Diniz",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -63308,15 +63308,6 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://memoria.ebc.com.br/agenciabrasil//noticia/2004-06-06/pt-dissidents-found-socialism-and-liberty-party",
-     "veiculo": "memoria.ebc.com.br (Agência Brasil)",
-     "tipo": "reportagem",
-     "titulo": "PT dissidents found Socialism and Liberty Party",
-     "data": "2004-06-06",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2005/09/16/tse-concede-registro-definitivo-para-o-psol",
      "veiculo": "Agência Senado",
      "tipo": "reportagem",
@@ -63326,12 +63317,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Heloísa_Helena",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
+     "url": "https://memoria.ebc.com.br/agenciabrasil//noticia/2004-06-06/pt-dissidents-found-socialism-and-liberty-party",
+     "veiculo": "memoria.ebc.com.br (Agência Brasil)",
+     "tipo": "reportagem",
+     "titulo": "PT dissidents found Socialism and Liberty Party",
+     "data": "2004-06-06",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -63374,6 +63365,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/61842/dirceu-o-superministro-que-foi-parar-na-cadeia",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Heloísa_Helena",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -63491,15 +63491,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Eleições_municipais_no_Brasil_em_2004",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l10.836.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -63539,6 +63530,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/61842/dirceu-o-superministro-que-foi-parar-na-cadeia",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Eleições_municipais_no_Brasil_em_2004",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -64274,20 +64274,20 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://www2.camara.leg.br/a-camara/conheca/historia/Ex_presidentesCD_Republica/aldo-rebelo",
-     "veiculo": "camara.leg.br",
-     "tipo": "documento_oficial",
-     "titulo": "Aldo Rebelo — Portal da Câmara dos Deputados",
-     "data": "2005-09-28",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.camara.leg.br/noticias/72584-SEVERINO-RENUNCIA,-MAS-PROMETE-VOLTAR-A-CAMARA",
      "veiculo": "camara.leg.br (Agência Câmara)",
      "tipo": "reportagem",
      "titulo": "Severino renuncia, mas promete voltar à Câmara",
      "data": "2005-09-21",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www2.camara.leg.br/a-camara/conheca/historia/Ex_presidentesCD_Republica/aldo-rebelo",
+     "veiculo": "camara.leg.br",
+     "tipo": "documento_oficial",
+     "titulo": "Aldo Rebelo — Portal da Câmara dos Deputados",
+     "data": "2005-09-28",
      "qualidade": "boa",
      "papel": "sustenta"
     }
@@ -64934,15 +64934,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Lei_Maria_da_Penha",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -65009,6 +65000,15 @@
      "url": "https://www.moneytimes.com.br/eduardo-bolsonaro-e-o-mais-votado-do-brasil-com-184-milhao-de-votos",
      "veiculo": "moneytimes.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Lei_Maria_da_Penha",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -65195,15 +65195,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Doha_Round",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
@@ -65225,6 +65216,15 @@
      "url": "https://csmonitor.com/2006/0508/p07s02-woam.html",
      "veiculo": "csmonitor.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Doha_Round",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -65483,15 +65483,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Campo_de_Tupi",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -65558,6 +65549,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Campo_de_Tupi",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -65639,24 +65639,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Mensal%C3%A3o_scandal",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Esc%C3%A2ndalo_do_mensal%C3%A3o",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -65723,6 +65705,24 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Mensal%C3%A3o_scandal",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Esc%C3%A2ndalo_do_mensal%C3%A3o",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -65960,15 +65960,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Fidelidade_partid%C3%A1ria",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -66035,6 +66026,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Fidelidade_partid%C3%A1ria",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -66164,15 +66164,6 @@
    "natureza": "reportada",
    "fontes": [
     {
-     "url": "https://en.wikipedia.org/wiki/Northern_Rock",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://publications.parliament.uk/pa/cm200708/cmselect/cmtreasy/56/5604.htm",
      "veiculo": "publications.parliament.uk (Treasury Committee)",
      "tipo": "relatorio",
@@ -66203,6 +66194,15 @@
      "url": "https://www.aljazeera.com/news/2007/8/9/europe-acts-to-calm-markets",
      "veiculo": "aljazeera.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Northern_Rock",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -66344,15 +66344,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%B5es_municipais_no_Brasil_em_2008",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -66401,6 +66392,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%B5es_municipais_no_Brasil_em_2008",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -66482,15 +66482,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Satiagraha",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -66539,6 +66530,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%A3o_Satiagraha",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -66620,15 +66620,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Marina_Silva",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -66677,6 +66668,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Marina_Silva",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -66758,15 +66758,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Grau_de_investimento",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -66815,6 +66806,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Grau_de_investimento",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -66896,15 +66896,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Bankruptcy_of_Lehman_Brothers",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20081029b.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
@@ -66917,6 +66908,15 @@
      "url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Bankruptcy_of_Lehman_Brothers",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -67142,15 +67142,6 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://www.congressoemfoco.com.br/noticia/95968/jose-sarney-e-eleito-presidente-do-senado",
-     "veiculo": "congressoemfoco.com.br",
-     "tipo": "reportagem",
-     "titulo": "José Sarney é eleito presidente do Senado",
-     "data": "2009-02-02",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/english/historico/chamber-of-deputies-news-agency/noticias/2009/2009fev/michel-temer-pmdb-sp-elected-president-of-the",
      "veiculo": "camara.leg.br",
      "tipo": "reportagem",
@@ -67160,21 +67151,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Sarney",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Michel_Temer",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
+     "url": "https://www.congressoemfoco.com.br/noticia/95968/jose-sarney-e-eleito-presidente-do-senado",
+     "veiculo": "congressoemfoco.com.br",
+     "tipo": "reportagem",
+     "titulo": "José Sarney é eleito presidente do Senado",
+     "data": "2009-02-02",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -67208,6 +67190,24 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Sarney",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Michel_Temer",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -67280,15 +67280,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Sarney",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -67319,6 +67310,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Sarney",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -67400,15 +67400,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Terra_Ind%C3%ADgena_Raposa_Serra_do_Sol",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -67439,6 +67430,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Terra_Ind%C3%ADgena_Raposa_Serra_do_Sol",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -67649,24 +67649,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Sarney",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Roberto_Arruda",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -67697,6 +67679,24 @@
      "url": "https://www.congressoemfoco.com.br/noticia/74257/o-comportado-deputado-paulo-maluf",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Sarney",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Roberto_Arruda",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -68432,15 +68432,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/C%C3%B3digo_Florestal_brasileiro",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/marco-maia-2011-2012",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -68471,6 +68462,15 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/C%C3%B3digo_Florestal_brasileiro",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -68552,15 +68552,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Comiss%C3%A3o_Nacional_da_Verdade",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/marco-maia-2011-2012",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -68600,6 +68591,15 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Comiss%C3%A3o_Nacional_da_Verdade",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -68681,15 +68681,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Lei_de_Acesso_%C3%A0_Informa%C3%A7%C3%A3o",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/marco-maia-2011-2012",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -68729,6 +68720,15 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Lei_de_Acesso_%C3%A0_Informa%C3%A7%C3%A3o",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -68876,15 +68876,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": "United States federal government credit-rating downgrades",
-     "data": null,
-     "qualidade": "fraca",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://fred.stlouisfed.org/data/POILBREUSDA.txt",
      "veiculo": "fred.stlouisfed.org",
      "tipo": "reportagem",
@@ -68898,6 +68889,15 @@
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": "United States federal government credit-rating downgrades",
      "data": null,
      "qualidade": null,
      "papel": "contexto"
@@ -68942,18 +68942,18 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Operation_Twist",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://fred.stlouisfed.org/data/POILBREUSDA.txt",
      "veiculo": "fred.stlouisfed.org",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Operation_Twist",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -69083,15 +69083,6 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://www.gazetadopovo.com.br/vida-publica/dirceu-e-condenado-a-quase-11-anos-de-prisao-delubio-8-e-genoino-quase-7-1xtb4ek5u4nb1m0d912bl0g9a",
-     "veiculo": "gazetadopovo.com.br",
-     "tipo": "reportagem",
-     "titulo": "Dirceu é condenado a quase 11 anos de prisão; Delúbio 8 e Genoino quase 7",
-     "data": "2012-11-12",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.camara.leg.br/noticias/380717-stf-comeca-hoje-a-julgar-os-38-reus-do-chamado-mensalao",
      "veiculo": "Agência Câmara",
      "tipo": "reportagem",
@@ -69101,21 +69092,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/A%C3%A7%C3%A3o_Penal_470",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Mensal%C3%A3o_scandal",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
+     "url": "https://www.gazetadopovo.com.br/vida-publica/dirceu-e-condenado-a-quase-11-anos-de-prisao-delubio-8-e-genoino-quase-7-1xtb4ek5u4nb1m0d912bl0g9a",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": "Dirceu é condenado a quase 11 anos de prisão; Delúbio 8 e Genoino quase 7",
+     "data": "2012-11-12",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -69158,6 +69140,24 @@
      "url": "https://congressoemfoco.com.br/noticias/chinaglia-e-o-novo-lider-do-governo-na-camara",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/A%C3%A7%C3%A3o_Penal_470",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Mensal%C3%A3o_scandal",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -69239,15 +69239,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Comiss%C3%A3o_Nacional_da_Verdade",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/marco-maia-2011-2012",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -69287,6 +69278,15 @@
      "url": "https://congressoemfoco.com.br/noticias/chinaglia-e-o-novo-lider-do-governo-na-camara",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Comiss%C3%A3o_Nacional_da_Verdade",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -69377,15 +69377,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/C%C3%B3digo_Florestal_brasileiro",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/marco-maia-2011-2012",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -69416,6 +69407,15 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/C%C3%B3digo_Florestal_brasileiro",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -69506,15 +69506,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Dem%C3%B3stenes_Torres",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/marco-maia-2011-2012",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -69554,6 +69545,15 @@
      "url": "https://congressoemfoco.com.br/noticias/chinaglia-e-o-novo-lider-do-governo-na-camara",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Dem%C3%B3stenes_Torres",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -69992,15 +69992,6 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://exame.com/brasil/5-pactos-foram-a-resposta-do-governo-federal-aos-protestos",
-     "veiculo": "exame.com",
-     "tipo": "reportagem",
-     "titulo": "5 pactos foram a resposta do governo federal aos protestos",
-     "data": "2013-12-31",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.camara.leg.br/noticias/407612-lideres-partidarios-avaliam-propostas-de-dilma-em-resposta-a-protestos",
      "veiculo": "Agência Câmara",
      "tipo": "reportagem",
@@ -70010,30 +70001,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Jornadas_de_Junho",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Protestos_no_Brasil_em_2013",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
+     "url": "https://exame.com/brasil/5-pactos-foram-a-resposta-do-governo-federal-aos-protestos",
+     "veiculo": "exame.com",
+     "tipo": "reportagem",
+     "titulo": "5 pactos foram a resposta do governo federal aos protestos",
+     "data": "2013-12-31",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -70067,6 +70040,33 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Jornadas_de_Junho",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Protestos_no_Brasil_em_2013",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -70139,15 +70139,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Mensal%C3%A3o_scandal",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -70178,6 +70169,15 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Mensal%C3%A3o_scandal",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -70277,15 +70277,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -70316,6 +70307,15 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Governo_Dilma_Rousseff",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -70406,15 +70406,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Natan_Donadon",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -70445,6 +70436,15 @@
      "url": "https://www.em.com.br/app/noticia/politica/2012/03/13/interna_politica,283233/arlindo-chinaglia-e-eduardo-braga-sao-confirmados-como-lideres-na-camara-e-no-senado.shtml",
      "veiculo": "em.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Natan_Donadon",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -70889,20 +70889,20 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://www.timesofisrael.com/congress-votes-to-end-shutdown-avoid-us-default",
-     "veiculo": "timesofisrael.com (AP)",
-     "tipo": "reportagem",
-     "titulo": "Congress votes to end shutdown, avoid US default",
-     "data": "2013-10-17",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.appropriations.senate.gov/news/minority/chairwoman-mikulski-requests-omb-report-on-impacts-of-shutdown",
      "veiculo": "Comitê de Apropriações do Senado dos EUA",
      "tipo": "comunicado",
      "titulo": "Chairwoman Mikulski Requests OMB Report on Impacts of Shutdown",
      "data": "2013-10-30",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.timesofisrael.com/congress-votes-to-end-shutdown-avoid-us-default",
+     "veiculo": "timesofisrael.com (AP)",
+     "tipo": "reportagem",
+     "titulo": "Congress votes to end shutdown, avoid US default",
+     "data": "2013-10-17",
      "qualidade": "boa",
      "papel": "sustenta"
     },
@@ -71222,15 +71222,6 @@
    "natureza": "documentada",
    "fontes": [
     {
-     "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm",
-     "veiculo": "planalto.gov.br",
-     "tipo": "documento_oficial",
-     "titulo": "Lei nº 12.965, de 23 de abril de 2014 (Marco Civil da Internet)",
-     "data": "2014-04-23",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www12.senado.leg.br/noticias/materias/2014/04/23/sancionada-a-lei-do-marco-civil-da-internet",
      "veiculo": "senado.leg.br (Agência Senado)",
      "tipo": "reportagem",
@@ -71240,12 +71231,12 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Marco_Civil_da_Internet",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
+     "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm",
+     "veiculo": "planalto.gov.br",
+     "tipo": "documento_oficial",
+     "titulo": "Lei nº 12.965, de 23 de abril de 2014 (Marco Civil da Internet)",
+     "data": "2014-04-23",
+     "qualidade": "boa",
      "papel": "sustenta"
     },
     {
@@ -71270,6 +71261,15 @@
      "url": "https://www.congressoemfoco.com.br/noticias/eduardo-cunha-e-o-novo-lider-do-pmdb-na-camara",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Marco_Civil_da_Internet",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -71360,15 +71360,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Eduardo_Campos",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/henrique-eduardo-alves-2013-2014",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -71390,6 +71381,15 @@
      "url": "https://www.congressoemfoco.com.br/noticias/eduardo-cunha-e-o-novo-lider-do-pmdb-na-camara",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Eduardo_Campos",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -71480,15 +71480,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Comiss%C3%A3o_Nacional_da_Verdade",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www2.camara.leg.br/a-camara/presidencia/galeria-presidentes/henrique-eduardo-alves-2013-2014",
      "veiculo": "www2.camara.leg.br",
      "tipo": "documento_oficial",
@@ -71510,6 +71501,15 @@
      "url": "https://www.congressoemfoco.com.br/noticias/eduardo-cunha-e-o-novo-lider-do-pmdb-na-camara",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Comiss%C3%A3o_Nacional_da_Verdade",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -72071,15 +72071,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Processo_de_impeachment_de_Dilma_Rousseff",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://congressoemfoco.com.br/noticias/senado-promulga-emenda-constitucional-que-congela-gastos-da-uniao-nos-proximos-anos",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
@@ -72101,6 +72092,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/52102/aloysio-nunes-e-escolhido-para-lideranca-do-governo-no-senado",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Processo_de_impeachment_de_Dilma_Rousseff",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -72218,33 +72218,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Processo_de_impeachment_de_Dilma_Rousseff",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://congressoemfoco.com.br/noticias/senado-promulga-emenda-constitucional-que-congela-gastos-da-uniao-nos-proximos-anos",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
@@ -72266,6 +72239,33 @@
      "url": "https://www.congressoemfoco.com.br/noticia/52102/aloysio-nunes-e-escolhido-para-lideranca-do-governo-no-senado",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Processo_de_impeachment_de_Dilma_Rousseff",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Michel_Temer",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -72365,33 +72365,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Processo_de_impeachment_de_Dilma_Rousseff",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://congressoemfoco.com.br/noticias/senado-promulga-emenda-constitucional-que-congela-gastos-da-uniao-nos-proximos-anos",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
@@ -72413,6 +72386,33 @@
      "url": "https://www.congressoemfoco.com.br/noticia/52102/aloysio-nunes-e-escolhido-para-lideranca-do-governo-no-senado",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Processo_de_impeachment_de_Dilma_Rousseff",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Michel_Temer",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -72512,15 +72512,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Eduardo_Cunha",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://congressoemfoco.com.br/noticias/senado-promulga-emenda-constitucional-que-congela-gastos-da-uniao-nos-proximos-anos",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
@@ -72542,6 +72533,15 @@
      "url": "https://www.congressoemfoco.com.br/noticia/52102/aloysio-nunes-e-escolhido-para-lideranca-do-governo-no-senado",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Eduardo_Cunha",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -73004,6 +73004,15 @@
    "natureza": "documentada",
    "fontes": [
     {
+     "url": "https://www.opec.org/pr-detail/458-30-nov-2016.html",
+     "veiculo": "OPEP",
+     "tipo": "comunicado",
+     "titulo": "OPEC 171st Meeting concludes",
+     "data": "2016-11-30",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
      "url": "https://fred.stlouisfed.org/data/ACOILBRENTEU",
      "veiculo": "fred.stlouisfed.org (dados da EIA)",
      "tipo": "dado_oficial",
@@ -73018,15 +73027,6 @@
      "tipo": "reportagem",
      "titulo": "Petroleiras fora da Opep também vão cortar produção",
      "data": "2016-12-10",
-     "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://www.opec.org/pr-detail/458-30-nov-2016.html",
-     "veiculo": "OPEP",
-     "tipo": "comunicado",
-     "titulo": "OPEC 171st Meeting concludes",
-     "data": "2016-11-30",
      "qualidade": "boa",
      "papel": "sustenta"
     },
@@ -73106,15 +73106,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Reforma_trabalhista_no_Brasil_em_2017",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.jornalopcao.com.br/ultimas-noticias/palacio-do-planalto-anuncia-aguinaldo-ribeiro-como-lider-do-governo-na-camara-88098",
      "veiculo": "jornalopcao.com.br",
      "tipo": "reportagem",
@@ -73127,6 +73118,15 @@
      "url": "https://exame.com/brasil/romero-juca-vai-assumir-lideranca-do-governo-no-senado",
      "veiculo": "exame.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Reforma_trabalhista_no_Brasil_em_2017",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -73289,15 +73289,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Reforma_trabalhista_no_Brasil_em_2017",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.jornalopcao.com.br/ultimas-noticias/palacio-do-planalto-anuncia-aguinaldo-ribeiro-como-lider-do-governo-na-camara-88098",
      "veiculo": "jornalopcao.com.br",
      "tipo": "reportagem",
@@ -73310,6 +73301,15 @@
      "url": "https://exame.com/brasil/romero-juca-vai-assumir-lideranca-do-governo-no-senado",
      "veiculo": "exame.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Reforma_trabalhista_no_Brasil_em_2017",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -73454,24 +73454,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Joesley_Batista",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.jornalopcao.com.br/ultimas-noticias/palacio-do-planalto-anuncia-aguinaldo-ribeiro-como-lider-do-governo-na-camara-88098",
      "veiculo": "jornalopcao.com.br",
      "tipo": "reportagem",
@@ -73484,6 +73466,24 @@
      "url": "https://exame.com/brasil/romero-juca-vai-assumir-lideranca-do-governo-no-senado",
      "veiculo": "exame.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Joesley_Batista",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -73628,15 +73628,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Rodrigo_Maia",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.jornalopcao.com.br/ultimas-noticias/palacio-do-planalto-anuncia-aguinaldo-ribeiro-como-lider-do-governo-na-camara-88098",
      "veiculo": "jornalopcao.com.br",
      "tipo": "reportagem",
@@ -73649,6 +73640,15 @@
      "url": "https://exame.com/brasil/romero-juca-vai-assumir-lideranca-do-governo-no-senado",
      "veiculo": "exame.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Rodrigo_Maia",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -74588,24 +74588,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://pt.wikipedia.org/wiki/Greve_dos_caminhoneiros_no_Brasil_em_2018",
-     "veiculo": "pt.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.congressoemfoco.com.br/noticias/intervencao-no-rio-veja-como-cada-deputado-votou",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
@@ -74618,6 +74600,24 @@
      "url": "https://www.moneytimes.com.br/eduardo-bolsonaro-e-o-mais-votado-do-brasil-com-184-milhao-de-votos",
      "veiculo": "moneytimes.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://pt.wikipedia.org/wiki/Greve_dos_caminhoneiros_no_Brasil_em_2018",
+     "veiculo": "pt.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Presidency_of_Michel_Temer",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -74873,24 +74873,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.congressoemfoco.com.br/noticias/intervencao-no-rio-veja-como-cada-deputado-votou",
      "veiculo": "congressoemfoco.com.br",
      "tipo": "reportagem",
@@ -74903,6 +74885,24 @@
      "url": "https://www.moneytimes.com.br/eduardo-bolsonaro-e-o-mais-votado-do-brasil-com-184-milhao-de-votos",
      "veiculo": "moneytimes.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -75230,24 +75230,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -75350,6 +75332,24 @@
      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2019-02/bolsonaro-formaliza-major-vitor-hugo-como-lider-do-governo-na-camara",
      "veiculo": "agenciabrasil.ebc.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -75458,24 +75458,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Michel_Temer",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Samuel_Moreira",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -75578,6 +75560,24 @@
      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2019-02/bolsonaro-formaliza-major-vitor-hugo-como-lider-do-governo-na-camara",
      "veiculo": "agenciabrasil.ebc.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Michel_Temer",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Samuel_Moreira",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -76133,24 +76133,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -76253,6 +76235,24 @@
      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2019-02/bolsonaro-formaliza-major-vitor-hugo-como-lider-do-governo-na-camara",
      "veiculo": "agenciabrasil.ebc.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -77525,15 +77525,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -77669,6 +77660,15 @@
      "papel": "contexto"
     },
     {
+     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
      "url": "https://en.wikipedia.org/wiki/2021_in_Brazil",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
@@ -77720,15 +77720,6 @@
      "url": "https://www.opovo.com.br/noticias/politica/2021/09/07/bolsonaro-desafia-stf-e-diz-que-nao-cumprira-decisoes-de-alexandre.html",
      "veiculo": "opovo.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -77864,6 +77855,15 @@
      "url": "https://www.bnews.com.br/noticias/politica/bolsonaro-indica-novo-lider-do-governo-no-senado-apos-6-meses-de-impasse.html",
      "veiculo": "bnews.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -77954,15 +77954,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Fernando_Bezerra_Coelho",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -78074,6 +78065,15 @@
      "url": "https://www.bnews.com.br/noticias/politica/bolsonaro-indica-novo-lider-do-governo-no-senado-apos-6-meses-de-impasse.html",
      "veiculo": "bnews.com.br",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Fernando_Bezerra_Coelho",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -78296,15 +78296,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/American_Rescue_Plan_Act_of_2021",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211103a.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
@@ -78335,6 +78326,15 @@
      "url": "https://fred.stlouisfed.org/data/POILBREUSDA.txt",
      "veiculo": "fred.stlouisfed.org",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/American_Rescue_Plan_Act_of_2021",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -78443,15 +78443,6 @@
      "titulo": "Bolsonaro assina decreto que anula pena de Daniel Silveira",
      "data": "2022-04-21",
      "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
      "papel": "sustenta"
     },
     {
@@ -78584,6 +78575,15 @@
      "url": "https://exame.com/brasil/rodrigo-pacheco-confirma-oficialmente-filiacao-ao-psd",
      "veiculo": "exame.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -79040,15 +79040,6 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp194.htm",
      "veiculo": "planalto.gov.br",
      "tipo": "documento_oficial",
@@ -79178,6 +79169,15 @@
      "url": "https://exame.com/brasil/rodrigo-pacheco-confirma-oficialmente-filiacao-ao-psd",
      "veiculo": "exame.com",
      "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Eduardo_Bolsonaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -81329,27 +81329,27 @@
      "papel": "sustenta"
     },
     {
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
+     "veiculo": "federalreserve.gov",
+     "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
      "url": "https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
-     "papel": "sustenta"
+     "papel": "contexto"
     },
     {
      "url": "https://en.wikipedia.org/wiki/Acquisition_of_Credit_Suisse_by_UBS",
      "veiculo": "en.wikipedia.org",
      "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
-     "veiculo": "federalreserve.gov",
-     "tipo": "documento_oficial",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -81479,18 +81479,18 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/Argentine_peso",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Argentine_peso",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
@@ -81554,18 +81554,18 @@
      "papel": "sustenta"
     },
     {
-     "url": "https://en.wikipedia.org/wiki/BRICS",
-     "veiculo": "en.wikipedia.org",
-     "tipo": "wiki",
-     "titulo": null,
-     "data": null,
-     "qualidade": null,
-     "papel": "sustenta"
-    },
-    {
      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
      "veiculo": "federalreserve.gov",
      "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "qualidade": null,
+     "papel": "contexto"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/BRICS",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
      "titulo": null,
      "data": null,
      "qualidade": null,
