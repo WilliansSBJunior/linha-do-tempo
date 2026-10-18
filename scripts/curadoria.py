@@ -2320,6 +2320,7 @@ def _secao_rodada2(con, entradas, E, esc):
 ARQ_EVENTOS_ADIC = "eventos-adicionais.json"
 ARQ_MANDATOS_ADIC = "mandatos-adicionais.json"
 ARQ_RANKING_CORR = "ranking-empresa-correcoes.json"
+ARQ_RANKING_CORR_R7 = "ranking-empresa-correcoes-r7.json"   # rodada 7: mesmo formato, aplicado depois da rodada 6
 REGEX_REF_BRASIL = re.compile(r"Y\[(\d{4})\]\.(pol|intl)\.eventos\[(\d+)\]")
 
 
@@ -2452,14 +2453,16 @@ def pct_total_ranking(lucro, pib):
     return round(lucro / pib * 100, 3)
 
 
-def aplicar_ranking_empresa_correcoes(con):
+def aplicar_ranking_empresa_correcoes(con, arquivo=ARQ_RANKING_CORR):
     """data/curadoria/ranking-empresa-correcoes.json (à mão): `cobertura` (troca a do ano inteiro), `atualizar` (campos de -> para e fontes) e
     `inserir` (linhas novas). Fontes -> `evidencia` + `ranking_evidencia` (papel, trecho, nota); `principal` -> ranking_empresa.evidencia_id e a
     principal anterior fica com o papel/nota de `anterior`. Depois recalcula posicao e pct_total nos anos tocados (posicoes_ranking,
     pct_total_ranking). Confere tudo antes de escrever e aborta sem aplicar nada se: entidade ou linha não existem; linha a inserir já existe;
     um `de` não bate; `anterior.url` não é a fonte principal atual (ou falta quando a principal muda); cobertura do ano não uniforme ou != `de`;
-    mais de uma principal; PIB do ano ausente. -> dict para o relatório."""
-    cfg = ler_json(ARQ_RANKING_CORR, {})
+    mais de uma principal; PIB do ano ausente. `arquivo`: ARQ_RANKING_CORR (rodada 6) ou ARQ_RANKING_CORR_R7 (rodada 7, aplicado depois e sobre
+    o resultado da 6: o `de` é o valor que a 6 gravou; quando a `anterior` já está em ranking_evidencia, a ligação é reclassificada em vez de
+    duplicada). -> dict para o relatório."""
+    cfg = ler_json(arquivo, {})
     vazio = {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}
     if not cfg:
         return vazio
@@ -2511,7 +2514,7 @@ def aplicar_ranking_empresa_correcoes(con):
             if f["papel"] not in ("sustenta", "contexto") or (f.get("principal") and f["papel"] != "sustenta") or not f.get("trecho"):
                 erros.append(f"{x['ano']}/{x['entidade_id']} fonte {f['url']}: papel/principal/trecho inválidos")
     if erros:
-        raise SystemExit(f"{ARQ_RANKING_CORR}: nada foi aplicado.\n  " + "\n  ".join(erros))
+        raise SystemExit(f"{arquivo}: nada foi aplicado.\n  " + "\n  ".join(erros))
 
     R = vazio
     for c in cfg.get("cobertura", []):
@@ -2548,10 +2551,15 @@ def aplicar_ranking_empresa_correcoes(con):
             con.execute(f"UPDATE ranking_empresa SET {k}=? WHERE ano=? AND entidade_id=?", (v["para"], u["ano"], u["entidade_id"]))
         ligar(u["ano"], u["entidade_id"], u["fontes"])
         if u.get("anterior"):
-            ordem = con.execute("SELECT COALESCE(MAX(ordem)+1,0) FROM ranking_evidencia WHERE ano=? AND entidade_id=?", (u["ano"], u["entidade_id"])).fetchone()[0]
-            con.execute("INSERT INTO ranking_evidencia(ano,entidade_id,evidencia_id,papel,ordem,trecho_citado,nota) VALUES(?,?,?,?,?,?,?)",
-                        (u["ano"], u["entidade_id"], r["evidencia_id"], u["anterior"]["papel"], ordem, u["anterior"].get("trecho"), u["anterior"].get("nota")))
-            R["ligacoes"] += 1
+            if con.execute("SELECT 1 FROM ranking_evidencia WHERE ano=? AND entidade_id=? AND evidencia_id=?", (u["ano"], u["entidade_id"], r["evidencia_id"])).fetchone():
+                # a principal anterior já estava ligada (rodada 6): só muda papel e nota; o trecho já registrado fica
+                con.execute("UPDATE ranking_evidencia SET papel=?, nota=?, trecho_citado=COALESCE(?, trecho_citado) WHERE ano=? AND entidade_id=? AND evidencia_id=?",
+                            (u["anterior"]["papel"], u["anterior"].get("nota"), u["anterior"].get("trecho"), u["ano"], u["entidade_id"], r["evidencia_id"]))
+            else:
+                ordem = con.execute("SELECT COALESCE(MAX(ordem)+1,0) FROM ranking_evidencia WHERE ano=? AND entidade_id=?", (u["ano"], u["entidade_id"])).fetchone()[0]
+                con.execute("INSERT INTO ranking_evidencia(ano,entidade_id,evidencia_id,papel,ordem,trecho_citado,nota) VALUES(?,?,?,?,?,?,?)",
+                            (u["ano"], u["entidade_id"], r["evidencia_id"], u["anterior"]["papel"], ordem, u["anterior"].get("trecho"), u["anterior"].get("nota")))
+                R["ligacoes"] += 1
         R["atualizadas"].append(u)
     # posição e % do PIB nos anos tocados (mesmas regras da carga bruta)
     for a in anos:

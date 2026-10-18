@@ -1,0 +1,372 @@
+{
+ "_doc": "Rodada 7 (18/10/2026): ranking de lucros (ranking_empresa), 11 valores da Folha de S.Paulo (acervo aberto pelo Chrome do usuário; /home/claude/transfer/folha_empresas_r7.json), trechos literais. Mesmo formato e mesmo mecanismo do ranking-empresa-correcoes.json (rodada 6), aplicado logo depois dele por curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R7): os `de` são os valores que a rodada 6 gravou (p.ex. Souza Cruz 1995 0,210 -> 0,192). Quando a `anterior` já está em ranking_evidencia (Souza Cruz 1995), a ligação é reclassificada para `contexto` em vez de duplicada. Telesp 1996 (op `inserir_se_couber` na pesquisa) foi inserida: o ranking já convive com holding e subsidiária no mesmo ano (Telebrás e Embratel em 1997; Itaúsa e Itaú Unibanco em 2010-2020), marcada holding 0 e com a dupla contagem na obs. A entidade `telesp` nasce em entidades-adicionais.json. Base: lucro em R$ pela legislação societária.",
+ "cobertura": [],
+ "atualizar": [
+  {
+   "ano": 1996,
+   "entidade_id": "itau-unibanco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.676,
+     "para": 0.602
+    },
+    "obs": {
+     "de": "Lucro líquido do conglomerado Itaúsa, relatório anual 2000 da Itaúsa. O Banco Itaú isolado teve US$ 579 mi (Euromoney, FY1996). Folha (10/2/1998): o lucro de 1997 do Banco Itaú, R$ 721 mi, foi +22% sobre 1996, o que implica ≈ R$ 591 mi para o banco; não confirmado diretamente (o 0,676 é o do conglomerado Itaúsa).",
+     "para": "Banco Itaú, lucro líquido de 1996 pela legislação societária (Folha, 19/2/1997: 'apurou lucro de R$ 602 milhões no ano passado'). O 0,676 anterior era o do conglomerado Itaúsa (relatório anual 2000 da Itaúsa), outra base. A mesma matéria dá R$ 403,5 mi para 1995, divergente dos R$ 374 mi do balanço anunciado em 13/2/1996 (provável consolidado × banco); a linha de 1995 fica com 0,374. A derivação 721/1,22 ≈ 591 mi (Folha, 10/2/1998) era só aproximação."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/2/19/dinheiro/18.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Itaú chegou a R$ 602 mi",
+     "data": "1997-02-19",
+     "trecho": "O Itaú, segundo maior banco privado do país, apurou lucro de R$ 602 milhões no ano passado. [...] Em 95, o banco havia lucrado R$ 403,5 milhões",
+     "nota": "Balanço de 1996 do Banco Itaú; substitui o 0,676 do conglomerado Itaúsa (outra base).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (0,676, conglomerado Itaúsa): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 7): lucro do Banco Itaú em 1996 em R$ pela legislação societária."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "itau-unibanco",
+   "campos": {
+    "obs": {
+     "de": "Banco Itaú, balanço anual de 1995 (Folha, 14/2/1996).",
+     "para": "Banco Itaú, balanço anual de 1995 (Folha, 14/2/1996). A Folha de 19/2/1997 dá R$ 403,5 milhões para 1995 ('Em 95, o banco havia lucrado R$ 403,5 milhões'), divergente dos R$ 374 milhões do balanço anunciado em 13/2/1996 (provável consolidado × banco); mantido 0,374."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/2/19/dinheiro/18.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Itaú chegou a R$ 602 mi",
+     "data": "1997-02-19",
+     "trecho": "Em 95, o banco havia lucrado R$ 403,5 milhões",
+     "nota": "Número divergente de 1995 em matéria posterior (403,5 × 374): provável consolidado × banco; o valor da linha não muda.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 7): registra o número divergente de 1995; valor mantido."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "caixa",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.27,
+     "para": 0.26
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 265 mi (Euromoney, FY1996). Taxa de câmbio média do ano usada na conversão não foi verificada em fonte aberta (aproximação ~R$/US$ 1,0 em 1996; ~1,08 em 1997); margem de erro de alguns %.",
+     "para": "Folha (19/3/1997): 'lucro líquido de aproximadamente R$ 260 milhões' em 1996, +17% sobre 1995 (R$ 221,3 milhões). O 0,27 anterior era derivado de US$ 265 mi (Euromoney, FY1996)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/3/19/dinheiro/8.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "CEF fecha balanço de 96 com lucro de R$ 260 mi",
+     "data": "1997-03-19",
+     "trecho": "A CEF (Caixa Econômica Federal) teve um lucro líquido de aproximadamente R$ 260 milhões no ano passado, resultado 17% superior ao de 1995 (R$ 221,3 milhões).",
+     "nota": "Substitui 0,27.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3v4/banking/latin-100-1997-the-full-rankings",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (US$ 265 mi convertidos, 0,27); a Euromoney é US$ e só corroboração de ordem de grandeza."
+   },
+   "motivo": "Folha (rodada 7): balanço em R$ no lugar do derivado da Euromoney."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "csn",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.107,
+     "para": 0.121
+    },
+    "obs": {
+     "de": null,
+     "para": "Folha (6/3/1997): 'o lucro alcançara R$ 121 milhões' em 1995 (legislação societária). O 0,107 anterior vinha do BNDES (base diversa)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/3/06/dinheiro/18.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "CSN aumenta produtividade, demite e lucro cresce 125%",
+     "data": "1997-03-06",
+     "trecho": "em relação a 95, quando o lucro alcançara R$ 121 milhões",
+     "nota": "Substitui 0,107 (fonte BNDES, base diversa); legislação societária.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://web.bndes.gov.br/bib/jspui/bitstream/1408/18861/1/PRArt213893_Rentabilidade%20das%20empresas_compl_P_BD.pdf",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (0,107, BNDES): base diversa; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 7): R$ 121 mi pela legislação societária no lugar do 0,107 do BNDES."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "csn",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/3/06/dinheiro/18.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "CSN aumenta produtividade, demite e lucro cresce 125%",
+     "data": "1997-03-06",
+     "trecho": "A CSN (Companhia Siderúrgica Nacional) apresentou lucro líquido de R$ 272 milhões em 1996, pela legislação societária. O resultado representa um aumento de 125% em relação a 95, quando o lucro alcançara R$ 121 milhões.",
+     "nota": "Confirma 0,272.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 7): confirma 0,272 (legislação societária)."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "csn",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi19039814.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "CSN registra lucro recorde de R$ 450 mi",
+     "data": "1998-03-19",
+     "trecho": "O lucro líquido da CSN no ano passado atingiu R$ 450 milhões, 65% superior ao resultado de 96 (R$ 272 milhões).",
+     "nota": "Confirma 0,45.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Folha (rodada 7): confirma 0,45."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.84,
+     "para": 0.8305
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 783 mi (Euromoney Latin America 100, FY1997). Taxa de câmbio média do ano usada na conversão não foi verificada em fonte aberta (aproximação ~R$/US$ 1,0 em 1996; ~1,08 em 1997); margem de erro de alguns %.",
+     "para": "Demonstrações financeiras de 1997 (Folha, 5/2/1998: 'lucro de R$ 830,5 milhões'). O 0,84 anterior era derivado de US$ 783 mi (Euromoney Latin America 100, FY1997)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi05029806.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bradesco tem lucro de R$ 830,5 mi",
+     "data": "1998-02-05",
+     "trecho": "O Bradesco publica hoje suas demonstrações financeiras de 97 com um lucro de R$ 830,5 milhões.",
+     "nota": "Substitui 0,84.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.euromoney.com/article/27bjsstsqxhkmh1335gkx/latin-america-100-the-regions-biggest-banks",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (US$ 783 mi convertidos, 0,84); a Euromoney é US$ e só corroboração de ordem de grandeza."
+   },
+   "motivo": "Folha (rodada 7): balanço em R$ no lugar do derivado da Euromoney."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "souza-cruz",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.21,
+     "para": 0.192
+    },
+    "obs": {
+     "de": "Lucro de 1995 citado no balanço de 1996 (Folha, 1/2/1997). Controlada pela British American Tobacco.",
+     "para": "Balanço de 1995 divulgado na época (Folha, 3/2/1996: 'Foram R$ 192 milhões, 113,6% a mais do que no ano passado'). Correção da rodada 6: a Folha de 1/2/1997 cita R$ 210 milhões para 1995 (valor citado um ano depois, divergente do balanço da época). Controlada pela British American Tobacco."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1996/2/03/dinheiro/8.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Souza Cruz mais do que dobra em 95, com exportações",
+     "data": "1996-02-03",
+     "trecho": "A Souza Cruz apresentou em 95 lucro recorde desde que começou a atuar no país, há 93 anos. Foram R$ 192 milhões, 113,6% a mais do que no ano passado.",
+     "nota": "CORREÇÃO da rodada 6: 0,210 (citado na Folha de 1/2/1997) -> 0,192 (balanço divulgado na época); registrar 210 na obs.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm",
+    "papel": "contexto",
+    "nota": "Fonte principal da rodada 6 (0,210, citado em 1/2/1997, um ano depois): divergente do balanço da época (0,192); fica como contexto."
+   },
+   "motivo": "Correção da rodada 6: 0,210 (Folha, 1/2/1997) -> 0,192 (balanço divulgado em fev/1996)."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "souza-cruz",
+   "campos": {
+    "obs": {
+     "de": "Balanço anual (Folha, 1/2/1997). Controlada pela British American Tobacco.",
+     "para": "Balanço anual (Folha, 1/2/1997). A Folha de 3/2/1998 dá R$ 220 milhões para 1996 ('quando a empresa registrou lucro líquido de R$ 220 milhões'), divergente do balanço de fev/1997 (R$ 204 mi); mantido 0,204. Controlada pela British American Tobacco."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi03029808.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Souza Cruz sobe 40% e atinge R$ 308 milhões em 97",
+     "data": "1998-02-03",
+     "trecho": "O aumento foi de 40% em relação a 96, quando a empresa registrou lucro líquido de R$ 220 milhões.",
+     "nota": "Número divergente de 1996 em matéria posterior (220 × 204); o valor da linha não muda.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 7): registra o número divergente de 1996; valor mantido."
+  }
+ ],
+ "inserir": [
+  {
+   "ano": 1996,
+   "entidade_id": "telebras",
+   "lucro_brl_bi": 3.254,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "estatal",
+   "holding": 1,
+   "derivado": 0,
+   "obs": "Lucro de 1996 da Telebrás (Folha, 27/2/1997: manchete 'Telebrás registra lucro de R$ 3,254 bi em 96'); só a manchete foi aberta, sem o texto da matéria. Holding do Sistema Telebrás: dupla contagem com as subsidiárias (Telesp, Embratel).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/2/27/dinheiro/17.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telebrás registra lucro de R$ 3,254 bi em 96",
+     "data": "1997-02-27",
+     "trecho": "Telebrás registra lucro de R$ 3,254 bi em 96",
+     "nota": "Novo: Telebrás passa a 1º lugar em 1996 (acima da Eletrobrás 2,393).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 7): Telebrás passa a 1º lugar de 1996."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "telesp",
+   "lucro_brl_bi": 0.8128,
+   "setor": "Telecomunicações",
+   "setor_k": "informacao_comunicacao",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Telecomunicações de São Paulo, balanço de 1996 (Folha, 5/3/1997: 'lucro líquido de R$ 812,8 milhões'). Subsidiária da Telebrás: dupla contagem com a holding (como Embratel e Telebrás em 1997).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/3/05/dinheiro/24.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telesp tem lucro líquido de R$ 813 mi",
+     "data": "1997-03-05",
+     "trecho": "A Telesp (Telecomunicações de São Paulo) teve lucro líquido de R$ 812,8 milhões em 1996",
+     "nota": "Novo; subsidiária da Telebrás (dupla contagem com a holding — marcar holding/derivado como o padrão do ranking tratar subsidiárias; se o ranking não aceita subsidiária junto da holding, NÃO inserir).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 7): inserida porque o ranking já convive com holding e subsidiária no mesmo ano (Telebrás e Embratel em 1997; Itaúsa e Itaú Unibanco de 2010 a 2020)."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "caixa",
+   "lucro_brl_bi": 0.2213,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Caixa Econômica Federal, 1995 (Folha, 19/3/1997: 'resultado 17% superior ao de 1995 (R$ 221,3 milhões)'); a Folha de 13/3/1996 ('A CEF tem lucro') dá R$ 221 milhões.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/3/19/dinheiro/8.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "CEF fecha balanço de 96 com lucro de R$ 260 mi",
+     "data": "1997-03-19",
+     "trecho": "resultado 17% superior ao de 1995 (R$ 221,3 milhões)",
+     "nota": "Novo; Folha 13/3/1996 ('A CEF tem lucro', Nassif) dá R$ 221 mi.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 7)."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "souza-cruz",
+   "lucro_brl_bi": 0.308,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Balanço de 1997 (Folha, 3/2/1998: 'lucro líquido de R$ 308 milhões em 97'). Controlada pela British American Tobacco.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi03029808.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Souza Cruz sobe 40% e atinge R$ 308 milhões em 97",
+     "data": "1998-02-03",
+     "trecho": "A Souza Cruz, maior fabricante de cigarros do país, obteve lucro líquido de R$ 308 milhões em 97. O aumento foi de 40% em relação a 96, quando a empresa registrou lucro líquido de R$ 220 milhões.",
+     "nota": "Novo. A matéria dá R$ 220 mi para 1996 (o balanço de fev/1997 disse R$ 204 mi) — manter 0,204 e registrar 220 na obs.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 7)."
+  }
+ ],
+ "lacunas": [
+  "Petrobras 1997 (R$ societário)",
+  "Eletrobras 1997 (não achada nos índices de fev–mai/1998)",
+  "Telebrás 1995",
+  "Light 1995–97 anual (só 1º tri/97 e /98)",
+  "Banco Real 1995–97 (só ganho FCVS 1996)",
+  "Telebrás 1996: só a manchete da matéria foi aberta (o trecho é a própria manchete); não se distingue consolidado de controladora."
+ ],
+ "nao_aplicados": []
+}

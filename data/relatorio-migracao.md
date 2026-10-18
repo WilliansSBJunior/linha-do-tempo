@@ -29,10 +29,10 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 394 |
+| entidade | 395 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 196 |
-| entidade_alias | 512 |
+|   extras (timeline/pares) | 197 |
+| entidade_alias | 514 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
@@ -43,14 +43,14 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 917 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1589 |
+| evidencia | 1598 |
 | relacao_evidencia | 1266 |
 | evento_evidencia | 3229 |
 | evento_entidade | 935 |
 | nota | 550 |
 | indicador | 83 |
 | serie | 6837 |
-| ranking_empresa | 409 |
+| ranking_empresa | 413 |
 | mandato | 317 |
 | bancada | 634 |
 | entidade_valor | 14 |
@@ -289,7 +289,7 @@ Eventos (sufixo `-2`, `-3`...): 3
 
 Aliases ambíguos (mesmo `alias_norm` em mais de uma entidade; fora de `indice_alias`):
 
-nenhum.
+- `telesp`: telefonica-brasil, telesp
 
 ## 7. URLs normalizadas (evidência)
 
@@ -414,7 +414,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1589 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1598 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -574,7 +574,7 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | tema | relações | eventos | entidades |
 |---|---|---|---|
 | `caso-master` (Caso Master) | 367 | 215 | 212 |
-| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 209 |
+| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 210 |
 | `pares` (Comparação de países) | 0 | 0 | 10 |
 | `violencia` (Violência) | 0 | 10 | 1 |
 | `inss` (INSS) | 17 | 14 | 26 |
@@ -854,7 +854,7 @@ Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` po
 
 ## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024
 
-Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
+Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
 
 ### Ranking de empresas
 
@@ -862,9 +862,9 @@ Base do ranking: lucro líquido em R$ pela legislação societária (BR GAAP); U
 
 | ano | cobertura | linhas | inseridas | atualizadas (valor) | só fontes/obs |
 |---|---|---:|---:|---:|---:|
-| 1995 | fraca -> parcial | 12 | 6 | 1 | 1 |
-| 1996 | fraca -> parcial | 15 | 3 | 4 | 1 |
-| 1997 | fraca -> parcial | 15 | 1 | 3 | 2 |
+| 1995 | fraca -> parcial | 13 | 6 | 1 | 1 |
+| 1996 | fraca -> parcial | 17 | 3 | 4 | 1 |
+| 1997 | fraca -> parcial | 16 | 1 | 3 | 2 |
 | 1998 | parcial | 13 | 0 | 2 | 4 |
 | 1999 | parcial | 13 | 0 | 1 | 1 |
 | 2002 | parcial -> completa | 11 | 0 | 0 | 3 |
@@ -881,13 +881,13 @@ Base do ranking: lucro líquido em R$ pela legislação societária (BR GAAP); U
 | 1995 | `eletrobras` | **inserida** (0.75) | https://www1.folha.uol.com.br/fsp/1997/3/20/dinheiro/11.html |
 | 1995 | `itau-unibanco` | **inserida** (0.374) | https://www1.folha.uol.com.br/fsp/1996/2/14/dinheiro/24.html |
 | 1995 | `petrobras` | **inserida** (0.57) | https://www1.folha.uol.com.br/fsp/1997/2/01/dinheiro/25.html |
-| 1995 | `souza-cruz` | **inserida** (0.21) | https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm |
+| 1995 | `souza-cruz` | **inserida** (0.21) | https://www1.folha.uol.com.br/fsp/1996/2/03/dinheiro/8.html |
 | 1995 | `unibanco` | **inserida** (0.1546) | https://www1.folha.uol.com.br/fsp/1996/2/14/dinheiro/24.html |
 | 1995 | `vale` | lucro_brl_bi 0.31 -> 0.329; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/1996/2/17/brasil/29.html |
 | 1996 | `banco-do-brasil` | lucro_brl_bi -7.28 -> -7.525; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi210225.htm |
 | 1996 | `bradesco` | lucro_brl_bi 0.82 -> 0.8245; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi180215.htm |
 | 1996 | `eletrobras` | **inserida** (2.393) | https://www1.folha.uol.com.br/fsp/1997/3/20/dinheiro/11.html |
-| 1996 | `itau-unibanco` | obs | https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2 |
+| 1996 | `itau-unibanco` | obs | https://www1.folha.uol.com.br/fsp/1997/2/19/dinheiro/18.html |
 | 1996 | `petrobras` | **inserida** (0.664) | https://www1.folha.uol.com.br/fsp/1997/2/01/dinheiro/25.html |
 | 1996 | `souza-cruz` | **inserida** (0.204) | https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm |
 | 1996 | `unibanco` | lucro_brl_bi 0.28 -> 0.285; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi260221.htm |
@@ -965,4 +965,33 @@ Cada linha traz a fonte oficial do destaque ligada à relação `mandato:<id>` (
 - correção `ev-1999-reeleicao-de-temer-e-antonio-carlos` (descricao): "Em 1/2/1999 Michel Temer (PMDB-SP) é reeleito presidente da Câmara e Antonio Carlos Magalhães (PFL-BA), presidente do Senado, este com 70 votos." -> "Em 1/2/1999 Antonio Carlos Magalhães (PFL-BA) é reeleito presidente do Senado com 70 votos e, em 2/2, Michel Temer (PMDB-SP) é reeleito presidente da Câmara, como candidato único, com 422 votos."
 
 Bancadas: não alteradas (a tabela acadêmica da Câmara não substitui a carga; o snapshot oficial do Senado em 2000 traz blocos, não os 81 nomes; não há linhas de bancada do Senado 1995-1998 no banco e a aproximação da pesquisa não foi usada).
+
+
+## 24. Rodada 7: ranking de lucros de 1995-1997 com a Folha de S.Paulo
+
+Arquivo à mão: `ranking-empresa-correcoes-r7.json` (mesmo formato da rodada 6, aplicado por `curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R7)` logo depois dela; `gerar_curadoria.py` também o pula no banco temporário) e a entidade `telesp` em `entidades-adicionais.json`. Os `de` são os valores que a rodada 6 gravou; uma `anterior` que já estava em `ranking_evidencia` (Souza Cruz 1995) é reclassificada para `contexto` em vez de duplicada. Mesma base (lucro em R$ pela legislação societária) e mesmas regras de `posicao` e `pct_total` da rodada 6. **Telesp 1996** (subsidiária da Telebrás) foi inserida: o ranking já convive com holding e subsidiária no mesmo ano (Telebrás e Embratel em 1997; Itaúsa e Itaú Unibanco de 2010 a 2020), e a obs registra a dupla contagem.
+
+| ano | empresa | o que mudou | fonte principal |
+|---|---|---|---|
+| 1995 | `caixa` | **inserida** (0.2213) | https://www1.folha.uol.com.br/fsp/1997/3/19/dinheiro/8.html |
+| 1995 | `csn` | lucro_brl_bi 0.107 -> 0.121; obs | https://www1.folha.uol.com.br/fsp/1997/3/06/dinheiro/18.html |
+| 1995 | `itau-unibanco` | obs | https://www1.folha.uol.com.br/fsp/1996/2/14/dinheiro/24.html |
+| 1995 | `souza-cruz` | lucro_brl_bi 0.21 -> 0.192; obs | https://www1.folha.uol.com.br/fsp/1996/2/03/dinheiro/8.html |
+| 1996 | `caixa` | lucro_brl_bi 0.27 -> 0.26; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/1997/3/19/dinheiro/8.html |
+| 1996 | `csn` | só fonte | https://web.bndes.gov.br/bib/jspui/bitstream/1408/19860/1/PR_Inform%20Set%20%20AOI2%20Geset%20Min%20e%20Metal_213893_%20n%2039_BD.pdf |
+| 1996 | `itau-unibanco` | lucro_brl_bi 0.676 -> 0.602; obs | https://www1.folha.uol.com.br/fsp/1997/2/19/dinheiro/18.html |
+| 1996 | `souza-cruz` | obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm |
+| 1996 | `telebras` | **inserida** (3.254) | https://www1.folha.uol.com.br/fsp/1997/2/27/dinheiro/17.html |
+| 1996 | `telesp` | **inserida** (0.8128) | https://www1.folha.uol.com.br/fsp/1997/3/05/dinheiro/24.html |
+| 1997 | `bradesco` | lucro_brl_bi 0.84 -> 0.8305; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi05029806.htm |
+| 1997 | `csn` | só fonte | https://web.bndes.gov.br/bib/jspui/bitstream/1408/19860/1/PR_Inform%20Set%20%20AOI2%20Geset%20Min%20e%20Metal_213893_%20n%2039_BD.pdf |
+| 1997 | `souza-cruz` | **inserida** (0.308) | https://www1.folha.uol.com.br/fsp/dinheiro/fi03029808.htm |
+
+Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto na posição final):
+
+- 1995: `banco-do-brasil` 12 -> 13, `cosipa` 11 -> 12, `csn` 10 -> 11, `cst` 8 -> 9, `souza-cruz` 7 -> 8, `unibanco` 9 -> 10
+- 1996: `banco-do-brasil` 15 -> 17, `banco-real` 7 -> 9, `bndes` 2 -> 3, `bradesco` 3 -> 4, `caixa` 10 -> 13, `csn` 9 -> 11, `cst` 13 -> 15, `eletrobras` 1 -> 2, `gerdau` 14 -> 16, `itau-unibanco` 4 -> 7, `petrobras` 5 -> 6, `souza-cruz` 12 -> 14, `unibanco` 8 -> 10, `usiminas` 11 -> 12, `vale` 6 -> 8
+- 1997: `acominas` 14 -> 15, `banco-real` 11 -> 12, `cosipa` 15 -> 16, `cst` 13 -> 14, `gerdau` 12 -> 13
+
+17 ligações novas em `ranking_evidencia` (9 evidências novas). Lacunas registradas no arquivo: (1) Petrobras 1997 (R$ societário) (2) Eletrobras 1997 (não achada nos índices de fev–mai/1998) (3) Telebrás 1995 (4) Light 1995–97 anual (só 1º tri/97 e /98) (5) Banco Real 1995–97 (só ganho FCVS 1996) (6) Telebrás 1996: só a manchete da matéria foi aberta (o trecho é a própria manchete); não se distingue consolidado de controladora.
 

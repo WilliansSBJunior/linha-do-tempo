@@ -14,7 +14,9 @@
    "nome": "Brahma",
    "tipo": "empresa",
    "descricao": "Companhia Cervejaria Brahma; em 1999 juntou-se à Antarctica para formar a AmBev (entidade `ambev`, no ranking a partir de 2000). Fica como entidade própria porque o ranking não usa `ambev` com nome de época antes de 1999.",
-   "aliases": ["Companhia Cervejaria Brahma"],
+   "aliases": [
+    "Companhia Cervejaria Brahma"
+   ],
    "motivo": "ranking-empresa-correcoes.json: lucro de 1997 (R$ 469 mi), Folha de S.Paulo, 19/2/1998."
   },
   {
@@ -23,8 +25,20 @@
    "tipo": "pessoa",
    "uf": "ES",
    "descricao": "Senador pelo PFL do Espírito Santo (1991-1999), líder do governo Fernando Henrique Cardoso no Senado; depois ministro da Defesa.",
-   "aliases": ["Elcio Alvares"],
+   "aliases": [
+    "Elcio Alvares"
+   ],
    "motivo": "mandatos-adicionais.json: líder do governo no Senado em 1995 e 1998 (pronunciamentos 173063 e 233044 do Senado)."
+  },
+  {
+   "id": "telesp",
+   "nome": "Telesp",
+   "tipo": "empresa",
+   "descricao": "Telecomunicações de São Paulo, operadora estatal do Sistema Telebrás (subsidiária da Telebrás) até a privatização de 1998; no ranking de lucros de 1996 (Folha de S.Paulo, 5/3/1997).",
+   "aliases": [
+    "Telecomunicações de São Paulo"
+   ],
+   "motivo": "ranking-empresa-correcoes-r7.json: lucro de 1996 (R$ 812,8 mi), Folha de S.Paulo, 5/3/1997."
   }
  ]
 }

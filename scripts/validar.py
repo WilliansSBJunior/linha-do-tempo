@@ -778,6 +778,14 @@ def rodada6(con, exp):
     esperar("ranking_empresa: cobertura uniforme por ano", [r[0] for r in q(con, "SELECT ano FROM ranking_empresa GROUP BY ano HAVING count(DISTINCT cobertura) > 1")], [])
     # ---- ranking: arquivo == banco
     ruins, esperado_lig = [], 0
+    # Rodada 7 vem por cima da 6 (mesmo formato): o que ela reescreve (campos, fonte principal, papel de uma fonte da 6) é conferido na seção
+    # "Rodada 7"; aqui a rodada 6 só é cobrada no que a 7 não toca, e o total de ligações é a união (ano, entidade, URL) dos dois arquivos.
+    rk7 = _json_curadoria("ranking-empresa-correcoes-r7.json")
+    ov_campo = {(x["ano"], x["entidade_id"], k) for x in rk7.get("atualizar", []) for k in x["campos"]}
+    ov_princ = {(x["ano"], x["entidade_id"]) for x in rk7.get("atualizar", []) if any(f.get("principal") for f in x["fontes"])}
+    ov_url = {(x["ano"], x["entidade_id"], normalizar_url(x["anterior"]["url"])) for x in rk7.get("atualizar", []) if x.get("anterior")}
+    todas_lig = {(x["ano"], x["entidade_id"], normalizar_url(f["url"])) for arq in (rk, rk7) for k in ("atualizar", "inserir") for x in arq.get(k, []) for f in x["fontes"]} \
+        | {(x["ano"], x["entidade_id"], normalizar_url(x["anterior"]["url"])) for arq in (rk, rk7) for k in ("atualizar", "inserir") for x in arq.get(k, []) if x.get("anterior")}
 
     def lig(ano, ent, url):
         return q(con, """SELECT x.papel, x.trecho_citado, x.nota FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
@@ -799,17 +807,15 @@ def rodada6(con, exp):
         campos = {k: v["para"] for k, v in x["campos"].items()} if "campos" in x else \
             {k: x[k] for k in ("lucro_brl_bi", "setor", "setor_k", "controle", "holding", "derivado", "obs")}
         for k, v in campos.items():
-            if row[k] != v:
+            if row[k] != v and (a, e, k) not in ov_campo:
                 ruins.append(f"{a}/{e}: {k} = {row[k]!r} != {v!r}")
         for f in x["fontes"]:
-            esperado_lig += 1
             l = lig(a, e, f["url"])
-            if [tuple(r) for r in l] != [(f["papel"], f["trecho"], f.get("nota") or None)]:
+            if [tuple(r) for r in l] != [(f["papel"], f["trecho"], f.get("nota") or None)] and (a, e, normalizar_url(f["url"])) not in ov_url:
                 ruins.append(f"{a}/{e}: fonte {f['url']} {[tuple(r) for r in l]}")
-            if f.get("principal") and principal(a, e)[0] != normalizar_url(f["url"]):
+            if f.get("principal") and principal(a, e)[0] != normalizar_url(f["url"]) and (a, e) not in ov_princ:
                 ruins.append(f"{a}/{e}: principal != {f['url']}")
         if x.get("anterior"):
-            esperado_lig += 1
             l = lig(a, e, x["anterior"]["url"])
             if [tuple(r) for r in l] != [(x["anterior"]["papel"], x["anterior"].get("trecho"), x["anterior"].get("nota"))]:
                 ruins.append(f"{a}/{e}: anterior {x['anterior']['url']} {[tuple(r) for r in l]}")
@@ -821,7 +827,7 @@ def rodada6(con, exp):
     for r in ruins[:20]:
         print("   -", r)
     esperar("ranking-empresa-correcoes.json == banco (campos, cobertura, fontes, principal, anterior, nome da época; divergências)", len(ruins), 0)
-    esperar("ranking_evidencia: ligações == fontes + anteriores do arquivo", q(con, "SELECT count(*) FROM ranking_evidencia")[0][0], esperado_lig)
+    esperar("ranking_evidencia: ligações == fontes + anteriores dos arquivos (rodadas 6 e 7; união ano/entidade/URL)", q(con, "SELECT count(*) FROM ranking_evidencia")[0][0], len(todas_lig))
     esperar("ranking: linha com fonte `sustenta` em ranking_evidencia e sem evidencia_id (fonte principal)",
             q(con, "SELECT count(*) FROM ranking_empresa k WHERE k.evidencia_id IS NULL AND EXISTS (SELECT 1 FROM ranking_evidencia x WHERE x.ano=k.ano AND x.entidade_id=k.entidade_id AND x.papel='sustenta')")[0][0], 0)
     esperar("ranking: linhas sem fonte principal (evidencia_id NULL)", q(con, "SELECT count(*) FROM ranking_empresa WHERE evidencia_id IS NULL")[0][0], 0)
@@ -829,7 +835,7 @@ def rodada6(con, exp):
     n_exp = {(r["ano"], r["entidade_id"]): r for r in s["ranking_empresa"]}
     esperar("series.json: ranking_empresa == linhas do banco", len(n_exp), q(con, "SELECT count(*) FROM ranking_empresa")[0][0])
     esperar("series.json: linhas inseridas exportadas com a fonte principal",
-            [f"{x['ano']}/{x['entidade_id']}" for x in rk.get("inserir", []) if n_exp.get((x["ano"], x["entidade_id"]), {}).get("evidencia")
+            [f"{x['ano']}/{x['entidade_id']}" for x in rk.get("inserir", []) if (x["ano"], x["entidade_id"]) not in ov_princ and n_exp.get((x["ano"], x["entidade_id"]), {}).get("evidencia")
              != normalizar_url(next(f["url"] for f in x["fontes"] if f.get("principal")))], [])
     # ---- mandatos adicionais
     mo = _json_curadoria("mandato-oficial.json")
@@ -900,6 +906,86 @@ def rodada6(con, exp):
     esperar("eventos-adicionais: todo fato novo tem fonte em evidencias-rodada6.json", sem, [])
     for nome, sec in (("relatorio-evidencias-adicionais.md", "## Rodada 6"), ("relatorio-migracao.md", "Rodada 6")):
         esperar(f"{nome} tem a seção da rodada 6", sec in (DATA / nome).read_text(encoding="utf-8"), True)
+
+
+def rodada7(con, exp):
+    """Rodada 7 (data/curadoria/ranking-empresa-correcoes-r7.json, aplicada depois da 6): 11 valores da Folha no ranking de lucros. Confere o arquivo
+    contra o banco (campos, fonte principal, `anterior`, papéis, trechos), as contagens == arquivo, posições contíguas e na regra do raw nos anos
+    1995-1997, pct_total, Telebrás em 1º lugar em 1996, Souza Cruz 1995 = 0,192, Telesp 1996 inserida com a holding no mesmo ano, e o export."""
+    rk = _json_curadoria("ranking-empresa-correcoes-r7.json")
+    if not rk:
+        return
+    secao("Rodada 7 (ranking-empresa-correcoes-r7.json: Folha, ranking de lucros 1995-1997)")
+    ats, ins = rk.get("atualizar", []), rk.get("inserir", [])
+    # 11 valores da pesquisa = 4 linhas inseridas + 7 atualizadas (Itaú 1995 e Souza Cruz 1996 só ganham obs/fonte; CSN 1996/1997 só fonte)
+    esperar("r7: arquivo traz 4 linhas inseridas e 9 atualizações (7 com valor novo ou confirmado da pesquisa + 2 só de obs/fonte)", (len(ins), len(ats)), (4, 9))
+    esperar("r7: valores da pesquisa cobertos == 11 (4 inseridas + 7 atualizadas; as 2 de só obs/fonte não são valores novos)",
+            len(ins) + sum(1 for x in ats if not (set(x["campos"]) <= {"obs"} and "lucro_brl_bi" not in x["campos"] and x["fontes"][0]["papel"] == "contexto")), 11)
+    ruins = []
+    for x in ats + ins:
+        a, e = x["ano"], x["entidade_id"]
+        row = q(con, "SELECT * FROM ranking_empresa WHERE ano=? AND entidade_id=?", a, e)
+        if not row:
+            ruins.append(f"{a}/{e}: linha ausente")
+            continue
+        row = row[0]
+        campos = {k: v["para"] for k, v in x["campos"].items()} if "campos" in x else \
+            {k: x[k] for k in ("lucro_brl_bi", "setor", "setor_k", "controle", "holding", "derivado", "obs")}
+        for k, v in campos.items():
+            if row[k] != v:
+                ruins.append(f"{a}/{e}: {k} = {row[k]!r} != {v!r}")
+        for f in x["fontes"]:
+            l = q(con, """SELECT x.papel, x.trecho_citado, x.nota FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
+                          WHERE x.ano=? AND x.entidade_id=? AND v.url=?""", a, e, normalizar_url(f["url"]))
+            if [tuple(r) for r in l] != [(f["papel"], f["trecho"], f.get("nota") or None)]:
+                ruins.append(f"{a}/{e}: fonte {f['url']} {[tuple(r) for r in l]}")
+            if f.get("principal"):
+                pr = q(con, "SELECT v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", a, e)
+                if not pr or pr[0][0] != normalizar_url(f["url"]):
+                    ruins.append(f"{a}/{e}: principal != {f['url']}")
+        if x.get("anterior"):
+            l = q(con, """SELECT x.papel, x.nota FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
+                          WHERE x.ano=? AND x.entidade_id=? AND v.url=?""", a, e, normalizar_url(x["anterior"]["url"]))
+            if [tuple(r) for r in l] != [(x["anterior"]["papel"], x["anterior"].get("nota"))]:
+                ruins.append(f"{a}/{e}: anterior {[tuple(r) for r in l]}")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("r7: arquivo == banco (campos, fonte principal, anterior, papel/trecho/nota de cada fonte; divergências)", len(ruins), 0)
+    # posições contíguas e regra do raw nos anos tocados
+    pib = {r[0]: r[1] for r in q(con, "SELECT ano, valor FROM serie WHERE indicador_id='macro.pib' AND dimensao=''")}
+    ruins = []
+    for a in sorted({x["ano"] for x in ats + ins}):
+        rs = q(con, "SELECT entidade_id, lucro_brl_bi, posicao, pct_total FROM ranking_empresa WHERE ano=? ORDER BY posicao", a)
+        if [r["posicao"] for r in rs] != list(range(1, len(rs) + 1)):
+            ruins.append(f"{a}: posições não contíguas")
+        luc = [r["lucro_brl_bi"] for r in rs]
+        if luc != sorted([x for x in luc if x >= 0], reverse=True) + sorted(x for x in luc if x < 0):
+            ruins.append(f"{a}: ordem dos lucros")
+        ruins += [f"{a}/{r['entidade_id']}: pct_total" for r in rs if r["pct_total"] != round(r["lucro_brl_bi"] / pib[a] * 100, 3)]
+    esperar("r7: anos 1995-1997 com posição contígua, lucros decrescentes e depois prejuízos, pct_total == lucro/PIB*100", ruins, [])
+    esperar("r7: Telebrás é o 1º de 1996 (3,254)", [tuple(r) for r in q(con, "SELECT entidade_id, lucro_brl_bi FROM ranking_empresa WHERE ano=1996 AND posicao=1")], [("telebras", 3.254)])
+    esperar("r7: Eletrobrás 2ª em 1996", [r[0] for r in q(con, "SELECT entidade_id FROM ranking_empresa WHERE ano=1996 AND posicao=2")], ["eletrobras"])
+    esperar("r7: Souza Cruz 1995 = 0,192 (correção da rodada 6, que gravou 0,210), principal Folha de 3/2/1996",
+            [tuple(r) for r in q(con, "SELECT k.lucro_brl_bi, v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=1995 AND k.entidade_id='souza-cruz'")],
+            [(0.192, "https://www1.folha.uol.com.br/fsp/1996/2/03/dinheiro/8.html")])
+    esperar("r7: Souza Cruz 1995: a fonte de 1/2/1997 (0,210) ficou como contexto, sem ligação duplicada",
+            [tuple(r) for r in q(con, """SELECT x.papel FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
+                                         WHERE x.ano=1995 AND x.entidade_id='souza-cruz' AND v.url=?""", normalizar_url("https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm"))],
+            [("contexto",)])
+    esperar("r7: Itaú 1995 (0,374) e Souza Cruz 1996 (0,204) mantêm o valor e trazem o número divergente na obs",
+            [tuple(r) for r in q(con, """SELECT entidade_id, lucro_brl_bi, obs LIKE '%403,5%' FROM ranking_empresa WHERE ano=1995 AND entidade_id='itau-unibanco'
+                                         UNION ALL SELECT entidade_id, lucro_brl_bi, obs LIKE '%220 milh%' FROM ranking_empresa WHERE ano=1996 AND entidade_id='souza-cruz'""")],
+            [("itau-unibanco", 0.374, 1), ("souza-cruz", 0.204, 1)])
+    esperar("r7: Telesp 1996 inserida junto da holding Telebrás (o ranking já convive com holding e subsidiária: Telebrás/Embratel 1997, Itaúsa/Itaú 2010-2020)",
+            [tuple(r) for r in q(con, "SELECT entidade_id, holding FROM ranking_empresa WHERE ano=1996 AND entidade_id IN ('telebras','telesp') ORDER BY entidade_id")],
+            [("telebras", 1), ("telesp", 0)])
+    esperar("r7: entidade `telesp` criada por entidades-adicionais.json (origem manual)",
+            [tuple(r) for r in q(con, "SELECT origem, origem_ref FROM entidade WHERE id='telesp'")], [("manual", "curadoria:entidades-adicionais.json")])
+    n_exp = {(r["ano"], r["entidade_id"]): r for r in exp["series.json"]["ranking_empresa"]}
+    esperar("r7: series.json traz as linhas de 1995-1997 com lucro e posição do banco",
+            [f"{a}/{e}" for a, e, l, p in q(con, "SELECT ano, entidade_id, lucro_brl_bi, posicao FROM ranking_empresa WHERE ano BETWEEN 1995 AND 1997")
+             if (n_exp.get((a, e)) or {}).get("lucro_brl_bi") != l or (n_exp.get((a, e)) or {}).get("posicao") != p], [])
+    esperar("relatorio-migracao.md tem a seção da rodada 7", "Rodada 7" in (DATA / "relatorio-migracao.md").read_text(encoding="utf-8"), True)
 
 
 def rodada3(con):
@@ -1735,6 +1821,7 @@ def main():
     rodada4(con)
     rodada5(con)
     rodada6(con, exp)
+    rodada7(con, exp)
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)

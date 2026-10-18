@@ -7352,6 +7352,26 @@
    ]
   },
   {
+   "id": "telesp",
+   "nome": "Telesp",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Telecomunicações de São Paulo, operadora estatal do Sistema Telebrás (subsidiária da Telebrás) até a privatização de 1998; no ranking de lucros de 1996 (Folha de S.Paulo, 5/3/1997).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Telecomunicações de São Paulo"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "telesp-celular-participacoes",
    "nome": "Telesp Celular Participações",
    "tipo": "empresa",
@@ -8010,10 +8030,10 @@
   "tasso jereissati": "tasso-jereissati",
   "tcu": "tcu",
   "telebras": "telebras",
+  "telecomunicacoes de sao paulo": "telesp",
   "telefonica brasil": "telefonica-brasil",
   "telefonica telesp e outras": "telefonica-brasil",
   "telemar": "telemar",
-  "telesp": "telefonica-brasil",
   "telesp celular participacoes": "telesp-celular-participacoes",
   "temer": "michel-temer",
   "thiago miranda": "thiago-miranda",

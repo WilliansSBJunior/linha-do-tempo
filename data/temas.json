@@ -23,7 +23,7 @@
    "principal": true,
    "n_relacoes": 461,
    "n_eventos": 282,
-   "n_entidades": 209
+   "n_entidades": 210
   },
   {
    "id": "pares",
@@ -2118,6 +2118,7 @@
    "telebras",
    "telefonica-brasil",
    "telemar",
+   "telesp",
    "telesp-celular-participacoes",
    "tiao-viana",
    "tiririca",
