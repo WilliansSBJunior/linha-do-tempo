@@ -43,9 +43,9 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 907 |
 | evento_tema | 631 |
 | fonte (era video) | 0 |
-| evidencia | 1534 |
-| relacao_evidencia | 1238 |
-| evento_evidencia | 3217 |
+| evidencia | 1537 |
+| relacao_evidencia | 1242 |
+| evento_evidencia | 3219 |
 | evento_entidade | 935 |
 | nota | 549 |
 | indicador | 83 |
@@ -397,9 +397,9 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
     (fica NULL, a justificativa é obrigatória).
 ```
 
-- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 180, investigacao 9, reportada 123.
+- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 181, investigacao 9, reportada 122.
 - Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 290.
-- R5 por canal e natureza: brasil/documentada 159, brasil/reportada 121, violencia/documentada 10.
+- R5 por canal e natureza: brasil/documentada 160, brasil/reportada 120, violencia/documentada 10.
 - Classificação manual (`eventos-natureza-manual.json`): 41 entradas, 41 aplicadas (alegacao 5, investigacao 11, reportada 25), 0 ignoradas (já tinham natureza), 0 exceções explícitas (ficam NULL).
 - Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 63 ganharam natureza pelas regras R1-R4 ou à mão, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 0 seguem NULL.
 - **Ficaram NULL: 0 eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: 0.
@@ -414,7 +414,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1534 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1537 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -651,11 +651,11 @@ Regra (do `_doc` do arquivo): `fraca` descreve a fonte, não a lacuna da nota. `
 
 | | evento_evidencia | relacao_evidencia | total |
 |---|---:|---:|---:|
-| ligações `fraca` antes | 90 | 3 | 93 |
+| ligações `fraca` antes | 89 | 2 | 91 |
 | revistas para `boa` | 87 | 2 | 89 |
-| ligações `fraca` depois | 3 | 1 | 4 |
+| ligações `fraca` depois | 2 | 0 | 2 |
 
-Entradas em `revisoes`: 108 = 89 aplicadas + 2 repetidas (idênticas) + 17 sobre fontes já substituídas (nada a mudar no banco). `mantidas_fracas` do arquivo = 66 (= 174 entradas `fraca` de `evidencias-adicionais.json` − 108 entradas de `revisoes`, contando as 81 substituídas, que não estão ligadas, e as repetidas). No banco ficam 4 = 93 fracas ligadas (= 174 − 81 substituídas) − 89 revistas (= `mantidas_fracas` − 81 substituídas + 17 revisões sobre substituídas + 2 repetidas).
+Entradas em `revisoes`: 108 = 89 aplicadas + 2 repetidas (idênticas) + 17 sobre fontes já substituídas (nada a mudar no banco). `mantidas_fracas` do arquivo = 66 (= 174 entradas `fraca` de `evidencias-adicionais.json` − 108 entradas de `revisoes`, contando as 83 substituídas, que não estão ligadas, e as repetidas). No banco ficam 2 = 91 fracas ligadas (= 174 − 83 substituídas) − 89 revistas (= `mantidas_fracas` − 83 substituídas + 17 revisões sobre substituídas + 2 repetidas).
 
 | motivo | aplicadas |
 |---|---:|
@@ -793,28 +793,28 @@ Repetidas (idênticas a uma entrada anterior; contadas uma vez):
 
 | natureza dos eventos cobertos | eventos |
 |---|---:|
-| documentada | 20 |
-| reportada | 13 |
+| documentada | 21 |
+| reportada | 12 |
 
 | natureza (todos os eventos) | eventos |
 |---|---:|
 | alegacao | 6 |
-| documentada | 240 |
+| documentada | 241 |
 | investigacao | 36 |
-| reportada | 223 |
+| reportada | 222 |
 
 Eventos `nao_classificada` depois da rodada: 0.
 
 ## 20. Rodada 4: substituição das fontes fracas (`data/curadoria/substituicoes-rodada4.json`)
 
-56 fontes novas (`boa`, papel `sustenta`) para 46 alvos, cada uma com `substitui`; 47 fontes fracas distintas substituídas (todas registradas em `evidencias-adicionais.json`, que ganham `substituida_por`). Aplicadas por `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das rodadas 1-3), conferidas antes por `curadoria.conferir_substituicoes`. Uma fraca substituída deixa de ser ligada ao alvo; se a URL também é fonte bruta do bloco-ano do evento (`brasil-fontes.json`), a ligação volta a ser `contexto` sem avaliação (9 já eram `contexto`; 4 eram `sustenta` por slug e foram rebaixadas). 17 substitutas já eram fonte `boa` do alvo (rodadas 2-3; a ligação existente fica), 2 são a mesma URL relida (reavaliação) e 3 eram `contexto` do bloco-ano e subiram a `sustenta`. Ligações `fraca` no banco: 51 -> 4. Correções de texto: 6 em `evento-correcoes.json` (`"rodada": 4`) e a descrição de `N[197].fam_de` em `relacao-correcoes.json`. Detalhe em `relatorio-evidencias-adicionais.md`, seção "Rodada 4".
+56 fontes novas (`boa`, papel `sustenta`) para 46 alvos, cada uma com `substitui`; 47 fontes fracas distintas substituídas (todas registradas em `evidencias-adicionais.json`, que ganham `substituida_por`). Aplicadas por `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das rodadas 1-3), conferidas antes por `curadoria.conferir_substituicoes`. Uma fraca substituída deixa de ser ligada ao alvo; se a URL também é fonte bruta do bloco-ano do evento (`brasil-fontes.json`), a ligação volta a ser `contexto` sem avaliação (9 já eram `contexto`; 4 eram `sustenta` por slug e foram rebaixadas). 17 substitutas já eram fonte `boa` do alvo (rodadas 2-3; a ligação existente fica), 2 são a mesma URL relida (reavaliação) e 3 eram `contexto` do bloco-ano e subiram a `sustenta`. Ligações `fraca` no banco ao fim da rodada (antes da R6 e da rodada 5): 51 -> 4. Correções de texto: 6 em `evento-correcoes.json` (`"rodada": 4`) e a descrição de `N[197].fam_de` em `relacao-correcoes.json`. Detalhe em `relatorio-evidencias-adicionais.md`, seção "Rodada 4".
 
 | natureza (todos os eventos) | eventos |
 |---|---:|
 | alegacao | 6 |
-| documentada | 240 |
+| documentada | 241 |
 | investigacao | 36 |
-| reportada | 223 |
+| reportada | 222 |
 
 ## 21. R6: peso da Wikipédia (`data/curadoria/regras-fontes.json`)
 
@@ -828,7 +828,7 @@ Registro da decisão (`motivo` do arquivo): Dar menos peso à Wikipédia: fonte 
 | alvos distintos | 77 | 3 |
 
 Qualidade antes: 2 `fraca`, 0 `boa`, 97 não avaliadas (NULL). Wiki `sustenta` depois: 0.
-Ligações `fraca` no banco: 4 -> 2 (as wiki rebaixadas deixam de ser `fraca` por serem contexto; `validar.py` confere `FRACAS_RESTANTES_RODADA4` menos `FRACAS_REBAIXADAS_R6`).
+Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` por serem contexto; `validar.py` confere `FRACAS_RESTANTES_RODADA4` menos `FRACAS_REBAIXADAS_R6` menos as substituídas pela rodada 5 = `FRACAS_DEPOIS_RODADA5`).
 
 | alvo | wiki que era `fraca` (agora `contexto`, qualidade NULL) |
 |---|---|
@@ -840,3 +840,14 @@ Ligações `fraca` no banco: 4 -> 2 (as wiki rebaixadas deixam de ser `fraca` po
 | `teia E[8].r[0]` | https://en.wikipedia.org/wiki/Rede_Super |
 | `teia E[11].r[0]` | https://en.wikipedia.org/wiki/Daniel_Vorcaro |
 | `teia E[13].r[0]` | https://en.wikipedia.org/wiki/Andr%C3%A9_Valad%C3%A3o |
+
+## 22. Rodada 5: as últimas lacunas de fonte (`data/curadoria/evidencias-rodada5.json`)
+
+8 fontes novas (`boa`, papel `sustenta`) para 8 alvos e 4 URLs distintas (uma URL pode estar ligada a vários alvos: a matéria do Estadão sobre Caio Carvalho Barros está em 5 relações, com uma só `evidencia`). 2 têm `substitui` (cscb.ca no evento de 2018; Brasil 247 em `N[138].fam_de`): a fraca recebe `substituida_por` em `evidencias-adicionais.json` e sai da ligação, como na rodada 4; as outras são fontes adicionais. Aplicadas por `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das rodadas 1-4) e conferidas por `curadoria.conferir_substituicoes`. Ligações `fraca` no banco: 4 -> 0 (depois da rodada 5: 0; as 2 wiki que sobravam já eram `contexto` pela R6). A natureza vem de `eventos-natureza.json`, regerado (R5). Detalhe em `relatorio-evidencias-adicionais.md`, seção "Rodada 5".
+
+| natureza (todos os eventos) | eventos |
+|---|---:|
+| alegacao | 6 |
+| documentada | 241 |
+| investigacao | 36 |
+| reportada | 222 |

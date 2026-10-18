@@ -26,7 +26,7 @@ Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta foram corrigidos 
 | ressalvas mantidas com nota, sem mudança no banco (ids de ressalva) | 37 |
 | vínculos da teia com campo corrigido na rodada 4 (`rodada_campos`) | 1 |
 
-Fontes fracas: a rodada 4 (`substituicoes-rodada4.json`) substituiu as que tinham fonte aberta melhor; ficam 2 ligações `fraca` no banco, marcadas (`data/relatorio-evidencias-adicionais.md`, seções "Fontes fracas" e "Rodada 4"). As substituídas ficam no arquivo como histórico.
+Fontes fracas: a rodada 4 (`substituicoes-rodada4.json`) substituiu as que tinham fonte aberta melhor e a rodada 5 (`evidencias-rodada5.json`) as 2 últimas; ficam 0 ligações `fraca` no banco (depois da rodada 5: 0; `data/relatorio-evidencias-adicionais.md`, seções "Fontes fracas", "Rodada 4" e "Rodada 5"). As substituídas ficam no arquivo como histórico.
 
 ## Eventos corrigidos
 

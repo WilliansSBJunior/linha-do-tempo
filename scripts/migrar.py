@@ -1121,6 +1121,7 @@ def secoes_modelo(con, R, w):
         corr4 = [c for c in R["evento_corr"]["aplicadas"] if c.get("rodada") == 4]
         fr_dist = {(curadoria._chave_alvo(e), curadoria.normalizar_url(e["substitui"])) for e in r4}
         nf = sum(eq["depois"].values())
+        n5s = len({(curadoria._chave_alvo(e), curadoria.normalizar_url(e["substitui"])) for e in ea["entradas"] if e.get("rodada") == 5 and e.get("substitui")})
         w("\n## 20. Rodada 4: substituição das fontes fracas (`data/curadoria/substituicoes-rodada4.json`)\n")
         w(f"{len(r4)} fontes novas (`boa`, papel `sustenta`) para {len({curadoria._chave_alvo(e) for e in r4})} alvos, cada uma com `substitui`; "
           f"{len(fr_dist)} fontes fracas distintas substituídas (todas registradas em `evidencias-adicionais.json`, que ganham `substituida_por`). "
@@ -1129,7 +1130,7 @@ def secoes_modelo(con, R, w):
           f"(`brasil-fontes.json`), a ligação volta a ser `contexto` sem avaliação ({len(ea['contexto_mantidas'])} já eram `contexto`; "
           f"{len(ea['rebaixadas'])} eram `sustenta` por slug e foram rebaixadas). {len(ea['r4_ja_ligadas'])} substitutas já eram fonte `boa` do alvo "
           f"(rodadas 2-3; a ligação existente fica), {len(ea['r4_reavaliadas'])} são a mesma URL relida (reavaliação) e {len(ea['r4_promovidas'])} eram "
-          f"`contexto` do bloco-ano e subiram a `sustenta`. Ligações `fraca` no banco: {nf + len(fr_dist)} -> {nf}. "
+          f"`contexto` do bloco-ano e subiram a `sustenta`. Ligações `fraca` no banco ao fim da rodada (antes da R6 e da rodada 5): {nf + n5s + len(fr_dist)} -> {nf + n5s}. "
           f"Correções de texto: {len(corr4)} em `evento-correcoes.json` (`\"rodada\": 4`) e a descrição de `N[197].fam_de` em `relacao-correcoes.json`. "
           "Detalhe em `relatorio-evidencias-adicionais.md`, seção \"Rodada 4\".\n")
         w("| natureza (todos os eventos) | eventos |\n|---|---:|")
@@ -1152,7 +1153,7 @@ def secoes_modelo(con, R, w):
         w(f"\nQualidade antes: {len(pw['fracas'])} `fraca`, {pw['boas']} `boa`, "
           f"{len(pw['evento']) + len(pw['relacao']) - len(pw['fracas']) - pw['boas']} não avaliadas (NULL). Wiki `sustenta` depois: {pw['restantes']}.")
         w(f"Ligações `fraca` no banco: {fracas_depois + len(pw['fracas'])} -> {fracas_depois} (as wiki rebaixadas deixam de ser `fraca` por serem contexto; "
-          "`validar.py` confere `FRACAS_RESTANTES_RODADA4` menos `FRACAS_REBAIXADAS_R6`).\n")
+          "`validar.py` confere `FRACAS_RESTANTES_RODADA4` menos `FRACAS_REBAIXADAS_R6` menos as substituídas pela rodada 5 = `FRACAS_DEPOIS_RODADA5`).\n")
         if pw["fracas"]:
             w("| alvo | wiki que era `fraca` (agora `contexto`, qualidade NULL) |\n|---|---|")
             for alvo, dono, url in pw["fracas"]:
@@ -1162,6 +1163,25 @@ def secoes_modelo(con, R, w):
             for dono, url, _ in pw["relacao"]:
                 ref = con.execute("SELECT origem || ' ' || origem_ref FROM relacao WHERE id=?", (dono,)).fetchone()[0]
                 w(f"| `{ref}` | {url} |")
+
+    # ---------------------------------------------------------------- 22
+    r5 = [e for e in ea["entradas"] if e.get("rodada") == 5]
+    if r5:
+        subs5 = [e for e in r5 if e.get("substitui")]
+        fracas_final = sum(curadoria._contar_fracas(con).values())
+        w("\n## 22. Rodada 5: as últimas lacunas de fonte (`data/curadoria/evidencias-rodada5.json`)\n")
+        w(f"{len(r5)} fontes novas (`boa`, papel `sustenta`) para {len({curadoria._chave_alvo(e) for e in r5})} alvos e "
+          f"{len({curadoria.normalizar_url(e['url']) for e in r5})} URLs distintas (uma URL pode estar ligada a vários alvos: a matéria do Estadão sobre Caio Carvalho Barros está em "
+          f"{max(collections.Counter(curadoria.normalizar_url(e['url']) for e in r5).values())} relações, com uma só `evidencia`). {len(subs5)} têm `substitui` (cscb.ca no evento de 2018; Brasil 247 em `N[138].fam_de`): a fraca recebe `substituida_por` em "
+          "`evidencias-adicionais.json` e sai da ligação, como na rodada 4; as outras são fontes adicionais. Aplicadas por "
+          "`curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das rodadas 1-4) e conferidas por "
+          "`curadoria.conferir_substituicoes`. "
+          f"Ligações `fraca` no banco: {fracas_final + len(subs5) + len(pw.get('fracas', []))} -> {fracas_final} "
+          "(depois da rodada 5: 0; as 2 wiki que sobravam já eram `contexto` pela R6). A natureza vem de `eventos-natureza.json`, regerado (R5). "
+          "Detalhe em `relatorio-evidencias-adicionais.md`, seção \"Rodada 5\".\n")
+        w("| natureza (todos os eventos) | eventos |\n|---|---:|")
+        for r in q("SELECT COALESCE(natureza_id,'(NULL)') n, count(*) c FROM evento GROUP BY 1 ORDER BY 1"):
+            w(f"| {r['n']} | {r['c']} |")
 
 
 def tokens(s):

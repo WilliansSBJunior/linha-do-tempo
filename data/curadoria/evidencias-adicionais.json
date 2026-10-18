@@ -1646,7 +1646,8 @@
   "nota": "Veículo fora da lista nominal.",
   "qualidade": "fraca",
   "motivo_fraca": "veículo fora da lista de veículos estabelecidos",
-  "descricao_nova": "Advogado, filho do governador do DF Ibaneis Rocha; seu escritório vendeu crédito de R$ 38 milhões à Reag antes de o BRB negociar com o Master."
+  "descricao_nova": "Advogado, filho do governador do DF Ibaneis Rocha; seu escritório vendeu crédito de R$ 38 milhões à Reag antes de o BRB negociar com o Master.",
+  "substituida_por": "https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/"
  },
  {
   "alvo_tipo": "relacao",
@@ -4852,7 +4853,8 @@
   "nota": "Confirma tarifas de 6/7 e retaliação incluindo soja. A abertura de espaço para a soja brasileira não aparece nessa página.",
   "qualidade": "fraca",
   "motivo_fraca": "tipo \"outro\": fonte secundária/não estabelecida; site de associação, não é veículo estabelecido; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento",
-  "rodada": 2
+  "rodada": 2,
+  "substituida_por": "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products"
  },
  {
   "alvo_tipo": "evento",

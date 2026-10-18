@@ -1198,16 +1198,19 @@ def relatorio_mandato_oficial(cfg, nomes):
 # ======================================================================== 7. evidências adicionais (pesquisa de fontes para eventos/relações sem evidência)
 ARQ_RODADA3 = "evidencias-rodada3.json"
 ARQ_RODADA4 = "substituicoes-rodada4.json"
+ARQ_RODADA5 = "evidencias-rodada5.json"
+RODADAS_SUBST = (4, 5)   # rodadas em que `substitui` desliga uma fonte fraca (a rodada 5 também traz fontes adicionais, sem `substitui`)
 LOTE_A_RODADA4 = 27   # as 27 primeiras entradas de substituicoes-rodada4.json (lote A: trechos devolvidos pelo WebFetch como resumo)
 AVISO_TRECHO_RODADA4 = "[trecho via resumo do WebFetch]"
 
 
 def ler_evidencias_adicionais():
     """Todas as entradas de evidência adicional, na ordem de aplicação: `evidencias-adicionais.json` (rodadas 1 e 2), `evidencias` de
-    `evidencias-rodada3.json` (rodada 3) e `evidencias` de `substituicoes-rodada4.json` (rodada 4: substitutas de fontes fracas, cada uma com
-    `substitui`). Os arquivos das rodadas 3 e 4 guardam também `decisoes` e `nao_encontrados`, que só vão para o relatório e para
+    `evidencias-rodada3.json` (rodada 3), `evidencias` de `substituicoes-rodada4.json` (rodada 4: substitutas de fontes fracas, cada uma com
+    `substitui`) e `evidencias` de `evidencias-rodada5.json` (rodada 5: as 2 últimas substituições, com `substitui`, e fontes adicionais
+    `sustenta`/`boa`, sem). Os arquivos das rodadas 3 e 4 guardam também `decisoes` e `nao_encontrados`, que só vão para o relatório e para
     evento-correcoes.json/relacao-correcoes.json. Formato idêntico; toda entrada do arquivo da rodada 3 tem de trazer `"rodada": 3`, e toda
-    entrada do da rodada 4, `"rodada": 4` e `substitui` (senão aborta)."""
+    entrada do da rodada 4, `"rodada": 4` e `substitui`, e toda entrada do da rodada 5, `"rodada": 5` e qualidade `boa` (senão aborta)."""
     r3 = ler_json(ARQ_RODADA3, {}).get("evidencias", [])
     ruins = [e.get("url") for e in r3 if e.get("rodada") != 3]
     if ruins:
@@ -1216,7 +1219,11 @@ def ler_evidencias_adicionais():
     ruins = [e.get("url") for e in r4 if e.get("rodada") != 4 or not e.get("substitui")]
     if ruins:
         raise SystemExit(f"{ARQ_RODADA4}: entradas sem \"rodada\": 4 ou sem `substitui`: {ruins}")
-    return ler_json("evidencias-adicionais.json", []) + r3 + r4
+    r5 = ler_json(ARQ_RODADA5, {}).get("evidencias", [])
+    ruins = [e.get("url") for e in r5 if e.get("rodada") != 5 or e.get("qualidade") != "boa"]
+    if ruins:
+        raise SystemExit(f"{ARQ_RODADA5}: entradas sem \"rodada\": 5 ou que não são `boa`: {ruins}")
+    return ler_json("evidencias-adicionais.json", []) + r3 + r4 + r5
 
 
 def lista_substituida_por(e):
@@ -1255,17 +1262,17 @@ def conferir_substituicoes(entradas):
             continue
         vistos[k] = e
     anteriores = []
-    novas_r4 = {(_chave_alvo(e), normalizar_url(e["url"])) for e in entradas if e.get("rodada") == 4}
+    novas_r4 = {(_chave_alvo(e), normalizar_url(e["url"])) for e in entradas if e.get("rodada") in RODADAS_SUBST}
     for e in entradas:
-        if e.get("substitui") and e.get("rodada") == 4:   # rodadas 1-2: `substitui` também marca substituição parcial (a fraca fica) e é só registro
+        if e.get("substitui") and e.get("rodada") in RODADAS_SUBST:   # rodadas 1-2: `substitui` também marca substituição parcial (a fraca fica) e é só registro
             ks = (_chave_alvo(e), normalizar_url(e["substitui"]))
             fr = [x for x in anteriores if (_chave_alvo(x), normalizar_url(x["url"])) == ks]
             if not fr or fr[0]["qualidade"] != "fraca":
                 erros.append(f"`substitui` não corresponde a nenhuma fonte fraca registrada para o alvo {ks[0]}: {e['substitui']} (nova: {e['url']})")
             elif lista_substituida_por(fr[0]) and normalizar_url(e["url"]) not in lista_substituida_por(fr[0]):
                 erros.append(f"{ks[0]}: a fraca {e['substitui']} tem `substituida_por` sem a URL nova {e['url']}")
-            elif e.get("rodada") == 4 and not lista_substituida_por(fr[0]):
-                erros.append(f"{ks[0]}: a fraca {e['substitui']} substituída na rodada 4 não traz `substituida_por` (marque-a em evidencias-adicionais.json)")
+            elif not lista_substituida_por(fr[0]):
+                erros.append(f"{ks[0]}: a fraca {e['substitui']} substituída na rodada {e['rodada']} não traz `substituida_por` (marque-a em evidencias-adicionais.json)")
             if e["qualidade"] != "boa":
                 erros.append(f"{ks[0]}: substituta {e['url']} não é `boa`")
         anteriores.append(e)
@@ -1275,8 +1282,8 @@ def conferir_substituicoes(entradas):
                 erros.append(f"`substituida_por` em entrada que não é fraca: {_chave_alvo(e)} {e['url']}")
             if (_chave_alvo(e), u) not in novas_r4:   # substituições das rodadas 1-2: conferidas como antes pelo validar.py
                 continue
-            nv = [x for x in entradas if x.get("rodada") == 4 and _chave_alvo(x) == _chave_alvo(e) and normalizar_url(x["url"]) == u
-                  and normalizar_url(x["substitui"]) == normalizar_url(e["url"])]
+            nv = [x for x in entradas if x.get("rodada") in RODADAS_SUBST and x.get("substitui") and _chave_alvo(x) == _chave_alvo(e)
+                  and normalizar_url(x["url"]) == u and normalizar_url(x["substitui"]) == normalizar_url(e["url"])]
             if len(nv) != 1:
                 erros.append(f"{_chave_alvo(e)}: `substituida_por` {u} sem exatamente uma entrada substituta apontando de volta ({len(nv)})")
     if erros:
@@ -1386,8 +1393,8 @@ def aplicar_evidencias_adicionais(con):
                 promovida = False
         else:
             promovida = False
-        if e.get("rodada") == 4 and cur is not None and not cur.rowcount and not promovida:
-            raise SystemExit(f"{ARQ_RODADA4}: {e['url']} já estava ligada ao alvo com trecho/avaliação e não é `ja_ligada` (caso não previsto)")
+        if e.get("rodada") in RODADAS_SUBST and cur is not None and not cur.rowcount and not promovida:
+            raise SystemExit(f"rodada {e['rodada']}: {e['url']} já estava ligada ao alvo com trecho/avaliação e não é `ja_ligada` (caso não previsto)")
         if e.get("rodada") == 4 and promovida:
             r["r4_promovidas"].append(e)
         if cur is not None and not promovida:
@@ -1801,8 +1808,9 @@ def relatorio_revisao_evidencias(con, E, Rl):
     rc4 = [c for c in Rl["aplicadas"] if 4 in (c.get("rodada_campos") or {}).values()]
     w(f"| vínculos da teia com campo corrigido na rodada 4 (`rodada_campos`) | {len(rc4)} |")
     nf = sum(con.execute(f"SELECT count(*) FROM {t} WHERE qualidade='fraca'").fetchone()[0] for t in ("evento_evidencia", "relacao_evidencia"))
-    w(f"\nFontes fracas: a rodada 4 (`substituicoes-rodada4.json`) substituiu as que tinham fonte aberta melhor; ficam {nf} ligações `fraca` no banco, "
-      "marcadas (`data/relatorio-evidencias-adicionais.md`, seções \"Fontes fracas\" e \"Rodada 4\"). As substituídas ficam no arquivo como histórico.\n")
+    w(f"\nFontes fracas: a rodada 4 (`substituicoes-rodada4.json`) substituiu as que tinham fonte aberta melhor e a rodada 5 (`evidencias-rodada5.json`) "
+      f"as 2 últimas; ficam {nf} ligações `fraca` no banco (depois da rodada 5: 0; `data/relatorio-evidencias-adicionais.md`, seções \"Fontes fracas\", \"Rodada 4\" e "
+      "\"Rodada 5\"). As substituídas ficam no arquivo como histórico.\n")
     w("## Eventos corrigidos\n")
     w("| evento | campo | de -> para | motivo | ressalvas |\n|---|---|---|---|---|")
     for c in sorted(E["aplicadas"], key=lambda c: (c["id_efetivo"], c["campo"])):
@@ -1954,6 +1962,7 @@ def relatorio_evidencias_adicionais(con, R, E=None):
     L += _secao_rodada2(con, entradas, E, esc)
     L += _secao_rodada3(con, entradas, E, esc)
     L += _secao_rodada4(con, R, E, esc, alvo)
+    L += _secao_rodada5(con, R, esc, alvo)
     return "\n".join(L) + "\n"
 
 
@@ -1968,7 +1977,7 @@ def _secao_rodada4(con, R, E, esc, alvo):
     dec = cfg.get("decisoes", {})
     corr = [c for c in (E["aplicadas"] if E else []) if c.get("rodada") == 4]
     corr_rel = [c for c in ler_json("relacao-correcoes.json", {}).get("vinculos_teia", []) if 4 in (c.get("rodada_campos") or {}).values()]
-    anteriores = [e for e in entradas if e.get("rodada") != 4]
+    anteriores = [e for e in entradas if e.get("rodada") not in RODADAS_SUBST]
     fraca_de = {}
     for e in anteriores:
         fraca_de.setdefault((_chave_alvo(e), normalizar_url(e["url"])), e)
@@ -1985,6 +1994,12 @@ def _secao_rodada4(con, R, E, esc, alvo):
     for t, c, extra in (("evento_evidencia", "evento_id", ""), ("relacao_evidencia", "relacao_id", "")):
         for r in con.execute(f"SELECT l.{c}, v.url FROM {t} l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.qualidade='fraca' ORDER BY l.{c}, v.url"):
             restam.append((t, r[0], r[1]))
+    # a rodada 5 fechou as 2 últimas (cscb.ca, Brasil 247): este quadro é o estado ao fim da rodada 4, então as soma de volta
+    for e in entradas:
+        if e.get("rodada") == 5 and e.get("substitui"):
+            tab5, _col5, aid5 = _alvo_evidencia(con, e)
+            restam.append((tab5, aid5, normalizar_url(e["substitui"])))
+    restam.sort(key=lambda x: (x[0], str(x[1]), x[2]))
     # R6 (regras-fontes.json): fracas wiki que ficaram depois da rodada e hoje são `contexto` sem avaliação (aplicar_peso_wikipedia)
     r6 = []
     for e in R["entradas"]:
@@ -2016,6 +2031,7 @@ def _secao_rodada4(con, R, E, esc, alvo):
     L = []
     w = L.append
     w("\n## Rodada 4 — substituição das fontes fracas restantes\n")
+    w("Os números desta seção são o estado ao fim da rodada 4 (e da R6); a rodada 5 (seção seguinte) substituiu as 2 fracas que sobraram.\n")
     w("As entradas ficam em `data/curadoria/substituicoes-rodada4.json` (`evidencias`, formato idêntico ao de `evidencias-adicionais.json`, com "
       "`\"rodada\": 4` e `substitui: <url da fraca>`) e são aplicadas pela mesma `curadoria.aplicar_evidencias_adicionais` (via "
       "`ler_evidencias_adicionais`, depois das rodadas 1-3), papel `sustenta`, qualidade `boa`. Cada fraca substituída recebe `substituida_por` "
@@ -2092,6 +2108,48 @@ def _secao_rodada4(con, R, E, esc, alvo):
         w(f"| {a} | {esc(n['tentado'])} |")
     if dec.get("aviso_trechos"):
         w("\nAviso sobre os trechos (`decisoes.aviso_trechos`): " + esc(dec["aviso_trechos"]) + "\n")
+    return L
+
+
+def _secao_rodada5(con, R, esc, alvo):
+    """Seção "Rodada 5": `evidencias-rodada5.json` (`"rodada": 5`): as 2 últimas substituições de fonte fraca (`substitui`) e as fontes adicionais
+    `sustenta`/`boa` (sem `substitui`), com a natureza atual dos eventos cobertos e as ligações `fraca` antes -> depois."""
+    r5 = [e for e in R["entradas"] if e.get("rodada") == 5]
+    if not r5:
+        return []
+    cfg = ler_json(ARQ_RODADA5, {})
+    subs = [e for e in r5 if e.get("substitui")]
+    adic = [e for e in r5 if not e.get("substitui")]
+    fracas_depois = sum(_contar_fracas(con).values())
+    nat = lambda i: (con.execute("SELECT COALESCE(natureza_id,'(NULL)') FROM evento WHERE id=?", (i,)).fetchone() or ["(inexistente)"])[0]
+    urls = collections.Counter(normalizar_url(e["url"]) for e in r5)
+    L = []
+    w = L.append
+    w("\n## Rodada 5 — as últimas lacunas de fonte\n")
+    w("As entradas ficam em `data/curadoria/evidencias-rodada5.json` (`evidencias`, formato idêntico ao de `evidencias-adicionais.json`, com "
+      "`\"rodada\": 5` e qualidade `boa`) e são aplicadas pela mesma `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, "
+      "depois das rodadas 1-4). Mesma semântica da rodada 4: `substitui: <url da fraca>` desliga a fraca (que recebe `substituida_por` em "
+      "`evidencias-adicionais.json`, onde está registrada); entrada sem `substitui` é fonte adicional `sustenta`. A mesma URL pode estar ligada a "
+      "vários alvos (uma `evidencia`, uma ligação por alvo). " + (esc(cfg["_doc"]) if cfg.get("_doc") else "") + "\n")
+    w("| | |\n|---|---:|")
+    w(f"| entradas | {len(r5)} |")
+    w(f"| &nbsp;&nbsp;de evento / de relação | {sum(1 for e in r5 if e['alvo_tipo'] == 'evento')} / {sum(1 for e in r5 if e['alvo_tipo'] == 'relacao')} |")
+    w(f"| alvos | {len({_chave_alvo(e) for e in r5})} |")
+    w(f"| URLs distintas | {len(urls)} |")
+    w(f"| substituições (`substitui`; fraca desligada do alvo) | {len(subs)} |")
+    w(f"| fontes adicionais (`sustenta`/`boa`, sem `substitui`) | {len(adic)} |")
+    w(f"| ligações `fraca` no banco antes -> depois da rodada | {fracas_depois + len(subs)} -> {fracas_depois} |")
+    w("\n| alvo | fonte | tipo | data | o que faz |\n|---|---|---|---|---|")
+    for e in r5:
+        acao = f"substitui {esc(e['substitui'])}" if e.get("substitui") else "fonte adicional"
+        extra = f"; mesma URL ligada a {urls[normalizar_url(e['url'])]} alvos" if urls[normalizar_url(e["url"])] > 1 else ""
+        w(f"| {alvo(e)} | {esc(e['url'])} | {e['tipo']} | {esc(str(e.get('data') or ''))} | {acao}{extra} |")
+    eventos = sorted({e["evento_id"] for e in r5 if e["alvo_tipo"] == "evento"})
+    w("\nNatureza atual dos eventos cobertos (regra R5 sobre as fontes que sustentam; `eventos-natureza.json` regerado):\n")
+    w("| evento | natureza |\n|---|---|")
+    for i in eventos:
+        w(f"| `{i}` | {nat(i)} |")
+    w("")
     return L
 
 

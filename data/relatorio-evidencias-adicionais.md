@@ -8,21 +8,21 @@ Pesquisa de fontes para os eventos e relações que a migração deixava sem nen
 
 | | |
 |---|---:|
-| entradas (alvo, URL) | 504 |
+| entradas (alvo, URL) | 512 |
 | eventos cobertos | 255 |
-| relações cobertas | 45 |
+| relações cobertas | 49 |
 | eventos sem evidência antes -> depois | 59 -> 0 |
 | relações publicadas sem evidência antes -> depois | 45 -> 0 |
-| evidências novas (linhas em `evidencia`) | 305 |
-| ligações a URLs que já existiam em `evidencia` antes desta etapa (reaproveitadas; veículo e tipo intactos) | 61 |
-| ligações criadas | 361 |
+| evidências novas (linhas em `evidencia`) | 308 |
+| ligações a URLs que já existiam em `evidencia` antes desta etapa (reaproveitadas; veículo e tipo intactos) | 60 |
+| ligações criadas | 367 |
 | ligações que já existiam (fonte de contexto do bloco-ano) e passaram a `sustenta` com trecho, nota e qualidade | 45 |
-| qualidade `boa` | 330 |
+| qualidade `boa` | 338 |
 | qualidade `fraca` (no arquivo, inclusive as substituídas, que ficam como histórico) | 174 |
-| qualidade `fraca` ligadas ao alvo (como entraram) | 93 |
+| qualidade `fraca` ligadas ao alvo (como entraram) | 91 |
 | &nbsp;&nbsp;das quais voltaram a `boa` na revisão do critério (`evidencia-qualidade-revisao.json`, seção 18 de `relatorio-migracao.md`) | 89 |
 | &nbsp;&nbsp;das quais, da Wikipédia, viraram `contexto` sem avaliação pela R6 (`regras-fontes.json`, seção 21 de `relatorio-migracao.md`) | 2 |
-| &nbsp;&nbsp;continuam `fraca` no banco | 2 |
+| &nbsp;&nbsp;continuam `fraca` no banco | 0 |
 | descrições de relação da teia substituídas | 24 |
 | descrições mantidas (a atual já não era o texto padrão "Vínculo ... sem descrição na fonte") | 0 |
 
@@ -30,13 +30,12 @@ Evidências novas por tipo:
 
 | tipo | evidências novas |
 |---|---:|
-| comunicado | 13 |
+| comunicado | 14 |
 | dado_oficial | 14 |
 | decisao_judicial | 3 |
 | documento_oficial | 97 |
-| outro | 1 |
 | relatorio | 7 |
-| reportagem | 169 |
+| reportagem | 172 |
 | wiki | 1 |
 
 Onde ficam os dados (colunas aditivas, ver `-- DESVIO` em `scripts/schema.sql`): `trecho_citado` (em `relacao_evidencia` já existia; em `evento_evidencia` é novo), `nota` (ressalva do pesquisador) e `qualidade` ('boa'/'fraca'; NULL nas ligações antigas, que não foram avaliadas). `evidencia.veiculo`/`tipo` vêm da primeira entrada que criou a URL; `evento_evidencia.rotulo` = título da fonte.
@@ -63,12 +62,10 @@ Onde ficam os dados (colunas aditivas, ver `-- DESVIO` em `scripts/schema.sql`):
 
 ## Fontes fracas (para substituição futura)
 
-93 entradas ainda ligadas ao alvo (4 com substituição parcial, 89 sem substituto); as outras 81 foram substituídas e ficam no arquivo só como histórico. Das ligadas, 89 voltaram a `boa` na revisão do critério (a nota do pesquisador fica) e 2, da Wikipédia, viraram `contexto` sem avaliação pela R6 (`ev-1999-segundo-mandato-de-fhc`, `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos`); a tabela lista as 2 que continuam `fraca` no banco.
+91 entradas ainda ligadas ao alvo (4 com substituição parcial, 87 sem substituto); as outras 83 foram substituídas e ficam no arquivo só como histórico. Das ligadas, 89 voltaram a `boa` na revisão do critério (a nota do pesquisador fica) e 2, da Wikipédia, viraram `contexto` sem avaliação pela R6 (`ev-1999-segundo-mandato-de-fhc`, `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos`); a tabela lista as 0 que continuam `fraca` no banco.
 
 | alvo | url | motivo |
 |---|---|---|
-| relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de) | https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master | veículo fora da lista de veículos estabelecidos |
-| evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation | tipo "outro": fonte secundária/não estabelecida; site de associação, não é veículo estabelecido; a nota do pesquisador diz que a fonte não confirma ou contradiz parte do evento |
 
 ## Substituições de fontes fracas
 
@@ -77,10 +74,10 @@ Uma entrada `fraca` com `substituida_por` não é ligada ao alvo (continua no ar
 | | |
 |---|---:|
 | fontes fracas no arquivo | 174 |
-| substituídas (desligadas do alvo) | 81 |
+| substituídas (desligadas do alvo) | 83 |
 | substituídas parcialmente (fraca continua ligada) | 4 |
-| sem substituto (continuam ligadas) | 89 |
-| fraca ligadas ao alvo depois | 93 |
+| sem substituto (continuam ligadas) | 87 |
+| fraca ligadas ao alvo depois | 91 |
 
 | alvo | fraca -> nova | tipo |
 |---|---|---|
@@ -130,6 +127,7 @@ Uma entrada `fraca` com `substituida_por` não é ligada ao alvo (continua no ar
 | relação 351 `N[130].fam_de` (Pedro Gonet Branco -> Paulo Gonet: Familiar ou próximo de) | https://ohoje.com/2026/09/01/filho-de-paulo-gonet-foi-incluido-em-viagem-a-londres-custeada-por-vorcaro-aponta-pf -> https://sbtnews.sbt.com.br/noticia/politica/pgr-pediu-para-vorcaro-levar-filho-a-londres-com-tudo-pago | reportagem |
 | relação 355 `N[134].fam_de` (BN Financeira (BK Financeira) -> Jaques Wagner: Empresa de familiar de) | https://www.metropoles.com/colunas/milena-teixeira/boletos-altos-enteado-de-jaques-wagner-tambem-foi-alvo-da-pf -> https://www.metropoles.com/colunas/milena-teixeira/master-pagou-r-11-milhoes-a-empresa-de-nora-de-jaques-wagner | reportagem |
 | relação 358 `N[137].fam_de` (CNLF Empreendimentos Imobiliários -> Ciro Nogueira: Empresa atribuída pela PF a) | https://sbtnews.sbt.com.br/colunas/coluna-do-gayer/empresa-de-ciro-nogueira-comprou-30-de-firma-de-vorcaro-por-valor-abaixo-do-mercado-diz-pf -> https://www.cnnbrasil.com.br/politica/quem-e-irmao-ciro-alvo-pf/ | reportagem |
+| relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de) | https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master -> https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | reportagem |
 | relação 362 `N[141].fam_de` (Valéria Rodrigues Linhares -> Cezinha de Madureira: Familiar ou próximo de) | https://midiamax.com.br/brasil/2026/esposa-cezinha-estava-mala-r-510-mil-apreendida-congonhas-segundo-dino -> https://www.jb.com.br/brasil/policia/2026/09/amp/1060905-pf-mira-cezinha-de-madureira-em-operacao-sobre-tribunais-superiores.html | reportagem |
 | relação 364 `N[160].lig_de` (Queiroga, Vieira, Queiroz e Ramos Advocacia (QVQR) -> Newton Ramos: Escritório ligado a) | https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html -> https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html | reportagem |
 | relação 365 `N[161].lig_de` (Ibaneis Advocacia -> Ibaneis Rocha: Escritório ligado a) | https://www.correiobraziliense.com.br/cidades-df/2026/03/amp/7372684-master-brb-contrato-de-escritorio-de-ibaneis-com-reag-turbina-a-crise-no-df.html -> https://www.metropoles.com/colunas/grande-angular/escritorio-ibaneis-advocacia-recebeu-r-738-milhoes-por-venda-de-honorarios-em-13-contratos | reportagem |
@@ -181,6 +179,7 @@ Uma entrada `fraca` com `substituida_por` não é ligada ao alvo (continua no ar
 | evento `ev-2016-opep-faz-seu-primeiro-corte-de-producao` (Opep faz seu primeiro corte de produção desde 2008) | https://www.novacana.com/noticias/opep-acordo-cortar-producao-petroleo-011216 -> https://fred.stlouisfed.org/data/ACOILBRENTEU | dado_oficial |
 | evento `ev-2016-reino-unido-vota-pela-saida-da-uniao` (Reino Unido vota pela saída da União Europeia (Brexit)) | https://en.wikipedia.org/wiki/2016_United_Kingdom_European_Union_membership_referendum -> https://commonslibrary.parliament.uk/research-briefings/cbp-7639/ | relatorio |
 | evento `ev-2017-primeira-greve-geral-em-cerca-de-20-anos` (Primeira greve geral em cerca de 20 anos) | https://www.ihu.unisinos.br/567133-cut-paralisacao-e-a-maior-da-historia-35-milhoes-de-brasileiros-deixam-de-trabalhar -> https://www.congressoemfoco.com.br/noticia/40246/greve-geral-paralisa-professores-rodoviarios-bancarios-e-diversas-categorias-contra-reformas-de-temer | reportagem |
+| evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation -> https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products | comunicado |
 | evento `ev-2019-alberto-fernandez-derrota-macri-na` (Alberto Fernández derrota Macri na Argentina) | https://en.wikipedia.org/wiki/2019_Argentine_general_election -> https://www.lanacion.com.ar/politica/elecciones-2019-finalizo-escrutinio-definitivo-alberto-fernandez-nid2303923 | reportagem |
 | evento `ev-2019-bolsonaro-toma-posse-como-presidente` (Bolsonaro toma posse como presidente) | https://pt.wikipedia.org/wiki/Posse_de_Jair_Bolsonaro -> https://www12.senado.leg.br/noticias/materias/2019/01/01/jair-bolsonaro-toma-posse-no-congresso-e-se-torna-38o-presidente-do-brasil | reportagem |
 | evento `ev-2022-acordo-de-graos-do-mar-negro` (Acordo de grãos do Mar Negro) | https://www.developmentaid.org/news-stream/post/164532/black-sea-initiative-grain -> https://www.ungeneva.org/en/news-media/press-release/2023/07/operational-update-office-un-coordinator-black-sea-grain | comunicado |
@@ -190,7 +189,6 @@ Sem substituto (continuam ligadas e marcadas):
 - evento `ev-2000-eleicoes-municipais` (Eleições municipais): https://www.dgabc.com.br/Noticia/269296/marta-vence-maluf-e-e-eleita-prefeita-de-s-paulo
 - evento `ev-2015-turbulencia-na-china-bolsa-e-yuan` (Turbulência na China: bolsa e yuan): https://www.business-standard.com/amp/article/news-ians/chinese-stocks-sink-below-3-000-points-115082500699_1.html
 - evento `ev-2020-trocas-no-ministerio-da-saude` (Trocas no Ministério da Saúde): https://www.poder360.com.br/governo/ministro-da-saude-nelson-teich-pede-demissao-do-governo-bolsonaro
-- relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de): https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master
 - relação 360 `N[139].fam_de` (Eduardo Bolsonaro -> Jair Bolsonaro: Familiar ou próximo de): https://www.folhavitoria.com.br/politica/eduardo-tratou-sobre-filme-com-vorcaro-e-pediu-para-enviar-maximo-de-recursos-aos-eua
 - relação 363 `N[142].fam_de` (Camilla Ramos -> Newton Ramos: Familiar ou próximo de): https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html
 - evento `ev-1996-acordo-de-tecnologia-da-informacao-na` (Acordo de Tecnologia da Informação na OMC): https://www.wto.org/english/tratop_e/inftec_e/itaintro_e.htm
@@ -257,7 +255,6 @@ Sem substituto (continuam ligadas e marcadas):
 - evento `ev-2018-crise-da-lira-turca-assusta-os` (Crise da lira turca assusta os emergentes): https://www.gazetasp.com.br/cotidiano/42349-trump-autoriza-dobrar-tarifa-sobre-metais-da-turquia-e-ag/
 - evento `ev-2018-fed-leva-os-juros-a-2-25-2-50` (Fed leva os juros a 2,25%–2,50%): https://www.federalreserve.gov/newsevents/pressreleases/monetary20181219a.htm
 - evento `ev-2018-greve-dos-caminhoneiros` (Greve dos caminhoneiros): https://www.poder360.com.br/brasil/temer-recua-outra-vez-cede-a-caminhoneiros-e-congela-diesel-por-60-dias/
-- evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi): https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation
 - evento `ev-2018-intervencao-federal-na-seguranca-do-rio` (Intervenção federal na segurança do Rio de Janeiro): https://www.poder360.com.br/brasil/por-ampla-maioria-camara-aprova-decreto-de-intervencao-do-rio/
 - evento `ev-2018-lula-e-preso-em-curitiba` (Lula é preso em Curitiba): https://oimparcial.com.br/brasil/2018/04/stf-rejeita-habeas-corpus-de-lula-por-6-votos-a-5/
 - evento `ev-2018-tse-barra-lula-e-pt-lanca-haddad` (TSE barra Lula e PT lança Haddad): https://www.agazeta.com.br/brasil/tse-usa-lei-da-ficha-limpa-para-barrar-lula-0918
@@ -279,7 +276,7 @@ Sem substituto (continuam ligadas e marcadas):
 
 ## Contradições e ressalvas para decisão humana
 
-Todas as notas não vazias dos pesquisadores (441). Entre elas: Mercosul em 11/1/1995 e não 1/1; Efeito Tequila (US$ 50 bi não sustentado); LRF (Pedro Novais como relator não confirmado; Álvaro Dias foi relator na CCJ); Luiz Estêvão em 28/6 não confirmado; posse de FHC com 54,3% vs 55,22%; cassação de Dirceu já em 1/12/2005; médias do Brent 54,57 e 38,26; Grécia em 2/5/2010; manifestações de 2015 com cerca de 2 milhões e não "centenas de milhares"; minério de ferro 96,8 e 55,2; Pazuello em 15/5; Acordo de Paris com 195 Partes (a UE já está incluída); placar do STF sobre doações (8x2 ou 8x3); condenação de Bolsonaro a 27 anos e 3 meses; tarifa agrícola em 20/11/2025 (EO 14361); Bolsonaro deixou o PSL em 2019 (relação "PSL 2019-2022" inexata); Temer vice até 2016; posse definitiva de Temer em 31/8/2016; Lula e Alckmin com mandato até 2026; Alckmin no PSB desde março de 2022; Hugo Motta no biênio 2025-2026; Alencar no PRB em 2011; Maciel vice até 1/1/2003.
+Todas as notas não vazias dos pesquisadores (449). Entre elas: Mercosul em 11/1/1995 e não 1/1; Efeito Tequila (US$ 50 bi não sustentado); LRF (Pedro Novais como relator não confirmado; Álvaro Dias foi relator na CCJ); Luiz Estêvão em 28/6 não confirmado; posse de FHC com 54,3% vs 55,22%; cassação de Dirceu já em 1/12/2005; médias do Brent 54,57 e 38,26; Grécia em 2/5/2010; manifestações de 2015 com cerca de 2 milhões e não "centenas de milhares"; minério de ferro 96,8 e 55,2; Pazuello em 15/5; Acordo de Paris com 195 Partes (a UE já está incluída); placar do STF sobre doações (8x2 ou 8x3); condenação de Bolsonaro a 27 anos e 3 meses; tarifa agrícola em 20/11/2025 (EO 14361); Bolsonaro deixou o PSL em 2019 (relação "PSL 2019-2022" inexata); Temer vice até 2016; posse definitiva de Temer em 31/8/2016; Lula e Alckmin com mandato até 2026; Alckmin no PSB desde março de 2022; Hugo Motta no biênio 2025-2026; Alencar no PRB em 2011; Maciel vice até 1/1/2003.
 
 | alvo | fonte | nota |
 |---|---|---|
@@ -724,6 +721,14 @@ Todas as notas não vazias dos pesquisadores (441). Entre elas: Mercosul em 11/1
 | relação 366 `N[163].lig_de` (Lewandowski Advocacia -> Ricardo Lewandowski: Escritório ligado a) | Metrópoles: https://www.metropoles.com/brasil/politica-brasil/master-pagou-r-5-milhoes-a-escritorio-de-lewandowski-ja-como-ministro | Reportagem original (Andreza Matais e Andre Shalders). Nome 'a Lewandowski Advocacia' aparece literalmente; R$ 6,5 milhões brutos, dos quais R$ 5,25 milhões após ir para o MJSP; ele deixou a sociedade em jan/2024 e o escritório é tocado pelos dois filhos. |
 | relação 364 `N[160].lig_de` (Queiroga, Vieira, Queiroz e Ramos Advocacia (QVQR) -> Newton Ramos: Escritório ligado a) | Diario de Pernambuco: https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html | Fonte grafa 'Queiroga, Vieira, Queiroz & Ramos' (sigla QVQR não aparece). Vínculo via esposa Camilla Ramos, 'esposa do desembargador Newton Ramos' (TRF-1); honorários 'poderiam chegar a R$ 427 milhões em caso de êxito total'. Veículo regional; reportagem original/primeiro veículo não identificado. |
 | relação 367 `N[197].fam_de` (Chiquinho Feitosa -> Gilmar Mendes: Familiar ou próximo de) | Poder360: https://www.poder360.com.br/poder-justica/lobista-diz-ter-tratado-de-master-com-zanin-que-nega-contato/ | Linha de apoio: 'Chiquinho Feitosa (ex-cunhado de Gilmar Mendes)'. O vínculo é por ser irmão da ex-mulher do ministro; data exata da matéria não confirmada (set/2026). Não traz R$ 500 mil mensais (isso consta na Rádio Itatiaia, 18/9/2026, sem fonte original). |
+| evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | ustr.gov: https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products | Confirma US$ 34 bi, 25% e vigência em 6/7/2018. A retaliação chinesa e o efeito sobre a soja brasileira não constam (cobertos pela Al Jazeera já ligada). |
+| evento `ev-1999-segundo-mandato-de-fhc` (Segundo mandato de FHC) | Folha de S.Paulo: https://www1.folha.uol.com.br/fsp/brasil/fc02019903.htm | Edição de 2/1/1999: 'ontem' = 1/1/1999; posse no plenário da Câmara. Confirma a data; a Biblioteca da Presidência estava 'em manutenção' e o Planalto exige login. |
+| evento `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` (S&P rebaixa a nota dos Estados Unidos) | Reuters: https://www.reuters.com/article/business/sp-lowers-united-states-credit-rating-to-aa-idUSTRE7750D3/ | Reuters reproduz o texto do comunicado da S&P de 5/8/2011. A queda das bolsas em 8/8 não consta (coberta pela PBS já ligada). |
+| relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de) | Estadão: https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | Original do Estadão (a negociação foi revelada por Malu Gaspar, O Globo; o Estadão teve acesso ao documento). Confirma 'filho' e o crédito de R$ 38 mi; Ibaneis afastado do escritório desde 2018; Caio sócio desde 2022. |
+| relação 234 `E[209].r[0]` (Caio Carvalho Barros -> Ibaneis Rocha: Filho do governador (segundo Estadão/Brasil 247)) | Estadão: https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | Confirma 'filho' diretamente; antes só o Brasil 247 (republicação) estava ligado. |
+| relação 236 `E[211].r[0]` (Caio Carvalho Barros -> Ibaneis Advocacia: Escritório do filho (segundo a imprensa)) | Estadão: https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | Estadão: Ibaneis é dono do escritório, afastado desde 2018; Caio sócio e representante desde 2022. |
+| relação 237 `E[212].r[0]` (Ibaneis Advocacia -> Laguz I e Reag Legal Claims (fundos da Reag): Venda de direitos de honorários (R$ 38,1 mi; ao menos R$ 81 mi vendidos)) | Estadão: https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | Estadão: contrato de 29/5/2024, R$ 38,1 mi (10% de R$ 381,3 mi), R$ 10,3 mi pagos em 12/6/2024 (R$ 4 mi Ibaneis Advocacia, R$ 6,3 mi Engels Muniz). |
+| relação 238 `E[213].r[0]` (Laguz I e Reag Legal Claims (fundos da Reag) -> REAG Investimentos: Fundos ligados à Reag) | Estadão: https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | Estadão: diretor do fundo comprador é Marcos Ferreira Costa, também do Fundo Borneo, acionista do BRB. |
 
 ## Rodada 2 — eventos da linha do tempo sem fonte própria
 
@@ -755,8 +760,8 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 | natureza | eventos |
 |---|---:|
-| documentada | 101 |
-| reportada | 89 |
+| documentada | 102 |
+| reportada | 88 |
 
 ### Correções aplicadas
 
@@ -835,8 +840,8 @@ Natureza dos eventos cobertos (regra R5 sobre as fontes que sustentam):
 
 | natureza | eventos |
 |---|---:|
-| documentada | 20 |
-| reportada | 13 |
+| documentada | 21 |
+| reportada | 12 |
 
 ### Correções aplicadas
 
@@ -866,6 +871,8 @@ Fonte aberta que confirme o evento como está descrito não foi achada; a evidê
 | `ev-2004-mercosul-e-comunidade-andina-firmam` (Mercosul e Comunidade Andina firmam cooperação) | documentada | Nenhuma fonte aberta confirma acordo de cooperação em 8/12/2004 nem associação em jul/2005. Tentado: sice.oas.org (data ACE 59 = 18/10/2004), cooperativa.cl (só Declaração de Cusco, 9/12/2004), argentina.gob.ar (Acta CMC 2/2005, sem menção), adesp.org (robots), FES (redirect). Evidência registrada só cobre o acordo CAN-Mercosul com data divergente. |
 
 ## Rodada 4 — substituição das fontes fracas restantes
+
+Os números desta seção são o estado ao fim da rodada 4 (e da R6); a rodada 5 (seção seguinte) substituiu as 2 fracas que sobraram.
 
 As entradas ficam em `data/curadoria/substituicoes-rodada4.json` (`evidencias`, formato idêntico ao de `evidencias-adicionais.json`, com `"rodada": 4` e `substitui: <url da fraca>`) e são aplicadas pela mesma `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das rodadas 1-3), papel `sustenta`, qualidade `boa`. Cada fraca substituída recebe `substituida_por` (uma URL ou, se duas fontes novas a substituem, a lista) no arquivo onde está registrada e deixa de ser ligada ao alvo; `curadoria.conferir_substituicoes` confere os dois lados antes de qualquer escrita e aborta se um `substitui` não corresponde a nenhuma fonte fraca registrada. Quando a URL da fraca é também fonte bruta do bloco-ano do evento (`brasil-fontes.json`), a ligação não some: volta a ser `contexto` sem trecho nem avaliação (se a carga bruta a fazia `sustenta` por slug, é rebaixada a `contexto`). Duas repetições de (alvo, URL) são aceitas só nesta rodada: a substituta com a mesma URL da fraca (página relida: a fraca sai, a substituta entra com trecho/nota novos) e a substituta que já era fonte `boa` do alvo nas rodadas 2-3 (a ligação existente fica, com o trecho e a nota de lá; a entrada da rodada 4 é só registro). Nas 27 primeiras entradas (lote A) o WebFetch devolveu resumo: a nota leva `[trecho via resumo do WebFetch]` (`aviso_trechos` do arquivo).
 
@@ -1011,4 +1018,38 @@ Decisão do pesquisador (`continuam_fracas`):
 | relação `N[138].fam_de` | Buscas por O Globo (Malu Gaspar, revelação original), Estadão (contrato) e Correio Braziliense: Correio e Bnews não citam Caio nem filiação. Só Brasil 247 diz 'escritório do advogado Caio Carvalho Barros, filho do governador do Distrito Federal, Ibaneis Rocha' e que a negociação foi revelada por Malu Gaspar (O Globo) e o contrato acessado pelo Estadão; as reportagens originais não abriram. Observação: Bnews/Correio atribuem a venda de R$ 38 mi ao escritório Ibaneis Rocha (Ibaneis afastado desde 2018), não a Caio. |
 
 Aviso sobre os trechos (`decisoes.aviso_trechos`): No lote A o WebFetch devolveu resumo em vários itens: os 'trecho' podem não ser literais caractere a caractere; os do Fed são linhas reconstruídas de tabela. Gravar nota 'trecho via resumo do WebFetch' quando a nota da entrada não disser o contrário.
+
+
+## Rodada 5 — as últimas lacunas de fonte
+
+As entradas ficam em `data/curadoria/evidencias-rodada5.json` (`evidencias`, formato idêntico ao de `evidencias-adicionais.json`, com `"rodada": 5` e qualidade `boa`) e são aplicadas pela mesma `curadoria.aplicar_evidencias_adicionais` (via `ler_evidencias_adicionais`, depois das rodadas 1-4). Mesma semântica da rodada 4: `substitui: <url da fraca>` desliga a fraca (que recebe `substituida_por` em `evidencias-adicionais.json`, onde está registrada); entrada sem `substitui` é fonte adicional `sustenta`. A mesma URL pode estar ligada a vários alvos (uma `evidencia`, uma ligação por alvo). Rodada 5 (18/10/2026): as 4 últimas lacunas de fonte, abertas pelo Chrome do usuário (proxy bloqueia USTR, Estadão/O Globo, Planalto, Reuters). Texto literal copiado das páginas abertas. Mesma semântica da rodada 4: `substitui` desliga a fraca; sem `substitui` é fonte adicional. Planalto/Biblioteca da Presidência: página 'em manutenção' / login — a posse de 1999 fica com a Folha de 2/1/1999.
+
+| | |
+|---|---:|
+| entradas | 8 |
+| &nbsp;&nbsp;de evento / de relação | 3 / 5 |
+| alvos | 8 |
+| URLs distintas | 4 |
+| substituições (`substitui`; fraca desligada do alvo) | 2 |
+| fontes adicionais (`sustenta`/`boa`, sem `substitui`) | 6 |
+| ligações `fraca` no banco antes -> depois da rodada | 2 -> 0 |
+
+| alvo | fonte | tipo | data | o que faz |
+|---|---|---|---|---|
+| evento `ev-2018-guerra-comercial-eua-china-tarifas-sobre` (Guerra comercial EUA-China: tarifas sobre US$ 34 bi) | https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products | comunicado | 2018-06-15 | substitui https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation |
+| evento `ev-1999-segundo-mandato-de-fhc` (Segundo mandato de FHC) | https://www1.folha.uol.com.br/fsp/brasil/fc02019903.htm | reportagem | 1999-01-02 | fonte adicional |
+| evento `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` (S&P rebaixa a nota dos Estados Unidos) | https://www.reuters.com/article/business/sp-lowers-united-states-credit-rating-to-aa-idUSTRE7750D3/ | reportagem | 2011-08-05 | fonte adicional |
+| relação 359 `N[138].fam_de` (Caio Carvalho Barros -> Ibaneis Rocha: Familiar ou próximo de) | https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | reportagem | 2026-03-10 | substitui https://www.brasil247.com/regionais/brasilia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master; mesma URL ligada a 5 alvos |
+| relação 234 `E[209].r[0]` (Caio Carvalho Barros -> Ibaneis Rocha: Filho do governador (segundo Estadão/Brasil 247)) | https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | reportagem | 2026-03-10 | fonte adicional; mesma URL ligada a 5 alvos |
+| relação 236 `E[211].r[0]` (Caio Carvalho Barros -> Ibaneis Advocacia: Escritório do filho (segundo a imprensa)) | https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | reportagem | 2026-03-10 | fonte adicional; mesma URL ligada a 5 alvos |
+| relação 237 `E[212].r[0]` (Ibaneis Advocacia -> Laguz I e Reag Legal Claims (fundos da Reag): Venda de direitos de honorários (R$ 38,1 mi; ao menos R$ 81 mi vendidos)) | https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | reportagem | 2026-03-10 | fonte adicional; mesma URL ligada a 5 alvos |
+| relação 238 `E[213].r[0]` (Laguz I e Reag Legal Claims (fundos da Reag) -> REAG Investimentos: Fundos ligados à Reag) | https://www.estadao.com.br/economia/filho-de-ibaneis-e-aliado-venderam-credito-de-r-38-milhoes-a-reag-antes-de-brb-negociar-com-master/ | reportagem | 2026-03-10 | fonte adicional; mesma URL ligada a 5 alvos |
+
+Natureza atual dos eventos cobertos (regra R5 sobre as fontes que sustentam; `eventos-natureza.json` regerado):
+
+| evento | natureza |
+|---|---|
+| `ev-1999-segundo-mandato-de-fhc` | reportada |
+| `ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos` | reportada |
+| `ev-2018-guerra-comercial-eua-china-tarifas-sobre` | documentada |
 

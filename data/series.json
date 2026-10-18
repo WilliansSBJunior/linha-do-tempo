@@ -58730,6 +58730,15 @@
      "papel": "sustenta"
     },
     {
+     "url": "https://www1.folha.uol.com.br/fsp/brasil/fc02019903.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Na posse, FHC diz não ser \"gerente de crise\"",
+     "data": "1999-01-02",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
      "url": "https://www12.senado.leg.br/noticias/materias/2021/01/29/conheca-os-presidentes-do-senado-eleitos-desde-a-redemocratizacao",
      "veiculo": "www12.senado.leg.br",
      "tipo": "documento_oficial",
@@ -68876,6 +68885,15 @@
      "papel": "sustenta"
     },
     {
+     "url": "https://www.reuters.com/article/business/sp-lowers-united-states-credit-rating-to-aa-idUSTRE7750D3",
+     "veiculo": "Reuters",
+     "tipo": "reportagem",
+     "titulo": "S&P lowers United States credit rating to AA+",
+     "data": "2011-08-05",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
+    {
      "url": "https://fred.stlouisfed.org/data/POILBREUSDA.txt",
      "veiculo": "fred.stlouisfed.org",
      "tipo": "reportagem",
@@ -74999,8 +75017,17 @@
    "titulo": "Guerra comercial EUA-China: tarifas sobre US$ 34 bi",
    "descricao": "Em 6 de julho de 2018 entraram em vigor tarifas dos EUA sobre US$ 34 bilhões em bens chineses e a China retaliou, inclusive contra a soja americana, o que abriu espaço para a soja brasileira no mercado chinês.",
    "peso": 4,
-   "natureza": "reportada",
+   "natureza": "documentada",
    "fontes": [
+    {
+     "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/june/ustr-issues-tariffs-chinese-products",
+     "veiculo": "ustr.gov",
+     "tipo": "comunicado",
+     "titulo": "USTR Issues Tariffs on Chinese Products in Response to Unfair Trade Practices",
+     "data": "2018-06-15",
+     "qualidade": "boa",
+     "papel": "sustenta"
+    },
     {
      "url": "https://www.aljazeera.com/economy/2018/7/6/trade-war-begins-as-china-strikes-back-against-us-over-tariffs",
      "veiculo": "aljazeera.com",
@@ -75008,15 +75035,6 @@
      "titulo": "Trade war begins as China strikes back against US over tariffs",
      "data": "2018-07-06",
      "qualidade": "boa",
-     "papel": "sustenta"
-    },
-    {
-     "url": "https://cscb.ca/en/article/us-tariffs-take-effect-34b-chinese-imports-beijing-announces-retaliation",
-     "veiculo": "cscb.ca",
-     "tipo": "outro",
-     "titulo": "U.S. tariffs take effect on $34B in Chinese imports as Beijing announces retaliation",
-     "data": "2018-07-06",
-     "qualidade": "fraca",
      "papel": "sustenta"
     },
     {

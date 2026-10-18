@@ -332,7 +332,7 @@
  {
   "id": "ev-1999-segundo-mandato-de-fhc",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2000-argentina-em-recessao",
@@ -862,7 +862,7 @@
  {
   "id": "ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos",
   "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
+  "regra": "R5: sem fonte oficial; 2 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
  },
  {
   "id": "ev-2011-sancionada-a-lei-da-comissao-nacional-da",
@@ -1176,8 +1176,8 @@
  },
  {
   "id": "ev-2018-guerra-comercial-eua-china-tarifas-sobre",
-  "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 2 fonte(s) que sustentam o evento são reportagem/relatório"
+  "natureza": "documentada",
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo comunicado, ustr.gov)"
  },
  {
   "id": "ev-2018-intervencao-federal-na-seguranca-do-rio",

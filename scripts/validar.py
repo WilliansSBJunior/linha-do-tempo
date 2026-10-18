@@ -160,6 +160,19 @@ def orfaos(con):
     esperar("aliases sem entidade", n, 0)
 
 
+_ADIC_REL = {}
+
+
+def _urls_adicionais_relacao(ref):
+    """URLs normalizadas de fontes `boa` de evidencias-adicionais*.json (todas as rodadas, ligadas: sem `substituida_por`) para a relação da teia `ref`."""
+    if not _ADIC_REL:
+        _ADIC_REL[None] = set()
+        for e in _evidencias_adicionais():
+            if e["alvo_tipo"] == "relacao" and e["relacao_origem"] == "teia" and not e.get("substituida_por"):
+                _ADIC_REL.setdefault(e["relacao_origem_ref"], set()).add(normalizar_url(e["url"]))
+    return _ADIC_REL.get(ref, set())
+
+
 def comparar_teia(exp, raw, idx_slug, con):
     """Round-trip: exp (do banco) contra raw. Retorna lista de diferenças."""
     dif = []
@@ -211,7 +224,10 @@ def comparar_teia(exp, raw, idx_slug, con):
         for c in ("st", "tipo", "de", "ate", "val", "desc", "resp", "a", "b"):
             if a[c] != b[c] or type(a[c]) is not type(b[c]) and not (a[c] is None and b[c] is None):
                 dif.append(f"{k}: campo {c}: {a[c]!r} != {b[c]!r}")
-        if urls(a["f"]) != urls(b["f"]):
+        # fontes do export = fontes do raw + as ligadas por evidencias-adicionais*.json a esta relação (rodada 5: a matéria do Estadão em E[209..213].r[0]);
+        # qualquer outra diferença continua sendo falha
+        extra = _urls_adicionais_relacao(f"E[{ej}].r[{rj}]")
+        if urls(a["f"]) | (urls(b["f"]) & extra) != urls(b["f"]) or (urls(b["f"]) - urls(a["f"])) - extra:
             dif.append(f"{k}: URLs diferem {urls(a['f']) ^ urls(b['f'])}")
         if "fontes" in b and {f["url"] for f in b["fontes"]} != {f[1] for f in b["f"]}:
             dif.append(f"{k}: `fontes` e `f` não trazem as mesmas URLs")
@@ -441,11 +457,16 @@ def _rodada4():
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
+def _rodada5():
+    p = CURADORIA / "evidencias-rodada5.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
 def _evidencias_adicionais():
-    """Entradas de evidencias-adicionais.json seguidas das `evidencias` de evidencias-rodada3.json e de substituicoes-rodada4.json (mesma lista
-    que curadoria.ler_evidencias_adicionais aplica; lida aqui de forma independente)."""
+    """Entradas de evidencias-adicionais.json seguidas das `evidencias` de evidencias-rodada3.json, de substituicoes-rodada4.json e de
+    evidencias-rodada5.json (mesma lista que curadoria.ler_evidencias_adicionais aplica; lida aqui de forma independente)."""
     return (json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")) + _rodada3().get("evidencias", [])
-            + _rodada4().get("evidencias", []))
+            + _rodada4().get("evidencias", []) + _rodada5().get("evidencias", []))
 
 
 def _subst_por(e):
@@ -497,6 +518,9 @@ FRACAS_REBAIXADAS_R6 = sorted([
     (("evento", "ev-2011-s-p-rebaixa-a-nota-dos-estados-unidos"), "https://en.wikipedia.org/wiki/United_States_federal_government_credit-rating_downgrades"),
 ])
 FRACAS_DEPOIS_R6 = sorted(set(FRACAS_RESTANTES_RODADA4) - set(FRACAS_REBAIXADAS_R6))
+# Rodada 5 (evidencias-rodada5.json): substitui as 2 de FRACAS_DEPOIS_R6 (cscb.ca pelo comunicado do USTR; Brasil 247 pelo Estadão). Depois dela: 0.
+FRACAS_SUBSTITUIDAS_RODADA5 = list(FRACAS_DEPOIS_R6)
+FRACAS_DEPOIS_RODADA5 = sorted(set(FRACAS_DEPOIS_R6) - set(FRACAS_SUBSTITUIDAS_RODADA5))   # = [] (zero ligações `fraca` no banco)
 
 
 def _eh_wiki(tipo, url):
@@ -531,8 +555,9 @@ def rodada4(con):
     secao("Rodada 4 (substituicoes-rodada4.json aplicada: substituição das fontes fracas)")
     ent = cfg.get("evidencias", [])
     todas = _evidencias_adicionais()
-    base = len(todas) - len(ent)
-    rep = {i - base: c for i, c in _repeticoes_rodada4(todas).items() if i >= base}
+    r5 = _rodada5().get("evidencias", [])
+    base = len(todas) - len(ent) - len(r5)   # a rodada 5 vem depois da 4 na lista
+    rep = {i - base: c for i, c in _repeticoes_rodada4(todas).items() if base <= i < base + len(ent)}
     esperar("substituicoes-rodada4.json: toda entrada tem \"rodada\": 4, `substitui` e qualidade boa",
             sum(1 for e in ent if e.get("rodada") == 4 and e.get("substitui") and e.get("qualidade") == "boa"), len(ent))
     n_ev = sum(1 for e in ent if e["alvo_tipo"] == "evento")
@@ -544,6 +569,7 @@ def rodada4(con):
     origem = {}   # (alvo, url) -> entrada fraca anterior (evidencias-adicionais.json / rodada 3)
     for e in todas[:base]:
         origem.setdefault((_alvo(e), normalizar_url(e["url"])), e)
+    subst5 = {(_alvo(e), normalizar_url(e["substitui"])) for e in r5 if e.get("substitui")}   # as fracas que a rodada 5 desligou depois desta
 
     def ligacao(alvo, url):
         if alvo[0] == "evento":
@@ -602,15 +628,19 @@ def rodada4(con):
     esperar("FRACAS_DEPOIS_R6 sem Wikipédia", [x for x in FRACAS_DEPOIS_R6 if _eh_wiki(None, x[1])], [])
     # sem a R6 (regras-fontes.json ausente), as wiki continuam fracas: a lista esperada volta a ser a da rodada 4
     rebx = FRACAS_REBAIXADAS_R6 if _r6() else []
-    esperar("fracas no banco depois da rodada 4 e da R6 == FRACAS_RESTANTES_RODADA4 − FRACAS_REBAIXADAS_R6",
-            restam, FRACAS_DEPOIS_R6 if rebx else FRACAS_RESTANTES_RODADA4)
+    # a rodada 5 (se aplicada) desligou as FRACAS_SUBSTITUIDAS_RODADA5; o estado ao fim da rodada 4 é o do banco mais elas
+    fim_r4 = sorted(restam + [(a, u) for a, u in FRACAS_SUBSTITUIDAS_RODADA5 if (a, normalizar_url(u)) in subst5])
+    esperar("fracas no banco ao fim da rodada 4 e da R6 (mais as desligadas pela rodada 5) == FRACAS_RESTANTES_RODADA4 − FRACAS_REBAIXADAS_R6",
+            fim_r4, FRACAS_DEPOIS_R6 if rebx else FRACAS_RESTANTES_RODADA4)
+    esperar("fracas substituídas pela rodada 5 == FRACAS_SUBSTITUIDAS_RODADA5 (se a rodada 5 está aplicada)",
+            sorted((a, u) for a, u in FRACAS_SUBSTITUIDAS_RODADA5 if (a, normalizar_url(u)) in subst5), FRACAS_SUBSTITUIDAS_RODADA5 if r5 else [])
     ruins = []
     for a, u in rebx:   # a wiki que era fraca: continua ligada, agora `contexto`, sem avaliação, com o trecho e a nota da curadoria
         lig = ligacao(a, normalizar_url(u))
         if len(lig) != 1 or (lig[0]["papel"], lig[0]["qualidade"]) != ("contexto", None) or not lig[0]["trecho_citado"]:
             ruins.append(f"{a} {u} {[tuple(x) for x in lig]}")
     esperar("R6: fracas da Wikipédia ligadas como contexto, qualidade NULL, trecho mantido (divergências)", ruins, [])
-    antes_r6 = sorted(restam + rebx)
+    antes_r6 = sorted(fim_r4 + rebx)
     esperar("fracas depois da rodada 4 (antes da R6) == FRACAS_RESTANTES_RODADA4", antes_r6, FRACAS_RESTANTES_RODADA4)
     cobertas = {(_alvo(e), normalizar_url(e["substitui"])) for e in ent}
     esperar("fracas no banco cobertas por um `substitui` da rodada 4", [r for r in antes_r6 if (r[0], normalizar_url(r[1])) in cobertas], [])
@@ -640,6 +670,69 @@ def rodada4(con):
             esperar(f"rodada 4: {d['relacao_origem_ref']}.{d['campo']} no banco == para", row and row[0][0] == c.get("para", {}).get(d["campo"]), True)
     p = DATA / "relatorio-evidencias-adicionais.md"
     esperar("relatorio-evidencias-adicionais.md tem a seção Rodada 4", "## Rodada 4" in p.read_text(encoding="utf-8"), True)
+
+
+def rodada5(con):
+    """Rodada 5 (data/curadoria/evidencias-rodada5.json): as 2 últimas substituições (`substitui`: cscb.ca e Brasil 247) e as fontes adicionais
+    (sem `substitui`). O conteúdo de cada entrada contra o banco já é conferido em evidencias_adicionais (a lista inclui a rodada 5); aqui: toda
+    entrada `"rodada": 5`/`boa`/papel `sustenta` no banco; cada fraca de `substitui` registrada com `substituida_por` e desligada do alvo; a URL
+    compartilhada por vários alvos é uma só `evidencia`; fracas no banco == FRACAS_DEPOIS_RODADA5 (zero, sem afrouxar) e == FRACAS_DEPOIS_R6 −
+    FRACAS_SUBSTITUIDAS_RODADA5; natureza do evento de 2018 e relatório com a seção Rodada 5."""
+    cfg = _rodada5()
+    if not cfg:
+        return
+    secao("Rodada 5 (evidencias-rodada5.json aplicada: últimas lacunas de fonte)")
+    ent = cfg.get("evidencias", [])
+    todas = _evidencias_adicionais()
+    anteriores = todas[:len(todas) - len(ent)]
+    esperar("evidencias-rodada5.json: toda entrada tem \"rodada\": 5 e qualidade boa",
+            sum(1 for e in ent if e.get("rodada") == 5 and e.get("qualidade") == "boa"), len(ent))
+    subs = [e for e in ent if e.get("substitui")]
+    esperar("rodada 5: substituições (entradas com `substitui`) == FRACAS_SUBSTITUIDAS_RODADA5",
+            sorted((_alvo(e), normalizar_url(e["substitui"])) for e in subs), sorted((a, normalizar_url(u)) for a, u in FRACAS_SUBSTITUIDAS_RODADA5))
+    print(f"  info: rodada 5: {len(ent)} entradas ({sum(1 for e in ent if e['alvo_tipo'] == 'evento')} de evento, {sum(1 for e in ent if e['alvo_tipo'] == 'relacao')} de relação), "
+          f"{len({_alvo(e) for e in ent})} alvos, {len({normalizar_url(e['url']) for e in ent})} URLs distintas, {len(subs)} substituições, {len(ent) - len(subs)} fontes adicionais")
+
+    def ligacao(alvo, url):
+        if alvo[0] == "evento":
+            return q(con, """SELECT l.papel, l.qualidade, l.trecho_citado FROM evento_evidencia l JOIN evidencia v ON v.id=l.evidencia_id
+                             WHERE v.url=? AND l.evento_id IN (SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?)""",
+                     url, alvo[1], alvo[1])
+        return q(con, """SELECT l.papel, l.qualidade, l.trecho_citado FROM relacao_evidencia l JOIN evidencia v ON v.id=l.evidencia_id
+                         JOIN relacao r ON r.id=l.relacao_id WHERE v.url=? AND r.origem=? AND r.origem_ref=?""", url, *alvo[1])
+    ruins = []
+    for e in ent:
+        a, u = _alvo(e), normalizar_url(e["url"])
+        lig = ligacao(a, u)
+        if len(lig) != 1 or (lig[0]["papel"], lig[0]["qualidade"], lig[0]["trecho_citado"]) != ("sustenta", "boa", e["trecho"]):
+            ruins.append(f"fonte da rodada 5 não ligada como sustenta/boa com o trecho do arquivo: {a} {e['url']} {[tuple(x) for x in lig]}")
+        if e.get("substitui"):
+            uf = normalizar_url(e["substitui"])
+            fr = [x for x in anteriores if (_alvo(x), normalizar_url(x["url"])) == (a, uf)]
+            if len(fr) != 1 or fr[0]["qualidade"] != "fraca":
+                ruins.append(f"`substitui` sem exatamente uma fonte fraca registrada no alvo: {a} {e['substitui']}")
+            elif u not in _subst_por(fr[0]):
+                ruins.append(f"fraca {e['substitui']} sem `substituida_por` com {e['url']} ({a})")
+            if ligacao(a, uf):
+                ruins.append(f"fraca substituída ainda ligada ao alvo: {a} {e['substitui']}")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("rodada 5: entradas ligadas, fracas desligadas e `substituida_por` conferidos (divergências)", len(ruins), 0)
+    # uma URL ligada a vários alvos é uma só evidência
+    n_url = collections.Counter(normalizar_url(e["url"]) for e in ent)
+    multi = {u: n for u, n in n_url.items() if n > 1}
+    for u, n in multi.items():
+        esperar(f"rodada 5: URL ligada a {n} alvos tem uma só `evidencia`", q(con, "SELECT count(*) FROM evidencia WHERE url=?", u)[0][0], 1)
+    # zero fracas no banco depois da rodada 5 (constantes, sem afrouxar)
+    restam = _fracas_no_banco(con)
+    for r in restam:
+        print("   - continua fraca:", r[0], r[1])
+    esperar("fracas no banco depois da rodada 5 == FRACAS_DEPOIS_RODADA5 (zero)", restam, FRACAS_DEPOIS_RODADA5)
+    esperar("FRACAS_DEPOIS_RODADA5 == FRACAS_DEPOIS_R6 − FRACAS_SUBSTITUIDAS_RODADA5 e vazia", (sorted(set(FRACAS_DEPOIS_R6) - set(FRACAS_SUBSTITUIDAS_RODADA5)), FRACAS_DEPOIS_RODADA5), ([], []))
+    nf = q(con, "SELECT (SELECT count(*) FROM evento_evidencia WHERE qualidade='fraca') + (SELECT count(*) FROM relacao_evidencia WHERE qualidade='fraca')")[0][0]
+    esperar("ligações com qualidade 'fraca' no banco depois da rodada 5", nf, 0)
+    p = DATA / "relatorio-evidencias-adicionais.md"
+    esperar("relatorio-evidencias-adicionais.md tem a seção Rodada 5", "## Rodada 5" in p.read_text(encoding="utf-8"), True)
 
 
 def rodada3(con):
@@ -693,7 +786,7 @@ def rodada3(con):
 
 
 def evidencias_adicionais(con):
-    secao("Evidências adicionais (data/curadoria/evidencias-adicionais.json + evidencias-rodada3.json + substituicoes-rodada4.json aplicadas)")
+    secao("Evidências adicionais (data/curadoria/evidencias-adicionais.json + evidencias-rodada3.json + substituicoes-rodada4.json + evidencias-rodada5.json aplicadas)")
     n = q(con, "SELECT count(*) FROM evento e WHERE NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evento_id=e.id)")[0][0]
     esperar("eventos sem nenhuma evidência", n, 0)
     n = q(con, "SELECT count(*) FROM relacao r WHERE r.status='publicada' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id)")[0][0]
@@ -729,8 +822,8 @@ def evidencias_adicionais(con):
         for su in _subst_por(e):   # cada nova fonte tem de estar no arquivo, no mesmo alvo, apontando de volta (`substitui`) e ligada
             nova = [x for x in ent if (x["alvo_tipo"], x.get("evento_id") or (x["relacao_origem"], x["relacao_origem_ref"])) == k[:2]
                     and normalizar_url(x["url"]) == su and x.get("substitui")]
-            if any(x.get("rodada") == 4 for x in nova):   # rodada 4: a substituta aponta exatamente para esta fraca
-                nova = [x for x in nova if x.get("rodada") == 4 and normalizar_url(x["substitui"]) == k[2]]
+            if any(x.get("rodada") in (4, 5) for x in nova):   # rodadas 4 e 5: a substituta aponta exatamente para esta fraca
+                nova = [x for x in nova if x.get("rodada") in (4, 5) and normalizar_url(x["substitui"]) == k[2]]
             if len(nova) != 1:
                 ruins.append(f"substituida_por sem entrada substituta (com `substitui`) no mesmo alvo: {k} -> {su}")
             elif nova[0]["qualidade"] != "boa":
@@ -874,6 +967,9 @@ def evidencia_qualidade(con):
             [(a, normalizar_url(u)) for a, u in FRACAS_REBAIXADAS_R6] if _r6() else [])
     esperar(f"ligações 'fraca' no banco == fracas ligadas antes ({ligadas_antes}) − revistas ({aplic}) − rebaixadas pela R6 ({len(r6)})",
             sum(nf.values()), ligadas_antes - aplic - len(r6))
+    # depois da rodada 5 (evidencias-rodada5.json): as fracas que sobravam foram substituídas, então o banco não tem nenhuma
+    esperar("ligações 'fraca' no banco == len(FRACAS_DEPOIS_RODADA5) (zero depois da rodada 5; FRACAS_DEPOIS_R6 se a rodada 5 não está aplicada)",
+            sum(nf.values()), len(FRACAS_DEPOIS_RODADA5) if _rodada5() else len(FRACAS_DEPOIS_R6) if _r6() else len(FRACAS_RESTANTES_RODADA4))
     mant = cfg.get("mantidas_fracas")
     esperar("mantidas_fracas do arquivo == fracas em evidencias-adicionais.json − entradas de revisoes", mant, len(fr_arq) - len(rev))
     esperar(f"ligações 'fraca' no banco == mantidas_fracas ({mant}) − substituídas ({subst}) + revisões sobre substituídas ({sobre_subst}) + repetidas ({repetidas})"
@@ -973,6 +1069,10 @@ def peso_wikipedia(con, exp):
     esperar("fontes exportadas fora da ordem (sustenta: oficial, imprensa, outros; contexto; Wikipédia por último; empate: ordem da ligação)", fora_ordem[:10], [])
     wiki_sust = [onde for onde, _, _, fs in listas for f in (fs or []) if _eh_wiki(f["tipo"], f["url"]) and f.get("papel") != "contexto"]
     esperar("fontes exportadas: Wikipédia sempre com papel contexto", wiki_sust[:10], [])
+    # a R6 só tirou a avaliação das 2 wiki fracas; depois da rodada 5 não resta nenhuma ligação `fraca` (FRACAS_REBAIXADAS_R6 + FRACAS_DEPOIS_RODADA5)
+    fr_banco = _fracas_no_banco(con)
+    esperar("R6: ligações 'fraca' no banco == FRACAS_DEPOIS_RODADA5 (zero) com a rodada 5 aplicada",
+            fr_banco, FRACAS_DEPOIS_RODADA5 if _rodada5() else FRACAS_DEPOIS_R6)
 
 
 def _correcoes_relacao():
@@ -1466,6 +1566,7 @@ def main():
     evidencia_qualidade(con)
     rodada3(con)
     rodada4(con)
+    rodada5(con)
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)
