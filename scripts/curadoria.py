@@ -557,11 +557,11 @@ def aplicar_aliases(con):
 
 def aplicar_mandato_correcoes(con):
     """data/curadoria/mandato-correcoes.json (à mão): `[{"entidade_id","cargo","inicio","campo","de","para","motivo","fonte_url"}]`.
-    Troca `mandato.<campo>` (partido, uf ou fim) de `de` para `para` na linha (entidade_id, cargo, inicio); falha se a linha não existe ou o valor atual não é `de`
+    Troca `mandato.<campo>` (partido, uf, fim ou, desde a rodada 12, motivo; chaves extras como `trecho` são só documentação) de `de` para `para` na linha (entidade_id, cargo, inicio); falha se a linha não existe ou o valor atual não é `de`
     (a correção ficou obsoleta ou o dado mudou). Roda depois da carga e antes de aplicar_mandato_oficial / gerar_relacoes_mandato."""
     r = {"aplicadas": []}
     for c in ler_json("mandato-correcoes.json", []):
-        if c["campo"] not in ("partido", "uf", "fim"):
+        if c["campo"] not in ("partido", "uf", "fim", "motivo"):   # `motivo` (rodada 12): texto do destaque; `de` tem de ser exato
             raise SystemExit(f"mandato-correcoes.json: campo não permitido: {c['campo']}")
         cur = con.execute(f"UPDATE mandato SET {c['campo']}=? WHERE entidade_id=? AND cargo=? AND inicio=? AND {c['campo']}=?",
                           (c["para"], c["entidade_id"], c["cargo"], c["inicio"], c["de"]))

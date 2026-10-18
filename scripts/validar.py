@@ -918,6 +918,96 @@ def rodada6(con, exp):
         esperar(f"{nome} tem a seção da rodada 6", sec in (DATA / nome).read_text(encoding="utf-8"), True)
 
 
+R12_MANDATOS = [   # (entidade, cargo, início, partido, UF, motivo exato, URL da fonte, trecho literal) das linhas novas da rodada 12 (mandatos-adicionais.json)
+    ("elcio-alvares", "senador", "1996", "PFL", "ES", "Líder do governo FHC no Senado",
+     "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/192650", "Sinto que é do meu dever, como Líder do Governo, não silenciar neste momento"),
+    ("elcio-alvares", "senador", "1997", "PFL", "ES", "Líder do governo FHC no Senado",
+     "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/215016", "que faz algumas críticas muito pesadas e fortes em relação à Liderança do Governo"),
+    ("sandra-starling", "deputado", "1996", "PT", None, "Líder do PT na Câmara em 1996",
+     "https://imagem.camara.leg.br/Imagem/d/pdf/DCD14FEV1996.pdf", "Deputada Sandra Starling, Líder do PT"),
+    ("jose-anibal", "deputado", "1996", "PSDB", None, "Líder do PSDB na Câmara em 1996",
+     "https://imagem.camara.leg.br/Imagem/d/pdf/DCD15FEV1996.pdf", "De acordo, Deputado José Anibal, Líder do PSDB."),
+    ("pedrinho-abrao", "deputado", "1996", "PTB", None, "Líder do PTB na Câmara em 1996",
+     "https://imagem.camara.leg.br/Imagem/d/pdf/DCD16FEV1996.pdf", "Deputado Pedrinho Abrão, Líder do PTB"),
+    ("odelmo-leao", "deputado", "1996", "PPB", None, "Líder do PPB (Bloco PPB/PL) na Câmara em 1996",
+     "https://imagem.camara.leg.br/Imagem/d/pdf/DCD16FEV1996.pdf", "escolheram o Deputado Odelmo Leão, para Líder do Bloco Parlamentar PPB/PL"),
+    ("walter-pinheiro", "deputado", "2001", "PT", "BA", "Líder do PT na Câmara a partir de fev/2001 (Diário da Câmara de 21/2/2001)",
+     "https://imagem.camara.leg.br/Imagem/d/pdf/DCD21FEV2001.pdf", "Votos de profícua gestão ao novo Líder do partido, Deputado Walter Pinheiro."),
+]
+
+
+def rodada12_mandatos(con):
+    """Rodada 12 (parlamentares): líder do governo no Senado em 1996-1997 (Élcio Álvares), líderes de bancada na Câmara em 1996, Walter Pinheiro (PT, 2001),
+    `motivo` de Temer em 1999 (mandato-correcoes.json com campo `motivo`) e lacunas registradas. Expectativas escritas aqui (não lidas do JSON), para o
+    arquivo não validar a si mesmo; o confronto genérico linha-a-linha de mandatos-adicionais.json continua na rodada 6."""
+    secao("Rodada 12 (mandatos: líder do governo no Senado, líderes de bancada, Temer 1999, lacunas)")
+    mo = _json_curadoria("mandato-oficial.json")
+    sem_fonte = {(x["entidade_id"], x["cargo"], x["inicio"]) for x in mo.get("sem_fonte", [])}
+    conf = {(x["entidade_id"], x["cargo"], x["inicio"]) for x in mo.get("confirmacoes", [])}
+    ruins = []
+    for ent, cargo, ini, partido, uf, motivo, url, trecho in R12_MANDATOS:
+        k = (ent, cargo, ini)
+        row = q(con, "SELECT * FROM mandato WHERE entidade_id=? AND cargo=? AND inicio=?", *k)
+        if len(row) != 1:
+            ruins.append(f"{k}: {len(row)} linhas")
+            continue
+        row = row[0]
+        if (row["partido"], row["uf"], row["motivo"], row["fim"]) != (partido, uf, motivo, ini):
+            ruins.append(f"{k}: partido/uf/motivo/fim {(row['partido'], row['uf'], row['motivo'], row['fim'])!r}")
+        if k in conf or k not in sem_fonte or row["evidencia_id"] is not None:
+            ruins.append(f"{k}: tem de estar só em sem_fonte de mandato-oficial.json, sem evidencia_id (pessoa nova fora da coleta das APIs)" if ent != "elcio-alvares" else f"{k}: Élcio tem de estar em sem_fonte")
+        l = q(con, """SELECT x.papel, x.qualidade, x.trecho_citado, v.tipo, v.veiculo FROM relacao_evidencia x JOIN relacao r ON r.id=x.relacao_id JOIN evidencia v ON v.id=x.evidencia_id
+                      WHERE r.origem='linha_do_tempo' AND r.origem_ref=? AND v.url=?""", f"mandato:{row['id']}", normalizar_url(url))
+        if len(l) != 1 or (l[0][0], l[0][1], l[0][2], l[0][3]) != ("sustenta", "boa", trecho, "documento_oficial"):
+            ruins.append(f"{k}: fonte/trecho na relação mandato:{row['id']}")
+        if not re.match(r"https://(www25\.senado\.leg\.br|imagem\.camara\.leg\.br)/", url) or "wikipedia" in url:
+            ruins.append(f"{k}: URL não oficial")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("rodada 12: 7 linhas novas (Élcio 1996/1997, líderes da Câmara 1996, Walter Pinheiro 2001) com campos, API x sem fonte e fonte oficial com trecho literal", len(ruins), 0)
+    # Élcio: linha contínua 1995-1998 como líder do governo no Senado (1999: lacuna registrada abaixo)
+    esperar("Élcio Álvares: líder do governo no Senado em 1995, 1996, 1997 e 1998",
+            [r[0] for r in q(con, "SELECT inicio FROM mandato WHERE entidade_id='elcio-alvares' AND cargo='senador' AND motivo LIKE 'Líder do governo FHC no Senado%' ORDER BY inicio")],
+            ["1995", "1996", "1997", "1998"])
+    # líderes de bancada na Câmara em 1996: PMDB (Temer, de antes) + os quatro novos
+    lid = {r[0]: r[1] for r in q(con, "SELECT partido, entidade_id FROM mandato WHERE cargo='deputado' AND inicio='1996' AND motivo LIKE 'Líder do P%'")}
+    lid_pmdb = q(con, "SELECT entidade_id FROM mandato WHERE cargo='deputado' AND inicio='1996' AND motivo LIKE 'Líder do PMDB%'")
+    esperar("líderes de bancada na Câmara em 1996 (PT, PSDB, PTB, PPB com linha nova)", {p: lid.get(p) for p in ("PT", "PSDB", "PTB", "PPB")},
+            {"PT": "sandra-starling", "PSDB": "jose-anibal", "PTB": "pedrinho-abrao", "PPB": "odelmo-leao"})
+    esperar("líder do PMDB na Câmara em 1996 (Michel Temer, linha de antes)", [r[0] for r in lid_pmdb], ["michel-temer"])
+    # entidades novas
+    esperar("rodada 12: entidades novas (pessoa, origem manual, UF só a de Walter Pinheiro)",
+            [tuple(r) for r in q(con, "SELECT id, nome, tipo, origem, origem_ref, uf FROM entidade WHERE id IN ('sandra-starling','jose-anibal','pedrinho-abrao','odelmo-leao','walter-pinheiro') ORDER BY id")],
+            [("jose-anibal", "José Aníbal", "pessoa", "manual", "curadoria:entidades-adicionais.json", None),
+             ("odelmo-leao", "Odelmo Leão", "pessoa", "manual", "curadoria:entidades-adicionais.json", None),
+             ("pedrinho-abrao", "Pedrinho Abrão", "pessoa", "manual", "curadoria:entidades-adicionais.json", None),
+             ("sandra-starling", "Sandra Starling", "pessoa", "manual", "curadoria:entidades-adicionais.json", None),
+             ("walter-pinheiro", "Walter Pinheiro", "pessoa", "manual", "curadoria:entidades-adicionais.json", "BA")])
+    # Temer 1999: motivo corrigido pelo mecanismo novo (campo motivo em mandato-correcoes.json); as demais linhas dele intactas
+    cor = [c for c in json.loads((CURADORIA / "mandato-correcoes.json").read_text(encoding="utf-8")) if c["campo"] == "motivo"]
+    esperar("mandato-correcoes.json: correção de `motivo` de Temer 1999 (de/para exatos, fonte do Diário da Câmara de 3/2/1999)",
+            [(c["entidade_id"], c["cargo"], c["inicio"], c["de"], c["para"], c["fonte_url"]) for c in cor],
+            [("michel-temer", "deputado", "1999", "Presidente da Câmara dos Deputados, reeleito em 1/2/1999", "Presidente da Câmara dos Deputados, reeleito em 2/2/1999",
+              "https://imagem.camara.leg.br/Imagem/d/pdf/DCD03FEV1999.pdf")])
+    esperar("Temer deputado 1999: motivo == 'reeleito em 2/2/1999'",
+            [r[0] for r in q(con, "SELECT motivo FROM mandato WHERE entidade_id='michel-temer' AND cargo='deputado' AND inicio='1999'")],
+            ["Presidente da Câmara dos Deputados, reeleito em 2/2/1999"])
+    esperar("Temer deputado 1999: relação do mandato herda a data certa na descrição (nada de 1/2/1999)",
+            q(con, "SELECT count(*) FROM relacao WHERE origem='linha_do_tempo' AND subtipo='mandato:deputado' AND de='michel-temer' AND periodo_inicio='1999' AND descricao LIKE '%1/2/1999%'")[0][0], 0)
+    esperar("Temer: demais linhas de deputado com motivo (1996-1998, 2000, 2001, 2009-2011) intactas",
+            q(con, "SELECT count(*) FROM mandato WHERE entidade_id='michel-temer' AND cargo='deputado' AND motivo IS NOT NULL")[0][0], 9)
+    # presidente/vice: 11 mandatos, nenhum com fonte oficial de página (lacuna registrada); se um dia ganharem fonte, ajustar este número
+    pv = q(con, "SELECT entidade_id, cargo, inicio, evidencia_id FROM mandato WHERE cargo IN ('presidente','vice_presidente')")
+    esperar("presidente/vice-presidente: 11 mandatos, todos em sem_fonte de mandato-oficial.json e sem evidencia_id (lacuna da rodada 12, URL em pendencias)",
+            (len(pv), sum(1 for r in pv if (r[0], r[1], r[2]) in sem_fonte and r[3] is None)), (11, 11))
+    # lacunas registradas, cada uma com a URL a abrir
+    pend = _json_curadoria("mandatos-adicionais.json").get("pendencias", [])
+    quer = ["Líder do governo no Senado (jan-ago/1999)", "Líder do PFL na Câmara (1996)", "Líderes de bancada no Senado em 1996 (PFL, PSDB, PT, PPB, PTB)",
+            "Presidente e vice-presidente da República (11 mandatos sem fonte oficial de página)"]
+    esperar("lacunas da rodada 12 em mandatos-adicionais.json/pendencias, cada uma com `url` https", [n for n in quer if not any(p["nome"] == n and str(p.get("url", "")).startswith("https://") for p in pend)], [])
+    esperar("pendências resolvidas na rodada 12 (Walter Pinheiro, Élcio 1996-1997) saíram de pendencias", [p["nome"] for p in pend if p["nome"] in ("Walter Pinheiro", "Élcio Álvares")], [])
+
+
 def rodada7(con, exp):
     """Rodada 7 (data/curadoria/ranking-empresa-correcoes-r7.json, aplicada depois da 6): 11 valores da Folha no ranking de lucros. Confere o arquivo
     contra o banco (campos, fonte principal, `anterior`, papéis, trechos), as contagens == arquivo, posições contíguas e na regra do raw nos anos
@@ -2196,6 +2286,7 @@ def main():
     rodada4(con)
     rodada5(con)
     rodada6(con, exp)
+    rodada12_mandatos(con)
     rodada7(con, exp)
     rodada8(con, exp)
     rodada9(con, exp)

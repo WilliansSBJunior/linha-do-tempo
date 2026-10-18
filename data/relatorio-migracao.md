@@ -29,29 +29,29 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 407 |
+| entidade | 412 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 209 |
-| entidade_alias | 539 |
+|   extras (timeline/pares) | 214 |
+| entidade_alias | 544 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
-| relacao (origem linha_do_tempo: mandato/filiação) | 461 |
-| relacao total | 828 |
+| relacao (origem linha_do_tempo: mandato/filiação) | 472 |
+| relacao total | 839 |
 | evento total | 507 |
 | tema | 10 |
-| relacao_tema | 917 |
+| relacao_tema | 928 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1719 |
-| relacao_evidencia | 1266 |
+| evidencia | 1724 |
+| relacao_evidencia | 1280 |
 | evento_evidencia | 3229 |
 | evento_entidade | 935 |
 | nota | 570 |
 | indicador | 83 |
 | serie | 6837 |
 | ranking_empresa | 504 |
-| mandato | 317 |
+| mandato | 324 |
 | bancada | 634 |
 | entidade_valor | 14 |
 
@@ -418,7 +418,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1719 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1724 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -545,7 +545,7 @@ Regras (aplicadas na ordem; filtros combinados com E; `dentro_de` = só registro
 | master-relacoes | caso-master | relacao | origem=['teia', 'origens'] | 367 | 0 |
 | master-eventos | caso-master | evento | canal=['teia', 'banco', 'familia', 'ida', 'volta', 'precatorios', 'brb'] | 0 | 215 |
 | brasil-eventos | brasil-ano-a-ano | evento | canal=['brasil'] | 0 | 282 |
-| brasil-relacoes | brasil-ano-a-ano | relacao | origem=['linha_do_tempo'] | 461 | 0 |
+| brasil-relacoes | brasil-ano-a-ano | relacao | origem=['linha_do_tempo'] | 472 | 0 |
 | pares-eventos | pares | evento | canal=['pares'] | 0 | 0 |
 | violencia-eventos | violencia | evento | canal=['violencia'] | 0 | 10 |
 | brb-canal | brb | evento | canal=['brb'] | 0 | 18 |
@@ -578,7 +578,7 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | tema | relações | eventos | entidades |
 |---|---|---|---|
 | `caso-master` (Caso Master) | 367 | 215 | 212 |
-| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 222 |
+| `brasil-ano-a-ano` (Brasil ano a ano) | 472 | 282 | 227 |
 | `pares` (Comparação de países) | 0 | 0 | 10 |
 | `violencia` (Violência) | 0 | 10 | 1 |
 | `inss` (INSS) | 17 | 14 | 26 |
@@ -602,13 +602,13 @@ Dados migrados: a tabela `video` estava vazia (0 linhas), então não houve conv
 
 ## 16. Teia <-> timeline: mandato e bancada -> relações institucionais (`data/curadoria/mandato-relacoes.json`)
 
-`curadoria.gerar_relacoes_mandato` cria **461 relações novas** (`tipo='institucional'`, `natureza='documentada'`, `origem='linha_do_tempo'`, `status='publicada'`, tema `brasil-ano-a-ano`), depois de toda a carga bruta (ids novos, os antigos não mudam):
+`curadoria.gerar_relacoes_mandato` cria **472 relações novas** (`tipo='institucional'`, `natureza='documentada'`, `origem='linha_do_tempo'`, `status='publicada'`, tema `brasil-ano-a-ano`), depois de toda a carga bruta (ids novos, os antigos não mudam):
 
-- **317 de mandato** (`subtipo='mandato:<cargo>'`, pessoa -> órgão, uma por linha de `mandato`, `origem_ref='mandato:<id>'`, período = o do mandato): deputado 164, presidente 6, presidente_camara 16, presidente_senado 14, senador 112, vice_presidente 5.
-- **144 de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.
+- **324 de mandato** (`subtipo='mandato:<cargo>'`, pessoa -> órgão, uma por linha de `mandato`, `origem_ref='mandato:<id>'`, período = o do mandato): deputado 169, presidente 6, presidente_camara 16, presidente_senado 14, senador 114, vice_presidente 5.
+- **148 de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.
 - Órgãos: `camara-dos-deputados`, `senado-federal` (já existiam, origem timeline) e **`presidencia-da-republica`** (nova, `orgao_publico`; presidente e vice-presidente, em que `mandato.orgao_id` é NULL).
-- `mandato.evidencia_id`: 302 de 317 linhas têm evidência oficial: 270 por legislatura e 4 por eleição (`tipo='dado_oficial'`, Dados Abertos da Câmara/Senado; a de eleição prova o mandato da legislatura seguinte, não o exercício no ano), 28 por página oficial da presidência da Casa (`tipo='documento_oficial'`, `presidente_camara`/`presidente_senado`). Fonte: `data/curadoria/mandato-oficial.json`, gerado de `data/raw/oficial/`; as relações de mandato e de filiação herdam essa evidência via `relacao_evidencia`. Complementos de partido/UF: 1. Divergentes: 2; sem fonte oficial: 13 (presidente e vice-presidente: não há página pública). As listas estão em `data/relatorio-mandatos-oficial.md`; o banco não foi alterado por elas.
-- Escritos à mão em `data/curadoria/`: `mandato-correcoes.json` (5 correção de partido/UF em `mandato`, aplicada antes do confronto com as fontes oficiais; Miro Teixeira 2004, PT -> PPS, pelo histórico da Câmara) e `entidade-aliases.json` (3 aliases de grafia: Enéas, Luís Eduardo, Luiz Carlos Santos).
+- `mandato.evidencia_id`: 302 de 324 linhas têm evidência oficial: 270 por legislatura e 4 por eleição (`tipo='dado_oficial'`, Dados Abertos da Câmara/Senado; a de eleição prova o mandato da legislatura seguinte, não o exercício no ano), 28 por página oficial da presidência da Casa (`tipo='documento_oficial'`, `presidente_camara`/`presidente_senado`). Fonte: `data/curadoria/mandato-oficial.json`, gerado de `data/raw/oficial/`; as relações de mandato e de filiação herdam essa evidência via `relacao_evidencia`. Complementos de partido/UF: 1. Divergentes: 2; sem fonte oficial: 20 (presidente e vice-presidente: não há página pública). As listas estão em `data/relatorio-mandatos-oficial.md`; o banco não foi alterado por elas.
+- Escritos à mão em `data/curadoria/`: `mandato-correcoes.json` (6 correção de partido/UF em `mandato`, aplicada antes do confronto com as fontes oficiais; Miro Teixeira 2004, PT -> PPS, pelo histórico da Câmara) e `entidade-aliases.json` (3 aliases de grafia: Enéas, Luís Eduardo, Luiz Carlos Santos).
 - **Parlamentares em destaque** (`deputado`/`senador`, `mandato` de um ano = ano do destaque na timeline): a relação tem `periodo_aprox=1` e a descrição avisa que o período é o ano do destaque, não o mandato inteiro.
 - Mandatos sem filiação (partido sem entidade): hamilton-mourao (PRTB), heloisa-helena (PSOL). Não criei entidade de partido (PRTB, PSOL); decisão pendente.
 - Mandatos sem órgão resolvido: 0.
@@ -858,7 +858,7 @@ Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` po
 
 ## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024
 
-Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`, `sabesp`, `marfrig`, `tim`, `hsbc-brasil`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
+Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `sandra-starling`, `jose-anibal`, `pedrinho-abrao`, `odelmo-leao`, `walter-pinheiro`, `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`, `sabesp`, `marfrig`, `tim`, `hsbc-brasil`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
 
 ### Ranking de empresas
 
@@ -957,8 +957,15 @@ Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto 
 | `romero-juca` | senador | 2001 | PSDB/RR | Líder do governo FHC no Senado, depois da saída de José Roberto Arruda (24/5/2001) | https://legis.senado.leg.br/dadosabertos/senador/73 |
 | `romero-juca` | senador | 2002 | PSDB/RR | Líder do governo FHC no Senado (dois anos na liderança, segundo ele próprio) | https://legis.senado.leg.br/dadosabertos/senador/73 |
 | `jutahy-junior` | deputado | 2001 | PSDB/BA | Líder do PSDB (Bloco PSDB/PTB) na Câmara a partir de 21/2/2001, no lugar de Aécio Neves | https://dadosabertos.camara.leg.br/api/v2/deputados/74570 |
+| `elcio-alvares` | senador | 1996 | PFL/ES | Líder do governo FHC no Senado | sem API (sem fonte oficial) |
+| `elcio-alvares` | senador | 1997 | PFL/ES | Líder do governo FHC no Senado | sem API (sem fonte oficial) |
+| `sandra-starling` | deputado | 1996 | PT/None | Líder do PT na Câmara em 1996 | sem API (sem fonte oficial) |
+| `jose-anibal` | deputado | 1996 | PSDB/None | Líder do PSDB na Câmara em 1996 | sem API (sem fonte oficial) |
+| `pedrinho-abrao` | deputado | 1996 | PTB/None | Líder do PTB na Câmara em 1996 | sem API (sem fonte oficial) |
+| `odelmo-leao` | deputado | 1996 | PPB/None | Líder do PPB (Bloco PPB/PL) na Câmara em 1996 | sem API (sem fonte oficial) |
+| `walter-pinheiro` | deputado | 2001 | PT/BA | Líder do PT na Câmara a partir de fev/2001 (Diário da Câmara de 21/2/2001) | sem API (sem fonte oficial) |
 
-Cada linha traz a fonte oficial do destaque ligada à relação `mandato:<id>` (8 ligações, inclusive na filiação das linhas sem API). Confronto com as APIs (`mandato-oficial.json`): 317 linhas, 302 confirmadas, 2 divergentes, 13 sem fonte oficial (as linhas de pessoa fora da coleta das APIs entram em `sem_fonte`). Pendências: Walter Pinheiro (2001): Líder do PT na Câmara a partir de 21/2/2001 (Diário da Câmara de 21/2/2001: 'Assunção do orador ao cargo de Líder da bancada do Partido dos Trabalhadores', sucedendo Aloizio Mercadante). Não há entidade no banco e o Diário não traz a UF: não foi criada (a regra pede UF e partido da própria fonte). Élcio Álvares (1996-1997): Liderança contínua provável (1995-1998), mas sem prova própria desses anos: sem linha. José Roberto Arruda (1995-1998): '2º Vice-Líder do Governo' (perfil/46, 20/3/1995 a 31/1/1999) não é destaque: sem linha. (mais votado de 1998) (1998): Não encontrado. Enéas refutado (a API da Câmara não o lista na 51ª legislatura; concorreu à Presidência em 1998); a Folha de 8/11/1998 só traz o partido mais votado (PFL, 10,863 milhões). Nada inserido.
+Cada linha traz a fonte oficial do destaque ligada à relação `mandato:<id>` (22 ligações, inclusive na filiação das linhas sem API). Confronto com as APIs (`mandato-oficial.json`): 324 linhas, 302 confirmadas, 2 divergentes, 20 sem fonte oficial (as linhas de pessoa fora da coleta das APIs entram em `sem_fonte`). Pendências: José Roberto Arruda (1995-1998): '2º Vice-Líder do Governo' (perfil/46, 20/3/1995 a 31/1/1999) não é destaque: sem linha. (mais votado de 1998) (1998): Não encontrado. Enéas refutado (a API da Câmara não o lista na 51ª legislatura; concorreu à Presidência em 1998); a Folha de 8/11/1998 só traz o partido mais votado (PFL, 10,863 milhões). Nada inserido. Líder do governo no Senado (jan-ago/1999) (1999): Rodada 12: lacuna. Élcio Álvares deixou o Senado em 31/1/1999 (perfil/18: mandato 1991-1999) e Arruda só assume em 3/8/1999 (perfil/46). O Relatório da Presidência do Senado de 1999 (https://www.senado.gov.br/relatorios_sgm/relpresi/1999/012-Presidencia.PDF) registra, em 20.05.99 (DSF de 21.05.99), manifestação que 'se despede da função de Líder do Governo no Senado'; o nome do líder não ficou claro na leitura automática. Abrir esse PDF e o DSF de 21/5/1999 no Chrome. Líder do PFL na Câmara (1996) (1996): Rodada 12: lacuna. Os Diários de 14, 15 e 16/2/1996 (https://imagem.camara.leg.br/Imagem/d/pdf/DCD14FEV1996.pdf, DCD15FEV1996.pdf, DCD16FEV1996.pdf) não trazem indicação do líder do PFL (nem do PMDB, que já tem linha de Michel Temer em 1996); procurar em outras edições de fev-mar/1996 (DCDddMMMaaaa.pdf). Líderes de bancada no Senado em 1996 (PFL, PSDB, PT, PPB, PTB) (1996): Rodada 12: lacuna. Só o PMDB (Jader Barbalho) tem linha. Não foi encontrada fonte oficial datada de 1996 aberta por esta coleta; os cabeçalhos 'Como Líder' dos discursos no DSF de 1996 (www25.senado.leg.br/web/atividade/pronunciamentos/-/p/parlamentar/<código>/1996) e as comunicações de liderança no DSF de fev-mar/1996 resolvem. O Relatório da Presidência de 2000 (https://www.senado.gov.br/Relatorios_SGM/RelPresi/2000/009-Lideres.pdf) só traz os líderes de 2000. Presidente e vice-presidente da República (11 mandatos sem fonte oficial de página) (1995-2023): Rodada 12: lacuna. Nenhuma fonte oficial nova aberta (a cota de WebFetch/WebSearch acabou nos Diários da Câmara). A galeria do Planalto (https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/galeria-de-presidentes) exige login na coleta automática; abrir no Chrome. Alternativas: perfis dos senadores Marco Maciel e José Alencar e do senador Hamilton Mourão em www25.senado.leg.br/web/senadores/senador/-/perfil/<código> (vice-presidência), diplomações no tse.jus.br e os Diários do Congresso/da Câmara das sessões de posse (1/1 de 1995, 2003, 2011, 2019 e 2023).
 
 ### Fatos novos e correções de texto
 

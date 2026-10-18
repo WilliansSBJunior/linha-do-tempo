@@ -1,5 +1,5 @@
 {
- "_doc": "Rodada 6 (18/10/2026): parlamentares em destaque (linha `mandato` de um ano, cargo senador/deputado, com `motivo`) que a carga bruta não traz, cada um com a fonte oficial própria do destaque. mandato-correcoes.json só corrige linhas existentes; este arquivo só acrescenta. Aplicado em duas etapas: curadoria.aplicar_mandatos_adicionais insere as linhas (ids depois dos da carga bruta, na ordem do arquivo) logo depois de mandato-correcoes e ANTES do confronto com as APIs (aplicar_mandato_oficial; o gerador de mandato-oficial.json as vê, preenche a evidência da API onde a pessoa consta e o partido/UF onde a linha deixou NULL) e de gerar_relacoes_mandato; curadoria.ligar_fontes_mandatos_adicionais liga `fonte` (evidência oficial do Senado/da Câmara, papel `sustenta`, qualidade `boa`, trecho e nota) à relação `mandato:<id>`, sem tocar `mandato.evidencia_id` (reservada à confirmação pelas APIs/páginas das presidências, que o validar.py confere). Aborta se a entidade ou o órgão não existem, se a linha (entidade, cargo, início) já existe ou se o cargo não é senador/deputado. Uma pessoa sem registro na coleta das APIs (data/raw/oficial, congelado) entra em `sem_fonte` de mandato-oficial.json com esse motivo.",
+ "_doc": "Rodada 6 (18/10/2026): parlamentares em destaque (linha `mandato` de um ano, cargo senador/deputado, com `motivo`) que a carga bruta não traz, cada um com a fonte oficial própria do destaque. mandato-correcoes.json só corrige linhas existentes; este arquivo só acrescenta. Aplicado em duas etapas: curadoria.aplicar_mandatos_adicionais insere as linhas (ids depois dos da carga bruta, na ordem do arquivo) logo depois de mandato-correcoes e ANTES do confronto com as APIs (aplicar_mandato_oficial; o gerador de mandato-oficial.json as vê, preenche a evidência da API onde a pessoa consta e o partido/UF onde a linha deixou NULL) e de gerar_relacoes_mandato; curadoria.ligar_fontes_mandatos_adicionais liga `fonte` (evidência oficial do Senado/da Câmara, papel `sustenta`, qualidade `boa`, trecho e nota) à relação `mandato:<id>`, sem tocar `mandato.evidencia_id` (reservada à confirmação pelas APIs/páginas das presidências, que o validar.py confere). Aborta se a entidade ou o órgão não existem, se a linha (entidade, cargo, início) já existe ou se o cargo não é senador/deputado. Uma pessoa sem registro na coleta das APIs (data/raw/oficial, congelado) entra em `sem_fonte` de mandato-oficial.json com esse motivo. Rodada 12 (18/10/2026): mesmo mecanismo, sem código novo para as linhas: Élcio Álvares 1996 e 1997 (líder do governo no Senado), líderes de bancada na Câmara em 1996 (PT, PSDB, PTB, PPB; PMDB já havia, de Michel Temer) e Walter Pinheiro (líder do PT, 2001), as pessoas novas criadas em entidades-adicionais.json (ids sandra-starling, jose-anibal, pedrinho-abrao, odelmo-leao, walter-pinheiro, no início da lista para não colidir com as rodadas do ranking). Pessoa nova não consta na coleta das APIs (congelada), logo cada linha vai para `sem_fonte` de mandato-oficial.json e traz `nota_partido`. A UF fica NULL onde o Diário não a traz (só Walter Pinheiro tem 'PT-BA' no Sumário). Os trechos dos Diários da Câmara vêm da leitura do PDF (OCR) e devem ser conferidos no original. As lacunas da rodada 12 estão em `pendencias`.",
  "mandatos": [
   {
    "entidade_id": "elcio-alvares",
@@ -110,12 +110,147 @@
     "trecho": "para exercer a Liderança do Bloco PSDB/PTB a partir desta data",
     "nota": "No índice do mesmo Diário: 'Assunção, pelo orador, do cargo de Líder do PSDB'. A UF não consta no trecho aberto: fica NULL aqui e o confronto com a API da Câmara (mandato-oficial.json, `complementos`) a preenche."
    }
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PFL",
+   "uf": "ES",
+   "inicio": "1996",
+   "motivo": "Líder do governo FHC no Senado",
+   "nota_partido": "PFL-ES no cabeçalho do discurso ('O SR. ELCIO ALVARES (PFL-ES)').",
+   "fonte": {
+    "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/192650",
+    "veiculo": "Senado Federal (www25.senado.leg.br)",
+    "tipo": "documento_oficial",
+    "titulo": "Discurso de Elcio Alvares (PFL-ES), DSF 08/08/1996 p.13603",
+    "data": "1996-08-07",
+    "trecho": "Sinto que é do meu dever, como Líder do Governo, não silenciar neste momento",
+    "nota": "Discurso de 7/8/1996 sobre o debate das medidas provisórias; o cabeçalho do DSF traz 'Como Líder'. No discurso de 27/6/1996 (pronunciamento 189659, DSF 28/6/1996 p.10905) ele registra a indicação de José Roberto Arruda 'para assumir a Liderança do Governo no Congresso Nacional' (outra função, não a do Senado)."
+   }
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PFL",
+   "uf": "ES",
+   "inicio": "1997",
+   "motivo": "Líder do governo FHC no Senado",
+   "nota_partido": "PFL-ES no cabeçalho do discurso ('O SR. ELCIO ALVARES (PFL-ES. Como Líder, ...').",
+   "fonte": {
+    "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/215016",
+    "veiculo": "Senado Federal (www25.senado.leg.br)",
+    "tipo": "documento_oficial",
+    "titulo": "Discurso de Elcio Alvares (PFL-ES), DSF 15/10/1997 p.21872",
+    "data": "1997-10-14",
+    "trecho": "que faz algumas críticas muito pesadas e fortes em relação à Liderança do Governo",
+    "nota": "Resposta à revista IstoÉ, 14/10/1997; cabeçalho do DSF: 'Como Líder'. Prova mais fraca que a de 1996 (o discurso fala da Liderança do Governo e ele fala 'Como Líder', mas a frase 'Líder do Governo' não foi lida na página); a continuidade em 1996-1998 também vem das linhas de 1995 e 1998 e do perfil oficial de Arruda ('2º Vice-Líder do Governo' de 20/3/1995 a 31/1/1999)."
+   }
+  },
+  {
+   "entidade_id": "sandra-starling",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PT",
+   "uf": null,
+   "inicio": "1996",
+   "motivo": "Líder do PT na Câmara em 1996",
+   "nota_partido": "PT no ofício 079/PT, de 13/2/1996, assinado como 'Líder do PT'.",
+   "fonte": {
+    "url": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD14FEV1996.pdf",
+    "veiculo": "Diário da Câmara dos Deputados",
+    "tipo": "documento_oficial",
+    "titulo": "Diário da Câmara dos Deputados, 14/02/1996 p.04399",
+    "data": "1996-02-14",
+    "trecho": "Deputada Sandra Starling, Líder do PT",
+    "nota": "Ofício nº 79/96 (079/PT, de 13/2/1996) que indica os vice-líderes do PT. A UF não consta no trecho aberto: fica NULL. Leitura do PDF OCR do Diário feita por ferramenta de extração; conferir o trecho no original."
+   }
+  },
+  {
+   "entidade_id": "jose-anibal",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PSDB",
+   "uf": null,
+   "inicio": "1996",
+   "motivo": "Líder do PSDB na Câmara em 1996",
+   "nota_partido": "PSDB na assinatura 'Líder do PSDB' da comunicação de filiação de Nicias Ribeiro.",
+   "fonte": {
+    "url": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD15FEV1996.pdf",
+    "veiculo": "Diário da Câmara dos Deputados",
+    "tipo": "documento_oficial",
+    "titulo": "Diário da Câmara dos Deputados, 15/02/1996 p.04584",
+    "data": "1996-02-15",
+    "trecho": "De acordo, Deputado José Anibal, Líder do PSDB.",
+    "nota": "Comunicação de filiação do Deputado Nicias Ribeiro. A UF não consta no trecho aberto: fica NULL. Leitura do PDF OCR do Diário feita por ferramenta de extração; conferir o trecho no original."
+   }
+  },
+  {
+   "entidade_id": "pedrinho-abrao",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PTB",
+   "uf": null,
+   "inicio": "1996",
+   "motivo": "Líder do PTB na Câmara em 1996",
+   "nota_partido": "PTB no ofício nº 13/96, assinado como 'Líder do PTB'.",
+   "fonte": {
+    "url": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD16FEV1996.pdf",
+    "veiculo": "Diário da Câmara dos Deputados",
+    "tipo": "documento_oficial",
+    "titulo": "Diário da Câmara dos Deputados, 16/02/1996 p.04660",
+    "data": "1996-02-16",
+    "trecho": "Deputado Pedrinho Abrão, Líder do PTB",
+    "nota": "Ofício nº 13/96. A UF não consta no trecho aberto: fica NULL. Leitura do PDF OCR do Diário feita por ferramenta de extração; conferir o trecho no original."
+   }
+  },
+  {
+   "entidade_id": "odelmo-leao",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PPB",
+   "uf": null,
+   "inicio": "1996",
+   "motivo": "Líder do PPB (Bloco PPB/PL) na Câmara em 1996",
+   "nota_partido": "PPB na comunicação da bancada ('Líder da Bancada do nosso Partido') e Bloco Parlamentar PPB/PL.",
+   "fonte": {
+    "url": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD16FEV1996.pdf",
+    "veiculo": "Diário da Câmara dos Deputados",
+    "tipo": "documento_oficial",
+    "titulo": "Diário da Câmara dos Deputados, 16/02/1996 p.04661-04662",
+    "data": "1996-02-16",
+    "trecho": "escolheram o Deputado Odelmo Leão, para Líder do Bloco Parlamentar PPB/PL",
+    "nota": "Na p.04662 do mesmo Diário: 'foi reconduzido ao cargo de Líder da Bancada do nosso Partido'. A UF não consta no trecho aberto: fica NULL. Leitura do PDF OCR do Diário feita por ferramenta de extração; conferir o trecho no original."
+   }
+  },
+  {
+   "entidade_id": "walter-pinheiro",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PT",
+   "uf": "BA",
+   "inicio": "2001",
+   "motivo": "Líder do PT na Câmara a partir de fev/2001 (Diário da Câmara de 21/2/2001)",
+   "nota_partido": "PT-BA no Sumário do mesmo Diário (discurso do Deputado Walter Pinheiro, p.03289).",
+   "fonte": {
+    "url": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD21FEV2001.pdf",
+    "veiculo": "Diário da Câmara dos Deputados",
+    "tipo": "documento_oficial",
+    "titulo": "Diário da Câmara dos Deputados, 21/02/2001 p.03347-03348",
+    "data": "2001-02-21",
+    "trecho": "Votos de profícua gestão ao novo Líder do partido, Deputado Walter Pinheiro.",
+    "nota": "No mesmo Diário (p.03347): 'Assunção do orador ao cargo de Líder da bancada do Partido dos Trabalhadores'. Partido e UF (PT-BA) do Sumário do mesmo Diário. A data exata da assunção não consta no que foi lido (Diário de 21/2/2001, sessão de 20/2). Leitura do PDF OCR do Diário feita por ferramenta de extração; conferir o trecho no original."
+   }
   }
  ],
  "pendencias": [
-  {"nome": "Walter Pinheiro", "casa": "camara", "ano": 2001, "motivo": "Líder do PT na Câmara a partir de 21/2/2001 (Diário da Câmara de 21/2/2001: 'Assunção do orador ao cargo de Líder da bancada do Partido dos Trabalhadores', sucedendo Aloizio Mercadante). Não há entidade no banco e o Diário não traz a UF: não foi criada (a regra pede UF e partido da própria fonte)."},
-  {"nome": "Élcio Álvares", "casa": "senado", "ano": "1996-1997", "motivo": "Liderança contínua provável (1995-1998), mas sem prova própria desses anos: sem linha."},
   {"nome": "José Roberto Arruda", "casa": "senado", "ano": "1995-1998", "motivo": "'2º Vice-Líder do Governo' (perfil/46, 20/3/1995 a 31/1/1999) não é destaque: sem linha."},
-  {"nome": "(mais votado de 1998)", "casa": "camara", "ano": 1998, "motivo": "Não encontrado. Enéas refutado (a API da Câmara não o lista na 51ª legislatura; concorreu à Presidência em 1998); a Folha de 8/11/1998 só traz o partido mais votado (PFL, 10,863 milhões). Nada inserido."}
+  {"nome": "(mais votado de 1998)", "casa": "camara", "ano": 1998, "motivo": "Não encontrado. Enéas refutado (a API da Câmara não o lista na 51ª legislatura; concorreu à Presidência em 1998); a Folha de 8/11/1998 só traz o partido mais votado (PFL, 10,863 milhões). Nada inserido."},
+  {"nome": "Líder do governo no Senado (jan-ago/1999)", "casa": "senado", "ano": 1999, "url": "https://www.senado.gov.br/relatorios_sgm/relpresi/1999/012-Presidencia.PDF", "motivo": "Rodada 12: lacuna. Élcio Álvares deixou o Senado em 31/1/1999 (perfil/18: mandato 1991-1999) e Arruda só assume em 3/8/1999 (perfil/46). O Relatório da Presidência do Senado de 1999 (https://www.senado.gov.br/relatorios_sgm/relpresi/1999/012-Presidencia.PDF) registra, em 20.05.99 (DSF de 21.05.99), manifestação que 'se despede da função de Líder do Governo no Senado'; o nome do líder não ficou claro na leitura automática. Abrir esse PDF e o DSF de 21/5/1999 no Chrome."},
+  {"nome": "Líder do PFL na Câmara (1996)", "casa": "camara", "ano": 1996, "url": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD16FEV1996.pdf", "motivo": "Rodada 12: lacuna. Os Diários de 14, 15 e 16/2/1996 (https://imagem.camara.leg.br/Imagem/d/pdf/DCD14FEV1996.pdf, DCD15FEV1996.pdf, DCD16FEV1996.pdf) não trazem indicação do líder do PFL (nem do PMDB, que já tem linha de Michel Temer em 1996); procurar em outras edições de fev-mar/1996 (DCDddMMMaaaa.pdf)."},
+  {"nome": "Líderes de bancada no Senado em 1996 (PFL, PSDB, PT, PPB, PTB)", "casa": "senado", "ano": 1996, "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/parlamentar/18/1996", "motivo": "Rodada 12: lacuna. Só o PMDB (Jader Barbalho) tem linha. Não foi encontrada fonte oficial datada de 1996 aberta por esta coleta; os cabeçalhos 'Como Líder' dos discursos no DSF de 1996 (www25.senado.leg.br/web/atividade/pronunciamentos/-/p/parlamentar/<código>/1996) e as comunicações de liderança no DSF de fev-mar/1996 resolvem. O Relatório da Presidência de 2000 (https://www.senado.gov.br/Relatorios_SGM/RelPresi/2000/009-Lideres.pdf) só traz os líderes de 2000."},
+  {"nome": "Presidente e vice-presidente da República (11 mandatos sem fonte oficial de página)", "casa": "presidencia", "ano": "1995-2023", "url": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/galeria-de-presidentes", "motivo": "Rodada 12: lacuna. Nenhuma fonte oficial nova aberta (a cota de WebFetch/WebSearch acabou nos Diários da Câmara). A galeria do Planalto (https://www.gov.br/planalto/pt-br/conheca-a-presidencia/acervo/galeria-de-presidentes) exige login na coleta automática; abrir no Chrome. Alternativas: perfis dos senadores Marco Maciel e José Alencar e do senador Hamilton Mourão em www25.senado.leg.br/web/senadores/senador/-/perfil/<código> (vice-presidência), diplomações no tse.jus.br e os Diários do Congresso/da Câmara das sessões de posse (1/1 de 1995, 2003, 2011, 2019 e 2023)."}
  ]
 }

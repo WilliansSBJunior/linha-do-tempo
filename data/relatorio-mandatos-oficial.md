@@ -4,16 +4,16 @@ Gerado por `scripts/gerar_curadoria.py --so mandato-oficial` a partir de `data/r
 
 | | linhas de `mandato` |
 |---|---:|
-| no banco | 317 |
+| no banco | 324 |
 | confirmadas | 302 |
 | &nbsp;&nbsp;por legislatura (deputado/senador; a pessoa consta na API em legislatura que toca o ano; partido e UF sem conflito) | 270 |
 | &nbsp;&nbsp;por eleição (a pessoa só consta na legislatura que começa em 1/fev do ano seguinte; ver abaixo) | 4 |
 | &nbsp;&nbsp;por página oficial da presidência da Casa (nome e ano de início) | 28 |
 | com complemento de partido/UF (campo estava NULL) | 1 |
 | divergentes (listadas abaixo, banco intacto) | 2 |
-| sem fonte oficial nesta rodada | 13 |
+| sem fonte oficial nesta rodada | 20 |
 
-Confirmadas + divergentes + sem fonte = 317. Linhas confirmadas que já tinham evidência antes: 0 (nesses casos a oficial entra como evidência adicional das relações).
+Confirmadas + divergentes + sem fonte = 324. Linhas confirmadas que já tinham evidência antes: 0 (nesses casos a oficial entra como evidência adicional das relações).
 
 Regras:
 
@@ -81,7 +81,7 @@ Por tipo: pagina_periodo 1, pagina_pessoa 1.
 
 ## Sem fonte oficial nesta rodada
 
-presidente 6, senador 2, vice_presidente 5. sem página oficial pública das presidências na coleta de 2026-10-17: presidentes_republica (indisponivel: não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404); vice_presidentes (indisponivel: não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também). Linhas não tocadas.
+deputado 5, presidente 6, senador 4, vice_presidente 5. sem página oficial pública das presidências na coleta de 2026-10-17: presidentes_republica (indisponivel: não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404); vice_presidentes (indisponivel: não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também). Linhas não tocadas.
 
 ## Correções à mão aplicadas antes do confronto
 
@@ -90,6 +90,7 @@ presidente 6, senador 2, vice_presidente 5. sem página oficial pública das pre
 - Geraldo Alckmin vice_presidente 2023: fim 2025 -> 2026. Mandato até 31/12/2026 (Agência Senado).. Fonte: https://www12.senado.leg.br/noticias/materias/2022/10/30/lula-e-eleito-presidente-da-republica-pela-terceira-vez
 - Michel Temer vice_presidente 2011: fim 2015 -> 2016. Agência Senado: vice até 2016.. Fonte: https://www12.senado.leg.br/noticias/materias/2016/08/31/a-trajetoria-politica-do-novo-presidente
 - Hugo Motta presidente_camara 2025: fim 2025 -> 2026. Agência Câmara: biênio 2025-2026.. Fonte: https://www.camara.leg.br/noticias/1128935-hugo-motta-e-o-novo-presidente-da-camara-dos-deputados
+- Michel Temer deputado 1999: motivo Presidente da Câmara dos Deputados, reeleito em 1/2/1999 -> Presidente da Câmara dos Deputados, reeleito em 2/2/1999. Diário da Câmara de 3/2/1999: ata da 2ª Sessão Preparatória, de 2/2/1999, com a 'Eleição do Deputado Michel Temer para Presidente da Câmara dos Deputados' (biênio 1999/2000); o dia 1/2/1999 foi a eleição de ACM no Senado.. Fonte: https://imagem.camara.leg.br/Imagem/d/pdf/DCD03FEV1999.pdf
 
 ## Complementos aplicados
 

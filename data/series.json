@@ -48898,7 +48898,7 @@
    "uf": "SP",
    "inicio": "1999",
    "fim": "1999",
-   "motivo": "Presidente da Câmara dos Deputados, reeleito em 1/2/1999",
+   "motivo": "Presidente da Câmara dos Deputados, reeleito em 2/2/1999",
    "evidencia": "https://dadosabertos.camara.leg.br/api/v2/deputados/73552",
    "nome": "Michel Temer",
    "apelido": "Temer"
@@ -51958,6 +51958,79 @@
    "motivo": "Líder do PSDB (Bloco PSDB/PTB) na Câmara a partir de 21/2/2001, no lugar de Aécio Neves",
    "evidencia": "https://dadosabertos.camara.leg.br/api/v2/deputados/74570",
    "nome": "Jutahy Júnior"
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PFL",
+   "uf": "ES",
+   "inicio": "1996",
+   "fim": "1996",
+   "motivo": "Líder do governo FHC no Senado",
+   "nome": "Élcio Álvares"
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PFL",
+   "uf": "ES",
+   "inicio": "1997",
+   "fim": "1997",
+   "motivo": "Líder do governo FHC no Senado",
+   "nome": "Élcio Álvares"
+  },
+  {
+   "entidade_id": "sandra-starling",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PT",
+   "inicio": "1996",
+   "fim": "1996",
+   "motivo": "Líder do PT na Câmara em 1996",
+   "nome": "Sandra Starling"
+  },
+  {
+   "entidade_id": "jose-anibal",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PSDB",
+   "inicio": "1996",
+   "fim": "1996",
+   "motivo": "Líder do PSDB na Câmara em 1996",
+   "nome": "José Aníbal"
+  },
+  {
+   "entidade_id": "pedrinho-abrao",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PTB",
+   "inicio": "1996",
+   "fim": "1996",
+   "motivo": "Líder do PTB na Câmara em 1996",
+   "nome": "Pedrinho Abrão"
+  },
+  {
+   "entidade_id": "odelmo-leao",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PPB",
+   "inicio": "1996",
+   "fim": "1996",
+   "motivo": "Líder do PPB (Bloco PPB/PL) na Câmara em 1996",
+   "nome": "Odelmo Leão"
+  },
+  {
+   "entidade_id": "walter-pinheiro",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PT",
+   "uf": "BA",
+   "inicio": "2001",
+   "fim": "2001",
+   "motivo": "Líder do PT na Câmara a partir de fev/2001 (Diário da Câmara de 21/2/2001)",
+   "nome": "Walter Pinheiro"
   }
  ],
  "bancada": [

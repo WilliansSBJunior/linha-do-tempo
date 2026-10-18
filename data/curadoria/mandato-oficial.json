@@ -6285,6 +6285,18 @@
   {
    "entidade_id": "elcio-alvares",
    "cargo": "senador",
+   "inicio": "1996",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "inicio": "1997",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
    "inicio": "1998",
    "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
   },
@@ -6319,6 +6331,12 @@
    "motivo": "sem página oficial pública das presidências na coleta de 2026-10-17: presidentes_republica (indisponivel: não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404); vice_presidentes (indisponivel: não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também)"
   },
   {
+   "entidade_id": "jose-anibal",
+   "cargo": "deputado",
+   "inicio": "1996",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
+  },
+  {
    "entidade_id": "luiz-inacio-lula-da-silva",
    "cargo": "presidente",
    "inicio": "2003",
@@ -6347,11 +6365,35 @@
    "cargo": "vice_presidente",
    "inicio": "2011",
    "motivo": "sem página oficial pública das presidências na coleta de 2026-10-17: presidentes_republica (indisponivel: não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404); vice_presidentes (indisponivel: não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também)"
+  },
+  {
+   "entidade_id": "odelmo-leao",
+   "cargo": "deputado",
+   "inicio": "1996",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
+  },
+  {
+   "entidade_id": "pedrinho-abrao",
+   "cargo": "deputado",
+   "inicio": "1996",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
+  },
+  {
+   "entidade_id": "sandra-starling",
+   "cargo": "deputado",
+   "inicio": "1996",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
+  },
+  {
+   "entidade_id": "walter-pinheiro",
+   "cargo": "deputado",
+   "inicio": "2001",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
   }
  ],
  "nao_encontrados": [],
  "resumo": {
-  "mandatos_no_banco": 317,
+  "mandatos_no_banco": 324,
   "confirmados": 302,
   "confirmados_por_tipo": {
    "legislatura": 270,
@@ -6360,7 +6402,7 @@
   },
   "complementados": 1,
   "divergentes": 2,
-  "sem_fonte_oficial": 13,
+  "sem_fonte_oficial": 20,
   "confirmados_com_evidencia_previa": 0,
   "divergencias_registradas": 2
  }

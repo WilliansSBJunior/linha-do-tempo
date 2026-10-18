@@ -21,9 +21,9 @@
    "cor": "#2c7fb8",
    "ordem": 2,
    "principal": true,
-   "n_relacoes": 461,
+   "n_relacoes": 472,
    "n_eventos": 282,
-   "n_entidades": 222
+   "n_entidades": 227
   },
   {
    "id": "pares",
@@ -945,7 +945,18 @@
    825,
    826,
    827,
-   828
+   828,
+   829,
+   830,
+   831,
+   832,
+   833,
+   834,
+   835,
+   836,
+   837,
+   838,
+   839
   ],
   "pares": [],
   "violencia": [],
@@ -2031,6 +2042,7 @@
    "joao-paulo-cunha",
    "joice-hasselmann",
    "jose-alencar",
+   "jose-anibal",
    "jose-carlos-aleluia",
    "jose-dirceu",
    "jose-eduardo-cardozo",
@@ -2065,6 +2077,7 @@
    "moses-rodrigues",
    "nikolas-ferreira",
    "odair-cunha",
+   "odelmo-leao",
    "ogpar",
    "oi",
    "omar-aziz",
@@ -2075,6 +2088,7 @@
    "pcdob",
    "pdg-realty",
    "pdt",
+   "pedrinho-abrao",
    "pedro-novais",
    "petrobras",
    "pf",
@@ -2116,6 +2130,7 @@
    "sabesp",
    "sadia",
    "samuel-moreira",
+   "sandra-starling",
    "santander-brasil",
    "senado-federal",
    "severino-cavalcanti",
@@ -2140,6 +2155,7 @@
    "usiminas",
    "vale",
    "waldir-maranhao",
+   "walter-pinheiro",
    "zeca-dirceu"
   ],
   "pares": [

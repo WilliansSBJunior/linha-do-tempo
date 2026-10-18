@@ -5778,6 +5778,24 @@
    ]
   },
   {
+   "id": "jose-anibal",
+   "nome": "José Aníbal",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Deputado federal pelo PSDB; líder do PSDB na Câmara dos Deputados em 1996.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "jose-carlos-aleluia",
    "nome": "José Carlos Aleluia",
    "tipo": "pessoa",
@@ -6333,6 +6351,24 @@
    ]
   },
   {
+   "id": "odelmo-leao",
+   "nome": "Odelmo Leão",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Deputado federal pelo PPB; líder do PPB (Bloco PPB/PL) na Câmara dos Deputados em 1996.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "ogpar",
    "nome": "OGPar",
    "tipo": "empresa",
@@ -6509,6 +6545,24 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "pedrinho-abrao",
+   "nome": "Pedrinho Abrão",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Deputado federal pelo PTB; líder do PTB na Câmara dos Deputados em 1996.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
@@ -7346,6 +7400,24 @@
    ]
   },
   {
+   "id": "sandra-starling",
+   "nome": "Sandra Starling",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Deputada federal pelo PT; líder do PT na Câmara dos Deputados em 1996.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "santander-brasil",
    "nome": "Santander Brasil",
    "tipo": "banco",
@@ -7778,6 +7850,24 @@
    ]
   },
   {
+   "id": "walter-pinheiro",
+   "nome": "Walter Pinheiro",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Deputado federal pelo PT da Bahia; líder do PT na Câmara dos Deputados a partir de fevereiro de 2001.",
+   "uf": "BA",
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "zeca-dirceu",
    "nome": "Zeca Dirceu",
    "tipo": "pessoa",
@@ -8079,6 +8169,7 @@
   "jocildo lemos": "jocildo-lemos",
   "joice hasselmann": "joice-hasselmann",
   "jose alencar": "jose-alencar",
+  "jose anibal": "jose-anibal",
   "jose carlos aleluia": "jose-carlos-aleluia",
   "jose carlos e jose eugenio dias toffoli": "irmaos-de-toffoli",
   "jose dirceu": "jose-dirceu",
@@ -8156,6 +8247,7 @@
   "nikolas ferreira": "nikolas-ferreira",
   "nubank": "easynvest",
   "odair cunha": "odair-cunha",
+  "odelmo leao": "odelmo-leao",
   "ogpar": "ogpar",
   "oi": "oi",
   "omar aziz": "omar-aziz",
@@ -8180,6 +8272,7 @@
   "pcdob": "pcdob",
   "pdg realty": "pdg-realty",
   "pdt": "pdt",
+  "pedrinho abrao": "pedrinho-abrao",
   "pedro gonet branco": "pedro-gonet-branco",
   "pedro novais": "pedro-novais",
   "petrobras": "petrobras",
@@ -8266,6 +8359,7 @@
   "sabesp": "sabesp",
   "sadia": "sadia",
   "samuel moreira": "samuel-moreira",
+  "sandra starling": "sandra-starling",
   "santander brasil": "santander-brasil",
   "sao roque prev": "sao-roque-prev",
   "saul dutra sabba": "saul-dutra-sabba",
@@ -8327,6 +8421,7 @@
   "voiter": "banco-pleno",
   "waldir maranhao": "waldir-maranhao",
   "walfrido warde": "walfrido-warde",
+  "walter pinheiro": "walter-pinheiro",
   "warde advogados": "warde-advogados",
   "will bank": "will-financeira",
   "will financeira": "will-financeira",

@@ -2,6 +2,53 @@
  "_doc": "Rodada 6 (18/10/2026): entidades que a curadoria precisa e que a carga bruta não cria. Aplicado por migrar.py (mesmo ponto e mesmo mecanismo das `entidades_novas` de dossie-entidades.json): cria a entidade (origem 'manual', origem_ref 'curadoria:entidades-adicionais.json') e um alias com o nome e cada item de `aliases`; aborta se o id já existe. Fora da teia (categoria NULL); o tema vem das tabelas que as usam (ranking_empresa, mandato -> brasil-ano-a-ano).",
  "entidades": [
   {
+   "id": "sandra-starling",
+   "nome": "Sandra Starling",
+   "tipo": "pessoa",
+   "descricao": "Deputada federal pelo PT; líder do PT na Câmara dos Deputados em 1996.",
+   "aliases": [],
+   "motivo": "mandatos-adicionais.json (rodada 12): líder do PT na Câmara em 1996 (Diário da Câmara de 14/2/1996)."
+  },
+  {
+   "id": "jose-anibal",
+   "nome": "José Aníbal",
+   "tipo": "pessoa",
+   "descricao": "Deputado federal pelo PSDB; líder do PSDB na Câmara dos Deputados em 1996.",
+   "aliases": [
+    "Jose Anibal"
+   ],
+   "motivo": "mandatos-adicionais.json (rodada 12): líder do PSDB na Câmara em 1996 (Diário da Câmara de 15/2/1996)."
+  },
+  {
+   "id": "pedrinho-abrao",
+   "nome": "Pedrinho Abrão",
+   "tipo": "pessoa",
+   "descricao": "Deputado federal pelo PTB; líder do PTB na Câmara dos Deputados em 1996.",
+   "aliases": [
+    "Pedrinho Abrao"
+   ],
+   "motivo": "mandatos-adicionais.json (rodada 12): líder do PTB na Câmara em 1996 (Diário da Câmara de 16/2/1996)."
+  },
+  {
+   "id": "odelmo-leao",
+   "nome": "Odelmo Leão",
+   "tipo": "pessoa",
+   "descricao": "Deputado federal pelo PPB; líder do PPB (Bloco PPB/PL) na Câmara dos Deputados em 1996.",
+   "aliases": [
+    "Odelmo Leao"
+   ],
+   "motivo": "mandatos-adicionais.json (rodada 12): líder do PPB na Câmara em 1996 (Diário da Câmara de 16/2/1996)."
+  },
+  {
+   "id": "walter-pinheiro",
+   "nome": "Walter Pinheiro",
+   "tipo": "pessoa",
+   "uf": "BA",
+   "descricao": "Deputado federal pelo PT da Bahia; líder do PT na Câmara dos Deputados a partir de fevereiro de 2001.",
+   "aliases": [],
+   "motivo": "mandatos-adicionais.json (rodada 12): líder do PT na Câmara em 2001 (Diário da Câmara de 21/2/2001)."
+  },
+  {
    "id": "souza-cruz",
    "nome": "Souza Cruz",
    "tipo": "empresa",
