@@ -1,0 +1,1030 @@
+{
+ "_doc": "Revisão do critério 'fraca' (18/10/2026). Regra: 'fraca' descreve a FONTE, não a lacuna da nota. Fica fraca só quando a fonte em si é fraca: wiki; tipo 'outro' (sites educacionais, tabelas secundárias, think tanks, enciclopédias, espelhos); veículo partidário (vermelho.org.br, fpabramo.org.br); republicação de furo de outro veículo ou agregador (preferir o original); artigo de opinião; enquete não representativa; fonte cuja nota registra contradição NÃO resolvida com o texto do evento/relação ou nome/vínculo que a fonte não afirma. Volta a 'boa' (com a nota mantida) quando: fonte oficial/primária ou veículo de imprensa estabelecido (incluindo regionais e estrangeiros, e wires como Estadão Conteúdo) sustenta o núcleo do evento; ou a divergência já foi resolvida por correção do evento/relação.",
+ "aplicacao": "curadoria.aplicar_evidencia_qualidade: para cada entrada, localizar a ligação (evento_evidencia por evento_id+url; relacao_evidencia por origem+origem_ref+url) e definir qualidade='boa' mantendo nota; abortar se a ligação não existir. Registrar no relatório de migração.",
+ "revisoes": [
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2000-argentina-em-recessao",
+   "url": "https://api.worldbank.org/v2/country/ARG/indicator/NY.GDP.MKTP.KD.ZG?date=1998:2001&format=json",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2000-cassacao-do-senador-luiz-estevao",
+   "url": "https://www.congressoemfoco.com.br/noticia/60130/por-56-votos-19-senado-cassa-demostenes-torres",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2000-eleicoes-municipais",
+   "url": "https://www.dgabc.com.br/Noticia/269296/marta-vence-maluf-e-e-eleita-prefeita-de-s-paulo",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2000-lei-de-responsabilidade-fiscal",
+   "url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/43190",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2005-china-encerra-a-paridade-fixa-com-o",
+   "url": "https://www.frbsf.org/research-and-insights/publications/economic-letter/2005/09/a-look-at-china-new-exchange-rate-regime",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2005-fed-sobe-juros-em-todas-as-reunioes-do",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20051213/default.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2005-katrina-e-petroleo-mais-caro",
+   "url": "https://fred.stlouisfed.org/data/ACOILBRENTEU",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto — após correção: médias do Brent 2005/2004 pela série EIA/FRED anexada (54,57 e 38,26)",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2010-china-a-frente-do-japao-e-principal",
+   "url": "https://www.rferl.org/a/china_economy/2308720.html",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto — após correção: PIB nominal 2010: China US$ 5,88 tri, Japão US$ 5,47 tri (dados oficiais, como na fonte)",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2015-fed-inicia-o-ciclo-de-alta-de-juros",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20151216a.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2015-turbulencia-na-china-bolsa-e-yuan",
+   "url": "https://investing.com/news/economy-news/a-surprise-devaluation-for-the-yuan-355385",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2015-turbulencia-na-china-bolsa-e-yuan",
+   "url": "https://www.business-standard.com/amp/article/news-ians/chinese-stocks-sink-below-3-000-points-115082500699_1.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2020-china-cresce-e-compra-um-terco-das",
+   "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2021-01/china-contribuiu-com-mais-da-metade-do-superavit-comercial-do-brasil",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto — após correção: 32,3% (Agência Brasil)",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2020-guerra-de-precos-do-petroleo",
+   "url": "https://www.cnbc.com/2020/06/16/how-negative-oil-prices-revealed-the-dangers-of-futures-trading.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2020-novo-fundeb",
+   "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc108.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2020-saida-de-sergio-moro-do-governo",
+   "url": "https://www.agazeta.com.br/es/politica/interferencia-na-pf-fraude-e-demissao-veja-dez-frases-de-moro-0420",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2020-trocas-no-ministerio-da-saude",
+   "url": "https://www.poder360.com.br/governo/ministro-da-saude-nelson-teich-pede-demissao-do-governo-bolsonaro",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto — após correção: Pazuello interino em 15/5/2020",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2025-eua-impoem-tarifa-de-50-a-produtos",
+   "url": "https://www.whitehouse.gov/presidential-actions/2025/11/modifying-the-scope-of-tariffs-on-the-government-of-brazil",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2025-eua-impoem-tarifa-de-50-a-produtos",
+   "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2025-08/tarifaco-sobre-parte-das-exportacoes-brasileiras-entra-em-vigor-hoje",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2025-eua-isentam-parte-dos-produtos-agricolas",
+   "url": "https://www.whitehouse.gov/presidential-actions/2025/11/modifying-the-scope-of-the-reciprocal-tariff-with-respect-to-certain-agricultural-products",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2025-fed-corta-juros-tres-vezes",
+   "url": "https://federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2025-isencao-do-ir-ate-r-5-mil",
+   "url": "https://www.opovo.com.br/noticias/economia/2025/11/26/lula-sanciona-isencao-do-ir-para-quem-ganha-ate-rs-5-mil.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
+   "url": "https://www.moneytimes.com.br/stf-condena-bolsonaro-a-27-anos-e-3-meses-de-prisao-em-regime-inicial-fechado-por-tentativa-de-golpe-de-estado-e-outros-crimes-kda",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto — após correção: pena: 27 anos e 3 meses",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "relacao",
+   "evento_id": null,
+   "url": "https://www.camara.leg.br/noticias/546904-jair-bolsonaro-e-eleito-presidente-do-brasil",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": "linha_do_tempo",
+   "relacao_origem_ref": "filiacao:jair-bolsonaro:psl:2019"
+  },
+  {
+   "alvo_tipo": "relacao",
+   "evento_id": null,
+   "url": "https://www12.senado.leg.br/noticias/materias/2002/12/30/congresso-nacional-dara-posse-ao-37-presidente-da-republica-do-brasil",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": "linha_do_tempo",
+   "relacao_origem_ref": "filiacao:jose-alencar:pl:2003"
+  },
+  {
+   "alvo_tipo": "relacao",
+   "evento_id": null,
+   "url": "https://www.camara.leg.br/noticias/546904-jair-bolsonaro-e-eleito-presidente-do-brasil",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": "linha_do_tempo",
+   "relacao_origem_ref": "filiacao:jair-bolsonaro:psl:2019"
+  },
+  {
+   "alvo_tipo": "relacao",
+   "evento_id": null,
+   "url": "https://www12.senado.leg.br/noticias/materias/2002/12/30/congresso-nacional-dara-posse-ao-37-presidente-da-republica-do-brasil",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": "linha_do_tempo",
+   "relacao_origem_ref": "filiacao:jose-alencar:pl:2003"
+  },
+  {
+   "alvo_tipo": "relacao",
+   "evento_id": null,
+   "url": "https://www.folhavitoria.com.br/politica/eduardo-tratou-sobre-filme-com-vorcaro-e-pediu-para-enviar-maximo-de-recursos-aos-eua",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": "teia",
+   "relacao_origem_ref": "N[139].fam_de"
+  },
+  {
+   "alvo_tipo": "relacao",
+   "evento_id": null,
+   "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11724589-contrato-de-vorcaro-previa-ate-rs-427-mi-em-honorarios-a-escritorio-de-esposa-de-desembargador-da-turma-do-kn.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": "teia",
+   "relacao_origem_ref": "N[142].fam_de"
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1996-acordo-de-tecnologia-da-informacao-na",
+   "url": "https://www.wto.org/english/tratop_e/inftec_e/itaintro_e.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1996-chile-assina-acordo-de-associacao-ao",
+   "url": "https://www.gov.br/agricultura/pt-br/assuntos/relacoes-internacionais/negociacoes-comerciais/brasil-mercosul-1/documentos-mercosul/chile.pdf",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1996-criacao-da-cpmf",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9311.htm",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1996-greenspan-fala-em-exuberancia-irracional",
+   "url": "https://www.federalreserve.gov/boarddocs/speeches/1996/19961205.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1996-lei-kandir",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp87.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1997-denuncia-de-compra-de-votos-pela",
+   "url": "https://www.poder360.com.br/brasil/entenda-como-foi-a-compra-de-votos-a-favor-da-emenda-da-reeleicao-em-1997/",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1997-emenda-da-reeleicao-ec-16",
+   "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc16.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1997-lei-geral-de-telecomunicacoes",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/l9472.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1997-pacote-de-resgate-de-us-17-bilhoes-a",
+   "url": "https://www.mof.go.jp/english/about_mof/councils/customs_foreign_exchange/report/e1a703n21a.htm",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1998-fmi-e-paises-ricos-montam-pacote-para-o",
+   "url": "https://www.imf.org/external/np/tr/1998/tr981113.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1998-privatizacao-do-sistema-telebras",
+   "url": "https://teletime.com.br/29/07/1998/telebras-e-vendida-com-agio-de-6374/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-1999-fim-da-banda-cambial-e-cambio-flutuante",
+   "url": "https://www.bcb.gov.br/rex/MerCambio/Port/cambio991/1999-1Flutuante.asp?frame=1",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2001-china-entra-na-omc",
+   "url": "https://www.wto.org/english/thewto_e/acc_e/a1_chine_e.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2001-violacao-do-painel-do-senado-e-renuncia",
+   "url": "https://www12.senado.leg.br/noticias/materias/2001/05/16/saturnino-acm-e-arruda-cometeram-irregularidade-grave",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2002-fmi-aprova-o-maior-emprestimo-da",
+   "url": "https://www.imf.org/external/np/sec/pr/2002/pr0240.htm",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2003-estatuto-do-desarmamento",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.826.htm",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto — após correção: publicação no DOU em 23/12/2003",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2003-pt-expulsa-heloisa-helena-e-tres",
+   "url": "https://exame.com/economia/pt-expulsa-radicais-m0060399/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2004-caso-waldomiro-diniz",
+   "url": "https://sbtnews.sbt.com.br/noticia/politica/escandalo-waldomiro-diniz-ex-membro-de-confianca-do-pt-completa-20-anos",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2004-eleicoes-municipais-de-2004",
+   "url": "https://memoria.ebc.com.br/agenciabrasil//noticia/2004-11-01/pmdb-maintains-hegemony-small-municipalities-psdb-and-pt-win-big-cities",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2004-lei-das-parcerias-publico-privadas",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l11079.htm",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2004-petroleo-passa-de-us-50-o-barril",
+   "url": "https://www.wosu.org/npr-news/2004-09-28/oil-prices-hit-new-record-of-50-a-barrel",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2006-bolivia-nacionaliza-os-hidrocarbonetos",
+   "url": "https://www.ipsnews.net/portuguese/2006/05/america-latina/bolivia-como-foi-nacionalizado-o-enorme-negocio-do-petroleo/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2006-fed-sobe-juros-para-5-25",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20060629a.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2006-negociacoes-da-rodada-doha-sao-suspensas",
+   "url": "https://www.jb.com.br/internacional/noticias/2007/03/04/amp/encontros-em-londres-sobre-sobre-a-omc-terminam-sem-avancos.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2006-operacao-sanguessuga-e-cpmi-das",
+   "url": "https://www.congressoemfoco.com.br/noticia/71007/entenda-o-caso-o-que-foi-a-operacao-sanguessuga",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2006-reeleicao-de-lula",
+   "url": "https://www.congressoemfoco.com.br/noticia/87895/tse-lula-foi-reeleito-com-60-83-dos-votos-validos",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2006-sancionada-a-lei-maria-da-penha",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2006-venezuela-assina-protocolo-de-adesao-ao",
+   "url": "https://www2.camara.leg.br/legin/fed/decleg/2009/decretolegislativo-934-16-dezembro-2009-598334-exposicaodemotivos-153923-pl.html",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2007-bnp-paribas-congela-fundos-e-bce-injeta",
+   "url": "https://observador.pt/especiais/9-de-agosto-de-2007-o-dia-em-que-o-mundo-mudou/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2007-fed-comeca-a-cortar-juros",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20070918a.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2007-petrobras-anuncia-a-descoberta-de-tupi",
+   "url": "https://www.infomoney.com.br/mercados/o-anuncio-do-potencial-do-pre-sal-que-mudou-a-historia-da-petrobras-e-levou-as-acoes-as-alturas/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2008-brasil-obtem-grau-de-investimento",
+   "url": "https://www.infomoney.com.br/?p=1522698",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2008-eleicoes-municipais-de-2008",
+   "url": "https://www.congressoemfoco.com.br/noticia/102082/pmdb-tem-maior-numero-de-prefeitos",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2008-marina-silva-deixa-o-ministerio-do-meio",
+   "url": "https://www.congressoemfoco.com.br/noticia/84438/bancada-comemora-demissao-de-marina",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2008-operacao-satiagraha-prende-daniel-dantas",
+   "url": "https://www.gazetadopovo.com.br/vida-publica/confira-os-principais-fatos-da-operacao-satiagraha-bjsiht1vlclo5g7w1ubvfhiku/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2008-petroleo-bate-recorde-e-despenca",
+   "url": "https://www.telemetro.com/economia/2008/07/11/barril-crudo-supera-primera-dolares/2112756.html/amp",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2008-quebra-do-lehman-brothers",
+   "url": "https://www.infomoney.com.br/?p=386374",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2009-crise-dos-atos-secretos-no-senado",
+   "url": "https://www.congressoemfoco.com.br/noticia/2681/conselho-de-etica-mantem-arquivadas-todas-as-acusacoes-contra-sarney",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2009-grecia-revela-deficit-de-12-7-do-pib",
+   "url": "https://www.esm.europa.eu/publications/safeguarding-euro/runaway-train-greece-sounds-alarm",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2009-operacao-caixa-de-pandora-no-distrito",
+   "url": "https://www.congressoemfoco.com.br/noticia/72793/policia-federal-investiga-governo-arruda",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2009-operacao-caixa-de-pandora-no-distrito",
+   "url": "https://www.congressoemfoco.com.br/noticia/72313/todos-os-detalhes-da-prisao-de-arruda",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2011-palocci-deixa-a-casa-civil",
+   "url": "https://www.congressoemfoco.com.br/noticias/antonio-palocci-pede-demissao-do-governo",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2011-promulgada-a-lei-de-acesso-a-informacao",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2011-segundo-resgate-a-grecia-e-contagio-na",
+   "url": "https://www.publico.es/economia/eurozona-pone-al-rescate-grecia.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2012-argentina-reestatiza-a-petroleira-ypf",
+   "url": "https://www.diariodecuyo.com.ar/noticias/la-reestatizacion-de-ypf-es-ley-765379.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2012-stf-valida-a-ficha-limpa-eleicoes",
+   "url": "https://noticias.stf.jus.br/postsnoticias/135-anos-do-stf-decisoes-da-corte-consolidam-a-lei-da-ficha-limpa-como-marco-da-moralidade-eleitoral/",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2014-morte-de-eduardo-campos",
+   "url": "https://www.jb.com.br/pais/noticias/2014/08/13/amp/eduardo-campos-morre-em-acidente-aereo-em-santos.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2014-reeleicao-de-dilma-rousseff",
+   "url": "https://www12.senado.leg.br/radio/1/noticia/2014/10/27/presidente-dilma-rousseff-e-reeleita-com-51-64-dos-votos",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2014-relatorio-final-da-comissao-nacional-da",
+   "url": "https://www12.senado.leg.br/radio/1/noticia/2014/12/10/renan-recebe-relatorio-final-da-comissao-nacional-da-verdade",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2014-sancionado-o-marco-civil-da-internet",
+   "url": "https://www12.senado.leg.br/noticias/materias/2014/04/23/sancionada-a-lei-do-marco-civil-da-internet",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2016-cunha-tem-o-mandato-cassado-pela-camara",
+   "url": "https://www.congressoemfoco.com.br/noticias/camara-cassa-mandato-de-eduardo-cunha-deputado-fica-inelegivel-por-oito-anos/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2016-opep-faz-seu-primeiro-corte-de-producao",
+   "url": "https://exame.com/economia/petroleiras-fora-da-opep-tambem-vao-cortar-producao",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2017-camara-barra-denuncias-contra-temer",
+   "url": "https://www.jornalopcao.com.br/ultimas-noticias/camara-rejeita-denuncia-contra-michel-temer-101355/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2017-camara-barra-denuncias-contra-temer",
+   "url": "https://www.congressoemfoco.com.br/noticias/janot-denuncia-temer-pela-segunda-vez-e-o-acusa-de-liderar-organizacao-criminosa-leia-a-integra",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2017-delacao-da-jbs-e-gravacao-envolvendo",
+   "url": "https://www.jb.com.br/pais/noticias/2017/05/17/amp/dono-da-jbs-grava-temer-dando-aval-para-compra-de-silencio-de-cunha.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2017-mercosul-suspende-a-venezuela-por-tempo",
+   "url": "https://www.poder360.com.br/internacional/por-ruptura-da-ordem-democratica-mercosul-suspende-venezuela-do-bloco/",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2017-moro-condena-lula-no-caso-do-triplex",
+   "url": "https://www.poder360.com.br/eleicoes/lula-e-condenado-a-9-anos-e-6-meses-de-prisao-no-processo-do-triplex/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2017-reforma-trabalhista-e-aprovada-e",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13467.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-bolsonaro-e-eleito-presidente",
+   "url": "https://istoe.com.br/tse-conclui-totalizacao-das-secoes-eleitorais-no-segundo-turno",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto — após correção: cerca de 57,7 milhões de votos",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-crise-da-lira-turca-assusta-os",
+   "url": "https://www.gazetasp.com.br/cotidiano/42349-trump-autoriza-dobrar-tarifa-sobre-metais-da-turquia-e-ag/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-fed-leva-os-juros-a-2-25-2-50",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181219a.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-greve-dos-caminhoneiros",
+   "url": "https://www.poder360.com.br/brasil/temer-recua-outra-vez-cede-a-caminhoneiros-e-congela-diesel-por-60-dias/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-intervencao-federal-na-seguranca-do-rio",
+   "url": "https://www.poder360.com.br/brasil/por-ampla-maioria-camara-aprova-decreto-de-intervencao-do-rio/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-lula-e-preso-em-curitiba",
+   "url": "https://oimparcial.com.br/brasil/2018/04/stf-rejeita-habeas-corpus-de-lula-por-6-votos-a-5/",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-tse-barra-lula-e-pt-lanca-haddad",
+   "url": "https://www.agazeta.com.br/brasil/tse-usa-lei-da-ficha-limpa-para-barrar-lula-0918",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2018-tse-barra-lula-e-pt-lanca-haddad",
+   "url": "https://www.correio24horas.com.br/brasil/haddad-e-confirmado-como-candidato-do-pt-no-lugar-de-lula-0918",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2019-lula-e-solto-apos-580-dias-preso",
+   "url": "https://www.agazeta.com.br/brasil/lula-deixa-a-prisao-em-curitiba-apos-decisao-do-stf-1119",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2019-queimadas-na-amazonia-chegam-a-agenda-do",
+   "url": "https://www.aosfatos.org/noticias/desenhamos-fatos-sobre-as-queimadas-no-brasil/",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2019-queimadas-na-amazonia-chegam-a-agenda-do",
+   "url": "https://www.arabnews.com/node/1545521",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2019-ue-e-mercosul-fecham-acordo-politico",
+   "url": "https://www.eeas.europa.eu/node/64856_be",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2021-condenacoes-de-lula-anuladas-moro",
+   "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2021-03/stf-considera-que-moro-foi-parcial-nos-processos-de-lula",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2021-cop26-declaracao-de-glasgow-sobre",
+   "url": "https://www.cnbc.com/2021/11/02/cop26-china-brazil-among-nations-pledging-to-end-deforestation-by-2030.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2022-acordo-de-graos-do-mar-negro",
+   "url": "https://www.un.org/en/black-sea-grain-initiative",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2022-choque-de-commodities-brent-acima-de-us",
+   "url": "https://www.business-standard.com/article/international/brent-crude-goes-over-130-per-barrel-surpassing-top-2012-mark-122030700078_1.html",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2022-russia-invade-a-ucrania",
+   "url": "https://www.malaymail.com/news/world/2022/02/24/russia-invades-ukraine-dozens-killed/2043785",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2023-brics-convida-seis-paises-a-aderir",
+   "url": "https://newarab.com/news/brics-admit-egypt-iran-saudi-arabia-uae-next-year",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2023-fed-leva-os-juros-a-5-25-5-50",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2023-milei-e-eleito-e-o-peso-argentino-e",
+   "url": "https://www.noticel.com/mundo/20231129/asamblea-legislativa-argentina-consagra-el-triunfo-de-milei-con-el-55-65-de-los-votos",
+   "qualidade": "boa",
+   "motivo": "veículo de imprensa estabelecido (inclui regionais e estrangeiros) que confirma o núcleo do evento; lacunas ficam na nota",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2023-milei-e-eleito-e-o-peso-argentino-e",
+   "url": "https://www.infomoney.com.br/?p=2323239",
+   "qualidade": "boa",
+   "motivo": "a divergência apontada foi resolvida corrigindo o evento/relação (evento-correcoes/relacao-correcoes); a fonte agora sustenta o texto",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  },
+  {
+   "alvo_tipo": "evento",
+   "evento_id": "ev-2024-fed-corta-os-juros-em-1-ponto-e-chega-a",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm",
+   "qualidade": "boa",
+   "motivo": "fonte primária/oficial que sustenta o núcleo do evento; o que a página não traz fica registrado na nota, não desqualifica a fonte",
+   "relacao_origem": null,
+   "relacao_origem_ref": null
+  }
+ ],
+ "correcoes_pendentes": [
+  {
+   "idx": 31,
+   "evento_id": "ev-2025-stf-torna-bolsonaro-reu-e-o-condena",
+   "url": "https://www.moneytimes.com.br/stf-condena-bolsonaro-a-27-anos-e-3-meses-de-prisao-em-regime-inicial-fechado-por-tentativa-de-golpe-de-estado-e-outros-crimes-kda",
+   "corrigir_para": "pena: 27 anos e 3 meses",
+   "nota_pesquisador": "Pena exata é 27 anos e 3 meses (descrição diz 27 anos). Página do STF não aberta."
+  },
+  {
+   "idx": 86,
+   "evento_id": "ev-2003-estatuto-do-desarmamento",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.826.htm",
+   "corrigir_para": "publicação no DOU em 23/12/2003",
+   "nota_pesquisador": "Assinada em 22/12/2003; publicada no DOU em 23/12/2003 (a descrição diz 'publicada em 22/12')."
+  },
+  {
+   "idx": 24,
+   "evento_id": "ev-2020-trocas-no-ministerio-da-saude",
+   "url": "https://www.poder360.com.br/governo/ministro-da-saude-nelson-teich-pede-demissao-do-governo-bolsonaro",
+   "corrigir_para": "Pazuello interino em 15/5/2020",
+   "nota_pesquisador": "DIVERGÊNCIA: fontes dão Pazuello assumindo interinamente em 15/5 (junto com a saída de Teich), não 16/5. O Popular (2020-05-15) também. Efetivado ministro só depois."
+  },
+  {
+   "idx": 148,
+   "evento_id": "ev-2018-bolsonaro-e-eleito-presidente",
+   "url": "https://istoe.com.br/tse-conclui-totalizacao-das-secoes-eleitorais-no-segundo-turno",
+   "corrigir_para": "cerca de 57,7 milhões de votos",
+   "nota_pesquisador": "Matéria fala em ~57,7 milhões de votos para Bolsonaro (descrição: 57,8 milhões) e 47 milhões para Haddad. Resultado do 1º turno (46,03% x 29,28%) não verificado."
+  },
+  {
+   "idx": 11,
+   "evento_id": "ev-2005-katrina-e-petroleo-mais-caro",
+   "url": "https://fred.stlouisfed.org/data/ACOILBRENTEU",
+   "corrigir_para": "médias do Brent 2005/2004 pela série EIA/FRED anexada (54,57 e 38,26)",
+   "nota_pesquisador": "CONTRADIÇÃO: a série EIA/FRED dá média de US$ 54,57 (2005) e US$ 38,26 (2004), e não 54,68 e 38,23. A diferença pode vir de outra fonte (ex. BP). Substituição parcial: a nova fonte (série primária de preços) não cobre a parte do Katrina (plataformas e refinarias); esta continua ligada para essa parte (https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=A)."
+  },
+  {
+   "idx": 13,
+   "evento_id": "ev-2010-china-a-frente-do-japao-e-principal",
+   "url": "https://www.rferl.org/a/china_economy/2308720.html",
+   "corrigir_para": "PIB nominal 2010: China US$ 5,88 tri, Japão US$ 5,47 tri (dados oficiais, como na fonte)",
+   "nota_pesquisador": "CONTRADIÇÃO: dados oficiais chineses/japoneses divulgados em 14/2/2011 dão PIB nominal de US$ 5,88 tri (China) e US$ 5,47 tri (Japão), não 6,19 e 5,81 (valores possivelmente de FMI/Banco Mundial; não verificados). A ultrapassagem se confirma."
+  },
+  {
+   "idx": 20,
+   "evento_id": "ev-2020-china-cresce-e-compra-um-terco-das",
+   "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2021-01/china-contribuiu-com-mais-da-metade-do-superavit-comercial-do-brasil",
+   "corrigir_para": "32,3% (Agência Brasil)",
+   "nota_pesquisador": "CONTRADIÇÃO: fonte dá 32,3%, não 32,41%. O MDIC/Siscomex (gov.br) não publica o percentual: só US$ 70,08 bi para China+HK+Macau (~33%). Substituição parcial: a nova fonte cobre só 2,34% e -2,08%; os 32,3% só estão na Agência Brasil (esta), que continua ligada para essa parte (https://api.worldbank.org/v2/country/CHN;USA/indicator/NY.GDP.MKTP.KD.ZG?date=2020:2020&format=json)."
+  }
+ ],
+ "mantidas_fracas": 66
+}
