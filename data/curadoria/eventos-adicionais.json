@@ -1,0 +1,25 @@
+{
+ "_doc": "Rodada 6 (18/10/2026): fatos novos da linha do tempo (canal brasil) que a carga bruta não traz. Aplicado por curadoria.aplicar_eventos_adicionais no início da curadoria (antes das fusões e da natureza, para que eventos-natureza.json, brasil-fontes.json e evento-entidade-auto.json, regerados por gerar_curadoria.py, os vejam). `id` = ev-<ano>-<slug_curto(titulo)> (o mesmo padrão da carga bruta; a função confere), `origem_ref` = Y[<ano>].<secao>.eventos[<ordem>] continuando a numeração do bloco-ano (é o que a página usa para seção e ordem), origem 'manual', natureza NULL (vem de R5 pelas fontes `sustenta`). As fontes ficam em evidencias-rodada6.json (alvo = o id daqui). Aborta se o id ou o origem_ref já existem, se o id não segue o padrão ou se a ordem não continua a do bloco.",
+ "eventos": [
+  {
+   "id": "ev-2024-trump-e-eleito-presidente-dos-eua-pela",
+   "ano": 2024,
+   "secao": "intl",
+   "ordem": 4,
+   "titulo": "Trump é eleito presidente dos EUA pela segunda vez",
+   "descricao": "Em 5/11/2024 Donald Trump é eleito presidente dos EUA pela segunda vez, com 312 votos no Colégio Eleitoral contra 226 de Kamala Harris e cerca de 77,3 milhões de votos (49,8%) contra 75 milhões (48,3%).",
+   "peso": 4,
+   "motivo": "intl_2024.json, decisoes.novos_eventos. Peso 4 como os vizinhos internacionais de maior impacto (UE-Mercosul 2024, Milei 2023)."
+  },
+  {
+   "id": "ev-2024-cupula-do-g20-no-rio-lanca-alianca",
+   "ano": 2024,
+   "secao": "intl",
+   "ordem": 5,
+   "titulo": "Cúpula do G20 no Rio lança Aliança contra a Fome",
+   "descricao": "Em 18 e 19/11/2024 o Rio sediou a cúpula do G20; a declaração dos líderes lançou a Aliança Global contra a Fome e a Pobreza (148 membros fundadores, 82 países) e incluiu compromisso de tributar os super-ricos.",
+   "peso": 4,
+   "motivo": "intl_2024.json, decisoes.novos_eventos. Peso 4: cúpula sob presidência brasileira, no mesmo patamar do acordo UE-Mercosul do mesmo ano."
+  }
+ ]
+}

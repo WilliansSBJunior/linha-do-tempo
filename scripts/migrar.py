@@ -283,6 +283,17 @@ def main(destino=SQLITE, pular=(), escrever=True):
         for a in n.get("aliases", []):
             add_alias(n["id"], a, "alias", "curadoria")
 
+    # entidades pedidas pela curadoria da rodada 6 (empresas do ranking e parlamentares sem nó; data/curadoria/entidades-adicionais.json)
+    R["entidades_adicionais"] = []
+    for n in curadoria.ler_json("entidades-adicionais.json", {}).get("entidades", []):
+        if n["id"] in ENTS:
+            raise SystemExit(f"entidades-adicionais.json: entidade já existe: {n['id']}")
+        criar(n["id"], n["nome"], n["tipo"], "manual", "curadoria:entidades-adicionais.json", descricao=n.get("descricao"), uf=n.get("uf"))
+        add_alias(n["id"], n["nome"], "alias", "curadoria")
+        for a in n.get("aliases", []):
+            add_alias(n["id"], a, "alias", "curadoria")
+        R["entidades_adicionais"].append(n["id"])
+
     # ================================================================ INSERÇÃO: categoria, entidade, alias
     cats = [(c, n, i + 1) for i, (c, n) in enumerate(teia["cats"])] + [("hub", "Centro do caso", 0)]
     con.executemany("INSERT INTO categoria(id,nome,ordem) VALUES(?,?,?)", cats)
@@ -769,6 +780,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
     dossie_rel.carregar(con, dossie, pares, evid, nat_map, IDX_ALIAS, pais_slug, R)
 
     # ================================================================ CURADORIA (data/curadoria/*.json), depois da carga bruta
+    R["eventos_adic"] = curadoria.aplicar_eventos_adicionais(con)   # à mão (rodada 6); antes da natureza e das fontes, que os veem como os da carga bruta
     n_antes_fusao = con.execute("SELECT count(*) FROM evento").fetchone()[0]
     R["fusoes"] = curadoria.aplicar_fusoes(con)
     R["n_eventos_antes_fusao"] = n_antes_fusao
@@ -782,12 +794,18 @@ def main(destino=SQLITE, pular=(), escrever=True):
         R["complementos"] = curadoria.aplicar_complementos_brasil(con)
     R["aliases_curadoria"] = curadoria.aplicar_aliases(con)
     R["mandato_correcoes"] = curadoria.aplicar_mandato_correcoes(con)   # à mão; antes de confrontar com as APIs e de gerar as relações
+    R["mandatos_adic"] = curadoria.aplicar_mandatos_adicionais(con)    # à mão (rodada 6); linhas novas, também confrontadas com as APIs
     R["mandato_oficial"] = curadoria.aplicar_mandato_oficial(con) if "mandato_oficial" not in pular else {"evidencias": 0, "preenchidos": 0, "extras": {}, "complementados": 0, "obsoletas": [], "resumo": {}}
     R["mandato_rel"] = curadoria.gerar_relacoes_mandato(con, R["mandato_oficial"]["extras"])   # teia <-> timeline (herda a evidência oficial dos mandatos)
+    R["mandatos_adic_fontes"] = curadoria.ligar_fontes_mandatos_adicionais(con)   # fonte oficial própria de cada linha nova, na relação mandato:<id>
     R["evid_adic"] = curadoria.aplicar_evidencias_adicionais(con)   # à mão; precisa das relações de mandato/filiação; antes dos temas (que leem a descrição)
     R["evid_corr"] = curadoria.aplicar_evidencia_correcoes(con)     # à mão; tipo de evidências oficiais registradas como reportagem
     R["evid_meta"] = curadoria.aplicar_evidencia_metadados(con)     # título/data só onde NULL (rodadas de WebFetch)
     R["ent_valores"] = curadoria.aplicar_entidade_valores(con)      # à mão; estimativas em R$ por entidade; depois dos metadados (só preenche título/data NULL)
+    # à mão (rodada 6): lucros, fontes, cobertura, posição e % do PIB do ranking; depois dos complementos do bruto (gerar_curadoria.py pula
+    # esta etapa no banco temporário, porque gerar_complementos_brasil casa as linhas com o bruto pela posição original)
+    R["ranking_corr"] = curadoria.aplicar_ranking_empresa_correcoes(con) if "ranking_correcoes" not in pular else \
+        {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}
     R["evento_corr"] = curadoria.aplicar_evento_correcoes(con)      # à mão; decisões sobre as ressalvas das evidências adicionais; antes dos temas (leem título/descrição)
     R["relacao_corr"] = curadoria.aplicar_relacao_correcoes(con)
     R["evid_qualidade"] = curadoria.aplicar_evidencia_qualidade(con)   # à mão; revisão do critério 'fraca'; depois de tudo que grava qualidade
@@ -882,7 +900,7 @@ def secoes_curadoria(con, R, w):
     w(f"- Ligações novas em `evento_evidencia`: {fb['ligacoes']} ({fb['sustenta']} `sustenta`, {fb['contexto']} `contexto`).")
     w("- Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): " + ", ".join(f"{r['ano']} ({r['c']})" for r in sem) + ". Ficam sem fonte.")
     w(f"- URLs de `evidencia` agora: {q('SELECT count(*) FROM evidencia')[0][0]} (todas ligadas a alguma coisa; `validar.py` confere).")
-    w(f"- `ranking_empresa.receita_brl_bi`: {comp['receita']} de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; "
+    w(f"- `ranking_empresa.receita_brl_bi`: {comp['receita']} das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; "
       f"conflito de dois valores diferentes: {len(comp['descartes'].get('receita_ambigua', []))}. As outras {comp['descartes'].get('empresas_sem_receita_no_bruto', 0)} linhas têm `receita_liquida_brl_bi` nulo no bruto.")
     w(f"- `mandato.periodo_texto`: {comp['mandato_periodo']} mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: {len(comp['descartes'].get('mandatos_sem_periodo', []))}.")
     w("- **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); "
@@ -1182,6 +1200,71 @@ def secoes_modelo(con, R, w):
         w("| natureza (todos os eventos) | eventos |\n|---|---:|")
         for r in q("SELECT COALESCE(natureza_id,'(NULL)') n, count(*) c FROM evento GROUP BY 1 ORDER BY 1"):
             w(f"| {r['n']} | {r['c']} |")
+
+    # ---------------------------------------------------------------- 23
+    secao_rodada6(con, R, w)
+
+
+def secao_rodada6(con, R, w):
+    """Seção 23: rodada 6 (ranking de empresas, mandatos, fatos novos, correções de texto e fontes)."""
+    q = lambda s, *a: con.execute(s, a).fetchall()
+    rk, ma, ea = R.get("ranking_corr") or {}, R.get("mandatos_adic") or {}, R.get("eventos_adic") or {}
+    if not (rk.get("atualizadas") or rk.get("inseridas") or ma.get("inseridos") or ea.get("inseridos")):
+        return
+    cfg_rk = curadoria.ler_json("ranking-empresa-correcoes.json", {})
+    w("\n## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024\n")
+    w("Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: "
+      + ", ".join(f"`{i}`" for i in R.get("entidades_adicionais", [])) + "), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), "
+      "`mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), "
+      "`evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `\"rodada\": 6` de `evento-correcoes.json`. "
+      "Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); "
+      "`gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.\n")
+    w("### Ranking de empresas\n")
+    w("Base do ranking: lucro líquido em R$ pela legislação societária (BR GAAP); US GAAP/Euromoney em US$ só como fonte de `contexto`. "
+      "Fontes na tabela aditiva `ranking_evidencia` (papel, trecho, nota); `ranking_empresa.evidencia_id` = fonte principal. "
+      "Nos anos tocados, `posicao` e `pct_total` foram recalculados com as regras da carga bruta (conferidas nas 397 linhas de `data/raw/brasil.json`): "
+      "lucros em ordem decrescente e depois os prejuízos do maior para o menor; `pct_total = round(lucro / PIB do ano (macro.pib) * 100, 3)`.\n")
+    w("| ano | cobertura | linhas | inseridas | atualizadas (valor) | só fontes/obs |\n|---|---|---:|---:|---:|---:|")
+    anos = sorted({x["ano"] for x in rk["atualizadas"] + rk["inseridas"]} | {c[0] for c in rk["cobertura"]})
+    for a in anos:
+        cob = q("SELECT DISTINCT cobertura FROM ranking_empresa WHERE ano=?", a)[0][0]
+        mud = next((f"{c[1]} -> {c[2]}" for c in rk["cobertura"] if c[0] == a), cob)
+        at = [x for x in rk["atualizadas"] if x["ano"] == a]
+        w(f"| {a} | {mud} | {q('SELECT count(*) FROM ranking_empresa WHERE ano=?', a)[0][0]} | {sum(1 for x in rk['inseridas'] if x['ano'] == a)} | "
+          f"{sum(1 for x in at if 'lucro_brl_bi' in x['campos'])} | {sum(1 for x in at if 'lucro_brl_bi' not in x['campos'])} |")
+    w("\n| ano | empresa | o que mudou | fonte principal |\n|---|---|---|---|")
+    princ = lambda a, e: q("SELECT v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", a, e)[0][0]
+    for x in sorted(rk["inseridas"] + rk["atualizadas"], key=lambda x: (x["ano"], x["entidade_id"])):
+        if "campos" in x:
+            partes = [f"{k} {v['de']} -> {v['para']}" for k, v in x["campos"].items() if k != "obs"] + (["obs"] if "obs" in x["campos"] else [])
+            o = "; ".join(partes) or "só fontes"
+        else:
+            o = f"**inserida** ({x['lucro_brl_bi']})"
+        w(f"| {x['ano']} | `{x['entidade_id']}` | {o} | {princ(x['ano'], x['entidade_id'])} |")
+    w("\nPosições que mudaram (`entidade`: antes -> depois; as inseridas entram direto na posição final):\n")
+    for a in sorted(rk["posicoes"]):
+        w(f"- {a}: " + ", ".join(f"`{e}` {p0} -> {p1}" for e, p0, p1 in rk["posicoes"][a]))
+    w(f"\n{rk['ligacoes']} ligações em `ranking_evidencia`; {len(rk['evid_novas'])} evidências novas. Lacunas registradas no arquivo: "
+      + " ".join(f"({i + 1}) {t}" for i, t in enumerate(cfg_rk.get("lacunas", []))) + "\n")
+    w("### Lideranças parlamentares (`mandatos-adicionais.json`)\n")
+    mo = R.get("mandato_oficial", {}).get("resumo", {})
+    w("| entidade | cargo | ano | partido/UF | motivo | evidência da linha |\n|---|---|---|---|---|---|")
+    for mid, ent, ini in ma.get("inseridos", []):
+        m = q("SELECT m.*, v.url FROM mandato m LEFT JOIN evidencia v ON v.id=m.evidencia_id WHERE m.id=?", mid)[0]
+        w(f"| `{ent}` | {m['cargo']} | {ini} | {m['partido']}/{m['uf']} | {m['motivo']} | {m['url'] or 'sem API (sem fonte oficial)'} |")
+    w(f"\nCada linha traz a fonte oficial do destaque ligada à relação `mandato:<id>` ({R.get('mandatos_adic_fontes', {}).get('ligacoes', 0)} ligações, "
+      "inclusive na filiação das linhas sem API). Confronto com as APIs (`mandato-oficial.json`): "
+      f"{mo.get('mandatos_no_banco')} linhas, {mo.get('confirmados')} confirmadas, {mo.get('divergentes')} divergentes, {mo.get('sem_fonte_oficial')} sem fonte oficial "
+      "(as linhas de pessoa fora da coleta das APIs entram em `sem_fonte`). Pendências: "
+      + " ".join(f"{p['nome']} ({p['ano']}): {p['motivo']}" for p in curadoria.ler_json("mandatos-adicionais.json", {}).get("pendencias", [])) + "\n")
+    w("### Fatos novos e correções de texto\n")
+    for i in ea.get("inseridos", []):
+        r = q("SELECT titulo, natureza_id, peso, origem_ref FROM evento WHERE id=?", i)[0]
+        w(f"- `{i}` ({r['origem_ref']}, peso {r['peso']}, {r['natureza_id']}): {r['titulo']}")
+    for c in [c for c in curadoria.ler_json("evento-correcoes.json", {}).get("correcoes", []) if c.get("rodada") == 6]:
+        w(f"- correção `{c['evento_id']}` ({c['campo']}): \"{c['de']}\" -> \"{c['para']}\"")
+    w("\nBancadas: não alteradas (a tabela acadêmica da Câmara não substitui a carga; o snapshot oficial do Senado em 2000 traz blocos, não os 81 nomes; "
+      "não há linhas de bancada do Senado 1995-1998 no banco e a aproximação da pesquisa não foi usada).\n")
 
 
 def tokens(s):

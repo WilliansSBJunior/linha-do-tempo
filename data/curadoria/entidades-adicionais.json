@@ -1,0 +1,30 @@
+{
+ "_doc": "Rodada 6 (18/10/2026): entidades que a curadoria precisa e que a carga bruta não cria. Aplicado por migrar.py (mesmo ponto e mesmo mecanismo das `entidades_novas` de dossie-entidades.json): cria a entidade (origem 'manual', origem_ref 'curadoria:entidades-adicionais.json') e um alias com o nome e cada item de `aliases`; aborta se o id já existe. Fora da teia (categoria NULL); o tema vem das tabelas que as usam (ranking_empresa, mandato -> brasil-ano-a-ano).",
+ "entidades": [
+  {
+   "id": "souza-cruz",
+   "nome": "Souza Cruz",
+   "tipo": "empresa",
+   "descricao": "Fabricante de cigarros controlada pela British American Tobacco; no ranking de lucros de 1995 e 1996 (Folha de S.Paulo, 1/2/1997).",
+   "aliases": [],
+   "motivo": "ranking-empresa-correcoes.json: lucros de 1995 (R$ 210 mi) e 1996 (R$ 204 mi), Folha de S.Paulo."
+  },
+  {
+   "id": "brahma",
+   "nome": "Brahma",
+   "tipo": "empresa",
+   "descricao": "Companhia Cervejaria Brahma; em 1999 juntou-se à Antarctica para formar a AmBev (entidade `ambev`, no ranking a partir de 2000). Fica como entidade própria porque o ranking não usa `ambev` com nome de época antes de 1999.",
+   "aliases": ["Companhia Cervejaria Brahma"],
+   "motivo": "ranking-empresa-correcoes.json: lucro de 1997 (R$ 469 mi), Folha de S.Paulo, 19/2/1998."
+  },
+  {
+   "id": "elcio-alvares",
+   "nome": "Élcio Álvares",
+   "tipo": "pessoa",
+   "uf": "ES",
+   "descricao": "Senador pelo PFL do Espírito Santo (1991-1999), líder do governo Fernando Henrique Cardoso no Senado; depois ministro da Defesa.",
+   "aliases": ["Elcio Alvares"],
+   "motivo": "mandatos-adicionais.json: líder do governo no Senado em 1995 e 1998 (pronunciamentos 173063 e 233044 do Senado)."
+  }
+ ]
+}

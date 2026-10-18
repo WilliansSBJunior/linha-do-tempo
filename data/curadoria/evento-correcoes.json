@@ -666,6 +666,39 @@
    "ressalvas": [],
    "rodada": 4,
    "fonte_url": "https://agenciabrasil.ebc.com.br/geral/noticia/2014-03/policia-federal-prende-ex-diretor-da-petrobras-suspeito-de-lavagem-de-dinheiro"
+  },
+  {
+   "evento_id": "ev-2012-rio-20-reune-88-chefes-de-estado-e-de",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "realizada de 13 a 22 de junho de 2012 no Rio de Janeiro",
+   "para": "realizada no Rio de Janeiro de 20 a 22 de junho de 2012 (precedida pela reunião preparatória de 13 a 15/6)",
+   "motivo": "Rodada 6 (intl_2024.json, decisoes.rio20): 13-22/6 é o intervalo total; a Conferência abriu em 20/6 e encerrou em 22/6, depois da 3ª PrepCom (13-15/6) (Earth Negotiations Bulletin; un.org: '20-22 June 2012').",
+   "ressalvas": [],
+   "rodada": 6,
+   "fonte_url": "https://enb.iisd.org/events/uncsd-rio20/summary-report-13-22-june-2012"
+  },
+  {
+   "evento_id": "ev-1997-novas-mesas-da-camara-e-do-senado",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Em fevereiro de 1997 Michel Temer (PMDB-SP) assume a presidência da Câmara, no lugar de Luís Eduardo Magalhães, e Antonio Carlos Magalhães (PFL-BA) a do Senado, eleito com 52 votos, no lugar de José Sarney.",
+   "para": "Em 4/2/1997 Antonio Carlos Magalhães (PFL-BA) é eleito presidente do Senado com 52 votos, no lugar de José Sarney, e em 5/2 Michel Temer (PMDB-SP) é eleito presidente da Câmara com 257 votos, no lugar de Luís Eduardo Magalhães.",
+   "motivo": "Rodada 6 (intl_2024.json, decisoes.mesas_1997): Folha de 6/2/1997 ('eleito ontem presidente da Câmara com 257 votos'); 4/FEV e 52 votos de ACM na página da Agência Senado já ligada (relida em 18/10/2026).",
+   "ressalvas": [],
+   "rodada": 6,
+   "fonte_url": "https://www1.folha.uol.com.br/fsp/1997/2/06/brasil/7.html"
+  },
+  {
+   "evento_id": "ev-1999-reeleicao-de-temer-e-antonio-carlos",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "Em 1/2/1999 Michel Temer (PMDB-SP) é reeleito presidente da Câmara e Antonio Carlos Magalhães (PFL-BA), presidente do Senado, este com 70 votos.",
+   "para": "Em 1/2/1999 Antonio Carlos Magalhães (PFL-BA) é reeleito presidente do Senado com 70 votos e, em 2/2, Michel Temer (PMDB-SP) é reeleito presidente da Câmara, como candidato único, com 422 votos.",
+   "motivo": "Rodada 6 (intl_2024.json, decisoes.mesas_1999): Folha de 3/2/1999 ('reeleito ontem'; candidato único; 422 votos a favor, 4 nulos e 66 em branco): Temer foi reeleito em 2/2, não em 1/2; ACM em 1/2 com 70 votos (Agência Senado, já ligada).",
+   "ressalvas": [],
+   "rodada": 6,
+   "fonte_url": "https://www1.folha.uol.com.br/fsp/brasil/fc03029902.htm"
   }
  ],
  "ressalvas_mantidas_com_nota": {

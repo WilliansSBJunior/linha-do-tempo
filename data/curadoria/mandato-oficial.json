@@ -3863,6 +3863,25 @@
   {
    "entidade_id": "jose-roberto-arruda",
    "cargo": "senador",
+   "inicio": "1999",
+   "casa": "senado",
+   "confirmacao": "legislatura",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/46",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": null,
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "DF",
+    "oficial": "DF",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jose-roberto-arruda",
+   "cargo": "senador",
    "inicio": "2000",
    "casa": "senado",
    "confirmacao": "legislatura",
@@ -4154,6 +4173,25 @@
     "banco": "GO",
     "oficial": "GO",
     "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "jutahy-junior",
+   "cargo": "deputado",
+   "inicio": "2001",
+   "casa": "camara",
+   "confirmacao": "legislatura",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74570",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "PSDB",
+    "resultado": "igual"
+   },
+   "uf": {
+    "banco": null,
+    "oficial": "BA",
+    "resultado": "complemento"
    }
   },
   {
@@ -5674,6 +5712,44 @@
   {
    "entidade_id": "romero-juca",
    "cargo": "senador",
+   "inicio": "2001",
+   "casa": "senado",
+   "confirmacao": "legislatura",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "MDB",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "inicio": "2002",
+   "casa": "senado",
+   "confirmacao": "legislatura",
+   "legislatura": 51,
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/73",
+   "partido": {
+    "banco": "PSDB",
+    "oficial": "MDB",
+    "resultado": "historico"
+   },
+   "uf": {
+    "banco": "RR",
+    "oficial": "RR",
+    "resultado": "igual"
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
    "inicio": "2006",
    "casa": "senado",
    "confirmacao": "legislatura",
@@ -6158,7 +6234,17 @@
    }
   }
  ],
- "complementos": [],
+ "complementos": [
+  {
+   "entidade_id": "jutahy-junior",
+   "cargo": "deputado",
+   "inicio": "2001",
+   "campo": "uf",
+   "valor": "BA",
+   "legislatura": 51,
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados/74570"
+  }
+ ],
  "divergencias": [
   {
    "entidade_id": "davi-alcolumbre",
@@ -6189,6 +6275,18 @@
    "cargo": "presidente",
    "inicio": "2011",
    "motivo": "sem página oficial pública das presidências na coleta de 2026-10-17: presidentes_republica (indisponivel: não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404); vice_presidentes (indisponivel: não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também)"
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "inicio": "1995",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "inicio": "1998",
+   "motivo": "pessoa fora da coleta das APIs de 2026-10-17 (linha de mandatos-adicionais.json, entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"
   },
   {
    "entidade_id": "fernando-henrique-cardoso",
@@ -6253,16 +6351,16 @@
  ],
  "nao_encontrados": [],
  "resumo": {
-  "mandatos_no_banco": 311,
-  "confirmados": 298,
+  "mandatos_no_banco": 317,
+  "confirmados": 302,
   "confirmados_por_tipo": {
-   "legislatura": 266,
+   "legislatura": 270,
    "eleicao": 4,
    "pagina": 28
   },
-  "complementados": 0,
+  "complementados": 1,
   "divergentes": 2,
-  "sem_fonte_oficial": 11,
+  "sem_fonte_oficial": 13,
   "confirmados_com_evidencia_previa": 0,
   "divergencias_registradas": 2
  }

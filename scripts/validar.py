@@ -128,6 +128,7 @@ def orfaos(con):
                   AND NOT EXISTS (SELECT 1 FROM evento_evidencia x WHERE x.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM serie s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM ranking_empresa s WHERE s.evidencia_id=e.id)
+                  AND NOT EXISTS (SELECT 1 FROM ranking_evidencia s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM dossie_par_evidencia s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM mandato s WHERE s.evidencia_id=e.id)
                   AND NOT EXISTS (SELECT 1 FROM fonte s WHERE s.evidencia_id=e.id)
@@ -462,11 +463,16 @@ def _rodada5():
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
+def _rodada6():
+    p = CURADORIA / "evidencias-rodada6.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
 def _evidencias_adicionais():
-    """Entradas de evidencias-adicionais.json seguidas das `evidencias` de evidencias-rodada3.json, de substituicoes-rodada4.json e de
-    evidencias-rodada5.json (mesma lista que curadoria.ler_evidencias_adicionais aplica; lida aqui de forma independente)."""
+    """Entradas de evidencias-adicionais.json seguidas das `evidencias` de evidencias-rodada3.json, de substituicoes-rodada4.json, de
+    evidencias-rodada5.json e de evidencias-rodada6.json (mesma lista que curadoria.ler_evidencias_adicionais aplica; lida aqui de forma independente)."""
     return (json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")) + _rodada3().get("evidencias", [])
-            + _rodada4().get("evidencias", []) + _rodada5().get("evidencias", []))
+            + _rodada4().get("evidencias", []) + _rodada5().get("evidencias", []) + _rodada6().get("evidencias", []))
 
 
 def _subst_por(e):
@@ -556,7 +562,7 @@ def rodada4(con):
     ent = cfg.get("evidencias", [])
     todas = _evidencias_adicionais()
     r5 = _rodada5().get("evidencias", [])
-    base = len(todas) - len(ent) - len(r5)   # a rodada 5 vem depois da 4 na lista
+    base = len(todas) - len(ent) - len(r5) - len(_rodada6().get("evidencias", []))   # as rodadas 5 e 6 vêm depois da 4 na lista
     rep = {i - base: c for i, c in _repeticoes_rodada4(todas).items() if base <= i < base + len(ent)}
     esperar("substituicoes-rodada4.json: toda entrada tem \"rodada\": 4, `substitui` e qualidade boa",
             sum(1 for e in ent if e.get("rodada") == 4 and e.get("substitui") and e.get("qualidade") == "boa"), len(ent))
@@ -684,7 +690,7 @@ def rodada5(con):
     secao("Rodada 5 (evidencias-rodada5.json aplicada: últimas lacunas de fonte)")
     ent = cfg.get("evidencias", [])
     todas = _evidencias_adicionais()
-    anteriores = todas[:len(todas) - len(ent)]
+    anteriores = todas[:len(todas) - len(ent) - len(_rodada6().get("evidencias", []))]   # entradas antes da rodada 5 (a rodada 6 vem depois)
     esperar("evidencias-rodada5.json: toda entrada tem \"rodada\": 5 e qualidade boa",
             sum(1 for e in ent if e.get("rodada") == 5 and e.get("qualidade") == "boa"), len(ent))
     subs = [e for e in ent if e.get("substitui")]
@@ -733,6 +739,167 @@ def rodada5(con):
     esperar("ligações com qualidade 'fraca' no banco depois da rodada 5", nf, 0)
     p = DATA / "relatorio-evidencias-adicionais.md"
     esperar("relatorio-evidencias-adicionais.md tem a seção Rodada 5", "## Rodada 5" in p.read_text(encoding="utf-8"), True)
+
+
+def _json_curadoria(nome):
+    p = CURADORIA / nome
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
+def rodada6(con, exp):
+    """Rodada 6: ranking-empresa-correcoes.json, mandatos-adicionais.json, eventos-adicionais.json, entidades-adicionais.json e
+    evidencias-rodada6.json contra o banco (as entradas de evidencias-rodada6.json também passam por evidencias_adicionais). Regras do ranking
+    conferidas em TODAS as linhas (não só nas tocadas), reimplementadas aqui: posição contígua 1..n por ano, lucros em ordem decrescente e depois
+    os prejuízos do maior para o menor; pct_total = round(lucro / PIB do ano * 100, 3)."""
+    rk, ma, ea, en, r6 = (_json_curadoria(n) for n in ("ranking-empresa-correcoes.json", "mandatos-adicionais.json", "eventos-adicionais.json",
+                                                         "entidades-adicionais.json", "evidencias-rodada6.json"))
+    if not (rk or ma or ea or en or r6):
+        return
+    secao("Rodada 6 (ranking-empresa-correcoes, mandatos-adicionais, eventos-adicionais, entidades-adicionais, evidencias-rodada6)")
+    # ---- entidades
+    ruins = [n["id"] for n in en.get("entidades", []) if [tuple(r) for r in q(con, "SELECT nome, tipo, origem, origem_ref FROM entidade WHERE id=?", n["id"])]
+             != [(n["nome"], n["tipo"], "manual", "curadoria:entidades-adicionais.json")]]
+    esperar("entidades-adicionais.json: entidades no banco com nome/tipo/origem do arquivo (divergências)", ruins, [])
+    # ---- ranking: regras em todas as linhas
+    pib = {r[0]: r[1] for r in q(con, "SELECT ano, valor FROM serie WHERE indicador_id='macro.pib' AND dimensao=''")}
+    pos_ruins, pct_ruins = [], []
+    for a in [r[0] for r in q(con, "SELECT DISTINCT ano FROM ranking_empresa ORDER BY ano")]:
+        rs = q(con, "SELECT entidade_id, lucro_brl_bi, posicao, pct_total FROM ranking_empresa WHERE ano=? ORDER BY posicao", a)
+        if [r["posicao"] for r in rs] != list(range(1, len(rs) + 1)):
+            pos_ruins.append(f"{a}: posições {[r['posicao'] for r in rs]}")
+        luc = [r["lucro_brl_bi"] for r in rs]
+        pos_, neg_ = [x for x in luc if x >= 0], [x for x in luc if x < 0]
+        if luc != sorted(pos_, reverse=True) + sorted(neg_):
+            pos_ruins.append(f"{a}: ordem dos lucros {luc}")
+        pct_ruins += [f"{a}/{r['entidade_id']}: {r['pct_total']} != {round(r['lucro_brl_bi'] / pib[a] * 100, 3)}" for r in rs
+                      if r["pct_total"] != round(r["lucro_brl_bi"] / pib[a] * 100, 3)]
+    esperar("ranking_empresa: posição contígua 1..n por ano e na regra da carga bruta (lucros decrescentes, depois prejuízos do maior ao menor)", pos_ruins, [])
+    esperar("ranking_empresa: pct_total == round(lucro / PIB do ano * 100, 3) em todas as linhas", pct_ruins[:10], [])
+    esperar("ranking_empresa: cobertura uniforme por ano", [r[0] for r in q(con, "SELECT ano FROM ranking_empresa GROUP BY ano HAVING count(DISTINCT cobertura) > 1")], [])
+    # ---- ranking: arquivo == banco
+    ruins, esperado_lig = [], 0
+
+    def lig(ano, ent, url):
+        return q(con, """SELECT x.papel, x.trecho_citado, x.nota FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
+                         WHERE x.ano=? AND x.entidade_id=? AND v.url=?""", ano, ent, normalizar_url(url))
+
+    def principal(ano, ent):
+        r = q(con, "SELECT v.url, v.tipo FROM ranking_empresa k LEFT JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", ano, ent)
+        return (r[0]["url"], r[0]["tipo"]) if r else (None, None)
+    for c in rk.get("cobertura", []):
+        if {r[0] for r in q(con, "SELECT cobertura FROM ranking_empresa WHERE ano=?", c["ano"])} != {c["para"]}:
+            ruins.append(f"cobertura {c['ano']} != {c['para']}")
+    for x in rk.get("atualizar", []) + rk.get("inserir", []):
+        a, e = x["ano"], x["entidade_id"]
+        row = q(con, "SELECT * FROM ranking_empresa WHERE ano=? AND entidade_id=?", a, e)
+        if not row:
+            ruins.append(f"{a}/{e}: linha ausente")
+            continue
+        row = row[0]
+        campos = {k: v["para"] for k, v in x["campos"].items()} if "campos" in x else \
+            {k: x[k] for k in ("lucro_brl_bi", "setor", "setor_k", "controle", "holding", "derivado", "obs")}
+        for k, v in campos.items():
+            if row[k] != v:
+                ruins.append(f"{a}/{e}: {k} = {row[k]!r} != {v!r}")
+        for f in x["fontes"]:
+            esperado_lig += 1
+            l = lig(a, e, f["url"])
+            if [tuple(r) for r in l] != [(f["papel"], f["trecho"], f.get("nota") or None)]:
+                ruins.append(f"{a}/{e}: fonte {f['url']} {[tuple(r) for r in l]}")
+            if f.get("principal") and principal(a, e)[0] != normalizar_url(f["url"]):
+                ruins.append(f"{a}/{e}: principal != {f['url']}")
+        if x.get("anterior"):
+            esperado_lig += 1
+            l = lig(a, e, x["anterior"]["url"])
+            if [tuple(r) for r in l] != [(x["anterior"]["papel"], x["anterior"].get("trecho"), x["anterior"].get("nota"))]:
+                ruins.append(f"{a}/{e}: anterior {x['anterior']['url']} {[tuple(r) for r in l]}")
+        if any(f.get("principal") for f in x["fontes"]) and _eh_wiki(principal(a, e)[1], principal(a, e)[0]):
+            ruins.append(f"{a}/{e}: fonte principal é Wikipédia")
+        if "campos" not in x:   # inserida: cobertura do ano e nome da época
+            if x.get("nome_epoca") and not q(con, "SELECT 1 FROM nota WHERE pagina='brasil' AND tipo='aviso' AND chave=? AND texto=?", f"Y.{a}.empresa.{e}", x["nome_epoca"]):
+                ruins.append(f"{a}/{e}: nome_epoca sem nota")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("ranking-empresa-correcoes.json == banco (campos, cobertura, fontes, principal, anterior, nome da época; divergências)", len(ruins), 0)
+    esperar("ranking_evidencia: ligações == fontes + anteriores do arquivo", q(con, "SELECT count(*) FROM ranking_evidencia")[0][0], esperado_lig)
+    esperar("ranking: linha com fonte `sustenta` em ranking_evidencia e sem evidencia_id (fonte principal)",
+            q(con, "SELECT count(*) FROM ranking_empresa k WHERE k.evidencia_id IS NULL AND EXISTS (SELECT 1 FROM ranking_evidencia x WHERE x.ano=k.ano AND x.entidade_id=k.entidade_id AND x.papel='sustenta')")[0][0], 0)
+    esperar("ranking: linhas sem fonte principal (evidencia_id NULL)", q(con, "SELECT count(*) FROM ranking_empresa WHERE evidencia_id IS NULL")[0][0], 0)
+    s = exp["series.json"]
+    n_exp = {(r["ano"], r["entidade_id"]): r for r in s["ranking_empresa"]}
+    esperar("series.json: ranking_empresa == linhas do banco", len(n_exp), q(con, "SELECT count(*) FROM ranking_empresa")[0][0])
+    esperar("series.json: linhas inseridas exportadas com a fonte principal",
+            [f"{x['ano']}/{x['entidade_id']}" for x in rk.get("inserir", []) if n_exp.get((x["ano"], x["entidade_id"]), {}).get("evidencia")
+             != normalizar_url(next(f["url"] for f in x["fontes"] if f.get("principal")))], [])
+    # ---- mandatos adicionais
+    mo = _json_curadoria("mandato-oficial.json")
+    sem_fonte = {(x["entidade_id"], x["cargo"], x["inicio"]) for x in mo.get("sem_fonte", [])}
+    conf = {(x["entidade_id"], x["cargo"], x["inicio"]) for x in mo.get("confirmacoes", [])}
+    ruins = []
+    for m in ma.get("mandatos", []):
+        k = (m["entidade_id"], m["cargo"], m["inicio"])
+        row = q(con, "SELECT * FROM mandato WHERE entidade_id=? AND cargo=? AND inicio=?", *k)
+        if len(row) != 1:
+            ruins.append(f"{k}: {len(row)} linhas")
+            continue
+        row = row[0]
+        for c in ("orgao_id", "partido", "motivo"):
+            if row[c] != m.get(c):
+                ruins.append(f"{k}: {c} {row[c]!r} != {m.get(c)!r}")
+        if m.get("uf") is not None and row["uf"] != m["uf"]:
+            ruins.append(f"{k}: uf {row['uf']!r} != {m['uf']!r}")
+        if row["fim"] != m["inicio"] or row["votos"] is not None:
+            ruins.append(f"{k}: fim/votos")
+        if (k in conf) == (k in sem_fonte):
+            ruins.append(f"{k}: tem de estar em confirmacoes OU em sem_fonte de mandato-oficial.json")
+        if (row["evidencia_id"] is not None) != (k in conf):
+            ruins.append(f"{k}: evidencia_id só na linha confirmada pela API")
+        l = q(con, """SELECT x.papel, x.qualidade, x.trecho_citado FROM relacao_evidencia x JOIN relacao r ON r.id=x.relacao_id JOIN evidencia v ON v.id=x.evidencia_id
+                      WHERE r.origem='linha_do_tempo' AND r.origem_ref=? AND v.url=?""", f"mandato:{row['id']}", normalizar_url(m["fonte"]["url"]))
+        if [tuple(r) for r in l] != [("sustenta", "boa", m["fonte"]["trecho"])]:
+            ruins.append(f"{k}: fonte do destaque não ligada à relação mandato:{row['id']}")
+        if row["evidencia_id"] is None and not q(con, """SELECT 1 FROM relacao_evidencia x JOIN relacao r ON r.id=x.relacao_id JOIN evidencia v ON v.id=x.evidencia_id
+                      WHERE r.subtipo='filiacao' AND r.de=? AND v.url=? AND x.nota=?""", m["entidade_id"], normalizar_url(m["fonte"]["url"]), m.get("nota_partido")):
+            ruins.append(f"{k}: linha sem API e filiação sem a fonte do destaque")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("mandatos-adicionais.json == banco (campos, fonte na relação, API x sem fonte oficial; divergências)", len(ruins), 0)
+    print(f"  info: mandatos adicionais: {len(ma.get('mandatos', []))} ({sum(1 for m in ma.get('mandatos', []) if (m['entidade_id'], m['cargo'], m['inicio']) in conf)} confirmados pela API, "
+          f"{sum(1 for m in ma.get('mandatos', []) if (m['entidade_id'], m['cargo'], m['inicio']) in sem_fonte)} sem fonte oficial de API); pendências: {len(ma.get('pendencias', []))}")
+    # ---- eventos adicionais
+    ruins = []
+    ev_exp = {e["id"]: e for e in s["eventos"]}
+    for e in ea.get("eventos", []):
+        row = q(con, "SELECT * FROM evento WHERE id=?", e["id"])
+        if not row:
+            ruins.append(f"{e['id']}: ausente")
+            continue
+        row = row[0]
+        if (row["titulo"], row["descricao"], row["peso"], row["canal"], row["origem"], row["origem_ref"], row["data"]) != \
+                (e["titulo"], e["descricao"], e["peso"], "brasil", "manual", f"Y[{e['ano']}].{e['secao']}.eventos[{e['ordem']}]", str(e["ano"])):
+            ruins.append(f"{e['id']}: campos diferem do arquivo")
+        if row["natureza_id"] is None:
+            ruins.append(f"{e['id']}: sem natureza")
+        if not q(con, "SELECT 1 FROM evento_evidencia WHERE evento_id=? AND papel='sustenta'", e["id"]):
+            ruins.append(f"{e['id']}: sem fonte `sustenta`")
+        x = ev_exp.get(e["id"])
+        if not x or (x["secao"], x["ordem"], x["ano"]) != (e["secao"], e["ordem"], e["ano"]):
+            ruins.append(f"{e['id']}: series.json sem o fato ou com seção/ordem diferentes")
+    esperar("eventos-adicionais.json == banco e series.json, com natureza e fonte `sustenta` (divergências)", ruins, [])
+    # ---- correções de texto da rodada 6 e fontes da rodada 6
+    ruins = []
+    for c in [c for c in _json_curadoria("evento-correcoes.json").get("correcoes", []) if c.get("rodada") == 6]:
+        v = q(con, f"SELECT {c['campo']} FROM evento WHERE id=?", c["evento_id"])[0][0]
+        if c["para"] not in v or c["de"] in v:
+            ruins.append(f"{c['evento_id']}.{c['campo']}")
+    esperar("evento-correcoes.json (rodada 6): `para` no banco e `de` não", ruins, [])
+    ent = r6.get("evidencias", [])
+    esperar("evidencias-rodada6.json: toda entrada com \"rodada\": 6, qualidade boa e sem `substitui`",
+            sum(1 for e in ent if e.get("rodada") == 6 and e.get("qualidade") == "boa" and not e.get("substitui")), len(ent))
+    sem = [e["id"] for e in ea.get("eventos", []) if e["id"] not in {x["evento_id"] for x in ent if x["alvo_tipo"] == "evento"}]
+    esperar("eventos-adicionais: todo fato novo tem fonte em evidencias-rodada6.json", sem, [])
+    for nome, sec in (("relatorio-evidencias-adicionais.md", "## Rodada 6"), ("relatorio-migracao.md", "Rodada 6")):
+        esperar(f"{nome} tem a seção da rodada 6", sec in (DATA / nome).read_text(encoding="utf-8"), True)
 
 
 def rodada3(con):
@@ -1567,6 +1734,7 @@ def main():
     rodada3(con)
     rodada4(con)
     rodada5(con)
+    rodada6(con, exp)
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)

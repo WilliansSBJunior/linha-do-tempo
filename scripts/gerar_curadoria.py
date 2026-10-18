@@ -33,7 +33,8 @@ def main():
     brasil = json.loads((RAW / "brasil.json").read_text(encoding="utf-8"))
     with tempfile.TemporaryDirectory() as t:
         db = Path(t) / "gerar.sqlite"
-        migrar.main(destino=db, pular={"natureza", "ligacoes", "fontes_brasil", "complementos", "mandato_oficial"}, escrever=False)
+        # ranking_correcoes: gerar_complementos_brasil casa ranking_empresa com o bruto pela posição original (a rodada 6 muda posições e lucros)
+        migrar.main(destino=db, pular={"natureza", "ligacoes", "fontes_brasil", "complementos", "mandato_oficial", "ranking_correcoes"}, escrever=False)
         con = conectar(db)
         if "fontes" in quais:
             fontes, sem = curadoria.gerar_fontes_brasil(con, bruto)

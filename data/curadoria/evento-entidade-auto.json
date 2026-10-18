@@ -121,18 +121,6 @@
     "alias": "Senado"
    },
    {
-    "id": "michel-temer",
-    "alias": "Michel Temer"
-   },
-   {
-    "id": "mdb",
-    "alias": "PMDB"
-   },
-   {
-    "id": "luis-eduardo-magalhaes",
-    "alias": "Luís Eduardo Magalhães"
-   },
-   {
     "id": "antonio-carlos-magalhaes",
     "alias": "Antonio Carlos Magalhães"
    },
@@ -143,6 +131,18 @@
    {
     "id": "jose-sarney",
     "alias": "José Sarney"
+   },
+   {
+    "id": "michel-temer",
+    "alias": "Michel Temer"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "luis-eduardo-magalhaes",
+    "alias": "Luís Eduardo Magalhães"
    }
   ],
   "papel": "citado"
@@ -239,20 +239,20 @@
     "alias": "Antonio Carlos Magalhães"
    },
    {
-    "id": "mdb",
-    "alias": "PMDB"
-   },
-   {
-    "id": "camara-dos-deputados",
-    "alias": "Câmara"
-   },
-   {
     "id": "dem",
     "alias": "PFL"
    },
    {
     "id": "senado-federal",
     "alias": "Senado"
+   },
+   {
+    "id": "mdb",
+    "alias": "PMDB"
+   },
+   {
+    "id": "camara-dos-deputados",
+    "alias": "Câmara"
    }
   ],
   "papel": "citado"

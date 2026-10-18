@@ -1,0 +1,121 @@
+{
+ "_doc": "Rodada 6 (18/10/2026): parlamentares em destaque (linha `mandato` de um ano, cargo senador/deputado, com `motivo`) que a carga bruta não traz, cada um com a fonte oficial própria do destaque. mandato-correcoes.json só corrige linhas existentes; este arquivo só acrescenta. Aplicado em duas etapas: curadoria.aplicar_mandatos_adicionais insere as linhas (ids depois dos da carga bruta, na ordem do arquivo) logo depois de mandato-correcoes e ANTES do confronto com as APIs (aplicar_mandato_oficial; o gerador de mandato-oficial.json as vê, preenche a evidência da API onde a pessoa consta e o partido/UF onde a linha deixou NULL) e de gerar_relacoes_mandato; curadoria.ligar_fontes_mandatos_adicionais liga `fonte` (evidência oficial do Senado/da Câmara, papel `sustenta`, qualidade `boa`, trecho e nota) à relação `mandato:<id>`, sem tocar `mandato.evidencia_id` (reservada à confirmação pelas APIs/páginas das presidências, que o validar.py confere). Aborta se a entidade ou o órgão não existem, se a linha (entidade, cargo, início) já existe ou se o cargo não é senador/deputado. Uma pessoa sem registro na coleta das APIs (data/raw/oficial, congelado) entra em `sem_fonte` de mandato-oficial.json com esse motivo.",
+ "mandatos": [
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PFL",
+   "uf": "ES",
+   "inicio": "1995",
+   "motivo": "Líder do governo FHC no Senado",
+   "nota_partido": "PFL no cabeçalho do discurso ('Elcio Alvares (PFL-ES)') e na página oficial 'Senadores da 50ª Legislatura' do Senado.",
+   "fonte": {
+    "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/173063",
+    "veiculo": "Senado Federal (www25.senado.leg.br)",
+    "tipo": "documento_oficial",
+    "titulo": "Discurso de Elcio Alvares (PFL-ES), DCN2 16/08/1995 p.13934",
+    "data": "1995-08-15",
+    "trecho": "em nome da Liderança do Governo, registrar o mais vivo júbilo pela indicação do eminente Senador Fernando Bezerra",
+    "nota": "Prova mais antiga aberta: 15/8/1995 (Suplicy, em aparte: 'como Líder do Governo, V. Exª...'). A data exata da posse na liderança (provavelmente fev-mar/1995) não foi encontrada. Partido PFL pela página oficial 'Senadores da 50ª Legislatura por partido' e pelo cabeçalho do discurso."
+   }
+  },
+  {
+   "entidade_id": "elcio-alvares",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PFL",
+   "uf": "ES",
+   "inicio": "1998",
+   "motivo": "Líder do governo FHC no Senado (desde o primeiro ano do mandato de FHC)",
+   "nota_partido": "Este discurso não traz o partido: PFL vem da página oficial 'Senadores da 50ª Legislatura' do Senado (Élcio listado no PFL).",
+   "fonte": {
+    "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/233044",
+    "veiculo": "Senado Federal (www25.senado.leg.br)",
+    "tipo": "documento_oficial",
+    "titulo": "Homenagem de pesar pelo falecimento do Senador Vilson Kleinübing (Elcio Alvares, 27/10/1998)",
+    "data": "1998-10-27",
+    "trecho": "Quando tive oportunidade de ser convidado pelo Presidente Fernando Henrique Cardoso para exercer a Liderança do Governo",
+    "nota": "Fala de 27/10/1998, em retrospecto. Perfil oficial (perfil/18): mandato 1991-1999, exercício encerrado em 31/12/1998. ACM, em 4/10/1999 (pronunciamento 250939), lembra que perdeu a eleição ao governo do ES 'mesmo como Líder do Governo'. O fim exato da liderança não foi encontrado. 1996 e 1997 ficam sem linha: não há prova própria desses anos."
+   }
+  },
+  {
+   "entidade_id": "jose-roberto-arruda",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PSDB",
+   "uf": "DF",
+   "inicio": "1999",
+   "motivo": "Líder do governo no Senado a partir de 3/8/1999",
+   "fonte": {
+    "url": "https://www25.senado.leg.br/web/senadores/senador/-/perfil/46",
+    "veiculo": "Senado Federal (www25.senado.leg.br)",
+    "tipo": "documento_oficial",
+    "titulo": "Perfil oficial do Senador José Roberto Arruda (Outras Informações)",
+    "data": null,
+    "trecho": "Líder do Governo, no Senado Federal, entre 03/08/1999 e 24/05/2001.",
+    "nota": "Quem liderou o governo no Senado entre jan/1999 (fim do exercício de Élcio Álvares) e 3/8/1999 não foi encontrado. As linhas de 2000 e 2001 já existiam (o mesmo perfil foi ligado a elas em evidencias-rodada6.json). Partido PSDB pelo Relatório da Presidência 2000."
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PSDB",
+   "uf": "RR",
+   "inicio": "2001",
+   "motivo": "Líder do governo FHC no Senado, depois da saída de José Roberto Arruda (24/5/2001)",
+   "fonte": {
+    "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/316565",
+    "veiculo": "Senado Federal (www25.senado.leg.br)",
+    "tipo": "documento_oficial",
+    "titulo": "Pronunciamento de Romero Jucá em 01/08/2001 (cabeçalho \"PSDB/RR\")",
+    "data": "2001-08-01",
+    "trecho": "como Líder do Governo e Senador pelo Estado de Roraima",
+    "nota": "O início exato (entre 24/5 e 1/8/2001) não foi encontrado. Em 2000 era vice-líder do governo (Relatório da Presidência 2000)."
+   }
+  },
+  {
+   "entidade_id": "romero-juca",
+   "cargo": "senador",
+   "orgao_id": "senado-federal",
+   "partido": "PSDB",
+   "uf": "RR",
+   "inicio": "2002",
+   "motivo": "Líder do governo FHC no Senado (dois anos na liderança, segundo ele próprio)",
+   "fonte": {
+    "url": "https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/330035",
+    "veiculo": "Senado Federal (www25.senado.leg.br)",
+    "tipo": "documento_oficial",
+    "titulo": "Pronunciamento de Romero Jucá em 18/02/2003",
+    "data": "2003-02-18",
+    "trecho": "Fui Líder do Governo Fernando Henrique, nesta Casa, com muita honra durante dois anos",
+    "nota": "Fala de 18/2/2003, em retrospecto; o fim provável é dez/2002-jan/2003 (não datado). O partido em 2003 não foi verificado."
+   }
+  },
+  {
+   "entidade_id": "jutahy-junior",
+   "cargo": "deputado",
+   "orgao_id": "camara-dos-deputados",
+   "partido": "PSDB",
+   "uf": null,
+   "inicio": "2001",
+   "motivo": "Líder do PSDB (Bloco PSDB/PTB) na Câmara a partir de 21/2/2001, no lugar de Aécio Neves",
+   "fonte": {
+    "url": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD21FEV2001.pdf",
+    "veiculo": "Diário da Câmara dos Deputados",
+    "tipo": "documento_oficial",
+    "titulo": "Diário da Câmara dos Deputados, 21/02/2001",
+    "data": "2001-02-21",
+    "trecho": "para exercer a Liderança do Bloco PSDB/PTB a partir desta data",
+    "nota": "No índice do mesmo Diário: 'Assunção, pelo orador, do cargo de Líder do PSDB'. A UF não consta no trecho aberto: fica NULL aqui e o confronto com a API da Câmara (mandato-oficial.json, `complementos`) a preenche."
+   }
+  }
+ ],
+ "pendencias": [
+  {"nome": "Walter Pinheiro", "casa": "camara", "ano": 2001, "motivo": "Líder do PT na Câmara a partir de 21/2/2001 (Diário da Câmara de 21/2/2001: 'Assunção do orador ao cargo de Líder da bancada do Partido dos Trabalhadores', sucedendo Aloizio Mercadante). Não há entidade no banco e o Diário não traz a UF: não foi criada (a regra pede UF e partido da própria fonte)."},
+  {"nome": "Élcio Álvares", "casa": "senado", "ano": "1996-1997", "motivo": "Liderança contínua provável (1995-1998), mas sem prova própria desses anos: sem linha."},
+  {"nome": "José Roberto Arruda", "casa": "senado", "ano": "1995-1998", "motivo": "'2º Vice-Líder do Governo' (perfil/46, 20/3/1995 a 31/1/1999) não é destaque: sem linha."},
+  {"nome": "(mais votado de 1998)", "casa": "camara", "ano": 1998, "motivo": "Não encontrado. Enéas refutado (a API da Câmara não o lista na 51ª legislatura; concorreu à Presidência em 1998); a Folha de 8/11/1998 só traz o partido mais votado (PFL, 10,863 milhões). Nada inserido."}
+ ]
+}

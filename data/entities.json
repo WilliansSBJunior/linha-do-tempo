@@ -4416,6 +4416,26 @@
    ]
   },
   {
+   "id": "brahma",
+   "nome": "Brahma",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Companhia Cervejaria Brahma; em 1999 juntou-se à Antarctica para formar a AmBev (entidade `ambev`, no ranking a partir de 2000). Fica como entidade própria porque o ranking não usa `ambev` com nome de época antes de 1999.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Companhia Cervejaria Brahma"
+   ],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "brasil",
    "nome": "Brasil",
    "tipo": "pais",
@@ -4982,6 +5002,24 @@
    "uf": null,
    "indice_legado": null,
    "origem": "linha_do_tempo",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "elcio-alvares",
+   "nome": "Élcio Álvares",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Senador pelo PFL do Espírito Santo (1991-1999), líder do governo Fernando Henrique Cardoso no Senado; depois ministro da Defesa.",
+   "uf": "ES",
+   "indice_legado": null,
+   "origem": "manual",
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
@@ -7203,6 +7241,24 @@
    ]
   },
   {
+   "id": "souza-cruz",
+   "nome": "Souza Cruz",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Fabricante de cigarros controlada pela British American Tobacco; no ranking de lucros de 1995 e 1996 (Folha de S.Paulo, 1/2/1997).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "brasil-ano-a-ano"
+   ]
+  },
+  {
    "id": "suzano",
    "nome": "Suzano",
    "tipo": "empresa",
@@ -7560,6 +7616,7 @@
   "bonnie de bonilha": "bonnie-de-bonilha",
   "bra": "brasil",
   "bradesco": "bradesco",
+  "brahma": "brahma",
   "brasil": "brasil",
   "brasil telecom participacoes": "brasil-telecom-participacoes",
   "braskem": "braskem",
@@ -7600,6 +7657,7 @@
   "colombia": "colombia",
   "comissao de valores mobiliarios": "cvm",
   "companhia acucareira vale do ceara mirim": "companhia-acucareira-vale-do-ceara-mirim",
+  "companhia cervejaria brahma": "brahma",
   "conafer": "conafer",
   "consult inteligencia tributaria": "consult-inteligencia-tributaria",
   "corregedoria nacional de justica": "cnj",
@@ -7644,6 +7702,7 @@
   "eduardo sodre martins": "eduardo-sodre-martins",
   "efb regimes especiais de empresas": "efb-regimes-especiais-de-empresas",
   "efraim morais": "efraim-morais",
+  "elcio alvares": "elcio-alvares",
   "eletrobras": "eletrobras",
   "eliziane gama": "eliziane-gama",
   "embratel": "embratel",
@@ -7940,6 +7999,7 @@
   "sicario": "luiz-phillipi-mourao",
   "solidariedade": "solidariedade",
   "sostenes cavalcante": "sostenes-cavalcante",
+  "souza cruz": "souza-cruz",
   "ssa fidc": "ssa-fidc",
   "stf": "stf",
   "sumauma catende sao joao paraiso outeiro baixa grande": "seis-usinas-cedidas-a-entre",

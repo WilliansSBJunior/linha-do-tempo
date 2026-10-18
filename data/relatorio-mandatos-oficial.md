@@ -4,16 +4,16 @@ Gerado por `scripts/gerar_curadoria.py --so mandato-oficial` a partir de `data/r
 
 | | linhas de `mandato` |
 |---|---:|
-| no banco | 311 |
-| confirmadas | 298 |
-| &nbsp;&nbsp;por legislatura (deputado/senador; a pessoa consta na API em legislatura que toca o ano; partido e UF sem conflito) | 266 |
+| no banco | 317 |
+| confirmadas | 302 |
+| &nbsp;&nbsp;por legislatura (deputado/senador; a pessoa consta na API em legislatura que toca o ano; partido e UF sem conflito) | 270 |
 | &nbsp;&nbsp;por eleição (a pessoa só consta na legislatura que começa em 1/fev do ano seguinte; ver abaixo) | 4 |
 | &nbsp;&nbsp;por página oficial da presidência da Casa (nome e ano de início) | 28 |
-| com complemento de partido/UF (campo estava NULL) | 0 |
+| com complemento de partido/UF (campo estava NULL) | 1 |
 | divergentes (listadas abaixo, banco intacto) | 2 |
-| sem fonte oficial nesta rodada | 11 |
+| sem fonte oficial nesta rodada | 13 |
 
-Confirmadas + divergentes + sem fonte = 311. Linhas confirmadas que já tinham evidência antes: 0 (nesses casos a oficial entra como evidência adicional das relações).
+Confirmadas + divergentes + sem fonte = 317. Linhas confirmadas que já tinham evidência antes: 0 (nesses casos a oficial entra como evidência adicional das relações).
 
 Regras:
 
@@ -81,7 +81,7 @@ Por tipo: pagina_periodo 1, pagina_pessoa 1.
 
 ## Sem fonte oficial nesta rodada
 
-presidente 6, vice_presidente 5. sem página oficial pública das presidências na coleta de 2026-10-17: presidentes_republica (indisponivel: não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404); vice_presidentes (indisponivel: não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também). Linhas não tocadas.
+presidente 6, senador 2, vice_presidente 5. sem página oficial pública das presidências na coleta de 2026-10-17: presidentes_republica (indisponivel: não há página pública hoje: a galeria do Planalto redireciona para login (acl_users/credentials_cookie_auth); a Biblioteca da Presidência está em manutenção; variantes de URL dão 404); vice_presidentes (indisponivel: não há página pública hoje: URL da galeria de vice-presidentes dá 404 e as variantes testadas também). Linhas não tocadas.
 
 ## Correções à mão aplicadas antes do confronto
 
@@ -93,14 +93,14 @@ presidente 6, vice_presidente 5. sem página oficial pública das presidências 
 
 ## Complementos aplicados
 
-Nenhum: em `deputado`/`senador` todo `partido` e `uf` do banco já estava preenchido.
+- Jutahy Júnior deputado 2001: uf = BA
 
 ## Como as linhas confirmadas por legislatura/eleição bateram
 
 | campo | igual | sucessao | historico | nao_informado | complemento |
 |---|---:|---:|---:|---:|---:|
-| partido | 174 | 45 | 51 | 0 | 0 |
-| uf | 270 | 0 | 0 | 0 | 0 |
+| partido | 175 | 45 | 54 | 0 | 0 |
+| uf | 273 | 0 | 0 | 0 | 1 |
 
 `sucessao` = renomeação da mesma legenda; `historico` = não bate com a lista da legislatura mas bate com o histórico de partido/UF do ano; `nao_informado` = a API não traz o dado.
 

@@ -212,7 +212,7 @@
  {
   "id": "ev-1997-novas-mesas-da-camara-e-do-senado",
   "natureza": "documentada",
-  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
  },
  {
   "id": "ev-1997-pacote-de-resgate-de-us-17-bilhoes-a",
@@ -327,7 +327,7 @@
  {
   "id": "ev-1999-reeleicao-de-temer-e-antonio-carlos",
   "natureza": "documentada",
-  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
  },
  {
   "id": "ev-1999-segundo-mandato-de-fhc",
@@ -556,8 +556,8 @@
  },
  {
   "id": "ev-2004-petroleo-passa-de-us-50-o-barril",
-  "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
+  "natureza": "documentada",
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, eia.gov)"
  },
  {
   "id": "ev-2004-reforma-do-judiciario-ec-45",
@@ -907,7 +907,7 @@
  {
   "id": "ev-2012-rio-20-reune-88-chefes-de-estado-e-de",
   "natureza": "documentada",
-  "regra": "R5: 1 de 1 fonte(s) que sustentam o evento são oficiais (tipo comunicado, press.un.org)"
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo comunicado, press.un.org)"
  },
  {
   "id": "ev-2012-sancionado-o-novo-codigo-florestal",
@@ -1151,8 +1151,8 @@
  },
  {
   "id": "ev-2018-bolsonaro-e-eleito-presidente",
-  "natureza": "reportada",
-  "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
+  "natureza": "documentada",
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo comunicado, tse.jus.br)"
  },
  {
   "id": "ev-2018-crise-da-lira-turca-assusta-os",
@@ -1475,6 +1475,11 @@
   "regra": "R5: 5 de 7 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, www12.senado.leg.br)"
  },
  {
+  "id": "ev-2024-cupula-do-g20-no-rio-lanca-alianca",
+  "natureza": "documentada",
+  "regra": "R5: 3 de 3 fonte(s) que sustentam o evento são oficiais (tipo documento_oficial, gov.br)"
+ },
+ {
   "id": "ev-2024-dino-suspende-emendas-parlamentares-stf",
   "natureza": "reportada",
   "regra": "R5: sem fonte oficial; 1 de 1 fonte(s) que sustentam o evento são reportagem/relatório"
@@ -1508,6 +1513,11 @@
   "id": "ev-2024-soja-cai-22-em-media-anual-e-minerio",
   "natureza": "documentada",
   "regra": "R5: 2 de 2 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, fred.stlouisfed.org)"
+ },
+ {
+  "id": "ev-2024-trump-e-eleito-presidente-dos-eua-pela",
+  "natureza": "documentada",
+  "regra": "R5: 1 de 2 fonte(s) que sustentam o evento são oficiais (tipo dado_oficial, archives.gov)"
  },
  {
   "id": "ev-2024-ue-e-mercosul-concluem-o-acordo-politico",

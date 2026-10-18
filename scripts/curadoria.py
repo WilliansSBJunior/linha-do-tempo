@@ -952,6 +952,7 @@ def gerar_mandato_oficial(con):
            "coletado_em": coletado, "evidencias": [], "confirmacoes": [], "complementos": [], "divergencias": [], "sem_fonte": [],
            "nao_encontrados": []}
     evid, n_total, n_ev_previa = {}, 0, 0
+    adicionais = mandatos_adicionais_chaves()
     q = """SELECT m.id, m.entidade_id, e.nome, m.cargo, m.partido, m.uf, m.inicio, m.motivo, m.evidencia_id
            FROM mandato m JOIN entidade e ON e.id=m.entidade_id ORDER BY m.entidade_id, m.cargo, m.inicio, m.id"""
     for m in con.execute(q).fetchall():
@@ -991,6 +992,12 @@ def gerar_mandato_oficial(con):
         recs, montar, dominio = fontes[casa]
         rec = recs.get(m["entidade_id"])
         chave_rec = "deputado" if casa == "camara" else "senador"
+        if not rec and (m["entidade_id"], m["cargo"], m["inicio"]) in adicionais:
+            # linha de mandatos-adicionais.json de pessoa criada depois da coleta (fora de data/raw/oficial, congelado): sem fonte oficial
+            # de API; a fonte oficial própria do destaque fica ligada à relação mandato:<id> (curadoria.ligar_fontes_mandatos_adicionais)
+            out["sem_fonte"].append({**chave, "motivo": f"pessoa fora da coleta das APIs de {coletado[casa][:10]} (linha de mandatos-adicionais.json, "
+                                                        "entidade criada depois da coleta); a fonte oficial do destaque está ligada à relação do mandato"})
+            continue
         if not rec or not rec.get(chave_rec):
             busca = (rec or {}).get("busca") or []
             d = {**chave, "tipo": "nao_encontrado_na_api", "banco": m["cargo"], "oficial": None, "legislatura": None,
@@ -1199,6 +1206,7 @@ def relatorio_mandato_oficial(cfg, nomes):
 ARQ_RODADA3 = "evidencias-rodada3.json"
 ARQ_RODADA4 = "substituicoes-rodada4.json"
 ARQ_RODADA5 = "evidencias-rodada5.json"
+ARQ_RODADA6 = "evidencias-rodada6.json"
 RODADAS_SUBST = (4, 5)   # rodadas em que `substitui` desliga uma fonte fraca (a rodada 5 também traz fontes adicionais, sem `substitui`)
 LOTE_A_RODADA4 = 27   # as 27 primeiras entradas de substituicoes-rodada4.json (lote A: trechos devolvidos pelo WebFetch como resumo)
 AVISO_TRECHO_RODADA4 = "[trecho via resumo do WebFetch]"
@@ -1223,7 +1231,12 @@ def ler_evidencias_adicionais():
     ruins = [e.get("url") for e in r5 if e.get("rodada") != 5 or e.get("qualidade") != "boa"]
     if ruins:
         raise SystemExit(f"{ARQ_RODADA5}: entradas sem \"rodada\": 5 ou que não são `boa`: {ruins}")
-    return ler_json("evidencias-adicionais.json", []) + r3 + r4 + r5
+    # rodada 6: fontes dos fatos novos de 2024, das correções de texto e das lideranças já no banco; todas `boa`, sem `substitui`
+    r6 = ler_json(ARQ_RODADA6, {}).get("evidencias", [])
+    ruins = [e.get("url") for e in r6 if e.get("rodada") != 6 or e.get("qualidade") != "boa" or e.get("substitui")]
+    if ruins:
+        raise SystemExit(f"{ARQ_RODADA6}: entradas sem \"rodada\": 6, que não são `boa` ou com `substitui`: {ruins}")
+    return ler_json("evidencias-adicionais.json", []) + r3 + r4 + r5 + r6
 
 
 def lista_substituida_por(e):
@@ -1963,6 +1976,7 @@ def relatorio_evidencias_adicionais(con, R, E=None):
     L += _secao_rodada3(con, entradas, E, esc)
     L += _secao_rodada4(con, R, E, esc, alvo)
     L += _secao_rodada5(con, R, esc, alvo)
+    L += _secao_rodada6(con, R, esc, alvo)
     return "\n".join(L) + "\n"
 
 
@@ -2153,6 +2167,41 @@ def _secao_rodada5(con, R, esc, alvo):
     return L
 
 
+def _secao_rodada6(con, R, esc, alvo):
+    """Seção "Rodada 6": `evidencias-rodada6.json` (`"rodada": 6`): fontes dos fatos novos de 2024, das correções de texto e das lideranças
+    já no banco; e, por referência, as fontes que a rodada liga fora deste arquivo (ranking e linhas de mandato novas)."""
+    r6 = [e for e in R["entradas"] if e.get("rodada") == 6]
+    if not r6:
+        return []
+    cfg = ler_json(ARQ_RODADA6, {})
+    nat = lambda i: (con.execute("SELECT COALESCE(natureza_id,'(NULL)') FROM evento WHERE id=?", (i,)).fetchone() or ["(inexistente)"])[0]
+    urls = collections.Counter(normalizar_url(e["url"]) for e in r6)
+    L = []
+    w = L.append
+    w("\n## Rodada 6 — fatos de 2024, correções de texto e lideranças\n")
+    w("As entradas ficam em `data/curadoria/evidencias-rodada6.json` (formato idêntico, `\"rodada\": 6`, qualidade `boa`, sem `substitui`) e são "
+      "aplicadas pela mesma `curadoria.aplicar_evidencias_adicionais` (depois das rodadas 1-5). " + (esc(cfg["_doc"]) if cfg.get("_doc") else "") + "\n")
+    w("| | |\n|---|---:|")
+    w(f"| entradas | {len(r6)} |")
+    w(f"| &nbsp;&nbsp;de evento / de relação | {sum(1 for e in r6 if e['alvo_tipo'] == 'evento')} / {sum(1 for e in r6 if e['alvo_tipo'] == 'relacao')} |")
+    w(f"| alvos | {len({_chave_alvo(e) for e in r6})} |")
+    w(f"| URLs distintas | {len(urls)} |")
+    w(f"| linhas de mandato novas com fonte própria (mandatos-adicionais.json) | {len(ler_json(ARQ_MANDATOS_ADIC, {}).get('mandatos', []))} |")
+    w(f"| ligações do ranking de empresas (ranking_evidencia) | {con.execute('SELECT count(*) FROM ranking_evidencia').fetchone()[0]} |")
+    w("\n| alvo | fonte | tipo | data | nota |\n|---|---|---|---|---|")
+    for e in r6:
+        w(f"| {alvo(e)} | {esc(e['url'])} | {e['tipo']} | {esc(str(e.get('data') or ''))} | {esc(e.get('nota') or '')} |")
+    eventos = sorted({e["evento_id"] for e in r6 if e["alvo_tipo"] == "evento"})
+    w("\nNatureza atual dos eventos cobertos (R5; `eventos-natureza.json` regerado):\n")
+    w("| evento | natureza |\n|---|---|")
+    for i in eventos:
+        w(f"| `{i}` | {nat(i)} |")
+    if cfg.get("nao_encontrados"):
+        w("\nNão encontrados: " + " ".join(f"({i + 1}) {esc(t)}" for i, t in enumerate(cfg["nao_encontrados"])) + "\n")
+    w("")
+    return L
+
+
 def _secao_rodada3(con, entradas, E, esc):
     """Seção "Rodada 3": entradas de `evidencias-rodada3.json` (`"rodada": 3`; fontes para os eventos que a rodada 2 deixou `nao_classificada`),
     as correções de evento-correcoes.json com `"rodada": 3`, as decisões sem correção (`campo: "nenhum"`) e `nao_encontrados` do arquivo."""
@@ -2265,3 +2314,255 @@ def _secao_rodada2(con, entradas, E, esc):
     if cfg.get("manter_com_nota_rodada2"):
         w("\nRessalvas mantidas com nota (o banco não muda; a nota segue em `evento_evidencia.nota`): " + esc(cfg["manter_com_nota_rodada2"]) + "\n")
     return L
+
+
+# ======================================================================== 8. rodada 6: eventos, mandatos e ranking de empresas acrescentados à mão
+ARQ_EVENTOS_ADIC = "eventos-adicionais.json"
+ARQ_MANDATOS_ADIC = "mandatos-adicionais.json"
+ARQ_RANKING_CORR = "ranking-empresa-correcoes.json"
+REGEX_REF_BRASIL = re.compile(r"Y\[(\d{4})\]\.(pol|intl)\.eventos\[(\d+)\]")
+
+
+def _slug_curto(titulo, limite=40):
+    """Mesmo corte de migrar.slug_curto (id dos eventos da timeline: ev-<ano>-<slug_curto(titulo)>)."""
+    from slug import slugify
+    out = ""
+    for p in slugify(titulo, 200).split("-"):
+        nova = f"{out}-{p}" if out else p
+        if len(nova) > limite and out:
+            break
+        out = nova[:limite]
+    return out.strip("-")
+
+
+def _evidencia_id(con, f, criadas=None):
+    """id da evidência da URL (normalizada) de `f`; cria com veiculo/titulo/data/tipo se não existe (se existe, não muda nada). -> (id, nova?)"""
+    url = normalizar_url(f["url"])
+    linha = con.execute("SELECT id FROM evidencia WHERE url=?", (url,)).fetchone()
+    if linha:
+        return linha[0], False
+    cur = con.execute("INSERT INTO evidencia(url,veiculo,titulo,data,tipo,criado_em) VALUES(?,?,?,?,?,?)",
+                      (url, f["veiculo"], f.get("titulo"), f.get("data"), f["tipo"], TS_MIGRACAO))
+    if criadas is not None:
+        criadas.append(url)
+    return cur.lastrowid, True
+
+
+def aplicar_eventos_adicionais(con):
+    """data/curadoria/eventos-adicionais.json (à mão): fatos novos da linha do tempo (canal `brasil`). Insere o evento (origem 'manual',
+    origem_ref Y[<ano>].<secao>.eventos[<ordem>], data = ano, natureza NULL: vem de R5 por eventos-natureza.json, regerado). Confere tudo antes de
+    escrever: id = ev-<ano>-<slug_curto(titulo)> e livre, ordem = continuação do bloco (ano, seção), seção pol/intl, peso 1-5.
+    Roda no início da curadoria (antes das fusões e da natureza). As fontes vêm de evidencias-rodada6.json. -> {'inseridos': [ids]}"""
+    evs = ler_json(ARQ_EVENTOS_ADIC, {}).get("eventos", [])
+    erros, prox = [], {}
+    for r in con.execute("SELECT origem_ref FROM evento WHERE canal='brasil'"):
+        m = REGEX_REF_BRASIL.fullmatch(r[0] or "")
+        if m:
+            k = (int(m.group(1)), m.group(2))
+            prox[k] = max(prox.get(k, 0), int(m.group(3)) + 1)
+    for e in evs:
+        esperado = f"ev-{e['ano']}-{_slug_curto(e['titulo'])}"
+        if e["id"] != esperado:
+            erros.append(f"{e['id']}: id fora do padrão (esperado {esperado})")
+        if con.execute("SELECT 1 FROM evento WHERE id=? UNION SELECT 1 FROM evento_alias WHERE alias=?", (e["id"], e["id"])).fetchone():
+            erros.append(f"{e['id']}: id já existe")
+        if e["secao"] not in ("pol", "intl") or not 1 <= int(e["peso"]) <= 5:
+            erros.append(f"{e['id']}: seção/peso inválidos")
+        k = (int(e["ano"]), e["secao"])
+        if e["ordem"] != prox.get(k, 0):
+            erros.append(f"{e['id']}: ordem {e['ordem']} não continua o bloco Y[{e['ano']}].{e['secao']} (próxima: {prox.get(k, 0)})")
+        prox[k] = e["ordem"] + 1
+    if erros:
+        raise SystemExit(f"{ARQ_EVENTOS_ADIC}: nada foi aplicado.\n  " + "\n  ".join(erros))
+    for e in evs:
+        con.execute("""INSERT INTO evento(id,titulo,descricao,data,data_aprox,natureza_id,peso,canal,origem,origem_ref,criado_em,atualizado_em)
+                       VALUES(?,?,?,?,0,NULL,?,'brasil','manual',?,?,?)""",
+                    (e["id"], e["titulo"], e["descricao"], str(e["ano"]), int(e["peso"]), f"Y[{e['ano']}].{e['secao']}.eventos[{e['ordem']}]",
+                     TS_MIGRACAO, TS_MIGRACAO))
+    return {"inseridos": [e["id"] for e in evs]}
+
+
+def aplicar_mandatos_adicionais(con):
+    """data/curadoria/mandatos-adicionais.json (à mão): linhas de `mandato` novas (parlamentar em destaque: cargo senador/deputado, um ano,
+    `motivo`). Insere na ordem do arquivo, sem evidencia_id (a confirmação pelas APIs, mandato-oficial.json, preenche onde a pessoa consta).
+    Roda depois de aplicar_mandato_correcoes e antes de aplicar_mandato_oficial/gerar_relacoes_mandato. Aborta sem aplicar nada se a entidade
+    ou o órgão não existem, se o cargo não é senador/deputado ou se (entidade, cargo, início) já existe. -> {'inseridos': [(id, entidade, início)]}"""
+    ms = ler_json(ARQ_MANDATOS_ADIC, {}).get("mandatos", [])
+    erros = []
+    for m in ms:
+        for col in ("entidade_id", "orgao_id"):
+            if not con.execute("SELECT 1 FROM entidade WHERE id=?", (m[col],)).fetchone():
+                erros.append(f"{m['entidade_id']} {m['inicio']}: {col} inexistente: {m[col]}")
+        if m["cargo"] not in ("senador", "deputado") or not m.get("motivo") or not m.get("fonte"):
+            erros.append(f"{m['entidade_id']} {m['inicio']}: cargo/motivo/fonte inválidos")
+        if con.execute("SELECT 1 FROM mandato WHERE entidade_id=? AND cargo=? AND inicio=?", (m["entidade_id"], m["cargo"], m["inicio"])).fetchone():
+            erros.append(f"{m['entidade_id']} {m['cargo']} {m['inicio']}: linha já existe")
+    if erros:
+        raise SystemExit(f"{ARQ_MANDATOS_ADIC}: nada foi aplicado.\n  " + "\n  ".join(erros))
+    out = []
+    for m in ms:
+        cur = con.execute("INSERT INTO mandato(entidade_id,cargo,orgao_id,partido,uf,inicio,fim,motivo,votos) VALUES(?,?,?,?,?,?,?,?,NULL)",
+                          (m["entidade_id"], m["cargo"], m["orgao_id"], m.get("partido"), m.get("uf"), m["inicio"], m["inicio"], m["motivo"]))
+        out.append((cur.lastrowid, m["entidade_id"], m["inicio"]))
+    return {"inseridos": out}
+
+
+def ligar_fontes_mandatos_adicionais(con):
+    """Liga a `fonte` de cada linha de mandatos-adicionais.json à relação `mandato:<id>` (papel sustenta, qualidade boa, trecho e nota),
+    depois de gerar_relacoes_mandato. Não toca `mandato.evidencia_id`. -> {'ligacoes': n, 'evid_novas': [urls]}"""
+    novas, n = [], 0
+    for m in ler_json(ARQ_MANDATOS_ADIC, {}).get("mandatos", []):
+        mid = con.execute("SELECT id FROM mandato WHERE entidade_id=? AND cargo=? AND inicio=?", (m["entidade_id"], m["cargo"], m["inicio"])).fetchone()[0]
+        rid = con.execute("SELECT id FROM relacao WHERE origem='linha_do_tempo' AND origem_ref=?", (f"mandato:{mid}",)).fetchone()[0]
+        f = m["fonte"]
+        ev, _ = _evidencia_id(con, f, novas)
+        ordem = con.execute("SELECT COALESCE(MAX(ordem)+1,0) FROM relacao_evidencia WHERE relacao_id=?", (rid,)).fetchone()[0]
+        con.execute("INSERT INTO relacao_evidencia(relacao_id,evidencia_id,papel,trecho_citado,ordem,nota,qualidade) VALUES(?,?,'sustenta',?,?,?,'boa')",
+                    (rid, ev, f["trecho"], ordem, f.get("nota") or None))
+        n += 1
+        # linha sem evidência de API (pessoa fora da coleta): a filiação inferida dela também não teria fonte; a fonte do destaque passa a
+        # sustentá-la, com `nota_partido` (de onde vem o partido) como nota da ligação
+        # (validar.py exige `nota_partido` e essa ligação nas linhas que ficam sem API no banco final; no banco temporário de
+        # gerar_curadoria.py, que pula aplicar_mandato_oficial, nenhuma linha tem evidência e só as que trazem `nota_partido` são ligadas)
+        if con.execute("SELECT evidencia_id FROM mandato WHERE id=?", (mid,)).fetchone()[0] is None and m.get("nota_partido"):
+            for fr in con.execute("""SELECT r.id FROM relacao r WHERE r.origem='linha_do_tempo' AND r.subtipo='filiacao' AND r.de=?
+                                     AND CAST(substr(r.periodo_inicio,1,4) AS INTEGER) <= ? AND ? <= CAST(substr(r.periodo_fim,1,4) AS INTEGER)""",
+                                  (m["entidade_id"], int(m["inicio"][:4]), int(m["inicio"][:4]))).fetchall():
+                ordem = con.execute("SELECT COALESCE(MAX(ordem)+1,0) FROM relacao_evidencia WHERE relacao_id=?", (fr[0],)).fetchone()[0]
+                cur = con.execute("INSERT OR IGNORE INTO relacao_evidencia(relacao_id,evidencia_id,papel,trecho_citado,ordem,nota,qualidade) "
+                                  "VALUES(?,?,'sustenta',?,?,?,'boa')", (fr[0], ev, f["trecho"], ordem, m["nota_partido"]))
+                n += cur.rowcount
+    return {"ligacoes": n, "evid_novas": novas}
+
+
+def mandatos_adicionais_chaves():
+    """{(entidade_id, cargo, inicio)} das linhas de mandatos-adicionais.json (usado por gerar_mandato_oficial e validar.py)."""
+    return {(m["entidade_id"], m["cargo"], m["inicio"]) for m in ler_json(ARQ_MANDATOS_ADIC, {}).get("mandatos", [])}
+
+
+def posicoes_ranking(linhas):
+    """Regra da carga bruta (conferida nas 397 linhas de data/raw/brasil.json): lucros (>= 0) em ordem decrescente e, depois, os prejuízos
+    do maior para o menor (lucro crescente); empate pelo id da entidade. linhas: [(entidade_id, lucro)] -> {entidade_id: posicao}"""
+    pos = sorted((x for x in linhas if x[1] >= 0), key=lambda x: (-x[1], x[0])) + sorted((x for x in linhas if x[1] < 0), key=lambda x: (x[1], x[0]))
+    return {e: i for i, (e, _) in enumerate(pos, 1)}
+
+
+def pct_total_ranking(lucro, pib):
+    """Fórmula da carga bruta (conferida nas 397 linhas): lucro / PIB nominal do ano (R$ bi, serie macro.pib) em %, 3 casas."""
+    return round(lucro / pib * 100, 3)
+
+
+def aplicar_ranking_empresa_correcoes(con):
+    """data/curadoria/ranking-empresa-correcoes.json (à mão): `cobertura` (troca a do ano inteiro), `atualizar` (campos de -> para e fontes) e
+    `inserir` (linhas novas). Fontes -> `evidencia` + `ranking_evidencia` (papel, trecho, nota); `principal` -> ranking_empresa.evidencia_id e a
+    principal anterior fica com o papel/nota de `anterior`. Depois recalcula posicao e pct_total nos anos tocados (posicoes_ranking,
+    pct_total_ranking). Confere tudo antes de escrever e aborta sem aplicar nada se: entidade ou linha não existem; linha a inserir já existe;
+    um `de` não bate; `anterior.url` não é a fonte principal atual (ou falta quando a principal muda); cobertura do ano não uniforme ou != `de`;
+    mais de uma principal; PIB do ano ausente. -> dict para o relatório."""
+    cfg = ler_json(ARQ_RANKING_CORR, {})
+    vazio = {"cobertura": [], "atualizadas": [], "inseridas": [], "posicoes": {}, "pct": {}, "evid_novas": [], "ligacoes": 0}
+    if not cfg:
+        return vazio
+    erros = []
+    CAMPOS = ("lucro_brl_bi", "derivado", "holding", "obs", "setor", "setor_k", "controle")
+
+    def linha(ano, ent):
+        return con.execute("SELECT r.*, e.url AS url_principal FROM ranking_empresa r LEFT JOIN evidencia e ON e.id=r.evidencia_id "
+                           "WHERE r.ano=? AND r.entidade_id=?", (ano, ent)).fetchone()
+    for c in cfg.get("cobertura", []):
+        cobs = {r[0] for r in con.execute("SELECT DISTINCT cobertura FROM ranking_empresa WHERE ano=?", (c["ano"],))}
+        if cobs != {c["de"]}:
+            erros.append(f"cobertura {c['ano']}: atual {sorted(cobs, key=str)} != de {c['de']!r}")
+    for u in cfg.get("atualizar", []):
+        r = linha(u["ano"], u["entidade_id"])
+        if not r:
+            erros.append(f"atualizar {u['ano']}/{u['entidade_id']}: linha inexistente")
+            continue
+        for k, v in u["campos"].items():
+            if k not in CAMPOS:
+                erros.append(f"atualizar {u['ano']}/{u['entidade_id']}: campo não permitido {k}")
+            elif r[k] != v["de"]:
+                erros.append(f"atualizar {u['ano']}/{u['entidade_id']}: {k} atual {r[k]!r} != de {v['de']!r}")
+        princ = [f for f in u["fontes"] if f.get("principal")]
+        if len(princ) > 1:
+            erros.append(f"atualizar {u['ano']}/{u['entidade_id']}: mais de uma fonte principal")
+        muda = bool(princ) and normalizar_url(princ[0]["url"]) != r["url_principal"]
+        if muda and (not u.get("anterior") or normalizar_url(u["anterior"]["url"]) != r["url_principal"]):
+            erros.append(f"atualizar {u['ano']}/{u['entidade_id']}: a principal muda e `anterior.url` != fonte atual {r['url_principal']}")
+        if not muda and u.get("anterior"):
+            erros.append(f"atualizar {u['ano']}/{u['entidade_id']}: `anterior` sem troca de principal")
+        if u.get("anterior") and u["anterior"]["papel"] not in ("sustenta", "contexto"):
+            erros.append(f"atualizar {u['ano']}/{u['entidade_id']}: papel de `anterior` inválido")
+    for i in cfg.get("inserir", []):
+        if not con.execute("SELECT 1 FROM entidade WHERE id=?", (i["entidade_id"],)).fetchone():
+            erros.append(f"inserir {i['ano']}/{i['entidade_id']}: entidade inexistente")
+        elif linha(i["ano"], i["entidade_id"]):
+            erros.append(f"inserir {i['ano']}/{i['entidade_id']}: linha já existe")
+        if sum(1 for f in i["fontes"] if f.get("principal")) != 1:
+            erros.append(f"inserir {i['ano']}/{i['entidade_id']}: precisa de exatamente uma fonte principal")
+    anos = sorted({x["ano"] for k in ("cobertura", "atualizar", "inserir") for x in cfg.get(k, [])})
+    pib = {r[0]: r[1] for r in con.execute("SELECT ano, valor FROM serie WHERE indicador_id='macro.pib' AND dimensao=''")}
+    erros += [f"PIB de {a} ausente (serie macro.pib)" for a in anos if not pib.get(a)]
+    for x in [x for k in ("atualizar", "inserir") for x in cfg.get(k, [])]:
+        urls = [normalizar_url(f["url"]) for f in x["fontes"]] + ([normalizar_url(x["anterior"]["url"])] if x.get("anterior") else [])
+        if len(urls) != len(set(urls)):
+            erros.append(f"{x['ano']}/{x['entidade_id']}: URL repetida nas fontes")
+        for f in x["fontes"]:
+            if f["papel"] not in ("sustenta", "contexto") or (f.get("principal") and f["papel"] != "sustenta") or not f.get("trecho"):
+                erros.append(f"{x['ano']}/{x['entidade_id']} fonte {f['url']}: papel/principal/trecho inválidos")
+    if erros:
+        raise SystemExit(f"{ARQ_RANKING_CORR}: nada foi aplicado.\n  " + "\n  ".join(erros))
+
+    R = vazio
+    for c in cfg.get("cobertura", []):
+        n = con.execute("UPDATE ranking_empresa SET cobertura=? WHERE ano=?", (c["para"], c["ano"])).rowcount
+        R["cobertura"].append((c["ano"], c["de"], c["para"], n))
+
+    def ligar(ano, ent, fontes):
+        for f in fontes:
+            ev, _ = _evidencia_id(con, f, R["evid_novas"])
+            ordem = con.execute("SELECT COALESCE(MAX(ordem)+1,0) FROM ranking_evidencia WHERE ano=? AND entidade_id=?", (ano, ent)).fetchone()[0]
+            con.execute("INSERT INTO ranking_evidencia(ano,entidade_id,evidencia_id,papel,ordem,trecho_citado,nota) VALUES(?,?,?,?,?,?,?)",
+                        (ano, ent, ev, f["papel"], ordem, f["trecho"], f.get("nota") or None))
+            R["ligacoes"] += 1
+            if f.get("principal"):
+                con.execute("UPDATE ranking_empresa SET evidencia_id=? WHERE ano=? AND entidade_id=?", (ev, ano, ent))
+
+    cob_ano = {}
+    for i in cfg.get("inserir", []):
+        if i["ano"] not in cob_ano:
+            cob_ano[i["ano"]] = con.execute("SELECT DISTINCT cobertura FROM ranking_empresa WHERE ano=?", (i["ano"],)).fetchone()[0]
+        con.execute("""INSERT INTO ranking_empresa(ano,entidade_id,posicao,setor,setor_k,lucro_brl_bi,receita_brl_bi,pct_total,controle,holding,derivado,cobertura,obs,evidencia_id)
+                       VALUES(?,?,NULL,?,?,?,NULL,NULL,?,?,?,?,?,NULL)""",
+                    (i["ano"], i["entidade_id"], i["setor"], i["setor_k"], i["lucro_brl_bi"], i["controle"], int(i["holding"]), int(i["derivado"]),
+                     cob_ano[i["ano"]], i.get("obs") or None))
+        ligar(i["ano"], i["entidade_id"], i["fontes"])
+        nome = con.execute("SELECT nome FROM entidade WHERE id=?", (i["entidade_id"],)).fetchone()[0]
+        if i.get("nome_epoca") and i["nome_epoca"] != nome:
+            con.execute("INSERT INTO nota(tipo,pagina,chave,titulo,texto,ordem) VALUES('aviso','brasil',?,NULL,?,0)",
+                        (f"Y.{i['ano']}.empresa.{i['entidade_id']}", i["nome_epoca"]))
+        R["inseridas"].append(i)
+    for u in cfg.get("atualizar", []):
+        r = linha(u["ano"], u["entidade_id"])
+        for k, v in u["campos"].items():
+            con.execute(f"UPDATE ranking_empresa SET {k}=? WHERE ano=? AND entidade_id=?", (v["para"], u["ano"], u["entidade_id"]))
+        ligar(u["ano"], u["entidade_id"], u["fontes"])
+        if u.get("anterior"):
+            ordem = con.execute("SELECT COALESCE(MAX(ordem)+1,0) FROM ranking_evidencia WHERE ano=? AND entidade_id=?", (u["ano"], u["entidade_id"])).fetchone()[0]
+            con.execute("INSERT INTO ranking_evidencia(ano,entidade_id,evidencia_id,papel,ordem,trecho_citado,nota) VALUES(?,?,?,?,?,?,?)",
+                        (u["ano"], u["entidade_id"], r["evidencia_id"], u["anterior"]["papel"], ordem, u["anterior"].get("trecho"), u["anterior"].get("nota")))
+            R["ligacoes"] += 1
+        R["atualizadas"].append(u)
+    # posição e % do PIB nos anos tocados (mesmas regras da carga bruta)
+    for a in anos:
+        rs = con.execute("SELECT entidade_id, lucro_brl_bi, posicao, pct_total FROM ranking_empresa WHERE ano=?", (a,)).fetchall()
+        pos = posicoes_ranking([(r[0], r[1]) for r in rs])
+        for r in rs:
+            novo_pct = pct_total_ranking(r[1], pib[a])
+            if r[2] != pos[r[0]] or r[3] != novo_pct:
+                con.execute("UPDATE ranking_empresa SET posicao=?, pct_total=? WHERE ano=? AND entidade_id=?", (pos[r[0]], novo_pct, a, r[0]))
+            if r[2] is not None and r[2] != pos[r[0]]:
+                R["posicoes"].setdefault(a, []).append((r[0], r[2], pos[r[0]]))
+            if r[3] is not None and r[3] != novo_pct:
+                R["pct"].setdefault(a, []).append((r[0], r[3], novo_pct))
+    return R

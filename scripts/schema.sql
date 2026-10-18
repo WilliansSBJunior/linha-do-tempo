@@ -330,6 +330,19 @@ CREATE TABLE ranking_empresa (
   obs TEXT, evidencia_id INTEGER REFERENCES evidencia(id),
   PRIMARY KEY (ano, entidade_id)
 ) STRICT;
+-- DESVIO (aditivo, rodada 6): fontes de uma linha do ranking com trecho e nota (data/curadoria/ranking-empresa-correcoes.json,
+-- curadoria.aplicar_ranking_empresa_correcoes). `ranking_empresa.evidencia_id` continua sendo a fonte principal (a que a página mostra);
+-- aqui ficam também as que confirmam o valor (`sustenta`) e as de outra base contábil/corroboração (`contexto`). NULL nas linhas sem curadoria.
+CREATE TABLE ranking_evidencia (
+  ano INTEGER NOT NULL, entidade_id TEXT NOT NULL,
+  evidencia_id INTEGER NOT NULL REFERENCES evidencia(id),
+  papel TEXT NOT NULL CHECK (papel IN ('sustenta','contexto')),
+  ordem INTEGER NOT NULL DEFAULT 0,
+  trecho_citado TEXT,                            -- trecho da fonte (NULL na fonte principal anterior, registrada como `anterior`)
+  nota TEXT,                                     -- ressalva do pesquisador / base contábil
+  PRIMARY KEY (ano, entidade_id, evidencia_id),
+  FOREIGN KEY (ano, entidade_id) REFERENCES ranking_empresa(ano, entidade_id) ON UPDATE CASCADE ON DELETE CASCADE
+) STRICT;
 
 CREATE TABLE mandato (
   id INTEGER PRIMARY KEY, entidade_id TEXT NOT NULL REFERENCES entidade(id),

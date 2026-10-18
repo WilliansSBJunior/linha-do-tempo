@@ -29,29 +29,29 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 391 |
+| entidade | 394 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 193 |
-| entidade_alias | 508 |
+|   extras (timeline/pares) | 196 |
+| entidade_alias | 512 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
-| relacao (origem linha_do_tempo: mandato/filiação) | 451 |
-| relacao total | 818 |
-| evento total | 505 |
+| relacao (origem linha_do_tempo: mandato/filiação) | 461 |
+| relacao total | 828 |
+| evento total | 507 |
 | tema | 10 |
-| relacao_tema | 907 |
-| evento_tema | 631 |
+| relacao_tema | 917 |
+| evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1537 |
-| relacao_evidencia | 1242 |
-| evento_evidencia | 3219 |
+| evidencia | 1589 |
+| relacao_evidencia | 1266 |
+| evento_evidencia | 3229 |
 | evento_entidade | 935 |
-| nota | 549 |
+| nota | 550 |
 | indicador | 83 |
 | serie | 6837 |
-| ranking_empresa | 397 |
-| mandato | 311 |
+| ranking_empresa | 409 |
+| mandato | 317 |
 | bancada | 634 |
 | entidade_valor | 14 |
 
@@ -60,7 +60,7 @@ Eventos por canal:
 | canal | n |
 |---|---|
 | banco | 27 |
-| brasil | 280 |
+| brasil | 282 |
 | brb | 18 |
 | familia | 22 |
 | ida | 22 |
@@ -338,7 +338,7 @@ URLs repetidas dentro da mesma relação/evento após normalização (descartada
 
 ## 9. Eventos quase-duplicados fundidos (`data/curadoria/eventos-fusoes.json`)
 
-23 fusões, 32 eventos absorvidos: 537 -> 505 eventos. Regra: mesma `data` e mesmo fato. O evento `manter` conserva o id e recebe a união de fontes (`evento_evidencia`) e entidades (`evento_entidade`), `peso` máximo, a natureza mais forte entre os que têm natureza e descrição/contexto/resposta/valor do mantido (ou do primeiro fundido que tenha). Os ids fundidos viram `evento_alias(alias, evento_id)` e guardam o evento original em `original_json` (título, descrição, data, natureza, fontes com rótulo, entidades). `mapa_indices.json` aponta os índices antigos de `teia.EV` (e `evento_alias`) para o id mantido. Os candidatos duvidosos estão em `data/curadoria/eventos-candidatos.md`.
+23 fusões, 32 eventos absorvidos: 539 -> 507 eventos. Regra: mesma `data` e mesmo fato. O evento `manter` conserva o id e recebe a união de fontes (`evento_evidencia`) e entidades (`evento_entidade`), `peso` máximo, a natureza mais forte entre os que têm natureza e descrição/contexto/resposta/valor do mantido (ou do primeiro fundido que tenha). Os ids fundidos viram `evento_alias(alias, evento_id)` e guardam o evento original em `original_json` (título, descrição, data, natureza, fontes com rótulo, entidades). `mapa_indices.json` aponta os índices antigos de `teia.EV` (e `evento_alias`) para o id mantido. Os candidatos duvidosos estão em `data/curadoria/eventos-candidatos.md`.
 
 | data | mantido | fundidos | natureza resultante | fontes novas | entidades novas |
 |---|---|---|---|---|---|
@@ -397,9 +397,9 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
     (fica NULL, a justificativa é obrigatória).
 ```
 
-- Atribuídas por regra: 312 (arquivo com 312). Por regra: R1 1, R2 10, R3 9, R4 2, R5 290. Por natureza: documentada 181, investigacao 9, reportada 122.
-- Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 290.
-- R5 por canal e natureza: brasil/documentada 160, brasil/reportada 120, violencia/documentada 10.
+- Atribuídas por regra: 314 (arquivo com 314). Por regra: R1 1, R2 10, R3 9, R4 2, R5 292. Por natureza: documentada 185, investigacao 9, reportada 120.
+- Por regra, efetivamente aplicadas: R1 1, R2 10, R3 9, R4 2, R5 292.
+- R5 por canal e natureza: brasil/documentada 164, brasil/reportada 118, violencia/documentada 10.
 - Classificação manual (`eventos-natureza-manual.json`): 41 entradas, 41 aplicadas (alegacao 5, investigacao 11, reportada 25), 0 ignoradas (já tinham natureza), 0 exceções explícitas (ficam NULL).
 - Dos 92 eventos da teia sem `st`: 19 foram absorvidos em fusões (seção 9) e os demais, somados aos mantidos, são os 73 eventos `teia` atuais. Destes, 63 ganharam natureza pelas regras R1-R4 ou à mão, 10 ficaram com a natureza mais forte do grupo fundido (dossiê BRB, PREC ou origens) e 0 seguem NULL.
 - **Ficaram NULL: 0 eventos do canal `teia`** (lista abaixo; `validar.py` exige zero ou exceção explícita no arquivo manual). Eventos `brasil` e `violencia` NULL: 0.
@@ -414,8 +414,8 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1537 (todas ligadas a alguma coisa; `validar.py` confere).
-- `ranking_empresa.receita_brl_bi`: 91 de 397 linhas preenchidas. Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
+- URLs de `evidencia` agora: 1589 (todas ligadas a alguma coisa; `validar.py` confere).
+- `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
 
@@ -428,7 +428,7 @@ Candidatos: eventos sem nenhuma linha em `evento_entidade` (origens, PREC, brb, 
 - entidades excluídas: brasil (aparece em tudo). Exigem inicial maiúscula: vale, rede, caixa, senado, camara. Contextos barrados: 'camara' seguido de do/legislativa/municipal/distrital; 'vale' seguido de do/da/de; 'caixa' seguido de de; 'senado' precedido de radio; 'camara' precedido de radio.
 
 - Resultado: 206 eventos receberam ligação, 426 linhas novas em `evento_entidade`.
-- Eventos ainda sem entidade por canal: banco 2, brasil 124, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
+- Eventos ainda sem entidade por canal: banco 2, brasil 126, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
 
 Aliases com mais de 15 ligações (suspeitos por volume; são nomes de órgãos e partidos que aparecem muito nos textos da timeline; a amostra abaixo não achou falso positivo entre eles, mas vale conferir os eventos):
 
@@ -540,8 +540,8 @@ Regras (aplicadas na ordem; filtros combinados com E; `dentro_de` = só registro
 |---|---|---|---|---|---|
 | master-relacoes | caso-master | relacao | origem=['teia', 'origens'] | 367 | 0 |
 | master-eventos | caso-master | evento | canal=['teia', 'banco', 'familia', 'ida', 'volta', 'precatorios', 'brb'] | 0 | 215 |
-| brasil-eventos | brasil-ano-a-ano | evento | canal=['brasil'] | 0 | 280 |
-| brasil-relacoes | brasil-ano-a-ano | relacao | origem=['linha_do_tempo'] | 451 | 0 |
+| brasil-eventos | brasil-ano-a-ano | evento | canal=['brasil'] | 0 | 282 |
+| brasil-relacoes | brasil-ano-a-ano | relacao | origem=['linha_do_tempo'] | 461 | 0 |
 | pares-eventos | pares | evento | canal=['pares'] | 0 | 0 |
 | violencia-eventos | violencia | evento | canal=['violencia'] | 0 | 10 |
 | brb-canal | brb | evento | canal=['brb'] | 0 | 18 |
@@ -574,7 +574,7 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | tema | relações | eventos | entidades |
 |---|---|---|---|
 | `caso-master` (Caso Master) | 367 | 215 | 212 |
-| `brasil-ano-a-ano` (Brasil ano a ano) | 451 | 280 | 206 |
+| `brasil-ano-a-ano` (Brasil ano a ano) | 461 | 282 | 209 |
 | `pares` (Comparação de países) | 0 | 0 | 10 |
 | `violencia` (Violência) | 0 | 10 | 1 |
 | `inss` (INSS) | 17 | 14 | 26 |
@@ -598,12 +598,12 @@ Dados migrados: a tabela `video` estava vazia (0 linhas), então não houve conv
 
 ## 16. Teia <-> timeline: mandato e bancada -> relações institucionais (`data/curadoria/mandato-relacoes.json`)
 
-`curadoria.gerar_relacoes_mandato` cria **451 relações novas** (`tipo='institucional'`, `natureza='documentada'`, `origem='linha_do_tempo'`, `status='publicada'`, tema `brasil-ano-a-ano`), depois de toda a carga bruta (ids novos, os antigos não mudam):
+`curadoria.gerar_relacoes_mandato` cria **461 relações novas** (`tipo='institucional'`, `natureza='documentada'`, `origem='linha_do_tempo'`, `status='publicada'`, tema `brasil-ano-a-ano`), depois de toda a carga bruta (ids novos, os antigos não mudam):
 
-- **311 de mandato** (`subtipo='mandato:<cargo>'`, pessoa -> órgão, uma por linha de `mandato`, `origem_ref='mandato:<id>'`, período = o do mandato): deputado 163, presidente 6, presidente_camara 16, presidente_senado 14, senador 107, vice_presidente 5.
-- **140 de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.
+- **317 de mandato** (`subtipo='mandato:<cargo>'`, pessoa -> órgão, uma por linha de `mandato`, `origem_ref='mandato:<id>'`, período = o do mandato): deputado 164, presidente 6, presidente_camara 16, presidente_senado 14, senador 112, vice_presidente 5.
+- **144 de filiação** (`subtipo='filiacao'`, pessoa -> partido, rótulo 'Filiado ao <sigla>'): uma por sequência contínua de mandatos do mesmo partido (anos consecutivos se fundem); o período é **inferido dos mandatos** (`periodo_aprox=1`, `periodo_texto='inferido dos mandatos'`), não a data de filiação.
 - Órgãos: `camara-dos-deputados`, `senado-federal` (já existiam, origem timeline) e **`presidencia-da-republica`** (nova, `orgao_publico`; presidente e vice-presidente, em que `mandato.orgao_id` é NULL).
-- `mandato.evidencia_id`: 298 de 311 linhas têm evidência oficial: 266 por legislatura e 4 por eleição (`tipo='dado_oficial'`, Dados Abertos da Câmara/Senado; a de eleição prova o mandato da legislatura seguinte, não o exercício no ano), 28 por página oficial da presidência da Casa (`tipo='documento_oficial'`, `presidente_camara`/`presidente_senado`). Fonte: `data/curadoria/mandato-oficial.json`, gerado de `data/raw/oficial/`; as relações de mandato e de filiação herdam essa evidência via `relacao_evidencia`. Complementos de partido/UF: 0. Divergentes: 2; sem fonte oficial: 11 (presidente e vice-presidente: não há página pública). As listas estão em `data/relatorio-mandatos-oficial.md`; o banco não foi alterado por elas.
+- `mandato.evidencia_id`: 302 de 317 linhas têm evidência oficial: 270 por legislatura e 4 por eleição (`tipo='dado_oficial'`, Dados Abertos da Câmara/Senado; a de eleição prova o mandato da legislatura seguinte, não o exercício no ano), 28 por página oficial da presidência da Casa (`tipo='documento_oficial'`, `presidente_camara`/`presidente_senado`). Fonte: `data/curadoria/mandato-oficial.json`, gerado de `data/raw/oficial/`; as relações de mandato e de filiação herdam essa evidência via `relacao_evidencia`. Complementos de partido/UF: 1. Divergentes: 2; sem fonte oficial: 13 (presidente e vice-presidente: não há página pública). As listas estão em `data/relatorio-mandatos-oficial.md`; o banco não foi alterado por elas.
 - Escritos à mão em `data/curadoria/`: `mandato-correcoes.json` (5 correção de partido/UF em `mandato`, aplicada antes do confronto com as fontes oficiais; Miro Teixeira 2004, PT -> PPS, pelo histórico da Câmara) e `entidade-aliases.json` (3 aliases de grafia: Enéas, Luís Eduardo, Luiz Carlos Santos).
 - **Parlamentares em destaque** (`deputado`/`senador`, `mandato` de um ano = ano do destaque na timeline): a relação tem `periodo_aprox=1` e a descrição avisa que o período é o ano do destaque, não o mandato inteiro.
 - Mandatos sem filiação (partido sem entidade): hamilton-mourao (PRTB), heloisa-helena (PSOL). Não criei entidade de partido (PRTB, PSOL); decisão pendente.
@@ -799,9 +799,9 @@ Repetidas (idênticas a uma entrada anterior; contadas uma vez):
 | natureza (todos os eventos) | eventos |
 |---|---:|
 | alegacao | 6 |
-| documentada | 241 |
+| documentada | 245 |
 | investigacao | 36 |
-| reportada | 222 |
+| reportada | 220 |
 
 Eventos `nao_classificada` depois da rodada: 0.
 
@@ -812,9 +812,9 @@ Eventos `nao_classificada` depois da rodada: 0.
 | natureza (todos os eventos) | eventos |
 |---|---:|
 | alegacao | 6 |
-| documentada | 241 |
+| documentada | 245 |
 | investigacao | 36 |
-| reportada | 222 |
+| reportada | 220 |
 
 ## 21. R6: peso da Wikipédia (`data/curadoria/regras-fontes.json`)
 
@@ -848,6 +848,121 @@ Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` po
 | natureza (todos os eventos) | eventos |
 |---|---:|
 | alegacao | 6 |
-| documentada | 241 |
+| documentada | 245 |
 | investigacao | 36 |
-| reportada | 222 |
+| reportada | 220 |
+
+## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024
+
+Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `souza-cruz`, `brahma`, `elcio-alvares`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
+
+### Ranking de empresas
+
+Base do ranking: lucro líquido em R$ pela legislação societária (BR GAAP); US GAAP/Euromoney em US$ só como fonte de `contexto`. Fontes na tabela aditiva `ranking_evidencia` (papel, trecho, nota); `ranking_empresa.evidencia_id` = fonte principal. Nos anos tocados, `posicao` e `pct_total` foram recalculados com as regras da carga bruta (conferidas nas 397 linhas de `data/raw/brasil.json`): lucros em ordem decrescente e depois os prejuízos do maior para o menor; `pct_total = round(lucro / PIB do ano (macro.pib) * 100, 3)`.
+
+| ano | cobertura | linhas | inseridas | atualizadas (valor) | só fontes/obs |
+|---|---|---:|---:|---:|---:|
+| 1995 | fraca -> parcial | 12 | 6 | 1 | 1 |
+| 1996 | fraca -> parcial | 15 | 3 | 4 | 1 |
+| 1997 | fraca -> parcial | 15 | 1 | 3 | 2 |
+| 1998 | parcial | 13 | 0 | 2 | 4 |
+| 1999 | parcial | 13 | 0 | 1 | 1 |
+| 2002 | parcial -> completa | 11 | 0 | 0 | 3 |
+| 2008 | parcial | 13 | 0 | 0 | 1 |
+| 2013 | parcial | 15 | 1 | 1 | 1 |
+| 2014 | parcial | 16 | 1 | 0 | 0 |
+| 2015 | parcial | 15 | 0 | 0 | 13 |
+| 2022 | parcial | 15 | 0 | 2 | 2 |
+
+| ano | empresa | o que mudou | fonte principal |
+|---|---|---|---|
+| 1995 | `banco-do-brasil` | obs | https://www25.senado.leg.br/web/atividade/pronunciamentos/-/p/pronunciamento/184275 |
+| 1995 | `bradesco` | **inserida** (0.54) | https://www1.folha.uol.com.br/fsp/1996/1/24/dinheiro/14.html |
+| 1995 | `eletrobras` | **inserida** (0.75) | https://www1.folha.uol.com.br/fsp/1997/3/20/dinheiro/11.html |
+| 1995 | `itau-unibanco` | **inserida** (0.374) | https://www1.folha.uol.com.br/fsp/1996/2/14/dinheiro/24.html |
+| 1995 | `petrobras` | **inserida** (0.57) | https://www1.folha.uol.com.br/fsp/1997/2/01/dinheiro/25.html |
+| 1995 | `souza-cruz` | **inserida** (0.21) | https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm |
+| 1995 | `unibanco` | **inserida** (0.1546) | https://www1.folha.uol.com.br/fsp/1996/2/14/dinheiro/24.html |
+| 1995 | `vale` | lucro_brl_bi 0.31 -> 0.329; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/1996/2/17/brasil/29.html |
+| 1996 | `banco-do-brasil` | lucro_brl_bi -7.28 -> -7.525; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi210225.htm |
+| 1996 | `bradesco` | lucro_brl_bi 0.82 -> 0.8245; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi180215.htm |
+| 1996 | `eletrobras` | **inserida** (2.393) | https://www1.folha.uol.com.br/fsp/1997/3/20/dinheiro/11.html |
+| 1996 | `itau-unibanco` | obs | https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2 |
+| 1996 | `petrobras` | **inserida** (0.664) | https://www1.folha.uol.com.br/fsp/1997/2/01/dinheiro/25.html |
+| 1996 | `souza-cruz` | **inserida** (0.204) | https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm |
+| 1996 | `unibanco` | lucro_brl_bi 0.28 -> 0.285; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi260221.htm |
+| 1996 | `vale` | lucro_brl_bi 0.518 -> 0.517; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi11039811.htm |
+| 1997 | `brahma` | **inserida** (0.469) | https://www1.folha.uol.com.br/fsp/dinheiro/fi19029820.htm |
+| 1997 | `embratel` | só fontes | https://teletime.com.br/16/04/1999/embratel-divulga-resultados-do-exercicio-de-1998 |
+| 1997 | `itau-unibanco` | lucro_brl_bi 0.874 -> 0.721; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi10029805.htm |
+| 1997 | `telebras` | lucro_brl_bi 4.3 -> 3.9; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi240110.htm |
+| 1997 | `unibanco` | lucro_brl_bi 0.42 -> 0.4308; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi15029817.htm |
+| 1997 | `vale` | só fontes | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
+| 1998 | `bradesco` | lucro_brl_bi 0.539 -> 1.014; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi04039921.htm |
+| 1998 | `embratel` | só fontes | https://teletime.com.br/16/04/1999/embratel-divulga-resultados-do-exercicio-de-1998 |
+| 1998 | `itau-unibanco` | só fontes | https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2 |
+| 1998 | `petrobras` | lucro_brl_bi 1.4 -> 1.433; derivado 1 -> 0; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi1502200020.htm |
+| 1998 | `unibanco` | só fontes | https://www.sec.gov/Archives/edgar/data/0001038583/000103858303000017/form20f.htm |
+| 1998 | `vale` | só fontes | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
+| 1999 | `petrobras` | lucro_brl_bi 1.7 -> 1.771; obs | https://www1.folha.uol.com.br/fsp/dinheiro/fi1502200020.htm |
+| 1999 | `vale` | só fontes | https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf |
+| 2002 | `embratel` | só fontes | https://www.sec.gov/Archives/edgar/data/0001066117/000119312504093082/d20f.htm |
+| 2002 | `telemar` | obs | https://www.sec.gov/Archives/edgar/data/0001066113/000095012305007975/y10162e20vf.htm |
+| 2002 | `telesp-celular-participacoes` | só fontes | https://www.sec.gov/Archives/edgar/data/1071337/000095012304008074/y98693e20vf.htm |
+| 2008 | `sadia` | só fontes | https://www.latibex.com/docs/Documentos/esp/resulta/2009/Sadia_Release_4T08.pdf |
+| 2013 | `banco-do-brasil` | obs | https://api.mziq.com/mzfilemanager/v2/d/0501147c-6489-4fc5-8ac2-a39baa2721b9/f03b39dd-280e-1d2b-9633-0af4b617fc82?origin=1 |
+| 2013 | `bndes` | lucro_brl_bi 8.154 -> 8.15; derivado 1 -> 0; obs | https://bndes.gov.br/SiteBNDES/bndes/bndes_en/conteudos/noticia/BNDES-posts-net-earnings-of-R$-8.15-billion-in-2013 |
+| 2013 | `itausa` | **inserida** (6.011) | https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/40c47fd1-5af8-4dd5-aa70-b2287e8f1f81?origin=2 |
+| 2014 | `itausa` | **inserida** (8.161) | https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/40c47fd1-5af8-4dd5-aa70-b2287e8f1f81?origin=2 |
+| 2015 | `ambev` | só fontes | https://data.sec.gov/api/xbrl/companyconcept/CIK0001565025/ifrs-full/ProfitLossAttributableToOwnersOfParent.json |
+| 2015 | `banco-do-brasil` | só fontes | https://api.mziq.com/mzfilemanager/v2/d/0501147c-6489-4fc5-8ac2-a39baa2721b9/0356392e-5816-866a-bc0d-e4a5b3d257de?origin=1 |
+| 2015 | `bb-seguridade` | só fontes | https://exame.com/negocios/bb-seguridade-lucro-liquido-ajustado-vai-a-r-3-9-bi-alta-de-22-4 |
+| 2015 | `bndes` | só fontes | https://bndes.gov.br/SiteBNDES/bndes/bndes_en/conteudos/noticia/BNDES-posts-earnings-of-R$-6.2-billion-in-2015 |
+| 2015 | `bradesco` | só fontes | https://www.gazetadopovo.com.br/economia/juntos-itau-bradesco-e-santander-lucram-r-47-bilhoes-2xylka4uhahoi027cwei4ozcg |
+| 2015 | `eletrobras` | só fontes | https://exame.com/negocios/os-25-maiores-prejuizos-de-2015-ano-de-perdas-historicas |
+| 2015 | `itau-unibanco` | só fontes | https://exame.com/negocios/lucro-liquido-do-itau-em-2015-chega-a-r-23-35-bilhoes |
+| 2015 | `itausa` | só fontes | https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/40c47fd1-5af8-4dd5-aa70-b2287e8f1f81?origin=2 |
+| 2015 | `jbs` | só fontes | https://www.wattagnet.com/broilers-turkeys/processing-slaughter/article/15517159/jbs-net-income-up-128-percent-in-2015-despite-q4-losses |
+| 2015 | `petrobras` | só fontes | https://istoedinheiro.com.br/petrobras-fecha-2015-com-prejuizo-recorde-de-r-348-bilhoes |
+| 2015 | `santander-brasil` | obs | https://cms.santander.com.br/sites/WPS/documentos/arq-central-de-resultados-anuais-acordeao-2015-download-1/18-08-28_193833_relat%C3%B3rio+anual+2015.pdf |
+| 2015 | `telefonica-brasil` | obs | https://data.sec.gov/api/xbrl/companyconcept/CIK0001066119/ifrs-full/ProfitLoss.json |
+| 2015 | `vale` | só fontes | https://exame.com/negocios/os-25-maiores-prejuizos-de-2015-ano-de-perdas-historicas |
+| 2022 | `americanas` | lucro_brl_bi -13.22 -> -12.9; obs | https://forbes.com.br/negocios/2023/11/americanas-perda-de-r-13-bi-em-2022-e-de-r-62-bi-em-2021-revertendo-lucro |
+| 2022 | `bradesco` | lucro_brl_bi 21.223 -> 20.732; obs | https://api.mziq.com/mzfilemanager/v2/d/80f2e993-0a30-421a-9470-a4d5c8ad5e9f/3053f2d1-0b01-5a5c-b1c8-755424d14edb?origin=1 |
+| 2022 | `gerdau` | obs | https://data.sec.gov/api/xbrl/companyconcept/CIK0001073404/ifrs-full/ProfitLossAttributableToOwnersOfParent.json |
+| 2022 | `santander-brasil` | obs | https://data.sec.gov/api/xbrl/companyconcept/CIK0001471055/ifrs-full/ProfitLossAttributableToOwnersOfParent.json |
+
+Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto na posição final):
+
+- 1995: `banco-do-brasil` 6 -> 12, `cosipa` 5 -> 11, `csn` 4 -> 10, `cst` 3 -> 8, `usiminas` 1 -> 6, `vale` 2 -> 5
+- 1996: `banco-do-brasil` 12 -> 15, `banco-real` 5 -> 7, `bndes` 1 -> 2, `bradesco` 2 -> 3, `caixa` 8 -> 10, `csn` 7 -> 9, `cst` 10 -> 13, `gerdau` 11 -> 14, `itau-unibanco` 3 -> 4, `unibanco` 6 -> 8, `usiminas` 9 -> 11, `vale` 4 -> 6
+- 1997: `acominas` 13 -> 14, `banco-real` 10 -> 11, `bradesco` 3 -> 2, `cosipa` 14 -> 15, `csn` 7 -> 8, `cst` 12 -> 13, `gerdau` 11 -> 12, `itau-unibanco` 2 -> 4, `unibanco` 8 -> 9, `usiminas` 9 -> 10, `vale` 4 -> 3
+- 1998: `bradesco` 5 -> 4, `itau-unibanco` 4 -> 5
+- 2013: `cemig` 10 -> 11, `cielo` 11 -> 12, `eletrobras` 14 -> 15, `ogpar` 13 -> 14, `santander-brasil` 8 -> 9, `telefonica-brasil` 9 -> 10, `vale` 12 -> 13
+- 2014: `bb-seguridade` 9 -> 10, `btg-pactual` 10 -> 11, `caixa` 6 -> 7, `cemig` 12 -> 13, `cielo` 11 -> 12, `eletrobras` 15 -> 16, `ogpar` 14 -> 15, `petrobras` 13 -> 14, `santander-brasil` 7 -> 8, `telefonica-brasil` 8 -> 9
+
+91 ligações em `ranking_evidencia`; 36 evidências novas. Lacunas registradas no arquivo: (1) Petrobras 1997: sem lucro em R$ pela legislação societária (o 20-F FY2001 traz US$ 1.419 mi em US GAAP; 1º semestre/1997 ≈ R$ 252 mi pela Folha de 14/8/1998). Não inserida: o US GAAP em US$ não é a base do ranking. (2) Itaú 1996 anual (derivável: 721/1,22 ≈ 591 mi; fica na obs do 0,676). (3) Telebrás 1995 e 1996 anual (9 meses de 1996: holding R$ 2,38 bi). (4) Eletrobras 1997; Light e Banco Real 1995-1997; Brahma 1995-1996 (1996 ≈ R$ 400 mi derivável, não confirmado). (5) Banco do Brasil 1998 (US$ 720 mi na Euromoney): o BB não está na lista de 1998 e o valor em R$ não foi aberto; nada inserido.
+
+### Lideranças parlamentares (`mandatos-adicionais.json`)
+
+| entidade | cargo | ano | partido/UF | motivo | evidência da linha |
+|---|---|---|---|---|---|
+| `elcio-alvares` | senador | 1995 | PFL/ES | Líder do governo FHC no Senado | sem API (sem fonte oficial) |
+| `elcio-alvares` | senador | 1998 | PFL/ES | Líder do governo FHC no Senado (desde o primeiro ano do mandato de FHC) | sem API (sem fonte oficial) |
+| `jose-roberto-arruda` | senador | 1999 | PSDB/DF | Líder do governo no Senado a partir de 3/8/1999 | https://legis.senado.leg.br/dadosabertos/senador/46 |
+| `romero-juca` | senador | 2001 | PSDB/RR | Líder do governo FHC no Senado, depois da saída de José Roberto Arruda (24/5/2001) | https://legis.senado.leg.br/dadosabertos/senador/73 |
+| `romero-juca` | senador | 2002 | PSDB/RR | Líder do governo FHC no Senado (dois anos na liderança, segundo ele próprio) | https://legis.senado.leg.br/dadosabertos/senador/73 |
+| `jutahy-junior` | deputado | 2001 | PSDB/BA | Líder do PSDB (Bloco PSDB/PTB) na Câmara a partir de 21/2/2001, no lugar de Aécio Neves | https://dadosabertos.camara.leg.br/api/v2/deputados/74570 |
+
+Cada linha traz a fonte oficial do destaque ligada à relação `mandato:<id>` (8 ligações, inclusive na filiação das linhas sem API). Confronto com as APIs (`mandato-oficial.json`): 317 linhas, 302 confirmadas, 2 divergentes, 13 sem fonte oficial (as linhas de pessoa fora da coleta das APIs entram em `sem_fonte`). Pendências: Walter Pinheiro (2001): Líder do PT na Câmara a partir de 21/2/2001 (Diário da Câmara de 21/2/2001: 'Assunção do orador ao cargo de Líder da bancada do Partido dos Trabalhadores', sucedendo Aloizio Mercadante). Não há entidade no banco e o Diário não traz a UF: não foi criada (a regra pede UF e partido da própria fonte). Élcio Álvares (1996-1997): Liderança contínua provável (1995-1998), mas sem prova própria desses anos: sem linha. José Roberto Arruda (1995-1998): '2º Vice-Líder do Governo' (perfil/46, 20/3/1995 a 31/1/1999) não é destaque: sem linha. (mais votado de 1998) (1998): Não encontrado. Enéas refutado (a API da Câmara não o lista na 51ª legislatura; concorreu à Presidência em 1998); a Folha de 8/11/1998 só traz o partido mais votado (PFL, 10,863 milhões). Nada inserido.
+
+### Fatos novos e correções de texto
+
+- `ev-2024-trump-e-eleito-presidente-dos-eua-pela` (Y[2024].intl.eventos[4], peso 4, documentada): Trump é eleito presidente dos EUA pela segunda vez
+- `ev-2024-cupula-do-g20-no-rio-lanca-alianca` (Y[2024].intl.eventos[5], peso 4, documentada): Cúpula do G20 no Rio lança Aliança contra a Fome
+- correção `ev-2012-rio-20-reune-88-chefes-de-estado-e-de` (descricao): "realizada de 13 a 22 de junho de 2012 no Rio de Janeiro" -> "realizada no Rio de Janeiro de 20 a 22 de junho de 2012 (precedida pela reunião preparatória de 13 a 15/6)"
+- correção `ev-1997-novas-mesas-da-camara-e-do-senado` (descricao): "Em fevereiro de 1997 Michel Temer (PMDB-SP) assume a presidência da Câmara, no lugar de Luís Eduardo Magalhães, e Antonio Carlos Magalhães (PFL-BA) a do Senado, eleito com 52 votos, no lugar de José Sarney." -> "Em 4/2/1997 Antonio Carlos Magalhães (PFL-BA) é eleito presidente do Senado com 52 votos, no lugar de José Sarney, e em 5/2 Michel Temer (PMDB-SP) é eleito presidente da Câmara com 257 votos, no lugar de Luís Eduardo Magalhães."
+- correção `ev-1999-reeleicao-de-temer-e-antonio-carlos` (descricao): "Em 1/2/1999 Michel Temer (PMDB-SP) é reeleito presidente da Câmara e Antonio Carlos Magalhães (PFL-BA), presidente do Senado, este com 70 votos." -> "Em 1/2/1999 Antonio Carlos Magalhães (PFL-BA) é reeleito presidente do Senado com 70 votos e, em 2/2, Michel Temer (PMDB-SP) é reeleito presidente da Câmara, como candidato único, com 422 votos."
+
+Bancadas: não alteradas (a tabela acadêmica da Câmara não substitui a carga; o snapshot oficial do Senado em 2000 traz blocos, não os 81 nomes; não há linhas de bancada do Senado 1995-1998 no banco e a aproximação da pesquisa não foi usada).
+

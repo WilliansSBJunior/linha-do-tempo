@@ -1,0 +1,1607 @@
+{
+ "_doc": "Rodada 6 (18/10/2026): correções e acréscimos ao ranking de lucros (ranking_empresa), com trechos literais da pesquisa em /home/claude/transfer/ (folha_empresas.json: acervo da Folha aberto pelo Chrome do usuário, fonte principal de 1995-1997; empresas_9597.json: SEC/Euromoney, US GAAP em US$, só como contexto/corroboração, nunca como valor principal: o ranking usa o balanço societário em R$; empresas_0222.json: confirmações de 2002-2022). Aplicado por curadoria.aplicar_ranking_empresa_correcoes (depois dos complementos do bruto e das estimativas por entidade; aborta sem aplicar nada se a entidade ou a linha não existem, se uma linha a inserir já existe, se um `de` não bate com o valor atual, se `evidencia_de`/`anterior.url` não é a fonte atual ou se a cobertura do ano não é uniforme). `cobertura`: troca a cobertura do ANO inteiro (a página lê a do ano). `atualizar`: campos `de` -> `para` (lucro_brl_bi, derivado, obs, ...). `inserir`: linha nova (setor, setor_k, controle, holding e derivado coerentes com as linhas vizinhas da mesma empresa ou do setor; cobertura = a do ano; `nome_epoca` vira nota brasil/aviso Y.<ano>.empresa.<id>, como na carga bruta). `fontes`: cada uma vira `evidencia` (URL normalizada; se já existe, reaproveita sem mudar veículo/tipo) ligada à linha na tabela aditiva `ranking_evidencia` com papel (`sustenta` = dá ou confirma o valor na base do ranking; `contexto` = outra base contábil ou corroboração), trecho e nota; a que tem `principal` vira `ranking_empresa.evidencia_id` (a fonte que a página mostra), e a principal anterior fica ligada com o papel e a nota de `anterior`. Depois, nos anos tocados, `posicao` e `pct_total` são recalculados com as regras da carga bruta (conferidas nas 397 linhas de data/raw/brasil.json): posição = lucros em ordem decrescente e, depois deles, os prejuízos do maior para o menor; pct_total = round(lucro / PIB nominal do ano (serie macro.pib) * 100, 3).",
+ "cobertura": [
+  {
+   "ano": 1995,
+   "de": "fraca",
+   "para": "parcial",
+   "motivo": "Folha: 6 empresas novas (Eletrobras, Petrobras, Bradesco, Itaú, Unibanco, Souza Cruz) e a Vale com balanço."
+  },
+  {
+   "ano": 1996,
+   "de": "fraca",
+   "para": "parcial",
+   "motivo": "Folha: Eletrobras, Petrobras e Souza Cruz novas; BB, Bradesco, Vale e Unibanco com balanço."
+  },
+  {
+   "ano": 1997,
+   "de": "fraca",
+   "para": "parcial",
+   "motivo": "Folha: Brahma nova; Itaú, Unibanco e Telebrás com balanço. Petrobras 1997 continua fora (sem valor em R$ societário)."
+  },
+  {
+   "ano": 2002,
+   "de": "parcial",
+   "para": "completa",
+   "motivo": "Embratel, TNL e Telesp Celular confirmados em documento da SEC; decisão do dono do projeto (rodada 6)."
+  }
+ ],
+ "atualizar": [
+  {
+   "ano": 1995,
+   "entidade_id": "vale",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.31,
+     "para": 0.329
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 338 mi (Wikipédia pt) convertido a ~R$ 0,92/US$ (taxa média aproximada, não verificada em fonte aberta); base contábil do valor em US$ não detalhada. Privatizada só em 1997.",
+     "para": "Lucro líquido do balanço encaminhado à CVM (Folha, 17/2/1996). O valor anterior (R$ 0,31 bi) era derivado de US$ 338 mi da Wikipédia. Privatizada só em 1997."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1996/2/17/brasil/29.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Privatização da Vale renderia R$ 5,4 bi hoje",
+     "data": "1996-02-17",
+     "trecho": "A empresa teve um lucro líquido de R$ 329 milhões no ano passado, de acordo com balanço encaminhado à CVM",
+     "nota": "Substitui o valor derivado de US$ 338 mi (Wikipédia).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Vale_(empresa)",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (Wikipédia, US$ 338 mi convertidos); pela R6, a Wikipédia é só contexto."
+   },
+   "motivo": "Folha (rodada 6) substitui o derivado da Wikipédia."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": "Fonte única (discurso no Senado, mar/1996: 'prejuízo de 4,2 bilhões de reais'); outro discurso cita déficit de R$ 4 bi. Banco Nacional teve -R$ 7,42 bi só no 4T95 (Economática/Exame); anual não confirmado.",
+     "para": "Fonte única (discurso no Senado, mar/1996: 'prejuízo de 4,2 bilhões de reais'); outro discurso cita déficit de R$ 4 bi. Banco Nacional teve -R$ 7,42 bi só no 4T95 (Economática/Exame); anual não confirmado. Folha (20/3/1996): 'acumulou um prejuízo de aproximadamente R$ 4 bilhões em 1995'; o balanço exato não foi aberto."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1996/3/20/brasil/13.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Malan divulga ajuda ao BB",
+     "data": "1996-03-20",
+     "trecho": "o Banco do Brasil, que acumulou um prejuízo de aproximadamente R$ 4 bilhões em 1995",
+     "nota": "Corrobora a ordem de grandeza do -4,2 (discurso no Senado); o balanço exato não foi aberto.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Mantém -4,2 com uma segunda fonte (Folha); cobertura do ano passa a parcial."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": -7.28,
+     "para": -7.525
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: -US$ 7.243 mi (Euromoney Latin 100 1997, FY1996) a ~R$ 1,0/US$. Estudo de caso (redalyc, https://www.redalyc.org/pdf/840/84012377010.pdf) cita 'prejuízo histórico de quase R$ 8 bilhões'; Economática/Exame: -R$ 6,177 bi só no 2º tri de 1996. Valor exato do balanço não confirmado.",
+     "para": "Balanço anual (Folha, 21/2/1997: 'no resultado anual houve um prejuízo de R$ 7,525 bilhões'). O valor anterior (-7,28) era derivado de -US$ 7.243 mi (Euromoney); estudo de caso (redalyc) cita 'prejuízo histórico de quase R$ 8 bilhões'; Economática/Exame: -R$ 6,177 bi só no 2º tri de 1996."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi210225.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "BB lucra e reduz perda a R$ 7,5 bi",
+     "data": "1997-02-21",
+     "trecho": "no resultado anual houve um prejuízo de R$ 7,525 bilhões",
+     "nota": "Substitui o derivado da Euromoney (-7,28).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3s7/latin-100-1997-the-biggest-latin-banks",
+     "veiculo": "Euromoney",
+     "tipo": "reportagem",
+     "titulo": "Latin 100 1997: The biggest Latin banks",
+     "data": "1997-09-01",
+     "trecho": "Banco do Brasil ran up losses of $7.2 billion last year.",
+     "nota": "'losses of $7.2 billion last year' (FY1996). Ranking da Euromoney em US$ (critério e câmbio da revista): só corroboração de ordem de grandeza; o ranking usa o balanço em R$ pela legislação societária.",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3v4/banking/latin-100-1997-the-full-rankings",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (carga bruta), de outra base ou derivado; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6) corrige -7,28 (derivado) para -7,525 (balanço)."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.82,
+     "para": 0.8245
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 815 mi (Euromoney Latin 100 1997, FY1996) a ~R$ 1,0/US$. Taxa de câmbio média do ano usada na conversão não foi verificada em fonte aberta (aproximação ~R$/US$ 1,0 em 1996; ~1,08 em 1997); margem de erro de alguns %.",
+     "para": "Balanço anual (Folha, 18/2/1997: 'lucro líquido de R$ 824,5 mi, o maior da história das empresas privadas brasileiras'). O valor anterior (0,82) era derivado de US$ 815 mi (Euromoney)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi180215.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Proer eleva a rentabilidade do Real",
+     "data": "1997-02-18",
+     "trecho": "O Bradesco, em 96, apresentou um lucro líquido de R$ 824,5 mi, o maior da história das empresas privadas brasileiras.",
+     "nota": "Confirma o 0,82 com o valor do balanço.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3s7/latin-100-1997-the-biggest-latin-banks",
+     "veiculo": "Euromoney",
+     "tipo": "reportagem",
+     "titulo": "Latin 100 1997: The biggest Latin banks",
+     "data": "1997-09-01",
+     "trecho": "Banco Bradesco now ranks first, with net profits of $815 million, up from $525 million in our previous ranking.",
+     "nota": "'net profits of $815 million' (FY1996). Ranking da Euromoney em US$ (critério e câmbio da revista): só corroboração de ordem de grandeza; o ranking usa o balanço em R$ pela legislação societária.",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3v4/banking/latin-100-1997-the-full-rankings",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (carga bruta), de outra base ou derivado; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6): valor exato do balanço."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "vale",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.518,
+     "para": 0.517
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Calculado de variação percentual: monografia da PUC-Rio informa lucro de 1997 = R$ 756 mi, +46% sobre 1996 (756/1,46 = ~R$ 518 mi); 1996 não aparece explícito na fonte e o % arredondado dá margem de ~1%. Privatizada só em maio/1997.",
+     "para": "Folha (11/3/1998): 'O resultado é 46% maior do que o de 96, quando a empresa lucrou R$ 517 milhões.' O valor anterior (0,518) era calculado da variação de 46% (monografia da PUC-Rio). Privatizada só em maio/1997."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi11039811.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Vale em 97 é de R$ 756 milhões",
+     "data": "1998-03-11",
+     "trecho": "O resultado é 46% maior do que o de 96, quando a empresa lucrou R$ 517 milhões.",
+     "nota": "Valor de 1996 citado explicitamente na matéria do balanço de 1997.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/917851/000095012302001910/y56991a1f-3apdf.pdf",
+     "veiculo": "SEC EDGAR - Form F-3/A da CVRD (26/02/2002)",
+     "tipo": "documento_oficial",
+     "titulo": "Amendment No. 1 to Form F-3, Summary Financial Data",
+     "data": "2002-02-26",
+     "trecho": "Net income ... US$ 574 US$ 319 US$ 698 US$ 412 US$ 1,086 US$ 901 US$ 585 (anos 1996 a 2000; 9M2000; 9M2001; 'in millions of US$')",
+     "nota": "US$ 574 mi em US GAAP (F-3/A da CVRD, 2002). Outra base contábil (US GAAP, em US$; conversão a R$ do pesquisador com câmbio médio NÃO verificado): só corroboração; o ranking usa a legislação societária (BR GAAP).",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/Julia_Campos_Alves_de_Brito.pdf",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (carga bruta), de outra base ou derivado; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6): valor explícito em vez do calculado."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "unibanco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.28,
+     "para": 0.285
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 276 mi (Euromoney, FY1996). Taxa de câmbio média do ano usada na conversão não foi verificada em fonte aberta (aproximação ~R$/US$ 1,0 em 1996; ~1,08 em 1997); margem de erro de alguns %.",
+     "para": "Lucro contábil do balanço anual (Folha, 26/2/1997: 'lucro contábil de R$ 285 milhões'). O valor anterior (0,28) era derivado de US$ 276 mi (Euromoney)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi260221.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Unibanco cresce 84% em 1996",
+     "data": "1997-02-26",
+     "trecho": "O Unibanco encerrou 1996 com um lucro contábil de R$ 285 milhões, valor 84,4% superior ao do ano anterior.",
+     "nota": "Confirma o 0,28 com o valor do balanço.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3v4/banking/latin-100-1997-the-full-rankings",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (carga bruta), de outra base ou derivado; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6): valor exato do balanço."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "itau-unibanco",
+   "campos": {
+    "obs": {
+     "de": "Lucro líquido do conglomerado Itaúsa, relatório anual 2000 da Itaúsa. O Banco Itaú isolado teve US$ 579 mi (Euromoney, FY1996).",
+     "para": "Lucro líquido do conglomerado Itaúsa, relatório anual 2000 da Itaúsa. O Banco Itaú isolado teve US$ 579 mi (Euromoney, FY1996). Folha (10/2/1998): o lucro de 1997 do Banco Itaú, R$ 721 mi, foi +22% sobre 1996, o que implica ≈ R$ 591 mi para o banco; não confirmado diretamente (o 0,676 é o do conglomerado Itaúsa)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi10029805.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Itaú cresce 22% e vai a R$ 721 mi",
+     "data": "1998-02-10",
+     "trecho": "O Banco Itaú aumentou seu lucro consolidado em 22% no ano passado, elevando-o para R$ 721 milhões.",
+     "nota": "Matéria do balanço de 1997: 721/1,22 ≈ 591 mi para 1996 (Banco Itaú), não confirmado diretamente.",
+     "papel": "contexto"
+    },
+    {
+     "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3s7/latin-100-1997-the-biggest-latin-banks",
+     "veiculo": "Euromoney",
+     "tipo": "reportagem",
+     "titulo": "Latin 100 1997: The biggest Latin banks",
+     "data": "1997-09-01",
+     "trecho": "Banco Itaú looks healthy with net income of $579 million.",
+     "nota": "'net income of $579 million' do Banco Itaú isolado (FY1996). Ranking da Euromoney em US$ (critério e câmbio da revista): só corroboração de ordem de grandeza; o ranking usa o balanço em R$ pela legislação societária.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Mantém 0,676 (Itaúsa) com a observação da Folha."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "itau-unibanco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.874,
+     "para": 0.721
+    },
+    "obs": {
+     "de": "Lucro líquido do conglomerado Itaúsa (Banco Itaú + seguros, industrial, imobiliário), relatório anual 2000 da Itaúsa.",
+     "para": "Banco Itaú, lucro consolidado (inclui o Banerj), BR GAAP (Folha, 10/2/1998: 'aumentou seu lucro consolidado em 22% no ano passado, elevando-o para R$ 721 milhões'). O 0,874 anterior era o do conglomerado Itaúsa (relatório anual 2000 da Itaúsa), outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi10029805.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Itaú cresce 22% e vai a R$ 721 mi",
+     "data": "1998-02-10",
+     "trecho": "O Banco Itaú aumentou seu lucro consolidado em 22% no ano passado, elevando-o para R$ 721 milhões.",
+     "nota": "BR GAAP consolidado; o 0,874 anterior era de outra base (conglomerado Itaúsa).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/c3e982af-9dbc-49c9-8a09-16ac9c31b002?origin=2",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (0,874, conglomerado Itaúsa): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6): BR GAAP consolidado do banco."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "unibanco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.42,
+     "para": 0.4308
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: US$ 387 mi (Euromoney, FY1997). Taxa de câmbio média do ano usada na conversão não foi verificada em fonte aberta (aproximação ~R$/US$ 1,0 em 1996; ~1,08 em 1997); margem de erro de alguns %.",
+     "para": "Balanço anual (Folha, 15/2/1998: 'o maior lucro de sua história: R$ 430,8 milhões, 51,1% maior que o de 96'). O valor anterior (0,42) era derivado de US$ 387 mi (Euromoney)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi15029817.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bancos mantêm lucro, apesar da crise",
+     "data": "1998-02-15",
+     "trecho": "O Unibanco, terceiro maior banco privado do país [...] publicou na última quinta-feira o maior lucro de sua história: R$ 430,8 milhões, 51,1% maior que o de 96.",
+     "nota": "Confirma o 0,42 com o valor do balanço.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.euromoney.com/article/27bjsstsqxhkmh1335gkx/latin-america-100-the-regions-biggest-banks",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (carga bruta), de outra base ou derivado; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6): valor exato do balanço."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "telebras",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 4.3,
+     "para": 3.9
+    },
+    "obs": {
+     "de": "Lucro recorde do Sistema Telebrás, citado na Wikipédia; consolida controladas como Embratel e Telesp.",
+     "para": "Lucro consolidado da Telebrás e das 28 subsidiárias (Folha, 24/1/1998); a controladora teve R$ 4,324 bi (o 4,3 anterior, da Wikipédia, era o da controladora). Consolida controladas como Embratel e Telesp (dupla contagem com a Embratel)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi240110.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Telebrás registra lucro de R$ 3,9 bi em 97",
+     "data": "1998-01-24",
+     "trecho": "A Telebrás informou ontem que o lucro líquido consolidado da empresa e de suas 28 subsidiárias em 1997 foi de R$ 3,9 bilhões. [...] Segundo a assessoria de imprensa da Telebrás, o lucro exato da empresa foi de R$ 4,324 bilhões.",
+     "nota": "Consolidado, para comparar com as demais; controladora R$ 4,324 bi.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Telebr%C3%A1s",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (Wikipédia, R$ 4,3 bi da controladora); pela R6, a Wikipédia é só contexto."
+   },
+   "motivo": "Folha (rodada 6): consolidado em vez da controladora."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi11039811.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Lucro da Vale em 97 é de R$ 756 milhões",
+     "data": "1998-03-11",
+     "trecho": "A Companhia Vale do Rio Doce teve lucro líquido de R$ 756 milhões em 97.",
+     "nota": "Confirma o 0,756 (balanço anual de 1997).",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/917851/000095012302001910/y56991a1f-3apdf.pdf",
+     "veiculo": "SEC EDGAR - Form F-3/A da CVRD (26/02/2002)",
+     "tipo": "documento_oficial",
+     "titulo": "Amendment No. 1 to Form F-3, Summary Financial Data",
+     "data": "2002-02-26",
+     "trecho": "Net income ... US$ 574 US$ 319 US$ 698 US$ 412 US$ 1,086 US$ 901 US$ 585 (anos 1996 a 2000; 9M2000; 9M2001; 'in millions of US$')",
+     "nota": "US$ 319 mi em US GAAP, com perda extraordinária de US$ 372 mi ligada à privatização (F-3/A da CVRD). Outra base contábil (US GAAP, em US$; conversão a R$ do pesquisador com câmbio médio NÃO verificado): só corroboração; o ranking usa a legislação societária (BR GAAP).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 6) confirma o valor."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "embratel",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://teletime.com.br/16/04/1999/embratel-divulga-resultados-do-exercicio-de-1998",
+     "veiculo": "Teletime",
+     "tipo": "reportagem",
+     "titulo": "Embratel divulga resultados do exercício de 1998",
+     "data": "1999-04-16",
+     "trecho": "o lucro líquido foi muito superior (R$ 508 milhões)  [1998: 'A empresa teve um lucro líquido consolidado de R$ 121 milhões']",
+     "nota": "Confirma o 0,508 (a matéria do resultado de 1998 cita o de 1997).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Teletime (já era a fonte da linha) confirma o valor; ligação com trecho."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "petrobras",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 1.4,
+     "para": 1.433
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: lucro líquido de US$ 1.185 mi no Relatório Anual 1998 (faturamento líquido US$ 13.639 mi), convertido a ~R$ 1,16-1,21/US$ (taxa não verificada em fonte aberta). Valor em R$ do balanço societário não localizado; incerteza de ~10%.",
+     "para": "Lei societária (Folha, 15/2/2000: 'R$ 1,771 bilhão, contra R$ 1,433 bilhão do ano anterior'). O 1,4 anterior era derivado de US$ 1.185 mi do Relatório Anual 1998; o 20-F (US GAAP) traz US$ 378 mi, outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1502200020.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Petrobras tem lucro de R$ 1,771 bi em 99",
+     "data": "2000-02-15",
+     "trecho": "A empresa fechou o ano com lucro líquido (depois de descontados os impostos) de R$ 1,771 bilhão, contra R$ 1,433 bilhão do ano anterior.",
+     "nota": "Confirma o 1,4 com mais precisão (BR GAAP).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001119639/000101706202001309/d20f.txt",
+     "veiculo": "SEC EDGAR - Form 20-F FY2001 e FY2002 (Petrobras)",
+     "tipo": "documento_oficial",
+     "titulo": "Form 20-F - Selected Financial Data",
+     "data": "2002/2003",
+     "trecho": "Net income | $ 2,311 | $ 3,491 | $ 5,342 | $ 727 | $ 378 (2002..1998, US$ milhões, U.S. GAAP) - 20-F FY2002 (y87469e20vf.htm), idêntico no FY2001",
+     "nota": "Net income US$ 378 mi em US GAAP (20-F FY2001/FY2002). Outra base contábil (US GAAP, em US$; conversão a R$ do pesquisador com câmbio médio NÃO verificado): só corroboração; o ranking usa a legislação societária (BR GAAP).",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://bibliotecadigital.aepet.org.br/wp-content/uploads/2024/01/Relatorio-anual-1998.pdf",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (Relatório Anual 1998, US$ 1.185 mi convertidos a câmbio não verificado); mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6): valor do balanço em R$."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 0.539,
+     "para": 1.014
+    },
+    "obs": {
+     "de": "Formulário 20-F de 2002 (tabela de dados selecionados 1998-2002); base contábil provavelmente US GAAP, pode diferir do balanço em Brazilian GAAP.",
+     "para": "BR GAAP (Folha, 4/3/1999: 'apenas o do Bradesco havia apresentado lucro superior a R$ 1 bilhão (R$ 1,014 bilhão)'). O 0,539 anterior era o do 20-F de 2002, US GAAP."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi04039921.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Vale registra lucro de R$ 1 bilhão em 98",
+     "data": "1999-03-04",
+     "trecho": "apenas o do Bradesco havia apresentado lucro superior a R$ 1 bilhão (R$ 1,014 bilhão)",
+     "nota": "Base societária (BR GAAP); o 0,539 anterior era US GAAP (20-F).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.euromoney.com/article/27bjsstsqxhkmh14o5odb/banking/the-latin-america-100/",
+     "veiculo": "Euromoney",
+     "tipo": "reportagem",
+     "titulo": "The Latin America 100",
+     "data": "1999-09-01",
+     "trecho": "(tabela, Dec-98, coluna Net income $m) Bradesco ... 894",
+     "nota": "US$ 894 mi na tabela da Euromoney (dez/1998). Ranking da Euromoney em US$ (critério e câmbio da revista): só corroboração de ordem de grandeza; o ranking usa o balanço em R$ pela legislação societária.",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://www.sec.gov/Archives/edgar/data/0001160330/000116033003000040/form20f2002.htm",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (20-F de 2002, US GAAP, R$ 0,539 bi): outra base; mantida como contexto."
+   },
+   "motivo": "Folha (rodada 6): alinha o Bradesco à base societária."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi04039921.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Vale registra lucro de R$ 1 bilhão em 98",
+     "data": "1999-03-04",
+     "trecho": "registrou no seu balanço de 1998 um lucro líquido de R$ 1,029 bilhão (US$ 851,33 milhões), com crescimento de 36,1% sobre o resultado em reais de 1997",
+     "nota": "Confirma o 1,029 (US$ 851,33 mi na mesma matéria).",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/917851/000095012302001910/y56991a1f-3apdf.pdf",
+     "veiculo": "SEC EDGAR - Form F-3/A da CVRD (26/02/2002)",
+     "tipo": "documento_oficial",
+     "titulo": "Amendment No. 1 to Form F-3, Summary Financial Data",
+     "data": "2002-02-26",
+     "trecho": "Net income ... US$ 574 US$ 319 US$ 698 US$ 412 US$ 1,086 US$ 901 US$ 585 (anos 1996 a 2000; 9M2000; 9M2001; 'in millions of US$')",
+     "nota": "US$ 698 mi em US GAAP (F-3/A da CVRD). Outra base contábil (US GAAP, em US$; conversão a R$ do pesquisador com câmbio médio NÃO verificado): só corroboração; o ranking usa a legislação societária (BR GAAP).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 6) confirma o valor."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "embratel",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://teletime.com.br/16/04/1999/embratel-divulga-resultados-do-exercicio-de-1998",
+     "veiculo": "Teletime",
+     "tipo": "reportagem",
+     "titulo": "Embratel divulga resultados do exercício de 1998",
+     "data": "1999-04-16",
+     "trecho": "A empresa teve um lucro líquido consolidado de R$ 121 milhões",
+     "nota": "Confirma o 0,121; a matéria alerta que a comparação com 1997 é difícil pela cisão do Sistema Telebrás.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Teletime (já era a fonte da linha) confirma o valor; ligação com trecho."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "itau-unibanco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.euromoney.com/article/27bjsstsqxhkmh14o5odb/banking/the-latin-america-100/",
+     "veiculo": "Euromoney",
+     "tipo": "reportagem",
+     "titulo": "The Latin America 100",
+     "data": "1999-09-01",
+     "trecho": "(tabela, Dec-98, coluna Net income $m) Itaú (Banco Itaú) ... 759",
+     "nota": "US$ 759 mi do Banco Itaú na tabela da Euromoney (dez/1998). Ranking da Euromoney em US$ (critério e câmbio da revista): só corroboração de ordem de grandeza; o ranking usa o balanço em R$ pela legislação societária.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Corroboração (Euromoney), sem mudar o valor."
+  },
+  {
+   "ano": 1998,
+   "entidade_id": "unibanco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.euromoney.com/article/27bjsstsqxhkmh14o5odb/banking/the-latin-america-100/",
+     "veiculo": "Euromoney",
+     "tipo": "reportagem",
+     "titulo": "The Latin America 100",
+     "data": "1999-09-01",
+     "trecho": "(tabela, Dec-98, coluna Net income $m) Unibanco ... 441",
+     "nota": "US$ 441 mi na tabela da Euromoney (dez/1998). Ranking da Euromoney em US$ (critério e câmbio da revista): só corroboração de ordem de grandeza; o ranking usa o balanço em R$ pela legislação societária.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Corroboração (Euromoney), sem mudar o valor."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "petrobras",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 1.7,
+     "para": 1.771
+    },
+    "obs": {
+     "de": "Citado como 'net profit' de 1999 (R$ 1,7 bi) em matéria da agência Reuters/Gulf News; base contábil não detalhada.",
+     "para": "Lei societária (Folha, 15/2/2000: 'lucro líquido (depois de descontados os impostos) de R$ 1,771 bilhão'); receita líquida R$ 26,881 bi. A Reuters/Gulf News arredondava para R$ 1,7 bi; o 20-F (US GAAP) traz US$ 727 mi, outra base."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi1502200020.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Balanço: Petrobras tem lucro de R$ 1,771 bi em 99",
+     "data": "2000-02-15",
+     "trecho": "A empresa fechou o ano com lucro líquido (depois de descontados os impostos) de R$ 1,771 bilhão",
+     "nota": "Valor exato em R$ (substitui o 1,7 arredondado da Reuters).",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/1119639/000095012303007204/y87469e20vf.htm",
+     "veiculo": "SEC EDGAR - Form 20-F FY2002 (Petrobras)",
+     "tipo": "documento_oficial",
+     "titulo": "Form 20-F FY2002 - Item 3 Selected Financial Data",
+     "data": "2003",
+     "trecho": "Net income | $ 2,311 | $ 3,491 | $ 5,342 | $ 727 | $ 378",
+     "nota": "Net income US$ 727 mi em US GAAP (20-F FY2002). Outra base contábil (US GAAP, em US$; conversão a R$ do pesquisador com câmbio médio NÃO verificado): só corroboração; o ranking usa a legislação societária (BR GAAP).",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://gulfnews.com/business/energy/brazil-petrobras-2000-profits-to-break-record-1.414670",
+    "papel": "sustenta",
+    "nota": "Fonte anterior (Reuters/Gulf News: 'net profit' de R$ 1,7 bi, arredondado); continua sustentando o valor."
+   },
+   "motivo": "Folha (rodada 6): valor exato."
+  },
+  {
+   "ano": 1999,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/917851/000095012302001910/y56991a1f-3apdf.pdf",
+     "veiculo": "SEC EDGAR - Form F-3/A da CVRD (26/02/2002)",
+     "tipo": "documento_oficial",
+     "titulo": "Amendment No. 1 to Form F-3, Summary Financial Data",
+     "data": "2002-02-26",
+     "trecho": "Net income ... US$ 574 US$ 319 US$ 698 US$ 412 US$ 1,086 US$ 901 US$ 585 (anos 1996 a 2000; 9M2000; 9M2001; 'in millions of US$')",
+     "nota": "US$ 412 mi em US GAAP (F-3/A da CVRD). Outra base contábil (US GAAP, em US$; conversão a R$ do pesquisador com câmbio médio NÃO verificado): só corroboração; o ranking usa a legislação societária (BR GAAP).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Corroboração (US GAAP), sem mudar o valor."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "embratel",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001066117/000119312504093082/d20f.htm",
+     "veiculo": "SEC EDGAR",
+     "tipo": "documento_oficial",
+     "titulo": "Embratel Participações, Form 20-F (exercício 2003), Selected Financial Information",
+     "data": "2004",
+     "trecho": "Net income (loss) R$ 412 R$ 577 R$ (554) R$ (626) R$ 224  [colunas 1999-2003; 2002 = quarto valor]",
+     "nota": "Prejuízo confirmado no documento primário (BR GAAP). Dissertação da PUC-Rio (maxwell.vrac.puc-rio.br/4680/4680_5.PDF) traz R$ 627 mi (arredondamento).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "20-F (já era a fonte da linha) confirma o valor; ligação com trecho."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "telemar",
+   "campos": {
+    "obs": {
+     "de": "Lei societária (BR GAAP, 20-F 2004; US GAAP: prejuízo de R$ 1,4 bi).",
+     "para": "Tele Norte Leste Participações (TNL), holding; a operadora Telemar Norte Leste lucrou R$ 0,687 bi. Lei societária (BR GAAP, 20-F 2004; US GAAP: prejuízo de R$ 1,4 bi)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001066113/000095012305007975/y10162e20vf.htm",
+     "veiculo": "SEC EDGAR",
+     "tipo": "documento_oficial",
+     "titulo": "Tele Norte Leste Participações, Form 20-F (exercício 2004), Selected Financial Information",
+     "data": "2005",
+     "trecho": "Net income (loss) 709,407 140,378 (415,598) 212,713 751,037  [colunas 2000-2004; 2002 = terceiro valor]",
+     "nota": "Confirmado no 20-F 2004 (SEC) e no 20-F 2003 do RI da TNL; o registrante é a holding TNL, não a operadora.",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://cdn-sites-assets.mziq.com/wp-content/uploads/sites/39/2018/01/2016_09_17_relatorioadministracao_tmar_2002.pdf",
+     "veiculo": "RI Oi (Telemar)",
+     "tipo": "reportagem",
+     "titulo": "Telemar Norte Leste S.A., Relatório da Administração e Demonstrações Financeiras 2002",
+     "data": "2003",
+     "trecho": "Lucro líquido do exercício 687.260 295.069  (R$ mil, 2002 e 2001)",
+     "nota": "Operadora Telemar Norte Leste S.A. (lucro de R$ 687 mi em 2002): entidade distinta da holding TNL; não entra no ranking (dupla contagem).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "20-F (já era a fonte da linha) confirma o valor; obs explica holding x operadora."
+  },
+  {
+   "ano": 2002,
+   "entidade_id": "telesp-celular-participacoes",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.sec.gov/Archives/edgar/data/0001071337/000107133703000012/press_release02.htm",
+     "veiculo": "SEC EDGAR",
+     "tipo": "documento_oficial",
+     "titulo": "Telesp Celular Participações, Form 6-K (press release de resultados 2002)",
+     "data": "2003",
+     "trecho": "producing a net loss of R$ 1,140.7 million in 2002 (US$ 322.2 million)",
+     "nota": "Press release de resultados de 2002 (6-K); o 20-F FY2003, já ligado, também traz (1,140.7).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "6-K confirma o valor."
+  },
+  {
+   "ano": 2008,
+   "entidade_id": "sadia",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.latibex.com/docs/Documentos/esp/resulta/2009/Sadia_Release_4T08.pdf",
+     "veiculo": "Sadia S.A. (release 4T08, via Latibex)",
+     "tipo": "relatorio",
+     "titulo": "Sadia Release 4T08, Anexo I (demonstração de resultado consolidada)",
+     "data": "2009-03-27",
+     "trecho": "LUCRO LÍQUIDO 768.348 (2.484.834) 374.452 (2.042.219)  [R$ mil; ordem das colunas conforme tabela do release]",
+     "nota": "Prejuízo anual de 2008 confirmado no release primário (R$ 2.484.834 mil).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://www.infomoney.com.br/?p=357219",
+    "papel": "sustenta",
+    "nota": "Fonte anterior (InfoMoney, 27/3/2009: 'prejuízo líquido de R$ 2,48 bilhões no acumulado de 2008'); continua sustentando o valor."
+   },
+   "motivo": "Release 4T08 (documento da empresa) passa a fonte principal."
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "bndes",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 8.154,
+     "para": 8.15
+    },
+    "derivado": {
+     "de": 1,
+     "para": 0
+    },
+    "obs": {
+     "de": "Derivado: R$ 8,594 bi de 2014 com alta de 5,4% sobre 2013. Valor direto de 2013 não achado.",
+     "para": "Release do BNDES (28/2/2014): 'net earnings of R$ 8.15 billion in the 2013 fiscal year'. O valor anterior (8,154) era derivado dos R$ 8,594 bi de 2014 com alta de 5,4%."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://bndes.gov.br/SiteBNDES/bndes/bndes_en/conteudos/noticia/BNDES-posts-net-earnings-of-R$-8.15-billion-in-2013/",
+     "veiculo": "BNDES (site oficial)",
+     "tipo": "relatorio",
+     "titulo": "BNDES posts net earnings of R$ 8.15 billion in 2013",
+     "data": "2014-02-28",
+     "trecho": "registered net earnings of R$ 8.15 billion in the 2013 fiscal year",
+     "nota": "Valor direto; substitui o derivado (8,154).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://exame.com/negocios/bndes-lucra-r-8-594-bilhoes-em-2014",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (carga bruta), de outra base ou derivado; mantida como contexto."
+   },
+   "motivo": "Release do BNDES (rodada 6): deixa de ser derivado."
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "banco-do-brasil",
+   "campos": {
+    "obs": {
+     "de": "Contábil, inclui ganho do IPO da BB Seguridade; ajustado R$ 10,35 bi (DIEESE/Exame).",
+     "para": "Contábil, inclui ganho do IPO da BB Seguridade; ajustado R$ 10,35 bi (DIEESE/Exame). Relatório Anual: R$ 15,8 bi."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/0501147c-6489-4fc5-8ac2-a39baa2721b9/f03b39dd-280e-1d2b-9633-0af4b617fc82?origin=1",
+     "veiculo": "RI Banco do Brasil",
+     "tipo": "relatorio",
+     "titulo": "Banco do Brasil, Relatório Anual 2013",
+     "data": "2014",
+     "trecho": "O Banco do Brasil registrou lucro líquido de R$ 15,8 bilhões em 2013",
+     "nota": "Valor do RI com uma casa decimal (15,8); o 15,758 de três casas não foi visto em fonte primária aberta.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia); pela R6, a Wikipédia é só contexto."
+   },
+   "motivo": "Relatório Anual 2013 do BB passa a fonte principal (a anterior era a Wikipédia)."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "itau-unibanco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.infomoney.com.br/?p=377271",
+     "veiculo": "InfoMoney",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Itaú registra novo recorde e atinge R$ 23,35 bi em 2015, alta de 15,4%",
+     "data": "2016-02-02",
+     "trecho": "teve um aumento de 15,4% do lucro em 2015, somando R$ 23,35 bilhões",
+     "nota": "Confirma o 23,35 (BR GAAP).",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001132597/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Itaú Unibanco, XBRL ProfitLossAttributableToOwnersOfParent, FY2015",
+     "data": "2018-04-20",
+     "trecho": "\"end\":\"2015-12-31\",\"val\":25740000000",
+     "nota": "IFRS atribuível 25,74 (20-F arquivado em 2018): a base IFRS da obs.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "InfoMoney confirma; XBRL documenta a base IFRS da obs."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "bradesco",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/economia/lucro-do-bradesco-aumenta-139-em-2015-para-r-17180-bilhoes-5b78p565pguo8zygz9p3ebh0w",
+     "veiculo": "Gazeta do Povo (Agência O Globo)",
+     "tipo": "reportagem",
+     "titulo": "Lucro do Bradesco aumenta 13,9% em 2015, para R$ 17,180 bilhões",
+     "data": "2016-01-28",
+     "trecho": "registou em 2015 um lucro líquido de R$ 17,180 bilhões, um crescimento de 13,9% em relação ao registrado no ano passado",
+     "nota": "Confirma o 17,18 (contábil). O release do 4T15 traz o lucro ajustado, R$ 17,873 bi (outra base).",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001160330/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Bradesco, XBRL ProfitLossAttributableToOwnersOfParent, FY2015",
+     "data": "2018-04-30",
+     "trecho": "\"end\":\"2015-12-31\",\"val\":18132906000",
+     "nota": "IFRS atribuível 18,13 (20-F): a base IFRS da obs.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Gazeta do Povo confirma; XBRL documenta a base IFRS da obs."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "banco-do-brasil",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/0501147c-6489-4fc5-8ac2-a39baa2721b9/0356392e-5816-866a-bc0d-e4a5b3d257de?origin=1",
+     "veiculo": "RI Banco do Brasil",
+     "tipo": "relatorio",
+     "titulo": "Banco do Brasil, Relatório Anual 2015",
+     "data": "2016",
+     "trecho": "O lucro líquido chegou a R$ 14,4 bilhões, incorporando acréscimo de 28% em relação a 2014.",
+     "nota": "Contábil 14,4 (mensagem da administração e tabela); ajustado R$ 11,6 bi; a seção Perfil cita R$ 14,1 bi (inconsistência interna).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://pt.wikipedia.org/wiki/Banco_do_Brasil",
+    "papel": "contexto",
+    "nota": "Fonte anterior (Wikipédia); pela R6, a Wikipédia é só contexto."
+   },
+   "motivo": "Relatório Anual 2015 do BB passa a fonte principal (a anterior era a Wikipédia)."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "ambev",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001565025/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Ambev, XBRL ProfitLossAttributableToOwnersOfParent, FY2015",
+     "data": "2018-03-19",
+     "trecho": "\"start\":\"2015-01-01\",\"end\":\"2015-12-31\",\"val\":12423800000",
+     "nota": "Confirma (20-F arquivado em 2018).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "XBRL (já era a fonte) com trecho."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "itausa",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/40c47fd1-5af8-4dd5-aa70-b2287e8f1f81?origin=2",
+     "veiculo": "RI Itaúsa",
+     "tipo": "relatorio",
+     "titulo": "Itaúsa, Relatório Anual 2015, Principais Indicadores",
+     "data": "2016",
+     "trecho": "Lucro líquido (R$ milhões) 8.868 7.911 5.698 8.994 8.161 6.011",
+     "nota": "Confirma (controladora 8.868; consolidado 8.994).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "RI (já era a fonte) com trecho."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "santander-brasil",
+   "campos": {
+    "obs": {
+     "de": "BR GAAP; IFRS (20-F) 9,78",
+     "para": "base gerencial (Relatório Anual 2015); IFRS 9,784"
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://cms.santander.com.br/sites/WPS/documentos/arq-central-de-resultados-anuais-acordeao-2015-download-1/18-08-28_193833_relat%C3%B3rio+anual+2015.pdf",
+     "veiculo": "RI Santander Brasil",
+     "tipo": "relatorio",
+     "titulo": "Santander Brasil, Relatório Anual 2015",
+     "data": "2016-02",
+     "trecho": "lucro líquido gerencial de R$ 6,624 bilhões, um crescimento de 13,2%",
+     "nota": "O relatório chama o valor de gerencial (a obs anterior dizia BR GAAP); o BR GAAP em R$ fica nas DFs do RI, não abertas.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001471055/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Santander Brasil, XBRL ProfitLossAttributableToOwnersOfParent, FY2015",
+     "data": "2018-04-10",
+     "trecho": "\"start\":\"2015-01-01\",\"end\":\"2015-12-31\",\"val\":9783740000",
+     "nota": "IFRS atribuível 9,784 (20-F).",
+     "papel": "contexto"
+    }
+   ],
+   "anterior": {
+    "url": "https://vermelho.org.br/?p=341267",
+    "papel": "sustenta",
+    "nota": "Fonte anterior (Vermelho, R$ 6,624 bi); continua sustentando o valor."
+   },
+   "motivo": "Relatório Anual 2015 passa a fonte principal e corrige a base (gerencial)."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "bndes",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://bndes.gov.br/SiteBNDES/bndes/bndes_en/conteudos/noticia/BNDES-posts-earnings-of-R$-6.2-billion-in-2015",
+     "veiculo": "BNDES (site oficial)",
+     "tipo": "relatorio",
+     "titulo": "BNDES posts earnings of R$ 6.2 billion in 2015",
+     "data": "2016-03-28",
+     "trecho": "The Brazilian Development Bank (BNDES) posted net earnings of R$ 6.199 billion in 2015.",
+     "nota": "Confirma (fonte primária).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Release (já era a fonte) com trecho."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "jbs",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://www.wattagnet.com/broilers-turkeys/processing-slaughter/article/15517159/jbs-net-income-up-128-percent-in-2015-despite-q4-losses",
+     "veiculo": "WATTAgNet",
+     "tipo": "reportagem",
+     "titulo": "JBS net income up 128 percent in 2015 despite Q4 losses",
+     "data": "2016-03-17",
+     "trecho": "JBS posted a net income of BRL4.6 billion (US$1.2 billion) in fiscal year 2015",
+     "nota": "Mesmo valor; fonte única, secundária e em inglês; release/DFP da JBS não aberto.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "WATTAgNet (já era a fonte) com trecho."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "bb-seguridade",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://exame.com/negocios/bb-seguridade-lucro-liquido-ajustado-vai-a-r-3-9-bi-alta-de-22-4",
+     "veiculo": "Exame",
+     "tipo": "reportagem",
+     "titulo": "BB Seguridade: lucro líquido ajustado vai a R$ 3,9 bi, alta de 22,4%",
+     "data": "2016-02-22",
+     "trecho": "o lucro líquido contábil da BB Seguridade foi de R$ 4,207 bilhões",
+     "nota": "Contábil 4,207; ajustado R$ 3,94 bi; controlada do BB.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Exame (já era a fonte) com trecho."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "telefonica-brasil",
+   "campos": {
+    "obs": {
+     "de": "Consolidado (20-F); Braskem 3,15 (Istoé Dinheiro) fica logo abaixo",
+     "para": "Consolidado (20-F); Braskem 3,15 (Istoé Dinheiro) fica logo abaixo Teletime (24/2/2016): 'resultado líquido' de R$ 3,33 bi (base não detalhada, provavelmente atribuível)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001066119/ifrs-full/ProfitLoss.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Telefônica Brasil, XBRL ProfitLoss, FY2015",
+     "data": "2016/2018",
+     "trecho": "\"start\":\"2015-01-01\",\"end\":\"2015-12-31\",\"val\":3420249000",
+     "nota": "Confirma o 3,42 (IFRS consolidado, inclui não controladores).",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://teletime.com.br/24/02/2016/servicos-fixos-e-banda-larga-movel-impulsionam-receitas-da-telefonica-em-2015/",
+     "veiculo": "Teletime",
+     "tipo": "reportagem",
+     "titulo": "Serviços fixos e banda larga móvel impulsionam receitas da Telefônica em 2015",
+     "data": "2016-02-24",
+     "trecho": "Houve queda, contudo, no resultado líquido: 36,4% abaixo do resultado registrado em 2014, para R$ 3,33 bilhões.",
+     "nota": "R$ 3,33 bi, provavelmente atribuível; diferença de base (consolidado x atribuível).",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "XBRL (já era a fonte) com trecho; Teletime registrado na obs."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "vale",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://exame.com/negocios/os-25-maiores-prejuizos-de-2015-ano-de-perdas-historicas",
+     "veiculo": "Exame (dados Economática)",
+     "tipo": "reportagem",
+     "titulo": "Os 25 maiores prejuízos de 2015, ano de perdas históricas",
+     "data": "2016-04-07",
+     "trecho": "Lucro (prejuízo) líquido em 2015 | (R$ 44,21 bilhões)",
+     "nota": "Economática (R$); primário em US$: prejuízo de US$ 12,129 bi (20-F).",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Exame (já era a fonte) com trecho."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "petrobras",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://istoedinheiro.com.br/petrobras-fecha-2015-com-prejuizo-recorde-de-r-348-bilhoes",
+     "veiculo": "Istoé Dinheiro",
+     "tipo": "reportagem",
+     "titulo": "Petrobras fecha 2015 com prejuízo recorde de R$ 34,8 bilhões",
+     "data": "2016-03-21",
+     "trecho": "A estatal anunciou nesta segunda-feira, 21, um prejuízo líquido de R$ 34,836 bilhões em 2015",
+     "nota": "Exame/Economática traz R$ 34,84 bi; release de RI não aberto.",
+     "papel": "sustenta"
+    }
+   ],
+   "motivo": "Istoé Dinheiro (já era a fonte) com trecho."
+  },
+  {
+   "ano": 2015,
+   "entidade_id": "eletrobras",
+   "campos": {},
+   "fontes": [
+    {
+     "url": "https://exame.com/negocios/os-25-maiores-prejuizos-de-2015-ano-de-perdas-historicas",
+     "veiculo": "Exame (dados Economática)",
+     "tipo": "reportagem",
+     "titulo": "Os 25 maiores prejuízos de 2015, ano de perdas históricas",
+     "data": "2016-04-07",
+     "trecho": "Lucro (prejuízo) líquido em 2015 | (R$ 14,44 bilhões)",
+     "nota": "BR GAAP (Economática). Monitor Mercantil (31/3/2016): 'resultado negativo de R$ 14,4 bilhões'.",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001439124/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Eletrobras, XBRL ProfitLossAttributableToOwnersOfParent, FY2015",
+     "data": "2018-04-30",
+     "trecho": "\"end\":\"2015-12-31\",\"val\":-11405085000",
+     "nota": "IFRS atribuível -11,405 (20-F): a base IFRS da obs.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Exame (já era a fonte) com trecho; XBRL documenta a base IFRS da obs."
+  },
+  {
+   "ano": 2022,
+   "entidade_id": "bradesco",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": 21.223,
+     "para": 20.732
+    },
+    "obs": {
+     "de": "IFRS atribuível (20-F); base contábil brasileira não encontrada (a soma dos 5 bancos da Elos Ayta, R$ 103,9 bi, sugere BR GAAP próximo de 22)",
+     "para": "Lucro líquido contábil (BR GAAP), Relatório de Análise Econômica e Financeira 4T22 (RI); recorrente R$ 20,680 bi; IFRS 21,223 (20-F reapresentado em 2024; o original de 2023 trazia 20,984)."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/80f2e993-0a30-421a-9470-a4d5c8ad5e9f/3053f2d1-0b01-5a5c-b1c8-755424d14edb?origin=1",
+     "veiculo": "RI Bradesco",
+     "tipo": "relatorio",
+     "titulo": "Bradesco, Relatório de Análise Econômica e Financeira 4T22",
+     "data": "2023-02",
+     "trecho": "Lucro Líquido Contábil 1.437 5.211 3.170 20.732 21.945 (72,4) (54,7) (5,5)  [4T22, 3T22, 4T21, 12M22, 12M21]",
+     "nota": "Contábil BR GAAP, coerente com BB, Itaú e Santander; o 21,223 anterior é IFRS (20-F).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001160330/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (XBRL do 20-F, IFRS atribuível 21,223, reapresentado em 2024; o 20-F de 2023 trazia 20,984): outra base; mantida como contexto.",
+    "trecho": "\"val\":20983690000 (filed 2023-04-28); \"val\":21223264000 (filed 2024-04-29)"
+   },
+   "motivo": "RI do Bradesco (rodada 6): base contábil brasileira."
+  },
+  {
+   "ano": 2022,
+   "entidade_id": "santander-brasil",
+   "campos": {
+    "obs": {
+     "de": "IFRS atribuível (20-F); a Elos Ayta traz ~12,2 (BR GAAP, derivado de queda de 28,2% em 2023)",
+     "para": "IFRS (20-F); gerencial R$ 12,9 bi"
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001471055/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Santander Brasil, XBRL ProfitLossAttributableToOwnersOfParent, FY2022",
+     "data": "2023-02-28",
+     "trecho": "\"start\":\"2022-01-01\",\"end\":\"2022-12-31\",\"val\":14287093000",
+     "nota": "Confirma o 14,287 (IFRS atribuível).",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://euqueroinvestir.com/acoes/santander-sanb11-lucro-4tri22",
+     "veiculo": "Eu Quero Investir",
+     "tipo": "reportagem",
+     "titulo": "Santander (SANB11) lucro 4T22",
+     "data": "2023-02-02",
+     "trecho": "No acumulado do ano, o lucro líquido gerencial é de R$ 12,9 bilhões, baixa de 21,1%.",
+     "nota": "Lucro gerencial R$ 12,9 bi (-21,1%; também na Forbes Brasil); o BR GAAP contábil não foi encontrado.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Mantém 14,287 (IFRS) com o gerencial na obs."
+  },
+  {
+   "ano": 2022,
+   "entidade_id": "americanas",
+   "campos": {
+    "lucro_brl_bi": {
+     "de": -13.22,
+     "para": -12.9
+    },
+    "obs": {
+     "de": "Fraude contábil; valor reapresentado (R$ 13,2 bi); a primeira divulgação (nov/2023) foi -R$ 12,912 bi",
+     "para": "Fraude contábil; DFs de 2022 reapresentadas em nov/2023: prejuízo de R$ 12,9 bi (Reuters, via Forbes Brasil, 16/11/2023; Nord Investimentos cita 'R$ 13 bilhões'). O -13,22 anterior (stockanalysis) não foi confirmado em DFP/ITR da CVM."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://forbes.com.br/negocios/2023/11/americanas-perda-de-r-13-bi-em-2022-e-de-r-62-bi-em-2021-revertendo-lucro/",
+     "veiculo": "Forbes Brasil (Reuters)",
+     "tipo": "reportagem",
+     "titulo": "Americanas: perda de R$ 13 bi em 2022 e de R$ 6,2 bi em 2021, revertendo lucro",
+     "data": "2023-11-16",
+     "trecho": "A empresa também calculou em R$ 12,9 bilhões o resultado negativo de 2022.",
+     "nota": "Valor já reapresentado (Reuters, 16/11/2023); o 13,22 do stockanalysis pode refletir reapresentação posterior, não confirmada.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "anterior": {
+    "url": "https://stockanalysis.com/quote/bvmf/AMER3/financials",
+    "papel": "contexto",
+    "nota": "Fonte anterior do valor (stockanalysis, -13,22): não confirmado em fonte primária; mantida como contexto."
+   },
+   "motivo": "Forbes/Reuters (rodada 6): valor reapresentado."
+  },
+  {
+   "ano": 2022,
+   "entidade_id": "gerdau",
+   "campos": {
+    "obs": {
+     "de": "IFRS atribuível (20-F)",
+     "para": "IFRS atribuível (20-F) Gerdau S.A.; Metalúrgica Gerdau 11,462 — não somar."
+    }
+   },
+   "fontes": [
+    {
+     "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001073404/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+     "veiculo": "SEC EDGAR (XBRL)",
+     "tipo": "documento_oficial",
+     "titulo": "Gerdau S.A., XBRL ProfitLossAttributableToOwnersOfParent, FY2022",
+     "data": "2023",
+     "trecho": "\"end\":\"2022-12-31\",\"val\":11425512000",
+     "nota": "Confirma o 11,426 (IFRS atribuível).",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/0e58d869-d438-4c13-9d23-c24d27e72c47/78649181-fb64-cde0-803e-41ee2fadb0d9?origin=1",
+     "veiculo": "RI Metalúrgica Gerdau",
+     "tipo": "relatorio",
+     "titulo": "Metalúrgica Gerdau, release 4T22",
+     "data": "2023-03-01",
+     "trecho": "Lucro Líquido Consolidado¹ 1.207 3.036 -60,2% 3.565 -66,1% 11.462 15.554 -26,3%",
+     "nota": "Metalúrgica Gerdau (holding do mesmo grupo), lucro consolidado R$ 11,462 bi: entidade distinta; não somar com a Gerdau S.A.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "XBRL (já era a fonte) com trecho; Metalúrgica Gerdau registrada na obs."
+  }
+ ],
+ "inserir": [
+  {
+   "ano": 1995,
+   "entidade_id": "eletrobras",
+   "lucro_brl_bi": 0.75,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Lucro de 1995 citado no balanço de 1996 (Folha, 20/3/1997: 'obtido em 95, que foi de R$ 750 milhões').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/3/20/dinheiro/11.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Eletrobrás tem lucro de R$ 2,39 bi em 96",
+     "data": "1997-03-20",
+     "trecho": "valor 219% superior ao obtido em 95, que foi de R$ 750 milhões",
+     "nota": "Valor de 1995 citado na matéria do balanço de 1996 (Folha, 20/3/1997).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6): passa a ser o maior lucro de 1995 na base."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "petrobras",
+   "lucro_brl_bi": 0.57,
+   "setor": "Petróleo e gás",
+   "setor_k": "industria_extrativa",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Lucro de 1995 citado no balanço de 1996 (Folha, 1/2/1997: 'lucro de R$ 570 milhões obtido no ano anterior').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/2/01/dinheiro/25.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Petrobrás tem lucro líquido de R$ 664 mi",
+     "data": "1997-02-01",
+     "trecho": "com crescimento de 16,5% sobre o lucro de R$ 570 milhões obtido no ano anterior",
+     "nota": "Valor de 1995 citado na matéria do balanço de 1996.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6)."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "bradesco",
+   "lucro_brl_bi": 0.54,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Balanço anual (Folha, 24/1/1996: 'lucro líquido (após os impostos) de R$ 540 milhões'). A Euromoney citava US$ 525 mi.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1996/1/24/dinheiro/14.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Bradesco tem lucro líquido de R$ 540 mi",
+     "data": "1996-01-24",
+     "trecho": "O Bradesco, maior banco privado do país, apurou um lucro líquido (após os impostos) de R$ 540 milhões no ano passado.",
+     "nota": "Balanço anual de 1995.",
+     "papel": "sustenta",
+     "principal": true
+    },
+    {
+     "url": "https://www.euromoney.com/article/27bjsstsqxhkmh11im3s7/latin-100-1997-the-biggest-latin-banks",
+     "veiculo": "Euromoney",
+     "tipo": "reportagem",
+     "titulo": "Latin 100 1997: The biggest Latin banks",
+     "data": "1997-09-01",
+     "trecho": "Banco Bradesco now ranks first, with net profits of $815 million, up from $525 million in our previous ranking.",
+     "nota": "US$ 525 mi no ranking anterior da Euromoney (interpretado como FY1995). Ranking da Euromoney em US$ (critério e câmbio da revista): só corroboração de ordem de grandeza; o ranking usa o balanço em R$ pela legislação societária.",
+     "papel": "contexto"
+    }
+   ],
+   "motivo": "Folha (rodada 6); 1995 não tinha bancos privados."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "itau-unibanco",
+   "lucro_brl_bi": 0.374,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Banco Itaú, balanço anual de 1995 (Folha, 14/2/1996).",
+   "nome_epoca": "Itaú",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1996/2/14/dinheiro/24.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Itaú e Unibanco ampliam seus lucros em 95",
+     "data": "1996-02-14",
+     "trecho": "O Banco Itaú divulgou, ontem, que apurou lucro líquido de R$ 374 milhões em seu balanço anual de 95",
+     "nota": "Balanço anual de 1995 do Banco Itaú.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6); nome da época 'Itaú', como nos anos seguintes."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "unibanco",
+   "lucro_brl_bi": 0.1546,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Balanço anual de 1995 comunicado às Bolsas (Folha, 14/2/1996).",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1996/2/14/dinheiro/24.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Itaú e Unibanco ampliam seus lucros em 95",
+     "data": "1996-02-14",
+     "trecho": "O Unibanco comunicou ontem às Bolsas de Valores que apurou lucro líquido de R$ 154,6 milhões em 95",
+     "nota": "Comunicado do Unibanco às Bolsas sobre o balanço de 1995.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6)."
+  },
+  {
+   "ano": 1995,
+   "entidade_id": "souza-cruz",
+   "lucro_brl_bi": 0.21,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Lucro de 1995 citado no balanço de 1996 (Folha, 1/2/1997). Controlada pela British American Tobacco.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Souza Cruz lucra 2,86% menos em 96",
+     "data": "1997-02-01",
+     "trecho": "em relação aos R$ 210 milhões registrados no ano anterior",
+     "nota": "Valor de 1995 citado na matéria do balanço de 1996.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6); entidade nova (entidades-adicionais.json)."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "petrobras",
+   "lucro_brl_bi": 0.664,
+   "setor": "Petróleo e gás",
+   "setor_k": "industria_extrativa",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Balanço anual (Folha, 1/2/1997: 'lucro líquido de R$ 664 milhões no exercício de 1996').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/2/01/dinheiro/25.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Petrobrás tem lucro líquido de R$ 664 mi",
+     "data": "1997-02-01",
+     "trecho": "O balanço da Petrobrás divulgado ontem registrou um lucro líquido de R$ 664 milhões no exercício de 1996, com crescimento de 16,5% sobre o lucro de R$ 570 milhões obtido no ano anterior.",
+     "nota": "Balanço anual de 1996 (+16,5% sobre 1995).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6)."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "eletrobras",
+   "lucro_brl_bi": 2.393,
+   "setor": "Energia elétrica",
+   "setor_k": "eletricidade_gas_agua",
+   "controle": "estatal",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Balanço anual (Folha, 20/3/1997: 'lucro líquido de R$ 2,393 bilhões no ano passado').",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/1997/3/20/dinheiro/11.html",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Eletrobrás tem lucro de R$ 2,39 bi em 96",
+     "data": "1997-03-20",
+     "trecho": "A Eletrobrás teve lucro líquido de R$ 2,393 bilhões no ano passado, valor 219% superior ao obtido em 95, que foi de R$ 750 milhões.",
+     "nota": "Balanço anual de 1996 (+219% sobre 1995).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6): entra no topo de 1996."
+  },
+  {
+   "ano": 1996,
+   "entidade_id": "souza-cruz",
+   "lucro_brl_bi": 0.204,
+   "setor": "Indústria",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Balanço anual (Folha, 1/2/1997). Controlada pela British American Tobacco.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi010221.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Souza Cruz lucra 2,86% menos em 96",
+     "data": "1997-02-01",
+     "trecho": "O balanço da Souza Cruz para o exercício de 96 apresentou um lucro líquido de R$ 204 milhões, com pequena queda de 2,86% em relação aos R$ 210 milhões registrados no ano anterior.",
+     "nota": "Balanço anual de 1996 (-2,86% sobre 1995).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6); entidade nova (entidades-adicionais.json)."
+  },
+  {
+   "ano": 1997,
+   "entidade_id": "brahma",
+   "lucro_brl_bi": 0.469,
+   "setor": "Bebidas e alimentos",
+   "setor_k": "industria_transformacao",
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "obs": "Companhia Cervejaria Brahma, balanço anual (Folha, 19/2/1998: 'O lucro líquido cresceu 17,3% e atingiu R$ 469 milhões'). Em 1999 juntou-se à Antarctica na AmBev.",
+   "fontes": [
+    {
+     "url": "https://www1.folha.uol.com.br/fsp/dinheiro/fi19029820.htm",
+     "veiculo": "Folha de S.Paulo",
+     "tipo": "reportagem",
+     "titulo": "Brahma tem lucro líquido de R$ 469 mi",
+     "data": "1998-02-19",
+     "trecho": "O lucro líquido cresceu 17,3% e atingiu R$ 469 milhões.",
+     "nota": "Balanço anual de 1997 (+17,3%, o que implicaria ≈ R$ 400 mi em 1996, não confirmado).",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "Folha (rodada 6); entidade nova `brahma` (o ranking não usa `ambev` com nome de época antes de 1999)."
+  },
+  {
+   "ano": 2013,
+   "entidade_id": "itausa",
+   "lucro_brl_bi": 6.011,
+   "setor": "Outros",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 1,
+   "derivado": 0,
+   "obs": "Consolidado (Relatório Anual 2015 da Itaúsa); controladora R$ 5,698 bi. Holding do Itaú: dupla contagem com o Itaú Unibanco.",
+   "fontes": [
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/40c47fd1-5af8-4dd5-aa70-b2287e8f1f81?origin=2",
+     "veiculo": "RI Itaúsa",
+     "tipo": "relatorio",
+     "titulo": "Itaúsa, Relatório Anual 2015, Principais Indicadores",
+     "data": "2016",
+     "trecho": "Lucro líquido (R$ milhões) 8.868 7.911 5.698 8.994 8.161 6.011  [Controladora 2015, 2014, 2013 | Consolidado 2015, 2014, 2013]",
+     "nota": "Consolidado 2013 = 6.011 (controladora 5.698), na tabela 'Principais Indicadores' do Relatório Anual 2015 da Itaúsa.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "RI Itaúsa (rodada 6)."
+  },
+  {
+   "ano": 2014,
+   "entidade_id": "itausa",
+   "lucro_brl_bi": 8.161,
+   "setor": "Outros",
+   "setor_k": "financeiro",
+   "controle": "privado",
+   "holding": 1,
+   "derivado": 0,
+   "obs": "Consolidado (Relatório Anual 2015 da Itaúsa); controladora R$ 7,911 bi. Holding do Itaú: dupla contagem com o Itaú Unibanco.",
+   "fontes": [
+    {
+     "url": "https://api.mziq.com/mzfilemanager/v2/d/afd9200b-9b01-4d1c-bdd9-9b2c1e9b3b4d/40c47fd1-5af8-4dd5-aa70-b2287e8f1f81?origin=2",
+     "veiculo": "RI Itaúsa",
+     "tipo": "relatorio",
+     "titulo": "Itaúsa, Relatório Anual 2015, Principais Indicadores",
+     "data": "2016",
+     "trecho": "Lucro líquido (R$ milhões) 8.868 7.911 5.698 8.994 8.161 6.011  [Controladora 2015, 2014, 2013 | Consolidado 2015, 2014, 2013]",
+     "nota": "Consolidado 2014 = 8.161 (controladora 7.911), na tabela 'Principais Indicadores' do Relatório Anual 2015 da Itaúsa.",
+     "papel": "sustenta",
+     "principal": true
+    }
+   ],
+   "motivo": "RI Itaúsa (rodada 6)."
+  }
+ ],
+ "lacunas": [
+  "Petrobras 1997: sem lucro em R$ pela legislação societária (o 20-F FY2001 traz US$ 1.419 mi em US GAAP; 1º semestre/1997 ≈ R$ 252 mi pela Folha de 14/8/1998). Não inserida: o US GAAP em US$ não é a base do ranking.",
+  "Itaú 1996 anual (derivável: 721/1,22 ≈ 591 mi; fica na obs do 0,676).",
+  "Telebrás 1995 e 1996 anual (9 meses de 1996: holding R$ 2,38 bi).",
+  "Eletrobras 1997; Light e Banco Real 1995-1997; Brahma 1995-1996 (1996 ≈ R$ 400 mi derivável, não confirmado).",
+  "Banco do Brasil 1998 (US$ 720 mi na Euromoney): o BB não está na lista de 1998 e o valor em R$ não foi aberto; nada inserido."
+ ],
+ "nao_aplicados": [
+  "empresas_0222.json, 2022: confirmações de valores já no banco que não foram pedidas nesta rodada (Petrobras/CNN, Vale/InvestNews, BNDES/BNews, BB/RI 4T22, Itaú/InfoMoney e XBRL, Suzano, JBS/Poder360, Ambev/release, Itaúsa/RI, Oi/Money Times, Light): ficam no arquivo de pesquisa.",
+  "empresas_0222.json, 2015: Caixa (7,2) e Cielo (3,511) sem confirmação nesta rodada.",
+  "empresas_9597.json: Petrobras 1997 (US$ 1.419 mi) e BB 1998 (US$ 720 mi) não têm linha no ranking; as demais entram só como contexto."
+ ]
+}
