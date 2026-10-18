@@ -785,11 +785,13 @@ def rodada6(con, exp):
     rk7 = _json_curadoria("ranking-empresa-correcoes-r7.json")
     rk8 = _json_curadoria("ranking-empresa-correcoes-r8.json")
     rk9 = _json_curadoria("ranking-empresa-correcoes-r9.json")
-    ov_campo = {(x["ano"], x["entidade_id"], k) for r in (rk7, rk8, rk9) for x in r.get("atualizar", []) for k in x["campos"]}
-    ov_princ = {(x["ano"], x["entidade_id"]) for r in (rk7, rk8, rk9) for x in r.get("atualizar", []) if any(f.get("principal") for f in x["fontes"])}
-    ov_url = {(x["ano"], x["entidade_id"], normalizar_url(x["anterior"]["url"])) for r in (rk7, rk8, rk9) for x in r.get("atualizar", []) if x.get("anterior")}
-    todas_lig = {(x["ano"], x["entidade_id"], normalizar_url(f["url"])) for arq in (rk, rk7, rk8, rk9) for k in ("atualizar", "inserir") for x in arq.get(k, []) for f in x["fontes"]} \
-        | {(x["ano"], x["entidade_id"], normalizar_url(x["anterior"]["url"])) for arq in (rk, rk7, rk8, rk9) for k in ("atualizar", "inserir") for x in arq.get(k, []) if x.get("anterior")}
+    # A rodada 10 (ranking-empresa-correcoes-r10.json, fontes primárias) vem por cima da 9 do mesmo jeito.
+    rk10 = _json_curadoria("ranking-empresa-correcoes-r10.json")
+    ov_campo = {(x["ano"], x["entidade_id"], k) for r in (rk7, rk8, rk9, rk10) for x in r.get("atualizar", []) for k in x["campos"]}
+    ov_princ = {(x["ano"], x["entidade_id"]) for r in (rk7, rk8, rk9, rk10) for x in r.get("atualizar", []) if any(f.get("principal") for f in x["fontes"])}
+    ov_url = {(x["ano"], x["entidade_id"], normalizar_url(x["anterior"]["url"])) for r in (rk7, rk8, rk9, rk10) for x in r.get("atualizar", []) if x.get("anterior")}
+    todas_lig = {(x["ano"], x["entidade_id"], normalizar_url(f["url"])) for arq in (rk, rk7, rk8, rk9, rk10) for k in ("atualizar", "inserir") for x in arq.get(k, []) for f in x["fontes"]} \
+        | {(x["ano"], x["entidade_id"], normalizar_url(x["anterior"]["url"])) for arq in (rk, rk7, rk8, rk9, rk10) for k in ("atualizar", "inserir") for x in arq.get(k, []) if x.get("anterior")}
 
     def lig(ano, ent, url):
         return q(con, """SELECT x.papel, x.trecho_citado, x.nota FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
@@ -798,7 +800,7 @@ def rodada6(con, exp):
     def principal(ano, ent):
         r = q(con, "SELECT v.url, v.tipo FROM ranking_empresa k LEFT JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", ano, ent)
         return (r[0]["url"], r[0]["tipo"]) if r else (None, None)
-    _cob_depois = {c["ano"] for arq in ("ranking-empresa-correcoes-r7.json", "ranking-empresa-correcoes-r8.json", "ranking-empresa-correcoes-r9.json")
+    _cob_depois = {c["ano"] for arq in ("ranking-empresa-correcoes-r7.json", "ranking-empresa-correcoes-r8.json", "ranking-empresa-correcoes-r9.json", "ranking-empresa-correcoes-r10.json")
                    for c in (json.load(open(CURADORIA / arq, encoding="utf-8")) if (CURADORIA / arq).exists() else {}).get("cobertura", [])}
     for c in rk.get("cobertura", []):
         if c["ano"] in _cob_depois:      # rodada posterior reescreveu a cobertura deste ano (ex.: 2002 completa -> parcial na rodada 8)
@@ -835,7 +837,7 @@ def rodada6(con, exp):
     for r in ruins[:20]:
         print("   -", r)
     esperar("ranking-empresa-correcoes.json == banco (campos, cobertura, fontes, principal, anterior, nome da época; divergências)", len(ruins), 0)
-    esperar("ranking_evidencia: ligações == fontes + anteriores dos arquivos (rodadas 6, 7, 8 e 9; união ano/entidade/URL)", q(con, "SELECT count(*) FROM ranking_evidencia")[0][0], len(todas_lig))
+    esperar("ranking_evidencia: ligações == fontes + anteriores dos arquivos (rodadas 6, 7, 8, 9 e 10; união ano/entidade/URL)", q(con, "SELECT count(*) FROM ranking_evidencia")[0][0], len(todas_lig))
     esperar("ranking: linha com fonte `sustenta` em ranking_evidencia e sem evidencia_id (fonte principal)",
             q(con, "SELECT count(*) FROM ranking_empresa k WHERE k.evidencia_id IS NULL AND EXISTS (SELECT 1 FROM ranking_evidencia x WHERE x.ano=k.ano AND x.entidade_id=k.entidade_id AND x.papel='sustenta')")[0][0], 0)
     esperar("ranking: linhas sem fonte principal (evidencia_id NULL)", q(con, "SELECT count(*) FROM ranking_empresa WHERE evidencia_id IS NULL")[0][0], 0)
@@ -1230,6 +1232,120 @@ def rodada9(con, exp):
              if (n_exp.get((a, e)) or {}).get("lucro_brl_bi") != l or (n_exp.get((a, e)) or {}).get("posicao") != p or (n_exp.get((a, e)) or {}).get("evidencia") != u]
             + [f"{x['ano']}/{x['entidade_id']}: nome_epoca" for x in ins if x.get("nome_epoca") and (n_exp.get((x["ano"], x["entidade_id"])) or {}).get("nome_epoca") != x["nome_epoca"]], [])
     esperar("relatorio-migracao.md tem a seção da rodada 9", "Rodada 9" in (DATA / "relatorio-migracao.md").read_text(encoding="utf-8"), True)
+
+
+def rodada10(con, exp):
+    """Rodada 10 (data/curadoria/ranking-empresa-correcoes-r10.json, aplicada depois da 9): lacunas do ranking de lucros fechadas com fontes primárias
+    (SEC, sites das empresas). Confere o arquivo contra o banco (campos, fonte principal, `anterior`, papel/trecho/nota de cada fonte), as contagens
+    exatas, nenhuma fonte da Folha ou da Wikipédia, tipo da fonte (SEC = documento_oficial; Caixa = relatorio), Santander 2009-2011 e 2022, Itaú e
+    Bradesco 2011 e Caixa 2008 e 2012 sem mudança de valor e com principal primária, Gerdau 2009 inserida (15º) e a Eletrobras empurrada para o 16º,
+    posições contíguas e pct_total em 2009, cobertura e 1º lugar sem mudança, o registro (`nao_aplicados`, `lacunas`) e o export."""
+    rk = _json_curadoria("ranking-empresa-correcoes-r10.json")
+    if not rk:
+        return
+    secao("Rodada 10 (ranking-empresa-correcoes-r10.json: fontes primárias, lacunas do ranking de lucros)")
+    ats, ins = rk.get("atualizar", []), rk.get("inserir", [])
+    esperar("r10: arquivo traz 1 linha inserida e 8 atualizações", (len(ins), len(ats)), (1, 8))
+    esperar("r10: atualizações com valor novo (lucro_brl_bi) == 1 (Santander 2009); só obs/fonte == 7",
+            (sum(1 for x in ats if "lucro_brl_bi" in x["campos"]), sum(1 for x in ats if "lucro_brl_bi" not in x["campos"])), (1, 7))
+    esperar("r10: `cobertura` vazia (nada sobe a completa)", rk.get("cobertura"), [])
+    esperar("r10: linhas tocadas (ano, entidade)", sorted((x["ano"], x["entidade_id"]) for x in ats + ins),
+            sorted([(2008, "caixa"), (2009, "gerdau"), (2009, "santander-brasil"), (2010, "santander-brasil"), (2011, "bradesco"),
+                    (2011, "itau-unibanco"), (2011, "santander-brasil"), (2012, "caixa"), (2022, "santander-brasil")]))
+    ruins = []
+    for x in ats + ins:
+        a, e = x["ano"], x["entidade_id"]
+        row = q(con, "SELECT * FROM ranking_empresa WHERE ano=? AND entidade_id=?", a, e)
+        if not row:
+            ruins.append(f"{a}/{e}: linha ausente")
+            continue
+        row = row[0]
+        campos = {k: v["para"] for k, v in x["campos"].items()} if "campos" in x else \
+            {k: x[k] for k in ("lucro_brl_bi", "setor", "setor_k", "controle", "holding", "derivado", "obs")}
+        for k, v in campos.items():
+            if row[k] != v:
+                ruins.append(f"{a}/{e}: {k} = {row[k]!r} != {v!r}")
+        for f in x["fontes"]:
+            esperado_tipo = "documento_oficial" if "sec.gov" in f["url"] else "relatorio"
+            if f["tipo"] != esperado_tipo or not f.get("trecho") or not f.get("titulo") or not f.get("veiculo") \
+                    or any(t in f["url"].lower() for t in ("folha.uol", "wikipedia.org")):
+                ruins.append(f"{a}/{e}: fonte {f['url']} sem tipo/titulo/veiculo/trecho ou da Folha/Wikipédia")
+            l = q(con, """SELECT x.papel, x.trecho_citado, x.nota FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
+                          WHERE x.ano=? AND x.entidade_id=? AND v.url=?""", a, e, normalizar_url(f["url"]))
+            if [tuple(r) for r in l] != [(f["papel"], f["trecho"], f.get("nota") or None)]:
+                ruins.append(f"{a}/{e}: fonte {f['url']} {[tuple(r) for r in l]}")
+            ev = q(con, "SELECT tipo FROM evidencia WHERE url=?", normalizar_url(f["url"]))
+            if not ev or ev[0][0] != f["tipo"]:
+                ruins.append(f"{a}/{e}: tipo da evidência {f['url']} != {f['tipo']}")
+            if f.get("principal"):
+                pr = q(con, "SELECT v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", a, e)
+                if not pr or pr[0][0] != normalizar_url(f["url"]):
+                    ruins.append(f"{a}/{e}: principal != {f['url']}")
+        if x.get("anterior"):
+            l = q(con, """SELECT x.papel, x.nota FROM ranking_evidencia x JOIN evidencia v ON v.id=x.evidencia_id
+                          WHERE x.ano=? AND x.entidade_id=? AND v.url=?""", a, e, normalizar_url(x["anterior"]["url"]))
+            if [tuple(r) for r in l] != [(x["anterior"]["papel"], x["anterior"].get("nota"))]:
+                ruins.append(f"{a}/{e}: anterior {[tuple(r) for r in l]}")
+        pr = q(con, "SELECT v.tipo, v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", a, e)
+        if not pr or pr[0]["tipo"] not in ("documento_oficial", "relatorio") or "dieese" in pr[0]["url"] or _eh_wiki(pr[0]["tipo"], pr[0]["url"]):
+            ruins.append(f"{a}/{e}: principal não é documento oficial/relatório da empresa")
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("r10: arquivo == banco (campos, fonte principal, anterior, papel/trecho/nota, tipo da evidência, nada da Folha/Wikipédia; divergências)", len(ruins), 0)
+    esperar("r10: Santander Brasil: 2009 = 5,508 direto em R$ (derivado 0), 2010 = 7,383, 2011 = 7,756, 2022 = 14,287 (IFRS do 20-F)",
+            [tuple(r) for r in q(con, "SELECT ano, lucro_brl_bi, derivado FROM ranking_empresa WHERE entidade_id='santander-brasil' AND ano IN (2009, 2010, 2011, 2022) ORDER BY ano")],
+            [(2009, 5.508, 0), (2010, 7.383, 0), (2011, 7.756, 0), (2022, 14.287, 0)])
+    esperar("r10: Santander 2009-2011 com o 20-F como principal e a fonte anterior (Istoé Dinheiro / DIEESE) como contexto",
+            [tuple(r) for r in q(con, """SELECT k.ano, v.url LIKE '%sec.gov/Archives/edgar/data/%1471055%', (SELECT count(*) FROM ranking_evidencia x JOIN evidencia w ON w.id=x.evidencia_id
+                                         WHERE x.ano=k.ano AND x.entidade_id=k.entidade_id AND x.papel='contexto' AND (w.url LIKE '%dieese%' OR w.url LIKE '%istoedinheiro%'))
+                                         FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.entidade_id='santander-brasil' AND k.ano IN (2009, 2010, 2011) ORDER BY k.ano""")],
+            [(2009, 1, 1), (2010, 1, 1), (2011, 1, 1)])
+    esperar("r10: Santander 2022 com o BR GAAP do 4T22 (R$ 12,57 bi) só como contexto e o 20-F (IFRS) como principal",
+            [tuple(r) for r in q(con, """SELECT k.lucro_brl_bi, v.url LIKE '%companyconcept%', (SELECT x.papel FROM ranking_evidencia x JOIN evidencia w ON w.id=x.evidencia_id
+                                         WHERE x.ano=k.ano AND x.entidade_id=k.entidade_id AND w.url LIKE '%EDGAR_BRGAAP_4T22%')
+                                         FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=2022 AND k.entidade_id='santander-brasil'""")],
+            [(14.287, 1, "contexto")])
+    esperar("r10: Itaú 2011 (14,621), Bradesco 2011 (11,028), Caixa 2008 (3,9) e Caixa 2012 (6,066) mantêm o valor, com documento primário como principal e a fonte anterior como `sustenta`",
+            [tuple(r) for r in q(con, """SELECT k.ano, k.entidade_id, k.lucro_brl_bi, v.tipo, (SELECT group_concat(DISTINCT x.papel) FROM ranking_evidencia x JOIN evidencia w ON w.id=x.evidencia_id
+                                         WHERE x.ano=k.ano AND x.entidade_id=k.entidade_id AND (w.url LIKE '%dieese%' OR w.url LIKE '%jornaldaparaiba%'))
+                                         FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id
+                                         WHERE (k.ano, k.entidade_id) IN ((2011,'itau-unibanco'),(2011,'bradesco'),(2008,'caixa'),(2012,'caixa')) ORDER BY k.ano, k.entidade_id""")],
+            [(2008, "caixa", 3.9, "relatorio", "sustenta"), (2011, "bradesco", 11.028, "documento_oficial", "sustenta"),
+             (2011, "itau-unibanco", 14.621, "documento_oficial", "sustenta"), (2012, "caixa", 6.066, "relatorio", "sustenta")])
+    esperar("r10: IFRS dos 20-F de Itaú e Bradesco 2011 ligado só como contexto",
+            sorted(tuple(r) for r in q(con, """SELECT k.entidade_id, x.papel FROM ranking_empresa k JOIN ranking_evidencia x ON x.ano=k.ano AND x.entidade_id=k.entidade_id
+                                               JOIN evidencia w ON w.id=x.evidencia_id WHERE k.ano=2011 AND k.entidade_id IN ('itau-unibanco','bradesco') AND w.url LIKE '%20f%'""")),
+            [("bradesco", "contexto"), ("itau-unibanco", "contexto")])
+    # 2009: Gerdau entra no top 15; Eletrobras (0,17) passa a 16º; posições contíguas e pct_total
+    pib = {r[0]: r[1] for r in q(con, "SELECT ano, valor FROM serie WHERE indicador_id='macro.pib' AND dimensao=''")}
+    rs = q(con, "SELECT entidade_id, lucro_brl_bi, posicao, pct_total FROM ranking_empresa WHERE ano=2009 ORDER BY posicao")
+    luc = [r["lucro_brl_bi"] for r in rs]
+    esperar("r10: 2009 com posição contígua, lucros decrescentes e depois prejuízos, pct_total == round(lucro/PIB*100, 3)",
+            ([r["posicao"] for r in rs] == list(range(1, len(rs) + 1)), luc == sorted([v for v in luc if v >= 0], reverse=True) + sorted(v for v in luc if v < 0),
+             [r["entidade_id"] for r in rs if r["pct_total"] != round(r["lucro_brl_bi"] / pib[2009] * 100, 3)]), (True, True, []))
+    esperar("r10: 2009: Gerdau 15º (1,122), Eletrobras 16º (0,17), Santander Brasil 8º (era 12º)",
+            sorted((r["entidade_id"], r["posicao"], r["lucro_brl_bi"]) for r in rs if r["entidade_id"] in ("gerdau", "eletrobras", "santander-brasil")),
+            [("eletrobras", 16, 0.17), ("gerdau", 15, 1.122), ("santander-brasil", 8, 5.508)])
+    esperar("r10: cobertura sem mudança nos anos tocados (2008, 2009 e 2022 parcial; 2010-2012 completa)",
+            {a: sorted(c for (c,) in q(con, "SELECT DISTINCT cobertura FROM ranking_empresa WHERE ano=?", a)) for a in (2008, 2009, 2010, 2011, 2012, 2022)},
+            {2008: ["parcial"], 2009: ["parcial"], 2010: ["completa"], 2011: ["completa"], 2012: ["completa"], 2022: ["parcial"]})
+    esperar("r10: 1º lugar sem mudança em 2008-2012 (Petrobras 2008, 2009, 2010 e 2012; Vale 2011)",
+            [tuple(r) for r in q(con, "SELECT ano, entidade_id FROM ranking_empresa WHERE ano BETWEEN 2008 AND 2012 AND posicao=1 ORDER BY ano")],
+            [(2008, "petrobras"), (2009, "petrobras"), (2010, "petrobras"), (2011, "vale"), (2012, "petrobras")])
+    esperar("r10: nenhuma linha do ranking sem fonte principal (evidencia_id NULL ou sem evidência)",
+            q(con, "SELECT count(*) FROM ranking_empresa k LEFT JOIN evidencia v ON v.id=k.evidencia_id WHERE v.id IS NULL")[0][0], 0)
+    esperar("r10: registro: 5 `nao_aplicados` com URL, ano e motivo, `confirmados` vazio, e as lacunas registradas (>= 8)",
+            (len([x for x in rk.get("nao_aplicados", []) if x.get("url") and x.get("motivo") and x.get("ano")]), rk.get("confirmados"), len(rk.get("lacunas", [])) >= 8),
+            (5, [], True))
+    esperar("r10: `nao_aplicados` não ligados (só registro)",
+            sorted(normalizar_url(x["url"]) for x in rk.get("nao_aplicados", []) if q(con, "SELECT 1 FROM evidencia WHERE url=?", normalizar_url(x["url"]))), [])
+    n_exp = {(r["ano"], r["entidade_id"]): r for r in exp["series.json"]["ranking_empresa"]}
+    esperar("r10: series.json traz as linhas tocadas com lucro, posição e fonte principal do banco",
+            [f"{a}/{e}" for a, e, l, p, u in q(con, """SELECT k.ano, k.entidade_id, k.lucro_brl_bi, k.posicao, v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id
+                                                     WHERE k.ano=2009 OR (k.ano, k.entidade_id) IN ((2008,'caixa'),(2010,'santander-brasil'),(2011,'bradesco'),(2011,'itau-unibanco'),
+                                                     (2011,'santander-brasil'),(2012,'caixa'),(2022,'santander-brasil'))""")
+             if (n_exp.get((a, e)) or {}).get("lucro_brl_bi") != l or (n_exp.get((a, e)) or {}).get("posicao") != p or (n_exp.get((a, e)) or {}).get("evidencia") != u], [])
+    esperar("relatorio-migracao.md tem a seção da rodada 10", "Rodada 10" in (DATA / "relatorio-migracao.md").read_text(encoding="utf-8"), True)
 
 
 def rodada3(con):
@@ -2068,6 +2184,7 @@ def main():
     rodada7(con, exp)
     rodada8(con, exp)
     rodada9(con, exp)
+    rodada10(con, exp)
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)

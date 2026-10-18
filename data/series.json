@@ -43853,7 +43853,7 @@
    "derivado": 0,
    "cobertura": "parcial",
    "obs": "'R$ 3,9 bi' (arredondado) em matéria de 19/02/2009; Brasil 247 também diz R$ 3,9 bi.",
-   "evidencia": "https://jornaldaparaiba.com.br/_/116258",
+   "evidencia": "https://www.caixa.gov.br/Downloads/caixa-demonstrativo-financeiro/ra2008.pdf",
    "nome": "Caixa"
   },
   {
@@ -44119,8 +44119,24 @@
   },
   {
    "ano": 2009,
-   "entidade_id": "caixa",
+   "entidade_id": "santander-brasil",
    "posicao": 8,
+   "setor": "Bancos",
+   "setor_k": "financeiro",
+   "lucro_brl_bi": 5.508,
+   "pct_total": 0.165,
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "cobertura": "parcial",
+   "obs": "IFRS, 'Consolidated profit for the period' do 20-F de 2009 (R$ 5.508 mi; o 20-F de 2011 repete 5.508 no comparativo): o valor direto em R$ que a linha não tinha. O 1,805 anterior era derivado de US$ 1,037 bi (Economática) x 1,741 e fica como contexto. Bate com a Folha de 4/2/2011 (ligada em 2010): a alta de 34% sobre 2009 com lucro de R$ 7,382 bi implica cerca de R$ 5,5 bi.",
+   "evidencia": "https://www.sec.gov/Archives/edgar/data/1471055/000095010310001728/dp17792_20f.htm",
+   "nome": "Santander Brasil"
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "caixa",
+   "posicao": 9,
    "setor": "Bancos",
    "setor_k": "financeiro",
    "lucro_brl_bi": 3.0,
@@ -44136,7 +44152,7 @@
   {
    "ano": 2009,
    "entidade_id": "csn",
-   "posicao": 9,
+   "posicao": 10,
    "setor": "Siderurgia",
    "setor_k": "industria_transformacao",
    "lucro_brl_bi": 2.6,
@@ -44152,7 +44168,7 @@
   {
    "ano": 2009,
    "entidade_id": "telefonica-brasil",
-   "posicao": 10,
+   "posicao": 11,
    "setor": "Telecomunicações",
    "setor_k": "informacao_comunicacao",
    "lucro_brl_bi": 2.173,
@@ -44170,7 +44186,7 @@
   {
    "ano": 2009,
    "entidade_id": "cemig",
-   "posicao": 11,
+   "posicao": 12,
    "setor": "Energia elétrica",
    "setor_k": "eletricidade_gas_agua",
    "lucro_brl_bi": 1.86,
@@ -44182,22 +44198,6 @@
    "obs": "Cemig, 2009 (Folha, 24/3/2010: 'lucro líquido em 2009 de R$ 1,86 bilhão').",
    "evidencia": "https://www1.folha.uol.com.br/fsp/dinheiro/fi2403201009.htm",
    "nome": "Cemig"
-  },
-  {
-   "ano": 2009,
-   "entidade_id": "santander-brasil",
-   "posicao": 12,
-   "setor": "Bancos",
-   "setor_k": "financeiro",
-   "lucro_brl_bi": 1.805,
-   "pct_total": 0.054,
-   "controle": "privado",
-   "holding": 0,
-   "derivado": 1,
-   "cobertura": "parcial",
-   "obs": "Derivado de US$ 1,037 bi (Economática) x 1,741. Valor direto em R$ não achado.",
-   "evidencia": "https://istoedinheiro.com.br/bancos-brasileiros-sao-os-mais-rentaveis-de-al-e-eua",
-   "nome": "Santander Brasil"
   },
   {
    "ano": 2009,
@@ -44233,8 +44233,24 @@
   },
   {
    "ano": 2009,
-   "entidade_id": "eletrobras",
+   "entidade_id": "gerdau",
    "posicao": 15,
+   "setor": "Siderurgia",
+   "setor_k": "industria_transformacao",
+   "lucro_brl_bi": 1.122,
+   "pct_total": 0.034,
+   "controle": "privado",
+   "holding": 0,
+   "derivado": 0,
+   "cobertura": "parcial",
+   "obs": "IFRS (20-F de 2009), atribuível aos controladores (R$ 1.121,966 mi), a mesma base da linha de 2008 (3,94); consolidado R$ 1.004,508 mi (prejuízo de R$ 117 mi dos não controladores).",
+   "evidencia": "https://www.sec.gov/Archives/edgar/data/0001073404/000110465910032711/a10-11270_120f.htm",
+   "nome": "Gerdau"
+  },
+  {
+   "ano": 2009,
+   "entidade_id": "eletrobras",
+   "posicao": 16,
    "setor": "Energia elétrica",
    "setor_k": "eletricidade_gas_agua",
    "lucro_brl_bi": 0.17,
@@ -44250,7 +44266,7 @@
   {
    "ano": 2009,
    "entidade_id": "telemar",
-   "posicao": 16,
+   "posicao": 17,
    "setor": "Telecomunicações",
    "setor_k": "informacao_comunicacao",
    "lucro_brl_bi": -0.436,
@@ -44383,7 +44399,8 @@
    "holding": 0,
    "derivado": 0,
    "cobertura": "completa",
-   "evidencia": "https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf",
+   "obs": "IFRS, 'Consolidated profit for the year' do 20-F de 2011 (coluna 2010): o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial. O lucro pela BR GAAP (após a amortização do ágio do Real), que é a base da linha de 2012, não foi achado (o 20-F de 2011 só o remete à nota 45 das demonstrações); a série do Santander mistura bases.",
+   "evidencia": "https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm",
    "nome": "Santander Brasil"
   },
   {
@@ -44542,7 +44559,8 @@
    "holding": 0,
    "derivado": 0,
    "cobertura": "completa",
-   "evidencia": "https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf",
+   "obs": "BR GAAP, lucro líquido atribuível aos controladores (comunicado ao mercado de 28/2/2012, no 6-K); a mesma base das linhas de 2010 (13,323) e 2015. IFRS (20-F de 2011): R$ 13,837 bi atribuível aos controladores (14,610 consolidado), outra base, fica como contexto. O DIEESE traz o mesmo 14,621.",
+   "evidencia": "https://www.sec.gov/Archives/edgar/data/1132597/000094787112000198/ss139116_ex9901.htm",
    "nome": "Itaú Unibanco"
   },
   {
@@ -44572,7 +44590,8 @@
    "holding": 0,
    "derivado": 0,
    "cobertura": "completa",
-   "evidencia": "https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf",
+   "obs": "BR GAAP ('Book Net Income' do release de resultados de dez/2011, no 6-K), a mesma base da linha de 2010 (10,022). IFRS (20-F de 2011): R$ 11,089 bi, outra base, fica como contexto. O DIEESE traz o mesmo 11,028.",
+   "evidencia": "https://www.sec.gov/Archives/edgar/data/0001160330/000129281412000247/bbdbook4q11_6k.htm",
    "nome": "Bradesco"
   },
   {
@@ -44618,7 +44637,8 @@
    "holding": 0,
    "derivado": 0,
    "cobertura": "completa",
-   "evidencia": "https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf",
+   "obs": "IFRS, 'Consolidated profit for the year' do 20-F de 2011 (coluna 2011): o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial. O lucro pela BR GAAP (após a amortização do ágio do Real), que é a base da linha de 2012, não foi achado (o 20-F de 2011 só o remete à nota 45 das demonstrações); a série do Santander mistura bases.",
+   "evidencia": "https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm",
    "nome": "Santander Brasil"
   },
   {
@@ -44906,7 +44926,7 @@
    "holding": 0,
    "derivado": 0,
    "cobertura": "completa",
-   "evidencia": "https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2012.pdf",
+   "evidencia": "https://www.caixa.gov.br/Downloads/caixa-demonstrativo-financeiro/PressRelease2012.pdf",
    "nome": "Caixa"
   },
   {
@@ -47386,7 +47406,7 @@
    "holding": 0,
    "derivado": 0,
    "cobertura": "parcial",
-   "obs": "IFRS (20-F); gerencial R$ 12,9 bi",
+   "obs": "IFRS (20-F); gerencial R$ 12,9 bi; BR GAAP (demonstrações do 4T22, 6-K): lucro líquido consolidado de R$ 12,57 bi, outra base (contexto).",
    "evidencia": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001471055/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
    "nome": "Santander Brasil"
   },

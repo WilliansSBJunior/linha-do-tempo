@@ -43,14 +43,14 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 917 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1709 |
+| evidencia | 1719 |
 | relacao_evidencia | 1266 |
 | evento_evidencia | 3229 |
 | evento_entidade | 935 |
 | nota | 570 |
 | indicador | 83 |
 | serie | 6837 |
-| ranking_empresa | 503 |
+| ranking_empresa | 504 |
 | mandato | 317 |
 | bancada | 634 |
 | entidade_valor | 14 |
@@ -414,7 +414,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1709 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1719 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -1014,7 +1014,7 @@ Arquivo à mão: `ranking-empresa-correcoes-r8.json` (mesmo formato das rodadas 
 | 2006 | 15 | 5 | 1 | 2 | `petrobras` (25.919) |
 | 2007 | 15 | 4 | 1 | 3 | `petrobras` (21.512) |
 | 2008 | 20 | 7 | 1 | 0 | `petrobras` (33.9) |
-| 2009 | 16 | 4 | 1 | 2 | `petrobras` (28.982) |
+| 2009 | 17 | 4 | 1 | 2 | `petrobras` (28.982) |
 
 | ano | empresa | o que mudou | fonte principal |
 |---|---|---|---|
@@ -1151,7 +1151,7 @@ Arquivo à mão: `ranking-empresa-correcoes-r9.json` (mesmo formato das rodadas 
 | ano | linhas | inseridas | valor atualizado | só fonte/obs | 1º lugar |
 |---|---:|---:|---:|---:|---|
 | 2008 | 20 | 0 | 0 | 1 | `petrobras` (33.9) |
-| 2009 | 16 | 1 | 0 | 1 | `petrobras` (28.982) |
+| 2009 | 17 | 1 | 0 | 1 | `petrobras` (28.982) |
 | 2010 | 15 | 5 | 0 | 4 | `petrobras` (35.189) |
 | 2011 | 18 | 8 | 0 | 2 | `vale` (37.81) |
 | 2012 | 17 | 4 | 1 | 1 | `petrobras` (21.182) |
@@ -1166,7 +1166,7 @@ Arquivo à mão: `ranking-empresa-correcoes-r9.json` (mesmo formato das rodadas 
 | 2010 | `braskem` | **inserida** (1.889) | https://www1.folha.uol.com.br/fsp/mercado/me1803201126.htm |
 | 2010 | `csn` | **inserida** (2.5) | https://www1.folha.uol.com.br/fsp/mercado/me3003201121.htm |
 | 2010 | `itau-unibanco` | só fonte | https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf |
-| 2010 | `santander-brasil` | só fonte | https://www.dieese.org.br/desempenhodosbancos/2012/desempenhoBancos2011.pdf |
+| 2010 | `santander-brasil` | só fonte | https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm |
 | 2010 | `suzano` | **inserida** (0.769) | https://www1.folha.uol.com.br/fsp/mercado/me0203201116.htm |
 | 2010 | `telefonica-brasil` | **inserida** (2.4, nome da época Telesp) | https://www1.folha.uol.com.br/fsp/mercado/me1702201109.htm |
 | 2010 | `telemar` | **inserida** (1.75, nome da época Oi) | https://www1.folha.uol.com.br/fsp/mercado/me0503201111.htm |
@@ -1193,4 +1193,27 @@ Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto 
 - 2012: `caixa` 9 -> 8, `cemig` 12 -> 11, `eletrobras` 13 -> 15, `itausa` 10 -> 9, `santander-brasil` 8 -> 12, `telefonica-brasil` 11 -> 10
 
 30 ligações novas em `ranking_evidencia` (24 evidências novas). Registro no arquivo: 3 blocos `nao_aplicados` (sem o lucro anual em R$ ou outra base), 6 valores `fora_do_corte` (abaixo do 15º lucro do ano ou prejuízo menor que R$ 0,2 bi) e 8 blocos `confirmados` (valor igual ao do banco, que já tinha fonte primária ou imprensa da época). Lacunas: (1) Derivados, não inseridos (o trecho só dá a variação): Suzano 2009 (R$ 769 mi com queda de 18,8% ≈ R$ 0,95 bi), Sabesp 2010 (R$ 1,22 bi com queda de 25% ≈ R$ 1,63 bi; seria o 14º lucro de 2010), HSBC Brasil 2011 (R$ 1,3 bi com queda de 2,6% ≈ R$ 1,33 bi) e Santander Brasil 2011 contábil (R$ 2,69 bi com queda de 24% ≈ R$ 3,5 bi). (2) Santander Brasil: 2012 passa ao lucro contábil (2,69); 2010 e 2011 continuam no número do DIEESE (7,383 e 7,756, o mesmo que a Folha dá para 2010 sem dizer a base) e 2009 no contábil derivado de US$ (1,805): a série mistura bases até achar o contábil de 2010-2011. (3) Comparativos reapresentados (provavelmente na adoção do IFRS completo em 2010), valores da época mantidos: Oi 2009 (R$ 5,09 bi no balanço de 2010 contra o prejuízo de R$ 436 mi), Oi 2010 (≈ R$ 1,97 bi implícito no balanço de 2011 contra R$ 1,75 bi), TAM 2008 (R$ 1,51 bi de prejuízo no balanço de 2009 contra 'da ordem de R$ 1,3 bilhão') e TAM 2009 (≈ R$ 1,25 bi implícito no balanço de 2010 contra R$ 1,343 bi). (4) Itaú Unibanco 2012 (13,589, derivado, principal Wikipédia), Caixa 2010-2012 e Itaúsa 2010-2012: sem bloco da Folha com o valor anual. (5) Cobertura de 2010-2012 continua `completa`: em 2010 e 2011 as linhas novas ficam todas abaixo do 10º lucro (a lista conferida era a dos 10 maiores); em 2012 o Santander desce de 8º para 12º com o lucro contábil, sem empresa nova acima dele. Nenhum ano muda de cobertura por causa da Folha.
+
+
+## 27. Rodada 10: lacunas do ranking de lucros fechadas com fontes primárias
+
+Arquivo à mão: `ranking-empresa-correcoes-r10.json` (mesmo formato das rodadas 6-9, aplicado por `curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R10)` logo depois da 9; `gerar_curadoria.py` também o pula no banco temporário). Material: documentos da SEC (20-F e 6-K de Santander Brasil, Itaú Unibanco, Bradesco e Gerdau) e release/relatório da Caixa, lidos pelo WebFetch; nem Folha nem Wikipédia. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época (nos bancos, o 'lucro líquido' de manchete do balanço, BR GAAP; no Santander, o IFRS do 20-F); IFRS dos outros bancos, BR GAAP do Santander em 2022, reapresentações e 'gerencial' só como contexto. A cobertura dos anos não muda.
+
+| ano | empresa | o que mudou | fonte principal |
+|---|---|---|---|
+| 2008 | `caixa` | só fonte | https://www.caixa.gov.br/Downloads/caixa-demonstrativo-financeiro/ra2008.pdf |
+| 2009 | `gerdau` | **inserida** (1.122) | https://www.sec.gov/Archives/edgar/data/0001073404/000110465910032711/a10-11270_120f.htm |
+| 2009 | `santander-brasil` | lucro_brl_bi 1.805 -> 5.508; derivado 1 -> 0; obs | https://www.sec.gov/Archives/edgar/data/1471055/000095010310001728/dp17792_20f.htm |
+| 2010 | `santander-brasil` | obs | https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm |
+| 2011 | `bradesco` | obs | https://www.sec.gov/Archives/edgar/data/0001160330/000129281412000247/bbdbook4q11_6k.htm |
+| 2011 | `itau-unibanco` | obs | https://www.sec.gov/Archives/edgar/data/1132597/000094787112000198/ss139116_ex9901.htm |
+| 2011 | `santander-brasil` | obs | https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm |
+| 2012 | `caixa` | só fonte | https://www.caixa.gov.br/Downloads/caixa-demonstrativo-financeiro/PressRelease2012.pdf |
+| 2022 | `santander-brasil` | obs | https://data.sec.gov/api/xbrl/companyconcept/CIK0001471055/ifrs-full/ProfitLossAttributableToOwnersOfParent.json |
+
+Posições que mudaram (`entidade`: antes -> depois; as inseridas entram direto na posição final):
+
+- 2009: `caixa` 8 -> 9, `cemig` 11 -> 12, `csn` 9 -> 10, `eletrobras` 15 -> 16, `santander-brasil` 12 -> 8, `telefonica-brasil` 10 -> 11, `telemar` 16 -> 17
+
+19 ligações novas em `ranking_evidencia` (10 evidências novas). Registro no arquivo: 5 blocos `nao_aplicados`. Lacunas: (1) Santander Brasil: 2009 passa ao IFRS direto em R$ do 20-F (5,508; era 1,805 derivado de US$) e 2010-2011 ganham o 20-F de 2011 como principal (7,383 e 7,756 são o IFRS 'Consolidated profit for the year', o mesmo número que o DIEESE chama de 'LL gerencial': não são gerenciais, mas também não são o lucro BR GAAP). O lucro BR GAAP/Cosif de 2010 e 2011 (após a amortização do ágio; implícito na Folha de 2013: cerca de R$ 3,5 bi em 2011) não foi achado: o 20-F de 2011 só o remete à nota 45, e os 6-K BRGAAP de 2010-2011 não apareceram nas buscas. (2) Santander Brasil, bases misturadas: 2012 (2,69) está em BR GAAP (Folha, rodada 9), 2010-2011 e 2022 em IFRS (20-F), 2015 em 'gerencial' (6,624; IFRS 9,784 na obs). Se a regra do projeto é IFRS a partir de 2010, 2012 deveria ser o IFRS do 20-F de 2012, que provavelmente é o 6,329 que o DIEESE chamava de 'LL gerencial' (não verificado: o 20-F de 2012 não foi localizado nas buscas); a rodada 9 foi mantida sem mudança, porque o validador a trava. (3) Itaú Unibanco e Bradesco 2011: o valor do banco (14,621 e 11,028) é o BR GAAP, o 'lucro líquido' de manchete do balanço, a mesma base das linhas de 2010 e 2015; o IFRS dos 20-F (Itaú 13,837 atribuível/14,610 consolidado; Bradesco 11,089) entrou como contexto. Se o projeto quiser IFRS estrito, 2010 e 2015 também teriam de mudar (Itaú 2010: 11,708 IFRS contra 13,323 BR GAAP). (4) Caixa 2015 (7,2): o banco tem Brasil 247 como principal; as demonstrações BRGAAP de dez/2015 (DC_BrGaap_Dez15_English.pdf), o Relatório de Gestão 2015 e o press release 1T16 existem no site da Caixa, mas o WebFetch foi recusado por robots.txt; sem fonte primária nova. (5) Cielo 2015 (3,511): a principal já é a apresentação da própria Cielo (api.mziq.com, que o banco classifica como `reportagem`, tipo que deveria ser `relatorio`); a busca pelo release do 4T15 só devolveu documentos de outros períodos (4T23); nada acrescentado. (6) Usiminas 2009: nenhuma demonstração ou release de 2009 achado nas buscas (só materiais de 2020 e 2024 no api.mziq.com); a linha não foi inserida. O top 15 de 2009 pode ainda estar incompleto: Usiminas (lucro de 2009 possivelmente na casa de R$ 1 bi, não verificado) poderia entrar à frente da Eletrobras. (7) Eletrobras 1997, Telebras 1995, Light 1995-1997 e Banco Real 1995-1997: a busca restrita ao sec.gov não devolveu nenhum 20-F anterior a 1999; sem fonte, nenhuma linha inserida. Light não tem linhas nesses anos no banco; `real` não existe como entidade (o Banco Real é `banco-real`). (8) Embratel 2000, AmBev 2002 e 2009 e Bradesco 2009: o banco já tem 20-F/6-K da SEC como principal (documento_oficial); não foram reabertos nesta rodada (a Embratel 2000 vem do 20-F de 2003, série 1999-2003, possível reapresentação; a AmBev 2002 do 20-F de 2004). (9) Etapa 4 (conferir com release/20-F as 5 maiores de 2013-2015 que só têm imprensa) não feita: a cota de buscas foi usada nas etapas 1-3. Candidatos: Itaú Unibanco 2013 e 2014 (Wikipédia pt), Bradesco 2013 (DIEESE de 2014) e 2014 (Exame), BB 2014 (Wikipédia), BNDES 2014 (Exame), Itaú e Bradesco 2015 (Exame/Gazeta do Povo). (10) Acesso: sec.gov respondeu pelo WebFetch (diretórios Archives e documentos), mas não por curl (403 do proxy, igual a www.rad.cvm.gov.br e www.santander.com.br); a CVM não pôde ser consultada. Os trechos vêm do texto devolvido pelo WebFetch (um modelo menor lê a página): as linhas de tabela estão com as colunas separadas por ' | ' e foram reproduzidas como devolvidas.
 
