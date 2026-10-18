@@ -943,6 +943,8 @@ def peso_wikipedia(con, exp):
     for i, n in enumerate(t["N"]):
         if "sat" in n:
             listas.append((f"teia N[{i}].sat", "relacao_evidencia", sat_id.get(n["id"]), n["sat"].get("fontes")))
+    for e in exp["origens.json"]["EV"]:
+        listas.append((f"origens {e['id']}", "evento_evidencia", e["id"], e.get("fontes")))
     for e in exp["series.json"]["eventos"]:
         listas.append((f"series {e['id']}", "evento_evidencia", e["id"], e.get("fontes")))
     for m in exp["violencia.json"]["marcos"]:

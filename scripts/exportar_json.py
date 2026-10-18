@@ -229,6 +229,7 @@ def montar_teia(con):
 def montar_origens(con):
     st_inv = _st_inverso(con)
     fontes_ev = _fontes(con, "evento_evidencia", "evento_id")
+    fontes_ev_r = _fontes_ricas(con, "evento_evidencia", "evento_id", qualidade=False)   # aditivo `fontes` (com papel, ordem R6)
     tema_ev = _temas_de(con, "evento_tema", "evento_id")
     evs = []
     for r in con.execute("SELECT * FROM evento WHERE origem_ref LIKE '%origens:EV[%'"):
@@ -236,7 +237,7 @@ def montar_origens(con):
         evs.append((k, OrderedDict([
             ("id", r["id"]), ("ch", r["canal"]), ("d", r["data_texto"] or r["data"]), ("y", r["ano"]), ("t", r["titulo"]),
             ("x", r["descricao"]), ("st", st_inv[r["natureza_id"]]), ("r", r["resposta"] or ""), ("v", _num(r["valor_brl"])),
-            ("f", fontes_ev.get(r["id"], [])), ("tema", tema_ev[r["id"]])])))
+            ("f", fontes_ev.get(r["id"], [])), ("fontes", fontes_ev_r.get(r["id"], [])), ("tema", tema_ev[r["id"]])])))
     EV = [e for _, e in sorted(evs, key=lambda x: x[0])]
     NARR, LAC = OrderedDict(), OrderedDict()
     for r in con.execute("SELECT chave, texto FROM nota WHERE pagina='origens' AND tipo='narrativa' ORDER BY id"):

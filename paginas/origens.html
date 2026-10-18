@@ -98,6 +98,9 @@ summary{cursor:pointer;font-weight:600;font-size:14.5px}
 .card .resp{border-left:2px solid var(--muted);padding-left:8px;font-size:12.5px;margin-top:4px}
 .card .src{font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 10px;margin-top:4px}
 .card .src a{color:var(--ink2)}
+.fwiki{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:6px 0 0;padding-top:6px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted);opacity:.75}
+.fwiki a{color:var(--muted);font-weight:400;overflow-wrap:anywhere}
+.fwiki .fwl{font-style:italic}
 @media (max-width:560px){.card{grid-template-columns:1fr}}
 ul.plain{margin:10px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:var(--ink2);max-width:96ch}
 ul.plain b{color:var(--ink);font-weight:600}
@@ -185,8 +188,17 @@ const CH = [
   ['ida', 'igreja', 'Da família para a igreja', 'Vínculo pessoal antigo e bem relatado. Ajuda do pai: relatada sem valores; R$ 120 mil com lastro.', '1957 a 2026'],
   ['volta', 'igreja', 'Da igreja para a família', 'Nenhuma ajuda institucional sustentada. Há pessoas e pontes, cada uma com sua fonte.', '2018 a 2026'],
 ];
+/* R6 (data/curadoria/regras-fontes.json): a Wikipédia nunca sustenta; fica numa linha final apagada, sem etiqueta de tipo, e não conta em "Fontes (n)" */
+const fhost = u => { try { return new URL(u).hostname.toLowerCase(); } catch (x) { return ''; } };
+const fwiki = f => f.tipo === 'wiki' || /(^|\.)wikipedia\.org$/.test(fhost(f.url));
+const wtit = f => { if (f.titulo) return f.titulo; try { const u = new URL(f.url), v = decodeURIComponent(u.pathname.split('/').pop()).replace(/_/g, ' '); return v ? `${v} (${u.hostname.split('.')[0]})` : f.veiculo; } catch (x) { return f.veiculo; } };
+const fonteA = f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.veiculo)}</a>`;
+function fontesCard(e){
+  const fs = e.fontes || [], su = fs.filter(f => f.papel !== 'contexto' && !fwiki(f)), cx = fs.filter(f => f.papel === 'contexto' && !fwiki(f)), wk = fs.filter(fwiki);
+  return `<div class="src">Fontes (${su.length}): ${su.map(fonteA).join('')}</div>${cx.length ? `<div class="src">Contexto: ${cx.map(fonteA).join('')}</div>` : ''}${wk.length ? `<p class="fwiki"><span class="fwl">Wikipédia (contexto)</span>${wk.map(f => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(wtit(f))}</a>`).join('')}</p>` : ''}`;
+}
 function card(e){
-  return `<div class="card" id="ev-${e.id}"><div class="when">${esc(fdate(e.d))}</div><div><h4>${esc(e.t)}</h4><div class="meta"><span class="chip ${e.st}">${STL[e.st]}</span>${e.v ? `<span class="lab">${brl(e.v)}</span>` : ''}</div><p>${esc(e.x)}</p>${e.r ? `<p class="resp"><b>O que diz o citado:</b> ${esc(e.r)}</p>` : ''}<div class="src">Fontes: ${e.f.map(f => `<a href="${esc(f[1])}" target="_blank" rel="noopener">${esc(f[0])}</a>`).join('')}</div></div></div>`;
+  return `<div class="card" id="ev-${e.id}"><div class="when">${esc(fdate(e.d))}</div><div><h4>${esc(e.t)}</h4><div class="meta"><span class="chip ${e.st}">${STL[e.st]}</span>${e.v ? `<span class="lab">${brl(e.v)}</span>` : ''}</div><p>${esc(e.x)}</p>${e.r ? `<p class="resp"><b>O que diz o citado:</b> ${esc(e.r)}</p>` : ''}${fontesCard(e)}</div></div>`;
 }
 function iniciar(D){
 document.getElementById('chaps').innerHTML = CH.map((c, i) => { const evs = D.EV.filter(e => e.ch === c[0]);

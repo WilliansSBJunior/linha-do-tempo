@@ -24,6 +24,32 @@
      "https://en.wikipedia.org/wiki/Lagoinha_Church"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://intercept.com.br/2023/07/19/lagoinha-conheca-familia-valadao-cla-por-tras-da-igreja",
+     "veiculo": "intercept.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Lagoinha_Church",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -57,6 +83,40 @@
      "https://digital.correiodamanha.com.br/jornalcorreiodamanha/2026/05/21/213305/pdf/2105cmanha08.pdf"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.infomoney.com.br/?p=3107979",
+     "veiculo": "infomoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://guiadoinvestidor.com.br/?p=104530",
+     "veiculo": "guiadoinvestidor.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://bpmoney.com.br/?p=154390",
+     "veiculo": "bpmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://digital.correiodamanha.com.br/jornalcorreiodamanha/2026/05/21/213305/pdf/2105cmanha08.pdf",
+     "veiculo": "digital.correiodamanha.com.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -84,6 +144,32 @@
      "correiobraziliense.com.br",
      "https://www.correiobraziliense.com.br/brasil/2022/12/amp/5058438-pastor-marcio-pai-de-andre-valadao-deixa-lideranca-de-igreja-apos-50-anos.html"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.correiobraziliense.com.br/brasil/2022/12/amp/5058438-pastor-marcio-pai-de-andre-valadao-deixa-lideranca-de-igreja-apos-50-anos.html",
+     "veiculo": "correiobraziliense.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Lagoinha_Church",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
    ],
    "tema": [
     "caso-master",
@@ -118,6 +204,40 @@
      "https://bpmoney.com.br/?p=385092"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.maisgoias.com.br/brasil/economia/pobre-menino-rico-quem-e-e-de-onde-veio-a-fortuna-de-daniel-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornalcontabil.com.br/noticia/rascunho-automatdono-do-banco-master-daniel-vorcaro-e-preso-pela-pf-trajetoria-vai-de-heranca-empresarial-a-imperio-financeiro-bilionarioico-18",
+     "veiculo": "jornalcontabil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.infomoney.com.br/?p=3107925",
+     "veiculo": "infomoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://bpmoney.com.br/?p=385092",
+     "veiculo": "bpmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -149,6 +269,40 @@
      "en.wikipedia.org",
      "https://en.wikipedia.org/wiki/Banco_Master"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.infomoney.com.br/?p=3107979",
+     "veiculo": "infomoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://bpmoney.com.br/?p=385085",
+     "veiculo": "bpmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://digital.correiodamanha.com.br/jornalcorreiodamanha/2026/05/21/213305/pdf/2105cmanha08.pdf",
+     "veiculo": "digital.correiodamanha.com.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Banco_Master",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
    ],
    "tema": [
     "caso-master"
@@ -182,6 +336,40 @@
      "https://www.maisgoias.com.br/brasil/economia/pobre-menino-rico-quem-e-e-de-onde-veio-a-fortuna-de-daniel-vorcaro"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/quem-e-henrique-vorcaro-pai-de-daniel-vorcaro",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.hojeemdia.com.br/geral/saiba-quem-e-henrique-vorcaro-pai-do-dono-do-banco-master-1.1117015",
+     "veiculo": "hojeemdia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.band.com.br/noticias/quem-e-henrique-vorcaro-pai-de-daniel-vorcaro-preso-em-operacao-da-pf-202605140902",
+     "veiculo": "band.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/economia/pobre-menino-rico-quem-e-e-de-onde-veio-a-fortuna-de-daniel-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -205,6 +393,24 @@
      "intercept.com.br",
      "https://intercept.com.br/2023/07/19/lagoinha-conheca-familia-valadao-cla-por-tras-da-igreja"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://intercept.com.br/2023/07/19/lagoinha-conheca-familia-valadao-cla-por-tras-da-igreja",
+     "veiculo": "intercept.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Rede_Super",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
    ],
    "tema": [
     "caso-master",
@@ -239,6 +445,40 @@
      "https://www.cartacapital.com.br/?p=587967"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://apublica.org/?p=208625",
+     "veiculo": "apublica.org",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cartacapital.com.br/?p=587967",
+     "veiculo": "cartacapital.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -272,6 +512,40 @@
      "https://www.cartacapital.com.br/?p=587967"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/cotidiano/quem-e-henrique-vorcaro-pai-do-dono-do-master-preso",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bloomberglinea.com.br/negocios/de-forasteiro-na-elite-financeira-a-presidiario-a-derrocada-de-daniel-vorcaro",
+     "veiculo": "bloomberglinea.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cartacapital.com.br/?p=587967",
+     "veiculo": "cartacapital.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -301,6 +575,32 @@
      "https://revistaoeste.com/economia/pai-e-irma-de-vorcaro-acumulam-r-8-mi-em-dividas-com-a-uniao"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://revistaoeste.com/economia/pai-e-irma-de-vorcaro-acumulam-r-8-mi-em-dividas-com-a-uniao",
+     "veiculo": "revistaoeste.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Daniel_Vorcaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -329,6 +629,32 @@
      "https://en.wikipedia.org/wiki/Daniel_Vorcaro"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://apublica.org/?p=208625",
+     "veiculo": "apublica.org",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Daniel_Vorcaro",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -352,6 +678,24 @@
      "okai.com.br",
      "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://okai.com.br/documento/2009-11-11/comunicado-n-019058",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -377,6 +721,24 @@
      "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://okai.com.br/documento/2010-01-11/comunicado-n-019256",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -396,6 +758,16 @@
      "em.com.br",
      "https://www.em.com.br/app/noticia/economia/2011/10/20/internas_economia,257022/centro-de-bh-vai-ter-hotel-de-luxo.shtml"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.em.com.br/app/noticia/economia/2011/10/20/internas_economia,257022/centro-de-bh-vai-ter-hotel-de-luxo.shtml",
+     "veiculo": "em.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -417,6 +789,16 @@
      "https://cbic.org.br/credito-imobiliario-atrai-instituicoes-de-menor-porte"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://cbic.org.br/credito-imobiliario-atrai-instituicoes-de-menor-porte",
+     "veiculo": "cbic.org.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -437,6 +819,16 @@
      "https://cbic.org.br/credito-imobiliario-atrai-instituicoes-de-menor-porte"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://cbic.org.br/credito-imobiliario-atrai-instituicoes-de-menor-porte",
+     "veiculo": "cbic.org.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -456,6 +848,16 @@
      "almapreta.com.br",
      "https://almapreta.com.br/sessao/politica/daniel-vorcaro-calote-advogados-nome-sujo-serasa"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://almapreta.com.br/sessao/politica/daniel-vorcaro-calote-advogados-nome-sujo-serasa",
+     "veiculo": "almapreta.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -485,6 +887,32 @@
      "https://jornaldebrasilia.com.br/noticias/politica-e-poder/justica-aprova-acordo-e-beneficia-saul-sabba-dono-do-banco-que-deu-origem-ao-master"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.seudinheiro.com/2021/empresas/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "seudinheiro.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.dgabc.com.br/Noticia/3736263/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "dgabc.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/justica-aprova-acordo-e-beneficia-saul-sabba-dono-do-banco-que-deu-origem-ao-master",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -509,6 +937,24 @@
      "https://www.dgabc.com.br/Noticia/3736263/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.seudinheiro.com/2021/empresas/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "seudinheiro.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.dgabc.com.br/Noticia/3736263/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "dgabc.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -528,6 +974,16 @@
      "ofator.com.br",
      "https://ofator.com.br/?p=71767"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://ofator.com.br/?p=71767",
+     "veiculo": "ofator.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -561,6 +1017,40 @@
      "https://www.brasil247.com/?p=943810"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://digital.correiodamanha.com.br/jornalcorreiodamanha/2026/05/21/213305/pdf/2105cmanha08.pdf",
+     "veiculo": "digital.correiodamanha.com.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=943810",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Banco_Master",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -589,6 +1079,32 @@
      "https://ofator.com.br/?p=71767"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.maisgoias.com.br/brasil/economia/pobre-menino-rico-quem-e-e-de-onde-veio-a-fortuna-de-daniel-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://bpmoney.com.br/?p=385092",
+     "veiculo": "bpmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://ofator.com.br/?p=71767",
+     "veiculo": "ofator.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -609,6 +1125,16 @@
      "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -628,6 +1154,16 @@
      "letsmoney.com.br",
      "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -661,6 +1197,40 @@
      "https://www.brasil247.com/?p=927102"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://okai.com.br/documento/2017-11-01/comunicado-n-31-344",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=945134",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=927102",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -681,6 +1251,16 @@
      "https://ofator.com.br/?p=71767"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://ofator.com.br/?p=71767",
+     "veiculo": "ofator.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -700,6 +1280,16 @@
      "okai.com.br",
      "https://okai.com.br/documento/2017-11-01/comunicado-n-31-344"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://okai.com.br/documento/2017-11-01/comunicado-n-31-344",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -728,6 +1318,32 @@
      "cartacapital.com.br",
      "https://www.cartacapital.com.br/?p=587967"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.brasil247.com/brasil/quando-quebrar-o-sigilo-nao-sobra-um-diz-rogerio-correia-sobre-lacos-entre-lagoinha-e-caso-master",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cartacapital.com.br/?p=587967",
+     "veiculo": "cartacapital.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -758,6 +1374,32 @@
      "https://www.brasil247.com/?p=943810"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://investnews.com.br/negocios/banco-maxima-muda-nome-para-master-e-busca-pulverizar-servicos-financeiros",
+     "veiculo": "investnews.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.seudinheiro.com/2021/empresas/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "seudinheiro.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=943810",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -786,6 +1428,32 @@
      "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/por-que-o-pt-evita-a-cpmi-do-master-depoimento-de-vorcaro-expoe-quem-comandava-o-consignado-do-banco",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/blogs/caio-junqueira/politica/o-nome-que-preocupa-o-planalto-no-caso-master",
+     "veiculo": "cnnbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -810,6 +1478,24 @@
      "https://revistaoeste.com/economia/acordos-com-a-cvm-encerraram-processos-ligados-ao-banco-master"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.cnnbrasil.com.br/economia/master-investigados-pagaram-indenizacao-de-r-50-mi-por-irregularidades",
+     "veiculo": "cnnbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://revistaoeste.com/economia/acordos-com-a-cvm-encerraram-processos-ligados-ao-banco-master",
+     "veiculo": "revistaoeste.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -833,6 +1519,24 @@
      "dgabc.com.br",
      "https://www.dgabc.com.br/Noticia/3736263/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://static.poder360.com.br/uploads/2026/07/multa-banco-central-master-maxima-2018.pdf",
+     "veiculo": "static.poder360.com.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.dgabc.com.br/Noticia/3736263/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "dgabc.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -862,6 +1566,32 @@
      "https://news.bloomberglaw.com/mergers-and-acquisitions/a-10-billion-banking-scandal-is-tainting-brazils-elite"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/economia/quem-e-daniel-vorcaro-e-por-que-o-banco-central-aprovou-seus-negocios",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://news.bloomberglaw.com/mergers-and-acquisitions/a-10-billion-banking-scandal-is-tainting-brazils-elite",
+     "veiculo": "news.bloomberglaw.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -885,6 +1615,24 @@
      "brasil247.com",
      "https://www.brasil247.com/blog/golden-tulip-foi-o-laboratorio-do-golpe-de-master"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://acritica.net/politica/delacao-2019-daniel-vorcaro-hotel-golden-tulip-bh-fundos-estatais",
+     "veiculo": "acritica.net",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/blog/golden-tulip-foi-o-laboratorio-do-golpe-de-master",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -914,6 +1662,32 @@
      "https://revistaoeste.com/economia/acordos-com-a-cvm-encerraram-processos-ligados-ao-banco-master"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://conteudo.cvm.gov.br/export/sites/cvm/decisoes/anexos/2020/20201103/1836_20.pdf",
+     "veiculo": "conteudo.cvm.gov.br",
+     "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/economia/master-investigados-pagaram-indenizacao-de-r-50-mi-por-irregularidades",
+     "veiculo": "cnnbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://revistaoeste.com/economia/acordos-com-a-cvm-encerraram-processos-ligados-ao-banco-master",
+     "veiculo": "revistaoeste.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -941,6 +1715,32 @@
      "cnnbrasil.com.br",
      "https://www.cnnbrasil.com.br/blogs/caio-junqueira/politica/o-nome-que-preocupa-o-planalto-no-caso-master"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bloomberglinea.com.br/negocios/de-herdeiro-imobiliario-a-banqueiro-a-trajetoria-de-daniel-vorcaro-ate-o-master",
+     "veiculo": "bloomberglinea.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/blogs/caio-junqueira/politica/o-nome-que-preocupa-o-planalto-no-caso-master",
+     "veiculo": "cnnbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -974,6 +1774,40 @@
      "https://www.brasil247.com/?p=945134"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.letsmoney.com.br/noticias/voto-bc-triangulacao-vorcaro-maxima",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=945134",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1001,6 +1835,32 @@
      "letsmoney.com.br",
      "https://www.letsmoney.com.br/noticias/voto-bc-triangulacao-vorcaro-maxima"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.letsmoney.com.br/noticias/voto-bc-triangulacao-vorcaro-maxima",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1038,6 +1898,48 @@
      "https://jornalgrandebahia.com.br/2026/04/banco-central-rejeitou-e-depois-aprovou-controle-do-banco-master-por-daniel-vorcaro-apos-revisao-de-capacidade-economica"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.letsmoney.com.br/noticias/voto-bc-triangulacao-vorcaro-maxima",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=943810",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornalgrandebahia.com.br/2026/04/banco-central-rejeitou-e-depois-aprovou-controle-do-banco-master-por-daniel-vorcaro-apos-revisao-de-capacidade-economica",
+     "veiculo": "jornalgrandebahia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1057,6 +1959,16 @@
      "letsmoney.com.br",
      "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+     "veiculo": "letsmoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1090,6 +2002,40 @@
      "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/blogs/caio-junqueira/politica/o-nome-que-preocupa-o-planalto-no-caso-master",
+     "veiculo": "cnnbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/por-que-o-pt-evita-a-cpmi-do-master-depoimento-de-vorcaro-expoe-quem-comandava-o-consignado-do-banco",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "brb"
@@ -1114,6 +2060,24 @@
      "revistaoeste.com",
      "https://www.revistaoeste.com/economia/socio-do-master-vai-vender-participacao-no-banco-entenda"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.revistaoeste.com/economia/socio-do-master-vai-vender-participacao-no-banco-entenda",
+     "veiculo": "revistaoeste.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1143,6 +2107,32 @@
      "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.bloomberglinea.com.br/negocios/de-herdeiro-imobiliario-a-banqueiro-a-trajetoria-de-daniel-vorcaro-ate-o-master",
+     "veiculo": "bloomberglinea.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://istoedinheiro.com.br/hapvida-conclui-compra-do-grupo-promed-com-assessoria-do-banco-maxima",
+     "veiculo": "istoedinheiro.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1171,6 +2161,32 @@
      "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://braziljournal.com/breaking-hapvida-entra-em-belo-horizonte-com-aquisicao-de-r-15-bi",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://istoedinheiro.com.br/hapvida-conclui-compra-do-grupo-promed-com-assessoria-do-banco-maxima",
+     "veiculo": "istoedinheiro.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1191,6 +2207,16 @@
      "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1210,6 +2236,16 @@
      "okai.com.br",
      "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://okai.com.br/documento/2020-11-05/pauta-de-julgamento-443ª-sessaoa-ser-realizada-em-17-de-novembro-de-2020",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1239,6 +2275,32 @@
      "https://www.cnnbrasil.com.br/economia/master-investigados-pagaram-indenizacao-de-r-50-mi-por-irregularidades"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2020/20201201_PAS_CVM_SEI_19957_009798_2019_01_voto_termo_compromisso_diretor_henrique_machado.pdf-49901aa4aaec4d11ab8f39b3ed6e6ca5",
+     "veiculo": "gov.br",
+     "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://revistaoeste.com/economia/acordos-com-a-cvm-encerraram-processos-ligados-ao-banco-master",
+     "veiculo": "revistaoeste.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/economia/master-investigados-pagaram-indenizacao-de-r-50-mi-por-irregularidades",
+     "veiculo": "cnnbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1262,6 +2324,24 @@
      "seudinheiro.com",
      "https://www.seudinheiro.com/2021/empresas/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.dgabc.com.br/Noticia/3736263/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "dgabc.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.seudinheiro.com/2021/empresas/juiz-poe-no-banco-dos-reus-ex-gestores-do-banco-maxima-por-gestao-fraudulenta",
+     "veiculo": "seudinheiro.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1295,6 +2375,40 @@
      "https://www.dieese.org.br/notatecnica/2026/notaTec291BancoMaster.pdf"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://investnews.com.br/negocios/banco-maxima-muda-nome-para-master-e-busca-pulverizar-servicos-financeiros",
+     "veiculo": "investnews.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/economia/pobre-menino-rico-quem-e-e-de-onde-veio-a-fortuna-de-daniel-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://investnews.com.br/negocios/banco-maxima-muda-nome-para-master-e-busca-pulverizar-servicos-financeiros/amp",
+     "veiculo": "investnews.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.dieese.org.br/notatecnica/2026/notaTec291BancoMaster.pdf",
+     "veiculo": "dieese.org.br",
+     "tipo": "relatorio",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1318,6 +2432,24 @@
      "infomoney.com.br",
      "https://www.infomoney.com.br/?p=3107979"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://braziljournal.com/no-master-um-outsider-comeca-a-fazer-barulho",
+     "veiculo": "braziljournal.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.infomoney.com.br/?p=3107979",
+     "veiculo": "infomoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1347,6 +2479,32 @@
      "https://www.poder360.com.br/poder-justica/saiba-quem-e-fabiano-zettel-pastor-e-empresario-alvo-da-pf"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.cnnbrasil.com.br/politica/alvo-da-pf-doou-r-5-mi-para-campanhas-de-bolsonaro-e-tarcisio-em-2022",
+     "veiculo": "cnnbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.metropoles.com/sao-paulo/cego-pela-ambicao-pastor-alvo-da-pf-fez-pregacao-sobre-abrir-os-olhos",
+     "veiculo": "metropoles.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.poder360.com.br/poder-justica/saiba-quem-e-fabiano-zettel-pastor-e-empresario-alvo-da-pf",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1371,6 +2529,24 @@
      "iclnoticias.com.br",
      "https://iclnoticias.com.br/?p=109117"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://sbtnews.sbt.com.br/noticia/economia/andre-valadao-da-lagoinha-recebeu-r-4-milhoes-do-banco-master",
+     "veiculo": "sbtnews.sbt.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://iclnoticias.com.br/?p=109117",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1399,6 +2575,32 @@
      "maisgoias.com.br",
      "https://www.maisgoias.com.br/brasil/igreja-da-lagoinha-informa-que-afastou-zettel-do-pastoreio-e-nega-vinculo-com-vorcaro"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://diariodocomercio.com.br/politica/nikolas-pastor-lagoinha-jatinho-vorcaro-campanha-bolsonaro",
+     "veiculo": "diariodocomercio.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.diariodepernambuco.com.br/politica/2026/03/11708979-nikolas-ferreira-e-pastor-da-lagoinha-usaram-jatinho-de-vorcaro-em-campanha-por-bolsonaro-em-2022.html",
+     "veiculo": "diariodepernambuco.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/igreja-da-lagoinha-informa-que-afastou-zettel-do-pastoreio-e-nega-vinculo-com-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -1433,6 +2635,40 @@
      "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.correiobraziliense.com.br/brasil/2022/12/amp/5058438-pastor-marcio-pai-de-andre-valadao-deixa-lideranca-de-igreja-apos-50-anos.html",
+     "veiculo": "correiobraziliense.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://intercept.com.br/2023/07/19/lagoinha-conheca-familia-valadao-cla-por-tras-da-igreja",
+     "veiculo": "intercept.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Andr%C3%A9_Valad%C3%A3o",
+     "veiculo": "en.wikipedia.org",
+     "tipo": "wiki",
+     "titulo": null,
+     "data": null,
+     "papel": "contexto"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1466,6 +2702,40 @@
      "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://apublica.org/?p=208625",
+     "veiculo": "apublica.org",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornalopcao.com.br/ultimas-noticias/igreja-evangelica-lanca-banco-digital-comandado-por-andre-valadao-695855",
+     "veiculo": "jornalopcao.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=876131",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1494,6 +2764,32 @@
      "maisgoias.com.br",
      "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://apublica.org/?p=208625",
+     "veiculo": "apublica.org",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://portaldeprefeitura.com.br/brasil/andre-valadao-anuncia-fim-das-operacoes-do-clava-forte-bank/613422",
+     "veiculo": "portaldeprefeitura.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -1528,6 +2824,40 @@
      "https://www.folhape.com.br/politica/nikolas-admite-contatos-com-vorcaro-mas-nega-proximidade-e/510558"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-congresso/nao-recebi-um-tostao-de-vorcaro-e-nem-o-encontrei-diz-nikolas",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bahianoticias.com.br/noticia/320755-andre-valadao-confirma-que-aproximou-nikolas-de-vorcaro-mas-nega-envolvimento-com-banco-master",
+     "veiculo": "bahianoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11723152-andre-valadao-explica-relacao-de-vorcaro-com-nikolas.html",
+     "veiculo": "diariodepernambuco.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.folhape.com.br/politica/nikolas-admite-contatos-com-vorcaro-mas-nega-proximidade-e/510558",
+     "veiculo": "folhape.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1560,6 +2890,40 @@
      "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/brasil/quando-quebrar-o-sigilo-nao-sobra-um-diz-rogerio-correia-sobre-lacos-entre-lagoinha-e-caso-master",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/brasil/lagoinha-fecha-igreja-comandada-por-fabiano-zettel-cunhado-de-vorcaro",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1584,6 +2948,24 @@
      "okai.com.br",
      "https://okai.com.br/documento/2024-07-02/pauta-da-484ª-sessao-de-julgamento-do-conselho"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://okai.com.br/documento/2024-08-26/pauta-da-486ª-sessao-de-julgamento",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://okai.com.br/documento/2024-07-02/pauta-da-484ª-sessao-de-julgamento-do-conselho",
+     "veiculo": "okai.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1613,6 +2995,32 @@
      "https://www.brasil247.com/regionais/sudeste/amigos-da-minha-vida-disse-valadao-sobre-familia-vorcaro-e-zettel-em-culto-na-lagoinha"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.bemparana.com.br/noticias/economia/cgu-apontou-irregularidade-em-emenda-parlamentar-de-presidente-da-cpi-do-inss-a-lagoinha",
+     "veiculo": "bemparana.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/regionais/sudeste/amigos-da-minha-vida-disse-valadao-sobre-familia-vorcaro-e-zettel-em-culto-na-lagoinha",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1641,6 +3049,32 @@
      "jornaldebrasilia.com.br",
      "https://jornaldebrasilia.com.br/noticias/politica-e-poder/justica-aprova-acordo-e-beneficia-saul-sabba-dono-do-banco-que-deu-origem-ao-master"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.migalhas.com.br/quentes/416770/stj-afasta-excesso-acusatorio-que-impedia-anpp-a-ex-diretor-de-banco",
+     "veiculo": "migalhas.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.sedep.com.br/?p=150753",
+     "veiculo": "sedep.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/justica-aprova-acordo-e-beneficia-saul-sabba-dono-do-banco-que-deu-origem-ao-master",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -1673,6 +3107,40 @@
      "brasil247.com",
      "https://www.brasil247.com/?p=1049476"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://iclnoticias.com.br/?p=127728",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
+     "veiculo": "itatiaia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf",
+     "veiculo": "bahianoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=1049476",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -1707,6 +3175,40 @@
      "https://www.brasil247.com/?p=1049764"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
+     "veiculo": "itatiaia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://iclnoticias.com.br/?p=127728",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf",
+     "veiculo": "bahianoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=1049764",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1735,6 +3237,32 @@
      "bahianoticias.com.br",
      "https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.brasil247.com/?p=1049764",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://iclnoticias.com.br/?p=129374",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf",
+     "veiculo": "bahianoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -1765,6 +3293,32 @@
      "https://www.brasil247.com/?p=927102"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/justica-aprova-acordo-e-beneficia-saul-sabba-dono-do-banco-que-deu-origem-ao-master",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.moneytimes.com.br/empresario-que-vendeu-banco-a-vorcaro-fecha-trato-e-escapa-de-processo-criminal-jals",
+     "veiculo": "moneytimes.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=927102",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1793,6 +3347,32 @@
      "https://www.brasil247.com/brasil/quando-quebrar-o-sigilo-nao-sobra-um-diz-rogerio-correia-sobre-lacos-entre-lagoinha-e-caso-master"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.brasil247.com/regionais/sudeste/amigos-da-minha-vida-disse-valadao-sobre-familia-vorcaro-e-zettel-em-culto-na-lagoinha",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=940854",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/brasil/quando-quebrar-o-sigilo-nao-sobra-um-diz-rogerio-correia-sobre-lacos-entre-lagoinha-e-caso-master",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1813,6 +3393,16 @@
      "brasil247.com",
      "https://www.brasil247.com/?p=1049764"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.brasil247.com/?p=1049764",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -1847,6 +3437,40 @@
      "https://jornaldebrasilia.com.br/noticias/brasil/lagoinha-fecha-igreja-comandada-por-fabiano-zettel-cunhado-de-vorcaro"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.portaltela.com/noticias/politica/2026/01/16/lagoinha-nega-ligacao-com-investigacoes-e-afasta-pastor",
+     "veiculo": "portaltela.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.poder360.com.br/poder-justica/saiba-quem-e-fabiano-zettel-pastor-e-empresario-alvo-da-pf",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/igreja-da-lagoinha-informa-que-afastou-zettel-do-pastoreio-e-nega-vinculo-com-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/brasil/lagoinha-fecha-igreja-comandada-por-fabiano-zettel-cunhado-de-vorcaro",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "inss",
@@ -1876,6 +3500,32 @@
      "metropoles.com",
      "https://www.metropoles.com/brasil/cpmi-do-inss-andre-valadao-se-manifesta-apos-citacao-de-damares"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://apublica.org/?p=208625",
+     "veiculo": "apublica.org",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.metropoles.com/sao-paulo/cego-pela-ambicao-pastor-alvo-da-pf-fez-pregacao-sobre-abrir-os-olhos",
+     "veiculo": "metropoles.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.metropoles.com/brasil/cpmi-do-inss-andre-valadao-se-manifesta-apos-citacao-de-damares",
+     "veiculo": "metropoles.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -1911,6 +3561,40 @@
      "https://timesbrasil.com.br/brasil/caso-master-igreja-da-lagoinha-recebeu-quase-r-20-milhoes-de-cunhado-de-vorcaro-diz-coaf"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://iclnoticias.com.br/?p=129374",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://diariodocomercio.com.br/legislacao/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro",
+     "veiculo": "diariodocomercio.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://iclnoticias.com.br/?p=127728",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/caso-master-igreja-da-lagoinha-recebeu-quase-r-20-milhoes-de-cunhado-de-vorcaro-diz-coaf",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -1944,6 +3628,40 @@
      "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/saiba-quem-e-fabiano-zettel-pastor-e-empresario-alvo-da-pf",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bloomberglinea.com.br/negocios/fundador-da-moriah-asset-fabiano-zettel-e-preso-em-operacao-da-pf-sobre-o-master",
+     "veiculo": "bloomberglinea.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.metropoles.com/sao-paulo/cego-pela-ambicao-pastor-alvo-da-pf-fez-pregacao-sobre-abrir-os-olhos",
+     "veiculo": "metropoles.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -1967,6 +3685,24 @@
      "gazetadopovo.com.br",
      "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.portaltela.com/noticias/politica/2026/01/16/lagoinha-nega-ligacao-com-investigacoes-e-afasta-pastor",
+     "veiculo": "portaltela.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -1998,6 +3734,32 @@
      "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.infomoney.com.br/?p=3174200",
+     "veiculo": "infomoney.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.metropoles.com/brasil/cpmi-do-inss-andre-valadao-se-manifesta-apos-citacao-de-damares",
+     "veiculo": "metropoles.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/como-igreja-lagoinha-tornou-tao-influente",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "inss",
@@ -2020,6 +3782,16 @@
      "https://revistaoeste.com/economia/pai-e-irma-de-vorcaro-acumulam-r-8-mi-em-dividas-com-a-uniao"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://revistaoeste.com/economia/pai-e-irma-de-vorcaro-acumulam-r-8-mi-em-dividas-com-a-uniao",
+     "veiculo": "revistaoeste.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -2039,6 +3811,16 @@
      "portaltela.com",
      "https://www.portaltela.com/espiritualidade/religiao/2026/01/27/andre-valadao-nega-ter-feito-negocios-com-daniel-vorcaro"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.portaltela.com/espiritualidade/religiao/2026/01/27/andre-valadao-nega-ter-feito-negocios-com-daniel-vorcaro",
+     "veiculo": "portaltela.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -2065,6 +3847,24 @@
      "https://www.moneytimes.com.br/empresario-que-vendeu-banco-a-vorcaro-fecha-trato-e-escapa-de-processo-criminal-jals"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/justica-aprova-acordo-e-beneficia-saul-sabba-dono-do-banco-que-deu-origem-ao-master",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.moneytimes.com.br/empresario-que-vendeu-banco-a-vorcaro-fecha-trato-e-escapa-de-processo-criminal-jals",
+     "veiculo": "moneytimes.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -2088,6 +3888,24 @@
      "timesbrasil.com.br",
      "https://timesbrasil.com.br/brasil/operacoes-da-pf/cunhado-vorcaro-patrimonio-fundo-lavagem-banco-master"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.opovo.com.br/noticias/politica/2026/02/28/mendonca-desobriga-cunhado-de-vorcaro-de-comparecer-a-cpi-do-crime-organizado.html",
+     "veiculo": "opovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/operacoes-da-pf/cunhado-vorcaro-patrimonio-fundo-lavagem-banco-master",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -2116,6 +3934,32 @@
      "band.com.br",
      "https://www.band.com.br/minas-gerais/noticias/pastor-da-igreja-lagoinha-e-cunhado-de-vorcaro-e-preso-202603041320"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.congressoemfoco.com.br/noticia/116929/pf-prende-cunhado-de-vorcaro-suspeito-de-operar-esquema-do-master",
+     "veiculo": "congressoemfoco.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/operacoes-da-pf/fabiano-zettel-operador-financeiro-esquema-banco-master-compliance-zero",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.band.com.br/minas-gerais/noticias/pastor-da-igreja-lagoinha-e-cunhado-de-vorcaro-e-preso-202603041320",
+     "veiculo": "band.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -2146,6 +3990,32 @@
      "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.maisgoias.com.br/brasil/igreja-da-lagoinha-informa-que-afastou-zettel-do-pastoreio-e-nega-vinculo-com-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/brasil/quando-quebrar-o-sigilo-nao-sobra-um-diz-rogerio-correia-sobre-lacos-entre-lagoinha-e-caso-master",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/cotidiano/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "inss",
@@ -2175,6 +4045,32 @@
      "iclnoticias.com.br",
      "https://iclnoticias.com.br/?p=110036"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://jornaldebrasilia.com.br/noticias/brasil/lagoinha-fecha-igreja-comandada-por-fabiano-zettel-cunhado-de-vorcaro",
+     "veiculo": "jornaldebrasilia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://iclnoticias.com.br/?p=110036",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -2208,6 +4104,40 @@
      "portaldeprefeitura.com.br",
      "https://portaldeprefeitura.com.br/bastidores-da-politica/carlos-viana-diz-ter-enviado-r36-milhoes-em-emendas-a-lagoinha/617273"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.itatiaia.com.br/politica/dino-da-5-dias-para-viana-explicar-emendas-a-fundacao-ligada-a-lagoinha",
+     "veiculo": "itatiaia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.band.com.br/politica/noticias/dino-da-5-dias-para-carlos-viana-explicar-repasse-de-emendas-a-lagoinha-202603191220",
+     "veiculo": "band.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.congressoemfoco.com.br/noticia/117391/viana-defende-emenda-a-igreja-lagoinha-e-diz-que-seguira-doando",
+     "veiculo": "congressoemfoco.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://portaldeprefeitura.com.br/bastidores-da-politica/carlos-viana-diz-ter-enviado-r36-milhoes-em-emendas-a-lagoinha/617273",
+     "veiculo": "portaldeprefeitura.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -2243,6 +4173,40 @@
      "https://www.diariodepernambuco.com.br/politica/2026/09/11723152-andre-valadao-explica-relacao-de-vorcaro-com-nikolas.html"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://portaldeprefeitura.com.br/brasil/lider-da-igreja-lagoinha-andre-valadao-nega-involvimento-com/617618",
+     "veiculo": "portaldeprefeitura.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.gazetadopovo.com.br/ideias/por-que-lider-lagoinha-pediu-perdao-igreja-fechou-templo-luxo",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.portaltela.com/espiritualidade/religiao/2026/01/27/andre-valadao-nega-ter-feito-negocios-com-daniel-vorcaro",
+     "veiculo": "portaltela.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.diariodepernambuco.com.br/politica/2026/09/11723152-andre-valadao-explica-relacao-de-vorcaro-com-nikolas.html",
+     "veiculo": "diariodepernambuco.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -2270,6 +4234,32 @@
      "neofeed.com.br",
      "https://neofeed.com.br/negocios/fabiano-zettel-braco-direito-de-vorcaro-investe-em-negocios-de-saude-e-bem-estar/es"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/operacoes-da-pf/cunhado-vorcaro-patrimonio-fundo-lavagem-banco-master",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.poder360.com.br/poder-justica/saiba-quem-e-fabiano-zettel-pastor-e-empresario-alvo-da-pf",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://neofeed.com.br/negocios/fabiano-zettel-braco-direito-de-vorcaro-investe-em-negocios-de-saude-e-bem-estar/es",
+     "veiculo": "neofeed.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
@@ -2308,6 +4298,48 @@
      "https://www.diariodepernambuco.com.br/politica/2026/03/11710930-cpmi-do-inss-relator-pede-indiciamento-de-lulinha-vorcaro-e-mais-214.html"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www12.senado.leg.br/noticias/materias/2026/03/28/cpmi-do-inss-termina-sem-relatorio-final",
+     "veiculo": "www12.senado.leg.br",
+     "tipo": "documento_oficial",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://istoe.com.br/cpmi-do-inss-termina-sem-relatorio-final",
+     "veiculo": "istoe.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://viva.com.br/cidadania-e-direitos/cpmi-do-inss-relator-pede-indiciamento-de-lulinha-e-de-daniel-vorcaro.html",
+     "veiculo": "viva.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://pt.org.br/wp-content/uploads/2026/03/cpmi-inss-relatorio-da-mairoria-sumario-executivo.pdf",
+     "veiculo": "pt.org.br",
+     "tipo": "relatorio",
+     "titulo": "Relatório da Maioria (voto em separado) - CPMI do INSS",
+     "data": "2026-03",
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.diariodepernambuco.com.br/politica/2026/03/11710930-cpmi-do-inss-relator-pede-indiciamento-de-lulinha-vorcaro-e-mais-214.html",
+     "veiculo": "diariodepernambuco.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "inss",
@@ -2342,6 +4374,40 @@
      "https://www.correiodamanha.com.br/colunistas/paulo-cappelli/2026/06/amp/295357-defesa-do-pai-de-vorcaro-diz-que-pagamentos-investigados-bancavam-projeto-do-governo.html"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/republica/quem-henrique-moura-pai-banqueiro-daniel-vorcaro-preso-pf",
+     "veiculo": "gazetadopovo.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.maisgoias.com.br/brasil/cotidiano/quem-e-henrique-vorcaro-pai-do-dono-do-master-preso",
+     "veiculo": "maisgoias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.brasil247.com/?p=949224",
+     "veiculo": "brasil247.com",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.correiodamanha.com.br/colunistas/paulo-cappelli/2026/06/amp/295357-defesa-do-pai-de-vorcaro-diz-que-pagamentos-investigados-bancavam-projeto-do-governo.html",
+     "veiculo": "correiodamanha.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master",
     "lagoinha"
@@ -2363,6 +4429,16 @@
      "https://www.poder360.com.br/poder-justica/pf-e-pgr-devem-rejeitar-delacao-de-cunhado-de-vorcaro"
     ]
    ],
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/pf-e-pgr-devem-rejeitar-delacao-de-cunhado-de-vorcaro",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
+   ],
    "tema": [
     "caso-master"
    ]
@@ -2382,6 +4458,16 @@
      "bahianoticias.com.br",
      "https://www.bahianoticias.com.br/noticia/320737-delacao-vorcaro-diz-que-r-5-mi-doados-a-tarcisio-e-bolsonaro-foram-propina"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.bahianoticias.com.br/noticia/320737-delacao-vorcaro-diz-que-r-5-mi-doados-a-tarcisio-e-bolsonaro-foram-propina",
+     "veiculo": "bahianoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -2410,6 +4496,32 @@
      "timesbrasil.com.br",
      "https://timesbrasil.com.br/brasil/o-que-e-o-bzli11-fundo-imobiliario-que-levou-daniel-vorcaro-a-ser-condenado"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://poder360.com.br/poder-economia/cvm-multa-vorcaro-e-master-em-r-2015-milhoes-por-fraude",
+     "veiculo": "poder360.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://timesbrasil.com.br/empresas-e-negocios/alem-de-daniel-vorcaro-quem-foi-condenado-pela-cvm-no-caso-do-brazil-realty",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/o-que-e-o-bzli11-fundo-imobiliario-que-levou-daniel-vorcaro-a-ser-condenado",
+     "veiculo": "timesbrasil.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master"
@@ -2442,6 +4554,40 @@
      "iclnoticias.com.br",
      "https://iclnoticias.com.br/?p=129374"
     ]
+   ],
+   "fontes": [
+    {
+     "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
+     "veiculo": "itatiaia.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://www.bahianoticias.com.br/noticia/321160-cunhado-pai-e-ex-de-vorcaro-enviaram-r-194-mi-a-igreja-da-lagoinha-aponta-coaf",
+     "veiculo": "bahianoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://diariodocomercio.com.br/geral/?p=9252",
+     "veiculo": "diariodocomercio.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    },
+    {
+     "url": "https://iclnoticias.com.br/?p=129374",
+     "veiculo": "iclnoticias.com.br",
+     "tipo": "reportagem",
+     "titulo": null,
+     "data": null,
+     "papel": "sustenta"
+    }
    ],
    "tema": [
     "caso-master",
