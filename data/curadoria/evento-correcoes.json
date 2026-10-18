@@ -496,6 +496,33 @@
    "motivo": "A fonte (Poder360) chama o ato de graça constitucional, não de indulto; aplicada porque \"indulto\" ocorre exatamente uma vez na descrição (evento localizado pelo título, o id sugerido no pedido não existe).",
    "ressalvas": [],
    "rodada": 2
+  },
+  {
+   "evento_id": "ev-2003-estatuto-do-desarmamento",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "A Lei 10.826, publicada em 22/12/2003,",
+   "para": "A Lei 10.826, sancionada em 22/12/2003 e publicada no DOU em 23/12/2003,",
+   "motivo": "evidencia-qualidade-revisao.json, correcoes_pendentes idx 86: a fonte anexada (Planalto, texto da Lei 10.826) traz \"Brasília, 22 de dezembro de 2003\" e \"publicado no DOU de 23.12.2003\"; a descrição dizia publicada em 22/12.",
+   "ressalvas": []
+  },
+  {
+   "evento_id": "ev-2018-bolsonaro-e-eleito-presidente",
+   "campo": "descricao",
+   "decisao": "aceitar",
+   "de": "55,13% (57,8 milhões de votos)",
+   "para": "55,13% (cerca de 57,7 milhões de votos)",
+   "motivo": "evidencia-qualidade-revisao.json, correcoes_pendentes idx 148: a fonte anexada (IstoÉ, 29/10/2018, totalização do TSE) diz \"55,13% dos votos válidos, o equivalente a 57,7 milhões de votos\"; Haddad 44,87% e 47 milhões, como já está. O 1º turno (46,03% x 29,28%) segue sem verificação nesta fonte (nota mantida).",
+   "ressalvas": []
+  },
+  {
+   "evento_id": "ev-2022-stf-condena-o-deputado-daniel-silveira",
+   "campo": "titulo",
+   "decisao": "aceitar",
+   "de": "Bolsonaro o indulta",
+   "para": "Bolsonaro lhe concede graça",
+   "motivo": "Alinha o título à descrição já corrigida (graça constitucional, perdão individual, e não indulto), como diz a fonte (Poder360).",
+   "ressalvas": []
   }
  ],
  "ressalvas_mantidas_com_nota": {

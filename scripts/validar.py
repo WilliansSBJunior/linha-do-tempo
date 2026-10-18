@@ -437,7 +437,8 @@ def evidencias_adicionais(con):
     n = q(con, "SELECT count(*) FROM relacao r WHERE r.status='publicada' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x WHERE x.relacao_id=r.id)")[0][0]
     esperar("relações publicadas sem nenhuma evidência", n, 0)
     ent = json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8"))
-    chaves, ruins, fracas = set(), [], 0
+    revistas = _revisoes_qualidade()   # (alvo_tipo, alvo, url) que a revisão do critério devolveu a 'boa'
+    chaves, ruins, fracas, n_revistas = set(), [], 0, 0
     for e in ent:
         k = (e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"]))
         if k in chaves:
@@ -491,15 +492,105 @@ def evidencias_adicionais(con):
             ruins.append(f"alvo ausente: {k}")
         elif not lig:
             ruins.append(f"ligação ausente: {k}")
-        elif (lig[0]["trecho_citado"], lig[0]["nota"], lig[0]["qualidade"], lig[0]["papel"]) != (e["trecho"], e["nota"] or None, e["qualidade"], "sustenta"):
-            ruins.append(f"trecho/nota/qualidade/papel diferem do arquivo: {k}")
+        else:
+            # qualidade esperada = a do arquivo, salvo se a revisão do critério (evidencia-qualidade-revisao.json) devolveu esta fonte fraca a 'boa'
+            revista = k in revistas
+            if revista and e["qualidade"] != "fraca":
+                ruins.append(f"revisão de qualidade sobre entrada que não é fraca: {k}")
+            n_revistas += revista
+            q_esp = "boa" if revista else e["qualidade"]
+            if (lig[0]["trecho_citado"], lig[0]["nota"], lig[0]["qualidade"], lig[0]["papel"]) != (e["trecho"], e["nota"] or None, q_esp, "sustenta"):
+                ruins.append(f"trecho/nota/qualidade/papel diferem do arquivo: {k}")
     for r in ruins[:20]:
         print("   -", r)
     esperar("evidencias-adicionais.json: entradas aplicadas e idênticas ao banco (divergências)", len(ruins), 0)
     nf = (q(con, "SELECT count(*) FROM evento_evidencia WHERE qualidade='fraca'")[0][0] + q(con, "SELECT count(*) FROM relacao_evidencia WHERE qualidade='fraca'")[0][0])
-    esperar("ligações com qualidade 'fraca' no banco == entradas fracas do arquivo sem `substituida_por`", nf, fracas)
+    esperar("ligações com qualidade 'fraca' no banco == entradas fracas do arquivo sem `substituida_por` − revistas para 'boa' "
+            f"({fracas} − {n_revistas})", nf, fracas - n_revistas)
     p = DATA / "relatorio-evidencias-adicionais.md"
     esperar("data/relatorio-evidencias-adicionais.md existe", p.exists(), True)
+
+
+def _revisoes_qualidade():
+    """Chaves (alvo_tipo, alvo, URL normalizada) de `revisoes` em data/curadoria/evidencia-qualidade-revisao.json."""
+    p = CURADORIA / "evidencia-qualidade-revisao.json"
+    if not p.exists():
+        return set()
+    cfg = json.loads(p.read_text(encoding="utf-8"))
+    return {(x["alvo_tipo"], x.get("evento_id") or (x["relacao_origem"], x["relacao_origem_ref"]), normalizar_url(x["url"]))
+            for x in cfg.get("revisoes", [])}
+
+
+def evidencia_qualidade(con):
+    """Revisão do critério 'fraca' (data/curadoria/evidencia-qualidade-revisao.json, aplicada por curadoria.aplicar_evidencia_qualidade).
+    Toda entrada de `revisoes` tem de apontar para uma ligação existente com qualidade 'boa', salvo as que revisam uma fonte fraca já substituída
+    em evidencias-adicionais.json (`substituida_por`), que tem de continuar DESligada do alvo. Contagem: fracas no banco (evento_evidencia +
+    relacao_evidencia) == fracas ligadas antes da revisão − revisões distintas aplicadas; e, equivalente, == `mantidas_fracas` − substituídas
+    (que entram em `mantidas_fracas` mas não estão ligadas) + revisões sobre substituídas + revisões repetidas (que `mantidas_fracas` desconta
+    duas vezes)."""
+    p = CURADORIA / "evidencia-qualidade-revisao.json"
+    if not p.exists():
+        return
+    secao("Revisão do critério 'fraca' (evidencia-qualidade-revisao.json aplicada)")
+    cfg = json.loads(p.read_text(encoding="utf-8"))
+    rev = cfg.get("revisoes", [])
+    adic = {}
+    for e in json.loads((CURADORIA / "evidencias-adicionais.json").read_text(encoding="utf-8")):
+        adic[(e["alvo_tipo"], e.get("evento_id") or (e["relacao_origem"], e["relacao_origem_ref"]), normalizar_url(e["url"]))] = e
+    ruins, vistos, aplic, sobre_subst, repetidas = [], {}, 0, 0, 0
+    for x in rev:
+        k = (x["alvo_tipo"], x.get("evento_id") or (x["relacao_origem"], x["relacao_origem_ref"]), normalizar_url(x["url"]))
+        if x.get("qualidade") != "boa" or not x.get("motivo"):
+            ruins.append(f"qualidade != 'boa' ou motivo ausente: {k}")
+        if k in vistos:
+            repetidas += 1
+            if vistos[k] != (x.get("qualidade"), x.get("motivo")):
+                ruins.append(f"repetida com conteúdo diferente: {k}")
+            continue
+        vistos[k] = (x.get("qualidade"), x.get("motivo"))
+        orig = adic.get(k)
+        if not orig or orig["qualidade"] != "fraca":
+            ruins.append(f"revisão sem entrada fraca correspondente em evidencias-adicionais.json: {k}")
+            continue
+        if x["alvo_tipo"] == "evento":
+            a = q(con, "SELECT id FROM evento WHERE id=? UNION SELECT evento_id FROM evento_alias WHERE alias=?", x["evento_id"], x["evento_id"])
+            lig = q(con, "SELECT l.qualidade, l.nota FROM evento_evidencia l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.evento_id=? AND v.url=?",
+                    a[0][0], k[2]) if a else []
+        else:
+            a = q(con, "SELECT id FROM relacao WHERE origem=? AND origem_ref=?", x["relacao_origem"], x["relacao_origem_ref"])
+            lig = q(con, "SELECT l.qualidade, l.nota FROM relacao_evidencia l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.relacao_id=? AND v.url=?",
+                    a[0][0], k[2]) if a else []
+        if not a:
+            ruins.append(f"alvo ausente: {k}")
+        elif orig.get("substituida_por"):
+            sobre_subst += 1
+            if lig:
+                ruins.append(f"fonte fraca substituída ligada ao alvo: {k}")
+        elif len(lig) != 1 or lig[0]["qualidade"] != "boa":
+            ruins.append(f"ligação ausente ou qualidade != 'boa': {k} {[tuple(r) for r in lig]}")
+        elif lig[0]["nota"] != (orig.get("nota") or None):
+            ruins.append(f"nota do pesquisador alterada: {k}")
+        else:
+            aplic += 1
+    for r in ruins[:20]:
+        print("   -", r)
+    esperar("revisoes: toda entrada aponta para uma ligação 'boa' com a nota intacta (ou para fraca substituída, desligada) (divergências)", len(ruins), 0)
+    esperar("revisoes: entradas == aplicadas + sobre substituídas + repetidas", len(rev), aplic + sobre_subst + repetidas)
+    fr_arq = [e for e in adic.values() if e["qualidade"] == "fraca"]
+    subst = sum(1 for e in fr_arq if e.get("substituida_por"))
+    ligadas_antes = len(fr_arq) - subst
+    nf = {t: q(con, f"SELECT count(*) FROM {t} WHERE qualidade='fraca'")[0][0] for t in ("evento_evidencia", "relacao_evidencia")}
+    print(f"  fracas no banco: evento_evidencia {nf['evento_evidencia']}, relacao_evidencia {nf['relacao_evidencia']}")
+    esperar(f"ligações 'fraca' no banco == fracas ligadas antes ({ligadas_antes}) − revistas ({aplic})", sum(nf.values()), ligadas_antes - aplic)
+    mant = cfg.get("mantidas_fracas")
+    esperar("mantidas_fracas do arquivo == fracas em evidencias-adicionais.json − entradas de revisoes", mant, len(fr_arq) - len(rev))
+    esperar(f"ligações 'fraca' no banco == mantidas_fracas ({mant}) − substituídas ({subst}) + revisões sobre substituídas ({sobre_subst}) + repetidas ({repetidas})",
+            sum(nf.values()), mant - subst + sobre_subst + repetidas)
+    # nenhuma fonte de origem diferente de evidencias-adicionais.json tem qualidade avaliada: toda 'fraca' no banco tem entrada fraca no arquivo
+    fora = [r for t, c in (("evento_evidencia", "evento_id"), ("relacao_evidencia", "relacao_id"))
+            for r in q(con, f"SELECT '{t}' t, {c} a, v.url FROM {t} l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.qualidade='fraca'")
+            if not any(k[2] == r["url"] and e["qualidade"] == "fraca" and not e.get("substituida_por") for k, e in adic.items())]
+    esperar("ligações 'fraca' no banco sem entrada fraca (não substituída) em evidencias-adicionais.json", len(fora), 0)
 
 
 def _correcoes_relacao():
@@ -987,6 +1078,7 @@ def main():
     dossie_e_pares(con, exp)
     curadoria(con)
     evidencias_adicionais(con)
+    evidencia_qualidade(con)
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)

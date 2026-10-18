@@ -790,6 +790,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["ent_valores"] = curadoria.aplicar_entidade_valores(con)      # à mão; estimativas em R$ por entidade; depois dos metadados (só preenche título/data NULL)
     R["evento_corr"] = curadoria.aplicar_evento_correcoes(con)      # à mão; decisões sobre as ressalvas das evidências adicionais; antes dos temas (leem título/descrição)
     R["relacao_corr"] = curadoria.aplicar_relacao_correcoes(con)
+    R["evid_qualidade"] = curadoria.aplicar_evidencia_qualidade(con)   # à mão; revisão do critério 'fraca'; depois de tudo que grava qualidade
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
 
     # ================================================================ META, FTS, DUMP
@@ -1051,6 +1052,45 @@ def secoes_modelo(con, R, w):
         w("\nEntidades com valores mas sem principal (o painel mostra só as linhas secundárias): " + ", ".join(f"`{k}`" for k in ev["sem_principal"]) + ".")
     w("\nNa teia (`teia.json`), cada nó com valores ganha `val` (a lista, principal primeiro) e `val_lig` (soma de `relacao.valor_brl` das ligações "
       "`E[].r` do nó e quantas têm valor): a soma das ligações é outra coisa que a estimativa do escândalo e não se soma a ela.")
+    # ---------------------------------------------------------------- 18
+    eq = R["evid_qualidade"]
+    tabs = ("evento_evidencia", "relacao_evidencia")
+    w("\n## 18. Revisão do critério 'fraca' (`data/curadoria/evidencia-qualidade-revisao.json`)\n")
+    w("Regra (do `_doc` do arquivo): `fraca` descreve a fonte, não a lacuna da nota. `curadoria.aplicar_evidencia_qualidade` roda depois de tudo que grava "
+      "`qualidade` (evidências adicionais, substituições, metadados, valores, correções) e troca `fraca` -> `boa` na ligação de cada entrada de `revisoes`, "
+      "achada por evento (id ou alias de fusão) + URL normalizada ou por relação (`origem` + `origem_ref`) + URL. A `nota` do pesquisador fica intacta; o "
+      "`motivo` não vai para o banco (não há coluna para ele) e fica só aqui. Aborta sem aplicar nada se a ligação não existe ou a qualidade atual não é `fraca`, "
+      "com duas exceções registradas abaixo: entrada repetida idêntica (conta uma vez) e fonte `fraca` já substituída em `evidencias-adicionais.json` "
+      "(`substituida_por`), que por desenho não está ligada ao alvo.\n")
+    w("| | evento_evidencia | relacao_evidencia | total |\n|---|---:|---:|---:|")
+    ap = collections.Counter(x["tabela"] for x in eq["aplicadas"])
+    w(f"| ligações `fraca` antes | {eq['antes'][tabs[0]]} | {eq['antes'][tabs[1]]} | {sum(eq['antes'].values())} |")
+    w(f"| revistas para `boa` | {ap[tabs[0]]} | {ap[tabs[1]]} | {len(eq['aplicadas'])} |")
+    w(f"| ligações `fraca` depois | {eq['depois'][tabs[0]]} | {eq['depois'][tabs[1]]} | {sum(eq['depois'].values())} |")
+    w(f"\nEntradas em `revisoes`: {eq['entradas']} = {len(eq['aplicadas'])} aplicadas + {len(eq['duplicadas'])} repetidas (idênticas) + "
+      f"{len(eq['substituidas'])} sobre fontes já substituídas (nada a mudar no banco). `mantidas_fracas` do arquivo = {eq['mantidas_fracas_arquivo']} "
+      f"(= {eq['adic_fracas']} entradas `fraca` de `evidencias-adicionais.json` − {eq['entradas']} entradas de `revisoes`, contando as "
+      f"{eq['adic_substituidas']} substituídas, que não estão ligadas, e as repetidas). No banco ficam {sum(eq['depois'].values())} = "
+      f"{sum(eq['antes'].values())} fracas ligadas (= {eq['adic_fracas']} − {eq['adic_substituidas']} substituídas) − {len(eq['aplicadas'])} revistas "
+      f"(= `mantidas_fracas` − {eq['adic_substituidas']} substituídas + {len(eq['substituidas'])} revisões sobre substituídas + {len(eq['duplicadas'])} repetidas).\n")
+    w("| motivo | aplicadas |\n|---|---:|")
+    for m, n in sorted(collections.Counter(x["motivo"] for x in eq["aplicadas"]).items()):
+        w(f"| {m} | {n} |")
+    if eq["substituidas"]:
+        w("\nSobre fontes já substituídas (a `fraca` não está ligada; a substituta `boa` está):\n")
+        w("| alvo | fraca | substituída por |\n|---|---|---|")
+        for x in eq["substituidas"]:
+            a = x["evento_id"] if x["alvo_tipo"] == "evento" else f"{x['relacao_origem']} {x['relacao_origem_ref']}"
+            w(f"| `{a}` | {x['url']} | {x['substituida_por']} |")
+    if eq["duplicadas"]:
+        w("\nRepetidas (idênticas a uma entrada anterior; contadas uma vez):\n")
+        for x in eq["duplicadas"]:
+            a = x["evento_id"] if x["alvo_tipo"] == "evento" else f"{x['relacao_origem']} {x['relacao_origem_ref']}"
+            w(f"- `{a}`: {x['url']}")
+    w("\n| alvo | url | motivo |\n|---|---|---|")
+    for x in eq["aplicadas"]:
+        a = x["evento_id"] if x["alvo_tipo"] == "evento" else f"{x['relacao_origem']} {x['relacao_origem_ref']}"
+        w(f"| `{a}` | {x['url']} | {x['motivo']} |")
 
 
 def tokens(s):

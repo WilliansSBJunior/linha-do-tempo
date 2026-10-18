@@ -10,9 +10,9 @@ Os fins de mandato de Lula, Alckmin, Temer (vice) e Hugo Motta foram corrigidos 
 
 | | |
 |---|---:|
-| eventos corrigidos | 47 |
-| &nbsp;&nbsp;campo `descricao` | 44 |
-| &nbsp;&nbsp;campo `titulo` | 3 |
+| eventos corrigidos | 50 |
+| &nbsp;&nbsp;campo `descricao` | 46 |
+| &nbsp;&nbsp;campo `titulo` | 4 |
 | &nbsp;&nbsp;da rodada 2 (eventos da linha do tempo sem fonte própria) | 24 |
 | relações de linha do tempo corrigidas (período/descrição) | 5 |
 | vínculos da teia ajustados (subtipo/rótulo/tipo) | 12 |
@@ -40,6 +40,7 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | `ev-2000-cassacao-do-senador-luiz-estevao` | descricao | Em 28/6/2000 o Senado cassa o mandato de Luiz Estêvão por quebra de decoro parlamentar, por 52 votos a 18, -> Em junho de 2000 o Senado cassa o mandato de Luiz Estêvão por quebra de decoro parlamentar, por 52 votos a 18 (10 abstenções), | O dia 28/6 não foi confirmado; a fonte traz o placar completo. | r012 |
 | `ev-2000-lei-de-responsabilidade-fiscal` | descricao | os relatores foram Pedro Novais na Câmara e Jefferson Peres no Senado. -> no Senado, Jefferson Péres foi o relator na CAE e Álvaro Dias na CCJ. | Pedro Novais como relator na Câmara não foi confirmado em nenhuma fonte; o Senado confirma Péres (CAE) e Álvaro Dias (CCJ). | r016 |
 | `ev-2002-fmi-aprova-o-maior-emprestimo-da` | descricao | um stand-by de cerca de US$ 30 bilhões para o Brasil, o maior crédito do Fundo até então, com US$ 6 bilhões liberados antes da eleição de outubro. -> um stand-by de US$ 30,4 bilhões para o Brasil, o maior crédito do Fundo até então, com cerca de US$ 3 bilhões liberados de imediato e o restante condicionado a revisões. | Comunicado do FMI (PR 02/40). |  |
+| `ev-2003-estatuto-do-desarmamento` | descricao | A Lei 10.826, publicada em 22/12/2003, -> A Lei 10.826, sancionada em 22/12/2003 e publicada no DOU em 23/12/2003, | evidencia-qualidade-revisao.json, correcoes_pendentes idx 86: a fonte anexada (Planalto, texto da Lei 10.826) traz "Brasília, 22 de dezembro de 2003" e "publicado no DOU de 23.12.2003"; a descrição dizia publicada em 22/12. |  |
 | `ev-2004-eleicoes-municipais-de-2004` | descricao | PSDB 870, PFL 789 e PT 411 -> PSDB 871, PFL 789 e PT 409 | Agência Brasil, 1/11/2004. |  |
 | `ev-2004-lei-das-parcerias-publico-privadas` | descricao | valor mínimo de R$ 10 milhões -> valor mínimo de R$ 20 milhões (reduzido a R$ 10 milhões pela Lei 13.529/2017) | Lei 11.079, art. 2º §4º, texto original. |  |
 | `ev-2004-petroleo-passa-de-us-50-o-barril` | descricao | superou US$ 50 o barril em outubro de 2004 -> superou US$ 50 o barril em 28 de setembro de 2004 | NPR, 28/9/2004. |  |
@@ -62,6 +63,7 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | `ev-2015-turbulencia-na-china-bolsa-e-yuan` | descricao | A bolsa de Xangai caiu de mais de 5.000 pontos em meados de junho para menos de 3.000 no fim de agosto, -> A bolsa de Xangai fechou abaixo de 3.000 pontos em 25 de agosto de 2015, | O pico acima de 5.000 em junho não foi confirmado em fonte aberta. | r048 |
 | `ev-2016-opep-faz-seu-primeiro-corte-de-producao` | descricao | Rússia e outros dez produtores -> Rússia e outros onze produtores | Exame, 10/12/2016: 12 produtores de fora da Opep. |  |
 | `ev-2017-mercosul-suspende-a-venezuela-por-tempo` | descricao | aplicada em 1º de dezembro de 2016 -> aplicada em dezembro de 2016 | O dia 1º não consta da fonte. |  |
+| `ev-2018-bolsonaro-e-eleito-presidente` | descricao | 55,13% (57,8 milhões de votos) -> 55,13% (cerca de 57,7 milhões de votos) | evidencia-qualidade-revisao.json, correcoes_pendentes idx 148: a fonte anexada (IstoÉ, 29/10/2018, totalização do TSE) diz "55,13% dos votos válidos, o equivalente a 57,7 milhões de votos"; Haddad 44,87% e 47 milhões, como já está. O 1º turno (46,03% x 29,28%) segue sem verificação nesta fonte (nota mantida). |  |
 | `ev-2019-queimadas-na-amazonia-chegam-a-agenda-do` | descricao | 77% mais focos de incêndio -> 78,6% mais focos de incêndio na Amazônia | Aos Fatos, com dados do Inpe. |  |
 | `ev-2020-china-cresce-e-compra-um-terco-das` | descricao | a China respondeu por 32,41% das exportações brasileiras. -> a China respondeu por 32,3% das exportações brasileiras. | Agência Brasil (dados do governo): 32,3%. | r051 |
 | `ev-2020-guerra-de-precos-do-petroleo` | descricao | iniciada em 8 de março, -> iniciada no início de março, | O dia 8/3 não consta da fonte. | r053 |
@@ -72,6 +74,7 @@ Fontes fracas: as entradas marcadas `fraca` continuam marcadas para a rodada de 
 | `ev-2020-trocas-no-ministerio-da-saude` | descricao | o general Eduardo Pazuello assume a pasta em 16/5. -> o general Eduardo Pazuello assume a pasta interinamente em 15/5. | Poder360 e O Popular: 15/5, interino. | r059 |
 | `ev-2022-acordo-de-graos-do-mar-negro` | descricao | cerca de 33 milhões de toneladas -> mais de 32 milhões de toneladas | DevelopmentAid/ONU. |  |
 | `ev-2022-stf-condena-o-deputado-daniel-silveira` | descricao | concede-lhe indulto -> concede-lhe graça constitucional (perdão individual) | A fonte (Poder360) chama o ato de graça constitucional, não de indulto; aplicada porque "indulto" ocorre exatamente uma vez na descrição (evento localizado pelo título, o id sugerido no pedido não existe). |  |
+| `ev-2022-stf-condena-o-deputado-daniel-silveira` | titulo | Bolsonaro o indulta -> Bolsonaro lhe concede graça | Alinha o título à descrição já corrigida (graça constitucional, perdão individual, e não indulto), como diz a fonte (Poder360). |  |
 | `ev-2023-milei-e-eleito-e-o-peso-argentino-e` | descricao | em 12 de dezembro o câmbio oficial passou de 366,5 para 800 pesos por dólar, desvalorização de 54%. -> em 12 de dezembro o governo anunciou a desvalorização do câmbio oficial, de 366,5 para cerca de 800 pesos por dólar (54%), em vigor no dia seguinte. | InfoMoney: anúncio em 12/12, abertura a ~801 em 13/12. |  |
 | `ev-2025-eua-isentam-parte-dos-produtos-agricolas` | descricao | Em 14 de novembro de 2025 os EUA retiraram da tarifa produtos como café, carne bovina, frutas tropicais, cacau, bananas e laranjas, incluindo itens brasileiros. -> Em 14 de novembro de 2025 os EUA retiraram da tarifa 'recíproca' produtos agrícolas como café, carne bovina, frutas tropicais, cacau, bananas e laranjas e, em 20 de novembro, retiraram também a tarifa adicional de 40% sobre esses itens brasileiros (EO 14361). | A isenção para itens brasileiros é de 20/11 (EO 14361); 14/11 é a ordem geral. | r064, r065 |
 | `ev-2025-stf-torna-bolsonaro-reu-e-o-condena` | descricao | o condena a 27 anos de prisão. -> o condena a 27 anos e 3 meses de prisão. | Pena exata conforme a fonte. | r070 |

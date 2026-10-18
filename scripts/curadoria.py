@@ -1420,6 +1420,86 @@ def aplicar_entidade_valores(con):
     return r
 
 
+# ======================================================================== revisão do critério 'fraca' (evidencia-qualidade-revisao.json)
+def _chave_revisao(e):
+    """Chave estável de uma entrada de revisão ou de evidencias-adicionais.json: (alvo_tipo, alvo, URL normalizada)."""
+    alvo = e.get("evento_id") if e.get("alvo_tipo") == "evento" else (e.get("relacao_origem"), e.get("relacao_origem_ref"))
+    return (e.get("alvo_tipo"), alvo, normalizar_url(e.get("url") or ""))
+
+
+def _contar_fracas(con):
+    return {t: con.execute(f"SELECT count(*) FROM {t} WHERE qualidade='fraca'").fetchone()[0] for t in ("evento_evidencia", "relacao_evidencia")}
+
+
+def aplicar_evidencia_qualidade(con):
+    """data/curadoria/evidencia-qualidade-revisao.json (à mão): `revisoes` = [{alvo_tipo, evento_id | relacao_origem+relacao_origem_ref, url,
+    qualidade:'boa', motivo}]. Para cada entrada acha a ligação (evento_evidencia por evento (id ou alias de fusão) + URL normalizada;
+    relacao_evidencia pela relação (origem, origem_ref) + URL) e troca `qualidade` 'fraca' -> 'boa'; a `nota` do pesquisador fica intacta e o
+    `motivo` NÃO vai para o banco (não há coluna para ele; só entra no relatório). Exceções explícitas, que não abortam e vão para o relatório:
+    (a) entrada repetida, idêntica (mesma chave e mesmo motivo): conta uma vez; (b) a fonte é uma entrada `fraca` com `substituida_por` em
+    evidencias-adicionais.json, que por desenho não está ligada ao alvo (já foi trocada por uma fonte `boa`): nada a mudar no banco.
+    Aborta sem aplicar nada se: alvo_tipo/qualidade inválidos, motivo ausente, alvo inexistente, ligação inexistente (fora do caso b), qualidade
+    atual diferente de 'fraca', ou repetição com conteúdo diferente. Roda DEPOIS de tudo que grava qualidade (evidências adicionais, substituições,
+    metadados, valores, correções). `correcoes_pendentes`/`mantidas_fracas` do arquivo não são lidos aqui (as correções de texto vão por
+    evento-correcoes.json). -> dict para o relatório."""
+    cfg = ler_json("evidencia-qualidade-revisao.json", {})
+    revisoes = cfg.get("revisoes", [])
+    adic = {}
+    for e in ler_json("evidencias-adicionais.json", []):
+        adic[_chave_revisao(e)] = e
+    r = {"entradas": len(revisoes), "antes": _contar_fracas(con), "aplicadas": [], "duplicadas": [], "substituidas": [],
+         "mantidas_fracas_arquivo": cfg.get("mantidas_fracas"),
+         "adic_fracas": sum(1 for e in adic.values() if e.get("qualidade") == "fraca"),
+         "adic_substituidas": sum(1 for e in adic.values() if e.get("qualidade") == "fraca" and e.get("substituida_por"))}
+    erros, plano, vistos = [], [], {}
+    for x in revisoes:
+        k = _chave_revisao(x)
+        ref = f"{k[0]}:{k[1]} {x.get('url')}"
+        if x.get("alvo_tipo") not in ("evento", "relacao"):
+            erros.append(f"{ref}: alvo_tipo inválido")
+            continue
+        if x.get("qualidade") != "boa" or not x.get("motivo"):
+            erros.append(f"{ref}: qualidade tem de ser 'boa' e o motivo é obrigatório")
+            continue
+        if k in vistos:
+            if vistos[k] != (x["qualidade"], x["motivo"]):
+                erros.append(f"{ref}: entrada repetida com conteúdo diferente")
+            else:
+                r["duplicadas"].append(x)
+            continue
+        vistos[k] = (x["qualidade"], x["motivo"])
+        if x["alvo_tipo"] == "evento":
+            a = con.execute("SELECT id FROM evento WHERE id=?", (x["evento_id"],)).fetchone() or \
+                con.execute("SELECT e.id FROM evento_alias a JOIN evento e ON e.id=a.evento_id WHERE a.alias=?", (x["evento_id"],)).fetchone()
+            tab, col = "evento_evidencia", "evento_id"
+        else:
+            a = con.execute("SELECT id FROM relacao WHERE origem=? AND origem_ref=?", (x["relacao_origem"], x["relacao_origem_ref"])).fetchone()
+            tab, col = "relacao_evidencia", "relacao_id"
+        if not a:
+            erros.append(f"{ref}: alvo inexistente")
+            continue
+        ev = con.execute("SELECT id FROM evidencia WHERE url=?", (k[2],)).fetchone()
+        lig = con.execute(f"SELECT qualidade FROM {tab} WHERE {col}=? AND evidencia_id=?", (a[0], ev[0])).fetchone() if ev else None
+        if not lig:
+            orig = adic.get(k)
+            if orig and orig.get("qualidade") == "fraca" and orig.get("substituida_por"):
+                r["substituidas"].append(dict(x, substituida_por=orig["substituida_por"]))
+            else:
+                erros.append(f"{ref}: ligação inexistente")
+            continue
+        if lig[0] != "fraca":
+            erros.append(f"{ref}: qualidade atual {lig[0]!r}, esperado 'fraca'")
+            continue
+        plano.append((tab, col, a[0], ev[0], x))
+    if erros:
+        raise SystemExit("evidencia-qualidade-revisao.json: nada foi aplicado.\n  " + "\n  ".join(erros))
+    for tab, col, aid, evid, x in plano:
+        con.execute(f"UPDATE {tab} SET qualidade='boa' WHERE {col}=? AND evidencia_id=? AND qualidade='fraca'", (aid, evid))
+        r["aplicadas"].append(dict(x, tabela=tab, alvo_efetivo=aid))
+    r["depois"] = _contar_fracas(con)
+    return r
+
+
 # ======================================================================== correções de revisão (ressalvas das evidências adicionais)
 CAMPOS_EVENTO_CORRECAO = ("titulo", "descricao")
 CAMPOS_RELACAO_CORRECAO = ("periodo_fim", "descricao", "subtipo", "rotulo", "tipo")
@@ -1606,6 +1686,13 @@ def relatorio_evidencias_adicionais(con, R, E=None):
     n_subst = [e for e in todas_fracas if e.get("substituida_por")]
     n_parc = [e for e in fracas if subst_de.get((chave_alvo(e), normalizar_url(e["url"])))]
     n_sem = [e for e in fracas if e not in n_parc]
+
+    def qual_banco(e):   # qualidade atual da ligação (a revisão do critério, evidencia-qualidade-revisao.json, pode ter trocado 'fraca' por 'boa')
+        tab, col, aid = _alvo_evidencia(con, e)
+        x = con.execute(f"SELECT l.qualidade FROM {tab} l JOIN evidencia v ON v.id=l.evidencia_id WHERE l.{col}=? AND v.url=?",
+                        (aid, normalizar_url(e["url"]))).fetchone()
+        return x[0] if x else None
+    revistas = [e for e in fracas if qual_banco(e) == "boa"]
     L = []
     w = L.append
     w("# Evidências adicionais\n")
@@ -1627,7 +1714,9 @@ def relatorio_evidencias_adicionais(con, R, E=None):
     w(f"| ligações que já existiam (fonte de contexto do bloco-ano) e passaram a `sustenta` com trecho, nota e qualidade | {R['promovidas']} |")
     w(f"| qualidade `boa` | {len(entradas) - len(todas_fracas)} |")
     w(f"| qualidade `fraca` (no arquivo, inclusive as substituídas, que ficam como histórico) | {len(todas_fracas)} |")
-    w(f"| qualidade `fraca` ligadas ao alvo no banco | {len(fracas)} |")
+    w(f"| qualidade `fraca` ligadas ao alvo (como entraram) | {len(fracas)} |")
+    w(f"| &nbsp;&nbsp;das quais voltaram a `boa` na revisão do critério (`evidencia-qualidade-revisao.json`, seção 18 de `relatorio-migracao.md`) | {len(revistas)} |")
+    w(f"| &nbsp;&nbsp;continuam `fraca` no banco | {len(fracas) - len(revistas)} |")
     w(f"| descrições de relação da teia substituídas | {len(R['descricoes_trocadas'])} |")
     w(f"| descrições mantidas (a atual já não era o texto padrão \"Vínculo ... sem descrição na fonte\") | {len(R['descricoes_mantidas'])} |")
     w("\nEvidências novas por tipo:\n")
@@ -1647,10 +1736,12 @@ def relatorio_evidencias_adicionais(con, R, E=None):
         w(f"| {alvo(e)} | {esc(rot[rid]['rotulo'])} | {esc(e['divergencia_rotulo'])} | {esc(e['descricao_nova'])} |")
     w("\n## Fontes fracas (para substituição futura)\n")
     w(f"{len(fracas)} entradas ainda ligadas ao alvo ({len(n_parc)} com substituição parcial, {len(n_sem)} sem substituto); "
-      f"as outras {len(n_subst)} foram substituídas e ficam no arquivo só como histórico.\n")
+      f"as outras {len(n_subst)} foram substituídas e ficam no arquivo só como histórico. Das ligadas, {len(revistas)} voltaram a `boa` na revisão do critério "
+      f"(a nota do pesquisador fica); a tabela lista as {len(fracas) - len(revistas)} que continuam `fraca` no banco.\n")
     w("| alvo | url | motivo |\n|---|---|---|")
     for e in fracas:
-        w(f"| {alvo(e)} | {esc(e['url'])} | {esc(e['motivo_fraca'])} |")
+        if e not in revistas:
+            w(f"| {alvo(e)} | {esc(e['url'])} | {esc(e['motivo_fraca'])} |")
     w("\n## Substituições de fontes fracas\n")
     w("Uma entrada `fraca` com `substituida_por` não é ligada ao alvo (continua no arquivo como histórico); a nova evidência (`boa`) traz `substitui: <url da fraca>`. "
       "Quando a nova fonte sustenta só parte do fato, a fraca continua ligada, sem `substituida_por`, e a nota registra o que falta.\n")
