@@ -1228,8 +1228,9 @@ def secao_rodada10(con, R, w):
     w("Arquivo à mão: `ranking-empresa-correcoes-r10.json` (mesmo formato das rodadas 6-9, aplicado por `curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R10)` "
       "logo depois da 9; `gerar_curadoria.py` também o pula no banco temporário). Material: documentos da SEC (20-F e 6-K de Santander Brasil, Itaú Unibanco, Bradesco e Gerdau) "
       "e release/relatório da Caixa, lidos pelo WebFetch; nem Folha nem Wikipédia. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época "
-      "(nos bancos, o 'lucro líquido' de manchete do balanço, BR GAAP; no Santander, o IFRS do 20-F); IFRS dos outros bancos, BR GAAP do Santander em 2022, reapresentações e "
-      "'gerencial' só como contexto. A cobertura dos anos não muda.\n")
+      "(regra R7, `regras-fontes.json`: para banco a legislação societária é o BR GAAP/COSIF, o lucro de manchete do balanço, e o IFRS dos 20-F é sempre contexto; "
+      "para não financeiras vale o IFRS a partir de 2010); reapresentações e 'gerencial' só como contexto. Santander 2010-2011 ficam em IFRS "
+      "(BR GAAP da época não localizado). A cobertura dos anos não muda.\n")
     w("| ano | empresa | o que mudou | fonte principal |\n|---|---|---|---|")
     princ = lambda a, e: q("SELECT v.url FROM ranking_empresa k JOIN evidencia v ON v.id=k.evidencia_id WHERE k.ano=? AND k.entidade_id=?", a, e)[0][0]
     for x in sorted(rk["inseridas"] + rk["atualizadas"], key=lambda x: (x["ano"], x["entidade_id"])):

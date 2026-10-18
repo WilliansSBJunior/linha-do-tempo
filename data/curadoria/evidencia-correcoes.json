@@ -26,5 +26,12 @@
   "de": "documento_oficial",
   "para": "relatorio",
   "motivo": "Texto do discurso de posse hospedado pela Fundação FHC (instituição privada), não página oficial do Estado; é documento primário, mas não oficial — R5 passa a classificar o evento como reportada, não documentada."
+ },
+ {
+  "url": "https://api.mziq.com/mzfilemanager/v2/d/4d1ebe73-b068-4443-992a-3d72d573238c/c263c659-4bfa-410c-ad01-fdca63208f2c?origin=1",
+  "campo": "tipo",
+  "de": "reportagem",
+  "para": "relatorio",
+  "motivo": "Apresentação de resultados da própria Cielo (api.mziq.com é o repositório de RI da empresa), principal do ranking de lucros de 2015 (3.511,4 mi); material da empresa, não matéria jornalística."
  }
 ]

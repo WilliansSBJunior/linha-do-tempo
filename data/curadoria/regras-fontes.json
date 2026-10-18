@@ -1,4 +1,9 @@
 {
  "wikipedia": "contexto",
- "motivo": "Dar menos peso à Wikipédia: fonte Wikipédia (evidencia.tipo='wiki' ou domínio *.wikipedia.org) nunca tem papel 'sustenta'; em evento_evidencia e relacao_evidencia é sempre 'contexto', não conta para a natureza (R5 só olha 'sustenta') nem no 'Fontes (n)' das páginas e aparece por último, apagada, como 'Wikipédia (contexto)'. Regra R6, global e permanente: decisão do dono do projeto, 18/10/2026."
+ "motivo": "Dar menos peso à Wikipédia: fonte Wikipédia (evidencia.tipo='wiki' ou domínio *.wikipedia.org) nunca tem papel 'sustenta'; em evento_evidencia e relacao_evidencia é sempre 'contexto', não conta para a natureza (R5 só olha 'sustenta') nem no 'Fontes (n)' das páginas e aparece por último, apagada, como 'Wikipédia (contexto)'. Regra R6, global e permanente: decisão do dono do projeto, 18/10/2026.",
+ "R7": {
+  "ranking_empresa_bancos": "BR GAAP/COSIF",
+  "ranking_empresa_nao_financeiras": "IFRS a partir de 2010",
+  "motivo": "Base do lucro em ranking_empresa. Para instituições financeiras a 'legislação societária' é o BR GAAP/COSIF exigido pelo Bacen: é esse o lucro de manchete de Itaú, Bradesco, BB e o 2,69 do Santander 2012. O IFRS dos 20-F é sempre `contexto` para bancos. Para não financeiras vale o IFRS a partir de 2010 (antes, a legislação societária da época). Reapresentações, US GAAP, recorrente/gerencial/ajustado e conversões de US$ também só como contexto. Regra R7, decisão do coordenador do projeto, 18/10/2026 (aplicada a partir da rodada 10)."
+ }
 }

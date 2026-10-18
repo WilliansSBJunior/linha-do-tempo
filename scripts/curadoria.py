@@ -154,6 +154,10 @@ R6  (global; data/curadoria/regras-fontes.json, decisão do dono do projeto de 1
     *.wikipedia.org) nunca tem papel 'sustenta'; em evento_evidencia e relacao_evidencia é sempre 'contexto' (qualidade NULL: contexto não é
     avaliado). Aplicada por aplicar_peso_wikipedia depois de todas as cargas de evidência e antes de gerar a natureza: a wiki não conta em R5,
     nem no 'Fontes (n)' das páginas, e é exportada por último. Nenhum evento ou relação pode depender só de wiki (a migração aborta).
+R7  (ranking_empresa; data/curadoria/regras-fontes.json, decisão do coordenador do projeto de 18/10/2026): base do lucro. Para instituições financeiras a
+    'legislação societária' é o BR GAAP/COSIF exigido pelo Bacen (o lucro de manchete de Itaú, Bradesco, BB e o 2,69 do Santander 2012); o IFRS dos
+    20-F é sempre `contexto` para bancos. Para não financeiras vale o IFRS a partir de 2010. Recorrente/gerencial/ajustado, US GAAP, reapresentações e
+    conversões de US$ também só `contexto`. Aplicada a partir da rodada 10 (ranking-empresa-correcoes-r10.json).
 M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descrição, fontes) e classificados à mão em data/curadoria/eventos-natureza-manual.json
     ([{"id","natureza","justificativa"}]), aplicado depois do gerado e só onde natureza_id IS NULL; entrada com "natureza": null é exceção explícita
     (fica NULL, a justificativa é obrigatória)."""

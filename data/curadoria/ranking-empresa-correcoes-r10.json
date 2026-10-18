@@ -1,22 +1,14 @@
 {
- "_doc": "Rodada 10 (18/10/2026): lacunas do ranking de lucros (ranking_empresa) fechadas com fontes primárias da web (documentos na SEC lidos pelo WebFetch, releases e relatórios no site da Caixa); nem Folha nem Wikipédia. Mesmo formato e mesmo mecanismo das rodadas 6-9, aplicado logo depois da 9 por curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R10): os `de` são os valores que as rodadas anteriores gravaram. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época; nos bancos, o 'lucro líquido' de manchete do balanço (BR GAAP), a mesma base já usada nas linhas de Itaú e Bradesco de 2010 e 2015, com o IFRS dos 20-F como contexto; para o Santander (que divulga o IFRS como lucro da filial) o IFRS do 20-F. Reapresentações, US GAAP, recorrente/gerencial/ajustado e conversões de US$ só como contexto. `tipo`: documento na SEC = documento_oficial; release/relatório no site da empresa = relatorio. Resultado: Santander Brasil 2009 passa de 1,805 (derivado de US$) para 5,508 (IFRS direto em R$ do 20-F de 2009) e 2010/2011/2022 ganham documento oficial (7,383 e 7,756 são o IFRS 'Consolidated profit for the year', o mesmo número que o DIEESE chamava de 'LL gerencial'; ficam, com o DIEESE como contexto); Itaú e Bradesco 2011 e Caixa 2008 e 2012 trocam a fonte secundária por documento primário, com o mesmo valor; Gerdau 2009 entra (1,122, IFRS atribuível). A cobertura dos anos não muda (`cobertura: []`). Sem entidades novas (Gerdau já existia).",
+ "_doc": "Rodada 10 (18/10/2026): lacunas do ranking de lucros (ranking_empresa) fechadas com fontes primárias da web (documentos na SEC lidos pelo WebFetch, releases e relatórios no site da Caixa); nem Folha nem Wikipédia. Mesmo formato e mesmo mecanismo das rodadas 6-9, aplicado logo depois da 9 por curadoria.aplicar_ranking_empresa_correcoes(con, ARQ_RANKING_CORR_R10): os `de` são os valores que as rodadas anteriores gravaram. Base: lucro líquido em R$ pela legislação societária, valor do balanço divulgado na época. REGRA R7 (decisão do coordenador do projeto, 18/10/2026; data/curadoria/regras-fontes.json): para instituições financeiras a legislação societária é o BR GAAP/Cosif exigido pelo Bacen, e é esse o lucro de manchete de Itaú, Bradesco, BB e o 2,69 do Santander 2012; o IFRS dos 20-F é sempre `contexto` para bancos; para não financeiras vale o IFRS a partir de 2010. Reapresentações, US GAAP, recorrente/gerencial/ajustado e conversões de US$ só como contexto. `tipo`: documento na SEC = documento_oficial; release/relatório no site da empresa = relatorio. Resultado: Santander Brasil 2022 passa de 14,287 (IFRS do 20-F) para 12,57 (BR GAAP consolidado do 6-K do 4T22; o IFRS fica como contexto); Santander 2009 fica no 1,805 derivado de US$ (o 20-F de 2009 só traz o IFRS, 5,508, agora contexto; BR GAAP em R$ não localizado); Santander 2010 e 2011 (7,383 e 7,756) são base IFRS (20-F de 2011), BR GAAP da época não localizado, série em base diferente de 2012, com o DIEESE como contexto; Itaú e Bradesco 2011 e Caixa 2008 e 2012 trocam a fonte secundária por documento primário, com o mesmo valor (BR GAAP); Gerdau 2009 entra (1,122, IFRS atribuível, não financeira). A cobertura dos anos não muda (`cobertura: []`). Sem entidades novas (Gerdau já existia). Datas de arquivamento (Filing Date) do índice EDGAR.",
  "cobertura": [],
  "atualizar": [
   {
    "ano": 2009,
    "entidade_id": "santander-brasil",
    "campos": {
-    "lucro_brl_bi": {
-     "de": 1.805,
-     "para": 5.508
-    },
-    "derivado": {
-     "de": 1,
-     "para": 0
-    },
     "obs": {
      "de": "Derivado de US$ 1,037 bi (Economática) x 1,741. Valor direto em R$ não achado.",
-     "para": "IFRS, 'Consolidated profit for the period' do 20-F de 2009 (R$ 5.508 mi; o 20-F de 2011 repete 5.508 no comparativo): o valor direto em R$ que a linha não tinha. O 1,805 anterior era derivado de US$ 1,037 bi (Economática) x 1,741 e fica como contexto. Bate com a Folha de 4/2/2011 (ligada em 2010): a alta de 34% sobre 2009 com lucro de R$ 7,382 bi implica cerca de R$ 5,5 bi."
+     "para": "Derivado de US$ 1,037 bi (Economática) x 1,741. Valor direto em R$ não achado. O 20-F de 2009 traz o lucro em IFRS, 'Consolidated profit for the period' de R$ 5.508 mi (o de 2011 repete 5.508 no comparativo), outra base (R7: IFRS de banco é contexto); o lucro em BR GAAP em R$ de 2009 não foi localizado nos trechos lidos do 20-F (a tabela em Brazilian GAAP do item 3.A só cobre 2006 e 2005), de modo que o 1,805 derivado de US$ segue como valor da linha e é provavelmente baixo demais: a Folha de 4/2/2011 (ligada em 2010), com alta de 34% sobre 2009 e lucro de R$ 7,382 bi em 2010, implica cerca de R$ 5,5 bi, a base IFRS."
     }
    },
    "fontes": [
@@ -25,27 +17,13 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Banco Santander (Brasil) S.A. - Form 20-F - FY2009",
+     "data": "2010-06-09",
      "trecho": "Consolidated profit for the period | 3,163 | 5,508 | 3,913 | 2,379 | 1,903",
-     "nota": "Item 3.A, 'Santander Brasil Income Statement Data in Accordance with IFRS'. Colunas: 2009 em US$ milhões (3,163) e em R$ milhões (5,508), 2008 pro forma (3,913), 2008 (2,379), 2007 (1,903). O 20-F traz o IFRS como base principal; a tabela em Brazilian GAAP do mesmo item só cobre 2006 e 2005.",
-     "papel": "sustenta",
-     "principal": true
-    },
-    {
-     "url": "https://www.sec.gov/Archives/edgar/data/0001471055/000095010312001646/dp29493_20f.htm",
-     "veiculo": "sec.gov",
-     "tipo": "documento_oficial",
-     "titulo": "Banco Santander (Brasil) S.A. - Form 20-F - FY2011",
-     "trecho": "Consolidated profit for the year | 7,756 | 7,383 | 5,508 | 2,379",
-     "nota": "Item 3.A, reconciliação do ROE (colunas 2011, 2010, 2009, 2008): o 2009 reaparece em R$ 5,508 mi no 20-F de 2011.",
-     "papel": "sustenta"
+     "nota": "Item 3.A, 'Santander Brasil Income Statement Data in Accordance with IFRS'. Colunas: 2009 em US$ milhões (3,163) e em R$ milhões (5,508), 2008 pro forma (3,913), 2008 (2,379), 2007 (1,903). Base IFRS, contexto (R7).",
+     "papel": "contexto"
     }
    ],
-   "anterior": {
-    "url": "https://istoedinheiro.com.br/bancos-brasileiros-sao-os-mais-rentaveis-de-al-e-eua",
-    "papel": "contexto",
-    "nota": "Fonte anterior (Istoé Dinheiro): 1,805 derivado de US$ (Economática x câmbio), base errada; mantida como contexto."
-   },
-   "motivo": "20-F de 2009 (SEC): lucro em R$ direto no lugar do derivado de US$."
+   "motivo": "20-F de 2009 (SEC): IFRS de 2009 (5,508) como contexto; o valor da linha não muda (BR GAAP em R$ não localizado)."
   },
   {
    "ano": 2010,
@@ -53,7 +31,7 @@
    "campos": {
     "obs": {
      "de": null,
-     "para": "IFRS, 'Consolidated profit for the year' do 20-F de 2011 (coluna 2010): o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial. O lucro pela BR GAAP (após a amortização do ágio do Real), que é a base da linha de 2012, não foi achado (o 20-F de 2011 só o remete à nota 45 das demonstrações); a série do Santander mistura bases."
+     "para": "Base IFRS (20-F 2011, 'Consolidated profit for the year', coluna 2010); BR GAAP da época não localizado, série em base diferente de 2012 (2,69, BR GAAP). É o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial; o 20-F de 2011 só remete o BR GAAP à nota 45 das demonstrações."
     }
    },
    "fontes": [
@@ -62,8 +40,9 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Banco Santander (Brasil) S.A. - Form 20-F - FY2011",
+     "data": "2012-03-30",
      "trecho": "Consolidated profit for the year | 7,756 | 7,383 | 5,508 | 2,379",
-     "nota": "Item 3.A, reconciliação do ROE (colunas 2011, 2010, 2009, 2008) e linha 'Profit for the year' do demonstrativo IFRS (R$ 7.756 mi em 2011, R$ 7.383 mi em 2010). Confirma 7.383 em documento oficial; os não controladores têm R$ 19 mi (2011) e R$ 8 mi (2010) no balanço, de modo que o lucro atribuível ao controlador é praticamente o mesmo.",
+     "nota": "Item 3.A, reconciliação do ROE (colunas 2011, 2010, 2009, 2008) e linha 'Profit for the year' do demonstrativo IFRS (R$ 7.756 mi em 2011, R$ 7.383 mi em 2010). Confirma 7.383 em documento oficial, base IFRS; os não controladores têm R$ 19 mi (2011) e R$ 8 mi (2010) no balanço.",
      "papel": "sustenta",
      "principal": true
     }
@@ -73,7 +52,7 @@
     "papel": "contexto",
     "nota": "Fonte anterior (DIEESE, tabela secundária de 2012, 'LL gerencial'): mesmo valor do IFRS do 20-F; mantida como contexto."
    },
-   "motivo": "20-F de 2011 (SEC): documento oficial no lugar da tabela secundária do DIEESE; valor igual."
+   "motivo": "20-F de 2011 (SEC): documento oficial no lugar da tabela secundária do DIEESE; valor igual (base IFRS, BR GAAP não localizado)."
   },
   {
    "ano": 2011,
@@ -81,7 +60,7 @@
    "campos": {
     "obs": {
      "de": null,
-     "para": "IFRS, 'Consolidated profit for the year' do 20-F de 2011 (coluna 2011): o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial. O lucro pela BR GAAP (após a amortização do ágio do Real), que é a base da linha de 2012, não foi achado (o 20-F de 2011 só o remete à nota 45 das demonstrações); a série do Santander mistura bases."
+     "para": "Base IFRS (20-F 2011, 'Consolidated profit for the year', coluna 2011); BR GAAP da época não localizado, série em base diferente de 2012 (2,69, BR GAAP). É o mesmo número que o DIEESE chama de 'LL gerencial' e que a imprensa da época deu como lucro da filial; o 20-F de 2011 só remete o BR GAAP à nota 45 das demonstrações."
     }
    },
    "fontes": [
@@ -90,8 +69,9 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Banco Santander (Brasil) S.A. - Form 20-F - FY2011",
+     "data": "2012-03-30",
      "trecho": "Consolidated profit for the year | 7,756 | 7,383 | 5,508 | 2,379",
-     "nota": "Item 3.A, reconciliação do ROE (colunas 2011, 2010, 2009, 2008) e linha 'Profit for the year' do demonstrativo IFRS (R$ 7.756 mi em 2011, R$ 7.383 mi em 2010). Confirma 7.756 em documento oficial; os não controladores têm R$ 19 mi (2011) e R$ 8 mi (2010) no balanço, de modo que o lucro atribuível ao controlador é praticamente o mesmo.",
+     "nota": "Item 3.A, reconciliação do ROE (colunas 2011, 2010, 2009, 2008) e linha 'Profit for the year' do demonstrativo IFRS (R$ 7.756 mi em 2011, R$ 7.383 mi em 2010). Confirma 7.756 em documento oficial, base IFRS; os não controladores têm R$ 19 mi (2011) e R$ 8 mi (2010) no balanço.",
      "papel": "sustenta",
      "principal": true
     }
@@ -101,15 +81,19 @@
     "papel": "contexto",
     "nota": "Fonte anterior (DIEESE, tabela secundária de 2012, 'LL gerencial'): mesmo valor do IFRS do 20-F; mantida como contexto."
    },
-   "motivo": "20-F de 2011 (SEC): documento oficial no lugar da tabela secundária do DIEESE; valor igual."
+   "motivo": "20-F de 2011 (SEC): documento oficial no lugar da tabela secundária do DIEESE; valor igual (base IFRS, BR GAAP não localizado)."
   },
   {
    "ano": 2022,
    "entidade_id": "santander-brasil",
    "campos": {
+    "lucro_brl_bi": {
+     "de": 14.287,
+     "para": 12.57
+    },
     "obs": {
      "de": "IFRS (20-F); gerencial R$ 12,9 bi",
-     "para": "IFRS (20-F); gerencial R$ 12,9 bi; BR GAAP (demonstrações do 4T22, 6-K): lucro líquido consolidado de R$ 12,57 bi, outra base (contexto)."
+     "para": "BR GAAP/Cosif (R7), lucro líquido consolidado da Demonstração do Resultado do 4T22 (6-K): R$ 12.570.191 mil. O IFRS atribuível do 20-F (14,287, o valor anterior da linha) e o gerencial (R$ 12,9 bi) ficam como contexto."
     }
    },
    "fontes": [
@@ -118,12 +102,19 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Banco Santander (Brasil) S.A. - 6-K - Demonstrações financeiras BRGAAP 4T22",
+     "data": "2023-02-02",
      "trecho": "Net Income | 12,570,191",
-     "nota": "Demonstração do Resultado consolidada, coluna '01/01 to 12/31/2022' (R$ mil); 2021: 14,987,716. É a base BR GAAP/Cosif (consolidado, antes de não controladores); o valor da linha (14,287) segue o IFRS atribuível do 20-F, a mesma base de 2010-2011. Gerencial R$ 12,9 bi já está como contexto.",
-     "papel": "contexto"
+     "nota": "Demonstração do Resultado consolidada, coluna '01/01 to 12/31/2022' (R$ mil); 2021: 14,987,716. Base BR GAAP/Cosif, consolidado (antes de não controladores, R$ 179 mi em 2022).",
+     "papel": "sustenta",
+     "principal": true
     }
    ],
-   "motivo": "BR GAAP do 4T22 como contexto; o IFRS (20-F) do banco, 14,287, não muda."
+   "anterior": {
+    "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001471055/ifrs-full/ProfitLossAttributableToOwnersOfParent.json",
+    "papel": "contexto",
+    "nota": "Fonte anterior (XBRL do 20-F, IFRS atribuível aos controladores, 14,287): outra base (R7: IFRS de banco é contexto); mantida como contexto."
+   },
+   "motivo": "R7: BR GAAP do 4T22 (6-K) no lugar do IFRS do 20-F, que vira contexto."
   },
   {
    "ano": 2011,
@@ -131,7 +122,7 @@
    "campos": {
     "obs": {
      "de": null,
-     "para": "BR GAAP, lucro líquido atribuível aos controladores (comunicado ao mercado de 28/2/2012, no 6-K); a mesma base das linhas de 2010 (13,323) e 2015. IFRS (20-F de 2011): R$ 13,837 bi atribuível aos controladores (14,610 consolidado), outra base, fica como contexto. O DIEESE traz o mesmo 14,621."
+     "para": "BR GAAP, lucro líquido atribuível aos controladores (comunicado ao mercado de 28/2/2012, no 6-K); a base da R7 (BR GAAP/Cosif de banco), a mesma das linhas de 2010 (13,323) e 2015. IFRS (20-F de 2011): R$ 13,837 bi atribuível aos controladores (14,610 consolidado), outra base, fica como contexto. O DIEESE traz o mesmo 14,621."
     }
    },
    "fontes": [
@@ -140,7 +131,7 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Itaú Unibanco Holding S.A. - 6-K - Announcement to the Market (resultados do 4T11 e de 2011)",
-     "data": "2012-02-28",
+     "data": "2012-02-29",
      "trecho": "Net Income - Attributable to Controlling Stockholders | 3,681 | 3,651 | (30) | 14,621 | 13,837 | (784)",
      "nota": "Tabela do comunicado de 28/2/2012 (São Paulo): resultados de 2011 em BRGAAP (14,621) e em IFRS (13,837) e a diferença (784) entre os dois.",
      "papel": "sustenta",
@@ -151,6 +142,7 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Itaú Unibanco Holding S.A. - Form 20-F - FY2011",
+     "data": "2012-03-30",
      "trecho": "Net income attributable to owners of the parent company | 13,837 | 11,708",
      "nota": "Item 3.A, 'IFRS Selected Financial Data' (R$ milhões; colunas 2011 e 2010); 'Net income' consolidado: 14,610 e 12,494. Outra base (IFRS), contexto.",
      "papel": "contexto"
@@ -169,7 +161,7 @@
    "campos": {
     "obs": {
      "de": null,
-     "para": "BR GAAP ('Book Net Income' do release de resultados de dez/2011, no 6-K), a mesma base da linha de 2010 (10,022). IFRS (20-F de 2011): R$ 11,089 bi, outra base, fica como contexto. O DIEESE traz o mesmo 11,028."
+     "para": "BR GAAP ('Book Net Income' do release de resultados de dez/2011, no 6-K), a base da R7 (BR GAAP/Cosif de banco), a mesma da linha de 2010 (10,022). IFRS (20-F de 2011): R$ 11,089 bi, outra base, fica como contexto. O DIEESE traz o mesmo 11,028."
     }
    },
    "fontes": [
@@ -178,6 +170,7 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Bradesco - 6-K - Report on Economic and Financial Analysis, December 2011",
+     "data": "2012-02-07",
      "trecho": "Book Net Income | 11,028 | 10,022 | 2,726 | 2,815",
      "nota": "Seção 'Book Net Income vs. Adjusted Net Income' (R$ milhões; colunas 12M11, 12M10, 4Q11, 3Q11).",
      "papel": "sustenta",
@@ -188,6 +181,7 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Bradesco - Form 20-F - FY2011",
+     "data": "2012-04-30",
      "trecho": "Net income for the year | 5,903,035 | 11,089,442 | 10,052,193 | 8,300,843",
      "nota": "Item 3.A, dados em IFRS (colunas: 2011 em US$ mil, 2011, 2010 e 2009 em R$ mil). Outra base (IFRS), contexto.",
      "papel": "contexto"
@@ -265,6 +259,7 @@
      "veiculo": "sec.gov",
      "tipo": "documento_oficial",
      "titulo": "Gerdau S.A. - Form 20-F - FY2009",
+     "data": "2010-06-07",
      "trecho": "Owners of the parent | 1,121,966 | 3,940,505 | 3,549,881 | 3,546,934",
      "nota": "Item 3.A, dados em IFRS (R$ mil; colunas 2009, 2008, 2007, 2006). Linha 'NET INCOME': 1,004,508 | 4,944,898 | 4,302,966 | 4,261,478; 'No-controlling interests': (117,458) em 2009. O valor de 2008 (3.940.505) é o que a linha de 2008 do banco já traz.",
      "papel": "sustenta",
@@ -275,16 +270,17 @@
   }
  ],
  "lacunas": [
-  "Santander Brasil: 2009 passa ao IFRS direto em R$ do 20-F (5,508; era 1,805 derivado de US$) e 2010-2011 ganham o 20-F de 2011 como principal (7,383 e 7,756 são o IFRS 'Consolidated profit for the year', o mesmo número que o DIEESE chama de 'LL gerencial': não são gerenciais, mas também não são o lucro BR GAAP). O lucro BR GAAP/Cosif de 2010 e 2011 (após a amortização do ágio; implícito na Folha de 2013: cerca de R$ 3,5 bi em 2011) não foi achado: o 20-F de 2011 só o remete à nota 45, e os 6-K BRGAAP de 2010-2011 não apareceram nas buscas.",
-  "Santander Brasil, bases misturadas: 2012 (2,69) está em BR GAAP (Folha, rodada 9), 2010-2011 e 2022 em IFRS (20-F), 2015 em 'gerencial' (6,624; IFRS 9,784 na obs). Se a regra do projeto é IFRS a partir de 2010, 2012 deveria ser o IFRS do 20-F de 2012, que provavelmente é o 6,329 que o DIEESE chamava de 'LL gerencial' (não verificado: o 20-F de 2012 não foi localizado nas buscas); a rodada 9 foi mantida sem mudança, porque o validador a trava.",
-  "Itaú Unibanco e Bradesco 2011: o valor do banco (14,621 e 11,028) é o BR GAAP, o 'lucro líquido' de manchete do balanço, a mesma base das linhas de 2010 e 2015; o IFRS dos 20-F (Itaú 13,837 atribuível/14,610 consolidado; Bradesco 11,089) entrou como contexto. Se o projeto quiser IFRS estrito, 2010 e 2015 também teriam de mudar (Itaú 2010: 11,708 IFRS contra 13,323 BR GAAP).",
+  "Santander Brasil 2009: o valor da linha segue o 1,805 derivado de US$ (Economática x câmbio): o 20-F de 2009 traz só o IFRS em R$ (5,508, agora `contexto`), e o BR GAAP em R$ de 2009 não foi localizado (a tabela em Brazilian GAAP do item 3.A cobre 2006 e 2005; o resto do 20-F não trouxe a reconciliação nos trechos lidos). O 1,805 é provavelmente baixo demais (a Folha de 2011 implica cerca de R$ 5,5 bi) e a linha continua `derivado`.",
+  "Santander Brasil 2010 e 2011 (7,383 e 7,756): base IFRS (20-F de 2011); o BR GAAP/Cosif da época (após a amortização do ágio; cerca de R$ 3,5 bi em 2011, pela queda de 24% da Folha de 2013) não foi localizado, e a série fica em base diferente de 2012 (2,69, BR GAAP) e de 2022 (agora BR GAAP, 12,57). O DIEESE chamava esses números de 'LL gerencial', mas são o IFRS do 20-F. Santander 2015 (6,624) também está em base 'gerencial' no banco (IFRS 9,784 na obs) e não foi revisto.",
+  "Santander Brasil 2022: pela R7 o principal passa a ser o BR GAAP consolidado do 6-K do 4T22 (12,57); o IFRS atribuível do 20-F (14,287) e o gerencial (12,9) são contexto.",
+  "Itaú Unibanco e Bradesco 2011: ficam no BR GAAP/Cosif de manchete (14,621 e 11,028), a base da R7; o IFRS dos 20-F (Itaú 13,837 atribuível/14,610 consolidado; Bradesco 11,089) entrou como contexto.",
   "Caixa 2015 (7,2): o banco tem Brasil 247 como principal; as demonstrações BRGAAP de dez/2015 (DC_BrGaap_Dez15_English.pdf), o Relatório de Gestão 2015 e o press release 1T16 existem no site da Caixa, mas o WebFetch foi recusado por robots.txt; sem fonte primária nova.",
-  "Cielo 2015 (3,511): a principal já é a apresentação da própria Cielo (api.mziq.com, que o banco classifica como `reportagem`, tipo que deveria ser `relatorio`); a busca pelo release do 4T15 só devolveu documentos de outros períodos (4T23); nada acrescentado.",
+  "Cielo 2015 (3,511): a principal já é a apresentação da própria Cielo (api.mziq.com); só o `tipo` da evidência foi corrigido de `reportagem` para `relatorio` em `evidencia-correcoes.json`. A busca pelo release do 4T15 só devolveu documentos de outros períodos (4T23); nenhuma fonte acrescentada.",
   "Usiminas 2009: nenhuma demonstração ou release de 2009 achado nas buscas (só materiais de 2020 e 2024 no api.mziq.com); a linha não foi inserida. O top 15 de 2009 pode ainda estar incompleto: Usiminas (lucro de 2009 possivelmente na casa de R$ 1 bi, não verificado) poderia entrar à frente da Eletrobras.",
   "Eletrobras 1997, Telebras 1995, Light 1995-1997 e Banco Real 1995-1997: a busca restrita ao sec.gov não devolveu nenhum 20-F anterior a 1999; sem fonte, nenhuma linha inserida. Light não tem linhas nesses anos no banco; `real` não existe como entidade (o Banco Real é `banco-real`).",
   "Embratel 2000, AmBev 2002 e 2009 e Bradesco 2009: o banco já tem 20-F/6-K da SEC como principal (documento_oficial); não foram reabertos nesta rodada (a Embratel 2000 vem do 20-F de 2003, série 1999-2003, possível reapresentação; a AmBev 2002 do 20-F de 2004).",
   "Etapa 4 (conferir com release/20-F as 5 maiores de 2013-2015 que só têm imprensa) não feita: a cota de buscas foi usada nas etapas 1-3. Candidatos: Itaú Unibanco 2013 e 2014 (Wikipédia pt), Bradesco 2013 (DIEESE de 2014) e 2014 (Exame), BB 2014 (Wikipédia), BNDES 2014 (Exame), Itaú e Bradesco 2015 (Exame/Gazeta do Povo).",
-  "Acesso: sec.gov respondeu pelo WebFetch (diretórios Archives e documentos), mas não por curl (403 do proxy, igual a www.rad.cvm.gov.br e www.santander.com.br); a CVM não pôde ser consultada. Os trechos vêm do texto devolvido pelo WebFetch (um modelo menor lê a página): as linhas de tabela estão com as colunas separadas por ' | ' e foram reproduzidas como devolvidas."
+  "Acesso: sec.gov respondeu pelo WebFetch (diretórios Archives, documentos e índices -index.htm, de onde vêm as datas de arquivamento), mas não por curl (403 do proxy, igual a www.rad.cvm.gov.br e www.santander.com.br), e a página browse-edgar é barrada por robots.txt; a CVM não pôde ser consultada. Os trechos vêm do texto devolvido pelo WebFetch (um modelo menor lê a página): as linhas de tabela estão com as colunas separadas por ' | ' e foram reproduzidas como devolvidas. O Itaú 6-K (data 2012-02-29) é a data de arquivamento; o comunicado é de 28/2/2012."
  ],
  "nao_aplicados": [
   {
