@@ -656,8 +656,9 @@ def main(destino=SQLITE, pular=(), escrever=True):
         ser("violencia.raca.taxa", ano, neg, dim="grupo=negros", ignorar=True, obs="RACE_RATES")
         ser("violencia.raca.taxa", ano, nneg, dim="grupo=naoNegros", ignorar=True, obs="RACE_RATES")
     # marcos legais -> eventos
+    MARCO_ID = {}
     for i, m in enumerate(viol["MARCOS"]):
-        eid = id_evento(m["data"], m["curto"], f"MARCOS[{i}]")
+        eid = MARCO_ID[i] = id_evento(m["data"], m["curto"], f"MARCOS[{i}]")
         inserir_evento(eid, m["titulo"], m["texto"], m["data"], None, None, "violencia", "violencia", f"MARCOS[{i}]")
         ligar("evento_evidencia", "evento_id", eid, [(None, m["url"])], f"MARCOS[{i}]")
 
@@ -728,6 +729,41 @@ def main(destino=SQLITE, pular=(), escrever=True):
             for i, ev in enumerate(brasil["Y"][ano][sec]["eventos"]):
                 eid = id_evento(ano, ev["titulo"], f"Y[{ano}].{sec}.eventos[{i}]")
                 inserir_evento(eid, ev["titulo"], ev["descricao"], ano, None, ev["peso"], "brasil", "linha_do_tempo", f"Y[{ano}].{sec}.eventos[{i}]")
+
+    # ================================================================ RÓTULOS DE ÉPOCA (nota tipo 'aviso'; páginas brasil e violencia)
+    # Textos que as páginas mostram ano a ano e que o modelo relacional não guarda: `mandato` junta anos seguidos do mesmo cargo
+    # (o partido do presidente e o texto do vice mudam no meio do mandato), `ranking_empresa` liga a empresa à entidade (o nome
+    # da época se perde) e `evidencia` tem uma linha por URL (recortes da violência citam a mesma URL com rótulos e tipos
+    # diferentes). Vêm depois de todas as outras notas (não mudam ids antigos). exportar_json.py os junta a series.json e violencia.json.
+    for ano in ANOS:
+        pol = brasil["Y"][ano]["pol"]
+        if pol["partido"]:
+            nota("brasil", "aviso", f"Y.{ano}.pol.partido", None, pol["partido"], 0)
+        if pol["vice"]:
+            nota("brasil", "aviso", f"Y.{ano}.pol.vice", None, pol["vice"], 0)
+        for pos, e in enumerate(brasil["Y"][ano]["empresas"], 1):
+            if e["nome"] != ENTS[emp_slug[e["k"]]]["nome"]:
+                nota("brasil", "aviso", f"Y.{ano}.empresa.{emp_slug[e['k']]}", None, e["nome"], pos)
+    # partido do presidente da Câmara/do Senado no ano, quando difere do partido gravado no mandato (o do primeiro ano da sequência)
+    for chave in ("presCamara", "presSenado"):
+        por_nome = collections.OrderedDict()
+        for ano in ANOS:
+            for r in brasil["Y"][ano]["pol"][chave]:
+                por_nome.setdefault(r["nome"], []).append((ano, r["nome"], r))
+        for nome_p, its in por_nome.items():
+            for _, a, b, r0 in runs(its):
+                for ano, _, r in its:
+                    if a <= int(ano) <= b and r["partido"] != r0["partido"]:
+                        nota("brasil", "aviso", f"Y.{ano}.{chave}.{pessoas_pol[nome_p]}", None, r["partido"], 0)
+    for c, cut in viol["CUTS"].items():
+        for ano, e in sorted(cut["years"].items(), key=lambda kv: int(kv[0])):
+            if e.get("src"):
+                s = viol["CSRC"][e["src"]]
+                nota("violencia", "aviso", f"recorte.{c}.{ano}.fonte", s["nome"], s["tipo"], 0)
+            if e.get("rateNote"):
+                nota("violencia", "aviso", f"recorte.{c}.{ano}.nota_taxa", None, e["rateNote"], 0)
+    for i, m in enumerate(viol["MARCOS"]):
+        nota("violencia", "aviso", f"marco.{MARCO_ID[i]}.curto", None, m["curto"], i)
 
     # ================================================================ DOSSIÊ RELACIONAL e FÓRUNS (data/curadoria/dossie-entidades.json)
     dossie_rel.carregar(con, dossie, pares, evid, nat_map, IDX_ALIAS, pais_slug, R)

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Exporta o banco para JSON (e regenera data/dump.sql). Só lê o banco.
 
-Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, temas.json, dump.sql.
+Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, temas.json,
+violencia.json, dump.sql.
 Uso: python3 scripts/exportar_json.py [--db caminho.sqlite]
 """
 import argparse
@@ -236,8 +237,127 @@ def montar_series(con):
            FROM mandato m LEFT JOIN evidencia e ON e.id=m.evidencia_id ORDER BY m.id""")]
     banc = [OrderedDict(_sem_nulos(dict(r))) for r in con.execute(
         "SELECT legislatura, ano, casa, partido_id, nome_epoca, cadeiras, campo FROM bancada ORDER BY ano, casa, cadeiras DESC, partido_id")]
+    # aditivo (página brasil-ano-a-ano): nome da entidade e apelido em cada mandato, nome atual e nome da época em cada empresa
+    # do ranking, textos de época da Presidência por ano (nota brasil/aviso) e os eventos da linha do tempo com natureza e fontes
+    nome = {r["id"]: r["nome"] for r in con.execute("SELECT id, nome FROM entidade")}
+    apelido = {}
+    for r in con.execute("SELECT entidade_id, alias FROM entidade_alias WHERE tipo_alias='apelido' ORDER BY entidade_id, alias"):
+        apelido.setdefault(r["entidade_id"], r["alias"])
+    for m, r in zip(mand, con.execute("SELECT id, entidade_id FROM mandato ORDER BY id")):
+        m["nome"] = nome[r["entidade_id"]]
+        if r["entidade_id"] in apelido:
+            m["apelido"] = apelido[r["entidade_id"]]
+    epoca_emp = {}
+    epoca = OrderedDict()   # ano -> {partido, vice, presCamara: {slug: partido}, presSenado: {slug: partido}}
+    for r in con.execute("SELECT chave, texto FROM nota WHERE pagina='brasil' AND tipo='aviso' AND chave LIKE 'Y.%' ORDER BY id"):
+        _, ano, grupo, campo = r["chave"].split(".", 3)
+        if grupo == "empresa":
+            epoca_emp[(int(ano), campo)] = r["texto"]
+        elif grupo == "pol":
+            epoca.setdefault(ano, OrderedDict())[campo] = r["texto"]
+        else:
+            epoca.setdefault(ano, OrderedDict()).setdefault(grupo, OrderedDict())[campo] = r["texto"]
+    for k in rank:
+        k["nome"] = nome[k["entidade_id"]]
+        if (k["ano"], k["entidade_id"]) in epoca_emp:
+            k["nome_epoca"] = epoca_emp[(k["ano"], k["entidade_id"])]
     return OrderedDict([("versao", VERSAO), ("gerado_em", TS_MIGRACAO), ("indicadores", inds), ("series", series),
-                        ("ranking_empresa", rank), ("mandato", mand), ("bancada", banc)])
+                        ("ranking_empresa", rank), ("mandato", mand), ("bancada", banc),
+                        ("epoca", OrderedDict(sorted(epoca.items()))), ("eventos", _eventos_brasil(con))])
+
+
+def _fontes_evento(con):
+    """evento -> [{url, veiculo, tipo, titulo, data, qualidade, papel}]: as de papel `sustenta`/`contesta` primeiro, depois as de
+    `contexto` (fontes do bloco-ano da linha do tempo); dentro de cada papel, oficiais/decisões, reportagem e o resto (como em teia.json)."""
+    out = defaultdict(list)
+    for r in con.execute("""SELECT x.evento_id AS dono, e.url, e.veiculo, e.tipo, e.titulo, e.data, x.qualidade, x.papel, x.rotulo
+                            FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id ORDER BY x.evento_id, x.ordem"""):
+        titulo = r["titulo"] or (r["rotulo"] if r["rotulo"] and r["rotulo"] != r["veiculo"] else None)
+        out[r["dono"]].append(OrderedDict([("url", r["url"]), ("veiculo", r["veiculo"]), ("tipo", r["tipo"]), ("titulo", titulo),
+                                           ("data", r["data"]), ("qualidade", r["qualidade"]), ("papel", r["papel"])]))
+    for v in out.values():
+        v.sort(key=lambda d: (d["papel"] == "contexto", _FAIXA_TIPO.get(d["tipo"], 2)))
+    return out
+
+
+def _eventos_brasil(con):
+    """Eventos da linha do tempo (canal brasil) na ordem do bloco-ano: ano, seção (pol/intl) e posição original."""
+    fontes = _fontes_evento(con)
+    out = []
+    for r in con.execute("SELECT * FROM evento WHERE canal='brasil'"):
+        m = re.fullmatch(r"Y\[(\d{4})\]\.(pol|intl)\.eventos\[(\d+)\]", r["origem_ref"] or "")
+        out.append(((int(m.group(1)), m.group(2) != "pol", int(m.group(3))), OrderedDict([
+            ("id", r["id"]), ("ano", r["ano"]), ("secao", m.group(2)), ("ordem", int(m.group(3))), ("titulo", r["titulo"]),
+            ("descricao", r["descricao"]), ("peso", r["peso"]), ("natureza", r["natureza_id"]), ("fontes", fontes.get(r["id"], []))])))
+    return [e for _, e in sorted(out, key=lambda x: x[0])]
+
+
+_TIPO_RECORTE = {"relatorio": "tabela", "reportagem": "imprensa", "documento_oficial": "sintese"}   # inverso de migrar.TIPOV
+
+
+def montar_violencia(con):
+    """data/violencia.json (página Ritmo da violência): contador de homicídios, recortes por grupo, taxas de negros e não negros
+    e marcos legais (eventos do canal `violencia`, com natureza e fontes). Tudo de `serie`/`indicador`/`evidencia`/`evento`; os
+    rótulos que o modelo relacional não guarda vêm de `nota` (pagina='violencia'): fonte de cada recorte-ano (nome e tipo, porque
+    a mesma URL serve a recortes diferentes), nota da taxa e o rótulo curto de cada marco."""
+    ev = {r["url"]: r for r in con.execute("SELECT url, titulo, tipo FROM evidencia")}
+    linhas = defaultdict(list)
+    for r in con.execute("""SELECT s.indicador_id, s.ano, s.dimensao, s.valor, s.obs, e.url FROM serie s LEFT JOIN evidencia e ON e.id=s.evidencia_id
+                            WHERE s.indicador_id LIKE 'violencia.%' ORDER BY s.indicador_id, s.ano, s.dimensao"""):
+        linhas[r["indicador_id"]].append(r)
+    ind = {r["id"]: r for r in con.execute("SELECT * FROM indicador WHERE dominio='violencia'")}
+    notas = {r["chave"]: r for r in con.execute("SELECT chave, titulo, texto FROM nota WHERE pagina='violencia' AND tipo='aviso'")}
+
+    def fonte(url):
+        e = ev[url]
+        return OrderedDict([("url", url), ("titulo", e["titulo"]), ("curto", re.match(r"[^:,]+", e["titulo"]).group(0).strip()), ("tipo", e["tipo"])])
+
+    desc_h = ind["violencia.homicidios"]["descricao"]
+    homic = OrderedDict([("nome", ind["violencia.homicidios"]["nome"]), ("descricao", desc_h),
+                         ("quebra_apos", int(re.search(r"até (\d{4})", desc_h).group(1))),
+                         ("anos", [OrderedDict([("ano", r["ano"]), ("valor", _num(r["valor"])), ("fonte", fonte(r["url"]))]) for r in linhas["violencia.homicidios"]])])
+    recortes = OrderedDict()
+    for cid in sorted(i[len("violencia."):-len(".total")] for i in ind if i.endswith(".total")):
+        d = ind[f"violencia.{cid}.total"]["descricao"]
+        nome, resto = d.split("; grupos: ", 1)
+        q = re.search(r"; quebra de série após (\d{4})$", resto)
+        grupos = OrderedDict(t.split("=", 1) for t in (resto[:q.start()] if q else resto).split("; "))
+        anos = OrderedDict()
+        for r in linhas[f"violencia.{cid}.total"]:
+            a = anos[str(r["ano"])] = OrderedDict([("tot", _num(r["valor"])), ("nota_total", r["obs"])])
+            n = notas.get(f"recorte.{cid}.{r['ano']}.fonte")
+            a["fonte"] = OrderedDict([("url", r["url"]), ("nome", n["titulo"] if n else ev[r["url"]]["titulo"]),
+                                      ("tipo", n["texto"] if n else _TIPO_RECORTE.get(ev[r["url"]]["tipo"], "tabela"))]) if r["url"] else None
+            nt = notas.get(f"recorte.{cid}.{r['ano']}.nota_taxa")
+            a["nota_taxa"] = nt["texto"] if nt else None
+            a["nota"] = None
+            for campo, sufixo in (("segs", ""), ("taxas", ".taxa"), ("pct", ".pct"), ("pub", ".pct_publicado")):
+                for s in linhas[f"violencia.{cid}{sufixo}"]:
+                    if s["ano"] != r["ano"] or (sufixo == ".taxa" and s["obs"] == "RACE_RATES"):
+                        continue
+                    g = s["dimensao"].split("=", 1)[1]
+                    if campo == "pub":
+                        a["pub"] = _num(s["valor"])
+                    else:
+                        a.setdefault(campo, OrderedDict())[g] = _num(s["valor"])
+                    if campo != "pub" and s["obs"] and a["nota"] is None:
+                        obs = s["obs"]   # migrar junta note + rateNote numa só obs; a parte da taxa volta para nota_taxa
+                        if a["nota_taxa"] and obs.endswith(a["nota_taxa"]):
+                            obs = obs[:-len(a["nota_taxa"])].strip()
+                        a["nota"] = obs or None
+        recortes[cid] = OrderedDict([("nome", nome), ("quebra_apos", int(q.group(1)) if q else None), ("grupos", grupos), ("anos", anos)])
+    raca = OrderedDict()
+    for r in linhas["violencia.raca.taxa"]:
+        raca.setdefault(str(r["ano"]), OrderedDict())[r["dimensao"].split("=", 1)[1]] = _num(r["valor"])
+    raca = OrderedDict((a, [v.get("negros"), v.get("naoNegros")]) for a, v in sorted(raca.items()))
+    ricas = _fontes_evento(con)
+    marcos = []
+    for r in con.execute("SELECT * FROM evento WHERE canal='violencia' ORDER BY data, id"):
+        n = notas.get(f"marco.{r['id']}.curto")
+        marcos.append(OrderedDict([("id", r["id"]), ("data", r["data"]), ("curto", n["texto"] if n else r["titulo"]), ("titulo", r["titulo"]),
+                                   ("texto", r["descricao"]), ("natureza", r["natureza_id"]), ("fontes", ricas.get(r["id"], []))]))
+    return OrderedDict([("versao", VERSAO), ("gerado_em", TS_MIGRACAO), ("homicidios", homic), ("recortes", recortes),
+                        ("raca_taxas", raca), ("marcos", marcos)])
 
 
 def montar_entities(con):
@@ -293,20 +413,24 @@ def _eventos_brb(con, st_inv):
     """30 eventos do dossiê.brb.eventos na ordem original: os que ainda existem + os fundidos (evento_alias.original_json)."""
     itens = []
     fontes = _fontes(con, "evento_evidencia", "evento_id")
+    ricas = _fontes_evento(con)
     for r in con.execute("SELECT * FROM evento WHERE canal='brb'"):
         itens.append((int(re.fullmatch(r"dossie\.brb\.eventos\[(\d+)\]", r["origem_ref"]).group(1)),
-                      dict(r), fontes.get(r["id"], [])))
-    for r in con.execute("SELECT original_json FROM evento_alias WHERE canal_original='brb'"):
+                      dict(r), fontes.get(r["id"], []), r["id"]))
+    for r in con.execute("SELECT evento_id, original_json FROM evento_alias WHERE canal_original='brb'"):
         o = json.loads(r["original_json"])
-        itens.append((int(re.fullmatch(r"dossie\.brb\.eventos\[(\d+)\]", o["origem_ref"]).group(1)), o, [[f[0], f[1]] for f in o["fontes"]]))
+        itens.append((int(re.fullmatch(r"dossie\.brb\.eventos\[(\d+)\]", o["origem_ref"]).group(1)), o, [[f[0], f[1]] for f in o["fontes"]], r["evento_id"]))
     out = []
-    for _, r, src in sorted(itens, key=lambda x: x[0]):
+    for _, r, src, eid in sorted(itens, key=lambda x: x[0]):
         ctx = r["contexto"] or ""
         ev = OrderedDict([("d", r["data_texto"] or r["data"]), ("t", r["titulo"]), ("x", r["descricao"] or ""),
                           ("st", st_inv[r["natureza_id"]]), ("lado", re.match(r"lado: (\w+)", ctx).group(1))])
         if "; crítico" in ctx:
             ev["critico"] = True
         ev["src"] = src
+        # aditivo: id do evento no banco (o mantido, se a curadoria o fundiu) e as fontes ricas dele (validar.py as deixa fora do round-trip com o raw)
+        ev["id"] = eid
+        ev["fontes"] = ricas.get(eid, [])
         out.append(ev)
     return out
 
@@ -444,7 +568,8 @@ def salvar(nome, obj):
 def todos(con):
     return {"entities.json": montar_entities(con), "teia.json": montar_teia(con), "origens.json": montar_origens(con),
             "series.json": montar_series(con), "mapa_indices.json": mapa_indices(con),
-            "dossie.json": montar_dossie(con), "pares.json": montar_pares(con), "temas.json": montar_temas(con)}
+            "dossie.json": montar_dossie(con), "pares.json": montar_pares(con), "temas.json": montar_temas(con),
+            "violencia.json": montar_violencia(con)}
 
 
 def main():

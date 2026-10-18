@@ -390,7 +390,16 @@ def dif_json(a, b, caminho=""):
 def dossie_e_pares(con, exp):
     secao("Dossiê e pares (data/dossie.json e data/pares.json == data/raw, URLs normalizadas)")
     raw_d = json.loads((RAW / "dossie.json").read_text(encoding="utf-8"))
-    d = dif_json(_norm_json(raw_d), _norm_json(json.loads(json.dumps(exp["dossie.json"]))))
+    exp_d = json.loads(json.dumps(exp["dossie.json"]))
+    # aditivos de brb.eventos (`id` do evento no banco, `fontes` ricas): fora do round-trip com o raw, conferidos contra o banco
+    ruins = []
+    for i, ev in enumerate(exp_d["brb"]["eventos"]):
+        eid, fontes = ev.pop("id", None), ev.pop("fontes", None)
+        ub = {r[0] for r in q(con, "SELECT e.url FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.evento_id=?", eid)}
+        if not ub or fontes is None or {f["url"] for f in fontes} != ub or not urls(ev["src"]) <= ub:
+            ruins.append(f"brb.eventos[{i}] ({eid})")
+    esperar("dossie.json: brb.eventos com `id` existente e `fontes` == evidências do evento no banco (⊇ src)", ruins, [])
+    d = dif_json(_norm_json(raw_d), _norm_json(exp_d))
     print(f"  diferenças dossie.json: {len(d)}")
     for x in d[:20]:
         print("   -", x)
@@ -817,6 +826,48 @@ def modelo_v2(con, exp):
         esperar("deputado/senador com partido NULL após complementos", n_comp, 0)
 
 
+# página -> arquivo de data/ que ela pede com fetch. Nenhuma página carrega mais cópia dos dados no HTML.
+PAGINAS_DADOS = {"brasil-ano-a-ano.html": "series.json", "pares.html": "pares.json", "violencia.html": "violencia.json",
+                 "dossie.html": "dossie.json", "teia.html": "teia.json", "origens.html": "origens.json"}
+# marcadores do JSON que as páginas traziam embutido antes de lerem data/*.json
+MARCADORES_EMBUTIDOS = [r'<script type="application/json"', r"(?m)^\s*(const|var|let) D\s*=\s*\{", r"(?m)^\s*var (SOURCES|CSRC|RACE_RATES)\s*=\s*\{\s*[\w\"]+\s*:",
+                        r"(?m)^\s*var (DATA|MARCOS)\s*=\s*\[\s*\{", r"\"homicidios\":\s*\d", r"\"years\":\s*\[1995"]
+
+
+def paginas(con, exp):
+    """As páginas leem data/*.json (fetch, sem cópia embutida) e as exportações que só as páginas usam batem com o banco."""
+    secao("Páginas (paginas/*.html leem data/*.json; nenhuma traz os dados embutidos)")
+    pdir = DATA.parent / "paginas"
+    if not pdir.is_dir():   # cópia só de scripts/ + data/ (fixtures dos testes do MCP): não há site para conferir
+        print("  info: sem paginas/ ao lado de data/; conferência do HTML pulada (as exportações abaixo continuam conferidas)")
+    for pag, arq in (PAGINAS_DADOS.items() if pdir.is_dir() else ()):
+        h = (pdir / pag).read_text(encoding="utf-8")
+        emb = [m for m in MARCADORES_EMBUTIDOS if re.search(m, h)]
+        esperar(f"{pag}: marcadores de dados embutidos", emb, [])
+        pede = sorted(set(re.findall(r"fetch\(\s*['\"]\.\./data/([a-z_]+\.json)['\"]", h)))
+        esperar(f"{pag}: arquivo pedido com fetch", pede, [arq])
+        esperar(f"{pag}: data/{arq} é exportado por exportar_json.py", arq in exp, True)
+        esperar(f"{pag}: tamanho < 100 KB (sem dados)", len(h.encode("utf-8")) < 100_000 or pag == "teia.html", True)
+    s, v = exp["series.json"], exp["violencia.json"]
+    esperar("series.json: eventos == eventos do canal brasil", len(s["eventos"]), q(con, "SELECT count(*) FROM evento WHERE canal='brasil'")[0][0])
+    nat = {r[0] for r in q(con, "SELECT id FROM natureza")}
+    ruins = [e["id"] for e in s["eventos"] if e["natureza"] not in nat
+             or {f["url"] for f in e["fontes"]} != {r[0] for r in q(con, "SELECT e.url FROM evento_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.evento_id=?", e["id"])}]
+    esperar("series.json: eventos com natureza válida e fontes == evidências no banco (divergências)", ruins, [])
+    esperar("series.json: textos de época (nota brasil/aviso) exportados",
+            sum(len([k for k in d if k in ("partido", "vice")]) + sum(len(d.get(c, {})) for c in ("presCamara", "presSenado")) for d in s["epoca"].values())
+            + sum(1 for r in s["ranking_empresa"] if "nome_epoca" in r),
+            q(con, "SELECT count(*) FROM nota WHERE pagina='brasil' AND tipo='aviso' AND chave LIKE 'Y.%'")[0][0])
+    esperar("violencia.json: marcos == eventos do canal violencia", [m["id"] for m in v["marcos"]],
+            [r[0] for r in q(con, "SELECT id FROM evento WHERE canal='violencia' ORDER BY data, id")])
+    esperar("violencia.json: recorte-ano sem fonte", [f"{c}.{a}" for c, r in v["recortes"].items() for a, x in r["anos"].items() if not x["fonte"]], [])
+    n_serie = sum(1 for c, r in v["recortes"].items() for x in r["anos"].values() for k in ("segs", "taxas", "pct") for _ in x.get(k, {})) \
+        + sum(1 for r in v["recortes"].values() for x in r["anos"].values() if "pub" in x)
+    esperar("violencia.json: valores de grupo dos recortes == linhas de serie (sem as taxas só de RACE_RATES)", n_serie,
+            q(con, """SELECT count(*) FROM serie s WHERE s.indicador_id LIKE 'violencia.%' AND s.indicador_id NOT LIKE '%.total'
+                      AND s.indicador_id <> 'violencia.homicidios' AND COALESCE(s.obs,'') <> 'RACE_RATES'""")[0][0])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=str(SQLITE))
@@ -857,6 +908,7 @@ def main():
     revisao_evidencias(con)
     evidencia_curadoria(con)
     modelo_v2(con, exp)
+    paginas(con, exp)
 
     secao("Arquivos exportados em disco")
     for nome, obj in exp.items():

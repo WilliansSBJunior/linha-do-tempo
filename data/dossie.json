@@ -113,6 +113,45 @@
       "Let's Money",
       "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro"
      ]
+    ],
+    "id": "max16",
+    "fontes": [
+     {
+      "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+      "veiculo": "letsmoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.letsmoney.com.br/noticias/voto-bc-triangulacao-vorcaro-maxima",
+      "veiculo": "letsmoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.brasil247.com/?p=945134",
+      "veiculo": "brasil247.com",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -126,6 +165,54 @@
       "Let's Money",
       "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro"
      ]
+    ],
+    "id": "max17",
+    "fontes": [
+     {
+      "url": "https://www.letsmoney.com.br/noticias/bc-veto-aval-compra-banco-maxima-vorcaro",
+      "veiculo": "letsmoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.letsmoney.com.br/noticias/voto-bc-triangulacao-vorcaro-maxima",
+      "veiculo": "letsmoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.brasil247.com/?p=943810",
+      "veiculo": "brasil247.com",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://jornaldebrasilia.com.br/noticias/economia/vorcaro-ja-usava-ciranda-financeira-ao-comprar-banco-que-virou-o-master-mostra-bc",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://jornalgrandebahia.com.br/2026/04/banco-central-rejeitou-e-depois-aprovou-controle-do-banco-master-por-daniel-vorcaro-apos-revisao-de-capacidade-economica",
+      "veiculo": "jornalgrandebahia.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -139,6 +226,18 @@
       "Diário do Comércio/Folhapress",
       "https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano"
      ]
+    ],
+    "id": "ev-2023-10-bc-limita-o-crescimento-dos-precatorios",
+    "fontes": [
+     {
+      "url": "https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano",
+      "veiculo": "diariodocomercio.com.br",
+      "tipo": "reportagem",
+      "titulo": "Diário do Comércio/Folhapress",
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -152,6 +251,18 @@
       "Let's Money",
       "https://www.letsmoney.com.br/banco-central/banco-master-bc-supervisao-acao-adiada-2024"
      ]
+    ],
+    "id": "ev-2024-05-bc-prepara-termo-punitivo-e-nao-assina",
+    "fontes": [
+     {
+      "url": "https://www.letsmoney.com.br/banco-central/banco-master-bc-supervisao-acao-adiada-2024",
+      "veiculo": "Let's Money",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -165,6 +276,18 @@
       "O Povo",
       "https://mais.opovo.com.br/jornal/politica/2026/05/08/pf-mira-ciro-nogueira-e-diz-que-senador-ganhava-mesada-de-ate-rs500-mil-de-vorcaro.html"
      ]
+    ],
+    "id": "ev-2024-06-comeca-segundo-a-pf-a-mesada-a-ciro",
+    "fontes": [
+     {
+      "url": "https://mais.opovo.com.br/jornal/politica/2026/05/08/pf-mira-ciro-nogueira-e-diz-que-senador-ganhava-mesada-de-ate-rs500-mil-de-vorcaro.html",
+      "veiculo": "O Povo",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -178,6 +301,36 @@
       "Times Brasil",
       "https://timesbrasil.com.br/brasil/operacoes-da-pf/mensagens-vorcaro-brb-bancou-master-2024"
      ]
+    ],
+    "id": "ev-2024-07-brb-comeca-a-comprar-carteiras-de",
+    "fontes": [
+     {
+      "url": "https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano",
+      "veiculo": "diariodocomercio.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.gazetadopovo.com.br/republica/compliance-zero-alvos-pf-envolvimento-banco-master",
+      "veiculo": "gazetadopovo.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://timesbrasil.com.br/brasil/operacoes-da-pf/mensagens-vorcaro-brb-bancou-master-2024",
+      "veiculo": "Times Brasil",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -191,6 +344,18 @@
       "Band",
       "https://www.band.com.br/noticias/o-que-diz-emenda-de-nogueira-que-a-pf-atribui-ao-banco-master-202605071130"
      ]
+    ],
+    "id": "ev-2024-08-13-ciro-nogueira-apresenta-a-emenda-que",
+    "fontes": [
+     {
+      "url": "https://www.band.com.br/noticias/o-que-diz-emenda-de-nogueira-que-a-pf-atribui-ao-banco-master-202605071130",
+      "veiculo": "Band",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -204,6 +369,18 @@
       "Diário do Comércio/Folhapress",
       "https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano"
      ]
+    ],
+    "id": "ev-2024-11-bc-da-seis-meses-ao-master-e-busca",
+    "fontes": [
+     {
+      "url": "https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano",
+      "veiculo": "diariodocomercio.com.br",
+      "tipo": "reportagem",
+      "titulo": "Diário do Comércio/Folhapress",
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -217,6 +394,36 @@
       "Gazeta do Povo",
       "https://www.gazetadopovo.com.br/republica/lula-aconselhou-vorcaro-a-recusar-venda-do-master-para-o-btg"
      ]
+    ],
+    "id": "ev-2024-12-04-lula-recebe-vorcaro-no-planalto-fora-da",
+    "fontes": [
+     {
+      "url": "https://timesbrasil.com.br/brasil/mensagens-revelam-articulacao-de-vorcaro-e-advogado-para-que-guido-mantega-defendesse-master-junto-a-lula",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.band.com.br/radio-bandeirantes/noticias/reportagens-revelam-reuniao-fora-da-agenda-entre-lula-e-daniel-vorcaro-202605180851",
+      "veiculo": "band.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.gazetadopovo.com.br/republica/lula-aconselhou-vorcaro-a-recusar-venda-do-master-para-o-btg",
+      "veiculo": "Gazeta do Povo",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -230,6 +437,18 @@
       "Poder360",
       "https://www.poder360.com.br/brasil/pf-ve-operacao-atipica-de-r-7-bi-entre-master-tirreno-e-brb"
      ]
+    ],
+    "id": "ev-2025-02-10-brb-assina-termo-de-ajuste-com-o-bc",
+    "fontes": [
+     {
+      "url": "https://www.poder360.com.br/brasil/pf-ve-operacao-atipica-de-r-7-bi-entre-master-tirreno-e-brb",
+      "veiculo": "Poder360",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -243,6 +462,36 @@
       "Metrópoles",
       "https://www.metropoles.com/colunas/grande-angular/o-que-se-sabe-sobre-a-compra-do-master-pelo-brb"
      ]
+    ],
+    "id": "ev-2025-03-28-brb-anuncia-compra-de-58-do-master",
+    "fontes": [
+     {
+      "url": "https://timesbrasil.com.br/brasil/economia-brasileira/veja-em-detalhes-o-historico-da-compra-do-banco-master-pelo-brb",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://poder360.com.br/poder-economia/banco-central-decreta-liquidacao-extrajudicial-do-banco-master",
+      "veiculo": "poder360.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.metropoles.com/colunas/grande-angular/o-que-se-sabe-sobre-a-compra-do-master-pelo-brb",
+      "veiculo": "Metrópoles",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -256,6 +505,18 @@
       "Folha de Pernambuco",
       "https://www.folhape.com.br/economia/ministerio-publico-do-df-abre-inquerito-para-apurar-circunstancias/401783"
      ]
+    ],
+    "id": "ev-2025-04-01-ministerio-publico-do-df-abre-inquerito",
+    "fontes": [
+     {
+      "url": "https://www.folhape.com.br/economia/ministerio-publico-do-df-abre-inquerito-para-apurar-circunstancias/401783",
+      "veiculo": "Folha de Pernambuco",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -269,6 +530,27 @@
       "Brazil Journal",
       "https://braziljournal.com/exclusivo-btg-compra-r-15-bi-em-ativos-de-vorcaro-que-vai-capitalizar-o-master"
      ]
+    ],
+    "id": "ev-2025-05-27-btg-compra-r-1-5-bi-em-ativos-de-vorcaro",
+    "fontes": [
+     {
+      "url": "https://www.poder360.com.br/poder-economia/btg-compra-r-15-bi-em-ativos-do-dono-do-banco-master",
+      "veiculo": "poder360.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://braziljournal.com/exclusivo-btg-compra-r-15-bi-em-ativos-de-vorcaro-que-vai-capitalizar-o-master",
+      "veiculo": "Brazil Journal",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -282,6 +564,18 @@
       "BRB, fato relevante",
       "https://ri.brb.com.br/upload/files/3886_Fato-Relevante-Aprovac-a-o-CADE-Banco-Master_v02.pdf"
      ]
+    ],
+    "id": "ev-2025-06-17-cade-aprova-sem-restricoes",
+    "fontes": [
+     {
+      "url": "https://ri.brb.com.br/upload/files/3886_Fato-Relevante-Aprovac-a-o-CADE-Banco-Master_v02.pdf",
+      "veiculo": "BRB, fato relevante",
+      "tipo": "relatorio",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -295,6 +589,18 @@
       "Times Brasil",
       "https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb"
      ]
+    ],
+    "id": "ev-2025-07-15-bc-comunica-ao-mpf-indicios-de-crimes-na",
+    "fontes": [
+     {
+      "url": "https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -309,6 +615,18 @@
       "Times Brasil",
       "https://timesbrasil.com.br/brasil/vorcaro-discutiu-acao-contra-bc-antes-de-veto-a-venda-do-master-ao-brb"
      ]
+    ],
+    "id": "ev-2025-07-17-vorcaro-fala-em-guerra-contra-o-bc",
+    "fontes": [
+     {
+      "url": "https://timesbrasil.com.br/brasil/vorcaro-discutiu-acao-contra-bc-antes-de-veto-a-venda-do-master-ao-brb",
+      "veiculo": "Times Brasil",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -323,6 +641,18 @@
       "Times Brasil",
       "https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb"
      ]
+    ],
+    "id": "ev-2025-07-19-hugo-motta-liga-para-vorcaro-as-7h-as-9h",
+    "fontes": [
+     {
+      "url": "https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "Times Brasil",
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -337,6 +667,18 @@
       "Gazeta do Povo",
       "https://www.gazetadopovo.com.br/republica/vorcaro-acionou-mantega-e-buscou-nova-reuniao-com-lula-em-2025"
      ]
+    ],
+    "id": "ev-2025-07-23-advogado-propoe-buscar-mantega-em",
+    "fontes": [
+     {
+      "url": "https://www.gazetadopovo.com.br/republica/vorcaro-acionou-mantega-e-buscou-nova-reuniao-com-lula-em-2025",
+      "veiculo": "Gazeta do Povo",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -351,6 +693,18 @@
       "Brasil de Fato",
       "https://brasildefato.com.br/2025/08/20/vergonha-parlamentares-de-oposicao-repudiam-aprovacao-relampago-na-camara-do-df-que-autoriza-brb-adquirir-banco-master"
      ]
+    ],
+    "id": "ev-2025-08-19-camara-do-df-aprova-a-compra-em-urgencia",
+    "fontes": [
+     {
+      "url": "https://brasildefato.com.br/2025/08/20/vergonha-parlamentares-de-oposicao-repudiam-aprovacao-relampago-na-camara-do-df-que-autoriza-brb-adquirir-banco-master",
+      "veiculo": "Brasil de Fato",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -365,6 +719,18 @@
       "Diário de Pernambuco",
       "https://www.diariodepernambuco.com.br/politica/2026/10/11725865-alem-de-flavio-os-envolvidos-com-vorcaro-que-se-elegeram-no-primeiro-turno-das-eleicoes.html"
      ]
+    ],
+    "id": "ev-2025-08-28-voo-no-jato-de-vorcaro-com-ciro-nogueira",
+    "fontes": [
+     {
+      "url": "https://www.diariodepernambuco.com.br/politica/2026/10/11725865-alem-de-flavio-os-envolvidos-com-vorcaro-que-se-elegeram-no-primeiro-turno-das-eleicoes.html",
+      "veiculo": "diariodepernambuco.com.br",
+      "tipo": "reportagem",
+      "titulo": "Diário de Pernambuco",
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -379,6 +745,18 @@
       "InfoMoney",
       "https://www.infomoney.com.br/politica/centrao-assina-urgencia-de-pl-que-permite-ao-congresso-demitir-diretoria-do-bc/amp"
      ]
+    ],
+    "id": "ev-2025-09-02-lideres-de-seis-partidos-assinam",
+    "fontes": [
+     {
+      "url": "https://www.infomoney.com.br/politica/centrao-assina-urgencia-de-pl-que-permite-ao-congresso-demitir-diretoria-do-bc/amp",
+      "veiculo": "InfoMoney",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -393,6 +771,63 @@
       "Poder360",
       "https://www.poder360.com.br/poder-economia/bc-nega-compra-do-banco-master-pelo-brb"
      ]
+    ],
+    "id": "ev-2025-09-03-bc-veta-a-compra-do-master-pelo-brb",
+    "fontes": [
+     {
+      "url": "https://timesbrasil.com.br/brasil/economia-brasileira/veja-em-detalhes-o-historico-da-compra-do-banco-master-pelo-brb",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://diariodocomercio.com.br/legislacao/tentativa-compra-do-master-brb-completa-1-ano",
+      "veiculo": "diariodocomercio.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.moneytimes.com.br/master-o-melhor-e-o-pior-cenario-para-banco-apos-negativa-do-bc-rnda",
+      "veiculo": "moneytimes.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://sbtnews.sbt.com.br/noticia/economia/decisoes-de-liquidacao-do-master-e-reprovacao-da-compra-pelo-brb-foram-unanimes-no-bc",
+      "veiculo": "sbtnews.sbt.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://timesbrasil.com.br/brasil/hugo-motta-pediu-para-falar-com-vorcaro-antes-de-reuniao-sobre-venda-do-master-ao-brb",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.poder360.com.br/poder-economia/bc-nega-compra-do-banco-master-pelo-brb",
+      "veiculo": "Poder360",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -406,6 +841,18 @@
       "Jornal Opção/Metrópoles",
       "https://www.jornalopcao.com.br/economia/brb-comprou-r-30-4-bi-em-ativos-do-banco-master-mesmo-apos-identificar-fraudes-812419"
      ]
+    ],
+    "id": "ev-2025-10-brb-ainda-paga-r-1-9-bi-ao-master-depois",
+    "fontes": [
+     {
+      "url": "https://www.jornalopcao.com.br/economia/brb-comprou-r-30-4-bi-em-ativos-do-banco-master-mesmo-apos-identificar-fraudes-812419",
+      "veiculo": "Jornal Opção/Metrópoles",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -419,6 +866,45 @@
       "Bloomberg Línea",
       "https://www.bloomberglinea.com.br/negocios/banco-master-de-daniel-vorcaro-e-vendido-para-consorcio-com-fictor-e-grupo-arabe"
      ]
+    ],
+    "id": "ev-2025-11-17-fictor-anuncia-compra-do-master-vorcaro",
+    "fontes": [
+     {
+      "url": "https://www.infomoney.com.br/mercados/fictor-anuncia-compra-do-banco-master",
+      "veiculo": "infomoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.correiodamanha.com.br/politica/2026/09/amp/317293-vorcaro-antecipou-voo-para-dubai-apos-perguntar-a-moraes-se-deveria-deixar-o-pais.html",
+      "veiculo": "correiodamanha.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.maisgoias.com.br/brasil/master-stf-forma-maioria-para-manter-vorcaro-preso",
+      "veiculo": "maisgoias.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.bloomberglinea.com.br/negocios/banco-master-de-daniel-vorcaro-e-vendido-para-consorcio-com-fictor-e-grupo-arabe",
+      "veiculo": "Bloomberg Línea",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -432,6 +918,90 @@
       "Poder360",
       "https://www.poder360.com.br/poder-economia/fictor-suspende-compra-do-banco-master-apos-liquidacao-pelo-bc"
      ]
+    ],
+    "id": "ev-2025-11-18-bc-decreta-a-liquidacao-extrajudicial-do",
+    "fontes": [
+     {
+      "url": "https://poder360.com.br/poder-economia/banco-central-decreta-liquidacao-extrajudicial-do-banco-master",
+      "veiculo": "poder360.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.metropoles.com/brasil/liquidacoes-ligadas-ao-master-sobem-para-nove-com-processo-do-multiplo",
+      "veiculo": "metropoles.com",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://timesbrasil.com.br/brasil/master-repassou-r-14-bilhao-em-precatorios-a-entre-investimentos-empresa-de-mineiro-um-mes-antes-do-banco-ser-liquidado",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.infomoney.com.br/politica/justica-afasta-presidente-brb-investigacao-prendeu-dono-banco-master/amp",
+      "veiculo": "infomoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://sbtnews.sbt.com.br/noticia/economia/decisoes-de-liquidacao-do-master-e-reprovacao-da-compra-pelo-brb-foram-unanimes-no-bc",
+      "veiculo": "sbtnews.sbt.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.infomoney.com.br/?p=3107708",
+      "veiculo": "infomoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://borainvestir.b3.com.br/noticias/o-que-disse-o-bc-ao-decretar-a-liquidacao-do-banco-master-grave-crise-de-liquidez",
+      "veiculo": "borainvestir.b3.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://revistaoeste.com/economia/bc-liquida-banco-master-e-bloqueia-bens-de-controladores",
+      "veiculo": "revistaoeste.com",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.poder360.com.br/poder-economia/fictor-suspende-compra-do-banco-master-apos-liquidacao-pelo-bc",
+      "veiculo": "Poder360",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -445,6 +1015,18 @@
       "O Povo",
       "https://www.opovo.com.br/noticias/economia/2025/12/19/ministro-do-tcu-ve-precipitacao-na-liquidacao-do-master-bc-diz-estar-munido-com-documentos.html"
      ]
+    ],
+    "id": "ev-2025-12-18-ministro-do-tcu-da-72-horas-ao-bc-e-fala",
+    "fontes": [
+     {
+      "url": "https://www.opovo.com.br/noticias/economia/2025/12/19/ministro-do-tcu-ve-precipitacao-na-liquidacao-do-master-bc-diz-estar-munido-com-documentos.html",
+      "veiculo": "O Povo",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -458,6 +1040,72 @@
       "Gazeta do Povo",
       "https://www.gazetadopovo.com.br/republica/ex-presidente-do-brb-e-preso-em-nova-fase-da-compliance-zero"
      ]
+    ],
+    "id": "ev-2026-04-16-ex-presidente-do-brb-paulo-henrique",
+    "fontes": [
+     {
+      "url": "https://www.poder360.com.br/poder-justica/ex-presidente-do-brb-e-preso-na-operacao-compliance-zero",
+      "veiculo": "poder360.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://timesbrasil.com.br/brasil/operacoes-da-pf/pf-prende-paulo-henrique-costa-ex-presidente-do-brb-em-nova-fase-da-compliance-zero",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.gazetadopovo.com.br/republica/compliance-zero-alvos-pf-envolvimento-banco-master",
+      "veiculo": "gazetadopovo.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.gazetadopovo.com.br/republica/ex-presidente-do-brb-e-preso-em-nova-fase-da-compliance-zero",
+      "veiculo": "Gazeta do Povo",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.letsmoney.com.br/noticias/pf-prende-ex-presidente-brb-esquema-master",
+      "veiculo": "letsmoney.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://revistaoeste.com/economia/ex-presidente-do-brb-devia-r-2-mi-ao-banco-ao-receber-imoveis-do-master",
+      "veiculo": "revistaoeste.com",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://movimentoeconomico.com.br/economia/justica/2026/04/22/stf-decide-se-mantem-prisao-de-ex-presidente-do-brb-por-propina-milionaria",
+      "veiculo": "movimentoeconomico.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -471,6 +1119,36 @@
       "Correio da Manhã",
       "https://www.correiodamanha.com.br/nacional/centro-oeste/2026/05/289442-gdf-fecha-acordo-bilionario-com-a-uniao-para-salvar-brb.html"
      ]
+    ],
+    "id": "ev-2026-05-28-uniao-e-gdf-acordam-emprestimo-de-ate-r",
+    "fontes": [
+     {
+      "url": "https://movimentoeconomico.com.br/economia/2026/05/28/uniao-e-gdf-fecham-acordo-para-viabilizar-emprestimo-ao-brb",
+      "veiculo": "movimentoeconomico.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.bemparana.com.br/noticias/economia/brb-completa-1-ano-sem-divulgar-resultado-e-se-aproxima-de-prazo-limite-para-resolver-crise-pos-master",
+      "veiculo": "bemparana.com.br",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     },
+     {
+      "url": "https://www.correiodamanha.com.br/nacional/centro-oeste/2026/05/289442-gdf-fecha-acordo-bilionario-com-a-uniao-para-salvar-brb.html",
+      "veiculo": "Correio da Manhã",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -484,6 +1162,18 @@
       "Correio da Manhã",
       "https://www.correiodamanha.com.br/nacional/centro-oeste/2026/06/292826-pl-que-ratifica-emprestimo-ao-brb-e-aprovado.html"
      ]
+    ],
+    "id": "ev-2026-06-11-camara-do-df-aprova-o-socorro-ao-brb-por",
+    "fontes": [
+     {
+      "url": "https://www.correiodamanha.com.br/nacional/centro-oeste/2026/06/292826-pl-que-ratifica-emprestimo-ao-brb-e-aprovado.html",
+      "veiculo": "Correio da Manhã",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    },
    {
@@ -497,6 +1187,18 @@
       "Diário do Nordeste",
       "https://diariodonordeste.verdesmares.com.br/negocios/caso-master-tcdf-determina-bloqueio-r-27-bilhoes-em-bens-de-ex-dirigentes-do-brb-1.3793728"
      ]
+    ],
+    "id": "ev-2026-09-23-tribunal-de-contas-do-df-bloqueia-bens",
+    "fontes": [
+     {
+      "url": "https://diariodonordeste.verdesmares.com.br/negocios/caso-master-tcdf-determina-bloqueio-r-27-bilhoes-em-bens-de-ex-dirigentes-do-brb-1.3793728",
+      "veiculo": "Diário do Nordeste",
+      "tipo": "reportagem",
+      "titulo": null,
+      "data": null,
+      "qualidade": null,
+      "papel": "sustenta"
+     }
     ]
    }
   ],

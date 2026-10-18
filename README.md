@@ -12,7 +12,19 @@ Não há build nem servidor: basta publicar esta pasta como está.
 | Master: mercado ou máquina | `index.html#dossie` | `paginas/dossie.html` |
 | Teia do Caso Master | `index.html#teia` | `paginas/teia.html` |
 
-- `index.html` é leve (menos de 60 KB): cabeçalho, menu fixo, seções e rodapé. Os dados ficam nas páginas de `paginas/`.
+- `index.html` é leve (menos de 60 KB): cabeçalho, menu fixo, seções e rodapé. As páginas de `paginas/` não trazem dados embutidos: cada uma pede, uma vez, o seu arquivo de `data/` (exportado do banco por `scripts/exportar_json.py`) e, se ele faltar, mostra um aviso no lugar do conteúdo.
+
+| Página | Arquivo de dados |
+|---|---|
+| `brasil-ano-a-ano.html` | `data/series.json` (indicadores, empresas, mandatos, bancadas, textos de época e os fatos de cada ano) |
+| `pares.html` | `data/pares.json` |
+| `violencia.html` | `data/violencia.json` (contador, recortes por grupo, taxas e marcos legais) |
+| `origens.html` | `data/origens.json` |
+| `dossie.html` | `data/dossie.json` |
+| `teia.html` | `data/teia.json` |
+
+- Em Brasil ano a ano, cada fato traz a etiqueta de natureza do banco (documentado, reportado, sob investigação, alegação, não classificado; a mesma legenda da teia) no painel e no destaque do ano; ao abrir o fato, o painel lista as fontes próprias (veículo, título com link, tipo, data; fracas marcadas) e, recolhidas, as fontes de contexto do ano. Parlamentares e presidentes da Câmara e do Senado com mandato conferido nas APIs/páginas oficiais trazem o link “fonte oficial”.
+- Em Ritmo da violência, cada marco legal (recorte Arma de fogo) mostra a natureza e, aberto, a lista de fontes; no dossiê, cada fato da linha do tempo do BRB ganha a lista “Fontes” (recolhida) ao lado dos links de sempre.
 - Cada página de `paginas/` também abre sozinha e traz no topo o link “← Página completa”.
 - `index.html#teia-3d` abre a teia já no modo 3D.
 - Na teia (2D e 3D), o painel de uma ligação lista as fontes que a comprovam (veículo, título com link, etiqueta oficial/reportagem/decisão/wiki, data; fontes fracas marcadas), e o painel de um nome mostra quantas fontes tem cada ligação. Com um `teia.json` antigo (sem `fontes`), volta a lista simples.
@@ -35,8 +47,8 @@ Não há build nem servidor: basta publicar esta pasta como está.
 
 ## Testar no computador
 
-Rode `python -m http.server` nesta pasta e abra <http://localhost:8000/>. Abrir o `index.html` direto do disco também funciona,
-mas alguns navegadores tratam cada arquivo local como origem separada.
+Rode `python -m http.server` nesta pasta e abra <http://localhost:8000/>. Aberto direto do disco (`file://`), o navegador não deixa
+as páginas lerem `data/*.json`: as seções aparecem com o aviso de que os dados não carregaram. Use sempre um servidor (local ou o site publicado).
 
 ## Conteúdo
 

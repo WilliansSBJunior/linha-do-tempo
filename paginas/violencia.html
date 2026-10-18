@@ -332,6 +332,28 @@ footer a { color: var(--ink); }
 .marcos .mdate { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 6.5em; }
 .marcos p { margin: 0 0 10px 30px; font-size: var(--step--1); color: var(--ink); }
 .marcos a, .rate-box a { color: var(--ink); }
+/* carregamento, natureza e fontes dos marcos (do banco) */
+.vload { margin: 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; font-size: var(--step--1); color: var(--muted); }
+.vload.err { color: var(--ink); border-color: var(--g2); }
+.chip { font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; border: 1px solid var(--muted); border-radius: 3px; padding: 1px 6px; color: var(--muted); white-space: nowrap; line-height: 1.5; }
+.chip.doc { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip.inv { border-style: dashed; }
+.chip.rep { border-style: dotted; }
+.chip.ale { border-style: double; border-width: 3px; padding: 0 5px; }
+.chip.nc { border-color: var(--line); }
+.marcos summary .chip { margin-left: auto; }
+.mfontes { margin: 0 0 12px 30px; display: flex; flex-direction: column; gap: 4px; }
+.mlab { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.evsrc { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.evsrc li { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 6px 0; border-top: 1px solid var(--line); font-size: var(--step--1); min-width: 0; }
+.evsrc a { font-weight: 600; overflow-wrap: anywhere; }
+.evsrc .sv { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.evsrc .sm { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.evsrc .stype { font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 3px; padding: 0 5px; white-space: nowrap; }
+.evsrc .stype.doc { color: var(--bg); background: var(--muted); border-color: var(--muted); }
+.evsrc li.fraca a { font-weight: 500; color: var(--muted); }
+.evsrc .sfr { font-style: italic; }
+.mfontes .sfnote { margin: 0; font-size: 12px; color: var(--muted); }
 .marcos-box, .rate-box { display: flex; flex-direction: column; gap: 8px; }
 .evo .marco-l { stroke: var(--ink); stroke-opacity: 0.35; stroke-width: 1; }
 .evo .marco-l.sel { stroke-opacity: 1; stroke-width: 1.6; }
@@ -413,6 +435,7 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
       <button type="button" id="view-all" data-view="all" aria-pressed="false">Todos os anos</button>
     </div>
   </header>
+  <p class="vload" id="violload" role="status">Carregando os dados do banco (data/violencia.json)…</p>
 
   <div class="toolbar" id="toolbar">
     <div class="seg" id="modes" role="group" aria-label="Modo de leitura">
@@ -573,72 +596,8 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
 (function () {
   "use strict";
 
-  // ---------- Dados (somente valores conferidos nas tabelas citadas) ----------
-  var SOURCES = {
-    mapa2012: { nome: "Mapa da Violência 2012: os novos padrões da violência homicida no Brasil, Tabela 2.1.1", curto: "Mapa da Violência 2012", url: "https://andi.org.br/wp-content/uploads/2020/10/mapa2012.pdf" },
-    atlas2016: { nome: "Atlas da Violência 2016, Tabela 1.3", curto: "Atlas da Violência 2016", url: "https://publicacoes.forumseguranca.org.br/items/7a6fc773-c196-4d63-b380-fc8463f958a6" },
-    atlas2017: { nome: "Atlas da Violência 2017, Tabela 1.3", curto: "Atlas da Violência 2017", url: "https://publicacoes.forumseguranca.org.br/items/155b3df2-3cf5-46ee-b58f-cc96c56dbfda" },
-    atlas2018: { nome: "Atlas da Violência 2018, Tabela 2.3", curto: "Atlas da Violência 2018", url: "https://publicacoes.forumseguranca.org.br/items/0a152323-6190-4331-b2a9-c5a19c2a9704" },
-    atlas2021: { nome: "Atlas da Violência 2021, Tabela 2.2", curto: "Atlas da Violência 2021", url: "https://publicacoes.forumseguranca.org.br/items/2e5e66c1-655e-4751-b7fd-d29017d6b1d1" },
-    atlas2023: { nome: "Atlas da Violência 2023, Tabela 2", curto: "Atlas da Violência 2023", url: "https://publicacoes.forumseguranca.org.br/items/f0c6ddee-5347-47da-9374-1bf491b0aff6" },
-    atlas2024: { nome: "Atlas da Violência 2024, Tabela 2.2", curto: "Atlas da Violência 2024", url: "https://publicacoes.forumseguranca.org.br/items/81f69453-baf0-4e6a-9f61-f4f6950b1317" },
-    atlas2025: { nome: "Atlas da Violência 2025, Tabela 2.2", curto: "Atlas da Violência 2025", url: "https://publicacoes.forumseguranca.org.br/items/ecd3f9ce-d774-46f6-9a17-21802a469a09" },
-    atlas2026: { nome: "Atlas da Violência 2026, Tabela 2.2", curto: "Atlas da Violência 2026", url: "https://publicacoes.forumseguranca.org.br/items/e9c64cd8-f18c-4448-94e7-dc0190efa6ae" }
-  };
-
-  var DATA = [
-    { ano: 1980, homicidios: 13910, fonte: "mapa2012" },
-    { ano: 1981, homicidios: 15213, fonte: "mapa2012" },
-    { ano: 1982, homicidios: 15550, fonte: "mapa2012" },
-    { ano: 1983, homicidios: 17408, fonte: "mapa2012" },
-    { ano: 1984, homicidios: 19767, fonte: "mapa2012" },
-    { ano: 1985, homicidios: 19747, fonte: "mapa2012" },
-    { ano: 1986, homicidios: 20481, fonte: "mapa2012" },
-    { ano: 1987, homicidios: 23087, fonte: "mapa2012" },
-    { ano: 1988, homicidios: 23357, fonte: "mapa2012" },
-    { ano: 1989, homicidios: 28757, fonte: "mapa2012" },
-    { ano: 1990, homicidios: 31989, fonte: "mapa2012" },
-    { ano: 1991, homicidios: 30566, fonte: "mapa2012" },
-    { ano: 1992, homicidios: 28387, fonte: "mapa2012" },
-    { ano: 1993, homicidios: 30586, fonte: "mapa2012" },
-    { ano: 1994, homicidios: 32603, fonte: "mapa2012" },
-    { ano: 1995, homicidios: 37128, fonte: "mapa2012" },
-    { ano: 1996, homicidios: 38894, fonte: "mapa2012" },
-    { ano: 1997, homicidios: 40507, fonte: "mapa2012" },
-    { ano: 1998, homicidios: 41950, fonte: "mapa2012" },
-    { ano: 1999, homicidios: 42914, fonte: "mapa2012" },
-    { ano: 2000, homicidios: 45360, fonte: "mapa2012" },
-    { ano: 2001, homicidios: 47943, fonte: "mapa2012" },
-    { ano: 2002, homicidios: 49695, fonte: "mapa2012" },
-    { ano: 2003, homicidios: 51043, fonte: "mapa2012" },
-    { ano: 2004, homicidios: 48909, fonte: "atlas2016" },
-    { ano: 2005, homicidios: 48136, fonte: "atlas2017" },
-    { ano: 2006, homicidios: 49704, fonte: "atlas2018" },
-    { ano: 2007, homicidios: 48219, fonte: "atlas2018" },
-    { ano: 2008, homicidios: 50659, fonte: "atlas2018" },
-    { ano: 2009, homicidios: 52043, fonte: "atlas2021" },
-    { ano: 2010, homicidios: 53016, fonte: "atlas2021" },
-    { ano: 2011, homicidios: 52807, fonte: "atlas2023" },
-    { ano: 2012, homicidios: 57045, fonte: "atlas2024" },
-    { ano: 2013, homicidios: 57396, fonte: "atlas2025" },
-    { ano: 2014, homicidios: 60474, fonte: "atlas2026" },
-    { ano: 2015, homicidios: 59080, fonte: "atlas2026" },
-    { ano: 2016, homicidios: 62517, fonte: "atlas2026" },
-    { ano: 2017, homicidios: 65602, fonte: "atlas2026" },
-    { ano: 2018, homicidios: 57956, fonte: "atlas2026" },
-    { ano: 2019, homicidios: 45503, fonte: "atlas2026" },
-    { ano: 2020, homicidios: 49868, fonte: "atlas2026" },
-    { ano: 2021, homicidios: 47847, fonte: "atlas2026" },
-    { ano: 2022, homicidios: 46409, fonte: "atlas2026" },
-    { ano: 2023, homicidios: 45747, fonte: "atlas2026" },
-    { ano: 2024, homicidios: 42590, fonte: "atlas2026" }
-  ];
-  var SOURCE_BREAK_AFTER = 2003; // última linha do Mapa da Violência
-
-  // ---------- Recortes por grupo (somente valores conferidos) ----------
-  // Cada ano: tot = total de homicídios usado como denominador; segs = grupos publicados;
-  // o restante (tot - soma dos grupos) vira o grupo residual do recorte.
-  // pct = percentual publicado sem número absoluto (não derivamos o número).
+  // ---------- Dados: ../data/violencia.json (exportado do banco; séries, fontes, marcos com natureza e fontes) ----------
+  // Rótulos de grupo (nome, frase, cor) e a ordem/resíduo de cada recorte são vocabulário da página; números, fontes e notas vêm do arquivo.
   var GROUPS = {
     mulheres:     { nome: "Mulheres", um: "uma mulher", cor: "g1" },
     demaisSexo:   { nome: "Homens e sexo não informado", um: "um homem (ou vítima sem sexo informado)", cor: "g0" },
@@ -658,169 +617,64 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
     armaFogo:     { nome: "Arma de fogo", um: "uma pessoa morta com arma de fogo", cor: "g1" },
     outrosMeios:  { nome: "Outros meios", um: "uma pessoa morta por outros meios", cor: "g0" }
   };
-
-  // tipo: "tabela" = tabela publicada; "imprensa" = número divulgado, via imprensa;
-  // "sintese" = texto ou infográfico oficial da publicação (não tabela).
-  var CSRC = {
-    mapa2015m: { tipo: "tabela", nome: "Mapa da Violência 2015: Homicídio de mulheres no Brasil, Tabela 2.1", url: "https://www12.senado.leg.br/institucional/omv/menu/entenda-a-violencia/files/pdfs/mapa-da-violencia-2015" },
-    mapa2014j: { tipo: "tabela", nome: "Mapa da Violência: Homicídios e juventude no Brasil, atualização 2014, Tabelas 2.2.2 e 2.2.3", url: "https://siac.fpabramo.org.br/uploads/acaoinstitucional/WAISELFISZ_Homicidios_e_juventude_no_Brasil-atualizacao_2014.pdf" },
-    mapa2012ca: { tipo: "tabela", nome: "Mapa da Violência 2012: Crianças e adolescentes do Brasil, Tabela 2.1", url: "https://www.conjur.com.br/wp-content/uploads/2023/09/mapa-violencia-jovens.pdf" },
-    mapa2012cor: { tipo: "sintese", nome: "Mapa da Violência 2012: A cor dos homicídios no Brasil (número citado no texto)", url: "https://flacso.org.br/files/2020/03/mapa2012_cor.pdf" },
-    mapa2015af: { tipo: "tabela", nome: "Mapa da Violência 2015: Mortes matadas por armas de fogo, Tabelas 2.1 e 2.2 (coluna homicídio)", url: "https://flacso.org.br/files/2020/03/mapaViolencia2015.pdf" },
-    atlas2016t: { tipo: "tabela", nome: "Atlas da Violência 2016, Tabelas 4.1, 4.2 e 1.3", url: "https://publicacoes.forumseguranca.org.br/items/7a6fc773-c196-4d63-b380-fc8463f958a6" },
-    atlas2017t: { tipo: "tabela", nome: "Atlas da Violência 2017, Tabelas 4.1, 4.2 e 1.3", url: "https://publicacoes.forumseguranca.org.br/items/155b3df2-3cf5-46ee-b58f-cc96c56dbfda" },
-    atlas2017i: { tipo: "sintese", nome: "Atlas da Violência 2017, infográfico", url: "https://forumseguranca.org.br/wp-content/uploads/2017/06/FBSP_atlas_da_violencia_2017_infografico.pdf" },
-    atlas2018t: { tipo: "tabela", nome: "Atlas da Violência 2018, Tabelas 4.1 e 2.3", url: "https://publicacoes.forumseguranca.org.br/items/0a152323-6190-4331-b2a9-c5a19c2a9704" },
-    atlas2018n: { tipo: "imprensa", nome: "Atlas da Violência 2018 (Jornal do Brasil)", url: "https://www.jb.com.br/pais/noticias/2018/06/06/amp/atlas-da-violencia-30-de-cada-100-mil-sao-mortos-no-brasil.html" },
-    atlas2019t: { tipo: "tabela", nome: "Atlas da Violência 2019, Tabelas 3.1 e 2.2", url: "https://publicacoes.forumseguranca.org.br/items/57099e69-8888-4647-8b7b-1efe33e517ff" },
-    atlas2019n: { tipo: "imprensa", nome: "Atlas da Violência 2019 (O Imparcial)", url: "https://oimparcial.com.br/noticias/2019/06/atlas-da-violencia-2019-brasil-registra-indices-ineditos/" },
-    atlas2019cc: { tipo: "imprensa", nome: "Atlas da Violência 2019 (CartaCapital)", url: "https://www.cartacapital.com.br/?p=79516" },
-    atlas2020n: { tipo: "imprensa", nome: "Atlas da Violência 2020 (Jovem Pan)", url: "https://jovempan.com.br/brasil/atlas-da-violencia-aponta-queda-em-homicidios-em-2018-mas-alta-em-crimes-contra-negros/" },
-    atlas2021t: { tipo: "tabela", nome: "Atlas da Violência 2021, Tabelas 4.1, 4.2 e 2.2", url: "https://publicacoes.forumseguranca.org.br/items/2e5e66c1-655e-4751-b7fd-d29017d6b1d1" },
-    atlas2021n: { tipo: "sintese", nome: "Atlas da Violência 2021, síntese Ipea Em Questão n. 8", url: "https://repositorio.ipea.gov.br/bitstream/11058/11128/1/EmQuestao_n8_Atlas.pdf" },
-    atlas2023s: { tipo: "tabela", nome: "Atlas da Violência 2023, sumário executivo, Tabela 1 (0 a 19 anos por faixa)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download" },
-    atlas2023st: { tipo: "sintese", nome: "Atlas da Violência 2023, sumário executivo (texto, p. 9)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download" },
-    atlas2023af: { tipo: "tabela", nome: "Atlas da Violência 2023, sumário executivo, Tabela 50 (homicídios por arma de fogo)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/3605604e-9682-4b5e-a728-bc53c023a520/download" },
-    atlas2023neg: { tipo: "imprensa", nome: "Atlas da Violência 2023 (Poder360)", url: "https://www.poder360.com.br/brasil/8-em-cada-10-assassinados-no-brasil-sao-negros-indica-atlas-da-violencia/" },
-    atlas2024t: { tipo: "tabela", nome: "Atlas da Violência 2024, Tabelas 4.1, 4.2 e 2.2", url: "https://publicacoes.forumseguranca.org.br/bitstreams/9cb4616a-b635-468e-aa16-61a7ff6aee21/download" },
-    atlas2024n: { tipo: "imprensa", nome: "Atlas da Violência 2024 (SBT News)", url: "https://sbtnews.sbt.com.br/noticia/brasil/brasil-registrou-127-homicidios-por-dia-em-2022-diz-atlas-da-violencia" },
-    atlas2024af: { tipo: "sintese", nome: "Atlas da Violência 2024, infográfico (percentual publicado)", url: "https://publicacoes.forumseguranca.org.br/bitstreams/c4331098-0692-4966-b0b2-1a090a08747a/download" },
-    atlas2025m: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Diario de Pernambuco)", url: "https://www.diariodepernambuco.com.br/brasil/2025/05/3893436-atlas-da-violencia-brasil-tem-dez-mulheres-assassinadas-por-dia.html" },
-    atlas2025j: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Poder360, CNN Brasil, Correio Braziliense)", url: "https://www.poder360.com.br/poder-brasil/brasil-teve-60-jovens-assassinados-por-dia-em-2023-diz-relatorio/" },
-    atlas2025r: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Poder360)", url: "https://www.poder360.com.br/poder-pesquisas/pessoas-negras-sao-77-dos-homicidios-no-brasil/" },
-    atlas2025af: { tipo: "imprensa", nome: "Atlas da Violência 2025 (Jornal Opção)", url: "https://www.jornalopcao.com.br/ultimas-noticias/atlas-da-violencia-goias-tem-queda-de-mais-de-10-em-homicidios-por-arma-de-fogo-705984/" },
-    atlas2026r: { tipo: "imprensa", nome: "Atlas da Violência 2026 (Jornal do Brasil, Poder360)", url: "https://www.jb.com.br/brasil/direitos-humanos/2026/05/amp/1059754-atlas-da-violencia-2026-expoe-desigualdades-e-letalidade-contra-grupos-vulneraveis-no-brasil.html" },
-    atlas2026m: { tipo: "imprensa", nome: "Atlas da Violência 2026 (Brasil de Fato, Bem Paraná)", url: "https://www.brasildefato.com.br/2026/05/26/homicidios-de-pessoas-negras-representam-77-do-total-de-assassinatos-no-brasil-aponta-atlas-da-violencia/" },
-    atlas2026j: { tipo: "imprensa", nome: "Atlas da Violência 2026 (TVT News)", url: "https://tvtnews.com.br/?p=789133" },
-    atlas2026af: { tipo: "imprensa", nome: "Atlas da Violência 2026 (boca.com.br; 70,1% confirmado no infográfico oficial)", url: "https://boca.com.br/justica/homicidios-com-armas-de-fogo-caem-mas-ainda-sao-70-no-brasil" }
-  };
   var TIPO_TXT = { tabela: "tabela", imprensa: "número divulgado, via imprensa", sintese: "texto ou infográfico oficial" };
-
-  // Taxas por 100 mil de negros e não negros (para o gráfico de risco). [negros, não negros]
-  var RACE_RATES = {
-    2004: [31.7, 18.3], 2005: [31.8, 17.2], 2006: [32.7, 17.0], 2007: [32.4, 15.3], 2008: [33.7, 15.7],
-    2009: [34.3, 15.8], 2010: [36.5, 15.2], 2011: [35.1, 14.6], 2012: [36.7, 15.5], 2013: [36.8, 15.6],
-    2014: [38.5, 15.6], 2015: [37.7, 15.3], 2016: [40.2, 16.0], 2017: [43.1, 16.0], 2018: [37.8, 13.9],
-    2019: [29.2, 11.2], 2021: [31.0, 10.8], 2022: [29.7, 10.8], 2023: [28.9, 10.6], 2024: [27.3, 10.1]
-  };
-
-  // Marcos legais sobre armas (datas e fatos; sem relação de causa sugerida).
-  var MARCOS = [
-    { data: "2003-12-22", curto: "Estatuto do Desarmamento", titulo: "Estatuto do Desarmamento (Lei 10.826)", texto: "Sancionada a Lei 10.826, que trata de registro, posse e comercialização de armas de fogo e munição, cria o Sinarm e define crimes. Publicada no Diário Oficial em 23/12/2003. O art. 35 condicionava a proibição da venda a um referendo.", url: "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.826.htm" },
-    { data: "2004-07-01", curto: "Decreto 5.123", titulo: "Decreto 5.123 regulamenta o Estatuto", texto: "O Decreto 5.123, de 1/7/2004, regulamenta a Lei 10.826.", url: "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/decreto/d5123.htm" },
-    { data: "2004-07-15", curto: "Campanha de entrega", titulo: "Início da Campanha Nacional do Desarmamento (entrega voluntária)", texto: "Reportagem da TV Câmara (10/12/2004) data o início da campanha em 15 de julho de 2004. A data não foi confirmada em fonte oficial do governo. A Agência Brasil registra cerca de 704 mil armas devolvidas desde a criação da campanha.", url: "https://www.camara.leg.br/tv/157682-campanha-pelo-desarmamento-supera-expectativas/" },
-    { data: "2005-10-23", curto: "Referendo", titulo: "Referendo sobre a proibição do comércio de armas", texto: "Referendo sobre proibir o comércio de armas de fogo e munição (art. 35 do Estatuto). O TSE registra que a proposta foi rejeitada; a Rádio Senado informa 63% de votos “não”. O percentual exato não foi confirmado em página oficial.", url: "https://www.tse.jus.br/eleicoes/plebiscitos-e-referendos/referendo-2005/referendo-2005-1" },
-    { data: "2019-01-15", curto: "Decreto 9.685", titulo: "Decreto 9.685 (posse de arma)", texto: "Altera o Decreto 5.123/2004 e define categorias com efetiva necessidade presumida para a posse de arma de fogo, com limite de 4 armas. Depois revogado pelo Decreto 9.785/2019.", url: "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2019/Decreto/D9685.htm" },
-    { data: "2019-05-07", curto: "Decreto 9.785", titulo: "Decreto 9.785", texto: "Regulamenta a Lei 10.826, fixa o limite de 1.200 libras-pé (1.620 joules) para armas de uso permitido e amplia limites de aquisição (colecionador até 5 por modelo, caçador até 15, atirador até 30).", url: "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9785.htm" },
-    { data: "2019-06-25", curto: "Decreto 9.847", titulo: "Decreto 9.847", texto: "Regulamenta a Lei 10.826 quanto a aquisição, cadastro, registro, porte e comercialização de armas e munição (Sinarm e Sigma) e exige idade mínima de 25 anos para adquirir.", url: "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/decreto/d9847.htm" },
-    { data: "2021-02-12", curto: "Decretos 10.629 e 10.630", titulo: "Decretos 10.629 e 10.630", texto: "Alteram os Decretos 9.846 e 9.847/2019. O 10.629 fixa limites de munição para caçadores e atiradores (até 5.000 unidades por ano para armas de uso permitido); o 10.630 autoriza o porte simultâneo de até duas armas e muda procedimentos no Sinarm e no Sigma.", url: "http://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/decreto/d10630.htm" },
-    { data: "2023-01-01", curto: "Decreto 11.366", titulo: "Decreto 11.366 (restrições)", texto: "Suspende registros de aquisição e transferência de armas de uso restrito por caçadores, colecionadores e atiradores, limita armas e munição de uso permitido (até 3 armas por pessoa; 50 munições por ano), suspende novos registros de clubes e escolas de tiro e cria grupo de trabalho para nova regulamentação.", url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11366.htm" },
-    { data: "2023-07-21", curto: "Decreto 11.615", titulo: "Decreto 11.615 (nova regulamentação)", texto: "Regulamenta a Lei 10.826 com novos limites: idade mínima de 25 anos para colecionadores, exigência de comprovar efetiva necessidade e limites anuais por nível de atirador (nível 1: 4 armas e 4.000 cartuchos).", url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/d11615.htm" }
-  ];
-
-  var CUTS = (function () {
-    var mapaTot = [13910,15213,15550,17408,19767,19747,20481,23087,23357,28757,31989,30566,28387,30586,32603,37128,38894,40507,41950,42914,45360,47943,49695,51043,48374,47578,49145,47707,50113,51434,49932];
-    var mulheres = [1353,1487,1497,1700,1736,1766,1799,1935,2025,2344,2585,2727,2399,2622,2838,3325,3682,3587,3503,3536,3743,3851,3867,3937,3830,3884,4022,3772,4023,4260,4465];
-    var taxaMulheres = [2.3,2.4,2.4,2.7,2.7,2.7,2.7,2.8,2.9,3.3,3.5,3.7,3.2,3.4,3.6,4.2,4.6,4.4,4.3,4.3,4.3,4.4,4.4,4.4,4.2,4.2,4.2,3.9,4.2,4.4,4.6];
-    var ate19 = [1825,1920,1899,2266,2596,2908,3134,3396,3422,4456,5004,4674,4165,4782,5168,5925,6170,6645,7181,7355,8132,8480,8817,8787,8309,8361,8414,8166,8433,8393,8686];
-    var TOT_MAPA = "Total: Mapa da Violência 2012, Tabela 2.1.1 (outra publicação do mesmo autor, mesma base SIM).";
-    var TOT_CONT = "Total: o mesmo do contador, porque a publicação do grupo não traz o total do ano.";
-    var sexo = {}, i019 = {}, faixas = {};
-    for (var i = 0; i < mapaTot.length; i++) {
-      var ano = 1980 + i;
-      sexo[ano] = { tot: mapaTot[i], segs: [["mulheres", mulheres[i]]], rates: { mulheres: taxaMulheres[i] }, src: "mapa2015m", totNote: TOT_MAPA };
-      i019[ano] = { tot: mapaTot[i], segs: [["ate19", ate19[i]]], src: "mapa2012ca", totNote: TOT_MAPA };
-    }
-    sexo[2011] = { tot: 52807, segs: [["mulheres", 4512]], rates: { mulheres: 4.6 }, src: "mapa2015m", totNote: TOT_CONT };
-    sexo[2012] = { tot: 57045, segs: [["mulheres", 4719]], rates: { mulheres: 4.8 }, src: "mapa2015m", totNote: TOT_CONT };
-    sexo[2013] = { tot: 57396, segs: [["mulheres", 4762]], rates: { mulheres: 4.8 }, src: "mapa2015m", totNote: TOT_CONT };
-    sexo[2015] = { tot: 59080, segs: [["mulheres", 4621]], rates: { mulheres: 4.5 }, src: "atlas2017i" };
-    sexo[2016] = { tot: 62517, segs: [["mulheres", 4645]], rates: { mulheres: 4.5 }, src: "atlas2018n" };
-    sexo[2017] = { tot: 65602, segs: [["mulheres", 4936]], src: "atlas2019n" };
-    sexo[2018] = { tot: 57956, segs: [["mulheres", 4519]], src: "atlas2020n" };
-    sexo[2019] = { tot: 45503, segs: [["mulheres", 3737]], src: "atlas2021n" };
-    sexo[2021] = { tot: 47847, segs: [["mulheres", 3858]], src: "atlas2023st" };
-    sexo[2022] = { tot: 46409, segs: [["mulheres", 3806]], rates: { mulheres: 3.5 }, src: "atlas2024n" };
-    sexo[2023] = { tot: 45747, segs: [["mulheres", 3903]], rates: { mulheres: 3.5 }, src: "atlas2025m" };
-    sexo[2024] = { tot: 42590, segs: [["mulheres", 3642]], rates: { mulheres: 3.4 }, src: "atlas2026m" };
-
-    // 0 a 19 anos por faixa (Atlas 2023 sumário, Tabela 1; 2022 e 2024 via imprensa)
-    var F = {
-      2011: [160, 744, 8144], 2012: [199, 861, 9337], 2013: [253, 821, 9649], 2014: [210, 869, 10348],
-      2015: [210, 758, 9988], 2016: [204, 733, 10707], 2017: [204, 745, 11152], 2018: [213, 605, 9249],
-      2019: [188, 461, 6538], 2020: [173, 427, 6780], 2021: [152, 372, 6002], 2022: [147, 348, 5220], 2024: [179, 320, 4570]
-    };
-    var TOT_ATLAS = { 2011: 52807, 2012: 57045, 2013: 57396, 2014: 60474, 2015: 59080, 2016: 62517, 2017: 65602, 2018: 57956, 2019: 45503, 2020: 49868, 2021: 47847, 2022: 46409, 2024: 42590 };
-    Object.keys(F).forEach(function (y) {
-      var f = F[y], s = y === "2022" ? "atlas2024n" : y === "2024" ? "atlas2026j" : "atlas2023s";
-      var soma = f[0] + f[1] + f[2];
-      var note = y === "2022" || y === "2024" ? "O número de 0 a 19 anos é a soma exata das três faixas publicadas." : "";
-      i019[y] = { tot: TOT_ATLAS[y], segs: [["ate19", soma]], src: s, note: note };
-      faixas[y] = { tot: TOT_ATLAS[y], segs: [["f04", f[0]], ["f514", f[1]], ["f1519", f[2]]], src: s };
+  var ORDEM_CORTES = ["sexo", "idade1529", "idade019", "idadeF", "idade60", "raca", "arma"];
+  // grupo residual de cada recorte (o que sobra do total); raça escolhe entre ignRaca e naoNegrosIgn conforme os grupos publicados
+  var RESTO = { sexo: "demaisSexo", idade1529: "demais1529", idade019: "demais019", idadeF: "demais019", idade60: "demais60", raca: null, arma: "outrosMeios" };
+  var GORD = Object.keys(GROUPS);
+  /* data/violencia.json (exportado do banco) -> as estruturas que o resto da página usa (SOURCES, DATA, CSRC, CUTS, RACE_RATES, MARCOS).
+     Fontes identificadas pela URL (e, nos recortes, pela URL + rótulo, porque a mesma publicação aparece com rótulos diferentes). */
+  function violAdaptar(V) {
+    var SOURCES = {}, CSRC = {}, CUTS = {}, RACE_RATES = {};
+    var DATA = V.homicidios.anos.map(function (r) {
+      var f = r.fonte;
+      if (!SOURCES[f.url]) SOURCES[f.url] = { nome: f.titulo, curto: f.curto, url: f.url };
+      return { ano: r.ano, homicidios: r.valor, fonte: f.url };
     });
-    i019[2024].rateNote = faixas[2024].rateNote = "Taxas por 100 mil: 0 a 4 anos, 1,4; 5 a 14 anos, 1,1; 15 a 19 anos, 30,5.";
-
-    // 15 a 29 anos. 1980-2003: Mapa 2014 (jovens + não jovens = total da própria tabela).
-    var j = {};
-    [[1980,6759,7151,19.6],[1981,7378,7835,21.0],[1982,7264,8286,20.3],[1983,8273,9135,22.8],[1984,9737,10030,26.3],[1985,10069,9678,26.8],[1986,10526,9955,27.5],[1987,11779,11308,30.3],[1988,11774,11583,29.9],[1989,15046,13711,37.6],[1990,16730,15259,41.2],[1991,15622,15128,37.9],[1992,14101,14334,33.8],[1993,15410,15200,36.3],[1994,16979,15624,39.4],[1995,18912,18217,43.3],[1996,19744,19150,44.8],[1997,21084,19423,47.1],[1998,22510,19440,49.5],[1999,23056,19858,50.1],[2000,25058,20302,52.3],[2001,26298,21645,54.0],[2002,27655,22040,56.1],[2003,28494,22549,57.0]].forEach(function (r) {
-      j[r[0]] = { tot: r[1] + r[2], segs: [["jovens", r[1]]], rates: { jovens: r[3] }, src: "mapa2014j", totNote: "Total: jovens + não jovens da própria tabela." };
+    ORDEM_CORTES.forEach(function (key) {
+      var c = V.recortes[key]; if (!c) return;
+      var years = {};
+      Object.keys(c.anos).forEach(function (ano) {
+        var a = c.anos[ano], e = { tot: a.tot };
+        var gs = function (o) { return Object.keys(o || {}).sort(function (x, y) { return GORD.indexOf(x) - GORD.indexOf(y); }); };
+        if (a.segs) e.segs = gs(a.segs).map(function (g) { return [g, a.segs[g]]; });
+        if (a.taxas) { e.rates = {}; gs(a.taxas).forEach(function (g) { e.rates[g] = a.taxas[g]; }); }
+        if (a.pct) { e.pct = {}; gs(a.pct).forEach(function (g) { e.pct[g] = a.pct[g]; }); }
+        if (a.pub != null) e.pub = a.pub;
+        if (a.fonte) {
+          var k = a.fonte.url + "|" + a.fonte.nome;
+          if (!CSRC[k]) CSRC[k] = { tipo: a.fonte.tipo, nome: a.fonte.nome, url: a.fonte.url };
+          e.src = k;
+        }
+        if (a.nota_total) e.totNote = a.nota_total;
+        if (a.nota) e.note = a.nota;
+        if (a.nota_taxa) e.rateNote = a.nota_taxa;
+        years[ano] = e;
+      });
+      CUTS[key] = { nome: c.nome, resto: RESTO[key] === undefined ? null : RESTO[key], years: years };
+      if (c.quebra_apos) CUTS[key].breakAfter = c.quebra_apos;
     });
-    j[2004] = { tot: 48909, segs: [["jovens", 27003]], rates: { jovens: 52.7 }, src: "atlas2016t" };
-    j[2005] = { tot: 48136, segs: [["jovens", 26793]], rates: { jovens: 51.9 }, src: "atlas2017t" };
-    j[2006] = { tot: 49704, segs: [["jovens", 27251]], src: "atlas2018t" };
-    j[2007] = { tot: 48219, segs: [["jovens", 26489]], src: "atlas2019t" };
-    j[2008] = { tot: 50659, segs: [["jovens", 27880]], src: "atlas2019t" };
-    var jv = [28267,28562,27930,30609,30689,32436,31264,33590,35783,30873,23327];
-    var jt = [54.0,54.6,53.5,58.9,59.3,62.9,60.9,65.5,69.9,60.4,45.8];
-    var tt = [52043,53016,52807,57045,57396,60474,59080,62517,65602,57956,45503];
-    for (var y = 0; y < jv.length; y++) j[2009 + y] = { tot: tt[y], segs: [["jovens", jv[y]]], rates: { jovens: jt[y] }, src: "atlas2021t" };
-    j[2020] = { tot: 49868, segs: [["jovens", 25814]], rates: { jovens: 51.8 }, src: "atlas2024t" };
-    j[2021] = { tot: 47847, segs: [["jovens", 24217]], rates: { jovens: 49.0 }, src: "atlas2024t" };
-    j[2022] = { tot: 46409, segs: [["jovens", 22864]], rates: { jovens: 46.6 }, src: "atlas2024t" };
-    j[2023] = { tot: 45747, segs: [["jovens", 21856]], rates: { jovens: 45.1 }, src: "atlas2025j" };
-    j[2024] = { tot: 42590, segs: [["jovens", 19801]], rates: { jovens: 42.2 }, src: "atlas2026j" };
-
-    var r = {};
-    r[2002] = { tot: 49695, segs: [["negros", 26952]], src: "mapa2012cor", totNote: TOT_MAPA };
-    r[2009] = { tot: 52043, segs: [["negros", 33929], ["naoNegros", 15249]], src: "atlas2021n", note: "Ressalva: negros + não negros ficam 2.865 (5,5%) abaixo do total, sem explicação na fonte; a diferença aparece como raça/cor não informada." };
-    r[2017] = { tot: 65602, segs: [["negros", 49524], ["naoNegros", 14734]], src: "atlas2019cc" };
-    r[2018] = { tot: 57956, segs: [["negros", 43890]], src: "atlas2020n" };
-    r[2019] = { tot: 45503, segs: [["negros", 34466], ["naoNegros", 10217]], src: "atlas2021n" };
-    r[2021] = { tot: 47847, segs: [["negros", 36922]], src: "atlas2023neg" };
-    r[2022] = { tot: 46409, segs: [["negros", 35531]], src: "atlas2024n" };
-    r[2023] = { tot: 45747, segs: [["negros", 35213]], src: "atlas2025r" };
-    r[2024] = { tot: 42590, segs: [["negros", 32820], ["naoNegros", 9234]], src: "atlas2026r" };
-    Object.keys(r).forEach(function (y) {
-      var rr = RACE_RATES[y];
-      if (rr) r[y].rates = { negros: rr[0], naoNegros: rr[1] };
+    Object.keys(V.raca_taxas).forEach(function (ano) { RACE_RATES[ano] = V.raca_taxas[ano]; });
+    var MARCOS = V.marcos.map(function (m) {
+      return { id: m.id, data: m.data, curto: m.curto, titulo: m.titulo, texto: m.texto, natureza: m.natureza, fontes: m.fontes || [] };
     });
+    return { SOURCES: SOURCES, DATA: DATA, SOURCE_BREAK_AFTER: V.homicidios.quebra_apos, CSRC: CSRC, CUTS: CUTS, RACE_RATES: RACE_RATES, MARCOS: MARCOS };
+  }
+  /* fim violAdaptar */
+  function violAviso(err) {
+    var el = document.getElementById("violload"); if (!el) return;
+    if (!err) { el.remove(); return; }
+    el.classList.add("err"); el.setAttribute("role", "alert");
+    var local = location.protocol === "file:";
+    el.textContent = "Não foi possível carregar os dados da violência. " + (local ? "Aberta direto do disco (file://), a página não consegue ler data/violencia.json: abra pelo site ou por um servidor local (python3 -m http.server na pasta do projeto). " : "Recarregue a página; se persistir, o arquivo data/violencia.json pode estar fora do ar. ") + "Detalhe: " + (err && err.message || err);
+  }
+  fetch("../data/violencia.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status + " ao pedir data/violencia.json"); return r.json(); })
+    .then(function (V) { iniciar(violAdaptar(V)); violAviso(null); })
+    .catch(function (err) { violAviso(err); try { console.error(err); } catch (e) {} });
 
-    var i60 = {};
-    i60[2024] = { tot: 42590, segs: [["idosos", 2007]], rates: { idosos: 5.9 }, src: "atlas2026r" };
-
-    // Arma de fogo (homicídios por agressão com arma de fogo).
-    var af = {};
-    var AF = [[1980,6104,5.1],[1981,6452,5.3],[1982,6313,5.1],[1983,6413,5.1],[1984,7947,6.2],[1985,8349,6.3],[1986,8803,6.6],[1987,10717,7.8],[1988,10735,7.7],[1989,13480,9.5],[1990,16588,11.5],[1991,15759,10.7],[1992,14785,9.9],[1993,17002,11.2],[1994,18889,12.3],[1995,22306,14.3],[1996,22976,14.6],[1997,24445,15.3],[1998,25674,15.9],[1999,26902,16.4],[2000,30865,18.2],[2001,33401,19.4],[2002,34160,19.6],[2003,36115,20.4],[2004,34187,19.1],[2005,33419,18.1],[2006,34921,18.7],[2007,34147,18.0],[2008,35676,18.8],[2009,36624,19.3],[2010,36792,19.3],[2011,36737,19.1],[2012,40077,20.7],[2013,40369,null],[2014,42755,null],[2015,41817,null],[2016,44475,null],[2017,47510,null],[2018,41179,null],[2019,30825,null],[2020,33994,null],[2021,33039,null]];
-    AF.forEach(function (a) {
-      var tot = DATA[a[0] - 1980].homicidios;
-      af[a[0]] = { tot: tot, segs: [["armaFogo", a[1]]], src: a[0] <= 2010 ? "mapa2015af" : "atlas2023af", totNote: "Total: o mesmo do contador; a tabela de armas de fogo não traz o total de homicídios do ano." };
-      if (a[2] != null) af[a[0]].rates = { armaFogo: a[2] };
-    });
-    af[2011].note = af[2012].note = "Contagem idêntica no Mapa da Violência 2015; a taxa vem do Mapa.";
-    af[2022] = { tot: 46409, pct: { armaFogo: 0.724 }, src: "atlas2024af", note: "Só o percentual publicado (72,4%); o número absoluto não foi publicado na fonte lida e não é calculado aqui." };
-    af[2023] = { tot: 45747, segs: [["armaFogo", 32749]], rates: { armaFogo: 15.2 }, pub: 71.6, src: "atlas2025af" };
-    af[2024] = { tot: 42590, segs: [["armaFogo", 29870]], pub: 70.1, src: "atlas2026af" };
-
-    return {
-      sexo:      { nome: "Sexo", resto: "demaisSexo", years: sexo },
-      idade1529: { nome: "Idade: 15 a 29 anos", resto: "demais1529", years: j, breakAfter: 2003 },
-      idade019:  { nome: "Idade: 0 a 19 anos", resto: "demais019", years: i019, breakAfter: 2010 },
-      idadeF:    { nome: "Idade: 0 a 19 anos, por faixa", resto: "demais019", years: faixas },
-      idade60:   { nome: "Idade: 60 anos ou mais", resto: "demais60", years: i60 },
-      raca:      { nome: "Raça/cor", resto: null, years: r },
-      arma:      { nome: "Arma de fogo", resto: "outrosMeios", years: af, breakAfter: 2010 }
-    };
-  })();
+  function iniciar(X) {
+  var SOURCES = X.SOURCES, DATA = X.DATA, SOURCE_BREAK_AFTER = X.SOURCE_BREAK_AFTER, CSRC = X.CSRC, CUTS = X.CUTS, RACE_RATES = X.RACE_RATES, MARCOS = X.MARCOS;
 
   // Linha do tempo contínua; um ano sem valor conferido vira lacuna (null).
   var FIRST = DATA[0].ano, LAST = DATA[DATA.length - 1].ano;
@@ -1104,6 +958,25 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
     return '<a href="' + s.url + '" target="_blank" rel="noopener">' + s.nome + "</a> (" + TIPO_TXT[s.tipo] + ")";
   }
   function fmtDate(iso) { var p = iso.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  // Natureza e fontes de cada marco (do banco; mesma legenda e mesma lista da teia e da linha do tempo)
+  var NAT = { documentada: ["doc", "Documentado"], investigacao: ["inv", "Sob investigação"], reportada: ["rep", "Reportado"], alegacao: ["ale", "Alegação"], nao_classificada: ["nc", "Não classificado"] };
+  function natChip(n) { var t = NAT[n] || NAT.nao_classificada; return '<span class="chip ' + t[0] + '">' + t[1] + "</span>"; }
+  var FTIPO = { documento_oficial: ["oficial", "doc"], dado_oficial: ["oficial", "doc"], decisao_judicial: ["decisão", "doc"], processo: ["processo", "doc"], comunicado: ["comunicado", ""], reportagem: ["reportagem", ""], relatorio: ["relatório", ""], wiki: ["wiki", ""], video: ["vídeo", ""], outro: ["outro", ""] };
+  var FMES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+  function fhost(u) { try { return new URL(u).hostname.toLowerCase(); } catch (e) { return ""; } }
+  function fonteTag(f) { return f.tipo === "reportagem" && /(^|\.)(gov|jus|leg|mp)\.br$/.test(fhost(f.url)) ? FTIPO.documento_oficial : FTIPO[f.tipo] || FTIPO.outro; }
+  function fdata(d) { var m = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/.exec(String(d)); return !m ? String(d) : m[3] ? +m[3] + " " + FMES[+m[2] - 1] + " " + m[1] : m[2] ? FMES[+m[2] - 1] + " " + m[1] : m[1]; }
+  function fontesHTML(fs) {
+    fs = fs || [];
+    if (!fs.length) return "";
+    var nfr = fs.filter(function (f) { return f.qualidade === "fraca"; }).length;
+    return '<div class="mfontes"><span class="mlab">Fontes (' + fs.length + ')</span><ul class="evsrc">' + fs.map(function (f) {
+      var t = fonteTag(f), fr = f.qualidade === "fraca";
+      return "<li" + (fr ? ' class="fraca"' : "") + ">" + (f.titulo ? '<span class="sv">' + esc(f.veiculo) + "</span>" : "") + '<a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(f.titulo || f.veiculo) + '</a><span class="sm"><span class="stype ' + t[1] + '">' + t[0] + "</span>" + (f.data ? "<span>" + esc(fdata(f.data)) + "</span>" : "") + (fr ? '<span class="sfr" title="Marcada como fraca na revisão das evidências: confirma o fato só em parte, ou é coluna, republicação ou fonte secundária">fonte fraca</span>' : "") + "</span></li>";
+    }).join("") + "</ul>" + (nfr ? '<p class="sfnote">' + (nfr === 1 ? "1 fonte marcada como fraca" : nfr + " fontes marcadas como fracas") + " na revisão.</p>" : "") + "</div>";
+  }
 
   var cel = {
     comp: $("comp"), title: $("compTitle"), body: $("compBody"), empty: $("compEmpty"),
@@ -1117,7 +990,7 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
   MARCOS.forEach(function (m, i) {
     var det = document.createElement("details");
     det.className = "marco";
-    det.innerHTML = '<summary><span class="mnum">' + (i + 1) + '</span><span class="mdate">' + fmtDate(m.data) + "</span><span>" + m.curto + "</span></summary><p><strong>" + m.titulo + ".</strong> " + m.texto + ' <a href="' + m.url + '" target="_blank" rel="noopener">Texto oficial</a></p>';
+    det.innerHTML = '<summary><span class="mnum">' + (i + 1) + '</span><span class="mdate">' + fmtDate(m.data) + "</span><span>" + esc(m.curto) + "</span>" + natChip(m.natureza) + "</summary><p><strong>" + esc(m.titulo) + ".</strong> " + esc(m.texto) + "</p>" + fontesHTML(m.fontes);
     det.addEventListener("toggle", function () {
       if (det.open) state.marco = i;
       else if (state.marco === i) state.marco = -1;
@@ -1806,6 +1679,7 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
   buildDial();
   renderStatic();
   requestAnimationFrame(loop);
+  }
 })();
 </script>
 <footer class="sitefoot"><div class="sitefoot-in"><p>Parte da <a href="../index.html#violencia">Linha do tempo política do Brasil</a>. As fontes e lacunas desta seção estão listadas acima.</p></div></footer>

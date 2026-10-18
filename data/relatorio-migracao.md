@@ -47,7 +47,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_evidencia | 1238 |
 | evento_evidencia | 3175 |
 | evento_entidade | 935 |
-| nota | 254 |
+| nota | 549 |
 | indicador | 83 |
 | serie | 6837 |
 | ranking_empresa | 397 |
