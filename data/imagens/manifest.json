@@ -57,19 +57,22 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "Agência Brasília / governo do DF; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "Agência Brasília / governo do DF; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Ibaneis Rocha"
   },
   "claudio-castro": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "Governo do RJ; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "Governo do RJ; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Cláudio Castro"
   },
   "tarcisio-de-freitas": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "Governo de SP; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "Governo de SP; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Tarcísio de Freitas"
   },
   "jair-bolsonaro": {
    "tipo": "foto",
@@ -96,7 +99,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "Planalto/Agência Brasil (CC BY 3.0 BR). A Câmara só tem foto antiga da Constituinte (id 139289: https://www.camara.leg.br/internet/deputado/bandep/139289.jpg), não usada por ser de 1987 [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "Planalto/Agência Brasil (CC BY 3.0 BR). A Câmara só tem foto antiga da Constituinte (id 139289: https://www.camara.leg.br/internet/deputado/bandep/139289.jpg), não usada por ser de 1987 [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Luiz Inácio Lula da Silva"
   },
   "rui-costa": {
    "tipo": "foto",
@@ -113,13 +117,15 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Guido Mantega"
   },
   "henrique-meirelles": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Henrique Meirelles"
   },
   "michel-temer": {
    "tipo": "foto",
@@ -136,13 +142,15 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (ex-ministro) ou Agência Brasil (CC BY 3.0 BR) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (ex-ministro) ou Agência Brasil (CC BY 3.0 BR) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Ricardo Lewandowski"
   },
   "antonio-rueda": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "API da Câmara não retornou o deputado por nome; buscar por id no site da Câmara [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "API da Câmara não retornou o deputado por nome; buscar por id no site da Câmara [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Antônio Rueda"
   },
   "acm-neto": {
    "tipo": "foto",
@@ -187,7 +195,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Alexandre de Moraes"
   },
   "viviane-barci-de-moraes": {
    "tipo": "nenhuma",
@@ -198,7 +207,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Dias Toffoli"
   },
   "maridt-participacoes": {
    "tipo": "logo",
@@ -210,31 +220,36 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "André Mendonça"
   },
   "gilmar-mendes": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Gilmar Mendes"
   },
   "edson-fachin": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Edson Fachin"
   },
   "flavio-dino": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Flávio Dino"
   },
   "paulo-gonet": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "gov.br/mpf (foto oficial do PGR) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "gov.br/mpf (foto oficial do PGR) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Paulo Gonet"
   },
   "mpf": {
    "tipo": "logo",
@@ -252,25 +267,29 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Gabriel Galípolo"
   },
   "roberto-campos-neto": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Roberto Campos Neto"
   },
   "paulo-sergio-neves-de-souza": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "ex-diretor do BC; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "ex-diretor do BC; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Paulo Sérgio Neves de Souza"
   },
   "belline-santana": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "ex-chefe de departamento do BC; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "ex-chefe de departamento do BC; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Belline Santana"
   },
   "cvm": {
    "tipo": "logo",
@@ -396,7 +415,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "ex-presidente do INSS; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "ex-presidente do INSS; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Alessandro Stefanutto"
   },
   "credcesta": {
    "tipo": "logo",
@@ -519,7 +539,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "ex-presidente do BRB; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "ex-presidente do BRB; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Paulo Henrique Costa"
   },
   "quadra-gestao-de-recursos": {
    "tipo": "logo",
@@ -554,7 +575,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "ex-presidente da Amprev; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "ex-presidente da Amprev; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Jocildo Lemos"
   },
   "amazonprev": {
    "tipo": "logo",
@@ -695,25 +717,29 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Kassio Nunes Marques"
   },
   "luiz-fux": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Luiz Fux"
   },
   "newton-ramos": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "site do TRF-1 (foto oficial de desembargador) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "site do TRF-1 (foto oficial de desembargador) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Newton Ramos"
   },
   "benedito-goncalves": {
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "site do STJ/CNJ (foto oficial) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "site do STJ/CNJ (foto oficial) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Benedito Gonçalves"
   },
   "cnj": {
    "tipo": "logo",
@@ -777,7 +803,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "gov.br (ex-ministro); confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "gov.br (ex-ministro); confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Ronaldo Bento"
   },
   "kevin-de-carvalho-marques": {
    "tipo": "nenhuma",
@@ -1095,7 +1122,8 @@
    "tipo": "foto",
    "status": "pendente",
    "motivo": "pessoa pública sem foto oficial aberta confirmada",
-   "sugestao_origem": "ex-secretário do governo; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]"
+   "sugestao_origem": "ex-secretário do governo; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
+   "wiki_pt": "Fabio Wajngarten"
   },
   "go-up-entertainment": {
    "tipo": "logo",

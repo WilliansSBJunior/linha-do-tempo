@@ -32,6 +32,17 @@ Para empresas-veículo, fundos e escritórios sem logo, pode marcar `{"tipo": "s
 
 Para uma foto nova de pessoa pública: preencha `url`, `origem`, `licenca`, `autor`, `pagina` e mude para `status: "ok"`; o workflow baixa ao receber o push.
 
+## Etapa Commons (pessoas públicas pendentes)
+
+Depois dos itens `ok`, o script tenta resolver os `pendente` do tipo `foto` que tenham `wiki_pt` (título do verbete na Wikipédia em português):
+
+1. pega a imagem principal do verbete (API da Wikipédia pt);
+2. lê licença, autor e miniatura de 512 px no Wikimedia Commons;
+3. só aceita licença livre (CC BY*, CC0, domínio público/PD). Fair use, non-free ou licença ausente: o item continua `pendente`, com `motivo: "Commons: licença não livre ou não encontrada (...)"`, sem baixar;
+4. se aceita, recorta 256x256 e marca `baixado` com `origem: "Wikimedia Commons"`, `licenca`, `autor` e `pagina`.
+
+Verbete inexistente ou sem imagem: o `motivo` registra a falha. Para forçar um arquivo específico, preencha `commons_file: "File:Nome.jpg"` no item (tem prioridade sobre `wiki_pt`); a mesma checagem de licença vale. Itens recusados são reavaliados a cada execução.
+
 ## Pendências do usuário
 
 Veja `status` em `manifest.json`. Resumo (91 logos, 28 fotos):
