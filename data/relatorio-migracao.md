@@ -43,7 +43,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao_tema | 928 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1734 |
+| evidencia | 1738 |
 | relacao_evidencia | 1280 |
 | evento_evidencia | 3229 |
 | evento_entidade | 935 |
@@ -53,7 +53,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | ranking_empresa | 504 |
 | mandato | 324 |
 | bancada | 634 |
-| entidade_valor | 14 |
+| entidade_valor | 60 |
 
 Eventos por canal:
 
@@ -418,7 +418,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1734 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1738 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -617,35 +617,81 @@ Entidades da teia que aparecem na timeline (as 10 fusões da seção 5 mais as l
 
 ## 17. Estimativas em R$ por entidade (`data/curadoria/entidade-valores.json`)
 
-`curadoria.aplicar_entidade_valores` grava **14 valores em 9 entidades** na tabela aditiva `entidade_valor` (9 principais, 3 com fonte fraca), depois dos metadados de evidência. Cada valor tem uma `natureza` (o que o número mede); números de naturezas diferentes não se somam. A URL de cada valor é uma `evidencia` (8 novas, 2 reaproveitadas; título preenchido em 2 e data em 2 que estavam NULL). No arquivo, só como registro: 1 valor descartado e 1 entidade sem estimativa encontrada.
+`curadoria.aplicar_entidade_valores` grava **60 valores em 45 entidades** na tabela aditiva `entidade_valor` (45 principais, 34 com fonte fraca), depois dos metadados de evidência. Cada valor tem uma `natureza` (o que o número mede); números de naturezas diferentes não se somam. A URL de cada valor é uma `evidencia` (12 novas, 39 reaproveitadas; título preenchido em 25 e data em 25 que estavam NULL). No arquivo, só como registro: 1 valor descartado e 1 entidade sem estimativa encontrada.
 
 | natureza | n |
 |---|---|
-| bloqueado | 3 |
+| bloqueado | 5 |
 | desviado | 2 |
-| investigado | 1 |
-| movimentado | 2 |
-| outro | 2 |
-| passivo | 1 |
-| prejuizo | 1 |
+| investigado | 8 |
+| movimentado | 15 |
+| outro | 19 |
+| passivo | 4 |
+| prejuizo | 5 |
 | sonegado | 2 |
 
 | entidade | principal | natureza | valor (R$) | quem estima | qualidade |
 |---|---|---|---|---|---|
+| `agro-industrial-tabu` | sim | outro | 5.000.000.000 | Voto do ministro André Mendonça (STF, STP 976) | boa |
+| `agu` | sim | outro | 255.300.000.000 | AGU/governo, via Novacana | fraca |
+| `amazonprev` | sim | investigado | 390.000.000 | Polícia Federal, segundo a Folha de Pernambuco | fraca |
+| `amprev` | sim | investigado | 400.000.000 | Polícia Federal, segundo a Folha de Pernambuco | boa |
+| `aparecidaprev` | sim | investigado | 40.000.000 | Times Brasil (valor); Ministério Público de Goiás (apuração, segundo a relação da teia) | fraca |
+| `astralo-95` | sim | movimentado | 294.000.000 | Liquidante do Master, via Metrópoles | fraca |
 | `banco-master` | sim | prejuizo | 40.600.000.000 | FGC, segundo Poder360 | boa |
 | `banco-master` |  | passivo | 83.200.000.000 | Banco Central (IFData), via Agência Estado | boa |
+| `banco-pleno` | sim | passivo | 4.900.000.000 | FGC, segundo a Revista Oeste | boa |
+| `brb` | sim | investigado | 12.760.000.000 | Investigações da PF e do MPF; BRB (comunicado), via Jornal de Brasília | boa |
+| `brb` |  | outro | 21.900.000.000 | Presidente do BRB, via Jornal de Brasília | fraca |
+| `btg-pactual` | sim | movimentado | 6.700.000.000 | Bloomberg Línea | boa |
+| `cnj` | sim | outro | 4.700.000.000 | CNJ, via Times Brasil | fraca |
 | `cpmi-do-inss` | sim | desviado | 3.300.000.000 | Relatório da maioria da CPMI do INSS | fraca |
-| `daniel-vorcaro` | sim | bloqueado | 5.700.000.000 | STF (Dias Toffoli), via JOTA | fraca |
+| `cvm` | sim | outro | 201.500.000 | CVM (colegiado), via Poder360 | fraca |
+| `daniel-vorcaro` | sim | bloqueado | 5.700.000.000 | Ministro Dias Toffoli (STF), segundo o portal oficial do STF | boa |
+| `easynvest` | sim | movimentado | 2.900.000.000 | Bloomberg Línea | fraca |
+| `efb-regimes-especiais-de-empresas` | sim | outro | 4.800.000.000 | Liquidante do Master, via Metrópoles | fraca |
+| `entre-investimentos-e-participacoes` | sim | movimentado | 1.440.000.000 | Liquidante do Master, via Times Brasil | fraca |
+| `entre-investimentos-e-participacoes` |  | outro | 1.280.000.000 | Liquidante do Master, via Times Brasil | fraca |
+| `fgc` | sim | prejuizo | 40.600.000.000 | FGC, segundo o Poder360 | boa |
+| `fgc` |  | prejuizo | 37.200.000.000 | FGC, segundo a CNN Brasil | boa |
+| `fgc` |  | prejuizo | 58.000.000.000 | Revista Oeste (sem atribuição nominal no trecho) | fraca |
+| `gabino-kruschewsky-advogados-associados` | sim | movimentado | 54.000.000 | Revista Oeste | fraca |
+| `gold-style-fidc` | sim | outro | 1.840.000.000 | Comunicados do fundo, via Jornal de Brasília (Folhapress) | fraca |
+| `gold-style-fidc` |  | movimentado | 311.700.000 | Comunicados do fundo, via Jornal de Brasília (Folhapress) | fraca |
+| `governo-do-distrito-federal` | sim | outro | 1.170.000.000 | Jornal de Brasília | fraca |
+| `grupo-fictor` | sim | outro | 3.000.000.000 | Comunicado da Fictor, via InfoMoney | fraca |
+| `hans-95` | sim | outro | 27.000.000.000 | CVM, segundo o Letsmoney | fraca |
+| `hans-95` |  | movimentado | 1.000.000.000 | CVM, segundo o Letsmoney | fraca |
+| `inss` | sim | prejuizo | 6.300.000.000 | Polícia Federal, segundo a Agência Câmara | boa |
+| `inss` |  | outro | 2.000.000.000 | INSS, via O Povo | fraca |
+| `instituto-abradecont` | sim | outro | 100.000.000 | Petição do Instituto Abradecont, segundo o Times Brasil | fraca |
+| `iprev-maceio` | sim | outro | 97.000.000 | Poder360, com base em dados dos regimes | boa |
+| `lagoinha-belvedere` | sim | movimentado | 19.200.000 | Coaf, via Itatiaia | fraca |
+| `monteiro-rusu-cameirao-e-bercht-advogados` | sim | movimentado | 79.100.000 | Revista Oeste | fraca |
 | `operacao-carbono-oculto` | sim | movimentado | 52.000.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
 | `operacao-carbono-oculto` |  | sonegado | 8.670.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
 | `operacao-compliance-zero` | sim | investigado | 12.000.000.000 | Polícia Federal (Andrei Rodrigues, em depoimento à CPI do Crime Organizado) | boa |
 | `operacao-compliance-zero` |  | outro | 12.200.000.000 | PF e MPF (segundo reportagem) | boa |
-| `operacao-compliance-zero` |  | bloqueado | 5.700.000.000 | STF (relator Dias Toffoli), via JOTA | fraca |
+| `operacao-compliance-zero` |  | bloqueado | 5.700.000.000 | Ministro Dias Toffoli (STF), segundo o portal oficial do STF | boa |
+| `operacao-compliance-zero` |  | bloqueado | 22.000.000.000 | Times Brasil, resumo das fases da operação | fraca |
 | `operacao-credito-oculto` | sim | outro | 153.000.000 | Investigação (Receita/Gaeco), segundo JB | boa |
 | `operacao-quasar` | sim | bloqueado | 1.200.000.000 | Justiça Federal / PF | boa |
-| `operacao-sem-desconto` | sim | desviado | 6.300.000.000 | PF e CGU | boa |
+| `operacao-sem-desconto` | sim | desviado | 6.300.000.000 | Polícia Federal, segundo a Agência Câmara | boa |
 | `pcc` | sim | movimentado | 52.000.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
 | `pcc` |  | sonegado | 8.670.000.000 | Receita Federal (nota de 28/8/2025, transcrita no Relatório ANP 1/2026) | boa |
+| `reag-trust-dtvm` | sim | investigado | 11.500.000.000 | Banco Central (relatório ao TCU), via Jornal de Brasília/Folhapress | fraca |
+| `rioprevidencia` | sim | investigado | 970.000.000 | Polícia Federal (Operação Barco de Papel), segundo a Folha de Pernambuco | boa |
+| `rioprevidencia` |  | investigado | 2.010.000.000 | Polícia Federal, segundo a Folha de Pernambuco | fraca |
+| `sao-roque-prev` | sim | outro | 93.150.000 | Times Brasil, com base nos regimes | fraca |
+| `seis-usinas-cedidas-a-entre` | sim | movimentado | 1.440.000.000 | Liquidante do Master, via Times Brasil | fraca |
+| `stf` | sim | bloqueado | 5.700.000.000 | Ministro Dias Toffoli (STF), portal oficial do STF | boa |
+| `usina-cambahyba` | sim | outro | 2.500.000.000 | Justiça Federal (10ª Vara/RJ), via Times Brasil | fraca |
+| `usina-capricho` | sim | outro | 4.700.000.000 | CNJ, via Times Brasil | fraca |
+| `usina-santa-tereza` | sim | movimentado | 180.000.000 | Estadão, via Novacana | fraca |
+| `warde-advogados` | sim | movimentado | 76.600.000 | Revista Oeste | fraca |
+| `will-financeira` | sim | passivo | 6.300.000.000 | FGC, segundo a CNN Brasil | boa |
+| `will-financeira` |  | passivo | 6.060.000.000 | FGC, segundo o Letsmoney | fraca |
+| `xp-investimentos` | sim | movimentado | 26.000.000.000 | Bloomberg Línea | boa |
 
 Na teia (`teia.json`), cada nó com valores ganha `val` (a lista, principal primeiro) e `val_lig` (soma de `relacao.valor_brl` das ligações `E[].r` do nó e quantas têm valor): a soma das ligações é outra coisa que a estimativa do escândalo e não se soma a ela.
 

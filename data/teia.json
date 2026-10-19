@@ -107,18 +107,17 @@
     {
      "brl": 5700000000,
      "nat": "bloqueado",
-     "txt": "Mais de R$ 5,7 bilhões em bens e valores bloqueados pelo STF na investigação (jan/2026)",
-     "quem": "STF (Dias Toffoli), via JOTA",
-     "data": "2026-01-14",
+     "txt": "Bloqueio e sequestro de R$ 5,7 bilhões em bens de 38 investigados, entre eles Vorcaro (jan/2026)",
+     "quem": "Ministro Dias Toffoli (STF), segundo o portal oficial do STF",
+     "data": "2026-01-16",
      "principal": true,
-     "qual": "fraca",
-     "motivo": "agregador (TagTeam/Harvard) republicando o JOTA; a página original do JOTA não abriu",
-     "nota": "Bloqueio na investigação, não necessariamente patrimônio pessoal de Vorcaro. Em jul/2026 Mendonça autorizou bloqueio de mais de R$ 2 bi em bens no exterior do Master (DGABC, 13/09/2026).",
+     "qual": "boa",
+     "nota": "Fonte trocada na rodada 13 (era agregador RSS, fraca). Atenção: R$ 5,7 bi é o total dos 38 investigados, não só de Vorcaro. Em jul/2026 Mendonça autorizou bloqueio de mais de R$ 2 bi em bens no exterior do Master (DGABC, 13/09/2026).",
      "fonte": {
-      "url": "https://tagteam.harvard.edu/hub_feeds/3884/feed_items/17183860/content",
-      "veiculo": "JOTA (via Harvard TagTeam)",
-      "tipo": "reportagem",
-      "titulo": "PF faz operação em endereços de Vorcaro e STF determina bloqueio de R$ 5,7 bilhões"
+      "url": "https://noticias.stf.jus.br/postsnoticias/stf-determina-quebra-de-sigilo-fiscal-e-bancario-de-investigados-por-supostas-fraudes-no-banco-master",
+      "veiculo": "STF (Notícias do STF)",
+      "tipo": "documento_oficial",
+      "titulo": "STF determina quebra de sigilo fiscal e bancário de investigados por supostas fraudes no Banco Master"
      }
     }
    ],
@@ -296,7 +295,30 @@
    "g": "",
    "d": "Controlador do BRB, responsável pela eventual capitalização e pelo empréstimo pleiteado ao FGC.",
    "id": "governo-do-distrito-federal",
-   "p": "Órgãos e partidos"
+   "p": "Órgãos e partidos",
+   "val": [
+    {
+     "brl": 1170000000,
+     "nat": "outro",
+     "txt": "Primeira securitização da dívida ativa do DF rendeu R$ 1,17 bilhão, parte do plano para cobrir o rombo do BRB (jun/2026)",
+     "quem": "Jornal de Brasília",
+     "data": "2026-06-09",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Receita de securitização já realizada; o complemento do rombo \"virá da securitização da dívida ativa\" (segunda etapa, sem valor na página).",
+     "fonte": {
+      "url": "https://jornaldebrasilia.com.br/brasilia/brb-vive-corrida-de-liquidez-sem-divulgacao-do-balanco-de-2025-diz-presidente",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": "BRB vive corrida de liquidez sem divulgação do balanço de 2025, diz presidente"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 1170000000,
+    "n": 1
+   }
   },
   {
    "n": "Nikolas Ferreira",
@@ -314,7 +336,29 @@
    "g": "",
    "d": "Corte que supervisiona a Compliance Zero por envolver autoridades com foro.",
    "id": "stf",
-   "sg": "Ministros do STF"
+   "sg": "Ministros do STF",
+   "val": [
+    {
+     "brl": 5700000000,
+     "nat": "bloqueado",
+     "txt": "Ministro Toffoli determinou bloqueio e sequestro de R$ 5,7 bilhões em bens de 38 investigados (jan/2026)",
+     "quem": "Ministro Dias Toffoli (STF), portal oficial do STF",
+     "data": "2026-01-16",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Decisão da Compliance Zero (2ª fase); valor do bloqueio decretado, não do efetivamente localizado. Confirmado também pelo Diário de Pernambuco (14/01/2026).",
+     "fonte": {
+      "url": "https://noticias.stf.jus.br/postsnoticias/stf-determina-quebra-de-sigilo-fiscal-e-bancario-de-investigados-por-supostas-fraudes-no-banco-master",
+      "veiculo": "STF (Notícias do STF)",
+      "tipo": "documento_oficial",
+      "titulo": "STF determina quebra de sigilo fiscal e bancário de investigados por supostas fraudes no Banco Master"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 262300000000,
+    "n": 3
+   }
   },
   {
    "n": "Alexandre de Moraes",
@@ -475,7 +519,30 @@
    "g": "",
    "d": "Autarquia cuja atuação sobre o Grupo Master (incluindo arquivamento de denúncia do FGC em 2022) é alvo de inquérito determinado por Dino.",
    "id": "cvm",
-   "sg": "CVM, TCU, CNJ e tribunais"
+   "sg": "CVM, TCU, CNJ e tribunais",
+   "val": [
+    {
+     "brl": 201500000,
+     "nat": "outro",
+     "txt": "CVM aplicou R$ 201,5 milhões em multas a Vorcaro, ao pai, ao primo e ao Master no caso Brazil Realty (08/09/2026)",
+     "quem": "CVM (colegiado), via Poder360",
+     "data": "2026-09-08",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada; soma das multas individuais (R$ 74,3 mi) difere do total informado",
+     "nota": "Multa aplicada, não paga. As multas individuais listadas na matéria somam cerca de R$ 74,3 mi, e a página não explica a diferença; a decisão no site da CVM não foi aberta.",
+     "fonte": {
+      "url": "https://poder360.com.br/poder-economia/cvm-multa-vorcaro-e-master-em-r-2015-milhoes-por-fraude",
+      "veiculo": "poder360.com.br",
+      "tipo": "reportagem",
+      "titulo": "CVM multa Vorcaro e Master em R$ 201,5 milhões por fraude"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 1201500000,
+    "n": 2
+   }
   },
   {
    "n": "Tribunal de Contas da União",
@@ -538,18 +605,34 @@
     {
      "brl": 5700000000,
      "nat": "bloqueado",
-     "txt": "Mais de R$ 5,7 bilhões em bens e valores bloqueados por determinação do STF (jan/2026)",
-     "quem": "STF (relator Dias Toffoli), via JOTA",
-     "data": "2026-01-14",
+     "txt": "Bloqueio e sequestro de R$ 5,7 bilhões em bens de 38 investigados (decisão do ministro Dias Toffoli, jan/2026)",
+     "quem": "Ministro Dias Toffoli (STF), segundo o portal oficial do STF",
+     "data": "2026-01-16",
+     "principal": false,
+     "qual": "boa",
+     "nota": "Fonte trocada na rodada 13: era um agregador de RSS (fraca); agora é a notícia oficial do STF de 16/01/2026. O valor é o teto do bloqueio decretado, não o efetivamente apreendido.",
+     "fonte": {
+      "url": "https://noticias.stf.jus.br/postsnoticias/stf-determina-quebra-de-sigilo-fiscal-e-bancario-de-investigados-por-supostas-fraudes-no-banco-master",
+      "veiculo": "STF (Notícias do STF)",
+      "tipo": "documento_oficial",
+      "titulo": "STF determina quebra de sigilo fiscal e bancário de investigados por supostas fraudes no Banco Master"
+     }
+    },
+    {
+     "brl": 22000000000,
+     "nat": "bloqueado",
+     "txt": "Bloqueios e sequestros autorizados \"poderiam chegar a R$ 22 bilhões\" (3ª fase, mar/2026)",
+     "quem": "Times Brasil, resumo das fases da operação",
+     "data": "2026-05-12",
      "principal": false,
      "qual": "fraca",
-     "motivo": "agregador (TagTeam/Harvard) republicando o JOTA; a página original do JOTA não abriu",
-     "nota": "Página aberta é agregador do JOTA.",
+     "motivo": "fonte única de imprensa aberta nesta rodada; valor condicional (\"poderiam chegar\")",
+     "nota": "Teto potencial na 3ª fase (mar/2026), não valor efetivamente bloqueado; as demais fases não informam valor. Não se soma aos R$ 5,7 bi da 2ª fase.",
      "fonte": {
-      "url": "https://tagteam.harvard.edu/hub_feeds/3884/feed_items/17183860/content",
-      "veiculo": "JOTA (via Harvard TagTeam)",
+      "url": "https://timesbrasil.com.br/brasil/operacoes-da-pf/operacao-compliance-zero-veja-o-que-ja-aconteceu-em-cada-etapa-da-investigacao",
+      "veiculo": "Times Brasil",
       "tipo": "reportagem",
-      "titulo": "PF faz operação em endereços de Vorcaro e STF determina bloqueio de R$ 5,7 bilhões"
+      "titulo": "Operação Compliance Zero: veja o que já aconteceu em cada etapa da investigação"
      }
     }
    ],
@@ -574,7 +657,30 @@
    "g": "",
    "d": "Liquidante nomeado pelo BC para o conglomerado Master.",
    "id": "efb-regimes-especiais-de-empresas",
-   "sg": "CVM, TCU, CNJ e tribunais"
+   "sg": "CVM, TCU, CNJ e tribunais",
+   "val": [
+    {
+     "brl": 4800000000,
+     "nat": "outro",
+     "txt": "Liquidante do Master mira ao menos R$ 4,8 bilhões em bens e fundos ligados a Vorcaro (mar/2026)",
+     "quem": "Liquidante do Master, via Metrópoles",
+     "data": "2026-03-20",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Valor que o liquidante pretende recuperar; a página cita \"o liquidante\" sem nomear a EFB.",
+     "fonte": {
+      "url": "https://www.metropoles.com/sao-paulo/liquidante-master-bilhoes-vorcaro",
+      "veiculo": "metropoles.com",
+      "tipo": "reportagem",
+      "titulo": "Liquidante do Master mira bilhões de Vorcaro"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 6080000000,
+    "n": 2
+   }
   },
   {
    "n": "Grupo Voto",
@@ -779,7 +885,46 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Instituto Nacional do Seguro Social, autarquia que paga aposentadorias e pensões e firma acordos de cooperação técnica com associações (descontos associativos) e com bancos (consignado).",
-   "id": "inss"
+   "id": "inss",
+   "val": [
+    {
+     "brl": 6300000000,
+     "nat": "prejuizo",
+     "txt": "Prejuízo da ordem de R$ 6,3 bilhões em descontos de 2019 a 2024 (PF)",
+     "quem": "Polícia Federal, segundo a Agência Câmara",
+     "data": "2025-07-02",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Estimativa da PF para descontos sem autorização (Operação Sem Desconto); a mesma página diz que \"em 2024 o montante descontado subiu para R$ 2,5 bilhões\".",
+     "fonte": {
+      "url": "https://www.camara.leg.br/noticias/1175158-PREVIDENCIA-DIZ-QUE-CALENDARIO-DE-RESSARCIMENTO-DE-APOSENTADOS-DEVERA-SAIR-NA-PROXIMA-SEMANA",
+      "veiculo": "Câmara dos Deputados (Agência Câmara)",
+      "tipo": "documento_oficial",
+      "titulo": "Previdência diz que calendário de ressarcimento de aposentados deverá sair na próxima semana"
+     }
+    },
+    {
+     "brl": 2000000000,
+     "nat": "outro",
+     "txt": "Cerca de R$ 2 bilhões em repasses a Master (254 mil contratos) retidos sob apuração do INSS (jan/2026)",
+     "quem": "INSS, via O Povo",
+     "data": "2026-01-16",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada (o comunicado do INSS não foi aberto)",
+     "nota": "Retenção administrativa de repasses de consignado, não bloqueio judicial; \"só poderão ser liberados caso seja comprovada a regularidade das operações\".",
+     "fonte": {
+      "url": "https://www.opovo.com.br/noticias/brasil/2026/01/16/amp/inss-bloqueia-repasses-a-master-por-problemas-em-consignados.html",
+      "veiculo": "opovo.com.br",
+      "tipo": "reportagem",
+      "titulo": "INSS bloqueia repasses a Master por problemas em consignados"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 11500000000,
+    "n": 3
+   }
   },
   {
    "n": "Operação Sem Desconto",
@@ -792,17 +937,17 @@
     {
      "brl": 6300000000,
      "nat": "desviado",
-     "txt": "R$ 6,3 bilhões descontados de aposentadorias e pensões entre 2019 e 2024 (PF e CGU, abr/2025)",
-     "quem": "PF e CGU",
-     "data": "2025-04-30",
+     "txt": "Prejuízo da ordem de R$ 6,3 bilhões em descontos de 2019 a 2024 (investigações da PF)",
+     "quem": "Polícia Federal, segundo a Agência Câmara",
+     "data": "2025-07-02",
      "principal": true,
      "qual": "boa",
-     "nota": "Reportagem ressalva que parte dos segurados autorizou os descontos. Chamado de 'prejuízo estimado' pelo InfoMoney (23/04/2025).",
+     "nota": "Fonte trocada na rodada 13: era O Povo (imprensa); agora é a Agência Câmara, órgão oficial, citando a PF. Página da CGU (gov.br/cgu) e da PF (gov.br/pf) exigem login e não abriram. Estimativa de descontos sem autorização, não o valor já comprovado como desviado. O Povo (30/04/2025) ressalva que parte dos segurados autorizou os descontos; o InfoMoney (23/04/2025) chamou o número de 'prejuízo estimado'. Número anterior de O Povo/DW: 'Segundo PF e CGU'.",
      "fonte": {
-      "url": "https://www.opovo.com.br/noticias/brasil/2025/04/30/como-funcionava-o-esquema-bilionario-de-fraude-no-inss.html",
-      "veiculo": "O Povo (DW)",
-      "tipo": "reportagem",
-      "titulo": "Como funcionava o esquema bilionário de fraude no INSS"
+      "url": "https://www.camara.leg.br/noticias/1175158-PREVIDENCIA-DIZ-QUE-CALENDARIO-DE-RESSARCIMENTO-DE-APOSENTADOS-DEVERA-SAIR-NA-PROXIMA-SEMANA",
+      "veiculo": "Câmara dos Deputados (Agência Câmara)",
+      "tipo": "documento_oficial",
+      "titulo": "Previdência diz que calendário de ressarcimento de aposentados deverá sair na próxima semana"
      }
     }
    ],
@@ -896,7 +1041,30 @@
    "t": "empresa",
    "g": "",
    "d": "Distribuidora de títulos e valores mobiliários do grupo Reag, administradora de fundos, renomeada CBSF DTVM e posta em liquidação extrajudicial pelo Banco Central em 15/01/2026.",
-   "id": "reag-trust-dtvm"
+   "id": "reag-trust-dtvm",
+   "val": [
+    {
+     "brl": 11500000000,
+     "nat": "investigado",
+     "txt": "Operações estruturadas do Master com fundos somam R$ 11,5 bilhões, dois deles ligados à Reag (relatório do BC ao TCU)",
+     "quem": "Banco Central (relatório ao TCU), via Jornal de Brasília/Folhapress",
+     "data": "2025-12-31",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada; o valor não é só da Reag Trust",
+     "nota": "O total é do conjunto de fundos; só dois são da Reag, a parcela dela não é informada. O relatório do BC não foi aberto.",
+     "fonte": {
+      "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/bc-diz-ao-tcu-que-acionou-mpf-por-indicios-de-fraudes-do-master-com-reag-investigada-por-elo-com-pcc",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": "BC diz ao TCU que acionou MPF por indícios de fraudes do Master com Reag, investigada por elo com PCC"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 20040000000,
+    "n": 4
+   }
   },
   {
    "n": "João Carlos Mansur",
@@ -920,7 +1088,47 @@
    "t": "fundo",
    "g": "",
    "d": "Multimercado citado pela CVM como cotista único do Reag Alpha e descrito como investigado na Carbono Oculto, com patrimônio de R$ 35,3 bi em abril de 2026.",
-   "id": "hans-95"
+   "id": "hans-95",
+   "val": [
+    {
+     "brl": 27000000000,
+     "nat": "outro",
+     "txt": "Patrimônio líquido do Hans 95 caiu de R$ 35,3 bi (4/4/2026) para R$ 27 bi cinco dias depois (dados da CVM)",
+     "quem": "CVM, segundo o Letsmoney",
+     "data": "2026-04-09",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Patrimônio do fundo, não valor desviado. A mesma página dá \"R$ 35,3 bilhões de patrimônio líquido em 4 de abril de 2026\" antes da queda.",
+     "fonte": {
+      "url": "https://www.letsmoney.com.br/noticias/cvm-acusa-reag-ocultar-cotistas-falsear-liquidez",
+      "veiculo": "letsmoney.com.br",
+      "tipo": "reportagem",
+      "titulo": "CVM acusa Reag de ocultar cotistas e falsear liquidez"
+     }
+    },
+    {
+     "brl": 1000000000,
+     "nat": "movimentado",
+     "txt": "Hans 95 e Reag Growth injetaram mais de R$ 1 bilhão no Master em out/2024",
+     "quem": "CVM, segundo o Letsmoney",
+     "data": "2026-05-04",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Soma dos dois fundos, não só do Hans 95.",
+     "fonte": {
+      "url": "https://www.letsmoney.com.br/noticias/cvm-acusa-reag-ocultar-cotistas-falsear-liquidez",
+      "veiculo": "letsmoney.com.br",
+      "tipo": "reportagem",
+      "titulo": "CVM acusa Reag de ocultar cotistas e falsear liquidez"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 28000000000,
+    "n": 2
+   }
   },
   {
    "n": "Hans II (fundo)",
@@ -936,7 +1144,30 @@
    "t": "fundo",
    "g": "",
    "d": "Fundo ligado à Reag cujos beneficiários finais declarados incluem familiares de Mansur, segundo a Procuradoria da República em São Paulo citada em decisão do STF.",
-   "id": "astralo-95"
+   "id": "astralo-95",
+   "val": [
+    {
+     "brl": 294000000,
+     "nat": "movimentado",
+     "txt": "Venda de cotas do Hans II no valor de R$ 294 milhões ao fundo Itabuna, cujo cotista único seria a Astralo",
+     "quem": "Liquidante do Master, via Metrópoles",
+     "data": "2026-03-20",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada; ligação Itabuna-Astralo só no resumo da ferramenta",
+     "nota": "A página liga o Itabuna à Astralo como único cotista (segundo o resumo da ferramenta); o nome \"Astralo 95\" não foi lido literalmente.",
+     "fonte": {
+      "url": "https://www.metropoles.com/sao-paulo/liquidante-master-bilhoes-vorcaro",
+      "veiculo": "metropoles.com",
+      "tipo": "reportagem",
+      "titulo": "Liquidante do Master mira bilhões de Vorcaro"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 944000000,
+    "n": 2
+   }
   },
   {
    "n": "Gold Style FIDC",
@@ -944,7 +1175,47 @@
    "t": "fundo",
    "g": "",
    "d": "Fundo de direitos creditórios administrado pela Reag Trust, com patrimônio de até R$ 1,84 bi em 2024, que aparece em relatórios do Coaf com contrapartes ligadas tanto à Carbono Oculto quanto ao universo Master.",
-   "id": "gold-style-fidc"
+   "id": "gold-style-fidc",
+   "val": [
+    {
+     "brl": 1840000000,
+     "nat": "outro",
+     "txt": "Patrimônio líquido do Gold Style FIDC saltou para R$ 1,84 bilhão em maio/2024",
+     "quem": "Comunicados do fundo, via Jornal de Brasília (Folhapress)",
+     "data": "2026-06-11",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Patrimônio do fundo, não valor movimentado nem desviado.",
+     "fonte": {
+      "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo"
+     }
+    },
+    {
+     "brl": 311700000,
+     "nat": "movimentado",
+     "txt": "Transações de pelo menos R$ 311,7 milhões com a Aster Petróleo",
+     "quem": "Comunicados do fundo, via Jornal de Brasília (Folhapress)",
+     "data": "2026-06-11",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Maior das contrapartes citadas; as demais (BK Bank R$ 146,5 mi; Super Empreendimentos R$ 180 mi; Entre R$ 20 mi) estão nas relações da teia.",
+     "fonte": {
+      "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 2498200000,
+    "n": 5
+   }
   },
   {
    "n": "Mabruk II (fundo)",
@@ -960,7 +1231,47 @@
    "t": "empresa",
    "g": "",
    "d": "Empresa de Antônio Carlos Freixo Júnior, apontado pela PF como operador financeiro de Vorcaro; liquidada pelo Banco Central em março de 2026 e alvo da Crédito Oculto.",
-   "id": "entre-investimentos-e-participacoes"
+   "id": "entre-investimentos-e-participacoes",
+   "val": [
+    {
+     "brl": 1440000000,
+     "nat": "movimentado",
+     "txt": "Master transferiu R$ 1,44 bilhão em créditos de precatórios à Entre Investimentos em out/2025",
+     "quem": "Liquidante do Master, via Times Brasil",
+     "data": "2026-09-23",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Cessão de créditos, não perda; a Entre também foi multada pela CVM no caso Brazil Realty.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/master-repassou-r-14-bilhao-em-precatorios-a-entre-investimentos",
+      "veiculo": "Times Brasil",
+      "tipo": "reportagem",
+      "titulo": "Master repassou R$ 1,4 bilhão em precatórios à Entre Investimentos"
+     }
+    },
+    {
+     "brl": 1280000000,
+     "nat": "outro",
+     "txt": "Liquidante não conseguiu comprovar que R$ 1,28 bilhão previstos nos contratos tenham chegado ao banco",
+     "quem": "Liquidante do Master, via Times Brasil",
+     "data": "2026-09-23",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Valor contratual não comprovado (parte do R$ 1,44 bi), não se soma.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/master-repassou-r-14-bilhao-em-precatorios-a-entre-investimentos",
+      "veiculo": "Times Brasil",
+      "tipo": "reportagem",
+      "titulo": "Master repassou R$ 1,4 bilhão em precatórios à Entre Investimentos"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 4180000000,
+    "n": 4
+   }
   },
   {
    "n": "Antônio Carlos Freixo Júnior (Mineiro)",
@@ -984,7 +1295,29 @@
    "t": "empresa",
    "g": "",
    "d": "Maior distribuidora de CDBs do Master entre as plataformas, segundo a Bloomberg.",
-   "id": "xp-investimentos"
+   "id": "xp-investimentos",
+   "val": [
+    {
+     "brl": 26000000000,
+     "nat": "movimentado",
+     "txt": "XP distribuiu cerca de R$ 26 bilhões em CDBs do Master",
+     "quem": "Bloomberg Línea",
+     "data": "2025-12-01",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Intermediação de CDBs, não prejuízo. O Times Brasil (12/04/2026) confirma o volume (\"vendeu R$ 26 bilhões em CDBs podres\").",
+     "fonte": {
+      "url": "https://www.bloomberglinea.com.br/negocios/colapso-do-banco-master-levanta-debate-sobre-papel-de-plataformas-como-a-xp",
+      "veiculo": "bloomberglinea.com.br",
+      "tipo": "reportagem",
+      "titulo": "Colapso do Banco Master levanta debate sobre papel de plataformas como a XP"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 26100000000,
+    "n": 2
+   }
   },
   {
    "n": "BTG Pactual",
@@ -992,7 +1325,29 @@
    "t": "banco",
    "g": "",
    "d": "Distribuiu CDBs do Master, comprou R$ 1,5 bilhão em ativos de Vorcaro em 2025 e desistiu de adquirir o banco.",
-   "id": "btg-pactual"
+   "id": "btg-pactual",
+   "val": [
+    {
+     "brl": 6700000000,
+     "nat": "movimentado",
+     "txt": "Plataforma digital do BTG vendeu cerca de R$ 6,7 bilhões em CDBs do Master",
+     "quem": "Bloomberg Línea",
+     "data": "2025-12-01",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Intermediação de CDBs, não prejuízo. O Times Brasil (12/04/2026) repete R$ 6,7 bi e informa ação civil pública de R$ 100 mi contra BTG e XP.",
+     "fonte": {
+      "url": "https://www.bloomberglinea.com.br/negocios/colapso-do-banco-master-levanta-debate-sobre-papel-de-plataformas-como-a-xp",
+      "veiculo": "bloomberglinea.com.br",
+      "tipo": "reportagem",
+      "titulo": "Colapso do Banco Master levanta debate sobre papel de plataformas como a XP"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 8300000000,
+    "n": 3
+   }
   },
   {
    "n": "Easynvest (Nubank)",
@@ -1000,7 +1355,30 @@
    "t": "empresa",
    "g": "",
    "d": "Plataforma comprada pelo Nubank em 2020 que distribuiu CDBs do Master até julho de 2024.",
-   "id": "easynvest"
+   "id": "easynvest",
+   "val": [
+    {
+     "brl": 2900000000,
+     "nat": "movimentado",
+     "txt": "Easynvest (Nubank) vendeu cerca de R$ 2,9 bilhões em CDBs do Master",
+     "quem": "Bloomberg Línea",
+     "data": "2025-12-01",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Intermediação de CDBs, não prejuízo.",
+     "fonte": {
+      "url": "https://www.bloomberglinea.com.br/negocios/colapso-do-banco-master-levanta-debate-sobre-papel-de-plataformas-como-a-xp",
+      "veiculo": "bloomberglinea.com.br",
+      "tipo": "reportagem",
+      "titulo": "Colapso do Banco Master levanta debate sobre papel de plataformas como a XP"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 2900000000,
+    "n": 1
+   }
   },
   {
    "n": "Instituto Abradecont",
@@ -1008,7 +1386,30 @@
    "t": "outro",
    "g": "",
    "d": "Autor de ação civil pública contra XP e BTG pela venda de CDBs do Master.",
-   "id": "instituto-abradecont"
+   "id": "instituto-abradecont",
+   "val": [
+    {
+     "brl": 100000000,
+     "nat": "outro",
+     "txt": "Ação civil pública pede dano moral coletivo de R$ 100 milhões, dividido entre as instituições que distribuíram CDBs do Master",
+     "quem": "Petição do Instituto Abradecont, segundo o Times Brasil",
+     "data": "2026-04-12",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Valor pedido em ação, não condenação.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/btg-faturou-r-67-bi-com-cdbs-do-master-sumiu-no-escandalo-e-agora-responde-na-justica",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "BTG faturou R$ 6,7 bi com CDBs do Master, sumiu no escândalo e agora responde na Justiça"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 200000000,
+    "n": 2
+   }
   },
   {
    "n": "FGC (Fundo Garantidor de Créditos)",
@@ -1016,7 +1417,62 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Pagou a garantia de cerca de R$ 40,6 bilhões a credores do Master, a maior operação de sua história.",
-   "id": "fgc"
+   "id": "fgc",
+   "val": [
+    {
+     "brl": 40600000000,
+     "nat": "prejuizo",
+     "txt": "FGC projeta desembolsar R$ 40,6 bilhões aos credores do conglomerado Master (jan/2026)",
+     "quem": "FGC, segundo o Poder360",
+     "data": "2026-01-17",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Projeção da garantia a pagar a cerca de 800 mil pessoas e empresas (\"créditos garantidos podem alcançar aproximadamente R$ 41 bilhões\"). A CNN (18/02/2026) confirma a ordem de grandeza com o valor já pago.",
+     "fonte": {
+      "url": "https://www.poder360.com.br/poder-economia/fgc-inicia-pagamento-a-investidores-do-banco-master",
+      "veiculo": "poder360.com.br",
+      "tipo": "reportagem",
+      "titulo": "FGC inicia pagamento a investidores do Banco Master"
+     }
+    },
+    {
+     "brl": 37200000000,
+     "nat": "prejuizo",
+     "txt": "FGC já havia pago R$ 37,2 bilhões em garantias a credores do conglomerado Master até 18/02/2026",
+     "quem": "FGC, segundo a CNN Brasil",
+     "data": "2026-02-18",
+     "principal": false,
+     "qual": "boa",
+     "nota": "Garantia efetivamente paga até 18/02/2026 (10h). O título da matéria diz R$ 37,7 bi (Master + Will); o corpo dá R$ 37,2 bi só para o Master e R$ 53 mi pagos do Will. Está contido no R$ 40,6 bi, não se soma.",
+     "fonte": {
+      "url": "https://www.cnnbrasil.com.br/economia/macroeconomia/fgc-ja-pagou-r-377-bilhoes-a-credores-do-master-e-will-bank",
+      "veiculo": "CNN Brasil",
+      "tipo": "reportagem",
+      "titulo": "FGC já pagou R$ 37,7 bilhões a credores do Master e Will Bank"
+     }
+    },
+    {
+     "brl": 58000000000,
+     "nat": "prejuizo",
+     "txt": "Caso pode custar até R$ 58 bilhões ao FGC (Master, Will e Pleno, fev/2026)",
+     "quem": "Revista Oeste (sem atribuição nominal no trecho)",
+     "data": "2026-02-18",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada; a página não atribui o número a uma autoridade e difere do R$ 51,8 bi do Poder360",
+     "nota": "Soma das três liquidações (o Poder360 de fev/2026 dá R$ 51,8 bi); estimativa, não se soma às linhas acima.",
+     "fonte": {
+      "url": "https://revistaoeste.com/economia/caso-master-deve-custar-r-58-bilhoes-ao-fgc",
+      "veiculo": "revistaoeste.com",
+      "tipo": "reportagem",
+      "titulo": "Caso Master deve custar R$ 58 bilhões ao FGC"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 144700000000,
+    "n": 7
+   }
   },
   {
    "n": "Bancos associados ao FGC",
@@ -1032,7 +1488,46 @@
    "t": "banco",
    "g": "",
    "d": "Banco controlado pelo Governo do Distrito Federal que tentou comprar o Master e adquiriu R$ 12,2 bilhões em carteiras de crédito do banco.",
-   "id": "brb"
+   "id": "brb",
+   "val": [
+    {
+     "brl": 12760000000,
+     "nat": "investigado",
+     "txt": "BRB comprou R$ 12,7 bilhões em carteiras de crédito do Master que as investigações apontam como inexistentes; R$ 12,76 bi negociados, mais de R$ 10 bi já liquidados ou substituídos (nov/2025)",
+     "quem": "Investigações da PF e do MPF; BRB (comunicado), via Jornal de Brasília",
+     "data": "2025-11-21",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Valor das carteiras sob investigação (Compliance Zero), não perda; o Diário de Pernambuco (18/11/2025), já usado em operacao-compliance-zero, dá R$ 12,2 bi. A matéria também cita \"R$ 12,7 bilhões em carteiras de crédito inexistentes\".",
+     "fonte": {
+      "url": "https://jornaldebrasilia.com.br/brasilia/brb-diz-que-recuperou-r-10-bilhoes-das-carteiras-com-master",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": "BRB diz que recuperou R$ 10 bilhões das carteiras com Master"
+     }
+    },
+    {
+     "brl": 21900000000,
+     "nat": "outro",
+     "txt": "Carteira total no BRB de créditos vindos do Master: R$ 21,9 bilhões (jun/2026)",
+     "quem": "Presidente do BRB, via Jornal de Brasília",
+     "data": "2026-06-09",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Exposição bruta a créditos do Master (inclui os R$ 12,7 bi acima), não perda.",
+     "fonte": {
+      "url": "https://jornaldebrasilia.com.br/brasilia/brb-vive-corrida-de-liquidez-sem-divulgacao-do-balanco-de-2025-diz-presidente",
+      "veiculo": "jornaldebrasilia.com.br",
+      "tipo": "reportagem",
+      "titulo": "BRB vive corrida de liquidez sem divulgação do balanço de 2025, diz presidente"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 92630000000,
+    "n": 9
+   }
   },
   {
    "n": "Paulo Henrique Costa",
@@ -1056,7 +1551,30 @@
    "t": "empresa",
    "g": "",
    "d": "Holding que anunciou em 17/11/2025 a compra do Master com consórcio dos Emirados Árabes Unidos, por R$ 3 bilhões.",
-   "id": "grupo-fictor"
+   "id": "grupo-fictor",
+   "val": [
+    {
+     "brl": 3000000000,
+     "nat": "outro",
+     "txt": "Anunciou a compra do Master \"com aporte imediato de R$ 3 bilhões\" (17/11/2025), depois frustrada",
+     "quem": "Comunicado da Fictor, via InfoMoney",
+     "data": "2025-11-17",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Proposta anunciada, nunca concluída (a Fictor pediu recuperação judicial depois).",
+     "fonte": {
+      "url": "https://www.infomoney.com.br/mercados/fictor-anuncia-compra-do-banco-master",
+      "veiculo": "infomoney.com.br",
+      "tipo": "reportagem",
+      "titulo": "Fictor anuncia compra do Banco Master"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 3000000000,
+    "n": 1
+   }
   },
   {
    "n": "Nelson Tanure",
@@ -1072,7 +1590,46 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Instituto de previdência do Rio de Janeiro com cerca de R$ 3 bilhões ligados ao Master.",
-   "id": "rioprevidencia"
+   "id": "rioprevidencia",
+   "val": [
+    {
+     "brl": 970000000,
+     "nat": "investigado",
+     "txt": "Cerca de R$ 970 milhões movimentados em letras do Master entre out/2023 e jul/2024",
+     "quem": "Polícia Federal (Operação Barco de Papel), segundo a Folha de Pernambuco",
+     "data": "2026-06-11",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Poder360 (19/11/2025) dá o mesmo R$ 970 milhões (\"quase metade do total\" de R$ 1,867 bi dos 18 regimes). Ver a outra linha para o que a PF apura após jul/2024.",
+     "fonte": {
+      "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
+      "veiculo": "folhape.com.br",
+      "tipo": "reportagem",
+      "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master"
+     }
+    },
+    {
+     "brl": 2010000000,
+     "nat": "investigado",
+     "txt": "A polícia apura aplicações de aproximadamente R$ 2,01 bilhões a partir de julho de 2024",
+     "quem": "Polícia Federal, segundo a Folha de Pernambuco",
+     "data": "2026-06-11",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Somado aos R$ 970 mi anteriores chega-se perto dos \"R$ 3 bi\" citados em outras reportagens; as duas linhas são períodos distintos, não alternativas.",
+     "fonte": {
+      "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
+      "veiculo": "folhape.com.br",
+      "tipo": "reportagem",
+      "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 7650000000,
+    "n": 3
+   }
   },
   {
    "n": "Amprev (Amapá Previdência)",
@@ -1080,7 +1637,29 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Instituto de previdência do Amapá que aplicou cerca de R$ 400 milhões em letras financeiras do Master.",
-   "id": "amprev"
+   "id": "amprev",
+   "val": [
+    {
+     "brl": 400000000,
+     "nat": "investigado",
+     "txt": "Cerca de R$ 400 milhões aplicados em letras financeiras do Master (jul/2024), alvo da Operação Zona Cinzenta",
+     "quem": "Polícia Federal, segundo a Folha de Pernambuco",
+     "data": "2026-06-11",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Aplicação (não perda confirmada). Mesmo valor no Poder360 (19/11/2025: \"o Amprev (Estado do Amapá), com R$ 400 milhões\") e no Times Brasil (19/11/2025); a PF apura gestão fraudulenta ou temerária.",
+     "fonte": {
+      "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
+      "veiculo": "folhape.com.br",
+      "tipo": "reportagem",
+      "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 1600000000,
+    "n": 4
+   }
   },
   {
    "n": "Jocildo Lemos",
@@ -1096,7 +1675,30 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Instituto de previdência do Amazonas, com cerca de R$ 390 milhões aplicados no Master e alvo de operação da PF em março de 2026.",
-   "id": "amazonprev"
+   "id": "amazonprev",
+   "val": [
+    {
+     "brl": 390000000,
+     "nat": "investigado",
+     "txt": "PF investiga suspeitas de aportes irregulares de R$ 390 milhões da Amazonprev no Master",
+     "quem": "Polícia Federal, segundo a Folha de Pernambuco",
+     "data": "2026-06-11",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada; o Times Brasil registra R$ 50 mi para o mesmo regime",
+     "nota": "Divergência: a lista do Times Brasil de 19/11/2025 dá R$ 50 milhões para o Amazonas (letras em carteira em nov/2025); o valor da PF pode incluir aportes sucessivos ou resgatados.",
+     "fonte": {
+      "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
+      "veiculo": "folhape.com.br",
+      "tipo": "reportagem",
+      "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 390000000,
+    "n": 1
+   }
   },
   {
    "n": "AparecidaPrev",
@@ -1104,7 +1706,30 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Instituto de previdência de Aparecida de Goiânia (GO) que aplicou cerca de R$ 40 milhões no Master em jun/2024; sob apuração do MPGO.",
-   "id": "aparecidaprev"
+   "id": "aparecidaprev",
+   "val": [
+    {
+     "brl": 40000000,
+     "nat": "investigado",
+     "txt": "R$ 40 milhões aplicados em letras do Master por Aparecida de Goiânia (jun/2024), sob investigação do MP",
+     "quem": "Times Brasil (valor); Ministério Público de Goiás (apuração, segundo a relação da teia)",
+     "data": "2025-11-19",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "A fonte abre só o valor; a apuração do MP consta na relação da teia (Mais Goiás), cuja página não foi aberta nesta rodada.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/banco-master-18-fundos-de-previdencia-tinham-investimentos-no-banco-veja-lista",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "Banco Master: 18 fundos de previdência tinham investimentos no banco; veja lista"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 40000000,
+    "n": 1
+   }
   },
   {
    "n": "Iprev Maceió",
@@ -1112,7 +1737,29 @@
    "t": "fundo_previdencia",
    "g": "",
    "d": "Regime próprio de previdência do município de Maceió (AL), com cerca de R$ 97 milhões em letras do Master.",
-   "id": "iprev-maceio"
+   "id": "iprev-maceio",
+   "val": [
+    {
+     "brl": 97000000,
+     "nat": "outro",
+     "txt": "R$ 97 milhões em letras financeiras do Master (posição em nov/2025)",
+     "quem": "Poder360, com base em dados dos regimes",
+     "data": "2025-11-19",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Aplicação em letras sem cobertura do FGC. A página diz só \"regime de Maceió (AL)\"; a identificação com o Iprev Maceió vem do Times Brasil (mesma data, \"Maceió (AL) – R$ 97 milhões\"), que confirma o valor.",
+     "fonte": {
+      "url": "https://www.poder360.com.br/poder-economia/18-regimes-de-previdencia-tem-r-19-bi-aplicado-no-banco-master",
+      "veiculo": "poder360.com.br",
+      "tipo": "reportagem",
+      "titulo": "18 regimes de previdência têm R$ 1,9 bi aplicado no Banco Master"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 97000000,
+    "n": 1
+   }
   },
   {
    "n": "São Roque Prev",
@@ -1120,7 +1767,30 @@
    "t": "fundo_previdencia",
    "g": "",
    "d": "Regime próprio de previdência de São Roque (SP), com cerca de R$ 93 milhões em letras do Master.",
-   "id": "sao-roque-prev"
+   "id": "sao-roque-prev",
+   "val": [
+    {
+     "brl": 93150000,
+     "nat": "outro",
+     "txt": "R$ 93,15 milhões em letras financeiras do Master (nov/2025)",
+     "quem": "Times Brasil, com base nos regimes",
+     "data": "2025-11-19",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Aplicação em letras, sem indício de perda apurada.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/banco-master-18-fundos-de-previdencia-tinham-investimentos-no-banco-veja-lista",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "Banco Master: 18 fundos de previdência tinham investimentos no banco; veja lista"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 93150000,
+    "n": 1
+   }
   },
   {
    "n": "Demais 14 RPPS (Cajamar, Itaguaí, Amazonas e outros)",
@@ -1168,7 +1838,29 @@
    "t": "banco",
    "g": "",
    "d": "Antigo Indusval/Voiter, comprado pelo Master em 2024 e transferido a Augusto Lima em 2025; liquidado em 18/02/2026.",
-   "id": "banco-pleno"
+   "id": "banco-pleno",
+   "val": [
+    {
+     "brl": 4900000000,
+     "nat": "passivo",
+     "txt": "FGC terá de ressarcir R$ 4,9 bilhões aos 160 mil credores do Banco Pleno (liquidação em 18/02/2026)",
+     "quem": "FGC, segundo a Revista Oeste",
+     "data": "2026-02-18",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Garantia a pagar, não perda confirmada. A CNN Brasil (18/02/2026) traz o mesmo R$ 4,9 bi e 160 mil credores.",
+     "fonte": {
+      "url": "https://revistaoeste.com/economia/caso-master-deve-custar-r-58-bilhoes-ao-fgc",
+      "veiculo": "revistaoeste.com",
+      "tipo": "reportagem",
+      "titulo": "Caso Master deve custar R$ 58 bilhões ao FGC"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 4900000000,
+    "n": 1
+   }
   },
   {
    "n": "Will Financeira (Will Bank)",
@@ -1176,7 +1868,46 @@
    "t": "empresa",
    "g": "",
    "d": "Financeira do will bank, de cujo controle o Master assumiu em fevereiro de 2024; liquidada em 21/01/2026.",
-   "id": "will-financeira"
+   "id": "will-financeira",
+   "val": [
+    {
+     "brl": 6300000000,
+     "nat": "passivo",
+     "txt": "R$ 6,3 bilhões em garantias previstas pelo FGC aos credores do Will Bank (R$ 53 mi pagos até 18/02/2026)",
+     "quem": "FGC, segundo a CNN Brasil",
+     "data": "2026-02-18",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Garantia prevista; o Letsmoney (08/04/2026) refina para R$ 6,06 bi a cerca de 312 mil credores (outra linha).",
+     "fonte": {
+      "url": "https://www.cnnbrasil.com.br/economia/macroeconomia/fgc-ja-pagou-r-377-bilhoes-a-credores-do-master-e-will-bank",
+      "veiculo": "CNN Brasil",
+      "tipo": "reportagem",
+      "titulo": "FGC já pagou R$ 37,7 bilhões a credores do Master e Will Bank"
+     }
+    },
+    {
+     "brl": 6060000000,
+     "nat": "passivo",
+     "txt": "FGC estima desembolsar R$ 6,06 bilhões para cerca de 312 mil credores do Will Bank (abr/2026)",
+     "quem": "FGC, segundo o Letsmoney",
+     "data": "2026-04-08",
+     "principal": false,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Estimativa mais recente (a anterior era R$ 6,3 bi); não se soma.",
+     "fonte": {
+      "url": "https://www.letsmoney.com.br/noticias/fgc-libera-6-bilhoes-credores-will-bank",
+      "veiculo": "Letsmoney",
+      "tipo": "reportagem",
+      "titulo": "FGC libera R$ 6 bilhões para 312 mil credores do Will Bank"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 6300000000,
+    "n": 1
+   }
   },
   {
    "n": "Augusto Ferreira Lima",
@@ -1264,7 +1995,30 @@
    "t": "outro",
    "g": "",
    "d": "Unidade da Lagoinha em Belo Horizonte, com CNPJ próprio aberto em setembro de 2024 e presidida por Fabiano Zettel; encerrou as atividades em 15/03/2026.",
-   "id": "lagoinha-belvedere"
+   "id": "lagoinha-belvedere",
+   "val": [
+    {
+     "brl": 19200000,
+     "nat": "movimentado",
+     "txt": "Recebeu R$ 19,2 milhões em transferências feitas por Fabiano Zettel, segundo relatório do Coaf (set/2026)",
+     "quem": "Coaf, via Itatiaia",
+     "data": "2026-09-14",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada; o relatório do Coaf não foi aberto",
+     "nota": "Transferências de Zettel; o total de R$ 19,4 mi (Bahia Notícias) inclui R$ 120 mil do pai de Vorcaro. Movimentação financeira, sem ilícito atribuído à igreja.",
+     "fonte": {
+      "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
+      "veiculo": "itatiaia.com.br",
+      "tipo": "reportagem",
+      "titulo": "Caso Master: R$ 19,2 mi de cunhado de Vorcaro foram para igreja em BH"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 19325000,
+    "n": 2
+   }
   },
   {
    "n": "Rede Super",
@@ -1324,7 +2078,30 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Cancelou, em cautelares de 22/09 e 28/09/2026, precatórios de usinas (R$ 4,74 bi e R$ 2,36 bi atualizados) e fez correição extraordinária no gabinete de Newton Ramos com apoio da PF.",
-   "id": "cnj"
+   "id": "cnj",
+   "val": [
+    {
+     "brl": 4700000000,
+     "nat": "outro",
+     "txt": "Determinou o cancelamento de 16 precatórios sucroalcooleiros que somam R$ 4,7 bilhões e a devolução ao Tesouro (set/2026)",
+     "quem": "CNJ, via Times Brasil",
+     "data": "2026-09-23",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada (decisão do CNJ não aberta)",
+     "nota": "Ordem de cancelamento, não valor já recuperado. Não consegui abrir a decisão no portal do CNJ.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 4740000000,
+    "n": 1
+   }
   },
   {
    "n": "AGU (Advocacia-Geral da União)",
@@ -1332,7 +2109,30 @@
    "t": "orgao_publico",
    "g": "",
    "d": "Defende que o dano às usinas exige perícia por empresa; pediu ao CNJ o cancelamento de precatórios e ao STF, em 08/10/2026, a suspensão nacional de execuções (impacto citado de R$ 255,3 bi com juros).",
-   "id": "agu"
+   "id": "agu",
+   "val": [
+    {
+     "brl": 255300000000,
+     "nat": "outro",
+     "txt": "Governo estima que manter os pagamentos de precatórios de usinas custará R$ 255,3 bilhões (pedido de suspensão ao STF, 08/10/2026)",
+     "quem": "AGU/governo, via Novacana",
+     "data": "2026-10-09",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada (petição da AGU não aberta)",
+     "nota": "Custo potencial estimado pelo governo com correção e juros, não valor desviado; a petição da AGU não foi aberta.",
+     "fonte": {
+      "url": "https://www.novacana.com/noticias/agu-pede-ao-stf-suspensao-de-precatorios-de-usinas-que-podem-custar-r-255-bilhoes",
+      "veiculo": "novacana.com",
+      "tipo": "reportagem",
+      "titulo": "AGU pede ao STF suspensão de precatórios de usinas que podem custar R$ 255 bilhões"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 257800000000,
+    "n": 2
+   }
   },
   {
    "n": "TRF-1 (Tribunal Regional Federal da 1ª Região)",
@@ -1936,7 +2736,30 @@
    "t": "empresa",
    "g": "Escritórios ligados a Walfrido Warde",
    "d": "R$ 76,6 mi do Master (2022-2025, Receita). Sócios listados em dez/2025: Valdir Simão e Leandro Daiello; Roberta Rangel foi sócia desde 2021.",
-   "id": "warde-advogados"
+   "id": "warde-advogados",
+   "val": [
+    {
+     "brl": 76600000,
+     "nat": "movimentado",
+     "txt": "Escritórios ligados a Walfrido Warde receberam R$ 76,6 milhões do Master entre 2022 e 2025",
+     "quem": "Revista Oeste",
+     "data": "2026-04-10",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Honorários/contratos pagos, não ilícito comprovado.",
+     "fonte": {
+      "url": "https://www.revistaoeste.com/economia/master-pagou-mais-de-r-500-mi-a-escritorios-de-advocacia-em-4-anos",
+      "veiculo": "revistaoeste.com",
+      "tipo": "reportagem",
+      "titulo": "Master pagou mais de R$ 500 mi a escritórios de advocacia em 4 anos"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 76600000,
+    "n": 1
+   }
   },
   {
    "n": "Monteiro, Rusu, Cameirão e Bercht Advogados",
@@ -1944,7 +2767,30 @@
    "t": "empresa",
    "g": "Grupo de escritórios de Daniel Monteiro",
    "d": "R$ 79,1 mi do Master (2022-2025) mais R$ 30 mi à Mytra Consultoria, ligada ao mesmo endereço. A PF o descreve como 'compliance paralelo'. O escritório contesta valores e diz que o banco ficou inadimplente.",
-   "id": "monteiro-rusu-cameirao-e-bercht-advogados"
+   "id": "monteiro-rusu-cameirao-e-bercht-advogados",
+   "val": [
+    {
+     "brl": 79100000,
+     "nat": "movimentado",
+     "txt": "Dois escritórios do grupo receberam R$ 79,1 milhões do Master no período 2022-2025",
+     "quem": "Revista Oeste",
+     "data": "2026-04-10",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Honorários/contratos pagos, não ilícito comprovado.",
+     "fonte": {
+      "url": "https://www.revistaoeste.com/economia/master-pagou-mais-de-r-500-mi-a-escritorios-de-advocacia-em-4-anos",
+      "veiculo": "revistaoeste.com",
+      "tipo": "reportagem",
+      "titulo": "Master pagou mais de R$ 500 mi a escritórios de advocacia em 4 anos"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 79100000,
+    "n": 1
+   }
   },
   {
    "n": "Daniel Lopes Monteiro",
@@ -1960,7 +2806,30 @@
    "t": "empresa",
    "g": "Escritório de Salvador",
    "d": "R$ 54 mi do Master (2022-2025, 4º maior pagamento na Folha). Atuou em contencioso de massa do Credcesta (45 mil processos, diz o escritório); 'alvo de atenção' da PF, sem operação nas fontes.",
-   "id": "gabino-kruschewsky-advogados-associados"
+   "id": "gabino-kruschewsky-advogados-associados",
+   "val": [
+    {
+     "brl": 54000000,
+     "nat": "movimentado",
+     "txt": "Recebeu R$ 54 milhões do Master entre 2022 e 2025",
+     "quem": "Revista Oeste",
+     "data": "2026-04-10",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Honorários/contratos pagos, não ilícito comprovado.",
+     "fonte": {
+      "url": "https://www.revistaoeste.com/economia/master-pagou-mais-de-r-500-mi-a-escritorios-de-advocacia-em-4-anos",
+      "veiculo": "revistaoeste.com",
+      "tipo": "reportagem",
+      "titulo": "Master pagou mais de R$ 500 mi a escritórios de advocacia em 4 anos"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 54000000,
+    "n": 1
+   }
   },
   {
    "n": "Eugênio Kruschewsky",
@@ -2243,7 +3112,30 @@
    "t": "empresa",
    "g": "Companhia Açucareira Usina Capricho (AL)",
    "d": "Um dos 16 precatórios (R$ 4,74 bi com Una e Vale do Ceará Mirim) que o CNJ mandou cancelar; consta de lista 'a receber' no celular de Vorcaro e da minuta do contrato de Camilla Ramos.",
-   "id": "usina-capricho"
+   "id": "usina-capricho",
+   "val": [
+    {
+     "brl": 4700000000,
+     "nat": "outro",
+     "txt": "CNJ determinou o cancelamento de 16 precatórios do setor sucroalcooleiro que somam R$ 4,7 bilhões (set/2026)",
+     "quem": "CNJ, via Times Brasil",
+     "data": "2026-09-23",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada; o valor é de três empresas, não só da Capricho",
+     "nota": "Os 16 precatórios envolvem três empresas; a página não separa a parte da Capricho. Decisão do CNJ não aberta na fonte oficial.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 4740000000,
+    "n": 1
+   }
   },
   {
    "n": "Una Agroindustrial",
@@ -2267,7 +3159,30 @@
    "t": "empresa",
    "g": "Grupo João Santos (PE)",
    "d": "Condenação da União de R$ 983 mi em 2012 (cerca de R$ 2,2 bi hoje). Vendida via fundos ao Máxima/Master por R$ 180 mi; a Justiça de PE reconheceu fraude na venda em set/2025.",
-   "id": "usina-santa-tereza"
+   "id": "usina-santa-tereza",
+   "val": [
+    {
+     "brl": 180000000,
+     "nat": "movimentado",
+     "txt": "Grupo recebeu R$ 180 milhões com a venda de precatório que já valia R$ 1 bilhão; Justiça Federal de PE reconheceu a fraude em set/2025",
+     "quem": "Estadão, via Novacana",
+     "data": "2026-02-26",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "A página não traz os R$ 136,5 mi da compra pela Amazonita (valor da relação da teia, sem fonte aberta). O Master contesta e diz que a compra foi regular.",
+     "fonte": {
+      "url": "https://www.novacana.com/noticias/precatorio-usina-vendido-master-esquema-fraude-dinheiro-parar-exterior-260226",
+      "veiculo": "novacana.com",
+      "tipo": "reportagem",
+      "titulo": "Precatório de usina vendido ao Master em esquema de fraude teve dinheiro parar no exterior"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 316500000,
+    "n": 2
+   }
   },
   {
    "n": "Usina Cansanção de Sinimbu",
@@ -2283,7 +3198,29 @@
    "t": "empresa",
    "g": "STP 976 (cerca de R$ 5 bi)",
    "d": "Precatórios suspensos por Rosa Weber (2023) e referendados pelo Plenário. Nova Cana diz que o Master não comprou deste caso. Nunes Marques pediu vista em 03/2026.",
-   "id": "agro-industrial-tabu"
+   "id": "agro-industrial-tabu",
+   "val": [
+    {
+     "brl": 5000000000,
+     "nat": "outro",
+     "txt": "Suspensão de tutela provisória sobre expedição de precatório de cerca de R$ 5 bilhões à Agroindustrial Tabu (STP 976, voto de Mendonça)",
+     "quem": "Voto do ministro André Mendonça (STF, STP 976)",
+     "data": "2026-09",
+     "principal": true,
+     "qual": "boa",
+     "nota": "Valor aproximado do débito da Fazenda no precatório em disputa; o PDF não traz data do voto (a data do arquivo é set/2026).",
+     "fonte": {
+      "url": "https://static.poder360.com.br/uploads/2026/09/voto-mendonca-stf-stp-976.pdf",
+      "veiculo": "static.poder360.com.br",
+      "tipo": "relatorio",
+      "titulo": "Voto do ministro André Mendonça na STP 976"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 5000000000,
+    "n": 1
+   }
   },
   {
    "n": "Usina Cambahyba",
@@ -2291,7 +3228,30 @@
    "t": "empresa",
    "g": "Usina (RJ)",
    "d": "Indenização de R$ 2,5 bi em 1ª instância; o TRF-2 mandou refazer a perícia em 23/09/2026 a pedido da AGU. Times Brasil e Estadão a incluem entre as que venderam ao Master.",
-   "id": "usina-cambahyba"
+   "id": "usina-cambahyba",
+   "val": [
+    {
+     "brl": 2500000000,
+     "nat": "outro",
+     "txt": "Justiça Federal havia determinado indenização de R$ 2,5 bilhões à Cambahyba; TRF-2 mandou refazer a perícia (set/2026)",
+     "quem": "Justiça Federal (10ª Vara/RJ), via Times Brasil",
+     "data": "2026-09-24",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Valor da condenação em revisão, não pago nem desviado. A página diz que a AGU contestou os cálculos; não diz que pediu a perícia.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/justica-revisa-indenizacao-de-r-25-bi-a-usina-ligada-ao-master",
+      "veiculo": "timesbrasil.com.br",
+      "tipo": "reportagem",
+      "titulo": "Justiça revisa indenização de R$ 2,5 bi a usina ligada ao Master"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 5000000000,
+    "n": 2
+   }
   },
   {
    "n": "Raízen Energia",
@@ -2307,7 +3267,30 @@
    "t": "empresa",
    "g": "",
    "d": "Credores da cessão de R$ 1,44 bi do Master à Entre em 7-9/10/2025. Seguem frentes distintas dos 16 precatórios cancelados pelo CNJ; sobreposição não demonstrada.",
-   "id": "seis-usinas-cedidas-a-entre"
+   "id": "seis-usinas-cedidas-a-entre",
+   "val": [
+    {
+     "brl": 1440000000,
+     "nat": "movimentado",
+     "txt": "Contratos cobriam créditos de seis empresas sucroalcooleiras, no total de R$ 1,44 bilhão",
+     "quem": "Liquidante do Master, via Times Brasil",
+     "data": "2026-09-23",
+     "principal": true,
+     "qual": "fraca",
+     "motivo": "fonte única de imprensa aberta nesta rodada",
+     "nota": "Os contratos abrangiam créditos de seis empresas do setor sucroalcooleiro (Açucareira Central Sumaúma, Usina Catende, Usina São João, Açucareira Paraíso, Usina Outeiro e Agrícola Baixa Grande); o R$ 1,44 bi é o total da cessão, não o de cada usina.",
+     "fonte": {
+      "url": "https://timesbrasil.com.br/brasil/master-repassou-r-14-bilhao-em-precatorios-a-entre-investimentos",
+      "veiculo": "Times Brasil",
+      "tipo": "reportagem",
+      "titulo": "Master repassou R$ 1,4 bilhão em precatórios à Entre Investimentos"
+     }
+    }
+   ],
+   "val_lig": {
+    "brl": 1440000000,
+    "n": 1
+   }
   },
   {
    "n": "Dublin FIDC",
@@ -2904,8 +3887,8 @@
        "url": "https://poder360.com.br/poder-economia/cvm-multa-vorcaro-e-master-em-r-2015-milhoes-por-fraude",
        "veiculo": "poder360.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CVM multa Vorcaro e Master em R$ 201,5 milhões por fraude",
+       "data": "2026-09-08",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -3843,8 +4826,8 @@
        "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
        "veiculo": "itatiaia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Caso Master: R$ 19,2 mi de cunhado de Vorcaro foram para igreja em BH",
+       "data": "2026-09-14",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -3914,8 +4897,8 @@
        "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
        "veiculo": "itatiaia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Caso Master: R$ 19,2 mi de cunhado de Vorcaro foram para igreja em BH",
+       "data": "2026-09-14",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -4562,8 +5545,8 @@
        "url": "https://poder360.com.br/poder-economia/cvm-multa-vorcaro-e-master-em-r-2015-milhoes-por-fraude",
        "veiculo": "poder360.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CVM multa Vorcaro e Master em R$ 201,5 milhões por fraude",
+       "data": "2026-09-08",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -5344,8 +6327,8 @@
        "url": "https://jornaldebrasilia.com.br/brasilia/brb-diz-que-recuperou-r-10-bilhoes-das-carteiras-com-master",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BRB diz que recuperou R$ 10 bilhões das carteiras com Master",
+       "data": "2025-11-21",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -5458,8 +6441,8 @@
        "url": "https://jornaldebrasilia.com.br/brasilia/brb-vive-corrida-de-liquidez-sem-divulgacao-do-balanco-de-2025-diz-presidente",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BRB vive corrida de liquidez sem divulgação do balanço de 2025, diz presidente",
+       "data": "2026-06-09",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -5641,8 +6624,8 @@
        "url": "https://jornaldebrasilia.com.br/brasilia/brb-vive-corrida-de-liquidez-sem-divulgacao-do-balanco-de-2025-diz-presidente",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BRB vive corrida de liquidez sem divulgação do balanço de 2025, diz presidente",
+       "data": "2026-06-09",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -6639,8 +7622,8 @@
        "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
        "veiculo": "folhape.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -6686,8 +7669,8 @@
        "url": "https://www.poder360.com.br/poder-economia/18-regimes-de-previdencia-tem-r-19-bi-aplicado-no-banco-master",
        "veiculo": "poder360.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "18 regimes de previdência têm R$ 1,9 bi aplicado no Banco Master",
+       "data": "2025-11-19",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -6752,8 +7735,8 @@
        "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
        "veiculo": "folhape.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -6803,8 +7786,8 @@
        "url": "https://www.poder360.com.br/poder-economia/18-regimes-de-previdencia-tem-r-19-bi-aplicado-no-banco-master",
        "veiculo": "poder360.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "18 regimes de previdência têm R$ 1,9 bi aplicado no Banco Master",
+       "data": "2025-11-19",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -6878,8 +7861,8 @@
        "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
        "veiculo": "folhape.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -6918,8 +7901,8 @@
        "url": "https://www.folhape.com.br/noticia/amp/493241/com-operacao-em-pernambuco-pf-ja-mirou-institutos-de-tres-estados-por",
        "veiculo": "folhape.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Com operação em Pernambuco, PF já mirou institutos de três estados por aportes no Master",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -8920,8 +9903,8 @@
        "url": "https://www.bloomberglinea.com.br/negocios/colapso-do-banco-master-levanta-debate-sobre-papel-de-plataformas-como-a-xp",
        "veiculo": "bloomberglinea.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Colapso do Banco Master levanta debate sobre papel de plataformas como a XP",
+       "data": "2025-12-01",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -8929,8 +9912,8 @@
        "url": "https://timesbrasil.com.br/brasil/btg-faturou-r-67-bi-com-cdbs-do-master-sumiu-no-escandalo-e-agora-responde-na-justica",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BTG faturou R$ 6,7 bi com CDBs do Master, sumiu no escândalo e agora responde na Justiça",
+       "data": "2026-04-12",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -8973,8 +9956,8 @@
        "url": "https://timesbrasil.com.br/brasil/btg-faturou-r-67-bi-com-cdbs-do-master-sumiu-no-escandalo-e-agora-responde-na-justica",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BTG faturou R$ 6,7 bi com CDBs do Master, sumiu no escândalo e agora responde na Justiça",
+       "data": "2026-04-12",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -8982,8 +9965,8 @@
        "url": "https://www.bloomberglinea.com.br/negocios/colapso-do-banco-master-levanta-debate-sobre-papel-de-plataformas-como-a-xp",
        "veiculo": "bloomberglinea.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Colapso do Banco Master levanta debate sobre papel de plataformas como a XP",
+       "data": "2025-12-01",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9022,8 +10005,8 @@
        "url": "https://www.bloomberglinea.com.br/negocios/colapso-do-banco-master-levanta-debate-sobre-papel-de-plataformas-como-a-xp",
        "veiculo": "bloomberglinea.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Colapso do Banco Master levanta debate sobre papel de plataformas como a XP",
+       "data": "2025-12-01",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9062,8 +10045,8 @@
        "url": "https://timesbrasil.com.br/brasil/btg-faturou-r-67-bi-com-cdbs-do-master-sumiu-no-escandalo-e-agora-responde-na-justica",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BTG faturou R$ 6,7 bi com CDBs do Master, sumiu no escândalo e agora responde na Justiça",
+       "data": "2026-04-12",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9102,8 +10085,8 @@
        "url": "https://timesbrasil.com.br/brasil/btg-faturou-r-67-bi-com-cdbs-do-master-sumiu-no-escandalo-e-agora-responde-na-justica",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BTG faturou R$ 6,7 bi com CDBs do Master, sumiu no escândalo e agora responde na Justiça",
+       "data": "2026-04-12",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9150,8 +10133,8 @@
        "url": "https://www.poder360.com.br/poder-economia/fgc-inicia-pagamento-a-investidores-do-banco-master",
        "veiculo": "poder360.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "FGC inicia pagamento a investidores do Banco Master",
+       "data": "2026-01-17",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -9308,8 +10291,8 @@
        "url": "https://revistaoeste.com/economia/caso-master-deve-custar-r-58-bilhoes-ao-fgc",
        "veiculo": "revistaoeste.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Caso Master deve custar R$ 58 bilhões ao FGC",
+       "data": "2026-02-18",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9374,8 +10357,8 @@
        "url": "https://revistaoeste.com/economia/caso-master-deve-custar-r-58-bilhoes-ao-fgc",
        "veiculo": "revistaoeste.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Caso Master deve custar R$ 58 bilhões ao FGC",
+       "data": "2026-02-18",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9642,8 +10625,8 @@
        "url": "https://jornaldebrasilia.com.br/brasilia/brb-vive-corrida-de-liquidez-sem-divulgacao-do-balanco-de-2025-diz-presidente",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BRB vive corrida de liquidez sem divulgação do balanço de 2025, diz presidente",
+       "data": "2026-06-09",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9683,8 +10666,8 @@
        "url": "https://jornaldebrasilia.com.br/brasilia/brb-vive-corrida-de-liquidez-sem-divulgacao-do-balanco-de-2025-diz-presidente",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BRB vive corrida de liquidez sem divulgação do balanço de 2025, diz presidente",
+       "data": "2026-06-09",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -9976,8 +10959,8 @@
        "url": "https://www.metropoles.com/sao-paulo/liquidante-master-bilhoes-vorcaro",
        "veiculo": "metropoles.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Liquidante do Master mira bilhões de Vorcaro",
+       "data": "2026-03-20",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -10063,8 +11046,8 @@
        "url": "https://www.metropoles.com/sao-paulo/liquidante-master-bilhoes-vorcaro",
        "veiculo": "metropoles.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Liquidante do Master mira bilhões de Vorcaro",
+       "data": "2026-03-20",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -10384,8 +11367,8 @@
        "url": "https://www.infomoney.com.br/mercados/fictor-anuncia-compra-do-banco-master",
        "veiculo": "infomoney.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Fictor anuncia compra do Banco Master",
+       "data": "2025-11-17",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -10588,8 +11571,8 @@
        "url": "https://timesbrasil.com.br/brasil/banco-master-18-fundos-de-previdencia-tinham-investimentos-no-banco-veja-lista",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco Master: 18 fundos de previdência tinham investimentos no banco; veja lista",
+       "data": "2025-11-19",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -10641,8 +11624,8 @@
        "url": "https://timesbrasil.com.br/brasil/banco-master-18-fundos-de-previdencia-tinham-investimentos-no-banco-veja-lista",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco Master: 18 fundos de previdência tinham investimentos no banco; veja lista",
+       "data": "2025-11-19",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -10685,8 +11668,8 @@
        "url": "https://timesbrasil.com.br/brasil/banco-master-18-fundos-de-previdencia-tinham-investimentos-no-banco-veja-lista",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco Master: 18 fundos de previdência tinham investimentos no banco; veja lista",
+       "data": "2025-11-19",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -10694,8 +11677,8 @@
        "url": "https://www.poder360.com.br/poder-economia/18-regimes-de-previdencia-tem-r-19-bi-aplicado-no-banco-master",
        "veiculo": "poder360.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "18 regimes de previdência têm R$ 1,9 bi aplicado no Banco Master",
+       "data": "2025-11-19",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -10849,8 +11832,8 @@
        "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/bc-diz-ao-tcu-que-acionou-mpf-por-indicios-de-fraudes-do-master-com-reag-investigada-por-elo-com-pcc",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "BC diz ao TCU que acionou MPF por indícios de fraudes do Master com Reag, investigada por elo com PCC",
+       "data": "2025-12-31",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -11079,8 +12062,8 @@
        "url": "https://www.letsmoney.com.br/noticias/cvm-acusa-reag-ocultar-cotistas-falsear-liquidez",
        "veiculo": "letsmoney.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CVM acusa Reag de ocultar cotistas e falsear liquidez",
+       "data": "2026-04-09",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -11120,8 +12103,8 @@
        "url": "https://www.letsmoney.com.br/noticias/cvm-acusa-reag-ocultar-cotistas-falsear-liquidez",
        "veiculo": "letsmoney.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CVM acusa Reag de ocultar cotistas e falsear liquidez",
+       "data": "2026-04-09",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -11161,8 +12144,8 @@
        "url": "https://www.letsmoney.com.br/noticias/cvm-acusa-reag-ocultar-cotistas-falsear-liquidez",
        "veiculo": "letsmoney.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CVM acusa Reag de ocultar cotistas e falsear liquidez",
+       "data": "2026-04-09",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -11361,8 +12344,8 @@
        "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -11406,8 +12389,8 @@
        "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -11459,8 +12442,8 @@
        "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -11513,8 +12496,8 @@
        "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -11566,8 +12549,8 @@
        "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
        "veiculo": "jornaldebrasilia.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo",
+       "data": "2026-06-11",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -12465,8 +13448,8 @@
        "url": "https://www.opovo.com.br/noticias/brasil/2026/01/16/amp/inss-bloqueia-repasses-a-master-por-problemas-em-consignados.html",
        "veiculo": "opovo.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "INSS bloqueia repasses a Master por problemas em consignados",
+       "data": "2026-01-16",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -14658,8 +15641,8 @@
        "url": "https://www.revistaoeste.com/economia/master-pagou-mais-de-r-500-mi-a-escritorios-de-advocacia-em-4-anos",
        "veiculo": "revistaoeste.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Master pagou mais de R$ 500 mi a escritórios de advocacia em 4 anos",
+       "data": "2026-04-10",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -17099,8 +18082,8 @@
        "url": "https://www.revistaoeste.com/economia/master-pagou-mais-de-r-500-mi-a-escritorios-de-advocacia-em-4-anos",
        "veiculo": "revistaoeste.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Master pagou mais de R$ 500 mi a escritórios de advocacia em 4 anos",
+       "data": "2026-04-10",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -18523,8 +19506,8 @@
        "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro",
+       "data": "2026-09-23",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -18568,8 +19551,8 @@
        "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro",
+       "data": "2026-09-23",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -18618,8 +19601,8 @@
        "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro",
+       "data": "2026-09-23",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -18659,8 +19642,8 @@
        "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro",
+       "data": "2026-09-23",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -18699,8 +19682,8 @@
        "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro",
+       "data": "2026-09-23",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -18744,8 +19727,8 @@
        "url": "https://www.novacana.com/noticias/agu-pede-ao-stf-suspensao-de-precatorios-de-usinas-que-podem-custar-r-255-bilhoes",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "AGU pede ao STF suspensão de precatórios de usinas que podem custar R$ 255 bilhões",
+       "data": "2026-10-09",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -18793,8 +19776,8 @@
        "url": "https://timesbrasil.com.br/brasil/justica-revisa-indenizacao-de-r-25-bi-a-usina-ligada-ao-master",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Justiça revisa indenização de R$ 2,5 bi a usina ligada ao Master",
+       "data": "2026-09-24",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -18903,8 +19886,8 @@
        "url": "https://www.novacana.com/noticias/agu-pede-ao-stf-suspensao-de-precatorios-de-usinas-que-podem-custar-r-255-bilhoes",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "AGU pede ao STF suspensão de precatórios de usinas que podem custar R$ 255 bilhões",
+       "data": "2026-10-09",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -19323,8 +20306,8 @@
        "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro",
+       "data": "2026-09-23",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -19563,8 +20546,8 @@
        "url": "https://www.novacana.com/noticias/precatorio-usina-vendido-master-esquema-fraude-dinheiro-parar-exterior-260226",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Precatório de usina vendido ao Master em esquema de fraude teve dinheiro parar no exterior",
+       "data": "2026-02-26",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -19603,8 +20586,8 @@
        "url": "https://www.novacana.com/noticias/precatorio-usina-vendido-master-esquema-fraude-dinheiro-parar-exterior-260226",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Precatório de usina vendido ao Master em esquema de fraude teve dinheiro parar no exterior",
+       "data": "2026-02-26",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -19763,8 +20746,8 @@
        "url": "https://timesbrasil.com.br/brasil/justica-revisa-indenizacao-de-r-25-bi-a-usina-ligada-ao-master",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "Justiça revisa indenização de R$ 2,5 bi a usina ligada ao Master",
+       "data": "2026-09-24",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -19808,8 +20791,8 @@
        "url": "https://static.poder360.com.br/uploads/2026/09/voto-mendonca-stf-stp-976.pdf",
        "veiculo": "static.poder360.com.br",
        "tipo": "relatorio",
-       "titulo": null,
-       "data": null,
+       "titulo": "Voto do ministro André Mendonça na STP 976",
+       "data": "2026-09",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -19951,8 +20934,8 @@
        "url": "https://timesbrasil.com.br/brasil/cnj-manda-cancelar-r-47-bilhoes-em-precatorios-ligados-ao-master-e-devolver-valores-ao-tesouro",
        "veiculo": "timesbrasil.com.br",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "CNJ manda cancelar R$ 4,7 bilhões em precatórios ligados ao Master e devolver valores ao Tesouro",
+       "data": "2026-09-23",
        "qualidade": null,
        "papel": "sustenta"
       }
@@ -19996,8 +20979,8 @@
        "url": "https://www.novacana.com/noticias/agu-pede-ao-stf-suspensao-de-precatorios-de-usinas-que-podem-custar-r-255-bilhoes",
        "veiculo": "novacana.com",
        "tipo": "reportagem",
-       "titulo": null,
-       "data": null,
+       "titulo": "AGU pede ao STF suspensão de precatórios de usinas que podem custar R$ 255 bilhões",
+       "data": "2026-10-09",
        "qualidade": null,
        "papel": "sustenta"
       },
@@ -24218,16 +25201,16 @@
      "url": "https://www.poder360.com.br/poder-economia/18-regimes-de-previdencia-tem-r-19-bi-aplicado-no-banco-master",
      "veiculo": "poder360.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "18 regimes de previdência têm R$ 1,9 bi aplicado no Banco Master",
+     "data": "2025-11-19",
      "papel": "sustenta"
     },
     {
      "url": "https://timesbrasil.com.br/brasil/banco-master-18-fundos-de-previdencia-tinham-investimentos-no-banco-veja-lista",
      "veiculo": "timesbrasil.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Banco Master: 18 fundos de previdência tinham investimentos no banco; veja lista",
+     "data": "2025-11-19",
      "papel": "sustenta"
     }
    ],
@@ -24664,8 +25647,8 @@
      "url": "https://www.letsmoney.com.br/noticias/cvm-acusa-reag-ocultar-cotistas-falsear-liquidez",
      "veiculo": "letsmoney.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "CVM acusa Reag de ocultar cotistas e falsear liquidez",
+     "data": "2026-04-09",
      "papel": "sustenta"
     }
    ],
@@ -24850,8 +25833,8 @@
      "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
      "veiculo": "itatiaia.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Caso Master: R$ 19,2 mi de cunhado de Vorcaro foram para igreja em BH",
+     "data": "2026-09-14",
      "papel": "sustenta"
     },
     {
@@ -24915,8 +25898,8 @@
      "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
      "veiculo": "itatiaia.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Caso Master: R$ 19,2 mi de cunhado de Vorcaro foram para igreja em BH",
+     "data": "2026-09-14",
      "papel": "sustenta"
     },
     {
@@ -25967,8 +26950,8 @@
      "url": "https://www.infomoney.com.br/mercados/fictor-anuncia-compra-do-banco-master",
      "veiculo": "infomoney.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Fictor anuncia compra do Banco Master",
+     "data": "2025-11-17",
      "papel": "sustenta"
     },
     {
@@ -26096,8 +27079,8 @@
      "url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/bc-diz-ao-tcu-que-acionou-mpf-por-indicios-de-fraudes-do-master-com-reag-investigada-por-elo-com-pcc",
      "veiculo": "jornaldebrasilia.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "BC diz ao TCU que acionou MPF por indícios de fraudes do Master com Reag, investigada por elo com PCC",
+     "data": "2025-12-31",
      "papel": "sustenta"
     },
     {
@@ -27103,8 +28086,8 @@
      "url": "https://www.opovo.com.br/noticias/brasil/2026/01/16/amp/inss-bloqueia-repasses-a-master-por-problemas-em-consignados.html",
      "veiculo": "opovo.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "INSS bloqueia repasses a Master por problemas em consignados",
+     "data": "2026-01-16",
      "papel": "sustenta"
     }
    ],
@@ -27151,8 +28134,8 @@
      "url": "https://www.poder360.com.br/poder-economia/fgc-inicia-pagamento-a-investidores-do-banco-master",
      "veiculo": "poder360.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "FGC inicia pagamento a investidores do Banco Master",
+     "data": "2026-01-17",
      "papel": "sustenta"
     },
     {
@@ -27589,8 +28572,8 @@
      "url": "https://revistaoeste.com/economia/caso-master-deve-custar-r-58-bilhoes-ao-fgc",
      "veiculo": "revistaoeste.com",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Caso Master deve custar R$ 58 bilhões ao FGC",
+     "data": "2026-02-18",
      "papel": "sustenta"
     }
    ],
@@ -27981,8 +28964,8 @@
      "url": "https://www.metropoles.com/sao-paulo/liquidante-master-bilhoes-vorcaro",
      "veiculo": "metropoles.com",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Liquidante do Master mira bilhões de Vorcaro",
+     "data": "2026-03-20",
      "papel": "sustenta"
     }
    ],
@@ -28470,8 +29453,8 @@
      "url": "https://www.letsmoney.com.br/noticias/cvm-acusa-reag-ocultar-cotistas-falsear-liquidez",
      "veiculo": "letsmoney.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "CVM acusa Reag de ocultar cotistas e falsear liquidez",
+     "data": "2026-04-09",
      "papel": "sustenta"
     }
    ],
@@ -28756,8 +29739,8 @@
      "url": "https://jornaldebrasilia.com.br/brasilia/brb-vive-corrida-de-liquidez-sem-divulgacao-do-balanco-de-2025-diz-presidente",
      "veiculo": "jornaldebrasilia.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "BRB vive corrida de liquidez sem divulgação do balanço de 2025, diz presidente",
+     "data": "2026-06-09",
      "papel": "sustenta"
     }
    ],
@@ -28798,8 +29781,8 @@
      "url": "https://jornaldebrasilia.com.br/noticias/economia/banco-do-pcc-intermediaria-de-dark-horse-e-debentures-sigilosas-utilizaram-mesmo-fundo",
      "veiculo": "jornaldebrasilia.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Banco do PCC, intermediária de Dark Horse e debêntures sigilosas utilizaram mesmo fundo",
+     "data": "2026-06-11",
      "papel": "sustenta"
     }
    ],
@@ -29333,8 +30316,8 @@
      "url": "https://poder360.com.br/poder-economia/cvm-multa-vorcaro-e-master-em-r-2015-milhoes-por-fraude",
      "veiculo": "poder360.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "CVM multa Vorcaro e Master em R$ 201,5 milhões por fraude",
+     "data": "2026-09-08",
      "papel": "sustenta"
     },
     {
@@ -29502,8 +30485,8 @@
      "url": "https://www.itatiaia.com.br/politica/caso-master-r-192-mi-de-cunhado-de-vorcaro-foram-para-igreja-em-bh",
      "veiculo": "itatiaia.com.br",
      "tipo": "reportagem",
-     "titulo": null,
-     "data": null,
+     "titulo": "Caso Master: R$ 19,2 mi de cunhado de Vorcaro foram para igreja em BH",
+     "data": "2026-09-14",
      "papel": "sustenta"
     },
     {

@@ -2179,6 +2179,25 @@ def valores(con, exp):
           f"{sum('val_lig' in n for n in teia['N'])} nós com soma das ligações")
 
 
+def rodada13_valores(con, exp):
+    """Rodada 13 (valores): contagens exatas de entidade_valor depois da rodada (60 valores em 45 entidades; 36 entidades novas além das 9 da rodada 2),
+    conferidas no banco e em teia.json (N[].val)."""
+    secao("Rodada 13 (valores: entidades com estimativa em R$, naturezas, qualidade)")
+    esperar("entidade_valor: valores", q(con, "SELECT count(*) FROM entidade_valor")[0][0], 60)
+    esperar("entidade_valor: entidades com valor", q(con, "SELECT count(DISTINCT entidade_id) FROM entidade_valor")[0][0], 45)
+    esperar("entidade_valor: principais (um por entidade)", q(con, "SELECT count(*) FROM entidade_valor WHERE principal=1")[0][0], 45)
+    esperar("entidade_valor: por natureza", {r[0]: r[1] for r in q(con, "SELECT natureza, count(*) FROM entidade_valor GROUP BY natureza")},
+            {"bloqueado": 5, "desviado": 2, "investigado": 8, "movimentado": 15, "outro": 19, "passivo": 4, "prejuizo": 5, "sonegado": 2})
+    esperar("entidade_valor: fracas / boas", (q(con, "SELECT count(*) FROM entidade_valor WHERE qualidade='fraca'")[0][0],
+                                              q(con, "SELECT count(*) FROM entidade_valor WHERE qualidade='boa'")[0][0]), (34, 26))
+    esperar("entidade_valor: entidades da teia com valor (nós com `val` em teia.json)", sum("val" in n for n in exp["teia.json"]["N"]), 45)
+    esperar("entidade_valor: valor sem trecho citado", q(con, "SELECT count(*) FROM entidade_valor WHERE trecho_citado IS NULL OR trecho_citado=''")[0][0], 0)
+    esperar("entidade_valor: tipos de entidade (nós da teia) com valor", {r[0]: r[1] for r in q(con, """SELECT e.tipo, count(DISTINCT v.entidade_id) FROM entidade_valor v
+            JOIN entidade e ON e.id=v.entidade_id GROUP BY e.tipo""")},
+            {"banco": 4, "empresa": 15, "fundo": 3, "fundo_previdencia": 2, "operacao_policial": 5, "organizacao_criminosa": 1, "orgao_publico": 12,
+             "outro": 2, "pessoa": 1})
+
+
 def natureza_eventos(con, gerado):
     """Nenhum evento sem natureza (salvo exceção explícita, com justificativa, em eventos-natureza-manual.json) e toda natureza
     aplicada por regra (R1-R5) ou à mão tem regra/justificativa registrada e igual à do banco."""
@@ -2490,6 +2509,7 @@ def main():
     revisao_evidencias(con)
     evidencia_curadoria(con)
     valores(con, exp)
+    rodada13_valores(con, exp)
     modelo_v2(con, exp)
     paginas(con, exp)
     peso_wikipedia(con, exp)
