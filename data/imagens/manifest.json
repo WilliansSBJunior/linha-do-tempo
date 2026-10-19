@@ -1,0 +1,1195 @@
+{
+ "_doc": "Manifesto de imagens das entidades da Teia do Caso Master. status: ok (URL confirmada, pronta para baixar), baixado/erro (escrito por scripts/baixar_imagens.py), pendente (pessoa pública sem fonte aberta), pendente_usuario (logo/brasão a cargo do usuário), sem_foto (pessoa privada), simbolo (ícone desenhado). Ver data/imagens/README.md.",
+ "gerado_em": "2026-10-19",
+ "itens": {
+  "banco-master": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "Wikimedia Commons (verificar licença) ou site institucional"
+  },
+  "daniel-vorcaro": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "ciro-nogueira": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador739.jpg",
+   "arquivo": "data/imagens/ciro-nogueira.jpg",
+   "origem": "Senado Federal — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://legis.senado.leg.br/dadosabertos/senador/739"
+  },
+  "jaques-wagner": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador581.jpg",
+   "arquivo": "data/imagens/jaques-wagner.jpg",
+   "origem": "Senado Federal — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://legis.senado.leg.br/dadosabertos/senador/581"
+  },
+  "hugo-motta": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/160674.jpg",
+   "arquivo": "data/imagens/hugo-motta.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/160674"
+  },
+  "davi-alcolumbre": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador3830.jpg",
+   "arquivo": "data/imagens/davi-alcolumbre.jpg",
+   "origem": "Senado Federal — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://legis.senado.leg.br/dadosabertos/senador/3830"
+  },
+  "ibaneis-rocha": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "Agência Brasília / governo do DF; confirmar licença"
+  },
+  "claudio-castro": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "Governo do RJ; confirmar licença"
+  },
+  "tarcisio-de-freitas": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "Governo de SP; confirmar licença"
+  },
+  "jair-bolsonaro": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/74847.jpg",
+   "arquivo": "data/imagens/jair-bolsonaro.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/74847",
+   "motivo": "foto do mandato de deputado federal (Câmara)"
+  },
+  "flavio-bolsonaro": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5894.jpg",
+   "arquivo": "data/imagens/flavio-bolsonaro.jpg",
+   "origem": "Senado Federal — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://legis.senado.leg.br/dadosabertos/senador/5894"
+  },
+  "luiz-inacio-lula-da-silva": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "Planalto/Agência Brasil (CC BY 3.0 BR). A Câmara só tem foto antiga da Constituinte (id 139289: https://www.camara.leg.br/internet/deputado/bandep/139289.jpg), não usada por ser de 1987"
+  },
+  "rui-costa": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/104254.jpg",
+   "arquivo": "data/imagens/rui-costa.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/104254",
+   "motivo": "foto do mandato anterior de deputado federal (Câmara); trocar se houver mais recente"
+  },
+  "guido-mantega": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre"
+  },
+  "henrique-meirelles": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre"
+  },
+  "michel-temer": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "Planalto/Agência Brasil (CC BY 3.0 BR)"
+  },
+  "ricardo-lewandowski": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (ex-ministro) ou Agência Brasil (CC BY 3.0 BR)"
+  },
+  "antonio-rueda": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "API da Câmara não retornou o deputado por nome; buscar por id no site da Câmara"
+  },
+  "acm-neto": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "sem foto oficial aberta confirmada (ex-deputado, fora da API); Agência Brasil ou Commons com licença livre"
+  },
+  "partido-novo-diretorio-de-minas-gerais": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "TSE: logomarcas dos partidos (Partido Novo)"
+  },
+  "governo-do-distrito-federal": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.df.gov.br (brasão do DF; usuário decide)"
+  },
+  "nikolas-ferreira": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/209787.jpg",
+   "arquivo": "data/imagens/nikolas-ferreira.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/209787"
+  },
+  "stf": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "brasão/logomarca em https://portal.stf.jus.br/ (obra oficial; usuário decide)"
+  },
+  "alexandre-de-moraes": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "viviane-barci-de-moraes": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "dias-toffoli": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "maridt-participacoes": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "andre-mendonca": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "gilmar-mendes": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "edson-fachin": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "flavio-dino": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "paulo-gonet": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "gov.br/mpf (foto oficial do PGR) ou Agência Brasil"
+  },
+  "mpf": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.gov.br/mpf (brasão oficial; usuário decide)"
+  },
+  "bcb": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.bcb.gov.br (logomarca oficial; usuário decide)"
+  },
+  "gabriel-galipolo": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil"
+  },
+  "roberto-campos-neto": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil"
+  },
+  "paulo-sergio-neves-de-souza": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "ex-diretor do BC; sem fonte aberta confirmada"
+  },
+  "belline-santana": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "ex-chefe de departamento do BC; sem fonte aberta confirmada"
+  },
+  "cvm": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.gov.br/cvm (logomarca oficial; usuário decide)"
+  },
+  "tcu": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://portal.tcu.gov.br (brasão oficial; usuário decide)"
+  },
+  "pf": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.gov.br/pf (brasão oficial; usuário decide)"
+  },
+  "operacao-compliance-zero": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "cpi-do-crime-organizado": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "efb-regimes-especiais-de-empresas": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "grupo-voto": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "operacao-carbono-oculto": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "operacao-quasar": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "operacao-credito-oculto": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "gaeco-mp-sp": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.mpsp.mp.br (brasão/logomarca do MP-SP; usuário decide)"
+  },
+  "pcc": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "mohamad-hussein-mourad": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "roberto-augusto-leme-da-silva": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "bk-bank": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "aster-petroleo": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "inss": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.gov.br/inss (logomarca oficial; usuário decide)"
+  },
+  "operacao-sem-desconto": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "cpmi-do-inss": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "antonio-carlos-camilo-antunes": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "mauricio-camisotti": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "conafer": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit"
+  },
+  "alessandro-stefanutto": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "ex-presidente do INSS; sem fonte aberta confirmada"
+  },
+  "credcesta": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit"
+  },
+  "reag-investimentos": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "reag-trust-dtvm": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "joao-carlos-mansur": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "arandu-partners-holding": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "hans-95": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "hans-ii": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "astralo-95": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "gold-style-fidc": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "mabruk-ii": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "entre-investimentos-e-participacoes": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "antonio-carlos-freixo-junior": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "super-empreendimentos": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "xp-investimentos": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "Wikimedia Commons (verificar licença) ou brand kit da XP"
+  },
+  "btg-pactual": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "Wikimedia Commons (verificar licença) ou brand kit do BTG"
+  },
+  "easynvest": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "instituto-abradecont": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit"
+  },
+  "fgc": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.fgc.org.br (brand kit)"
+  },
+  "bancos-associados-ao-fgc": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "brb": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.brb.com.br (brand kit) ou Wikimedia Commons (verificar licença)"
+  },
+  "paulo-henrique-costa": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "ex-presidente do BRB; sem fonte aberta confirmada"
+  },
+  "quadra-gestao-de-recursos": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "grupo-fictor": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "nelson-tanure": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "rioprevidencia": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional (brasão oficial; usuário decide)"
+  },
+  "amprev": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional (brasão oficial; usuário decide)"
+  },
+  "jocildo-lemos": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "ex-presidente da Amprev; sem fonte aberta confirmada"
+  },
+  "amazonprev": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional (brasão oficial; usuário decide)"
+  },
+  "aparecidaprev": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional (brasão oficial; usuário decide)"
+  },
+  "iprev-maceio": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site do RPPS/município; ou marcar \"simbolo\""
+  },
+  "sao-roque-prev": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site do RPPS/município; ou marcar \"simbolo\""
+  },
+  "demais-14-rpps": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "estados-e-municipios": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "ministerio-da-previdencia-social": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.gov.br/previdencia (logomarca oficial; usuário decide)"
+  },
+  "banco-maxima": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit, ou Wikimedia Commons (verificar licença)"
+  },
+  "banco-letsbank": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit, ou Wikimedia Commons (verificar licença)"
+  },
+  "banco-pleno": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit, ou Wikimedia Commons (verificar licença)"
+  },
+  "will-financeira": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "augusto-ferreira-lima": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "fabiano-zettel": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "henrique-vorcaro": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "a-turma": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "tirreno": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "roberto-de-rezende-barbosa": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "saul-dutra-sabba": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "grupo-multipar": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "igreja-batista-da-lagoinha": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional da Lagoinha (brand kit)"
+  },
+  "andre-valadao": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "lagoinha-belvedere": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit"
+  },
+  "rede-super": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "clava-forte-bank": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "kassio-nunes-marques": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "luiz-fux": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch)"
+  },
+  "newton-ramos": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "site do TRF-1 (foto oficial de desembargador)"
+  },
+  "benedito-goncalves": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "site do STJ/CNJ (foto oficial)"
+  },
+  "cnj": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.cnj.jus.br (logomarca oficial; usuário decide)"
+  },
+  "agu": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.gov.br/agu (logomarca oficial; usuário decide)"
+  },
+  "trf-1": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "https://www.trf1.jus.br (brasão oficial; usuário decide)"
+  },
+  "alessandro-vieira": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5982.jpg",
+   "arquivo": "data/imagens/alessandro-vieira.jpg",
+   "origem": "Senado Federal — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://legis.senado.leg.br/dadosabertos/senador/5982"
+  },
+  "otto-alencar": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5523.jpg",
+   "arquivo": "data/imagens/otto-alencar.jpg",
+   "origem": "Senado Federal — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://legis.senado.leg.br/dadosabertos/senador/5523"
+  },
+  "cezinha-de-madureira": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/204504.jpg",
+   "arquivo": "data/imagens/cezinha-de-madureira.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/204504"
+  },
+  "fabio-faria": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/141428.jpg",
+   "arquivo": "data/imagens/fabio-faria.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/141428"
+  },
+  "ronaldo-bento": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "gov.br (ex-ministro); confirmar licença"
+  },
+  "kevin-de-carvalho-marques": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "rodrigo-fux": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "enrique-de-abreu-lewandowski": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "irmaos-de-toffoli": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "mario-umberto-degani": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "roberta-rangel": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "pedro-gonet-branco": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "bianca-medeiros": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "etc-participacoes": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "bonnie-de-bonilha": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "bn-financeira": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "eduardo-sodre-martins": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "raimundo-neto-e-silva-nogueira-lima": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "cnlf-empreendimentos-imobiliarios": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "caio-carvalho-barros": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "eduardo-bolsonaro": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/92346.jpg",
+   "arquivo": "data/imagens/eduardo-bolsonaro.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/92346"
+  },
+  "luis-roberto-irmao-de-paulo-sergio-neves-de-souza": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "valeria-rodrigues-linhares": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "camilla-ramos": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "felipe-cancado-vorcaro": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "luiz-renno-netto": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "andre-kruschewsky": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "leo-serrano-giunchetti": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "prime-aviation": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "fsw-spe": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "luiz-phillipi-mourao": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "ciro-soares": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "walfrido-warde": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "warde-advogados": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "monteiro-rusu-cameirao-e-bercht-advogados": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "daniel-lopes-monteiro": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "gabino-kruschewsky-advogados-associados": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "eugenio-kruschewsky": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "alves-correa-verissimo-advocacia": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "dalide-barbosa-alves-correa": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "marcus-vinicius-furtado-coelho": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "queiroga-vieira-queiroz-e-ramos-advocacia": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "ibaneis-advocacia": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "consult-inteligencia-tributaria": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "lewandowski-advocacia": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "laguz-i-e-reag-legal-claims": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "havengate": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "paulo-calixto": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "metropoles-marketing-e-propaganda": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "luiz-estevao": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "ex-senador (código Senado 943); foto não confirmada na API; ver Senado ou Commons"
+  },
+  "grupo-massa-ratinho": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "grupo-globo": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "Wikimedia Commons (verificar licença) ou brand kit do Grupo Globo"
+  },
+  "luciano-huck": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "diario-do-centro-do-mundo": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "istoe": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "leo-dias-comunicacao-e-jornalismo": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "diego-escosteguy": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "malu-gaspar": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "thiago-miranda": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "influenciadores-abordados": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "luiz-bacci": {
+   "tipo": "nenhuma",
+   "status": "sem_foto",
+   "motivo": "pessoa privada"
+  },
+  "fabio-wajngarten": {
+   "tipo": "foto",
+   "status": "pendente",
+   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "sugestao_origem": "ex-secretário do governo; sem fonte aberta confirmada"
+  },
+  "go-up-entertainment": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "mario-frias": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/220655.jpg",
+   "arquivo": "data/imagens/mario-frias.jpg",
+   "origem": "Câmara dos Deputados — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://dadosabertos.camara.leg.br/api/v2/deputados/220655"
+  },
+  "destilaria-alcidia": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "usina-capricho": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "una-agroindustrial": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "companhia-acucareira-vale-do-ceara-mirim": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "usina-santa-tereza": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "usina-cansancao-de-sinimbu": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "agro-industrial-tabu": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "usina-cambahyba": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "raizen-energia": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "seis-usinas-cedidas-a-entre": {
+   "tipo": "simbolo",
+   "status": "simbolo",
+   "motivo": "operação, CPI, organização criminosa ou grupo genérico: ícone desenhado, sem download"
+  },
+  "dublin-fidc": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "ssa-fidc": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "amazonita": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "fundos normalmente não têm logo; considere marcar \"simbolo\""
+  },
+  "sefer": {
+   "tipo": "logo",
+   "status": "pendente_usuario",
+   "motivo": "logo/brasão não é baixado automaticamente",
+   "sugestao_origem": "site institucional, brand kit (muitas empresas-veículo não têm logo; considere marcar \"simbolo\")"
+  },
+  "chiquinho-feitosa": {
+   "tipo": "foto",
+   "status": "ok",
+   "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador611.jpg",
+   "arquivo": "data/imagens/chiquinho-feitosa.jpg",
+   "origem": "Senado Federal — Dados Abertos",
+   "licenca": "foto oficial (dados abertos)",
+   "autor": "",
+   "pagina": "https://legis.senado.leg.br/dadosabertos/senador/611"
+  }
+ }
+}
