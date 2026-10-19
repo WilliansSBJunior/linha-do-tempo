@@ -246,12 +246,15 @@
   },
   "dias-toffoli": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "reprocessar: licença Attribution aceita",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "Dias Toffoli",
    "arquivo": "data/imagens/dias-toffoli.jpg",
-   "pagina": "https://commons.wikimedia.org/wiki/File:Dias_Toffoli_em_outubro_de_2019.jpg"
+   "pagina": "https://commons.wikimedia.org/wiki/File:Dias_Toffoli_em_outubro_de_2019.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Dias_Toffoli_em_outubro_de_2019.jpg/960px-Dias_Toffoli_em_outubro_de_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "Attribution",
+   "autor": "Nelson Jr."
   },
   "maridt-participacoes": {
    "tipo": "logo",
@@ -261,12 +264,15 @@
   },
   "andre-mendonca": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "reprocessar: licença Attribution aceita",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "André Mendonça",
    "arquivo": "data/imagens/andre-mendonca.jpg",
-   "pagina": "https://commons.wikimedia.org/wiki/File:Ministro_André_Mendonça_em_outubro_de_2025_(3x4).jpg"
+   "pagina": "https://commons.wikimedia.org/wiki/File:Ministro_André_Mendonça_em_outubro_de_2025_(3x4).jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Ministro_Andr%C3%A9_Mendon%C3%A7a_em_outubro_de_2025_%283x4%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "Attribution",
+   "autor": "Rosinei Coutinho/STF"
   },
   "gilmar-mendes": {
    "tipo": "foto",
@@ -294,12 +300,15 @@
   },
   "flavio-dino": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "reprocessar: licença Attribution aceita",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "Flávio Dino",
    "arquivo": "data/imagens/flavio-dino.jpg",
-   "pagina": "https://commons.wikimedia.org/wiki/File:Flávio_Dino_no_voto_da_Ação_Penal_(AP)_2668_(cropped).jpg"
+   "pagina": "https://commons.wikimedia.org/wiki/File:Flávio_Dino_no_voto_da_Ação_Penal_(AP)_2668_(cropped).jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Fl%C3%A1vio_Dino_no_voto_da_A%C3%A7%C3%A3o_Penal_%28AP%29_2668_%28cropped%29.jpg/960px-Fl%C3%A1vio_Dino_no_voto_da_A%C3%A7%C3%A3o_Penal_%28AP%29_2668_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "Attribution",
+   "autor": "Gustavo Moreno/STF"
   },
   "paulo-gonet": {
    "tipo": "foto",
@@ -339,12 +348,15 @@
   },
   "roberto-campos-neto": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "reprocessar: licença Attribution aceita",
+   "status": "baixado",
    "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "Roberto Campos Neto",
    "arquivo": "data/imagens/roberto-campos-neto.jpg",
-   "pagina": "https://commons.wikimedia.org/wiki/File:Roberto_Campos_Neto.jpg"
+   "pagina": "https://commons.wikimedia.org/wiki/File:Roberto_Campos_Neto.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Roberto_Campos_Neto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "Attribution",
+   "autor": "Pedro França/Agência Senado"
   },
   "paulo-sergio-neves-de-souza": {
    "tipo": "foto",
