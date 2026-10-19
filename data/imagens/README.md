@@ -34,7 +34,7 @@ Para uma foto nova de pessoa pública: preencha `url`, `origem`, `licenca`, `aut
 
 ## Pendências do usuário
 
-Veja `status` em `manifest.json`. Resumo (91 logos, 31 fotos):
+Veja `status` em `manifest.json`. Resumo (91 logos, 28 fotos):
 
-- Fotos de pessoas públicas (`pendente`, 31): Ibaneis, Cláudio Castro, Tarcísio, Lula, Mantega, Meirelles, Temer, Lewandowski, Antônio Rueda, ACM Neto, os 8 ministros do STF (Moraes, Toffoli, Mendonça, Gilmar, Fachin, Dino, Nunes Marques, Fux), Gonet, Galípolo, Campos Neto, Newton Ramos, Benedito Gonçalves, Luiz Estevão, Ronaldo Bento, Wajngarten, Paulo Henrique Costa, Stefanutto, Jocildo Lemos, Paulo Sérgio Neves de Souza, Belline Santana.
+- Fotos de pessoas públicas (`pendente`, 28): Ibaneis, Cláudio Castro, Tarcísio, Lula, Mantega, Meirelles, Lewandowski, Antônio Rueda, os 8 ministros do STF (Moraes, Toffoli, Mendonça, Gilmar, Fachin, Dino, Nunes Marques, Fux), Gonet, Galípolo, Campos Neto, Newton Ramos, Benedito Gonçalves, Ronaldo Bento, Wajngarten, Paulo Henrique Costa, Stefanutto, Jocildo Lemos, Paulo Sérgio Neves de Souza, Belline Santana.
 - Logos (`pendente_usuario`, 91): órgãos e brasões (STF, MPF, BCB, CVM, TCU, PF, INSS, CNJ, AGU, TRF-1, FGC, BRB, Ministério da Previdência, Governo do DF, Gaeco/MP-SP, Rioprevidência, Amprev, Amazonprev, AparecidaPrev, RPPS), partido (Partido Novo MG, logomarcas no TSE), bancos e empresas (Banco Master, XP, BTG, Easynvest, Máxima, Letsbank, Pleno, Will, Reag e fundos, usinas, escritórios, mídia, Lagoinha). Muitas empresas-veículo, fundos e escritórios não têm logo: marque `simbolo`.
