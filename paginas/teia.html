@@ -566,7 +566,7 @@ body.fs{overflow:hidden}
 .rsvg .hd:hover .clab,.rsvg .hd.on .clab{fill:var(--ink)}
 .rsvg .hd.dim{opacity:.35}
 .rsvg .vl{font-family:var(--mono);font-weight:500;font-size:calc(11.5px * var(--kv,1));fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:calc(4px * var(--kv,1));stroke-linejoin:round;pointer-events:none}
-.rsvg .yr{cursor:pointer}
+.rsvg .yr{cursor:pointer;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:normal}
 .rsvg .yr text{font-family:var(--mono);font-size:calc(11px * var(--ky,1));fill:var(--muted)}
 .rsvg .yr .tick{stroke:var(--muted);stroke-width:1.2;vector-effect:non-scaling-stroke}
 .rsvg .yr.hot text{fill:var(--ink);font-weight:500}
@@ -672,7 +672,65 @@ body.fs{overflow:hidden}
 .est-grav .rsvg .poster .orn{fill:none;stroke:var(--gv-ink3);stroke-width:1;vector-effect:non-scaling-stroke}
 .rsec.est-grav .rleg .lic{--icf:url(#ti-hatch);--ics:url(#ti-cross);--ice:var(--gv-bg);--iho:.9;color:var(--gv-ink);stroke-width:2.4}
 .rsec.est-grav .chip.doc{background:var(--gv-ink);color:var(--gv-card)}
-@media (prefers-reduced-motion: reduce){.rsvg .nd,.rsvg .ed,.rsvg .br{transition:none}}
+/* ---------- níveis (Radial e Mapa mental): grupos recolhidos, linhas agrupadas, abrir e recolher ---------- */
+.rsvg .gone{display:none}
+.rsvg.moving .nd,.rsvg.moving .gu,.rsvg.moving .hd{transition:none}
+.rsvg.moving .ed,.rsvg.moving .eh,.rsvg.moving .ag,.rsvg.moving .agh,.rsvg.moving .agl,.rsvg.moving .br,.rsvg.moving .vl,.rsvg.moving .imp,.rsvg.moving .ring0{opacity:0!important;pointer-events:none}
+.rsvg .ed.lv,.rsvg .eh.lv,.rsvg.dim .ed.lv,.rsvg.dim .eh.lv{display:none}
+/* familiar, próximo ou escritório ao lado da autoridade aberta: linha fina e cheia até ela (não é uma ligação com grau) */
+.rsvg .imp{fill:none;stroke:var(--c);stroke-width:1.2;vector-effect:non-scaling-stroke;opacity:.55}
+.rsvg .imp.off{display:none}
+.rsvg.dim .imp:not(.on){opacity:.06}
+.rsvg .gu{cursor:pointer;transition:opacity .2s}
+.rsvg .gu:focus{outline:none}
+.rsvg .gu.dim{opacity:.45}
+.rsvg.dim .gu:not(.on){opacity:.16}
+.rsvg .gbd circle{fill:var(--surface);stroke:var(--c);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.rsvg .gbd text{font-family:var(--mono);font-size:14px;font-weight:500;fill:var(--ink)}
+/* Radial: círculo do grupo, como na 2D */
+.rsvg .gc{fill:var(--c);fill-opacity:.2;stroke:var(--c);stroke-width:2.5;vector-effect:non-scaling-stroke}
+.rsvg .gu:hover .gc,.rsvg .gu:focus-visible .gc{fill-opacity:.38}
+.rsvg .gu:focus-visible .gc,.rsvg .gu:focus-visible .gfr{stroke:var(--ink);stroke-width:3}
+.rsvg .gt{font-family:var(--display);font-stretch:104%;font-weight:700;font-size:calc(12.5px * var(--ky,1));paint-order:stroke;stroke:var(--surface);stroke-width:calc(4px * var(--ky,1));stroke-linejoin:round}
+.rsvg .gt .gn{font-family:var(--body);font-weight:500;fill:var(--ink2)}
+/* Mapa mental: cartão do grupo com o mosaico dos nomes mais ligados */
+.rsvg .gfr{fill:var(--surface);stroke:var(--c);stroke-width:2.4;vector-effect:non-scaling-stroke}
+.rsvg .gu:hover .gfr{fill:color-mix(in srgb,var(--c) 9%,var(--surface))}
+.rsvg .gtt{font-family:var(--display);font-stretch:106%;font-weight:800;font-size:16px}
+.rsvg .gcn{font-family:var(--mono);font-size:11.5px;fill:var(--ink2)}
+.rsvg .mz.foto .ic{display:none}
+.rsvg .mz.vazio{display:none}
+/* placa do grupo aberto: o "−" recolhe */
+.rsvg .pmin{cursor:pointer}
+.rsvg .pmin circle{fill:var(--surface);stroke:var(--c);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.rsvg .pmin:hover circle{fill:var(--line)}
+.rsvg .pmin text{font-family:var(--mono);font-size:16px;font-weight:500;fill:var(--ink)}
+.rsvg .hd .clab{cursor:pointer}
+/* linhas agrupadas: espessura e número = quantas relações; traço = o grau que predomina nelas */
+.rsvg .ag{fill:none;stroke:var(--c);stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.26;transition:opacity .2s}
+.rsvg .ag.x{opacity:.18}
+.rsvg .ag.h0{opacity:.5}
+.rsvg .ag.s-ale{stroke:var(--st-ale)}
+.rsvg .agh{fill:none;stroke:transparent;stroke-width:16;vector-effect:non-scaling-stroke;cursor:pointer;pointer-events:stroke}
+.rsvg .agl{font-family:var(--mono);font-weight:500;font-size:calc(11.5px * var(--kv,1));fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:calc(4px * var(--kv,1));stroke-linejoin:round;cursor:pointer;text-anchor:middle}
+.rsvg .agl:focus{outline:none}
+.rsvg .agl:hover,.rsvg .agl:focus-visible{text-decoration:underline}
+.rsvg .agl.minor:not(.on){display:none}
+.rsvg.dim .ag{opacity:.05}
+.rsvg.dim .ag.on{opacity:.85}
+.rsvg.dim .agl:not(.on){opacity:.12}
+.rsvg.noxl .ag.x:not(.on),.rsvg.noxl .agh.x:not(.on),.rsvg.noxl .agl.x:not(.on){display:none}
+.rlv .lvn.sub{cursor:default;font-weight:500}
+.rlv .lvn.sub:hover{text-decoration:none}
+.est-grav .rsvg .gfr{fill:var(--gv-card);stroke:var(--gv-ink);stroke-width:1.3}
+.est-grav .rsvg .gu:hover .gfr{fill:var(--gv-bg)}
+.est-grav .rsvg .gtt{font-family:var(--gv-sc);font-weight:400;font-stretch:normal;font-size:17px;fill:var(--gv-ink)}
+.est-grav .rsvg .gcn{font-family:var(--gv-serif);font-style:italic;font-size:12px;fill:var(--gv-ink2)}
+.est-grav .rsvg .ag{stroke:color-mix(in srgb,var(--c) 30%,var(--gv-ink2))}
+.est-grav .rsvg .ag.s-ale{stroke:var(--st-ale)}
+.est-grav .rsvg .agl{font-family:var(--gv-serif);font-size:calc(12.5px * var(--kv,1));fill:var(--gv-red);stroke:var(--gv-card)}
+.est-grav .rsvg .pmin circle,.est-grav .rsvg .gbd circle{fill:var(--gv-card);stroke:var(--gv-ink)}
+@media (prefers-reduced-motion: reduce){.rsvg .nd,.rsvg .ed,.rsvg .br,.rsvg .gu,.rsvg .ag{transition:none}}
 </style>
 <style>
 :root{--site-max:1360px}
@@ -748,7 +806,7 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
     </div>
   <section id="mapsec">
     <div class="sec-h">
-      <div><h2>A teia</h2><p id="mapHelp">A teia começa recolhida: o banco e o controlador no centro e, no anel, um círculo por grupo com o número de nomes ligados até o ano escolhido. As linhas grossas resumem as relações de cada grupo com o centro e com os outros grupos; o número diz quantas são, e um clique abre a lista delas, cada uma com as evidências. Clique num grupo (ou no +) para abrir seus subgrupos (partidos, órgãos, autoridades) ou seus nomes, e num subgrupo para abrir os nomes; o "−" no nome do grupo aberto, ou no caminho acima da teia, recolhe de novo. Vários grupos podem ficar abertos; "Abrir tudo" mostra todos os nomes. Familiares, próximos e escritórios ligados orbitam a autoridade quando ela está aberta. A busca abre o grupo certo e seleciona o nome. Ao selecionar um nome, o modo foco o põe no centro, com as ligações diretas num anel e as de dois passos num anel externo, mesmo que os grupos estejam recolhidos; Esc ou "Voltar ao anel completo" devolve a teia como estava. Para ver todos os nomes de uma vez, use os modos Radial ou Mapa mental no seletor acima.</p></div>
+      <div><h2>A teia</h2><p id="mapHelp">A teia começa recolhida: o banco e o controlador no centro e, no anel, um círculo por grupo com o número de nomes ligados até o ano escolhido. As linhas grossas resumem as relações de cada grupo com o centro e com os outros grupos; o número diz quantas são, e um clique abre a lista delas, cada uma com as evidências. Clique num grupo (ou no +) para abrir seus subgrupos (partidos, órgãos, autoridades) ou seus nomes, e num subgrupo para abrir os nomes; o "−" no nome do grupo aberto, ou no caminho acima da teia, recolhe de novo. Vários grupos podem ficar abertos; "Abrir tudo" mostra todos os nomes. Familiares, próximos e escritórios ligados orbitam a autoridade quando ela está aberta. A busca abre o grupo certo e seleciona o nome. Ao selecionar um nome, o modo foco o põe no centro, com as ligações diretas num anel e as de dois passos num anel externo, mesmo que os grupos estejam recolhidos; Esc ou "Voltar ao anel completo" devolve a teia como estava. Os modos Radial e Mapa mental, no seletor acima, abrem nível a nível do mesmo jeito, com mais espaço para cada nome (fotos e ícones no Mapa mental).</p></div>
       <div class="tools"><label class="ftog" id="ftogL"><input type="checkbox" id="fAuto" checked>Foco automático ao selecionar</label><span class="tgrp"><button id="zOut" type="button" aria-label="Diminuir a teia">−</button><button id="zIn" type="button" aria-label="Aumentar a teia">+</button></span><span class="tgrp fsonly"><button id="fsPrev" type="button" aria-label="Ano anterior">←</button><b id="fsYear"></b><button id="fsNext" type="button" aria-label="Ano seguinte">→</button><button id="fsPlay" type="button">Percorrer os anos</button></span><button id="fitBtn" type="button" title="Mostrar a teia inteira">Ajustar</button><button id="ctrBtn" type="button" title="Voltar ao centro">Centro</button><button id="lgBtn" type="button" class="fsonly" aria-expanded="false" aria-controls="legend">Legenda</button><button id="precBtn" type="button" data-prec="1">Precatórios</button><button id="fsBtn" type="button">Tela cheia</button><a class="btn" id="v3d" href="#teia-3d">Ver em 3D (Teia no tempo)</a><span class="more" id="more"><button id="moreBtn" type="button" aria-expanded="false" aria-controls="moreMenu">Mais</button><span class="moremenu" id="moreMenu" hidden></span></span></div>
     </div>
     <div class="mapgrid">
@@ -911,15 +969,20 @@ let REP = [], ATT = [], kids = [], units = [], uById = {}, gpos = {}, pos = [], 
 const satOf = i => ATT[i] ?? null;
 const grpOf = i => satOf(i) ?? i, ecat = i => N[grpOf(i)].c;
 /* REP[i]: o que representa o nome i na teia recolhida: ele mesmo ('n:i'), o subgrupo ('p:chave') ou o setor ('c:setor') */
-function baseRep(i){
+function repOf(i, oc, os){
   const n = N[i]; if (n.c === 'hub') return 'n:' + i; if (!nOn(i)) return null;
-  if (!openCat.has(n.c)) return 'c:' + n.c;
-  const k = subKey(i); return k && subReal(k) && !openSub.has(k) ? 'p:' + k : 'n:' + i;
+  if (!oc.has(n.c)) return 'c:' + n.c;
+  const k = subKey(i); return k && subReal(k) && !os.has(k) ? 'p:' + k : 'n:' + i;
+}
+/* REP e ATT para um conjunto de setores e subgrupos abertos: a 2D usa os seus; Radial e Mapa mental, os deles (TEIA2D.repsFor) */
+function repsFor(oc, os){
+  const R = N.map((n, i) => repOf(i, oc, os)), T = N.map(() => null);
+  /* satélite orbita a autoridade sempre que ela está aberta */
+  N.forEach((n, i) => { if (R[i] && satOK(i) && R[SATA[i]] === 'n:' + SATA[i]){ R[i] = 'n:' + i; T[i] = SATA[i]; } });
+  return {REP:R, ATT:T};
 }
 function reps(){
-  REP = N.map((n, i) => baseRep(i)); ATT = N.map(() => null);
-  /* satélite orbita a autoridade sempre que ela está aberta */
-  N.forEach((n, i) => { if (REP[i] && satOK(i) && REP[SATA[i]] === 'n:' + SATA[i]){ REP[i] = 'n:' + i; ATT[i] = SATA[i]; } });
+  ({REP, ATT} = repsFor(openCat, openSub));
   kids = N.map(() => []); ATT.forEach((a, i) => { if (a != null) kids[a].push(i); });
 }
 const uLabel = id => id[0] === 'c' ? cname(id.slice(2)) : id[0] === 'p' ? id.slice(2).split('|')[1] : N[+id.slice(2)].n;
@@ -1765,6 +1828,8 @@ hashDossier(); addEventListener('hashchange', hashDossier);
 /* o que os modos Radial e Mapa mental reaproveitam: mesmo recorte por ano, mesmos painéis de evidência e dossiê */
 const api = {D, N, E, H0, H1, YEARS, CATL, STL, get year(){ return year; }, setYear: y => { stop(); setYear(y); }, activeRels, edgeSt,
   brl, brlFull, esc, srcLinks, fontesTxt, nFontes, valHTML, desde, fdate, pcls, evAno: y => D.EV.filter(e => y === 2017 ? e.y <= 2017 : e.y === y),
+  /* níveis: a mesma classificação da 2D (setor, subgrupo, satélite em órbita da autoridade) */
+  repsFor, subKey, subName, subReal, subCls, SUBS, SUBORD, IMPL, IMPLAB, SATA,
   focar: i => { if (autoF) setFocus(i); else { closeEv(); sel = 'n:' + i; focusOn(sel); } detOpen = true; detail(); }};
 window.TEIA2D = api; if (window.__teiaPronta) window.__teiaPronta(api);
 }
@@ -1838,11 +1903,30 @@ function fontesGravura(){ if (fontesG) return; fontesG = true;
   const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap'; document.head.appendChild(l); }
 
 const HELP = {
-  radial:'Cada grupo é um setor e cada nome um ponto, do mais ligado (perto do centro) ao menos ligado. O traço das linhas e a moldura de cada ponto dizem o grau de comprovação, como na 2D. Passe o mouse ou toque num nome para ver suas ligações e os valores em reais; clique para abrir o painel com os trechos e as fontes. As linhas entre setores (ligações cruzadas) podem ser ocultadas; as linhas até o banco e o controlador aparecem ao selecionar. A régua de anos acima vale aqui; o anel externo também escolhe o ano e lista os fatos dele.',
-  mapa:'A mesma geometria do modo radial, com um cartão por nome: foto ou logotipo quando há imagem com origem e licença registradas, senão um ícone do tipo (pessoa, empresa, banco, órgão, operação…). Dois estilos: gravura, em sépia e cheio de rótulos, e fotográfico, limpo e em cor. A moldura do cartão diz o grau da ligação mais forte com o centro; o traço das linhas, o de cada ligação. Clique num cartão para ver as relações, os trechos, as fontes e o crédito da imagem.'
+  radial:'O Radial começa recolhido, como a 2D: o banco e o controlador no centro e, em volta, um círculo por grupo com o número de nomes ligados até o ano. As linhas grossas resumem as relações de cada grupo com o centro e com os outros grupos: o número diz quantas são, o traço é o grau de comprovação que predomina nelas, e um clique lista as relações no painel. Clique num grupo para abrir o nível seguinte (partidos, órgãos, autoridades, ou direto os nomes) e num subgrupo para abrir os nomes, cada um um ponto no setor do grupo, do mais ligado (perto do centro) ao menos ligado. O "−" no nome do grupo aberto, ou no caminho acima do mapa, recolhe; vários grupos podem ficar abertos, e "Abrir tudo" mostra todos os nomes. Familiares, próximos e escritórios ligados ficam ao lado da autoridade quando ela está aberta. Ao selecionar um nome, o resto esmaece e as ligações dele com grupos recolhidos vão até o círculo do grupo, com o número; clique nessa linha para abrir o grupo. O traço das linhas e a moldura de cada ponto dizem o grau de comprovação, como na 2D; os valores em reais aparecem nas linhas destacadas. Esc desfaz a seleção. A régua de anos acima vale aqui; o anel externo também escolhe o ano e lista os fatos dele.',
+  mapa:'O Mapa mental começa recolhido, como a 2D: o banco e o controlador no centro e, em volta, um cartão por grupo, com o número de nomes ligados até o ano e as fotos ou ícones dos nomes mais ligados. As linhas grossas resumem as relações de cada grupo com o centro e com os outros grupos: o número diz quantas são, o traço é o grau de comprovação que predomina nelas, e um clique lista as relações no painel. Clique num cartão-grupo para abrir o nível seguinte (partidos, órgãos, autoridades, ou direto os nomes) e num subgrupo para abrir os nomes; o "−" no cartão aberto, ou no caminho acima do mapa, recolhe. Vários grupos podem ficar abertos, e "Abrir tudo" mostra um cartão por nome. Cada nome tem foto ou logotipo quando há imagem com origem e licença registradas, senão um ícone do tipo; familiares, próximos e escritórios ligados ficam ao lado da autoridade quando ela está aberta. Dois estilos: gravura, em sépia e cheio de rótulos, e fotográfico, limpo e em cor. A moldura do cartão diz o grau da ligação mais forte com o centro; o traço das linhas, o de cada ligação. Ao selecionar um cartão, o resto esmaece e as ligações com grupos recolhidos vão até o cartão-grupo, com o número; clique nessa linha para abrir o grupo. O painel mostra as relações, os trechos, as fontes e o crédito da imagem; Esc desfaz a seleção.'
 };
 const lgs = st => `<svg class="lgs" width="28" height="6" aria-hidden="true"><line x1="1" y1="3" x2="27" y2="3" class="s-${st}"/></svg>`;
 const fgs = (st, card) => card ? `<svg class="lgs" width="22" height="16" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="13" rx="2.5" class="s-${st}"/></svg>` : `<svg class="lgs" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" class="s-${st}" style="fill:none;stroke:var(--ink2);stroke-width:2"/></svg>`;
+const ags = `<svg class="lgs" width="28" height="10" aria-hidden="true"><line x1="4" y1="5" x2="24" y2="5" style="stroke-width:6;stroke-linecap:round;opacity:.5"/></svg>`;
+const reduceM = matchMedia('(prefers-reduced-motion: reduce)');
+/* traço das linhas agrupadas (grossas): o mesmo desenho de cada grau, proporcional à espessura */
+const agDash = (st, w) => st === 'inv' ? `${f1(w * 2 + 4)} ${f1(w * 1.6 + 5)}` : st === 'rep' ? `0.1 ${f1(w * 1.9 + 4)}` : st === 'ale' ? `${f1(w * 3 + 6)} ${f1(w * 1.4 + 4)} 0.1 ${f1(w * 1.4 + 4)}` : '';
+/* pontos de uma elipse igualmente espaçados (celular, tudo recolhido: os cartões-grupo em pé) */
+function ellT(n, rx, ry){
+  const M = 720, cum = [0]; let px = 0, py = -ry;
+  for (let j = 1; j <= M; j++){ const t = -Math.PI / 2 + j / M * TAU, x = rx * Math.cos(t), y = ry * Math.sin(t); cum.push(cum[j - 1] + Math.hypot(x - px, y - py)); px = x; py = y; }
+  const L = cum[M];
+  return Array.from({length:n}, (_, k) => { const s = k / n * L; let j = 0; while (j < M - 1 && cum[j + 1] < s) j++; return -Math.PI / 2 + (j + (s - cum[j]) / ((cum[j + 1] - cum[j]) || 1)) / M * TAU; });
+}
+function arcD(r, p0, p1){
+  const sw = p1 >= p0 ? 1 : 0, lg = Math.abs(p1 - p0) > Math.PI ? 1 : 0;
+  return `M${f1(Math.cos(p0) * r)},${f1(Math.sin(p0) * r)}A${f1(r)},${f1(r)} 0 ${lg} ${sw} ${f1(Math.cos(p1) * r)},${f1(Math.sin(p1) * r)}`;
+}
+
+/* arco tangente que um retângulo w x h em pé precisa no anel, no ângulo a (e a distância radial entre anéis) */
+const needT = (a, w, h) => Math.min(w / Math.max(Math.abs(Math.sin(a)), 1e-3), h / Math.max(Math.abs(Math.cos(a)), 1e-3));
+const needR = (a, w, h) => Math.min(w / Math.max(Math.abs(Math.cos(a)), 1e-3), h / Math.max(Math.abs(Math.sin(a)), 1e-3));
 
 function montar(host, kind, A, ctl){
   const {D, N, E, H0, H1} = A, mapa = kind === 'mapa', P = 'tr' + kind, esc = A.esc, brl = A.brl;
@@ -1856,102 +1940,232 @@ function montar(host, kind, A, ctl){
   const pc = i => A.pcls(i) || '';
   const vtag = n => { const v = n.val && n.val.length ? n.val[0] : null; return v && v.brl ? brl(v.brl) + (VNAT[v.nat] ? ' ' + VNAT[v.nat] : '') : ''; };
 
-  /* ---------- casca: título, ferramentas, palco, painel e legenda ---------- */
+  /* ---------- casca: título, ferramentas, caminho do que está aberto, palco, painel e legenda ---------- */
   const shapeLeg = [['pessoa', '<circle cx="8" cy="8" r="4.6"/>'], ['empresa, banco ou fundo', '<rect x="4" y="4" width="8" height="8"/>'], ['órgão público', '<polygon points="8,2.5 12.8,5.25 12.8,10.75 8,13.5 3.2,10.75 3.2,5.25"/>'], ['operação policial', '<polygon points="8,2 13.5,12.5 2.5,12.5"/>'], ['organização criminosa', '<polygon class="o" points="8,2.5 13,12 3,12"/>'], ['partido', '<polygon points="8,2.5 13.5,8 8,13.5 2.5,8"/>']];
   host.innerHTML = `<div class="sec-h"><div><h2>${mapa ? 'Mapa mental' : 'A teia radial'}</h2><details class="rhelpd"${matchMedia('(max-width:640px)').matches ? '' : ' open'}><summary>Como ler</summary><p class="rhelp">${HELP[kind]}</p></details></div>
     <div class="tools">${mapa ? '<span class="estseg" role="group" aria-label="Estilo do mapa mental"><button type="button" data-est="grav" aria-pressed="false">Gravura</button><button type="button" data-est="foto" aria-pressed="false">Fotográfico</button></span>' : ''}
     <input type="search" class="rq" list="${P}-ql" placeholder="Buscar nome" aria-label="Buscar um nome" autocomplete="off" enterkeyhint="search"><datalist id="${P}-ql"></datalist>
     <label class="ftog"><input type="checkbox" class="rxl" checked>Ligações cruzadas</label>
     <span class="tgrp"><button type="button" class="rzo" aria-label="Diminuir">−</button><button type="button" class="rzi" aria-label="Aumentar">+</button></span>
-    <button type="button" class="rfit" title="Mostrar o mapa inteiro">Centralizar</button><button type="button" class="rfs">Tela cheia</button></div></div>
-  <div class="rbox"><div class="rstage"><svg class="rsvg" role="group" aria-label="${mapa ? 'Mapa mental' : 'Teia radial'} do Caso Master até o ano selecionado. Arraste para mover, use a roda ou a pinça para aproximar"></svg><span class="rmsg" role="status"></span><aside class="rdraw" aria-live="polite" hidden></aside></div>
+    <button type="button" class="rfit" title="Enquadrar o que está aberto">Centralizar</button><button type="button" class="rfs">Tela cheia</button></div></div>
+  <div class="rbox"><div class="lvbar rlv"><nav class="lvpath" aria-label="Grupos abertos no ${mapa ? 'mapa mental' : 'radial'}"></nav><div class="lvtools"><button type="button" class="btn" data-rall="1">Abrir tudo</button><button type="button" class="btn" data-rnone="1">Recolher tudo</button></div></div>
+  <div class="rstage"><svg class="rsvg" role="group" aria-label="${mapa ? 'Mapa mental' : 'Teia radial'} do Caso Master até o ano selecionado. Arraste para mover, use a roda ou a pinça para aproximar"></svg><span class="rmsg" role="status"></span><aside class="rdraw" aria-live="polite" hidden></aside></div>
   <div class="legend rleg" role="region" aria-label="Legenda">
     <div class="lgline"><span>${lgs('doc')}documentada</span><span>${lgs('inv')}sob investigação</span><span>${lgs('rep')}revelada pela imprensa</span><span>${lgs('ale')}alegação (em âmbar)</span></div>
-    <div class="lgline"><span>${fgs('doc', mapa)}${fgs('inv', mapa)}${fgs('rep', mapa)}${fgs('ale', mapa)}moldura do ${mapa ? 'cartão' : 'ponto'}: o grau da ligação mais forte com o centro (banco ou controlador); mais clara quando o nome não se liga direto ao centro e vale a mais forte que ele tem</span></div>
+    <div class="lgline"><span>${ags}linha grossa com número: as relações de um grupo recolhido com o centro, com outro grupo ou com um nome; espessura e número = quantas, traço = o grau que predomina nelas; clique para listá-las</span></div>
+    <div class="lgline"><span>${fgs('doc', mapa)}${fgs('inv', mapa)}${fgs('rep', mapa)}${fgs('ale', mapa)}moldura do ${mapa ? 'cartão de um nome' : 'ponto'}: o grau da ligação mais forte com o centro (banco ou controlador); mais clara quando o nome não se liga direto ao centro e vale a mais forte que ele tem</span></div>
     <details class="lgmore"${matchMedia('(max-width:640px)').matches ? '' : ' open'}><summary>Mais sobre a leitura</summary><div>
+      <span>${mapa ? 'cartão-grupo (moldura colorida, com fotos ou ícones dos nomes mais ligados)' : 'círculo grande'} = grupo ou subgrupo recolhido, com o número de nomes até o ano; clique para abrir; o "−" recolhe</span>
       <span><svg width="28" height="8" aria-hidden="true"><line class="lgbr" x1="3" y1="4" x2="25" y2="4"/></svg>ramo colorido: o grupo do nome, não uma ligação</span>
       <span><b class="vbig">R$ 1,2 bi</b>valor da ligação, na linha ao passar o mouse ou selecionar e no painel</span>
       ${mapa ? '<span>foto ou logotipo só quando a imagem tem origem e licença registradas; o crédito fica no painel</span>' : '<span>etiqueta em reais junto ao nome: estimativa do caso para aquele nome</span>'}
+      <span>linha fina e cheia até a autoridade: familiar, próximo ou escritório ligado, em órbita dela</span>
       <span>anel externo: os anos; clique para escolher o ano e ver os fatos dele</span>
       <div class="icg">${mapa ? Object.keys(ICN).map(k => `<span><svg class="lic" width="24" height="24" viewBox="0 0 48 48" aria-hidden="true"><use href="#ti-${k}"/></svg>${ICN[k][0]}</span>`).join('') : shapeLeg.map(([l, s]) => `<span><svg class="shp" width="16" height="16" aria-hidden="true">${s}</svg>${l}</span>`).join('')}</div>
     </div></details>
   </div></div>`;
   const svg = host.querySelector('.rsvg'), stage = host.querySelector('.rstage'), draw = host.querySelector('.rdraw'), msg = host.querySelector('.rmsg');
+  const bar = host.querySelector('.rlv'), lvpath = bar.querySelector('.lvpath'), bAll = bar.querySelector('[data-rall]'), bNone = bar.querySelector('[data-rnone]');
 
-  /* ---------- geometria: setores por grupo (peso = nomes + 4), anéis do centro para fora ---------- */
-  const G = mapa ? {R0:490, DR:158, SP:130, GAP:.04} : {R0:250, DR:178, SP:25, GAP:.035};
-  const byCat = {}; cats.forEach(([c]) => byCat[c] = []);
+  /* ---------- níveis: setores abertos e subgrupos abertos; a classificação é a da 2D (TEIA2D.repsFor) ---------- */
+  const byCat = {}, sec = {};
+  cats.forEach(([c], ci) => { byCat[c] = []; sec[c] = {c, ci, ids:byCat[c], hw:{vis:false, fade:true}}; });
   N.forEach((n, i) => { if (!HUB[i] && byCat[n.c]) byCat[n.c].push(i); });
   for (const c in byCat) byCat[c].sort((a, b) => deg0[b] - deg0[a] || N[a].n.localeCompare(N[b].n, 'pt'));
+  const SUBR = A.SUBS.filter(x => A.subReal(x.k)), SUBN = Object.fromEntries(SUBR.map(x => [x.k, x]));
+  const six = i => { const o = A.SUBORD[N[i].c]; return o ? Math.max(0, o.indexOf(A.subName(i))) : 0; };
+  const openCat = new Set(), openSub = new Set(), SKEY = 'casoMaster.teiaNiveis.' + kind;
+  const allOpen = () => { cats.forEach(([c]) => openCat.add(c)); SUBR.forEach(x => openSub.add(x.k)); };
+  try { const j = JSON.parse(sessionStorage.getItem(SKEY) || 'null'); if (j && Array.isArray(j.c)){ j.c.forEach(c => { if (byCat[c]) openCat.add(c); }); (j.p || []).forEach(k => { if (SUBN[k]) openSub.add(k); }); } } catch (e) {}
+  if (/[?&]abrir=tudo\b/.test(location.search)) allOpen();
+  const save = () => { try { sessionStorage.setItem(SKEY, JSON.stringify({c:[...openCat], p:[...openSub]})); } catch (e) {} };
+  const uLabel = id => id[0] === 'c' ? cname(id.slice(2)) : id[0] === 'p' ? id.slice(2).split('|')[1] : N[+id.slice(2)].n;
+  const uSec = id => id[0] === 'c' ? id.slice(2) : id[0] === 'p' ? id.slice(2).split('|')[0] : N[+id.slice(2)].c;
+  const uCls = id => id[0] === 'c' ? 't-' + id.slice(2) : id[0] === 'p' ? A.subCls(id.slice(2)) : 't-' + N[+id.slice(2)].c + pc(+id.slice(2));
+  const isGrp = id => !!id && id[0] !== 'n';
+  let REP = N.map(() => null), ATT = N.map(() => null), kids = N.map(() => []);
+  const visN = i => HUB[i] || REP[i] === 'n:' + i;
+
+  /* ---------- geometria: setores por grupo, anéis do centro para fora; grupo recolhido = um cartão no anel dos grupos ---------- */
+  const G = mapa ? {R0:490, DR:158, SP:130, PW:150, GAP:.04, RG:400, RH:[296, 380], CW:190, NX:250, NY:470}
+    : {R0:250, DR:178, SP:25, PW:52, GAP:.035, RG:260, RH:[150, 150], CW:120, NX:175, NY:330};
   const pos = N.map(() => ({x:0, y:0, a:0, r:0, k:0}));
   const hx = mapa ? 96 : 46;
-  pos[H0] = {x:-hx, y:0, a:Math.PI, r:0, k:-1}; pos[H1] = {x:hx, y:0, a:0, r:0, k:-1};
-  const W = cats.map(([c]) => byCat[c].length + 4), WS = W.reduce((s, x) => s + x, 0);
-  let ang = -Math.PI / 2 - Math.PI * W[0] / WS, Rmax = G.R0, nRing = 0;
-  const sec = {};
-  cats.forEach(([c], ci) => {
-    const span = TAU * W[ci] / WS, a0 = ang + G.GAP / 2, a1 = ang + span - G.GAP / 2; ang += span;
-    const s = sec[c] = {c, ci, a0, a1, mid:(a0 + a1) / 2, ids:byCat[c]};
-    let rest = s.ids.slice(), k = 0;
-    while (rest.length){
-      const r = G.R0 + k * G.DR, cap = Math.max(1, Math.floor((a1 - a0) * r / G.SP)), take = rest.splice(0, cap), n = take.length, w = a1 - a0;
-      take.forEach((id, j) => { const t = n === 1 ? .5 : (j + .5) / n, st = mapa ? 0 : (k % 2 ? 1 : -1) * w / (2 * n + 1) * .3, a = a0 + w * t + st;
-        pos[id] = {x:Math.cos(a) * r, y:Math.sin(a) * r, a, r, k}; });
-      Rmax = Math.max(Rmax, r); nRing = Math.max(nRing, k + 1); k++;
-    }
-  });
-  const RH = mapa ? [296, 380] : [150, 150];
-  cats.forEach(([c], ci) => { const s = sec[c], r = RH[ci % 2]; s.hx = Math.cos(s.mid) * r; s.hy = Math.sin(s.mid) * r; });
-  const RL = mapa ? Rmax + 110 : Rmax + 190, RY = RL + (mapa ? 40 : 60), RW = RY + (mapa ? 175 : 110);
+  let units = {}, ringArcs = [], Rmax = 0, Rext = 0, RL = 0, RY = 0, RW = 0, narrow = false, live = [];
+  function layout(){
+    ({REP, ATT} = A.repsFor(openCat, openSub));
+    kids = N.map(() => []); ATT.forEach((a, i) => { if (a != null) kids[a].push(i); });
+    const sw = stage.clientWidth; if (sw) narrow = sw < 640;
+    if (narrow){ pos[H0] = {x:0, y:mapa ? -86 : -40, a:-Math.PI / 2, r:0, k:-1}; pos[H1] = {x:0, y:mapa ? 86 : 40, a:Math.PI / 2, r:0, k:-1}; }
+    else { pos[H0] = {x:-hx, y:0, a:Math.PI, r:0, k:-1}; pos[H1] = {x:hx, y:0, a:0, r:0, k:-1}; }
+    units = {}; ringArcs = [];
+    live = cats.map(([c]) => sec[c]).filter(s => { s.mem = s.ids.filter(i => REP[i] && ATT[i] == null); s.live = s.mem.length > 0; s.open = s.live && openCat.has(s.c); s.list = null; s.nRing = 0; return s.live; });
+    live.forEach(s => { if (!s.open) return;
+      const seen = new Set(), L = [];
+      s.mem.slice().sort((a, b) => six(a) - six(b) || deg0[b] - deg0[a] || N[a].n.localeCompare(N[b].n, 'pt')).forEach(i => { const u = REP[i];
+        if (u[0] === 'p'){ if (!seen.has(u)){ seen.add(u); L.push({id:u, w:G.PW, bw:144, bh:166}); } return; }
+        L.push({id:u, i, w:G.SP, bw:128, bh:154}); kids[i].forEach(f => L.push({id:'n:' + f, i:f, w:G.SP, bw:128, bh:154, sat:i})); });
+      s.list = L; s.wt = L.reduce((t, u) => t + u.w, 0) / G.SP + 4; });
+    /* ângulo: grupo recolhido ganha o mínimo para o cartão caber (mais nas diagonais, no Mapa mental); os abertos dividem o resto pelo número de nomes */
+    const op = live.filter(s => s.open), cl = live.filter(s => !s.open), wo = op.reduce((t, s) => t + s.wt, 0), Wsum = wo + cl.length * 4;
+    const cmin = s => (mapa && s.mid != null ? Math.max(G.CW * .7, needT(s.mid, 152, 176)) : G.CW) / G.RG;
+    const alloc = () => { let restA = TAU;
+      if (!op.length){ cl.forEach(s => { s.span = TAU / cl.length; }); return; }
+      cl.forEach(s => { s.span = Math.max(cmin(s), TAU * 4 / Wsum); restA -= s.span; }); op.forEach(s => { s.span = restA * s.wt / wo; }); };
+    const angles = () => { let ang = -Math.PI / 2 - (live[0] ? live[0].span / 2 : 0);
+      live.forEach(s => { s.a0 = ang + G.GAP / 2; s.a1 = ang + s.span - G.GAP / 2; s.mid = (s.a0 + s.a1) / 2; ang += s.span; }); };
+    live.forEach(s => { s.mid = null; }); alloc(); angles(); if (mapa && op.length){ alloc(); angles(); }
+    const ell = narrow && !op.length && cl.length > 2 ? ellT(cl.length, G.NX, G.NY) : null;
+    /* espaço de cada cartão no anel: no Mapa mental os cartões são retângulos em pé, e nas diagonais precisam de mais arco e de mais distância entre anéis */
+    const needU = (u, a) => mapa ? needT(a, u.bw, u.bh) : u.w;
+    let ext = 0; Rmax = 0;
+    live.forEach((s, j) => {
+      if (!s.open){
+        const p = ell ? {x:Math.cos(ell[j]) * G.NX, y:Math.sin(ell[j]) * G.NY, a:ell[j]} : {x:Math.cos(s.mid) * G.RG, y:Math.sin(s.mid) * G.RG, a:s.mid};
+        units['c:' + s.c] = p; ext = Math.max(ext, Math.hypot(p.x, p.y) + (mapa ? 95 : 70)); return; }
+      const rh = G.RH[j % 2]; s.hx = Math.cos(s.mid) * rh; s.hy = Math.sin(s.mid) * rh;
+      const w = s.a1 - s.a0, rest = s.list.slice(), dr = mapa ? Math.max(G.DR, needR(s.mid, 128, 154)) : G.DR; let k = 0, r = G.R0;
+      /* a autoridade e quem orbita ela formam um bloco que não se parte entre anéis */
+      while (rest.length){
+        const take = []; let c = s.a0;
+        while (rest.length){ let nb = 1; while (nb < rest.length && rest[nb].sat != null && rest[nb].sat === rest[0].i) nb++;
+          let cc = c; const blk = rest.slice(0, nb).map(u => { const h = needU(u, cc + u.w / 2 / r) / 2 / r, m = cc + h; cc = m + h; return [u, m]; });
+          if (take.length && cc > s.a1 + 1e-9) break; take.push(...blk); rest.splice(0, nb); c = cc; }
+        const n = take.length, slack = s.a1 - c;
+        take.forEach(([u, m], jj) => { const st = mapa ? 0 : (k % 2 ? 1 : -1) * w / (2 * n + 1) * .3, a = (slack >= 0 ? m + slack * (jj + .5) / n : s.a0 + w * (jj + .5) / n) + st;
+          const p = {x:Math.cos(a) * r, y:Math.sin(a) * r, a, r, k};
+          if (u.i != null) pos[u.i] = p; else units[u.id] = p; });
+        ringArcs.push([s.a0, s.a1, r]); Rmax = Math.max(Rmax, r); k++; r += dr;
+      }
+      s.nRing = k; ext = Math.max(ext, Rmax + (mapa ? 90 : 175));
+    });
+    /* nome dentro de um grupo recolhido fica no lugar do cartão do grupo (de onde sai e para onde volta na animação) */
+    N.forEach((n, i) => { if (HUB[i]) return; const u = REP[i]; if (u && u[0] !== 'n' && units[u]) pos[i] = Object.assign({}, units[u], {k:-1}); });
+    Rext = Math.max(ext, mapa ? 300 : 200); RL = Rext + 15; RY = mapa ? Rext + 50 : RL + 60; RW = RY + (mapa ? 175 : 110);
+  }
 
   const defs = el('defs', {}, svg), root = el('g', {}, svg);
-  const gBg = el('g', {}, root), gBr = el('g', {}, root), gE = el('g', {}, root), gEH = el('g', {}, root), gHd = el('g', {}, root), gN = el('g', {}, root), gV = el('g', {}, root), gY = el('g', {}, root);
-  for (let k = 0; k < nRing; k++) el('circle', {class:'ring0', r:G.R0 + k * G.DR, opacity:mapa ? .5 : .55}, gBg);
+  const gBg = el('g', {}, root), gBr = el('g', {}, root), gAg = el('g', {}, root), gE = el('g', {}, root), gI = el('g', {}, root), gEH = el('g', {}, root), gAH = el('g', {}, root),
+    gHd = el('g', {}, root), gG = el('g', {}, root), gN = el('g', {}, root), gAL = el('g', {}, root), gV = el('g', {}, root), gY = el('g', {}, root);
 
-  /* ramos: tronco do centro ao grupo e do grupo a cada nome (estrutura, não ligação) */
+  /* ramos: tronco do centro ao grupo aberto e do grupo a cada nome ou subgrupo (estrutura, não ligação) */
   const curveOut = (x0, y0, x1, y1) => { const a0 = Math.atan2(y0, x0), a1 = Math.atan2(y1, x1), cr = (Math.hypot(x0, y0) + Math.hypot(x1, y1)) / 2;
     return `M${f1(x0)},${f1(y0)}C${f1(Math.cos(a0) * cr)},${f1(Math.sin(a0) * cr)} ${f1(Math.cos(a1) * cr)},${f1(Math.sin(a1) * cr)} ${f1(x1)},${f1(y1)}`; };
-  const brEl = [];
-  cats.forEach(([c]) => { const s = sec[c], r0 = mapa ? 70 : 34;
-    s.trunk = el('path', {class:'br tk t-' + c, d:curveOut(Math.cos(s.mid) * r0, Math.sin(s.mid) * r0, s.hx, s.hy)}, gBr);
-    s.ids.forEach(i => { brEl[i] = el('path', {class:'br t-' + c + pc(i), d:curveOut(s.hx, s.hy, pos[i].x, pos[i].y)}, gBr); }); });
+  let brEl = [], brU = {};
+  function buildBranches(){
+    gBr.textContent = ''; brEl = []; brU = {};
+    cats.forEach(([c]) => { const s = sec[c]; s.trunk = null; if (!s.open) return; const r0 = mapa ? 70 : 34;
+      s.trunk = el('path', {class:'br tk t-' + c, d:curveOut(Math.cos(s.mid) * r0, Math.sin(s.mid) * r0, s.hx, s.hy)}, gBr);
+      s.list.forEach(u => { if (u.sat != null) return; const p = u.i != null ? pos[u.i] : units[u.id];
+        const b = el('path', {class:'br ' + (u.i != null ? 't-' + c + pc(u.i) : uCls(u.id)), d:curveOut(s.hx, s.hy, p.x, p.y)}, gBr);
+        if (u.i != null) brEl[u.i] = b; else brU[u.id] = b; }); });
+  }
+  function buildRings(){ gBg.textContent = ''; ringArcs.forEach(([a0, a1, r]) => el('path', {class:'ring0', d:arcD(r, a0 - G.GAP / 2, a1 + G.GAP / 2), opacity:mapa ? .5 : .55}, gBg)); }
 
-  /* ligações: curvas puxadas para o centro; as do banco e do controlador só aparecem ao selecionar */
+  /* ligações entre dois nomes à vista: curvas puxadas para o centro; as do banco e do controlador só aparecem ao selecionar */
   let moved = false;
   const EG = E.map((e, k) => {
-    const a = pos[e.a], b = pos[e.b], ha = HUB[e.a], hb = HUB[e.b], mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
-    const f = ha && hb ? 1 : ha || hb ? .9 : N[e.a].c === N[e.b].c ? .82 : .45, qx = mx * f, qy = my * f;
-    const d = `M${f1(a.x)},${f1(a.y)}Q${f1(qx)},${f1(qy)} ${f1(b.x)},${f1(b.y)}`, o = ha ? e.b : e.a, hh = ha || hb ? ' h' : ' x';
-    const p = el('path', {class:'ed t-' + N[o].c + pc(o) + hh, d}, gE), h = el('path', {class:'eh' + hh, d}, gEH), tt = el('title', {}, h);
+    const ha = HUB[e.a], hb = HUB[e.b], o = ha ? e.b : e.a, hh = ha || hb ? ' h' : ' x';
+    const p = el('path', {class:'ed t-' + N[o].c + pc(o) + hh}, gE), h = el('path', {class:'eh' + hh}, gEH), tt = el('title', {}, h);
     h.addEventListener('mouseenter', () => hl('e:' + k)); h.addEventListener('mouseleave', () => hl(sel));
     h.addEventListener('click', ev => { ev.stopPropagation(); if (!moved) pickE(k); });
-    const t = ha && !hb ? .7 : hb && !ha ? .3 : .5, u = 1 - t;
-    return {p, h, tt, v:0, m:{x:u * u * a.x + 2 * u * t * qx + t * t * b.x, y:u * u * a.y + 2 * u * t * qy + t * t * b.y}};
+    return {p, h, tt, v:0, m:{x:0, y:0}};
   });
+  function edgeGeo(k){
+    const e = E[k], a = pos[e.a], b = pos[e.b], ha = HUB[e.a], hb = HUB[e.b], mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+    const f = ha && hb ? 1 : ha || hb ? .9 : N[e.a].c === N[e.b].c ? .82 : .45, qx = mx * f, qy = my * f;
+    const d = `M${f1(a.x)},${f1(a.y)}Q${f1(qx)},${f1(qy)} ${f1(b.x)},${f1(b.y)}`, w = EG[k];
+    w.p.setAttribute('d', d); w.h.setAttribute('d', d);
+    const t = ha && !hb ? .7 : hb && !ha ? .3 : .5, u = 1 - t;
+    w.m = {x:u * u * a.x + 2 * u * t * qx + t * t * b.x, y:u * u * a.y + 2 * u * t * qy + t * t * b.y};
+  }
+  /* familiar, próximo ou escritório em órbita: linha fina até a autoridade */
+  let impEl = [];
+  function buildImp(){ gI.textContent = ''; impEl = [];
+    (A.IMPL || []).forEach(([f, a]) => { if (ATT[f] !== a) return; const p1 = pos[f], p2 = pos[a];
+      impEl.push({f, a, p:el('path', {class:'imp t-' + N[f].c, d:`M${f1(p1.x)},${f1(p1.y)}L${f1(p2.x)},${f1(p2.y)}`}, gI)}); }); }
 
-  /* cabeças dos grupos: no Radial, ponto no tronco e nome num arco por fora; no Mapa mental, uma placa */
-  cats.forEach(([c, label]) => { const s = sec[c], g = el('g', {class:'hd t-' + c, tabindex:0, role:'button'}, gHd); s.head = g;
+  /* cabeças dos grupos abertos: no Radial, ponto no tronco e nome num arco por fora ("− nome" recolhe); no Mapa mental, uma placa com "−" */
+  cats.forEach(([c, label]) => { const s = sec[c], g = el('g', {class:'hd t-' + c + ' gone', tabindex:0, role:'button', 'aria-label':cname(c) + ': ver os nomes do grupo'}, gHd); s.head = s.hw.g = g;
     if (mapa){
-      const L = wrap(cname(c), 16, 2), w = Math.max(...L.map(l => l.length)) * 8.4 + 30, h = L.length * 18 + 24;
-      g.setAttribute('class', 'hd plate t-' + c); g.setAttribute('transform', `translate(${f1(s.hx)},${f1(s.hy)})`);
+      const L = wrap(cname(c), 16, 2), w = Math.max(...L.map(l => l.length)) * 8.4 + 34, h = L.length * 18 + 24;
+      g.setAttribute('class', 'hd plate t-' + c + ' gone');
       el('rect', {class:'pbg', x:f1(-w / 2), y:f1(-h / 2), width:f1(w), height:f1(h), rx:4}, g);
       el('rect', {class:'pin', x:f1(-w / 2 + 3.5), y:f1(-h / 2 + 3.5), width:f1(w - 7), height:f1(h - 7), rx:2}, g);
       el('circle', {class:'pdot', cx:0, cy:f1(-h / 2), r:4}, g);
       const t = el('text', {class:'pt', 'text-anchor':'middle'}, g); L.forEach((l, j) => { const ts = el('tspan', {x:0, y:f1(-h / 2 + 19 + j * 18)}, t); ts.textContent = l; });
       s.cnt = el('text', {class:'pn', 'text-anchor':'middle', x:0, y:f1(h / 2 - 8)}, g);
+      const pm = el('g', {class:'pmin', transform:`translate(${f1(w / 2 - 1)},${f1(-h / 2 + 1)})`}, g); el('circle', {r:10.5}, pm);
+      const pt = el('text', {'text-anchor':'middle', y:5.5}, pm); pt.textContent = '−'; const ptt = el('title', {}, pm); ptt.textContent = 'Recolher ' + cname(c);
     } else {
-      el('circle', {class:'hdot0', cx:f1(s.hx), cy:f1(s.hy), r:4.5}, g);
-      const lower = Math.sin(s.mid) > 0, arc = (r, rev) => { const p0 = rev ? s.a1 : s.a0, p1 = rev ? s.a0 : s.a1; return `M${f1(Math.cos(p0) * r)},${f1(Math.sin(p0) * r)}A${r},${r} 0 0 ${rev ? 0 : 1} ${f1(Math.cos(p1) * r)},${f1(Math.sin(p1) * r)}`; };
-      el('path', {class:'carc', d:arc(RL - 16, false)}, g);
-      el('path', {id:P + '-a-' + c, d:arc(lower ? RL + 4 : RL, lower)}, defs);
+      s.hdot = el('circle', {class:'hdot0', r:4.5}, g); s.carc = el('path', {class:'carc'}, g); s.apath = el('path', {id:P + '-a-' + c}, defs);
       const t = el('text', {class:'clab'}, g), tp = el('textPath', {href:'#' + P + '-a-' + c, startOffset:'50%', 'text-anchor':'middle'}, t);
-      tp.textContent = cname(c); s.cnt = el('tspan', {}, tp); s.lab = t; s.arcL = (s.a1 - s.a0) * RL;
+      tp.textContent = '− ' + cname(c); s.cnt = el('tspan', {}, tp); s.lab = t; const ltt = el('title', {}, t); ltt.textContent = 'Recolher ' + cname(c);
     }
-    const tt = el('title', {}, g); tt.textContent = label;
-    g.addEventListener('click', ev => { ev.stopPropagation(); if (!moved) pickC(c); });
-    g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); pickC(c); } });
+    const tt = el('title', {}, g); tt.textContent = label + ': clique para ver os nomes; o "−" recolhe o grupo';
+    g.addEventListener('click', ev => { ev.stopPropagation(); if (moved) return; if (ev.target.closest('.pmin,.clab')) closeUnit('c:' + c); else pickC(c); });
+    g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); pickC(c); } else if (ev.key === '-' || ev.key === 'Delete' || ev.key === 'Backspace'){ ev.preventDefault(); closeUnit('c:' + c); } });
     g.addEventListener('mouseenter', () => hl('c:' + c)); g.addEventListener('mouseleave', () => hl(sel));
   });
+  function placeHeads(){
+    cats.forEach(([c]) => { const s = sec[c]; if (!s.open) return;
+      if (mapa){ s.head.setAttribute('transform', `translate(${f1(s.hx)},${f1(s.hy)})`); return; }
+      s.hdot.setAttribute('cx', f1(s.hx)); s.hdot.setAttribute('cy', f1(s.hy));
+      const lower = Math.sin(s.mid) > 0; s.carc.setAttribute('d', arcD(RL - 16, s.a0, s.a1));
+      s.apath.setAttribute('d', lower ? arcD(RL + 4, s.a1, s.a0) : arcD(RL, s.a0, s.a1)); s.arcL = (s.a1 - s.a0) * RL; });
+  }
+
+  /* cartões-grupo (setor recolhido) e de subgrupo (dentro do setor aberto); no Mapa mental com o mosaico dos nomes mais ligados */
+  const GW = {};
+  function gcard(id){
+    const sub = id[0] === 'p', g = el('g', {class:'gu ' + uCls(id) + ' gone', tabindex:0, role:'button', 'data-u':id}, gG), w = {g, id, vis:false, cur:null};
+    if (mapa){
+      const Wd = sub ? 130 : 142, L = wrap(uLabel(id), sub ? 15 : 16, 2), MR = sub ? 15 : 17, mg = MR + 2.5, th = L.length * 17;
+      const H = 14 + th + 6 + 4 * mg + 8 + 18, y0 = -H / 2;
+      w.fr = el('rect', {class:'gfr', x:f1(-Wd / 2), y:f1(y0), width:Wd, height:f1(H), rx:8}, g);
+      el('rect', {class:'stripe', x:f1(-Wd / 2 + 8), y:f1(y0 + 5), width:Wd - 16, height:3.4, rx:1.7}, g);
+      const t = el('text', {class:'gtt', 'text-anchor':'middle'}, g); L.forEach((l, j) => { const ts = el('tspan', {x:0, y:f1(y0 + 25 + j * 17)}, t); ts.textContent = l; });
+      const my = y0 + 14 + th + 6 + 2 * mg;
+      w.mos = [[-1, -1], [1, -1], [-1, 1], [1, 1]].map(([dx, dy]) => { const zg = el('g', {class:'mz vazio', transform:`translate(${f1(dx * mg)},${f1(my + dy * mg)})`}, g);
+        el('circle', {class:'mbg', r:MR}, zg);
+        const u = el('use', {class:'ic', x:f1(-MR * .7), y:f1(-MR * .7), width:f1(MR * 1.4), height:f1(MR * 1.4)}, zg);
+        const im = el('image', {class:'ph', x:-MR, y:-MR, width:2 * MR, height:2 * MR, preserveAspectRatio:'xMidYMid slice', 'clip-path':'url(#ti-clip)'}, zg);
+        el('circle', {class:'mring', r:MR}, zg); return {g:zg, u, im, i:-1}; });
+      w.cnt = el('text', {class:'gcn', 'text-anchor':'middle', y:f1(y0 + H - 9)}, g);
+      const b = el('g', {class:'gbd', transform:`translate(${f1(Wd / 2 - 2)},${f1(y0 + 2)})`}, g); el('circle', {r:10}, b); const bt = el('text', {'text-anchor':'middle', y:5}, b); bt.textContent = '+';
+    } else {
+      w.c = el('circle', {class:'gc'}, g); w.b = el('g', {class:'gbd'}, g); el('circle', {r:8}, w.b); const bt = el('text', {'text-anchor':'middle', y:4.6}, w.b); bt.textContent = '+';
+      w.t = el('text', {class:'gt', 'text-anchor':'middle'}, g);
+    }
+    w.tt = el('title', {}, g);
+    g.addEventListener('click', ev => { ev.stopPropagation(); if (!moved) openUnit(id); });
+    g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); openUnit(id); } });
+    g.addEventListener('mouseenter', () => hl('u:' + id)); g.addEventListener('mouseleave', () => hl(sel));
+    return w;
+  }
+  cats.forEach(([c]) => { GW['c:' + c] = gcard('c:' + c); });
+  SUBR.forEach(x => { GW['p:' + x.k] = gcard('p:' + x.k); });
+  const gCount = id => { let k = 0; for (let i = 0; i < N.length; i++) if (REP[i] === id && deg[i]) k++; return k; };
+  /* Radial: círculo com o tamanho pelo número de nomes; o nome embaixo (em cima, no alto do anel) */
+  function drawGU(w, n){
+    const r = Math.min(28, 10 + 2.4 * Math.sqrt(n)), u = units[w.id], top = u && Math.sin(u.a) < -.55, L = wrap(uLabel(w.id), 14, 3);
+    w.c.setAttribute('r', f1(r)); w.b.setAttribute('transform', `translate(${f1(r * .72)},${f1(-r * .72)})`);
+    w.t.textContent = ''; w.t.setAttribute('y', f1(top ? -r - 7 : r + 5));
+    L.forEach((l, j) => { const ts = el('tspan', {x:0, dy:j ? '1.15em' : top ? `${-(L.length - 1) * 1.15 - .25}em` : '.85em'}, w.t); ts.textContent = l;
+      if (j === L.length - 1){ const tn = el('tspan', {class:'gn'}, w.t); tn.textContent = ' · ' + n; } });
+  }
+  /* Mapa mental: até 4 miniaturas (foto ou ícone) dos nomes mais ligados que o cartão resume */
+  function mosaic(w){
+    const m = []; for (let i = 0; i < N.length; i++) if (REP[i] === w.id && deg[i]) m.push(i);
+    m.sort((a, b) => deg[b] - deg[a] || deg0[b] - deg0[a]);
+    w.mos.forEach((z, j) => { const i = m[j];
+      if (i == null){ z.i = -1; z.g.setAttribute('class', 'mz vazio'); return; }
+      if (z.i === i) return; z.i = i;
+      const src = IMG[i] ? SRC[i] : null;
+      z.g.setAttribute('class', 'mz t-' + N[i].c + pc(i) + (src ? ' foto' : '')); z.u.setAttribute('href', '#ti-' + ICO[i]);
+      if (src) z.im.setAttribute('href', src); else z.im.removeAttribute('href');
+      let tt = z.g.querySelector('title'); if (!tt) tt = el('title', {}, z.g); tt.textContent = N[i].n; });
+  }
 
   /* nós */
   function shape(t, g){
@@ -1967,10 +2181,17 @@ function montar(host, kind, A, ctl){
     if (HUB[i]){ const R = i === H0 ? 17 : 13; el('circle', {class:'hit', r:28}, g); const fr = el('circle', {class:'fr', r:R + 4}, g); el('circle', {class:'hdot', r:R}, g);
       const t = el('text', {class:'nm', 'text-anchor':'middle', y:i === H0 ? -(R + 12) : R + 22}, g); t.textContent = n.n; return {fr}; }
     el('circle', {class:'hit', r:11}, g); const fr = el('circle', {class:'fr', r:8.6}, g); shape(n.t, g);
-    const a = pos[i].a, dg = a * 180 / Math.PI, flip = Math.cos(a) < -1e-6, tr = `rotate(${(flip ? dg + 180 : dg).toFixed(2)})`, x = (flip ? -1 : 1) * 12, an = flip ? 'end' : 'start', tag = vtag(n);
-    const last = pos[i].k === nRing - 1, t = el('text', {class:'nm', transform:tr, x, y:tag ? -.8 : 3.8, 'text-anchor':an}, g); t.textContent = cut(n.n, last ? 34 : 25);
-    if (tag){ const tg = el('text', {class:'tg', transform:tr, x, y:9.6, 'text-anchor':an}, g); tg.textContent = tag; }
-    return {fr};
+    const tag = vtag(n), t = el('text', {class:'nm', y:tag ? -.8 : 3.8}, g);
+    let tg = null; if (tag){ tg = el('text', {class:'tg', y:9.6}, g); tg.textContent = tag; }
+    return {fr, t, tg};
+  }
+  /* Radial: o rótulo do nome segue o ângulo do ponto (refeito a cada disposição) */
+  function orient(i){
+    const w = nEl[i]; if (mapa || HUB[i] || !w.t) return;
+    const p = pos[i], a = p.a, dg = a * 180 / Math.PI, flip = Math.cos(a) < -1e-6, tr = `rotate(${(flip ? dg + 180 : dg).toFixed(2)})`, x = (flip ? -1 : 1) * 12, an = flip ? 'end' : 'start';
+    const s = sec[N[i].c], last = !!s && p.k === s.nRing - 1;
+    for (const t of [w.t, w.tg]) if (t){ t.setAttribute('transform', tr); t.setAttribute('x', x); t.setAttribute('text-anchor', an); }
+    w.t.textContent = cut(N[i].n, last ? 34 : 25);
   }
   function card(g, i){
     const n = N[i], hub = HUB[i], Wd = hub ? 160 : 116, R = hub ? 34 : 27;
@@ -1991,48 +2212,108 @@ function montar(host, kind, A, ctl){
     return {fr, med, engr, R};
   }
   const nEl = N.map((n, i) => {
-    const g = el('g', {class:(mapa ? 'nd card0' : 'nd') + ' t-' + n.c + pc(i) + (HUB[i] ? ' hub' : ''), transform:`translate(${f1(pos[i].x)},${f1(pos[i].y)})`, tabindex:0, role:'button', 'aria-label':n.n}, gN);
+    const g = el('g', {class:(mapa ? 'nd card0' : 'nd') + ' t-' + n.c + pc(i) + (HUB[i] ? ' hub' : '') + ' gone', tabindex:0, role:'button', 'aria-label':n.n}, gN);
     const tt = el('title', {}, g); tt.textContent = n.n + (n.g ? ' · ' + n.g : '');
     const w = mapa ? card(g, i) : dot(g, i);
     g.addEventListener('click', ev => { ev.stopPropagation(); if (!moved) pick(i); });
     g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); pick(i); } });
     g.addEventListener('mouseenter', () => hl('n:' + i)); g.addEventListener('mouseleave', () => hl(sel));
-    return Object.assign({g}, w);
+    return Object.assign({g, vis:false, cur:null}, w);
   });
   /* fotos e logotipos do manifesto (Mapa mental): só status "baixado" e só se a imagem carregar; senão fica o ícone */
-  const IMG = [];
-  if (mapa) manifesto().then(M => N.forEach((n, i) => { const m = M[n.id], src = imgSrc(m); if (!src) return; const w = nEl[i], R = w.R;
+  const IMG = [], SRC = [];
+  let mzT = 0;
+  const mzAgain = () => { if (mzT) return; mzT = requestAnimationFrame(() => { mzT = 0; if (!deg.length) return; for (const id in GW) if (units[id] && GW[id].mos){ GW[id].mos.forEach(z => { z.i = -1; }); mosaic(GW[id]); } }); };
+  if (mapa) manifesto().then(M => N.forEach((n, i) => { const m = M[n.id], src = imgSrc(m); if (!src) return; const w = nEl[i], R = w.R; SRC[i] = src;
     const im = el('image', {class:'ph', x:-R, y:-R, width:2 * R, height:2 * R, preserveAspectRatio:'xMidYMid slice', 'clip-path':'url(#ti-clip)'});
-    im.addEventListener('load', () => { w.med.classList.add('foto'); IMG[i] = m; if (sel === 'n:' + i) panelN(i); });
+    im.addEventListener('load', () => { w.med.classList.add('foto'); IMG[i] = m; if (sel === 'n:' + i) panelN(i); mzAgain(); });
     im.addEventListener('error', () => { im.remove(); w.med.classList.remove('foto'); IMG[i] = null; });
     w.med.insertBefore(im, w.engr); im.setAttribute('href', src); }));
 
-  /* anel dos anos (a mesma régua da página) */
+  /* anel dos anos (a mesma régua da página); o raio acompanha o que está aberto */
   const YRS = A.YEARS, yEl = {};
-  el('circle', {class:'yring', r:RY}, gY);
-  const yArc = el('path', {class:'yarc'}, gY);
-  YRS.forEach((y, j) => { const a = -Math.PI / 2 + (j + .5) / YRS.length * TAU, g = el('g', {class:'yr', tabindex:0, role:'button', 'aria-label':'Ver ' + (y === 2017 ? 'até 2017' : y)}, gY);
-    el('line', {class:'tick', x1:f1(Math.cos(a) * (RY - 9)), y1:f1(Math.sin(a) * (RY - 9)), x2:f1(Math.cos(a) * (RY + 9)), y2:f1(Math.sin(a) * (RY + 9))}, g);
-    const ca = Math.cos(a), lx = ca * (RY + 16), ly = Math.sin(a) * (RY + 16), t = el('text', {x:f1(lx), y:f1(ly), 'text-anchor':ca > .3 ? 'start' : ca < -.3 ? 'end' : 'middle', dy:Math.sin(a) < -.8 ? '-.2em' : Math.sin(a) > .8 ? '.9em' : '.35em'}, g);
+  const yRing = el('circle', {class:'yring'}, gY), yArc = el('path', {class:'yarc'}, gY);
+  YRS.forEach((y, j) => { const a = -Math.PI / 2 + (j + .5) / YRS.length * TAU, ca = Math.cos(a), sa = Math.sin(a), g = el('g', {class:'yr', tabindex:0, role:'button', 'aria-label':'Ver ' + (y === 2017 ? 'até 2017' : y)}, gY);
+    const tick = el('line', {class:'tick'}, g), t = el('text', {'text-anchor':ca > .3 ? 'start' : ca < -.3 ? 'end' : 'middle', dy:sa < -.8 ? '-.2em' : sa > .8 ? '.9em' : '.35em'}, g);
     const nEv = A.evAno(y).length; t.textContent = (y === 2017 ? 'até 2017' : y) + ' · ' + nEv + (nEv === 1 ? ' fato' : ' fatos');
-    el('circle', {cx:f1(Math.cos(a) * RY), cy:f1(Math.sin(a) * RY), r:24, fill:'transparent'}, g);
+    const hit = el('circle', {r:24, fill:'transparent'}, g);
     const go = () => { A.setYear(y); showYear(y); };
     g.addEventListener('click', ev => { ev.stopPropagation(); if (!moved) go(); });
     g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); go(); } });
-    yEl[y] = {g, a}; });
+    yEl[y] = {g, a, tick, t, hit}; });
   /* cartela do pôster (só aparece na gravura) */
+  let poster = null;
   if (mapa){ const pg = el('g', {class:'poster', 'pointer-events':'none'}, gY);
-    el('circle', {class:'orn', r:RY - 22}, pg); el('circle', {class:'orn', r:RY - 26}, pg);
-    const t1 = el('text', {class:'pt1', x:0, y:f1(RY + 72), 'text-anchor':'middle'}, pg); t1.textContent = 'O CASO MASTER';
-    const t2 = el('text', {class:'pt2', x:0, y:f1(RY + 72), 'text-anchor':'middle', dy:'2em'}, pg); t2.textContent = 'quem se ligou ao banco e ao seu controlador · levantamento de 14 out 2026'; }
+    poster = {o1:el('circle', {class:'orn'}, pg), o2:el('circle', {class:'orn'}, pg), t1:el('text', {class:'pt1', x:0, 'text-anchor':'middle'}, pg), t2:el('text', {class:'pt2', x:0, 'text-anchor':'middle', dy:'2em'}, pg)};
+    poster.t1.textContent = 'O CASO MASTER'; poster.t2.textContent = 'quem se ligou ao banco e ao seu controlador · levantamento de 14 out 2026'; }
+  function placeYears(){
+    yRing.setAttribute('r', f1(RY));
+    YRS.forEach(y => { const {a, tick, t, hit} = yEl[y], ca = Math.cos(a), sa = Math.sin(a);
+      tick.setAttribute('x1', f1(ca * (RY - 9))); tick.setAttribute('y1', f1(sa * (RY - 9))); tick.setAttribute('x2', f1(ca * (RY + 9))); tick.setAttribute('y2', f1(sa * (RY + 9)));
+      t.setAttribute('x', f1(ca * (RY + 16))); t.setAttribute('y', f1(sa * (RY + 16))); hit.setAttribute('cx', f1(ca * RY)); hit.setAttribute('cy', f1(sa * RY)); });
+    if (poster){ poster.o1.setAttribute('r', f1(RY - 22)); poster.o2.setAttribute('r', f1(RY - 26)); poster.t1.setAttribute('y', f1(RY + 72)); poster.t2.setAttribute('y', f1(RY + 72)); }
+  }
+
+  /* ---------- linhas agrupadas: relações em que pelo menos um lado é um grupo ou subgrupo recolhido (como na 2D) ---------- */
+  let AG = [], AGK = {}, agEl = {};
+  function buildAG(){
+    const m = new Map();
+    E.forEach((e, k) => { const rs = act[k]; if (!rs || !rs.length) return; const ua = REP[e.a], ub = REP[e.b];
+      if (!ua || !ub || ua === ub || (!isGrp(ua) && !isGrp(ub))) return;
+      const [u, v] = ua < ub ? [ua, ub] : [ub, ua], key = u + '~' + v;
+      let g = m.get(key); if (!g){ g = {key, u, v, items:[]}; m.set(key, g); }
+      rs.forEach(r => g.items.push([k, e.r.indexOf(r)])); });
+    AG = [...m.values()]; AGK = Object.fromEntries(AG.map(g => [g.key, g]));
+    /* grau que predomina; empate: sob investigação > documentada > imprensa > alegação, a mesma ordem das linhas de um par */
+    AG.forEach(g => { const n = {}; g.items.forEach(([k, j]) => { const st = E[k].r[j].st; n[st] = (n[st] || 0) + 1; });
+      let b = null; ['inv', 'doc', 'rep', 'ale'].forEach(s => { if (n[s] && (b == null || n[s] > n[b])) b = s; }); g.st = b || 'doc'; g.n = n; });
+  }
+  const uPt = id => id[0] === 'n' ? pos[+id.slice(2)] : units[id];
+  const lerp = (A0, B0, t) => ({x:A0.x + (B0.x - A0.x) * t, y:A0.y + (B0.y - A0.y) * t});
+  const qd = (A0, Q, B0) => ({d:`M${f1(A0.x)},${f1(A0.y)}Q${f1(Q.x)},${f1(Q.y)} ${f1(B0.x)},${f1(B0.y)}`, m:{x:.25 * A0.x + .5 * Q.x + .25 * B0.x, y:.25 * A0.y + .5 * Q.y + .25 * B0.y},
+    at:t => ({x:(1 - t) * (1 - t) * A0.x + 2 * (1 - t) * t * Q.x + t * t * B0.x, y:(1 - t) * (1 - t) * A0.y + 2 * (1 - t) * t * Q.y + t * t * B0.y})});
+  /* linha até um dos dois do centro: arqueia para longe do outro, para as duas não se sobreporem */
+  function bow(Pp, Hp, Ho){
+    const dx = Hp.x - Pp.x, dy = Hp.y - Pp.y, L = Math.hypot(dx, dy) || 1; let px = -dy / L, py = dx / L;
+    if (px * (Ho.x - Hp.x) + py * (Ho.y - Hp.y) > 0){ px = -px; py = -py; }
+    const M = lerp(Pp, Hp, .5), b = Math.min(70, L * .14); return qd(Pp, {x:M.x + px * b, y:M.y + py * b}, Hp);
+  }
+  const plural = (n, a, b) => n + ' ' + (n === 1 ? a : b);
+  function drawAG(){
+    gAg.textContent = ''; gAH.textContent = ''; gAL.textContent = ''; agEl = {};
+    const h0 = 'n:' + H0, h1 = 'n:' + H1;
+    AG.forEach(g => { const n = g.items.length, Ap = uPt(g.u), Bp = uPt(g.v); if (!Ap || !Bp) return;
+      const hu = g.u === h0 || g.u === h1, hv = g.v === h0 || g.v === h1;
+      const geo = hu || hv ? bow(hu ? Bp : Ap, hu ? Ap : Bp, pos[(hu ? g.u : g.v) === h0 ? H1 : H0]) : qd(Ap, {x:(Ap.x + Bp.x) / 2 * (uSec(g.u) === uSec(g.v) ? .82 : .45), y:(Ap.y + Bp.y) / 2 * (uSec(g.u) === uSec(g.v) ? .82 : .45)}, Bp);
+      const col = isGrp(g.u) ? uCls(g.u) : uCls(g.v), sw = Math.min(10, 1.2 + 1.3 * Math.sqrt(n)), x = hu || hv ? ' h0' : ' x';
+      const lab = `${plural(n, 'relação', 'relações')} entre ${uLabel(g.u)} e ${uLabel(g.v)} até ${A.year}; traço: ${A.STL[g.st]}, o grau que predomina`;
+      const p = el('path', {class:'ag ' + col + ' s-' + g.st + x, d:geo.d, 'stroke-width':f1(sw)}, gAg), da = agDash(g.st, sw); if (da) p.style.strokeDasharray = da;
+      const h = el('path', {class:'agh' + x, d:geo.d}, gAH), tt = el('title', {}, h); tt.textContent = lab;
+      /* número: nas linhas do centro, mais perto do grupo; nas outras, no meio, e escondido se cair sobre os cartões do centro */
+      const lp = hu || hv ? geo.at(.36) : g.u[0] === 'n' ? geo.at(.66) : g.v[0] === 'n' ? geo.at(.34) : geo.m, hz = narrow ? [mapa ? 100 : 55, mapa ? 175 : 85] : [mapa ? 200 : 85, mapa ? 95 : 55], inHub = Math.abs(lp.x) < hz[0] && Math.abs(lp.y) < hz[1];
+      const t = el('text', {class:'agl' + x + (!hu && !hv && (n < (narrow ? 8 : 5) || inHub) ? ' minor' : ''), x:f1(lp.x), y:f1(lp.y), dy:'.35em', role:'button', tabindex:0, 'aria-label':'Ver as ' + lab}, gAL); t.textContent = n;
+      const fn = ev => { ev.stopPropagation(); if (moved) return;
+        /* com um nome selecionado, a linha dele até um grupo recolhido abre esse grupo */
+        if (sel && sel[0] === 'n' && (g.u === sel || g.v === sel)){ const o = g.u === sel ? g.v : g.u; if (isGrp(o)) return openUnit(o); }
+        pickA(g.key); };
+      for (const z of [h, t]){ z.addEventListener('click', fn); z.addEventListener('mouseenter', () => hl('a:' + g.key)); z.addEventListener('mouseleave', () => hl(sel)); }
+      t.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); fn(ev); } });
+      agEl[g.key] = {p, h, t}; });
+  }
 
   /* ---------- estado do ano ---------- */
-  let act = [], deg = [], sel = null, dirty = true, shown = false;
+  let act = [], deg = [], sel = null, dirty = true, shown = false, lastSig = '';
   function update(){
     if (!shown){ dirty = true; return; } dirty = false;
     act = E.map(e => A.activeRels(e)); deg = N.map(() => 0);
     act.forEach((rs, k) => { if (rs.length){ deg[E[k].a] += rs.length; deg[E[k].b] += rs.length; } });
-    E.forEach((e, k) => { const rs = act[k], w = EG[k], off = !rs.length; w.p.classList.toggle('off', off); w.h.classList.toggle('off', off); if (off) return;
+    /* a legenda da 2D pode ter escondido ou mostrado um grupo: aí a disposição muda */
+    const sig = A.repsFor(openCat, openSub).REP.join(',');
+    if (sig !== lastSig) relayout(!!lastSig); else refresh();
+  }
+  function refresh(){
+    E.forEach((e, k) => { const rs = act[k], w = EG[k], off = !rs.length, lv = !(visN(e.a) && visN(e.b));
+      w.p.classList.toggle('off', off); w.h.classList.toggle('off', off); w.p.classList.toggle('lv', lv); w.h.classList.toggle('lv', lv); if (off) return;
       w.p.classList.remove('s-doc', 's-inv', 's-rep', 's-ale'); w.p.classList.add('s-' + A.edgeSt(rs));
       w.v = Math.max(0, ...rs.map(r => r.val || 0));
       w.tt.textContent = N[e.a].n + ' e ' + N[e.b].n + '\n' + rs.map(r => '· ' + r.rot + (r.val ? ' (' + brl(r.val) + ')' : '') + ' [' + A.STL[r.st] + ']').join('\n'); });
@@ -2042,32 +2323,126 @@ function montar(host, kind, A, ctl){
       adj[i].forEach(k => { const e = E[k], o = e.a === i ? e.b : e.a; if (HUB[o] && o !== i) act[k].forEach(up); });
       if (best == null && !HUB[i]){ ind = true; adj[i].forEach(k => act[k].forEach(up)); }
       w.fr.classList.remove('s-doc', 's-inv', 's-rep', 's-ale'); if (best) w.fr.classList.add('s-' + best); w.fr.classList.toggle('ind', ind && !!best); w.st = best; w.ind = ind; });
-    cats.forEach(([c]) => { const s = sec[c], k = s.ids.filter(i => deg[i]).length; s.trunk.classList.toggle('off', !k); s.head.classList.toggle('dim', !k);
-      s.cnt.textContent = mapa ? k + (k === 1 ? ' nome' : ' nomes') + ' até ' + A.year : ' · ' + k; });
+    cats.forEach(([c]) => { const s = sec[c], k = s.ids.filter(i => deg[i]).length; if (s.trunk) s.trunk.classList.toggle('off', !k); s.head.classList.toggle('dim', !k);
+      s.cnt.textContent = mapa ? plural(k, 'nome', 'nomes') + ' até ' + A.year : ' · ' + k; });
+    for (const u in brU) brU[u].classList.toggle('off', !gCount(u));
+    for (const id in GW){ if (!units[id]) continue; const w = GW[id], n = gCount(id), nm = plural(n, 'nome', 'nomes');
+      w.g.classList.toggle('dim', !n);
+      if (mapa){ w.cnt.textContent = nm + ' até ' + A.year; mosaic(w); } else drawGU(w, n);
+      w.g.setAttribute('aria-label', `${uLabel(id)}, ${nm} até ${A.year}. Abrir`); w.tt.textContent = `${uLabel(id)}: ${nm} com ligação até ${A.year}. Clique para abrir.`; }
+    impEl.forEach(x => x.p.classList.toggle('off', !deg[x.f] || !(deg[x.a] || HUB[x.a]) || adj[x.f].some(k => act[k].length && (E[k].a === x.a || E[k].b === x.a))));
+    buildAG(); drawAG();
     if (vw) apply();
     const yi = YRS.indexOf(A.year); YRS.forEach(y => yEl[y].g.classList.toggle('hot', y === A.year));
     if (yi >= 0){ const a0 = -Math.PI / 2, a1 = -Math.PI / 2 + (yi + 1) / YRS.length * TAU, big = a1 - a0 > Math.PI ? 1 : 0;
-      yArc.setAttribute('d', yi === YRS.length - 1 ? `M0,${-RY}A${RY},${RY} 0 1 1 0,${RY}A${RY},${RY} 0 1 1 0,${-RY}` : `M${f1(Math.cos(a0) * RY)},${f1(Math.sin(a0) * RY)}A${RY},${RY} 0 ${big} 1 ${f1(Math.cos(a1) * RY)},${f1(Math.sin(a1) * RY)}`); }
+      yArc.setAttribute('d', yi === YRS.length - 1 ? `M0,${f1(-RY)}A${f1(RY)},${f1(RY)} 0 1 1 0,${f1(RY)}A${f1(RY)},${f1(RY)} 0 1 1 0,${f1(-RY)}` : `M${f1(Math.cos(a0) * RY)},${f1(Math.sin(a0) * RY)}A${f1(RY)},${f1(RY)} 0 ${big} 1 ${f1(Math.cos(a1) * RY)},${f1(Math.sin(a1) * RY)}`); }
     if (sel && sel[0] === 'n' && !deg[+sel.slice(2)] && !HUB[+sel.slice(2)]) clear();
     else if (sel && sel[0] === 'e' && !act[+sel.slice(2)].length) clear();
-    else { hl(sel); if (!draw.hidden) render(); }
+    else { if (sel && sel[0] === 'a' && !AGK[sel.slice(2)]){ sel = null; if (pan && pan[0] === 'a') closeDraw(); }
+      hl(sel); if (!draw.hidden) render(); }
+    lvbar();
   }
 
-  /* destaque: nome (e vizinhos), ligação ou grupo; valores em R$ nas linhas destacadas */
+  /* destaque: nome (e vizinhos), ligação, grupo aberto, cartão-grupo ou linha agrupada; valores em R$ nas linhas destacadas */
   function hl(id){
-    const onN = new Set(), onE = new Set();
-    if (id && id[0] === 'n'){ const i = +id.slice(2); onN.add(i); adj[i].forEach(k => { if (act[k] && act[k].length){ onE.add(k); onN.add(E[k].a); onN.add(E[k].b); } }); }
-    else if (id && id[0] === 'e'){ const k = +id.slice(2); onE.add(k); onN.add(E[k].a); onN.add(E[k].b); }
-    else if (id && id[0] === 'c'){ sec[id.slice(2)].ids.forEach(i => { if (deg[i]) onN.add(i); }); }
+    const onN = new Set(), onE = new Set(), onU = new Set(), onA = new Set(), rel = new Set(); let head = null;
+    if (id && id[0] === 'n'){ const i = +id.slice(2); onN.add(i); adj[i].forEach(k => { if (act[k] && act[k].length){ rel.add(k); onN.add(E[k].a); onN.add(E[k].b); } });
+      kids[i].forEach(f => onN.add(f)); if (ATT[i] != null) onN.add(ATT[i]); }
+    else if (id && id[0] === 'e'){ const k = +id.slice(2); rel.add(k); onN.add(E[k].a); onN.add(E[k].b); }
+    else if (id && id[0] === 'c'){ head = id.slice(2); sec[head].ids.forEach(i => { if (deg[i]) onN.add(i); }); }
+    else if (id && id[0] === 'u'){ const u = id.slice(2); onU.add(u); AG.forEach(g => { if (g.u === u || g.v === u){ onA.add(g.key); onU.add(g.u); onU.add(g.v); } }); }
+    else if (id && id[0] === 'a'){ const g = AGK[id.slice(2)]; if (g){ onA.add(g.key); onU.add(g.u); onU.add(g.v); g.items.forEach(([k]) => { onN.add(E[k].a); onN.add(E[k].b); }); } }
+    rel.forEach(k => { if (visN(E[k].a) && visN(E[k].b)) onE.add(k); });
+    if (rel.size) AG.forEach(g => { if (g.items.some(([k]) => rel.has(k))) onA.add(g.key); });
+    onN.forEach(i => { if (REP[i]) onU.add(REP[i]); });
     svg.classList.toggle('dim', !!id);
-    nEl.forEach((w, i) => { w.g.classList.toggle('on', onN.has(i)); w.g.classList.toggle('sel', sel === 'n:' + i); });
+    nEl.forEach((w, i) => { w.g.classList.toggle('on', onN.has(i) && visN(i)); w.g.classList.toggle('sel', sel === 'n:' + i); });
+    for (const u in GW) GW[u].g.classList.toggle('on', onU.has(u));
     EG.forEach((w, k) => { const o = onE.has(k); w.p.classList.toggle('on', o); w.h.classList.toggle('on', o); });
     brEl.forEach((b, i) => { if (b) b.classList.toggle('on', onN.has(i)); });
-    cats.forEach(([c]) => sec[c].head.classList.toggle('on', id === 'c:' + c));
+    for (const u in brU) brU[u].classList.toggle('on', onU.has(u));
+    impEl.forEach(x => x.p.classList.toggle('on', onN.has(x.f) && onN.has(x.a)));
+    for (const k in agEl){ const o = onA.has(k); agEl[k].p.classList.toggle('on', o); agEl[k].h.classList.toggle('on', o); agEl[k].t.classList.toggle('on', o); }
+    cats.forEach(([c]) => sec[c].head.classList.toggle('on', c === head || sec[c].ids.some(i => onN.has(i) && visN(i))));
     gV.textContent = '';
-    if (id && id[0] !== 'c') onE.forEach(k => { const w = EG[k]; if (!w.v) return;
+    if (id && id[0] !== 'c' && id[0] !== 'u') onE.forEach(k => { const w = EG[k]; if (!w.v) return;
       const t = el('text', {class:'vl', x:f1(w.m.x), y:f1(w.m.y), 'text-anchor':'middle', dy:'.35em'}, gV); t.textContent = brl(w.v); });
   }
+
+  /* ---------- abrir e recolher, com animação curta (sem ela com prefers-reduced-motion) ---------- */
+  function openUnit(id){
+    if (id[0] === 'c') openCat.add(id.slice(2)); else { const k = id.slice(2); openCat.add(k.split('|')[0]); openSub.add(k); }
+    save(); relayout(true);
+  }
+  function closeUnit(id){
+    if (id[0] === 'c'){ const c = id.slice(2); openCat.delete(c); [...openSub].forEach(k => { if (k.split('|')[0] === c) openSub.delete(k); }); }
+    else openSub.delete(id.slice(2));
+    save(); relayout(true);
+  }
+  function openAll(){ allOpen(); save(); relayout(true); }
+  function closeAll(){ openCat.clear(); openSub.clear(); save(); clear(); msg.textContent = ''; relayout(true); }
+  /* um nome dentro de grupo recolhido: abre o setor e o subgrupo dele e enquadra o nome */
+  function reveal(i, s){
+    if (visN(i) || !REP[i]) return false;
+    const k = A.subKey(i); openCat.add(N[i].c); if (k && A.subReal(k)) openSub.add(k);
+    save(); relayout(true, {center:i, s}); return true;
+  }
+  let anim = 0, endAnim = null;
+  function put(it, k){ const w = it.w, o = it.o0 + (it.o1 - it.o0) * k;
+    if (!it.fade){ const x = it.from.x + (it.to.x - it.from.x) * k, y = it.from.y + (it.to.y - it.from.y) * k; w.g.setAttribute('transform', `translate(${f1(x)},${f1(y)})`); w.cur = {x, y}; }
+    w.g.style.opacity = o >= .999 ? '' : o.toFixed(3); }
+  function relayout(animate, opts){
+    opts = opts || {};
+    if (endAnim) endAnim();
+    const oREP = REP.slice(), oUnits = units, oCur = nEl.map(w => w.vis ? w.cur : null);
+    layout(); lastSig = REP.join(',');
+    N.forEach((n, i) => orient(i)); placeHeads(); buildBranches(); buildRings(); E.forEach((e, k) => edgeGeo(k)); buildImp(); placeYears();
+    if (sel && sel[0] === 'n' && !visN(+sel.slice(2))) sel = null;
+    if (sel && sel[0] === 'e' && !(visN(E[+sel.slice(2)].a) && visN(E[+sel.slice(2)].b))) sel = null;
+    refresh();
+    const items = [], cen = (ids, P2) => { let x = 0, y = 0, n = 0; ids.forEach(i => { const p = P2[i]; if (p){ x += p.x; y += p.y; n++; } }); return n ? {x:x / n, y:y / n} : null; };
+    N.forEach((n, i) => { const w = nEl[i], v1 = visN(i) && (HUB[i] || !!REP[i]), v0 = w.vis;
+      if (!v0 && !v1){ w.g.classList.add('gone'); return; }
+      const to = v1 ? pos[i] : (REP[i] && units[REP[i]]) || w.cur || pos[i];
+      const from = v0 && w.cur ? w.cur : (oREP[i] && oUnits[oREP[i]]) || to;
+      if (v1) w.g.classList.remove('gone'); items.push({w, from, to, o0:v0 ? 1 : 0, o1:v1 ? 1 : 0, v1}); });
+    for (const id in GW){ const w = GW[id], v1 = !!units[id], v0 = w.vis;
+      if (!v0 && !v1){ w.g.classList.add('gone'); continue; }
+      const mem = [], out = []; N.forEach((n, i) => { if (REP[i] === id && oCur[i]) mem.push(i); if (oREP[i] === id && visN(i)) out.push(i); });
+      const to = v1 ? units[id] : cen(out, pos) || w.cur || {x:0, y:0};
+      const from = v0 && w.cur ? w.cur : cen(mem, oCur) || to;
+      if (v1) w.g.classList.remove('gone'); items.push({w, from, to, o0:v0 ? 1 : 0, o1:v1 ? 1 : 0, v1}); }
+    cats.forEach(([c]) => { const s = sec[c], w = s.hw, v1 = !!s.open, v0 = w.vis;
+      if (!v0 && !v1){ s.head.classList.add('gone'); return; }
+      if (v1) s.head.classList.remove('gone'); items.push({w, fade:true, o0:v0 ? 1 : 0, o1:v1 ? 1 : 0, v1}); });
+    const v0 = vw ? Object.assign({}, vw) : null, v1 = vw ? (opts.center != null ? centerView(pos[opts.center], opts.s) : fitView()) : null;
+    const fin = () => { cancelAnimationFrame(anim); endAnim = null;
+      items.forEach(it => { put(it, 1); it.w.vis = it.v1; it.w.g.classList.toggle('gone', !it.v1); it.w.g.style.opacity = ''; });
+      if (v1){ vw = v1; apply(); } svg.classList.remove('moving'); };
+    if (!animate || reduceM.matches || !shown || !v0) return fin();
+    svg.classList.add('moving'); endAnim = fin;
+    /* 280 ms, aceleração suave nas duas pontas */
+    const t0 = performance.now(), DUR = 280;
+    const step = now => { const q = Math.min(1, (now - t0) / DUR), k = q < .5 ? 2 * q * q : 1 - Math.pow(-2 * q + 2, 2) / 2;
+      items.forEach(it => put(it, k));
+      vw = {cx:v0.cx + (v1.cx - v0.cx) * k, cy:v0.cy + (v1.cy - v0.cy) * k, s:v0.s * Math.pow(v1.s / v0.s, k)}; apply();
+      if (q < 1) anim = requestAnimationFrame(step); else fin(); };
+    anim = requestAnimationFrame(step);
+  }
+  /* caminho do que está aberto, acima do mapa, com "−" em cada nível */
+  function lvbar(){
+    const open = cats.filter(([c]) => sec[c].open), nsub = SUBR.filter(x => openCat.has(x.c) && openSub.has(x.k)).length;
+    lvpath.innerHTML = '<span class="lab">Aberto</span>' + (open.length > 4 ? `<span class="lvnone">${open.length} grupos e ${plural(nsub, 'subgrupo', 'subgrupos')}; use "Recolher tudo" ou o − em cada grupo</span>`
+      : open.length ? open.map(([c]) => { const subs = SUBR.filter(x => x.c === c && openSub.has(x.k));
+        return `<span class="lvc t-${c}"><button type="button" class="lvn" data-rpc="${c}" title="Ver os nomes de ${esc(cname(c))}"><i class="sw"></i>${esc(cname(c))}</button><button type="button" class="lvx" data-rc="c:${c}" aria-label="Recolher ${esc(cname(c))}" title="Recolher ${esc(cname(c))}">−</button>`
+          + subs.map(x => `<span class="sep" aria-hidden="true">›</span><span class="lvn sub ${A.subCls(x.k)}"><i class="sw"></i>${esc(x.name)}</span><button type="button" class="lvx" data-rc="p:${esc(x.k)}" aria-label="Recolher ${esc(x.name)}" title="Recolher ${esc(x.name)}">−</button>`).join('') + '</span>'; }).join('')
+      : '<span class="lvnone">tudo recolhido; clique num grupo para abrir</span>');
+    bAll.disabled = cats.every(([c]) => openCat.has(c) || !sec[c].live) && SUBR.every(x => openSub.has(x.k));
+    bNone.disabled = !openCat.size;
+  }
+  bar.addEventListener('click', e => { const b = e.target.closest('button'); if (!b || b.disabled) return;
+    if (b.dataset.rall) return openAll(); if (b.dataset.rnone) return closeAll();
+    if (b.dataset.rc) return closeUnit(b.dataset.rc); if (b.dataset.rpc) return pickC(b.dataset.rpc); });
 
   /* ---------- painel ---------- */
   let pan = null;
@@ -2098,11 +2473,13 @@ function montar(host, kind, A, ctl){
     let b = '';
     if (IMG[i]) b += credito(IMG[i]);
     if (n.g) b += `<span class="lab">${esc(n.g)}</span>`;
+    if (ATT[i] != null){ const im = (A.IMPL || []).find(x => x[0] === i && x[1] === ATT[i]), lb = im && A.IMPLAB ? A.IMPLAB[im[2]] || '' : '';
+      b += `<p class="famto"><span>Em órbita de:</span>${sw(ATT[i], lb ? `<span class="lab">${esc(lb)}</span>` : '')}</p>`; }
     if (n.d) b += `<p>${esc(n.d)}</p>`;
     b += A.valHTML(n);
     b += `<div class="acts"><button type="button" class="dbtn" data-dos="${esc(n.id)}">Abrir dossiê completo</button><button type="button" class="btn" data-rctr="${i}">Centralizar</button><button type="button" class="btn" data-r2d="${i}">Ver na teia 2D</button></div>`;
     if (w.st) b += `<p style="font-size:12.5px">Moldura: ${w.ind ? 'sem ligação direta com o banco ou o controlador; a ligação mais forte que tem é ' : 'a ligação mais forte com o centro é '}<b>${A.STL[w.st]}</b>.</p>`;
-    b += `<span class="lab">${list.length} ${list.length === 1 ? 'ligação' : 'ligações'} até ${A.year}${nv ? ` · ${nv} com valor em reais` : ''}</span>` + list.map(x => relCard(x[0], x[1], i)).join('');
+    b += `<span class="lab">${plural(list.length, 'ligação', 'ligações')} até ${A.year}${nv ? ` · ${nv} com valor em reais` : ''}</span>` + list.map(x => relCard(x[0], x[1], i)).join('');
     const kick = esc((HUB[i] ? 'Centro do caso' : CATL[n.c]) + ' · ' + ICN[ICO[i]][1] + (n.p ? ' · ' + n.p : ''));
     openDraw(kick, n.c, n.n, b);
   }
@@ -2111,35 +2488,67 @@ function montar(host, kind, A, ctl){
     openDraw('Ligação', N[o].c, N[e.a].n + ' e ' + N[e.b].n, `<div class="who2" style="display:flex;flex-wrap:wrap;gap:6px 12px">${sw(e.a)}${sw(e.b)}</div>` + rs.map(r => relCard(r, e, null)).join(''));
   }
   function panelC(c){
-    pan = ['c', c]; const ids = sec[c].ids.filter(i => deg[i]).sort((a, b) => deg[b] - deg[a]);
-    openDraw('Grupo', c, cname(c), `<span class="lab">${ids.length} ${ids.length === 1 ? 'nome' : 'nomes'} com ligação até ${A.year}</span>` + ids.map(i => `<div class="card"><div class="who2">${sw(i, `<span class="lab">${deg[i]} ${deg[i] === 1 ? 'ligação' : 'ligações'}</span>`)}</div>${N[i].g ? `<span class="lab">${esc(N[i].g)}</span>` : ''}</div>`).join(''));
+    pan = ['c', c]; const ids = sec[c].ids.filter(i => deg[i]).sort((a, b) => deg[b] - deg[a]), op = openCat.has(c);
+    const row = i => `<div class="card"><div class="who2">${sw(i, `<span class="lab">${plural(deg[i], 'ligação', 'ligações')}</span>`)}</div>${N[i].g ? `<span class="lab">${esc(N[i].g)}</span>` : ''}</div>`;
+    let b = `<div class="acts"><button type="button" class="btn" data-${op ? 'rc' : 'ro'}="c:${c}">${op ? 'Recolher o grupo no mapa' : 'Abrir o grupo no mapa'}</button></div><span class="lab">${plural(ids.length, 'nome', 'nomes')} com ligação até ${A.year}</span>`;
+    if (A.SUBORD[c]) A.SUBORD[c].forEach(p => { const it = ids.filter(i => A.subName(i) === p); if (it.length) b += `<div class="pgrp ${A.subCls(c + '|' + p)}" style="display:flex;align-items:center;gap:7px;margin-top:6px;font-size:13.5px;font-weight:600"><i class="sw"></i>${esc(p)} <span class="lab">${it.length}</span></div>` + it.map(row).join(''); });
+    else b += ids.map(row).join('');
+    openDraw('Grupo', c, cname(c), b);
+  }
+  function panelA(key){
+    const g = AGK[key]; if (!g) return; pan = ['a', key];
+    const it = g.items.map(([k, j]) => [E[k].r[j], E[k], k, j]).sort((a, b) => b[0].y0 - a[0].y0 || a[2] - b[2]), ob = [g.u, g.v].filter(isGrp);
+    let b = `<span class="lab">${plural(it.length, 'relação', 'relações')} até ${A.year} resumidas nesta linha</span><p style="font-size:12.5px">Traço da linha: <b>${A.STL[g.st]}</b>, o grau que predomina (${['doc', 'inv', 'rep', 'ale'].filter(s => g.n[s]).map(s => g.n[s] + ' ' + A.STL[s]).join(', ')}).</p>`;
+    if (ob.length) b += `<div class="acts">${ob.map(u => `<button type="button" class="btn" data-ro="${esc(u)}">Abrir ${esc(uLabel(u))}</button>`).join('')}</div>`;
+    b += it.map(([r, e, k, j]) => `<div class="card"><h4><button type="button" class="evgo" data-ev="${esc(ekey(e))}:${j}"><span>${esc(r.rot)}</span><span class="lab">Ver evidências ›</span></button></h4><div class="who2" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px">${sw(r.a)}<span class="lab">e</span>${sw(r.b)}</div><div class="meta"><span class="chip ${r.st}">${A.STL[r.st]}</span><span class="lab">${A.desde(r)}</span>${r.val ? `<span class="vbig">${brl(r.val)}</span>` : ''}<span class="lab">${A.fontesTxt(A.nFontes(r))}</span></div></div>`).join('');
+    openDraw('Ligações agrupadas', uSec(isGrp(g.u) ? g.u : g.v), uLabel(g.u) + ' e ' + uLabel(g.v), b);
   }
   function showYear(y){
     pan = ['y', y]; sel = null; hl(null); const evs = A.evAno(y).slice().sort((a, b) => String(a.d).localeCompare(String(b.d)));
-    openDraw('Linha do tempo', 'hub', y === 2017 ? 'Até 2017' : String(y), `<span class="lab">${evs.length} ${evs.length === 1 ? 'fato' : 'fatos'}; o mapa mostra as ligações até ${y}</span>` + (evs.length ? evs.map(e => `<div class="ev"><time>${esc(A.fdate(e.d))}</time><div><h4>${esc(e.t)}</h4><p>${esc(e.x)}</p><div class="src">${A.srcLinks(e.f)}</div></div></div>`).join('') : '<p>Nenhum fato de grande peso registrado neste ano.</p>'));
+    openDraw('Linha do tempo', 'hub', y === 2017 ? 'Até 2017' : String(y), `<span class="lab">${plural(evs.length, 'fato', 'fatos')}; o mapa mostra as ligações até ${y}</span>` + (evs.length ? evs.map(e => `<div class="ev"><time>${esc(A.fdate(e.d))}</time><div><h4>${esc(e.t)}</h4><p>${esc(e.x)}</p><div class="src">${A.srcLinks(e.f)}</div></div></div>`).join('') : '<p>Nenhum fato de grande peso registrado neste ano.</p>'));
   }
-  function render(){ if (!pan) return; const [t, v] = pan; if (t === 'n') panelN(v); else if (t === 'e') panelE(v); else if (t === 'c') panelC(v); else if (t === 'y') showYear(v); }
+  function render(){ if (!pan) return; const [t, v] = pan; if (t === 'n') panelN(v); else if (t === 'e') panelE(v); else if (t === 'c') panelC(v); else if (t === 'a') panelA(v); else if (t === 'y') showYear(v); }
   function pick(i){ sel = 'n:' + i; hl(sel); panelN(i); }
   function pickE(k){ sel = 'e:' + k; hl(sel); panelE(k); }
-  function pickC(c){ sel = null; hl('c:' + c); panelC(c); sel = null; }
+  function pickA(key){ sel = 'a:' + key; hl(sel); panelA(key); }
+  function pickC(c){ sel = null; hl('c:' + c); panelC(c); }
   function clear(){ sel = null; hl(null); closeDraw(); }
   draw.addEventListener('click', e => {
     if (e.target.closest('.rdx')) return clear();
-    const s = e.target.closest('[data-rsel]'); if (s){ const i = +s.dataset.rsel; if (!deg[i] && !HUB[i]) return; pick(i); centerOn(i); return; }
-    const c = e.target.closest('[data-rctr]'); if (c) return centerOn(+c.dataset.rctr, mapa ? .75 : 1.3);
+    const o = e.target.closest('[data-ro]'); if (o) return openUnit(o.dataset.ro);
+    const x = e.target.closest('[data-rc]'); if (x) return closeUnit(x.dataset.rc);
+    const s = e.target.closest('[data-rsel]'); if (s){ const i = +s.dataset.rsel; if (!deg[i] && !HUB[i]) return; pick(i); if (!reveal(i)) centerOn(i); return; }
+    const c = e.target.closest('[data-rctr]'); if (c){ const i = +c.dataset.rctr, z = mapa ? .75 : 1.3; if (!reveal(i, z)) centerOn(i, z); return; }
     const d = e.target.closest('[data-r2d]'); if (d) return ctl.to2d(+d.dataset.r2d);
   });
 
-  /* ---------- câmera ---------- */
+  /* ---------- câmera: o enquadramento acompanha o que está aberto ---------- */
   let vw = null;
   const dims = () => [stage.clientWidth || 800, stage.clientHeight || 600];
-  function fit(){ const [w, h] = dims(); vw = {cx:0, cy:mapa ? 40 : 0, s:Math.min(w, h) / (2 * RW)}; apply(); }
+  function fitView(){
+    const [w, h] = dims(); let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    const add = (x, y, rx, ry) => { x0 = Math.min(x0, x - rx); x1 = Math.max(x1, x + rx); y0 = Math.min(y0, y - ry); y1 = Math.max(y1, y + ry); };
+    N.forEach((n, i) => { if (!visN(i) || !REP[i]) return; const p = pos[i];
+      if (mapa) add(p.x, p.y, HUB[i] ? 82 : 60, HUB[i] ? 80 : 76);
+      else if (HUB[i]) add(p.x, p.y, 54, 44);
+      else { add(p.x, p.y, 12, 12); const L = 16 + Math.min(N[i].n.length, 25) * 6; add(p.x + Math.cos(p.a) * L, p.y + Math.sin(p.a) * L, 6, 8); } });
+    for (const id in units){ const u = units[id]; add(u.x, u.y, mapa ? 74 : 56, mapa ? 84 : 62); }
+    cats.forEach(([c]) => { const s = sec[c]; if (!s.open) return; add(s.hx, s.hy, mapa ? 80 : 10, mapa ? 34 : 10);
+      if (!mapa) add(Math.cos(s.mid) * RL, Math.sin(s.mid) * RL, 30, 14); });
+    x0 -= 26; y0 -= 26; x1 += 26; y1 += 26;
+    /* quando quase tudo está aberto, entra também o anel dos anos */
+    const R = RY + (mapa ? 110 : 100);
+    if (2 * R <= 1.12 * Math.max(x1 - x0, y1 - y0)){ x0 = Math.min(x0, -R); y0 = Math.min(y0, -R); x1 = Math.max(x1, R); y1 = Math.max(y1, R + (mapa ? 60 : 0)); }
+    const bw = x1 - x0, bh = y1 - y0;
+    return {cx:(x0 + x1) / 2, cy:(y0 + y1) / 2, s:Math.min(w / bw, h / bh) * .97};
+  }
+  function fit(){ vw = fitView(); apply(); }
   function apply(){
     const [w, h] = dims(), s = vw.s;
     svg.setAttribute('viewBox', [vw.cx - w / 2 / s, vw.cy - h / 2 / s, w / s, h / s].map(f1).join(' '));
     svg.style.setProperty('--kv', (1 / s).toFixed(3)); svg.style.setProperty('--ky', Math.max(1, Math.min(1 / s, 3.2)).toFixed(3));
     svg.classList.toggle('z0', s < (mapa ? .42 : .6)); svg.classList.toggle('z1', s < (mapa ? .62 : 1));
-    if (!mapa) cats.forEach(([c]) => { const x = sec[c]; if (!x.lab) return; const n = (cname(c) + x.cnt.textContent).length;
+    if (!mapa) cats.forEach(([c]) => { const x = sec[c]; if (!x.lab || !x.open) return; const n = (cname(c) + x.cnt.textContent).length + 2;
       x.lab.style.fontSize = Math.max(7, Math.min(11 / s, x.arcL * .94 / (n * .66))).toFixed(1) + 'px'; });
   }
   function zoomAt(f, px, py){
@@ -2147,18 +2556,18 @@ function montar(host, kind, A, ctl){
     const s2 = Math.max(Math.min(w, h) / (2 * RW) * .6, Math.min(6, vw.s * f)), wx = vw.cx + (px - w / 2) / vw.s, wy = vw.cy + (py - h / 2) / vw.s;
     vw.cx = wx - (px - w / 2) / s2; vw.cy = wy - (py - h / 2) / s2; vw.s = s2; apply();
   }
-  function centerOn(i, s){
-    if (s) vw.s = Math.max(vw.s, s);
-    const [w] = dims(), side = !draw.hidden && w > 640, sheet = !draw.hidden && w <= 640;
-    vw.cx = pos[i].x + (side ? draw.offsetWidth / 2 / vw.s : 0); vw.cy = pos[i].y + (sheet ? draw.offsetHeight / 2 / vw.s : 0); apply();
+  function centerView(p, s){
+    const [w] = dims(), side = !draw.hidden && w > 640, sheet = !draw.hidden && w <= 640, sc = Math.max(vw ? vw.s : 0, s || 0) || fitView().s;
+    return {cx:p.x + (side ? draw.offsetWidth / 2 / sc : 0), cy:p.y + (sheet ? draw.offsetHeight / 2 / sc : 0), s:sc};
   }
+  function centerOn(i, s){ if (!vw) return; vw = centerView(pos[i], s); apply(); }
   { const pts = new Map(); let start = null, last = null, pinch = null, drag = false;
     const rel = e => { const b = stage.getBoundingClientRect(); return [e.clientX - b.left, e.clientY - b.top]; };
-    svg.addEventListener('wheel', e => { e.preventDefault(); const [x, y] = rel(e); zoomAt(Math.exp(-e.deltaY * (e.deltaMode ? .05 : .0015)), x, y); }, {passive:false});
+    svg.addEventListener('wheel', e => { e.preventDefault(); if (!vw) return; const [x, y] = rel(e); zoomAt(Math.exp(-e.deltaY * (e.deltaMode ? .05 : .0015)), x, y); }, {passive:false});
     svg.addEventListener('pointerdown', e => { if (e.button > 0) return; pts.set(e.pointerId, rel(e));
       if (pts.size === 1){ start = last = rel(e); drag = false; moved = false; pinch = null; }
       else if (pts.size === 2){ const [a, b] = [...pts.values()]; pinch = {d:Math.hypot(a[0] - b[0], a[1] - b[1]) || 1}; drag = true; moved = true; } });
-    addEventListener('pointermove', e => { if (!pts.has(e.pointerId)) return; const p = rel(e); pts.set(e.pointerId, p);
+    addEventListener('pointermove', e => { if (!pts.has(e.pointerId) || !vw) return; const p = rel(e); pts.set(e.pointerId, p);
       if (pts.size >= 2 && pinch){ const [a, b] = [...pts.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]) || 1; zoomAt(d / pinch.d, (a[0] + b[0]) / 2, (a[1] + b[1]) / 2); pinch.d = d; return; }
       if (!drag && Math.hypot(p[0] - start[0], p[1] - start[1]) > 5){ drag = true; moved = true; svg.classList.add('drag'); }
       if (drag){ vw.cx -= (p[0] - last[0]) / vw.s; vw.cy -= (p[1] - last[1]) / vw.s; apply(); } last = p; });
@@ -2167,34 +2576,40 @@ function montar(host, kind, A, ctl){
     addEventListener('pointerup', up); addEventListener('pointercancel', up);
     svg.addEventListener('click', () => { if (!moved) clear(); });
   }
-  if (window.ResizeObserver) new ResizeObserver(() => { if (vw && shown) apply(); }).observe(stage);
+  /* no celular os grupos recolhidos ficam numa elipse em pé: ao cruzar a largura de 640 px, refaz a disposição */
+  if (window.ResizeObserver) new ResizeObserver(() => { if (!vw || !shown) return; const w = stage.clientWidth; if (w && (w < 640) !== narrow) relayout(false); else apply(); }).observe(stage);
 
   /* ---------- ferramentas ---------- */
   const q = host.querySelector('.rq');
   host.querySelector('datalist').innerHTML = N.map(n => `<option value="${esc(n.n)}"></option>`).join('');
-  let qLast = '';
+  let qLast = '', msgT = 0;
+  const say = t => { msg.textContent = t; clearTimeout(msgT); if (t) msgT = setTimeout(() => { msg.textContent = ''; }, 6000); };
+  /* busca: abre o grupo e o subgrupo do nome, seleciona e enquadra */
   function search(v){
     const s = norm(v); if (!s || s === qLast) return; qLast = s;
     let i = N.findIndex(n => norm(n.n) === s); if (i < 0) i = N.findIndex(n => norm(n.n).startsWith(s)); if (i < 0) i = N.findIndex(n => norm(n.n).includes(s));
-    if (i < 0){ msg.textContent = `Nenhum nome encontrado para "${v}".`; return; }
+    if (i < 0){ say(`Nenhum nome encontrado para "${v}".`); return; }
     if (!deg[i] && !HUB[i]) A.setYear(2026);
-    if (!deg[i] && !HUB[i]){ msg.textContent = `${N[i].n} está num grupo oculto na legenda da teia 2D.`; return; }
-    msg.textContent = ''; pick(i); centerOn(i, mapa ? .75 : 1.3);
+    if ((!deg[i] && !HUB[i]) || !REP[i]){ say(`${N[i].n} está num grupo oculto na legenda da teia 2D.`); return; }
+    const z = mapa ? .75 : 1.3; sel = 'n:' + i; panelN(i);
+    if (!reveal(i, z)){ hl(sel); centerOn(i, z); }
+    const k = A.subKey(i);
+    say(HUB[i] ? '' : `${N[i].n}: ${cname(N[i].c)}${k && A.subReal(k) ? ' › ' + A.subName(i) : ''}${ATT[i] != null ? ' (ao lado de ' + N[ATT[i]].n + ')' : ''}.`);
   }
   q.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); qLast = ''; search(q.value); } });
   q.addEventListener('change', () => search(q.value));
-  q.addEventListener('input', e => { if (!q.value){ msg.textContent = ''; qLast = ''; } else if (!e.inputType || e.inputType === 'insertReplacementText'){ if (N.some(n => n.n === q.value)) search(q.value); } });
+  q.addEventListener('input', e => { if (!q.value){ say(''); qLast = ''; } else if (!e.inputType || e.inputType === 'insertReplacementText'){ if (N.some(n => n.n === q.value)) search(q.value); } });
   host.querySelector('.rxl').addEventListener('change', e => svg.classList.toggle('noxl', !e.target.checked));
-  host.querySelector('.rzo').addEventListener('click', () => zoomAt(1 / 1.3));
-  host.querySelector('.rzi').addEventListener('click', () => zoomAt(1.3));
+  host.querySelector('.rzo').addEventListener('click', () => { if (vw) zoomAt(1 / 1.3); });
+  host.querySelector('.rzi').addEventListener('click', () => { if (vw) zoomAt(1.3); });
   host.querySelector('.rfit').addEventListener('click', fit);
   let full = false; const fsB = host.querySelector('.rfs');
   function setFull(v){ full = v; host.classList.toggle('full', v); document.body.classList.toggle('fs', v); fsB.textContent = v ? 'Sair da tela cheia' : 'Tela cheia';
     try { if (v && host.requestFullscreen) host.requestFullscreen().catch(() => {}); else if (!v && document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(() => {}); } catch (e) {}
-    requestAnimationFrame(fit); }
+    requestAnimationFrame(() => { if (shown) relayout(false); }); }
   fsB.addEventListener('click', () => setFull(!full));
   document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && full) setFull(false); });
-  /* Esc: fecha o painel ou sai da tela cheia (antes, a 2D fecha evidência e dossiê, se abertos) */
+  /* Esc: desfaz a seleção e fecha o painel (os grupos abertos ficam), ou sai da tela cheia; antes, a 2D fecha evidência e dossiê, se abertos */
   addEventListener('keydown', e => { if (e.key !== 'Escape' || host.hidden) return;
     const evp = document.getElementById('evp'), dos = document.getElementById('dos'); if ((evp && !evp.hidden) || (dos && !dos.hidden)) return;
     if (sel || !draw.hidden) clear(); else if (full) setFull(false); }, true);
@@ -2203,7 +2618,7 @@ function montar(host, kind, A, ctl){
   document.addEventListener('teia:ano', update);
 
   return {
-    show(){ shown = true; if (dirty) update(); requestAnimationFrame(() => { if (!vw) fit(); else apply(); }); },
+    show(){ shown = true; if (dirty) update(); requestAnimationFrame(() => { const w = stage.clientWidth; if (vw && w && (w < 640) !== narrow) relayout(false); else if (!vw) fit(); else apply(); }); },
     hide(){ shown = false; if (full) setFull(false); },
     style(v){ if (v === 'grav') fontesGravura(); }
   };
@@ -2223,8 +2638,8 @@ return {montar, fontesGravura};
   const BTN = {'2d': document.getElementById('mode2d'), '3d': document.getElementById('mode3d'), radial: document.getElementById('moderad'), mapa: document.getElementById('modemapa')};
   const MODES = Object.keys(BTN), hint = document.getElementById('modehint');
   const HINT = {'2d': 'Anel de nomes por grupo, com dossiês, busca, foco e evidências de cada ligação.', '3d': 'Teia no tempo: cada andar é um ano. Mesmos dados e evidências da 2D.',
-    radial: 'Todos os nomes de uma vez, um setor por grupo, com os valores em reais nas linhas. Mesmos dados, anos e evidências da 2D.',
-    mapa: 'Um cartão por nome, com foto, logotipo ou ícone, em gravura ou fotográfico. Mesmos dados, anos e evidências da 2D.'};
+    radial: 'Começa recolhido por grupo, como a 2D; abra nível a nível (ou tudo) e cada nome vira um ponto no setor do grupo, com os valores em reais nas linhas. Mesmos dados, anos e evidências da 2D.',
+    mapa: 'Começa com um cartão por grupo, como a 2D; abra nível a nível (ou tudo) até um cartão por nome, com foto, logotipo ou ícone, em gravura ou fotográfico. Mesmos dados, anos e evidências da 2D.'};
   let mode = '2d', frame = null, pend3d = false;
   function post(msg){ try { if (frame && frame.contentWindow) frame.contentWindow.postMessage(msg, '*'); } catch (e) {} }
   /* dentro da página única a altura útil é a da janela de cima (comum.js guarda em __embVh) */
