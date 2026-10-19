@@ -28,7 +28,7 @@ HEADERS = {
 }
 WIKI_API = "https://pt.wikipedia.org/w/api.php"
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
-LICENCA_LIVRE = re.compile(r"^\s*(CC[ -]?BY|CC[ -]?0|CC0|Public domain|PD\b|Domínio público)", re.I)
+LICENCA_LIVRE = re.compile(r"^\s*(CC[ -]?BY|CC[ -]?0|CC0|Public domain|PD\b|Domínio público|Attribution)", re.I)  # "Attribution" é o modelo livre do Commons (crédito obrigatório)
 
 
 def salvar(conteudo, destino):

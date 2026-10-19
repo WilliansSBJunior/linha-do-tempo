@@ -247,7 +247,7 @@
   "dias-toffoli": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
+   "motivo": "reprocessar: licença Attribution aceita",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "Dias Toffoli",
    "arquivo": "data/imagens/dias-toffoli.jpg",
@@ -262,7 +262,7 @@
   "andre-mendonca": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
+   "motivo": "reprocessar: licença Attribution aceita",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "André Mendonça",
    "arquivo": "data/imagens/andre-mendonca.jpg",
@@ -295,7 +295,7 @@
   "flavio-dino": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
+   "motivo": "reprocessar: licença Attribution aceita",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "Flávio Dino",
    "arquivo": "data/imagens/flavio-dino.jpg",
@@ -340,7 +340,7 @@
   "roberto-campos-neto": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
+   "motivo": "reprocessar: licença Attribution aceita",
    "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
    "wiki_pt": "Roberto Campos Neto",
    "arquivo": "data/imagens/roberto-campos-neto.jpg",
