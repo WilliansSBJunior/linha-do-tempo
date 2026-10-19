@@ -15,7 +15,7 @@
   },
   "ciro-nogueira": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador739.jpg",
    "arquivo": "data/imagens/ciro-nogueira.jpg",
    "origem": "Senado Federal — Dados Abertos",
@@ -25,7 +25,7 @@
   },
   "jaques-wagner": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador581.jpg",
    "arquivo": "data/imagens/jaques-wagner.jpg",
    "origem": "Senado Federal — Dados Abertos",
@@ -35,7 +35,7 @@
   },
   "hugo-motta": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/160674.jpg",
    "arquivo": "data/imagens/hugo-motta.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -45,7 +45,7 @@
   },
   "davi-alcolumbre": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador3830.jpg",
    "arquivo": "data/imagens/davi-alcolumbre.jpg",
    "origem": "Senado Federal — Dados Abertos",
@@ -55,28 +55,43 @@
   },
   "ibaneis-rocha": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "Agência Brasília / governo do DF; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Ibaneis Rocha"
+   "wiki_pt": "Ibaneis Rocha",
+   "arquivo": "data/imagens/ibaneis-rocha.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Ibaneis_Rocha%2C_January_2023_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Agência Brasília from Brasília, Brasil",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Ibaneis_Rocha,_January_2023_(cropped).jpg"
   },
   "claudio-castro": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "Governo do RJ; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Cláudio Castro"
+   "wiki_pt": "Cláudio Castro",
+   "arquivo": "data/imagens/claudio-castro.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Claudio_Castro_como_Vice_Governador_do_Rio_de_Janeiro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0 br",
+   "autor": "Governo do Estado do Rio de Janeiro",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Claudio_Castro_como_Vice_Governador_do_Rio_de_Janeiro.jpg"
   },
   "tarcisio-de-freitas": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "Governo de SP; confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Tarcísio de Freitas"
+   "wiki_pt": "Tarcísio de Freitas",
+   "arquivo": "data/imagens/tarcisio-de-freitas.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Governador_do_Estado_de_S%C3%A3o_Paulo%2C_Tarc%C3%ADsio_de_Freitas_-_Foto_Oficial_%28cropped%29.jpg/960px-Governador_do_Estado_de_S%C3%A3o_Paulo%2C_Tarc%C3%ADsio_de_Freitas_-_Foto_Oficial_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Ciete Silvério/Governo do Estado de SP",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Governador_do_Estado_de_São_Paulo,_Tarcísio_de_Freitas_-_Foto_Oficial_(cropped).jpg"
   },
   "jair-bolsonaro": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/74847.jpg",
    "arquivo": "data/imagens/jair-bolsonaro.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -87,7 +102,7 @@
   },
   "flavio-bolsonaro": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5894.jpg",
    "arquivo": "data/imagens/flavio-bolsonaro.jpg",
    "origem": "Senado Federal — Dados Abertos",
@@ -97,14 +112,19 @@
   },
   "luiz-inacio-lula-da-silva": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "Planalto/Agência Brasil (CC BY 3.0 BR). A Câmara só tem foto antiga da Constituinte (id 139289: https://www.camara.leg.br/internet/deputado/bandep/139289.jpg), não usada por ser de 1987 [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Luiz Inácio Lula da Silva"
+   "wiki_pt": "Luiz Inácio Lula da Silva",
+   "arquivo": "data/imagens/luiz-inacio-lula-da-silva.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28ombros%29_denoise.jpg/960px-Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28ombros%29_denoise.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Ricardo Stuckert/PR",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Foto_oficial_de_Luiz_Inácio_Lula_da_Silva_(ombros)_denoise.jpg"
   },
   "rui-costa": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/104254.jpg",
    "arquivo": "data/imagens/rui-costa.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -115,21 +135,31 @@
   },
   "guido-mantega": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Guido Mantega"
+   "wiki_pt": "Guido Mantega",
+   "arquivo": "data/imagens/guido-mantega.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Guido_mantega.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 3.0 br",
+   "autor": "Roosewelt Pinheiro/ABr",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Guido_mantega.jpg"
   },
   "henrique-meirelles": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "Agência Brasil (CC BY 3.0 BR) ou Commons com licença livre [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Henrique Meirelles"
+   "wiki_pt": "Henrique Meirelles",
+   "arquivo": "data/imagens/henrique-meirelles.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Foto_oficial_de_Henrique_Meirelles%2C_secret%C3%A1rio_de_Fazenda%2C_Planejamento_e_Gest%C3%A3o_do_estado_de_S%C3%A3o_Paulo.jpg/960px-Foto_oficial_de_Henrique_Meirelles%2C_secret%C3%A1rio_de_Fazenda%2C_Planejamento_e_Gest%C3%A3o_do_estado_de_S%C3%A3o_Paulo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Governo do Estado de São Paulo",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Foto_oficial_de_Henrique_Meirelles,_secretário_de_Fazenda,_Planejamento_e_Gestão_do_estado_de_São_Paulo.jpg"
   },
   "michel-temer": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/73552.jpg",
    "arquivo": "data/imagens/michel-temer.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -140,21 +170,27 @@
   },
   "ricardo-lewandowski": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (ex-ministro) ou Agência Brasil (CC BY 3.0 BR) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Ricardo Lewandowski"
+   "wiki_pt": "Ricardo Lewandowski",
+   "arquivo": "data/imagens/ricardo-lewandowski.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Ricardo_Lewandowski_em_novembro_de_2016_%28recorte%29.jpg/960px-Ricardo_Lewandowski_em_novembro_de_2016_%28recorte%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Marcelo Camargo/Agência Brasil",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Ricardo_Lewandowski_em_novembro_de_2016_(recorte).jpg"
   },
   "antonio-rueda": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: LookupError: verbete inexistente: Antônio Rueda",
    "sugestao_origem": "API da Câmara não retornou o deputado por nome; buscar por id no site da Câmara [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Antônio Rueda"
+   "wiki_pt": "Antônio Rueda",
+   "arquivo": "data/imagens/antonio-rueda.jpg"
   },
   "acm-neto": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/74058.jpg",
    "arquivo": "data/imagens/acm-neto.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -177,7 +213,7 @@
   },
   "nikolas-ferreira": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/209787.jpg",
    "arquivo": "data/imagens/nikolas-ferreira.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -193,10 +229,15 @@
   },
   "alexandre-de-moraes": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Alexandre de Moraes"
+   "wiki_pt": "Alexandre de Moraes",
+   "arquivo": "data/imagens/alexandre-de-moraes.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Ministro_Alexandre_de_Moraes_como_presidente_do_TSE.jpg/960px-Ministro_Alexandre_de_Moraes_como_presidente_do_TSE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Isac Nóbrega",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Ministro_Alexandre_de_Moraes_como_presidente_do_TSE.jpg"
   },
   "viviane-barci-de-moraes": {
    "tipo": "nenhuma",
@@ -206,9 +247,11 @@
   "dias-toffoli": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Dias Toffoli"
+   "wiki_pt": "Dias Toffoli",
+   "arquivo": "data/imagens/dias-toffoli.jpg",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Dias_Toffoli_em_outubro_de_2019.jpg"
   },
   "maridt-participacoes": {
    "tipo": "logo",
@@ -219,37 +262,56 @@
   "andre-mendonca": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "André Mendonça"
+   "wiki_pt": "André Mendonça",
+   "arquivo": "data/imagens/andre-mendonca.jpg",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Ministro_André_Mendonça_em_outubro_de_2025_(3x4).jpg"
   },
   "gilmar-mendes": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Gilmar Mendes"
+   "wiki_pt": "Gilmar Mendes",
+   "arquivo": "data/imagens/gilmar-mendes.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Gilmar_Mendes_2016.jpg/960px-Gilmar_Mendes_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Senado Federal",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Gilmar_Mendes_2016.jpg"
   },
   "edson-fachin": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Edson Fachin"
+   "wiki_pt": "Edson Fachin",
+   "arquivo": "data/imagens/edson-fachin.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Edson_Fachin_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 3.0 br",
+   "autor": "Antonio Cruz/Agência Brasil",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Edson_Fachin_(cropped).jpg"
   },
   "flavio-dino": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Flávio Dino"
+   "wiki_pt": "Flávio Dino",
+   "arquivo": "data/imagens/flavio-dino.jpg",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Flávio_Dino_no_voto_da_Ação_Penal_(AP)_2668_(cropped).jpg"
   },
   "paulo-gonet": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "gov.br/mpf (foto oficial do PGR) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Paulo Gonet"
+   "wiki_pt": "Paulo Gonet",
+   "arquivo": "data/imagens/paulo-gonet.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Paulo_Gonet_em_sess%C3%A3o_do_TSE_no_dia_14.02.2023_%28cropped%29.jpg/960px-Paulo_Gonet_em_sess%C3%A3o_do_TSE_no_dia_14.02.2023_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "Public domain",
+   "autor": "TSE -  Tribunal Superior Eleitoral",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Paulo_Gonet_em_sessão_do_TSE_no_dia_14.02.2023_(cropped).jpg"
   },
   "mpf": {
    "tipo": "logo",
@@ -265,31 +327,40 @@
   },
   "gabriel-galipolo": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Gabriel Galípolo"
+   "wiki_pt": "Gabriel Galípolo",
+   "arquivo": "data/imagens/gabriel-galipolo.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Gabriel_Gal%C3%ADpolo_in_2023.jpg/960px-Gabriel_Gal%C3%ADpolo_in_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Agência Senado",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Gabriel_Galípolo_in_2023.jpg"
   },
   "roberto-campos-neto": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: licença não livre ou não encontrada (Attribution)",
    "sugestao_origem": "gov.br/bcb (foto oficial) ou Agência Brasil [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Roberto Campos Neto"
+   "wiki_pt": "Roberto Campos Neto",
+   "arquivo": "data/imagens/roberto-campos-neto.jpg",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Roberto_Campos_Neto.jpg"
   },
   "paulo-sergio-neves-de-souza": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: LookupError: verbete inexistente: Paulo Sérgio Neves de Souza",
    "sugestao_origem": "ex-diretor do BC; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Paulo Sérgio Neves de Souza"
+   "wiki_pt": "Paulo Sérgio Neves de Souza",
+   "arquivo": "data/imagens/paulo-sergio-neves-de-souza.jpg"
   },
   "belline-santana": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: LookupError: verbete sem imagem principal: Belline Santana",
    "sugestao_origem": "ex-chefe de departamento do BC; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Belline Santana"
+   "wiki_pt": "Belline Santana",
+   "arquivo": "data/imagens/belline-santana.jpg"
   },
   "cvm": {
    "tipo": "logo",
@@ -413,10 +484,15 @@
   },
   "alessandro-stefanutto": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "ex-presidente do INSS; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Alessandro Stefanutto"
+   "wiki_pt": "Alessandro Stefanutto",
+   "arquivo": "data/imagens/alessandro-stefanutto.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Alessandro_Stefanutto_Discursando_Em_Posse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Governo Federal do Brasil, INSS",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Alessandro_Stefanutto_Discursando_Em_Posse.jpg"
   },
   "credcesta": {
    "tipo": "logo",
@@ -538,9 +614,10 @@
   "paulo-henrique-costa": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: LookupError: verbete sem imagem principal: Paulo Henrique Costa",
    "sugestao_origem": "ex-presidente do BRB; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Paulo Henrique Costa"
+   "wiki_pt": "Paulo Henrique Costa",
+   "arquivo": "data/imagens/paulo-henrique-costa.jpg"
   },
   "quadra-gestao-de-recursos": {
    "tipo": "logo",
@@ -574,9 +651,10 @@
   "jocildo-lemos": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: LookupError: verbete inexistente: Jocildo Lemos",
    "sugestao_origem": "ex-presidente da Amprev; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Jocildo Lemos"
+   "wiki_pt": "Jocildo Lemos",
+   "arquivo": "data/imagens/jocildo-lemos.jpg"
   },
   "amazonprev": {
    "tipo": "logo",
@@ -715,31 +793,47 @@
   },
   "kassio-nunes-marques": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Kassio Nunes Marques"
+   "wiki_pt": "Kassio Nunes Marques",
+   "arquivo": "data/imagens/kassio-nunes-marques.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Nunes_Marques%2C_February_2025_%28cropped%29.jpg/960px-Nunes_Marques%2C_February_2025_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "Public domain",
+   "autor": "TSE -  Tribunal Superior Eleitoral",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Nunes_Marques,_February_2025_(cropped).jpg"
   },
   "luiz-fux": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "portal.stf.jus.br (foto oficial de ministro; páginas de ministros não abriram no WebFetch) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Luiz Fux"
+   "wiki_pt": "Luiz Fux",
+   "arquivo": "data/imagens/luiz-fux.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/19.12.2025_-_Luiz_Fux.jpg/960px-19.12.2025_-_Luiz_Fux.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "Public domain",
+   "autor": "Rosinei Coutinho/STF",
+   "pagina": "https://commons.wikimedia.org/wiki/File:19.12.2025_-_Luiz_Fux.jpg"
   },
   "newton-ramos": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: LookupError: verbete inexistente: Newton Ramos",
    "sugestao_origem": "site do TRF-1 (foto oficial de desembargador) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Newton Ramos"
+   "wiki_pt": "Newton Ramos",
+   "arquivo": "data/imagens/newton-ramos.jpg"
   },
   "benedito-goncalves": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "site do STJ/CNJ (foto oficial) [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Benedito Gonçalves"
+   "wiki_pt": "Benedito Gonçalves",
+   "arquivo": "data/imagens/benedito-goncalves.jpg",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Benedito_Gon%C3%A7alves.jpg/960px-Benedito_Gon%C3%A7alves.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Gustavo Lima",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Benedito_Gonçalves.jpg"
   },
   "cnj": {
    "tipo": "logo",
@@ -761,7 +855,7 @@
   },
   "alessandro-vieira": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5982.jpg",
    "arquivo": "data/imagens/alessandro-vieira.jpg",
    "origem": "Senado Federal — Dados Abertos",
@@ -771,7 +865,7 @@
   },
   "otto-alencar": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5523.jpg",
    "arquivo": "data/imagens/otto-alencar.jpg",
    "origem": "Senado Federal — Dados Abertos",
@@ -781,7 +875,7 @@
   },
   "cezinha-de-madureira": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/204504.jpg",
    "arquivo": "data/imagens/cezinha-de-madureira.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -791,7 +885,7 @@
   },
   "fabio-faria": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/141428.jpg",
    "arquivo": "data/imagens/fabio-faria.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -802,9 +896,10 @@
   "ronaldo-bento": {
    "tipo": "foto",
    "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "motivo": "Commons: LookupError: verbete inexistente: Ronaldo Bento",
    "sugestao_origem": "gov.br (ex-ministro); confirmar licença [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Ronaldo Bento"
+   "wiki_pt": "Ronaldo Bento",
+   "arquivo": "data/imagens/ronaldo-bento.jpg"
   },
   "kevin-de-carvalho-marques": {
    "tipo": "nenhuma",
@@ -886,7 +981,7 @@
   },
   "eduardo-bolsonaro": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/92346.jpg",
    "arquivo": "data/imagens/eduardo-bolsonaro.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -1049,7 +1144,7 @@
   },
   "luiz-estevao": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador943.jpg",
    "arquivo": "data/imagens/luiz-estevao.jpg",
    "origem": "Senado Federal — Dados Abertos",
@@ -1120,10 +1215,15 @@
   },
   "fabio-wajngarten": {
    "tipo": "foto",
-   "status": "pendente",
-   "motivo": "pessoa pública sem foto oficial aberta confirmada",
+   "status": "baixado",
    "sugestao_origem": "ex-secretário do governo; sem fonte aberta confirmada [2ª passada: portal.stf.jus.br/ministros, gov.br/planalto (verificação humana), bcb.gov.br, gov.br/inss, mpf.mp.br e Agência Brasil não devolveram foto utilizável pelo WebFetch]",
-   "wiki_pt": "Fabio Wajngarten"
+   "wiki_pt": "Fabio Wajngarten",
+   "arquivo": "data/imagens/fabio-wajngarten.jpg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/F%C3%A1bio_Wajngarten_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+   "origem": "Wikimedia Commons",
+   "licenca": "CC BY 2.0",
+   "autor": "Marcos Corrêa/PR",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Fábio_Wajngarten_(cropped).jpg"
   },
   "go-up-entertainment": {
    "tipo": "logo",
@@ -1133,7 +1233,7 @@
   },
   "mario-frias": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.camara.leg.br/internet/deputado/bandep/220655.jpg",
    "arquivo": "data/imagens/mario-frias.jpg",
    "origem": "Câmara dos Deputados — Dados Abertos",
@@ -1226,7 +1326,7 @@
   },
   "chiquinho-feitosa": {
    "tipo": "foto",
-   "status": "ok",
+   "status": "baixado",
    "url": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador611.jpg",
    "arquivo": "data/imagens/chiquinho-feitosa.jpg",
    "origem": "Senado Federal — Dados Abertos",
