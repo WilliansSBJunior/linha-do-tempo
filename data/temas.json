@@ -136,6 +136,17 @@
    "n_entidades": 0
   },
   {
+   "id": "trafico-de-influencia",
+   "nome": "Tráfico de influência no governo",
+   "descricao": "Venda de acesso a órgãos federais: Lulinha, Roberta Luchsinger, Marcola (chefe de gabinete), 3Structure e inquéritos da PF (desde 2026).",
+   "cor": "#7a5c99",
+   "ordem": 13,
+   "principal": false,
+   "n_relacoes": 0,
+   "n_eventos": 0,
+   "n_entidades": 0
+  },
+  {
    "id": "a-classificar",
    "nome": "A classificar",
    "descricao": "Caixa de entrada: registros sem tema atribuído por regra (o MCP usa quando não consegue inferir). Revisar.",
@@ -1095,6 +1106,7 @@
   "crime-organizado": [],
   "cultura-e-entretenimento": [],
   "financiamento-politico": [],
+  "trafico-de-influencia": [],
   "a-classificar": []
  },
  "eventos": {
@@ -1751,6 +1763,7 @@
   "crime-organizado": [],
   "cultura-e-entretenimento": [],
   "financiamento-politico": [],
+  "trafico-de-influencia": [],
   "a-classificar": []
  },
  "entidades": {
@@ -2371,6 +2384,7 @@
   "crime-organizado": [],
   "cultura-e-entretenimento": [],
   "financiamento-politico": [],
+  "trafico-de-influencia": [],
   "a-classificar": []
  }
 }

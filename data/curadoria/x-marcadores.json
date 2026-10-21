@@ -21,7 +21,12 @@
       "megaoperacao-rio-2025": "megaoperação de 28/10/2025 nos complexos do Alemão e da Penha",
       "faccoes-terrorismo-eua": "classificação de PCC/CV como terroristas, sanções OFAC",
       "emendas-shows": "dinheiro público (emendas, prefeituras, Rouanet) em shows de artistas",
-      "precatorios-usinas": "precatórios, usinas, Entre/AGU"
+      "precatorios-usinas": "precatórios, usinas, Entre/AGU",
+      "pl-antifaccao": "Lei/PL Antifacção e enquadramentos",
+      "cv-ucrania": "faccionados treinando na guerra da Ucrânia",
+      "moraes-vorcaro": "relação Moraes–Vorcaro e contratos do escritório de Viviane Barci",
+      "fundos-de-pensao": "fundos de pensão e RPPS (Previ, Noleto, Júlio Cezar, previdências estaduais)",
+      "lagoinha": "Igreja Lagoinha, Zettel, doações"
     },
     "ator": {
       "pcc": "Primeiro Comando da Capital",
@@ -39,7 +44,9 @@
       "partidos": "partidos e dirigentes",
       "artistas": "músicos, atores, apresentadores",
       "influenciadores": "influenciadores, streamers, youtubers",
-      "veiculos-midia": "jornais, portais, emissoras, páginas"
+      "veiculos-midia": "jornais, portais, emissoras, páginas",
+      "policial-corrupto": "policiais e agentes de segurança suspeitos de servir ao crime",
+      "banco-central": "Banco Central e diretores"
     },
     "eleicoes": {
       "eleicoes-2026": "campanha, debates, candidaturas de 2026",
@@ -56,7 +63,10 @@
       "delacao": "colaboração premiada",
       "dinheiro-valor": "tweet traz valor em R$/US$",
       "contra-pista": "decisão/fato que desmente associação a facção ou crime",
-      "declaracao-opiniao": "declaração, opinião, crítica, troca de farpas"
+      "declaracao-opiniao": "declaração, opinião, crítica, troca de farpas",
+      "vazamento-de-operacoes": "vazamento de operações/informações sigilosas a investigados",
+      "tribunal-do-crime": "julgamentos e execuções impostos por facções",
+      "camera-corporal": "câmeras corporais e controle da ação policial"
     }
   }
 }

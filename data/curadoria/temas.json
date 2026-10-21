@@ -1,337 +1,344 @@
 {
- "descricao": "Temas (dimensão N:N) e regras de atribuição a relacao_tema/evento_tema. scripts/curadoria.py:aplicar_temas lê isto depois de toda a carga e da curadoria. Regra: {id, tema, alvo: relacao|evento|ambos} + filtros combinados com E: origem[], canal[] (só evento), entidade[] (relação: de/para; evento: evento_entidade), texto[] (palavra inteira sem acento/caixa; '*' no fim = prefixo; relação: rótulo+descrição; evento: título+descrição+contexto+resposta), dentro_de[] (só registros que já têm algum desses temas; regras valem na ordem). excecoes: {alvo, ref (relação: origem_ref; evento: id), incluir[], excluir[], motivo}. Quem ficar sem tema vai para 'a-classificar'. Entidade não tem tabela: v_entidade_tema deriva dos registros. Decisão sobre 'usinas': o termo genérico 'usina*' foi tirado do pcc-texto porque a maioria das ocorrências no caso-master é o setor sucroalcooleiro dos precatórios (IAA, TRF-1/2, Raízen), não o PCC; entra só 'Usina Itajobi' (Gaeco/Carbono Oculto). 'principal': tema de domínio; o MCP infere o tema de uma relação nova pelos principais comuns às duas entidades (v_entidade_tema) e depois aplica as regras por entidade/texto.",
- "temas": [
-  {
-   "id": "caso-master",
-   "nome": "Caso Master",
-   "descricao": "Teia do Caso Master: banco, pessoas, política, justiça, família, mídia; origens e dossiê (inclui precatórios e BRB).",
-   "cor": "#c0392b",
-   "ordem": 1,
-   "principal": true
-  },
-  {
-   "id": "brasil-ano-a-ano",
-   "nome": "Brasil ano a ano",
-   "descricao": "Linha do tempo política e econômica do Brasil (1995 em diante): eventos por ano, mandatos e filiações.",
-   "cor": "#2c7fb8",
-   "ordem": 2,
-   "principal": true
-  },
-  {
-   "id": "pares",
-   "nome": "Comparação de países",
-   "descricao": "Brasil contra países pares: indicadores, PISA e fóruns (G20, BRICS, OCDE, CSNU, nuclear).",
-   "cor": "#41ab5d",
-   "ordem": 3,
-   "principal": true
-  },
-  {
-   "id": "violencia",
-   "nome": "Violência",
-   "descricao": "Homicídios e marcos legais da segurança pública no Brasil.",
-   "cor": "#7b3294",
-   "ordem": 4,
-   "principal": true
-  },
-  {
-   "id": "inss",
-   "nome": "INSS",
-   "descricao": "Fraude dos descontos em benefícios do INSS (Sem Desconto, consignado), CPMI e investigados.",
-   "cor": "#e08214",
-   "ordem": 5
-  },
-  {
-   "id": "pcc",
-   "nome": "PCC e crime organizado",
-   "descricao": "PCC e o braço financeiro: Carbono Oculto, Quasar, Tank, usinas e fintechs.",
-   "cor": "#252525",
-   "ordem": 6
-  },
-  {
-   "id": "brb",
-   "nome": "BRB",
-   "descricao": "Tentativa de compra do Master pelo BRB e o dossiê do BRB.",
-   "cor": "#1b9e77",
-   "ordem": 7
-  },
-  {
-   "id": "precatorios",
-   "nome": "Precatórios",
-   "descricao": "Precatórios e a cessão de créditos ligada ao grupo.",
-   "cor": "#8c6bb1",
-   "ordem": 8
-  },
-  {
-   "id": "lagoinha",
-   "nome": "Lagoinha",
-   "descricao": "Igreja Batista da Lagoinha e o círculo ligado.",
-   "cor": "#d95f02",
-   "ordem": 9
-  },
-  {
-   "id": "crime-organizado",
-   "nome": "Crime organizado",
-   "descricao": "Guarda-chuva de facções e milícias (PCC, CV, milícias do RJ): operações, lavagem, infiltração. O tema `pcc` continua para o braço financeiro do PCC; este agrupa as pistas do X e o que não cabe só no PCC.",
-   "cor": "#4d4d4d",
-   "ordem": 10
-  },
-  {
-   "id": "cultura-e-entretenimento",
-   "nome": "Cultura e entretenimento",
-   "descricao": "Artistas, influenciadores, bets e mídia de entretenimento quando cruzam com política, crime ou dinheiro.",
-   "cor": "#e7298a",
-   "ordem": 11
-  },
-  {
-   "id": "financiamento-politico",
-   "nome": "Financiamento político",
-   "descricao": "Doações, caixa dois, emendas e fundos que financiam campanhas e mandatos; entra só o que é investigado ou documentado.",
-   "cor": "#66a61e",
-   "ordem": 12
-  },
-  {
-   "id": "a-classificar",
-   "nome": "A classificar",
-   "descricao": "Caixa de entrada: registros sem tema atribuído por regra (o MCP usa quando não consegue inferir). Revisar.",
-   "cor": "#969696",
-   "ordem": 99
-  }
- ],
- "regras": [
-  {
-   "id": "master-relacoes",
-   "tema": "caso-master",
-   "alvo": "relacao",
-   "origem": [
-    "teia",
-    "origens"
-   ]
-  },
-  {
-   "id": "master-eventos",
-   "tema": "caso-master",
-   "alvo": "evento",
-   "canal": [
-    "teia",
-    "banco",
-    "familia",
-    "ida",
-    "volta",
-    "precatorios",
-    "brb"
-   ]
-  },
-  {
-   "id": "brasil-eventos",
-   "tema": "brasil-ano-a-ano",
-   "alvo": "evento",
-   "canal": [
-    "brasil"
-   ]
-  },
-  {
-   "id": "brasil-relacoes",
-   "tema": "brasil-ano-a-ano",
-   "alvo": "relacao",
-   "origem": [
-    "linha_do_tempo"
-   ]
-  },
-  {
-   "id": "pares-eventos",
-   "tema": "pares",
-   "alvo": "evento",
-   "canal": [
-    "pares"
-   ]
-  },
-  {
-   "id": "violencia-eventos",
-   "tema": "violencia",
-   "alvo": "evento",
-   "canal": [
-    "violencia"
-   ]
-  },
-  {
-   "id": "brb-canal",
-   "tema": "brb",
-   "alvo": "evento",
-   "canal": [
-    "brb"
-   ]
-  },
-  {
-   "id": "brb-entidade",
-   "tema": "brb",
-   "alvo": "ambos",
-   "dentro_de": [
-    "caso-master"
-   ],
-   "entidade": [
-    "brb"
-   ]
-  },
-  {
-   "id": "brb-texto",
-   "tema": "brb",
-   "alvo": "ambos",
-   "dentro_de": [
-    "caso-master"
-   ],
-   "texto": [
-    "BRB",
-    "Banco de Brasília"
-   ]
-  },
-  {
-   "id": "precatorios-canal",
-   "tema": "precatorios",
-   "alvo": "evento",
-   "canal": [
-    "precatorios"
-   ]
-  },
-  {
-   "id": "precatorios-texto",
-   "tema": "precatorios",
-   "alvo": "ambos",
-   "dentro_de": [
-    "caso-master"
-   ],
-   "texto": [
-    "precatorio*"
-   ]
-  },
-  {
-   "id": "inss-entidade",
-   "tema": "inss",
-   "alvo": "ambos",
-   "entidade": [
-    "inss",
-    "cpmi-do-inss"
-   ]
-  },
-  {
-   "id": "inss-texto",
-   "tema": "inss",
-   "alvo": "ambos",
-   "texto": [
-    "INSS",
-    "Sem Desconto",
-    "consignado*"
-   ]
-  },
-  {
-   "id": "pcc-entidade",
-   "tema": "pcc",
-   "alvo": "ambos",
-   "entidade": [
-    "pcc",
-    "operacao-carbono-oculto",
-    "operacao-quasar"
-   ]
-  },
-  {
-   "id": "pcc-texto",
-   "tema": "pcc",
-   "alvo": "ambos",
-   "dentro_de": [
-    "caso-master"
-   ],
-   "texto": [
-    "PCC",
-    "Carbono Oculto",
-    "Quasar",
-    "Tank",
-    "Usina Itajobi"
-   ]
-  },
-  {
-   "id": "lagoinha-entidade",
-   "tema": "lagoinha",
-   "alvo": "ambos",
-   "entidade": [
-    "igreja-batista-da-lagoinha",
-    "lagoinha-belvedere"
-   ]
-  },
-  {
-   "id": "lagoinha-texto",
-   "tema": "lagoinha",
-   "alvo": "ambos",
-   "dentro_de": [
-    "caso-master"
-   ],
-   "texto": [
-    "Lagoinha"
-   ]
-  }
- ],
- "excecoes": [
-  {
-   "alvo": "evento",
-   "ref": "fam10",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
-  },
-  {
-   "alvo": "evento",
-   "ref": "fam16",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
-  },
-  {
-   "alvo": "evento",
-   "ref": "fam21",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
-  },
-  {
-   "alvo": "evento",
-   "ref": "max5",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "'consignado' só descreve a carreira anterior do empresário"
-  },
-  {
-   "alvo": "relacao",
-   "ref": "E[65].r[0]",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
-  },
-  {
-   "alvo": "relacao",
-   "ref": "E[318].r[0]",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "INSS aparece só como a CPMI de onde vêm os documentos (palestra de Tony Blair)"
-  },
-  {
-   "alvo": "relacao",
-   "ref": "E[212].r[0]",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "INSS aparece só como a CPMI de onde vem a nota do escritório (honorários de precatório)"
-  },
-  {
-   "alvo": "relacao",
-   "ref": "E[130].r[0]",
-   "excluir": [
-    "inss"
-   ],
-   "motivo": "INSS aparece só como a CPMI que recebeu o IR de Vorcaro (ganho com cotas do Hans II)"
-  }
- ]
+  "descricao": "Temas (dimensão N:N) e regras de atribuição a relacao_tema/evento_tema. scripts/curadoria.py:aplicar_temas lê isto depois de toda a carga e da curadoria. Regra: {id, tema, alvo: relacao|evento|ambos} + filtros combinados com E: origem[], canal[] (só evento), entidade[] (relação: de/para; evento: evento_entidade), texto[] (palavra inteira sem acento/caixa; '*' no fim = prefixo; relação: rótulo+descrição; evento: título+descrição+contexto+resposta), dentro_de[] (só registros que já têm algum desses temas; regras valem na ordem). excecoes: {alvo, ref (relação: origem_ref; evento: id), incluir[], excluir[], motivo}. Quem ficar sem tema vai para 'a-classificar'. Entidade não tem tabela: v_entidade_tema deriva dos registros. Decisão sobre 'usinas': o termo genérico 'usina*' foi tirado do pcc-texto porque a maioria das ocorrências no caso-master é o setor sucroalcooleiro dos precatórios (IAA, TRF-1/2, Raízen), não o PCC; entra só 'Usina Itajobi' (Gaeco/Carbono Oculto). 'principal': tema de domínio; o MCP infere o tema de uma relação nova pelos principais comuns às duas entidades (v_entidade_tema) e depois aplica as regras por entidade/texto.",
+  "temas": [
+    {
+      "id": "caso-master",
+      "nome": "Caso Master",
+      "descricao": "Teia do Caso Master: banco, pessoas, política, justiça, família, mídia; origens e dossiê (inclui precatórios e BRB).",
+      "cor": "#c0392b",
+      "ordem": 1,
+      "principal": true
+    },
+    {
+      "id": "brasil-ano-a-ano",
+      "nome": "Brasil ano a ano",
+      "descricao": "Linha do tempo política e econômica do Brasil (1995 em diante): eventos por ano, mandatos e filiações.",
+      "cor": "#2c7fb8",
+      "ordem": 2,
+      "principal": true
+    },
+    {
+      "id": "pares",
+      "nome": "Comparação de países",
+      "descricao": "Brasil contra países pares: indicadores, PISA e fóruns (G20, BRICS, OCDE, CSNU, nuclear).",
+      "cor": "#41ab5d",
+      "ordem": 3,
+      "principal": true
+    },
+    {
+      "id": "violencia",
+      "nome": "Violência",
+      "descricao": "Homicídios e marcos legais da segurança pública no Brasil.",
+      "cor": "#7b3294",
+      "ordem": 4,
+      "principal": true
+    },
+    {
+      "id": "inss",
+      "nome": "INSS",
+      "descricao": "Fraude dos descontos em benefícios do INSS (Sem Desconto, consignado), CPMI e investigados.",
+      "cor": "#e08214",
+      "ordem": 5
+    },
+    {
+      "id": "pcc",
+      "nome": "PCC e crime organizado",
+      "descricao": "PCC e o braço financeiro: Carbono Oculto, Quasar, Tank, usinas e fintechs.",
+      "cor": "#252525",
+      "ordem": 6
+    },
+    {
+      "id": "brb",
+      "nome": "BRB",
+      "descricao": "Tentativa de compra do Master pelo BRB e o dossiê do BRB.",
+      "cor": "#1b9e77",
+      "ordem": 7
+    },
+    {
+      "id": "precatorios",
+      "nome": "Precatórios",
+      "descricao": "Precatórios e a cessão de créditos ligada ao grupo.",
+      "cor": "#8c6bb1",
+      "ordem": 8
+    },
+    {
+      "id": "lagoinha",
+      "nome": "Lagoinha",
+      "descricao": "Igreja Batista da Lagoinha e o círculo ligado.",
+      "cor": "#d95f02",
+      "ordem": 9
+    },
+    {
+      "id": "crime-organizado",
+      "nome": "Crime organizado",
+      "descricao": "Guarda-chuva de facções e milícias (PCC, CV, milícias do RJ): operações, lavagem, infiltração. O tema `pcc` continua para o braço financeiro do PCC; este agrupa as pistas do X e o que não cabe só no PCC.",
+      "cor": "#4d4d4d",
+      "ordem": 10
+    },
+    {
+      "id": "cultura-e-entretenimento",
+      "nome": "Cultura e entretenimento",
+      "descricao": "Artistas, influenciadores, bets e mídia de entretenimento quando cruzam com política, crime ou dinheiro.",
+      "cor": "#e7298a",
+      "ordem": 11
+    },
+    {
+      "id": "financiamento-politico",
+      "nome": "Financiamento político",
+      "descricao": "Doações, caixa dois, emendas e fundos que financiam campanhas e mandatos; entra só o que é investigado ou documentado.",
+      "cor": "#66a61e",
+      "ordem": 12
+    },
+    {
+      "id": "trafico-de-influencia",
+      "nome": "Tráfico de influência no governo",
+      "descricao": "Venda de acesso a órgãos federais: Lulinha, Roberta Luchsinger, Marcola (chefe de gabinete), 3Structure e inquéritos da PF (desde 2026).",
+      "cor": "#7a5c99",
+      "ordem": 13
+    },
+    {
+      "id": "a-classificar",
+      "nome": "A classificar",
+      "descricao": "Caixa de entrada: registros sem tema atribuído por regra (o MCP usa quando não consegue inferir). Revisar.",
+      "cor": "#969696",
+      "ordem": 99
+    }
+  ],
+  "regras": [
+    {
+      "id": "master-relacoes",
+      "tema": "caso-master",
+      "alvo": "relacao",
+      "origem": [
+        "teia",
+        "origens"
+      ]
+    },
+    {
+      "id": "master-eventos",
+      "tema": "caso-master",
+      "alvo": "evento",
+      "canal": [
+        "teia",
+        "banco",
+        "familia",
+        "ida",
+        "volta",
+        "precatorios",
+        "brb"
+      ]
+    },
+    {
+      "id": "brasil-eventos",
+      "tema": "brasil-ano-a-ano",
+      "alvo": "evento",
+      "canal": [
+        "brasil"
+      ]
+    },
+    {
+      "id": "brasil-relacoes",
+      "tema": "brasil-ano-a-ano",
+      "alvo": "relacao",
+      "origem": [
+        "linha_do_tempo"
+      ]
+    },
+    {
+      "id": "pares-eventos",
+      "tema": "pares",
+      "alvo": "evento",
+      "canal": [
+        "pares"
+      ]
+    },
+    {
+      "id": "violencia-eventos",
+      "tema": "violencia",
+      "alvo": "evento",
+      "canal": [
+        "violencia"
+      ]
+    },
+    {
+      "id": "brb-canal",
+      "tema": "brb",
+      "alvo": "evento",
+      "canal": [
+        "brb"
+      ]
+    },
+    {
+      "id": "brb-entidade",
+      "tema": "brb",
+      "alvo": "ambos",
+      "dentro_de": [
+        "caso-master"
+      ],
+      "entidade": [
+        "brb"
+      ]
+    },
+    {
+      "id": "brb-texto",
+      "tema": "brb",
+      "alvo": "ambos",
+      "dentro_de": [
+        "caso-master"
+      ],
+      "texto": [
+        "BRB",
+        "Banco de Brasília"
+      ]
+    },
+    {
+      "id": "precatorios-canal",
+      "tema": "precatorios",
+      "alvo": "evento",
+      "canal": [
+        "precatorios"
+      ]
+    },
+    {
+      "id": "precatorios-texto",
+      "tema": "precatorios",
+      "alvo": "ambos",
+      "dentro_de": [
+        "caso-master"
+      ],
+      "texto": [
+        "precatorio*"
+      ]
+    },
+    {
+      "id": "inss-entidade",
+      "tema": "inss",
+      "alvo": "ambos",
+      "entidade": [
+        "inss",
+        "cpmi-do-inss"
+      ]
+    },
+    {
+      "id": "inss-texto",
+      "tema": "inss",
+      "alvo": "ambos",
+      "texto": [
+        "INSS",
+        "Sem Desconto",
+        "consignado*"
+      ]
+    },
+    {
+      "id": "pcc-entidade",
+      "tema": "pcc",
+      "alvo": "ambos",
+      "entidade": [
+        "pcc",
+        "operacao-carbono-oculto",
+        "operacao-quasar"
+      ]
+    },
+    {
+      "id": "pcc-texto",
+      "tema": "pcc",
+      "alvo": "ambos",
+      "dentro_de": [
+        "caso-master"
+      ],
+      "texto": [
+        "PCC",
+        "Carbono Oculto",
+        "Quasar",
+        "Tank",
+        "Usina Itajobi"
+      ]
+    },
+    {
+      "id": "lagoinha-entidade",
+      "tema": "lagoinha",
+      "alvo": "ambos",
+      "entidade": [
+        "igreja-batista-da-lagoinha",
+        "lagoinha-belvedere"
+      ]
+    },
+    {
+      "id": "lagoinha-texto",
+      "tema": "lagoinha",
+      "alvo": "ambos",
+      "dentro_de": [
+        "caso-master"
+      ],
+      "texto": [
+        "Lagoinha"
+      ]
+    }
+  ],
+  "excecoes": [
+    {
+      "alvo": "evento",
+      "ref": "fam10",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
+    },
+    {
+      "alvo": "evento",
+      "ref": "fam16",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
+    },
+    {
+      "alvo": "evento",
+      "ref": "fam21",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
+    },
+    {
+      "alvo": "evento",
+      "ref": "max5",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "'consignado' só descreve a carreira anterior do empresário"
+    },
+    {
+      "alvo": "relacao",
+      "ref": "E[65].r[0]",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "Credcesta/Bahia é consignado estadual, não INSS"
+    },
+    {
+      "alvo": "relacao",
+      "ref": "E[318].r[0]",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "INSS aparece só como a CPMI de onde vêm os documentos (palestra de Tony Blair)"
+    },
+    {
+      "alvo": "relacao",
+      "ref": "E[212].r[0]",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "INSS aparece só como a CPMI de onde vem a nota do escritório (honorários de precatório)"
+    },
+    {
+      "alvo": "relacao",
+      "ref": "E[130].r[0]",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "INSS aparece só como a CPMI que recebeu o IR de Vorcaro (ganho com cotas do Hans II)"
+    }
+  ]
 }
