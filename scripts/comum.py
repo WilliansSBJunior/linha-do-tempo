@@ -23,7 +23,8 @@ TABELAS = ["meta", "categoria", "entidade", "entidade_alias", "evidencia", "rela
            "ranking_empresa", "ranking_evidencia", "mandato", "bancada", "aresta_legado",
            "dossie_par", "dossie_par_evidencia", "previdencia_ente", "pagamento", "indicio_maquina", "limite", "forum",
            "entidade_valor", "post_rede", "post_triagem", "post_triagem_tema", "post_triagem_entidade", "post_relacionado",
-           "marcador", "post_triagem_marcador", "post_triagem_marcador_sugerido"]
+           "marcador", "post_triagem_marcador", "post_triagem_marcador_sugerido", "post_triagem_desfecho",
+           "teia_extra_categoria", "teia_extra_entidade", "teia_extra_relacao"]
 TABELAS_NO_SCHEMA = {"natureza", "natureza_mapa"}
 
 

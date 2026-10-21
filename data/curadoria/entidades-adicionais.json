@@ -207,6 +207,356 @@
     "HSBC Bank Brasil"
    ],
    "motivo": "ranking-empresa-correcoes-r9.json: lucro de 2012 (R$ 1,3 bi), Folha de S.Paulo, 6/3/2013."
+  },
+  {
+   "id": "trustee-dtvm",
+   "nome": "Trustee DTVM",
+   "tipo": "empresa",
+   "descricao": "Distribuidora de títulos e valores mobiliários; principal administradora dos fundos da Master Asset Management; liquidada pelo Banco Central em 03/09/2026.",
+   "aliases": [
+    "Trustee Distribuidora de Títulos e Valores Mobiliários"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): vorcaro-trustee, trustee-mourad"
+  },
+  {
+   "id": "acx-itc",
+   "nome": "ACX ITC Serviços de Tecnologia",
+   "tipo": "empresa",
+   "descricao": "Empresa apontada pela Polícia Civil de SP (Operação Saturno) em esquema de lavagem ligado ao PCC; recebeu R$ 26,2 mi da Entre Investimentos.",
+   "aliases": [
+    "ACX ITC"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): entre-acx, acx-pcc"
+  },
+  {
+   "id": "comando-vermelho",
+   "nome": "Comando Vermelho (CV)",
+   "tipo": "organizacao_criminosa",
+   "descricao": "Facção criminosa do Rio de Janeiro; designada organização terrorista pelos EUA em 2026.",
+   "aliases": [
+    "Comando Vermelho"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): ryan-cv, th-joias-cv, eua-cv"
+  },
+  {
+   "id": "pce",
+   "nome": "PCE (Primeiro Comando de Eunápolis)",
+   "tipo": "organizacao_criminosa",
+   "descricao": "Facção criminosa de Eunápolis (BA).",
+   "aliases": [
+    "Primeiro Comando de Eunápolis"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): uldurico-pce"
+  },
+  {
+   "id": "operacao-narco-fluxo",
+   "nome": "Operação Narco Fluxo",
+   "tipo": "operacao_policial",
+   "descricao": "Operação da PF (15/04/2026, 5ª Vara Federal de Santos) contra suspeita de lavagem de R$ 1,6 bi por rifas, bets e empresas musicais.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): narco-fluxo-ryan, narco-fluxo-poze, narco-fluxo-choquei"
+  },
+  {
+   "id": "mc-ryan-sp",
+   "nome": "MC Ryan SP",
+   "tipo": "pessoa",
+   "descricao": "Cantor de funk; apontado pela PF como líder da estrutura investigada na Operação Narco Fluxo (sem acusação formal).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): narco-fluxo-ryan, ryan-pcc, ryan-cv, ryan-deolane"
+  },
+  {
+   "id": "mc-poze-do-rodo",
+   "nome": "MC Poze do Rodo",
+   "tipo": "pessoa",
+   "descricao": "Cantor de funk; preso na Operação Narco Fluxo (abr/2026).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): narco-fluxo-poze"
+  },
+  {
+   "id": "raphael-sousa-oliveira",
+   "nome": "Raphael Sousa Oliveira (Choquei)",
+   "tipo": "pessoa",
+   "descricao": "Dono da página Choquei; preso na Operação Narco Fluxo e solto pelo STJ (HC 1.090.863).",
+   "aliases": [
+    "Raphael Sousa Oliveira"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): narco-fluxo-choquei"
+  },
+  {
+   "id": "deolane-bezerra",
+   "nome": "Deolane Bezerra",
+   "tipo": "pessoa",
+   "descricao": "Advogada e influenciadora; ré por lavagem de dinheiro e organização criminosa na Operação Vérnix (MP-SP), com Marcola.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): ryan-deolane, deolane-pcc"
+  },
+  {
+   "id": "buzeira",
+   "nome": "Buzeira",
+   "tipo": "pessoa",
+   "descricao": "Influenciador; preso na Operação Narco Bet (PF, out/2025) e solto em ago/2026.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): victory-buzeira"
+  },
+  {
+   "id": "virginia-fonseca",
+   "nome": "Virginia Fonseca",
+   "tipo": "pessoa",
+   "descricao": "Influenciadora; principal influenciadora da Blaze no Brasil segundo a Folha.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): blaze-virginia"
+  },
+  {
+   "id": "marcio-poncio",
+   "nome": "Márcio Poncio",
+   "tipo": "pessoa",
+   "descricao": "Pastor; preso pela PF na 5ª fase da Operação Unha e Carne (02/07/2026).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): poncio-pf"
+  },
+  {
+   "id": "th-joias",
+   "nome": "TH Joias",
+   "tipo": "pessoa",
+   "descricao": "Ex-deputado estadual no Rio de Janeiro; preso na Operação Zargun (set/2025); réu na Justiça Federal e no STF.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): th-joias-cv, bacellar-th-joias, macario-th-joias"
+  },
+  {
+   "id": "rodrigo-bacellar",
+   "nome": "Rodrigo Bacellar",
+   "tipo": "pessoa",
+   "descricao": "Deputado estadual; presidente afastado da Alerj; réu no STF por vazamento da Operação Zargun.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): bacellar-th-joias"
+  },
+  {
+   "id": "macario-judice",
+   "nome": "Macário Ramos Júdice Neto",
+   "tipo": "pessoa",
+   "descricao": "Desembargador federal do TRF-2; réu no STF por vazamento da Operação Zargun.",
+   "aliases": [
+    "Macário Júdice",
+    "Macário Judice"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): macario-th-joias"
+  },
+  {
+   "id": "senival-moura",
+   "nome": "Senival Moura",
+   "tipo": "pessoa",
+   "descricao": "Vereador de São Paulo; preso na Operação Última Parada (jun/2026) e solto por habeas corpus.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): senival-pcc"
+  },
+  {
+   "id": "uldurico-junior",
+   "nome": "Uldurico Júnior",
+   "tipo": "pessoa",
+   "descricao": "Ex-deputado federal pela Bahia; preso na Operação Duas Rosas (MP-BA, abr/2026).",
+   "aliases": [
+    "Uldurico Jr."
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): uldurico-pce"
+  },
+  {
+   "id": "andre-luis-almeida-coutinho",
+   "nome": "André Luís Almeida Coutinho",
+   "tipo": "pessoa",
+   "descricao": "Prefeito de Cabedelo (PB) eleito em 2024; cassação mantida pelo TSE em 07/04/2026.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): tse-cabedelo"
+  },
+  {
+   "id": "yury-do-paredao",
+   "nome": "Yury do Paredão",
+   "tipo": "pessoa",
+   "descricao": "Deputado federal (MDB-CE).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): yury-jonas"
+  },
+  {
+   "id": "jonas-esticado",
+   "nome": "Jonas Esticado",
+   "tipo": "pessoa",
+   "descricao": "Cantor.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): yury-jonas"
+  },
+  {
+   "id": "tse",
+   "nome": "TSE (Tribunal Superior Eleitoral)",
+   "tipo": "orgao_publico",
+   "descricao": "Tribunal Superior Eleitoral.",
+   "aliases": [
+    "Tribunal Superior Eleitoral"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): tse-cabedelo"
+  },
+  {
+   "id": "stj",
+   "nome": "STJ (Superior Tribunal de Justiça)",
+   "tipo": "orgao_publico",
+   "descricao": "Superior Tribunal de Justiça.",
+   "aliases": [
+    "Superior Tribunal de Justiça"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): willer-stj"
+  },
+  {
+   "id": "blaze",
+   "nome": "Blaze",
+   "tipo": "empresa",
+   "descricao": "Cassino online e casa de apostas.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): blaze-virginia"
+  },
+  {
+   "id": "willer-tomaz",
+   "nome": "Willer Tomaz",
+   "tipo": "pessoa",
+   "descricao": "Advogado; sócio da Cathedral (holding da bet Rede Loto); investigado pela PF por lavagem via casas de apostas.",
+   "aliases": [
+    "Willer Tomaz de Sousa"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): willer-cathedral, pf-willer-bets, willer-stj"
+  },
+  {
+   "id": "cathedral",
+   "nome": "Cathedral (holding da Rede Loto)",
+   "tipo": "empresa",
+   "descricao": "Holding com sede na Madeira, única acionista da bet Rede Loto (BestBet); sócios Willer Tomaz e Jorge Dias.",
+   "aliases": [
+    "Cathedral"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): cathedral-flavio-voos, willer-cathedral"
+  },
+  {
+   "id": "bet-bet",
+   "nome": "Bet.Bet",
+   "tipo": "empresa",
+   "descricao": "Casa de apostas; Vorcaro teria 30% indiretos via Bet Participações (mensagens reveladas pelo Valor).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): vorcaro-betbet"
+  },
+  {
+   "id": "gabriela-prioli",
+   "nome": "Gabriela Prioli",
+   "tipo": "pessoa",
+   "descricao": "Advogada e apresentadora.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): master-prioli"
+  },
+  {
+   "id": "pablo-marcal",
+   "nome": "Pablo Marçal",
+   "tipo": "pessoa",
+   "descricao": "Empresário, influenciador e político.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): vorcaro-marcal"
+  },
+  {
+   "id": "departamento-de-estado-eua",
+   "nome": "Departamento de Estado dos EUA",
+   "tipo": "orgao_publico",
+   "descricao": "Departamento de Estado dos Estados Unidos.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): eua-pcc, eua-cv"
+  },
+  {
+   "id": "tesouro-dos-eua-ofac",
+   "nome": "Departamento do Tesouro dos EUA (OFAC)",
+   "tipo": "orgao_publico",
+   "descricao": "Escritório de Controle de Ativos Estrangeiros (OFAC) do Departamento do Tesouro dos EUA.",
+   "aliases": [
+    "OFAC"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): ofac-victory"
+  },
+  {
+   "id": "victory-trading",
+   "nome": "Victory Trading",
+   "tipo": "empresa",
+   "descricao": "Empresa de Victor Shimada; sancionada pelo OFAC (jul/2026).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): victory-buzeira, careca-victory, ofac-victory"
+  },
+  {
+   "id": "cnm-aviacao",
+   "nome": "CNM Aviação",
+   "tipo": "empresa",
+   "descricao": "Táxi aéreo de Minas Gerais; a administradora foi denunciada pelo MPF em 2023 (Operação Flight Level).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): psdb-cnm, psd-cnm"
+  },
+  {
+   "id": "instituto-conhecer-brasil",
+   "nome": "Instituto Conhecer Brasil",
+   "tipo": "associacao",
+   "descricao": "Entidade presidida por Karina Gama (dona da Go Up); recebeu emendas de Mario Frias sob suspeita.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): frias-icb"
+  },
+  {
+   "id": "fip-arleen",
+   "nome": "FIP Arleen",
+   "tipo": "fundo",
+   "descricao": "Fundo de investimento que recebeu R$ 35 mi de Vorcaro.",
+   "aliases": [
+    "Arleen"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): toffoli-arleen"
+  },
+  {
+   "id": "marilson-roseno-da-silva",
+   "nome": "Marilson Roseno da Silva",
+   "tipo": "pessoa",
+   "descricao": "Policial federal aposentado; apontado em relatório da PF como receptor de mesada de Vorcaro por informações sigilosas.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): vorcaro-marilson"
+  },
+  {
+   "id": "lulinha",
+   "nome": "Lulinha (Fábio Luís Lula da Silva)",
+   "tipo": "pessoa",
+   "descricao": "Filho do presidente Lula; investigado em inquéritos autorizados pelo STF (jul-ago/2026).",
+   "aliases": [
+    "Fábio Luís Lula da Silva",
+    "Lulinha"
+   ],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): stf-lulinha, luchsinger-lulinha"
+  },
+  {
+   "id": "roberta-luchsinger",
+   "nome": "Roberta Luchsinger",
+   "tipo": "pessoa",
+   "descricao": "Lobista; investigada em inquéritos da PF autorizados pelo STF (2026).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): luchsinger-lulinha, luchsinger-swedenberger, luchsinger-marco-aurelio, quesede-luchsinger"
+  },
+  {
+   "id": "swedenberger-barbosa",
+   "nome": "Swedenberger Barbosa",
+   "tipo": "pessoa",
+   "descricao": "Ex-secretário-executivo do Ministério da Saúde.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): luchsinger-swedenberger"
+  },
+  {
+   "id": "marco-aurelio-santana-ribeiro",
+   "nome": "Marco Aurélio Santana Ribeiro",
+   "tipo": "pessoa",
+   "descricao": "Ex-chefe de gabinete pessoal do presidente Lula (apelidado Marcola; homônimo, não é o líder do PCC).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): luchsinger-marco-aurelio"
+  },
+  {
+   "id": "quesede-ayres",
+   "nome": "Quesede Ayres",
+   "tipo": "pessoa",
+   "descricao": "Ex-secretário-executivo de Saúde de Goiânia.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): quesede-luchsinger"
   }
  ]
 }

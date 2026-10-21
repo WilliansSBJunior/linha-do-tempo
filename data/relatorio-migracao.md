@@ -29,24 +29,24 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 412 |
+| entidade | 452 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 214 |
-| entidade_alias | 544 |
+|   extras (timeline/pares) | 254 |
+| entidade_alias | 599 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
 | relacao (origem linha_do_tempo: mandato/filiação) | 472 |
-| relacao total | 839 |
+| relacao total | 896 |
 | evento total | 507 |
 | tema | 14 |
-| relacao_tema | 928 |
+| relacao_tema | 1026 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1738 |
-| relacao_evidencia | 1280 |
+| evidencia | 1956 |
+| relacao_evidencia | 1526 |
 | evento_evidencia | 3229 |
-| evento_entidade | 935 |
+| evento_entidade | 936 |
 | nota | 570 |
 | indicador | 83 |
 | serie | 6837 |
@@ -420,7 +420,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1738 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1956 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -433,8 +433,8 @@ Candidatos: eventos sem nenhuma linha em `evento_entidade` (origens, PREC, brb, 
 - siglas (alias em maiúsculas ou `tipo_alias='sigla'`) só em maiúsculas e não seguidas de número (evita 'PL 2338' e 'pl').
 - entidades excluídas: brasil (aparece em tudo). Exigem inicial maiúscula: vale, rede, caixa, senado, camara. Contextos barrados: 'camara' seguido de do/legislativa/municipal/distrital; 'vale' seguido de do/da/de; 'caixa' seguido de de; 'senado' precedido de radio; 'camara' precedido de radio.
 
-- Resultado: 206 eventos receberam ligação, 426 linhas novas em `evento_entidade`.
-- Eventos ainda sem entidade por canal: banco 2, brasil 126, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
+- Resultado: 207 eventos receberam ligação, 427 linhas novas em `evento_entidade`.
+- Eventos ainda sem entidade por canal: banco 2, brasil 125, brb 5, familia 2, precatorios 10, teia 1, violencia 9.
 
 Aliases com mais de 15 ligações (suspeitos por volume; são nomes de órgãos e partidos que aparecem muito nos textos da timeline; a amostra abaixo não achou falso positivo entre eles, mas vale conferir os eventos):
 
@@ -452,33 +452,33 @@ Amostra de 30 ligações para conferência (a cada k-ésima, em ordem de evento)
 | `max23` | CRSFN pauta recurso de Sabbá e das empresas Máxima em processo da CVM | CVM -> `cvm` |
 | `ev-1997-novas-mesas-da-camara-e-do-senado` | Novas Mesas da Câmara e do Senado | Câmara -> `camara-dos-deputados` |
 | `ev-1998-fhc-e-reeleito-no-primeiro-turno` | FHC é reeleito no primeiro turno | PPS -> `pps` |
-| `ev-2000-cassacao-do-senador-luiz-estevao` | Cassação do senador Luiz Estêvão | Senado -> `senado-federal` |
-| `ev-2001-jader-barbalho-deixa-a-presidencia-do` | Jader Barbalho deixa a presidência do Senado | PMDB -> `mdb` |
-| `ev-2002-lula-e-eleito-presidente` | Lula é eleito presidente | PSDB -> `psdb` |
-| `ev-2003-sarney-volta-a-presidencia-do-senado` | Sarney volta à presidência do Senado | PMDB -> `mdb` |
-| `ev-2005-eleicao-e-renuncia-de-severino` | Eleição e renúncia de Severino Cavalcanti | Severino Cavalcanti -> `severino-cavalcanti` |
-| `ev-2006-sancionada-a-lei-maria-da-penha` | Sancionada a Lei Maria da Penha | Lula -> `luiz-inacio-lula-da-silva` |
-| `ev-2008-operacao-satiagraha-prende-daniel-dantas` | Operação Satiagraha prende Daniel Dantas | Polícia Federal -> `pf` |
-| `ev-2009-stf-mantem-a-demarcacao-da-raposa-serra` | STF mantém a demarcação da Raposa Serra do Sol | STF -> `stf` |
-| `ev-2012-argentina-reestatiza-a-petroleira-ypf` | Argentina reestatiza a petroleira YPF | Câmara -> `camara-dos-deputados` |
-| `ev-2013-camara-mantem-o-mandato-de-natan-donadon` | Câmara mantém o mandato de Natan Donadon | Câmara -> `camara-dos-deputados` |
-| `ev-2014-reeleicao-de-dilma-rousseff` | Reeleição de Dilma Rousseff | PT -> `pt` |
-| `ev-2015-eduardo-cunha-assume-a-camara` | Eduardo Cunha assume a Câmara | Arlindo Chinaglia -> `arlindo-chinaglia` |
-| `ev-2016-pec-do-teto-de-gastos-vira-a-emenda` | PEC do teto de gastos vira a Emenda Constitucional 95 | Câmara -> `camara-dos-deputados` |
-| `ev-2017-primeira-greve-geral-em-cerca-de-20-anos` | Primeira greve geral em cerca de 20 anos | Temer -> `michel-temer` |
-| `ev-2019-alberto-fernandez-derrota-macri-na` | Alberto Fernández derrota Macri na Argentina | Argentina -> `argentina` |
-| `ev-2021-atos-de-7-de-setembro-e-carta-de` | Atos de 7 de Setembro e carta de Bolsonaro | Alexandre de Moraes -> `alexandre-de-moraes` |
-| `ev-2021-lira-e-pacheco-sao-eleitos-presidentes` | Lira e Pacheco são eleitos presidentes das Casas | Câmara -> `camara-dos-deputados` |
-| `ev-2022-lula-derrota-bolsonaro-na-eleicao` | Lula derrota Bolsonaro na eleição presidencial | PT -> `pt` |
-| `ev-2023-ataques-de-8-de-janeiro-em-brasilia` | Ataques de 8 de janeiro em Brasília | STF -> `stf` |
-| `ev-2023-tse-torna-bolsonaro-inelegivel-por-oito` | TSE torna Bolsonaro inelegível por oito anos | Jair Bolsonaro -> `jair-bolsonaro` |
-| `ev-2024-presos-por-suposto-plano-de-golpe-pf` | Presos por suposto plano de golpe; PF indicia Bolsonaro | Jair Bolsonaro -> `jair-bolsonaro` |
-| `ev-2025-tarifas-dos-eua-sobre-o-brasil` | Tarifas dos EUA sobre o Brasil | Alexandre de Moraes -> `alexandre-de-moraes` |
-| `ev-2025-08-28-voo-no-jato-de-vorcaro-com-ciro-nogueira` | Voo no jato de Vorcaro com Ciro Nogueira, Isnaldo Bulhões, Rodrigo Gambale e Fáb | Ciro Nogueira -> `ciro-nogueira` |
-| `fam29` | CVM aplica multas a Daniel, Henrique e Felipe Vorcaro e ao Master no caso do fun | Banco Master -> `banco-master` |
-| `ev-2023-10-05-banco-central-publica-regra-prudencial` | Banco Central publica regra prudencial sobre precatórios | Banco Central -> `bcb` |
-| `ev-2025-01-presidencia-do-trf-1-nega-levantar-a` | Presidência do TRF-1 nega levantar a suspensão | TRF-1 -> `trf-1` |
-| `ev-2026-09-28-segunda-cautelar-do-cnj-e-oficios-de` | Segunda cautelar do CNJ e ofícios de Gilmar a Fachin e ao STJ | CNJ -> `cnj` |
+| `ev-2000-cassacao-do-senador-luiz-estevao` | Cassação do senador Luiz Estêvão | Luiz Estevão -> `luiz-estevao` |
+| `ev-2001-jader-barbalho-deixa-a-presidencia-do` | Jader Barbalho deixa a presidência do Senado | Senado -> `senado-federal` |
+| `ev-2002-lula-e-eleito-presidente` | Lula é eleito presidente | PT -> `pt` |
+| `ev-2003-sarney-volta-a-presidencia-do-senado` | Sarney volta à presidência do Senado | José Sarney -> `jose-sarney` |
+| `ev-2005-denuncia-do-mensalao` | Denúncia do mensalão | José Dirceu -> `jose-dirceu` |
+| `ev-2006-reeleicao-de-lula` | Reeleição de Lula | PSDB -> `psdb` |
+| `ev-2008-marina-silva-deixa-o-ministerio-do-meio` | Marina Silva deixa o Ministério do Meio Ambiente | Senado -> `senado-federal` |
+| `ev-2009-sarney-e-temer-assumem-as-presidencias` | Sarney e Temer assumem as presidências do Congresso | Câmara -> `camara-dos-deputados` |
+| `ev-2012-argentina-reestatiza-a-petroleira-ypf` | Argentina reestatiza a petroleira YPF | Senado -> `senado-federal` |
+| `ev-2013-alves-e-renan-sao-eleitos-presidentes` | Alves e Renan são eleitos presidentes das Casas | Senado -> `senado-federal` |
+| `ev-2014-reeleicao-de-dilma-rousseff` | Reeleição de Dilma Rousseff | Dilma Rousseff -> `dilma-rousseff` |
+| `ev-2015-eduardo-cunha-assume-a-camara` | Eduardo Cunha assume a Câmara | PT -> `pt` |
+| `ev-2016-opep-faz-seu-primeiro-corte-de-producao` | Opep faz seu primeiro corte de produção desde 2008 | Rússia -> `russia` |
+| `ev-2017-moro-condena-lula-no-caso-do-triplex` | Moro condena Lula no caso do tríplex | Lula -> `luiz-inacio-lula-da-silva` |
+| `ev-2018-tse-barra-lula-e-pt-lanca-haddad` | TSE barra Lula e PT lança Haddad | PT -> `pt` |
+| `ev-2021-atos-de-7-de-setembro-e-carta-de` | Atos de 7 de Setembro e carta de Bolsonaro | Jair Bolsonaro -> `jair-bolsonaro` |
+| `ev-2021-lira-e-pacheco-sao-eleitos-presidentes` | Lira e Pacheco são eleitos presidentes das Casas | PP -> `pp` |
+| `ev-2022-lula-derrota-bolsonaro-na-eleicao` | Lula derrota Bolsonaro na eleição presidencial | Lula -> `luiz-inacio-lula-da-silva` |
+| `ev-2023-ataques-de-8-de-janeiro-em-brasilia` | Ataques de 8 de janeiro em Brasília | Alexandre de Moraes -> `alexandre-de-moraes` |
+| `ev-2023-stf-e-congresso-divergem-sobre-o-marco` | STF e Congresso divergem sobre o marco temporal | Câmara -> `camara-dos-deputados` |
+| `ev-2024-presos-por-suposto-plano-de-golpe-pf` | Presos por suposto plano de golpe; PF indicia Bolsonaro | Lula -> `luiz-inacio-lula-da-silva` |
+| `ev-2025-tarifas-dos-eua-sobre-o-brasil` | Tarifas dos EUA sobre o Brasil | STF -> `stf` |
+| `ev-2025-08-19-camara-do-df-aprova-a-compra-em-urgencia` | Câmara do DF aprova a compra em urgência, 14 a 7 | MDB -> `mdb` |
+| `fam29` | CVM aplica multas a Daniel, Henrique e Felipe Vorcaro e ao Master no caso do fun | CVM -> `cvm` |
+| `ev-2023-08-29-agu-pede-suspensao-no-caso-tabu-stp-976` | AGU pede suspensão no caso Tabu (STP 976) | AGU -> `agu` |
+| `ev-2024-10-01-data-disputada-do-julgamento-da-alcidia` | Data disputada do julgamento da Alcídia (ARE 1.327.995) | STF -> `stf` |
+| `ev-2026-09-24-gilmar-leva-o-caso-raizen-ao-plenario` | Gilmar leva o caso Raízen ao plenário; CNJ faz correição em Newton Ramos; Vieira | Senado -> `senado-federal` |
 
 ## 13. Dossiê e fóruns relacionais (`scripts/dossie_rel.py`)
 
@@ -551,14 +551,14 @@ Regras (aplicadas na ordem; filtros combinados com E; `dentro_de` = só registro
 | pares-eventos | pares | evento | canal=['pares'] | 0 | 0 |
 | violencia-eventos | violencia | evento | canal=['violencia'] | 0 | 10 |
 | brb-canal | brb | evento | canal=['brb'] | 0 | 18 |
-| brb-entidade | brb | ambos | dentro_de=['caso-master']; entidade=['brb'] | 10 | 15 |
-| brb-texto | brb | ambos | dentro_de=['caso-master']; texto=['BRB', 'Banco de Brasília'] | 19 | 1 |
+| brb-entidade | brb | ambos | dentro_de=['caso-master']; entidade=['brb'] | 12 | 15 |
+| brb-texto | brb | ambos | dentro_de=['caso-master']; texto=['BRB', 'Banco de Brasília'] | 22 | 1 |
 | precatorios-canal | precatorios | evento | canal=['precatorios'] | 0 | 35 |
 | precatorios-texto | precatorios | ambos | dentro_de=['caso-master']; texto=['precatorio*'] | 12 | 2 |
 | inss-entidade | inss | ambos | entidade=['inss', 'cpmi-do-inss'] | 9 | 14 |
-| inss-texto | inss | ambos | texto=['INSS', 'Sem Desconto', 'consignado*'] | 12 | 4 |
-| pcc-entidade | pcc | ambos | entidade=['pcc', 'operacao-carbono-oculto', 'operacao-quasar'] | 7 | 8 |
-| pcc-texto | pcc | ambos | dentro_de=['caso-master']; texto=['PCC', 'Carbono Oculto', 'Quasar', 'Tank', 'Usina Itajobi'] | 7 | 1 |
+| inss-texto | inss | ambos | texto=['INSS', 'Sem Desconto', 'consignado*'] | 13 | 4 |
+| pcc-entidade | pcc | ambos | entidade=['pcc', 'operacao-carbono-oculto', 'operacao-quasar'] | 13 | 8 |
+| pcc-texto | pcc | ambos | dentro_de=['caso-master']; texto=['PCC', 'Carbono Oculto', 'Quasar', 'Tank', 'Usina Itajobi'] | 10 | 1 |
 | lagoinha-entidade | lagoinha | ambos | entidade=['igreja-batista-da-lagoinha', 'lagoinha-belvedere'] | 9 | 26 |
 | lagoinha-texto | lagoinha | ambos | dentro_de=['caso-master']; texto=['Lagoinha'] | 8 | 6 |
 
@@ -574,27 +574,29 @@ Exceções (`excecoes` em `temas.json`; falso positivo de texto removido à mão
 | relacao | `E[318].r[0]` | - | inss | INSS aparece só como a CPMI de onde vêm os documentos (palestra de Tony Blair) |
 | relacao | `E[212].r[0]` | - | inss | INSS aparece só como a CPMI de onde vem a nota do escritório (honorários de precatório) |
 | relacao | `E[130].r[0]` | - | inss | INSS aparece só como a CPMI que recebeu o IR de Vorcaro (ganho com cotas do Hans II) |
+| relacao | `x:viviane-vieira-acao` | - | pcc | Pistas do X: ação de danos morais por uma fala sobre o PCC; não há relação documentada entre o escritório e o PCC |
+| relacao | `x:luchsinger-lulinha` | - | inss | Pistas do X: a Operação Sem Desconto só é onde os telefones foram apreendidos; a relação é tráfico de influência, não a fraude do INSS |
 
 Contagens por tema (entidades vêm da view; um registro pode estar em vários temas):
 
 | tema | relações | eventos | entidades |
 |---|---|---|---|
-| `caso-master` (Caso Master) | 367 | 215 | 212 |
-| `brasil-ano-a-ano` (Brasil ano a ano) | 472 | 282 | 227 |
+| `caso-master` (Caso Master) | 390 | 215 | 221 |
+| `brasil-ano-a-ano` (Brasil ano a ano) | 472 | 282 | 228 |
 | `pares` (Comparação de países) | 0 | 0 | 10 |
 | `violencia` (Violência) | 0 | 10 | 1 |
-| `inss` (INSS) | 17 | 14 | 26 |
-| `pcc` (PCC e crime organizado) | 14 | 9 | 25 |
-| `brb` (BRB) | 29 | 34 | 42 |
+| `inss` (INSS) | 19 | 14 | 28 |
+| `pcc` (PCC e crime organizado) | 22 | 9 | 31 |
+| `brb` (BRB) | 34 | 34 | 46 |
 | `precatorios` (Precatórios) | 12 | 37 | 26 |
 | `lagoinha` (Lagoinha) | 17 | 32 | 27 |
-| `crime-organizado` (Crime organizado) | 0 | 0 | 0 |
-| `cultura-e-entretenimento` (Cultura e entretenimento) | 0 | 0 | 0 |
-| `financiamento-politico` (Financiamento político) | 0 | 0 | 0 |
-| `trafico-de-influencia` (Tráfico de influência no governo) | 0 | 0 | 0 |
+| `crime-organizado` (Crime organizado) | 27 | 0 | 32 |
+| `cultura-e-entretenimento` (Cultura e entretenimento) | 17 | 0 | 23 |
+| `financiamento-politico` (Financiamento político) | 5 | 0 | 9 |
+| `trafico-de-influencia` (Tráfico de influência no governo) | 11 | 0 | 17 |
 | `a-classificar` (A classificar) | 0 | 0 | 0 |
 
-Em mais de um tema: 84 relações, 118 eventos, 117 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).
+Em mais de um tema: 118 relações, 118 eventos, 146 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).
 
 Limites conhecidos: (a) os temas por texto (`inss`, `pcc`, `brb`, `precatorios`, `lagoinha`) marcam **citação**, não centralidade: uma relação que só menciona a CPMI do INSS como origem de um documento entra em `inss` (retirei os casos mais óbvios nas exceções); (b) `usinas` ficou de fora do `pcc-texto` (a maior parte das ocorrências é o setor sucroalcooleiro dos precatórios, não o PCC); só 'Usina Itajobi'; (c) `pares` não tem relação nem evento (só 10 países via `forum`), e `violencia` só 10 eventos: séries (`indicador`/`serie`) **não** têm tema ainda; (d) eventos novos não entram por MCP (não há ferramenta), só por migração.
 
@@ -910,7 +912,7 @@ Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` po
 
 ## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024
 
-Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `sandra-starling`, `jose-anibal`, `pedrinho-abrao`, `odelmo-leao`, `walter-pinheiro`, `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`, `sabesp`, `marfrig`, `tim`, `hsbc-brasil`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
+Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `sandra-starling`, `jose-anibal`, `pedrinho-abrao`, `odelmo-leao`, `walter-pinheiro`, `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`, `sabesp`, `marfrig`, `tim`, `hsbc-brasil`, `trustee-dtvm`, `acx-itc`, `comando-vermelho`, `pce`, `operacao-narco-fluxo`, `mc-ryan-sp`, `mc-poze-do-rodo`, `raphael-sousa-oliveira`, `deolane-bezerra`, `buzeira`, `virginia-fonseca`, `marcio-poncio`, `th-joias`, `rodrigo-bacellar`, `macario-judice`, `senival-moura`, `uldurico-junior`, `andre-luis-almeida-coutinho`, `yury-do-paredao`, `jonas-esticado`, `tse`, `stj`, `blaze`, `willer-tomaz`, `cathedral`, `bet-bet`, `gabriela-prioli`, `pablo-marcal`, `departamento-de-estado-eua`, `tesouro-dos-eua-ofac`, `victory-trading`, `cnm-aviacao`, `instituto-conhecer-brasil`, `fip-arleen`, `marilson-roseno-da-silva`, `lulinha`, `roberta-luchsinger`, `swedenberger-barbosa`, `marco-aurelio-santana-ribeiro`, `quesede-ayres`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
 
 ### Ranking de empresas
 

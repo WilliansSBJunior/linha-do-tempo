@@ -2,7 +2,7 @@
 """Exporta o banco para JSON (e regenera data/dump.sql). Só lê o banco.
 
 Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, temas.json,
-violencia.json, pistas-x.json, pistas-x-marcadores.json, dump.sql.
+violencia.json, pistas-x.json, pistas-x-marcadores.json, teia-faccoes.json, dump.sql.
 Uso: python3 scripts/exportar_json.py [--db caminho.sqlite]
 """
 import argparse
@@ -224,6 +224,64 @@ def montar_teia(con):
     PREC = [p for _, p in sorted(prec, key=lambda x: x[0])]
     return OrderedDict([("cats", cats), ("N", N), ("E", E), ("EV", EV), ("SINT", SINT), ("SEM", SEM), ("LAC", LAC),
                         ("NUM", NUM), ("PREC", PREC)])
+
+
+def montar_teia_extra(con, teia):
+    """Teia derivada (hoje 'faccoes' -> data/teia-faccoes.json) no MESMO formato de teia.json (cats, N, E, EV, SINT, SEM, LAC, NUM, PREC), para
+    reaproveitar paginas/teia.html. Relações = teia_extra_relacao; nós = as pontas delas, com a categoria de teia_extra_entidade, na ordem das
+    categorias e depois do id; E agrupa as relações por par de entidades (orientação da primeira relação do par, em ordem de id). Sem eventos, notas
+    nem satélites (fam_de/lig_de/sat são índices da teia principal); `val` (estimativas) como na teia principal e `val_lig` só com as ligações daqui."""
+    st_inv = _st_inverso(con)
+    cats = [[r["id"], r["nome"]] for r in con.execute("SELECT id, nome FROM teia_extra_categoria WHERE teia=? ORDER BY ordem", (teia,))]
+    ordem_cat = {c: i for i, (c, _) in enumerate(cats)}
+    cat_de = {r["entidade_id"]: r["categoria_id"] for r in con.execute("SELECT entidade_id, categoria_id FROM teia_extra_entidade WHERE teia=?", (teia,))}
+    ents = {r["id"]: dict(r) for r in con.execute(
+        "SELECT e.* FROM entidade e JOIN teia_extra_entidade x ON x.entidade_id=e.id AND x.teia=?", (teia,))}
+    ordem = sorted(ents, key=lambda s: (ordem_cat[cat_de[s]], s))
+    idx = {s: i for i, s in enumerate(ordem)}
+    rels = [dict(r) for r in con.execute("""SELECT r.* FROM relacao r JOIN teia_extra_relacao x ON x.relacao_id=r.id AND x.teia=?
+                                            ORDER BY r.id""", (teia,))]
+    vals = valores_entidade(con)
+    vlig = defaultdict(lambda: [0, 0])
+    for r in rels:
+        if r["valor_brl"] is not None:
+            for s in (r["de"], r["para"]):
+                vlig[s][0] += r["valor_brl"]
+                vlig[s][1] += 1
+    N = []
+    for s in ordem:
+        e = ents[s]
+        n = {"n": e["nome"], "c": cat_de[s], "t": e["tipo"], "g": e["cargo"] or "", "d": e["descricao"] or "", "id": s}
+        if e["grupo"] in PSEUDO_PARTIDOS:
+            n["p"] = e["grupo"]
+        else:
+            if e["grupo"]:
+                n["sg"] = e["grupo"]
+            if e["partido"]:
+                n["p"] = e["partido"]
+        if s in vals:
+            n["val"] = vals[s]
+            if s in vlig:
+                n["val_lig"] = OrderedDict([("brl", _num(vlig[s][0])), ("n", vlig[s][1])])
+        N.append(n)
+    fontes_rel = _fontes(con, "relacao_evidencia", "relacao_id")
+    fontes_rel_r = _fontes_ricas(con, "relacao_evidencia", "relacao_id")
+    tema_rel = _temas_de(con, "relacao_tema", "relacao_id")
+    pares, E = {}, []
+    for r in rels:
+        chave = frozenset((r["de"], r["para"]))
+        if chave not in pares:
+            pares[chave] = OrderedDict([("a", idx[r["de"]]), ("b", idx[r["para"]]), ("r", [])])
+            E.append(pares[chave])
+        pares[chave]["r"].append(OrderedDict([
+            ("a", idx[r["de"]]), ("b", idx[r["para"]]), ("a_id", r["de"]), ("b_id", r["para"]),
+            ("rot", r["rotulo"]), ("desc", r["descricao"]), ("st", st_inv[r["natureza_id"]]), ("tipo", r["tipo"]),
+            ("de", None if r["periodo_inicio"] is None else int(r["periodo_inicio"][:4])),
+            ("ate", None if r["periodo_fim"] is None else int(r["periodo_fim"][:4])),
+            ("val", _num(r["valor_brl"])), ("resp", r["resposta"]), ("f", fontes_rel.get(r["id"], [])), ("tema", tema_rel[r["id"]]),
+            ("fontes", fontes_rel_r.get(r["id"], []))]))
+    return OrderedDict([("cats", cats), ("N", N), ("E", E), ("EV", []), ("SINT", OrderedDict()), ("SEM", []), ("LAC", []),
+                        ("NUM", OrderedDict()), ("PREC", [])])
 
 
 def montar_origens(con):
@@ -603,6 +661,36 @@ def montar_temas(con):
 
 
 CONTA_X = "republiqueBRA"
+# status do desfecho de uma pista, do mais forte ao mais fraco: o item de pistas-x.json mostra o melhor entre as tarefas que o pesquisaram
+DESFECHO_PRIORIDADE = ("confirmado", "parcial", "refutado", "contra_pista", "pendente", "nao_encontrado")
+
+
+def desfechos_x(con):
+    """post_id -> {status, fonte, relacao, tarefas} (campo `desfecho` de pistas-x.json) a partir de post_triagem_desfecho. `status` = o melhor
+    entre as tarefas (DESFECHO_PRIORIDADE); `relacao` = a primeira relação (tarefa em ordem, depois `ordem`) com esse status; `fonte` = a URL da
+    primeira fonte `sustenta` dessa relação na ordem de faixa_fonte (oficial antes de imprensa). Post sem desfecho: ausente (o item leva null)."""
+    fontes = _fontes_ricas(con, "relacao_evidencia", "relacao_id")
+    rels = {r["id"]: r for r in con.execute("SELECT id, origem_ref, rotulo, de, para, natureza_id FROM relacao WHERE id IN "
+                                             "(SELECT relacao_id FROM post_triagem_desfecho WHERE relacao_id IS NOT NULL)")}
+    por = defaultdict(lambda: OrderedDict())
+    for d in con.execute("SELECT * FROM post_triagem_desfecho ORDER BY post_id, tarefa_id, ordem"):
+        t = por[d["post_id"]].setdefault(d["tarefa_id"], OrderedDict([("tarefa", d["tarefa_id"]), ("status", d["status"]), ("relacoes", []),
+                                                                      ("nota", d["nota"])]))
+        if d["relacao_id"] is not None:
+            t["relacoes"].append(d["relacao_id"])
+    out = {}
+    for pid, tarefas in por.items():
+        lst = list(tarefas.values())
+        status = min((t["status"] for t in lst), key=DESFECHO_PRIORIDADE.index)
+        rel = next((r for t in lst if t["status"] == status for r in t["relacoes"]), None)
+        relacao = fonte = None
+        if rel is not None:
+            r = rels[rel]
+            relacao = OrderedDict([("id", rel), ("ref", r["origem_ref"]), ("rotulo", r["rotulo"]), ("de", r["de"]), ("para", r["para"]),
+                                   ("natureza", r["natureza_id"])])
+            fonte = next((f["url"] for f in fontes.get(rel, []) if f["papel"] == "sustenta"), None)
+        out[pid] = OrderedDict([("status", status), ("fonte", fonte), ("relacao", relacao), ("tarefas", lst)])
+    return out
 
 
 def montar_pistas_x(con):
@@ -620,6 +708,7 @@ def montar_pistas_x(con):
     marc_de = defaultdict(list)
     for r in con.execute("SELECT post_id, marcador_id FROM post_triagem_marcador ORDER BY post_id, marcador_id"):
         marc_de[r["post_id"]].append(r["marcador_id"])
+    desf = desfechos_x(con)
     itens = {}
     for t in con.execute("""SELECT * FROM post_triagem WHERE relevancia IN ('pista','contexto')
                             ORDER BY prioridade, data_post DESC, post_id DESC"""):
@@ -631,7 +720,7 @@ def montar_pistas_x(con):
             ("afirmacao", t["afirmacao"]), ("fonte_citada", t["fonte_citada"]), ("nota", t["nota"]),
             ("temas", temas_de[pid]), ("marcadores", marc_de[pid]), ("entidades", ents[pid]),
             ("duplicata_de", (rels[pid]["duplicata"] or [None])[0]), ("relacionados", rels[pid]["relacionado"]),
-            ("texto", p["texto"] if p else None), ("card", p["card"] if p else None)])
+            ("texto", p["texto"] if p else None), ("card", p["card"] if p else None), ("desfecho", desf.get(pid))])
     grupos = []
     for tm in con.execute("SELECT id, nome FROM tema ORDER BY ordem, id"):
         lista = [itens[pid] for pid in itens if tm["id"] in temas_de[pid]]
@@ -646,6 +735,8 @@ def montar_pistas_x(con):
                       "documento antes de publicar. Só relevância `pista` e `contexto`; `coberto` e `descartar` ficam no banco (post_triagem)." % CONTA_X),
         ("contagens", OrderedDict([("triagens", sum(por_rel.values())), ("por_relevancia", OrderedDict((k, por_rel.get(k, 0)) for k in ("pista", "contexto", "coberto", "descartar"))),
                                    ("itens_exportados", len(itens)), ("com_texto", sum(i["texto"] is not None for i in itens.values()))])),
+        ("por_desfecho", OrderedDict((s, sum(1 for i in itens.values() if i["desfecho"] and i["desfecho"]["status"] == s))
+                                     for s in DESFECHO_PRIORIDADE)),
         ("por_marcador", OrderedDict((m["id"], [i["id"] for i in itens.values() if m["id"] in i["marcadores"]])
                                      for m in con.execute("SELECT id FROM marcador ORDER BY grupo, id")
                                      if any(m["id"] in i["marcadores"] for i in itens.values()))),
@@ -682,7 +773,7 @@ def todos(con):
             "series.json": montar_series(con), "mapa_indices.json": mapa_indices(con),
             "dossie.json": montar_dossie(con), "pares.json": montar_pares(con), "temas.json": montar_temas(con),
             "violencia.json": montar_violencia(con), "pistas-x.json": montar_pistas_x(con),
-            "pistas-x-marcadores.json": montar_pistas_x_marcadores(con)}
+            "pistas-x-marcadores.json": montar_pistas_x_marcadores(con), "teia-faccoes.json": montar_teia_extra(con, "faccoes")}
 
 
 def main():

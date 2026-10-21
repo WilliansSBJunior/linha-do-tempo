@@ -92,7 +92,7 @@
     {
       "id": "trafico-de-influencia",
       "nome": "Tráfico de influência no governo",
-      "descricao": "Venda de acesso a órgãos federais: Lulinha, Roberta Luchsinger, Marcola (chefe de gabinete), 3Structure e inquéritos da PF (desde 2026).",
+      "descricao": "Venda de acesso a órgãos federais e a autoridades: Lulinha, Roberta Luchsinger, Marcola (chefe de gabinete), 3Structure e inquéritos da PF (desde 2026); e presentes, viagens e favores a autoridades apontados em investigação (pistas do X corroboradas).",
       "cor": "#7a5c99",
       "ordem": 13
     },
@@ -339,6 +339,22 @@
         "inss"
       ],
       "motivo": "INSS aparece só como a CPMI que recebeu o IR de Vorcaro (ganho com cotas do Hans II)"
+    },
+    {
+      "alvo": "relacao",
+      "ref": "x:viviane-vieira-acao",
+      "excluir": [
+        "pcc"
+      ],
+      "motivo": "Pistas do X: ação de danos morais por uma fala sobre o PCC; não há relação documentada entre o escritório e o PCC"
+    },
+    {
+      "alvo": "relacao",
+      "ref": "x:luchsinger-lulinha",
+      "excluir": [
+        "inss"
+      ],
+      "motivo": "Pistas do X: a Operação Sem Desconto só é onde os telefones foram apreendidos; a relação é tráfico de influência, não a fraude do INSS"
     }
   ]
 }

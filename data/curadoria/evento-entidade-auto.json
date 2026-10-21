@@ -208,6 +208,16 @@
   "papel": "citado"
  },
  {
+  "evento_id": "ev-1998-tse-rejeita-candidatura-de-collor",
+  "entidades": [
+   {
+    "id": "tse",
+    "alias": "Tribunal Superior Eleitoral"
+   }
+  ],
+  "papel": "citado"
+ },
+ {
   "evento_id": "ev-1999-cpis-do-judiciario-e-do-sistema",
   "entidades": [
    {

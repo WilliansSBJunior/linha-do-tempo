@@ -799,6 +799,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["mandato_rel"] = curadoria.gerar_relacoes_mandato(con, R["mandato_oficial"]["extras"])   # teia <-> timeline (herda a evidência oficial dos mandatos)
     R["mandatos_adic_fontes"] = curadoria.ligar_fontes_mandatos_adicionais(con)   # fonte oficial própria de cada linha nova, na relação mandato:<id>
     R["evid_adic"] = curadoria.aplicar_evidencias_adicionais(con)   # à mão; precisa das relações de mandato/filiação; antes dos temas (que leem a descrição)
+    R["relacoes_x"] = curadoria.aplicar_relacoes_x(con)       # à mão; pistas do X corroboradas (relacoes-adicionais-x.json): relações novas com fonte literal
     R["evid_corr"] = curadoria.aplicar_evidencia_correcoes(con)     # à mão; tipo de evidências oficiais registradas como reportagem
     R["evid_meta"] = curadoria.aplicar_evidencia_metadados(con)     # título/data só onde NULL (rodadas de WebFetch)
     R["ent_valores"] = curadoria.aplicar_entidade_valores(con)      # à mão; estimativas em R$ por entidade; depois dos metadados (só preenche título/data NULL)
@@ -822,6 +823,8 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["peso_wiki"] = curadoria.aplicar_peso_wikipedia(con)   # R6 (regras-fontes.json): wiki nunca 'sustenta'; depois de todas as funções de evidência
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
     R["posts_x"] = curadoria.aplicar_posts_x(con)              # pistas do X (bruto data/raw/x + data/curadoria/x-triagem.jsonl); precisa de tema e entidade/alias
+    R["desfecho_x"] = curadoria.aplicar_desfecho_x(con)        # desfecho de cada pista (relacoes-adicionais-x.json); precisa de post_triagem e das relações
+    R["teia_faccoes"] = curadoria.aplicar_teia_faccoes(con)    # data/teia-faccoes.json: relações por tema e categorias próprias; precisa dos temas
 
     # ================================================================ META, FTS, DUMP
     meta = {"schema_versao": "2", "migrado_em": TS_MIGRACAO, "migrar_py": "scripts/migrar.py"}

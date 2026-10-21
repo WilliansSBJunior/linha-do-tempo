@@ -1,0 +1,4721 @@
+{
+ "_doc": "Pistas do X (@republiqueBRA) -> teia: relações corroboradas nas rodadas 1-3 (1ª: plano_pesquisa, lotes A-F; 2ª: plano_r2, lotes P/A-E, o lote P corrige a 1ª e vale a informação mais recente; 3ª: conferência literal das fontes via WebFetch em 21/10/2026). Aditivo, aplicado por curadoria.aplicar_relacoes_x (antes dos temas): cria `relacao` (origem 'manual', origem_ref 'x:<id>', status 'publicada'), as `evidencia` (URL normalizada; reaproveita a existente sem mudar veículo/tipo) e `relacao_evidencia` com papel, trecho literal, nota e qualidade ('boa' só em `sustenta`); o tweet de origem entra como evidência `contexto` (nunca `sustenta`). Aborta sem gravar nada se `de`/`para` não existem, se uma relação não tem fonte `sustenta` com trecho literal, se natureza/tipo/tema são inválidos, se a natureza `documentada` não tem fonte oficial `sustenta` (R5), se a Wikipédia ou um tweet é `sustenta` (R6/regra do X) ou se um tweet não está na triagem. `temas` entram como tema manual da relação (as regras de temas.json continuam valendo por cima). `desfechos` (uma entrada por tarefa das rodadas) -> `post_triagem_desfecho` (um registro por tweet × tarefa × relação; relação nova = 'x:<id>', relação já no banco = origem_ref 'E[i].r[j]'). `teia_faccoes` define as categorias de data/teia-faccoes.json (curadoria.aplicar_teia_faccoes). Fontes sem trecho literal ficam `contexto`; relação sem `sustenta` literal não entra (vai para `desfechos` como pendente).",
+ "natureza_regra": "R5: documento/decisão/comunicado oficial -> documentada; imprensa -> reportada; inquérito/denúncia/indiciamento em curso -> investigacao; alegação de parte, delação (mesmo homologada) ou proposta -> alegacao.",
+ "relacoes": [
+  {
+   "id": "vorcaro-trustee",
+   "de": "daniel-vorcaro",
+   "para": "trustee-dtvm",
+   "tipo": "financeira",
+   "rotulo": "Beneficiário final das operações da Trustee (relatório da PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2023",
+   "periodo_fim": "2025",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Relatório da PF feito após a apreensão do celular de Artur Martins de Figueiredo na Operação Quasar (documentos enviados à 7ª Vara Criminal Federal de São Paulo; sigilo retirado pelo STF em setembro de 2026) diz que a Trustee DTVM 'aparece nos dois lados': administrava fundos usados nas operações atribuídas ao núcleo de Mohamad Mourad e executava demandas do Banco Master, com Vorcaro como beneficiário final. Investigação em curso. O Banco Central liquidou a Trustee em 03/09/2026; ela era a principal administradora dos fundos da Master Asset Management.",
+   "resposta": "Trustee e Banvox (Capital Aberto, 03/09/2026) dizem que não há irregularidades e que nunca foram notificadas pelo BC. Vorcaro e a Trustee não se manifestaram ao Times Brasil.",
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/judiciario/pf-vorcaro-estrutura-financeira-investigados-pcc",
+     "veiculo": "Times Brasil (CNBC)",
+     "tipo": "reportagem",
+     "titulo": "PF liga Vorcaro a estrutura financeira usada por investigados do PCC",
+     "data": "2026-09-12",
+     "papel": "sustenta",
+     "trecho": "\"Vorcaro seria o beneficiário final das operações\"; \"A PF afirma que a Trustee aparece nos dois lados\"; \"executava demandas relacionadas ao Banco Master\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://capitalaberto.com.br/empresas/2026/09/bc-decreta-liquidacao-da-trustee-e-banvox-ligadas-ao-master",
+     "veiculo": "Capital Aberto",
+     "tipo": "reportagem",
+     "titulo": "BC decreta liquidação da Trustee e Banvox, ligadas ao Master",
+     "data": "2026-09-03",
+     "papel": "sustenta",
+     "trecho": "\"A Trustee DTVM era a principal administradora dos fundos do Master Asset Management\"; \"O Banco Central decretou, nesta quinta-feira (3), a liquidação extrajudicial da Trustee Distribuidora\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "A03",
+    "F01",
+    "R2-P01"
+   ],
+   "tweets": [
+    "2098779899280429555"
+   ]
+  },
+  {
+   "id": "trustee-mourad",
+   "de": "trustee-dtvm",
+   "para": "mohamad-hussein-mourad",
+   "tipo": "financeira",
+   "rotulo": "Administrava fundos do núcleo de Mourad (relatório da PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2023",
+   "periodo_fim": "2025",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Segundo o mesmo relatório da PF (Operação Quasar), a Trustee administrava fundos usados nas operações atribuídas ao núcleo de Mohamad Mourad, investigado na Carbono Oculto por ligação com o PCC no setor de combustíveis. Investigação em curso, sem denúncia.",
+   "resposta": "Defesa de Mohamad Mourad: as investigações 'apresentam fatos não comprovados dentro de uma narrativa'. A Trustee não se manifestou ao Times Brasil.",
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/judiciario/pf-vorcaro-estrutura-financeira-investigados-pcc",
+     "veiculo": "Times Brasil (CNBC)",
+     "tipo": "reportagem",
+     "titulo": "PF liga Vorcaro a estrutura financeira usada por investigados do PCC",
+     "data": "2026-09-12",
+     "papel": "sustenta",
+     "trecho": "\"administrava fundos usados nas operações atribuídas ao núcleo de Mohamad\"; \"que apurava o uso de fundos para esconder bens atribuídos a Roberto Augusto Leme da Silva, conhecido como Beto Louco\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "A03",
+    "R2-P01"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "entre-acx",
+   "de": "entre-investimentos-e-participacoes",
+   "para": "acx-itc",
+   "tipo": "financeira",
+   "rotulo": "R$ 26,2 mi (fev-abr/2025, relatório da Polícia Civil-SP)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2025-02",
+   "periodo_fim": "2025-04",
+   "valor_brl": 26225110,
+   "valor_texto": null,
+   "descricao": "Relatório final da Polícia Civil de São Paulo (Operação Saturno, remetida à PF por conexão com o caso Master), obtido pelo Metrópoles e reproduzido pelo Jornal do Brasil: a Entre Investimentos, que financiou o filme Dark Horse, transferiu R$ 26.225.110,00 à ACX ITC Serviços de Tecnologia entre fevereiro e abril de 2025. O relatório da polícia não foi aberto; a fonte primária é o documento citado pela imprensa.",
+   "resposta": "A matéria não traz resposta da Entre nem da ACX. Em maio de 2026 a Entre disse que suas operações 'estão em conformidade com as normas e regulamentações aplicáveis ao setor financeiro' (NSC Total). O dono formal da ACX disse ao JB ter sido usado como laranja.",
+   "fontes": [
+    {
+     "url": "https://www.jb.com.br/brasil/policia/2026/07/1060201-empresa-que-financiou-filme-sobre-bolsonaro-repassou-rs-26-milhoes-a-firma-investigada.html",
+     "veiculo": "Jornal do Brasil (cita Metrópoles)",
+     "tipo": "reportagem",
+     "titulo": "Empresa que financiou filme sobre Bolsonaro é citada em investigação sobre lavagem de dinheiro para o PCC",
+     "data": "2026-07-07",
+     "papel": "sustenta",
+     "trecho": "\"transferiu R$ 26.225.110,00 para a ACX ITC Serviços de Tecnologia Ltda entre fevereiro e abril de 2025\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.nsctotal.com.br/noticias/empresa-ligada-a-vorcaro-em-filme-de-bolsonaro-enviou-milhoes-a-suspeitos-de-faccao-e-mafia",
+     "veiculo": "NSC Total (cita O Globo)",
+     "tipo": "reportagem",
+     "titulo": "Empresa ligada a Vorcaro em filme de Bolsonaro enviou milhões a suspeitos de facção e máfia",
+     "data": "2026-05-14",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "Coaf: R$ 139 mi da Entre a empresas investigadas (destinos não nomeados); paráfrase da 1ª rodada, sem trecho literal"
+    }
+   ],
+   "tarefas": [
+    "A01",
+    "F01"
+   ],
+   "tweets": [
+    "2074510365837111674",
+    "2098779899280429555",
+    "2055323412780745043",
+    "2044380971076624587"
+   ]
+  },
+  {
+   "id": "acx-pcc",
+   "de": "acx-itc",
+   "para": "pcc",
+   "tipo": "investigacao",
+   "rotulo": "Apontada em esquema de lavagem ligado ao PCC (Polícia Civil-SP)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "caso-master"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Segundo o relatório final da Polícia Civil de São Paulo na Operação Saturno (via Metrópoles/JB), a ACX ITC 'é apontada como parte de um esquema de lavagem de dinheiro ligado ao PCC'. Investigação; nenhuma denúncia citada.",
+   "resposta": "A ACX não se manifestou na matéria; o dono formal da empresa disse ter sido laranja.",
+   "fontes": [
+    {
+     "url": "https://www.jb.com.br/brasil/policia/2026/07/1060201-empresa-que-financiou-filme-sobre-bolsonaro-repassou-rs-26-milhoes-a-firma-investigada.html",
+     "veiculo": "Jornal do Brasil (cita Metrópoles)",
+     "tipo": "reportagem",
+     "titulo": "Empresa que financiou filme sobre Bolsonaro é citada em investigação sobre lavagem de dinheiro para o PCC",
+     "data": "2026-07-07",
+     "papel": "sustenta",
+     "trecho": "\"é apontada como parte de um esquema de lavagem de dinheiro ligado ao PCC\" (atribuído ao relatório final da Polícia Civil de SP: \"Segundo o documento\")",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "A01",
+    "F01"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "pcc-vorcaro-protecao",
+   "de": "pcc",
+   "para": "daniel-vorcaro",
+   "tipo": "investigacao",
+   "rotulo": "Possível apoio na custódia (hipótese da PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2025-11",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Em documentos do caso Master sob sigilo no gabinete de André Mendonça, a PF registrou transferência de R$ 10 mil (28/11/2025) numa articulação para levar recado a Vorcaro preso e relaciona a rede à 'possível mobilização de integrantes ou pessoas relacionadas' ao PCC. É hipótese de investigação; não há acusação formal nem afirmação de que Vorcaro tenha pedido apoio.",
+   "resposta": "A matéria não traz resposta dos citados.",
+   "fontes": [
+    {
+     "url": "https://iclnoticias.com.br/?p=127922",
+     "veiculo": "ICL Notícias",
+     "tipo": "reportagem",
+     "titulo": "PF encontrou transferência de R$ 10 mil em articulação por proteção do PCC para Vorcaro",
+     "data": "2026-09-14",
+     "papel": "sustenta",
+     "trecho": "\"possível mobilização de integrantes ou pessoas relacionadas\" (ao PCC, segundo a PF); \"A Polícia Federal identificou uma transferência de R$ 10 mil em meio a uma articulação\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "A05"
+   ],
+   "tweets": [
+    "2099574410889818498"
+   ]
+  },
+  {
+   "id": "beto-louco-alcolumbre",
+   "de": "roberto-augusto-leme-da-silva",
+   "para": "davi-alcolumbre",
+   "tipo": "pessoal",
+   "rotulo": "Teria dado canetas de Mounjaro (ago/2024, mensagens)",
+   "natureza": "reportada",
+   "temas": [
+    "crime-organizado",
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2024-08",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "O UOL, citado pelo Poder360, teve acesso a mensagens entre Beto Louco (alvo da Operação Carbono Oculto, acusado de ligação com o PCC no setor de combustíveis) e um motorista particular de Brasília segundo as quais ele teria presenteado Alcolumbre com canetas de Mounjaro em agosto de 2024. Sem documento da PF citado.",
+   "resposta": "Alcolumbre não respondeu ao UOL nem ao Poder360. Os advogados de Beto Louco negam ligação com o PCC.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/alvo-de-investigacao-da-pf-deu-mounjaro-para-alcolumbre-diz-portal",
+     "veiculo": "Poder360 (cita UOL)",
+     "tipo": "reportagem",
+     "titulo": "Alvo de investigação da PF deu Mounjaro para Alcolumbre, diz portal",
+     "data": "2025-12-05",
+     "papel": "sustenta",
+     "trecho": "\"teria presenteado o presidente do Senado, Davi Alcolumbre (União Brasil-AP), com canetas de Mounjaro em agosto de 2024\"; \"que teve acesso a mensagens trocadas entre Beto Louco e um motorista particular de Brasília\"; \"Alcolumbre não respondeu.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "A06"
+   ],
+   "tweets": [
+    "1997373111130370271"
+   ]
+  },
+  {
+   "id": "viviane-vieira-acao",
+   "de": "viviane-barci-de-moraes",
+   "para": "alessandro-vieira",
+   "tipo": "juridica",
+   "rotulo": "Ação por danos morais (R$ 60 mil) por fala sobre o PCC",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2026-04",
+   "periodo_fim": null,
+   "valor_brl": 60000,
+   "valor_texto": null,
+   "descricao": "Viviane Barci de Moraes e dois advogados da família processam o senador Alessandro Vieira por danos morais, pedindo R$ 60 mil, por declarações ao SBT News sobre supostos recursos do PCC. Vieira diz que falou de dinheiro do Master, não do PCC. Não há relação documentada entre o escritório e o PCC.",
+   "resposta": "Vieira: 'Essa alegação é falsa, como se pode verificar simplesmente assistindo a própria entrevista.'",
+   "fontes": [
+    {
+     "url": "https://www.correiodamanha.com.br/politica/2026/04/281081-familia-de-moraes-processa-alessandro-vieira-por-danos-morais.html",
+     "veiculo": "Correio da Manhã",
+     "tipo": "reportagem",
+     "titulo": "Família de Moraes processa Alessandro Vieira por danos morais",
+     "data": "2026-04-28",
+     "papel": "sustenta",
+     "trecho": "\"entraram com uma ação de danos morais contra o senador Alessandro Vieira (MDB-SE)\"; \"Eles pedem que o parlamentar pague uma indenização de R$ 60 mil.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "A10"
+   ],
+   "tweets": [
+    "2033569275714195868"
+   ]
+  },
+  {
+   "id": "master-viviane-40mi",
+   "de": "banco-master",
+   "para": "viviane-barci-de-moraes",
+   "tipo": "financeira",
+   "rotulo": "R$ 40 mi pagos em 2024 (auditoria do BRB achada pela PF)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2024",
+   "valor_brl": 40000000,
+   "valor_texto": null,
+   "descricao": "Auditoria interna encomendada pelo BRB, encontrada pela PF entre materiais apreendidos com dirigentes do banco, registra R$ 40 milhões pagos em 2024 ao escritório Barci de Moraes Sociedade de Advogados, que tinha contrato com o Master de cerca de R$ 131 milhões em três anos (Estadão via Times Brasil). Os documentos continuam sob análise.",
+   "resposta": "A reportagem não conseguiu contato com o escritório nem com o BRB.",
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/master-pagou-r-33-milhoes-para-escritorio-de-esposa-de-moraes-e-de-advogada-citada-como-canal-direto-com-stf",
+     "veiculo": "Times Brasil (CNBC, com Estadão)",
+     "tipo": "reportagem",
+     "titulo": "Master pagou R$ 40 mi ao escritório de Viviane Barci e R$ 33 mi ao de advogada citada como 'canal direto com STF' em 2024, diz PF",
+     "data": "2026-09-17",
+     "papel": "sustenta",
+     "trecho": "\"A mesma auditoria que apontou os pagamentos ao escritório de Dalide Corrêa também registrou R$ 40 milhões pagos, em 2024,\"; \"O escritório mantinha contrato com o Banco Master que previa pagamentos de cerca de R$ 131 milhões ao longo de três anos.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "R2-A04"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "master-dalide",
+   "de": "banco-master",
+   "para": "dalide-barbosa-alves-correa",
+   "tipo": "financeira",
+   "rotulo": "R$ 33 mi pagos em 2024 (auditoria do BRB achada pela PF)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2024",
+   "valor_brl": 33000000,
+   "valor_texto": null,
+   "descricao": "A mesma auditoria interna do BRB, achada pela PF, registra R$ 33 milhões do Banco Master ao escritório de Dalide Corrêa em 2024; um diretor do Master a descreveu em mensagens como 'canal direto com o STF'. Ainda não houve diligências sobre isso.",
+   "resposta": "Dalide Corrêa: 'jamais atuou para o Master no Supremo Tribunal Federal nem procurou ministros da Corte'; diz que atuou só em processos de empresas que venderam créditos ao banco.",
+   "fontes": [
+    {
+     "url": "https://tribunadosertao.com.br/politica/2026/09/18/981257-quem-e-dalide-correa-advogada-que-recebia-r-33-mi-por-ano-do-master-e-canal-direto-do-stf",
+     "veiculo": "Tribuna do Sertão (Estadão Conteúdo)",
+     "tipo": "reportagem",
+     "titulo": "Quem é Dalide Corrêa, advogada que recebia R$ 33 mi por ano do Master",
+     "data": "2026-09-18",
+     "papel": "sustenta",
+     "trecho": "\"O escritório da advogada Dalide Barbosa Alves Corrêa recebeu R$ 33 milhões em pagamentos do Banco Master\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/master-pagou-r-33-milhoes-para-escritorio-de-esposa-de-moraes-e-de-advogada-citada-como-canal-direto-com-stf",
+     "veiculo": "Times Brasil (CNBC, com Estadão)",
+     "tipo": "reportagem",
+     "titulo": "Master pagou R$ 40 mi ao escritório de Viviane Barci e R$ 33 mi ao de advogada citada como 'canal direto com STF' em 2024, diz PF",
+     "data": "2026-09-17",
+     "papel": "sustenta",
+     "trecho": "\"jamais atuou para o Master no Supremo Tribunal Federal nem procurou ministros da Corte\" (nota de Dalide)",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "R2-A11"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "toffoli-arleen",
+   "de": "dias-toffoli",
+   "para": "fip-arleen",
+   "tipo": "investigacao",
+   "rotulo": "Possível beneficiário final do fundo (hipótese da PF; nega)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": "R$ 35 mi (aporte de Vorcaro no fundo)",
+   "descricao": "Relatório da PF, revelado pela piauí (via Folhapress), afirma haver elementos de que Toffoli 'possa ter figurado como beneficiário final ou proprietário de fato do FIP Arleen', fundo que recebeu R$ 35 milhões de Vorcaro, foi comprado por um amigo do ministro em fevereiro de 2025 e teve os ativos transferidos a uma holding nas Ilhas Virgens Britânicas. Hipótese de investigação; em fevereiro de 2026 o STF deliberou não ser caso de suspeição.",
+   "resposta": "Gabinete de Toffoli: 'jamais manteve ou teve direta ou indiretamente recursos no exterior'; diz que o documento foi arquivado com decisão transitada em julgado.",
+   "fontes": [
+    {
+     "url": "https://diariodocomercio.com.br/legislacao/toffoli-banco-master-suspeita-paraiso-fiscal",
+     "veiculo": "Diário do Comércio (Folhapress, cita piauí)",
+     "tipo": "reportagem",
+     "titulo": "PF suspeita que Toffoli tinha dinheiro de Vorcaro em paraíso fiscal, diz revista",
+     "data": "2026-09-11",
+     "papel": "sustenta",
+     "trecho": "\"possa ter figurado como beneficiário final ou proprietário de fato do FIP Arleen\"; \"jamais manteve ou teve direta ou indiretamente recursos no exterior\"; \"deliberando não ser o caso de suspeição\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-A07"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "vorcaro-mendonca",
+   "de": "daniel-vorcaro",
+   "para": "andre-mendonca",
+   "tipo": "pessoal",
+   "rotulo": "Encontro no Instituto Iter (14/03/2025)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2025-03-14",
+   "periodo_fim": "2025-03-14",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Em decisão de 15/09/2026, Flávio Dino pediu esclarecimentos sobre o encontro de Mendonça com Vorcaro em 14/03/2025 na sede do Instituto Iter, seguido, no dia seguinte, de pedido de vista de Mendonça que suspendeu julgamento sobre serviços funerários em São Paulo. Dino registra que não é possível concluir irregularidade. Mendonça confirma o encontro.",
+   "resposta": "Mendonça: o encontro ocorreu a pedido de integrantes da igreja, com intermediação do deputado Cezinha de Madureira; tratou de precatórios de interesse do Master e sua atuação foi contrária ao pleito.",
+   "fontes": [
+    {
+     "url": "https://www.congressoemfoco.com.br/noticia/122258/dino-pede-apuracao-de-conexoes-entre-mendonca-master-e-cemiterios",
+     "veiculo": "Congresso em Foco",
+     "tipo": "reportagem",
+     "titulo": "Dino pede apuração de conexões entre Mendonça, Master e cemitérios",
+     "data": "2026-09-15",
+     "papel": "sustenta",
+     "trecho": "\"um encontro de Mendonça com Daniel Vorcaro, então controlador do Banco Master, em 14 de março de 2025\"; \"No dia seguinte, Mendonça pediu vista e suspendeu o julgamento\"; \"o encontro com Vorcaro ocorreu a pedido de integrantes da igreja, com intermediação do deputado Cezinha Madureira\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-A13"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "augusto-wagner-ingressos",
+   "de": "augusto-ferreira-lima",
+   "para": "jaques-wagner",
+   "tipo": "pessoal",
+   "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master",
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2023",
+   "periodo_fim": "2025",
+   "valor_brl": 63300,
+   "valor_texto": "R$ 63,3 mil (ingressos)",
+   "descricao": "A decisão da 9ª fase da Operação Compliance Zero (18/06/2026) cita ingressos para um show em Los Angeles, avaliados em R$ 63,3 mil, dados por Augusto Lima, ex-sócio de Vorcaro, a familiares de Jaques Wagner. O relatório da PF, com 74 chamadas de áudio entre os dois, teve o sigilo retirado por André Mendonça em 30/07/2026 (não em 18/06, como dizia a 1ª rodada). Investigação; sem denúncia.",
+   "resposta": "Wagner: 'Conheci Augusto Lima no processo de privatização [da Cesta do Povo]'; 'Não tenho nada a ver com a empresa'; a defesa acionou o STF para anular a ação.",
+   "fontes": [
+    {
+     "url": "https://jovempan.com.br/politica/wagner-usou-jatos-e-ganhou-ingressos-de-r-63-mil-de-ex-socio-de-vorcaro-diz-pf",
+     "veiculo": "Jovem Pan",
+     "tipo": "reportagem",
+     "titulo": "Wagner usou jatos e ganhou ingressos de R$ 63 mil de ex-sócio de Vorcaro, diz PF",
+     "data": "2026-06-18",
+     "papel": "sustenta",
+     "trecho": "\"As informações constam na decisão da 9ª fase da Operação Compliance Zero, deflagrada nesta quinta-feira (18).\"; senador \"recebeu ingressos para um show internacional em Los Angeles, avaliados em R$ 63,3 mil, para seus familiares.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.poder360.com.br/poder-justica/pf-identificou-74-ligacoes-entre-jaques-wagner-e-augusto-lima",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "PF identificou 74 ligações entre Jaques Wagner e Augusto Lima",
+     "data": "2026-07-31",
+     "papel": "sustenta",
+     "trecho": "\"André Mendonça, relator do inquérito, retirou o sigilo do relatório na 5ª feira (30.jul.2026).\"; senador \"fez 74 chamadas de áudio com o empresário Augusto Lima\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://jovempan.com.br/politica/mendonca-tira-sigilo-de-investigacao-contra-jacques-wagner",
+     "veiculo": "Jovem Pan",
+     "tipo": "reportagem",
+     "titulo": "Mendonça tira sigilo de investigação contra Jacques Wagner",
+     "data": "2026-07-30",
+     "papel": "sustenta",
+     "trecho": "\"quebrou o sigilo e tornou público nesta quinta-feira (30), as invesgitações contra Jaques Wagner (PT-BA).\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.congressoemfoco.com.br/amp/noticia/120928/taylor-swift-vinhos-e-viagens-a-relacao-entre-jaques-e-banco-master",
+     "veiculo": "Congresso em Foco",
+     "tipo": "reportagem",
+     "titulo": "Taylor Swift, vinhos e viagens: a relação entre Jaques e Banco Master",
+     "data": "2026-06",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "B09",
+    "R2-P02"
+   ],
+   "tweets": [
+    "2067633267335946558",
+    "2067629159191306287",
+    "2067645062121447705",
+    "2083000859344957526",
+    "2082997361106694462",
+    "2083003128434032652"
+   ]
+  },
+  {
+   "id": "tirreno-brb",
+   "de": "tirreno",
+   "para": "brb",
+   "tipo": "financeira",
+   "rotulo": "Simulou a origem de R$ 7,155 bi em créditos cedidos ao BRB (PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2024-10",
+   "periodo_fim": "2025",
+   "valor_brl": 7155000000,
+   "valor_texto": null,
+   "descricao": "Segundo a PF (Reuters/Estadão e NC News), as fraudes entre o Master e o BRB somaram cerca de R$ 17 bilhões; a Tirreno, criada em 01/10/2024 com capital de R$ 100 e sem funcionários, teria sido aberta para servir de veículo de emissão e circulação dos ativos e simular a origem de R$ 7,155 bilhões em créditos cedidos ao BRB. Conclusões de investigação em curso.",
+   "resposta": "A defesa de Vorcaro não comentou; o Estadão não conseguiu contato com os advogados de Paulo Henrique Costa; BRB e Tirreno sem manifestação nas páginas abertas.",
+   "fontes": [
+    {
+     "url": "https://ncnews.com.br/?p=47384",
+     "veiculo": "NC News",
+     "tipo": "reportagem",
+     "titulo": "Banco Master usou empresa de R$ 100 para simular R$ 7,15 bilhões em consignados, aponta PF",
+     "data": "2026-09-15",
+     "papel": "sustenta",
+     "trecho": "\"foi utilizada para simular a origem de R$ 7,155 bilhões em empréstimos consignados\"; \"A companhia foi criada em 1º de outubro de 2024, com capital social declarado de apenas R$ 100.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.moneytimes.com.br/pf-aponta-fraude-de-r-17-bilhoes-em-operacoes-entre-master-e-brb",
+     "veiculo": "Money Times (Reuters/Estadão)",
+     "tipo": "reportagem",
+     "titulo": "PF aponta fraude de R$ 17 bilhões em operações entre Master e BRB",
+     "data": "2026-09-13",
+     "papel": "sustenta",
+     "trecho": "\"as fraudes praticadas entre o Banco Master e o Banco de Brasília (BRB) somaram cerca de R$ 17 bilhões\"; \"empresa suspeita de ser aberta para servir como veículo de emissão e circulação dos ativos\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-C03"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "vorcaro-ciro-viagens",
+   "de": "daniel-vorcaro",
+   "para": "ciro-nogueira",
+   "tipo": "financeira",
+   "rotulo": "R$ 468,7 mil em viagens e hospedagens (relatório da PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master",
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2025",
+   "valor_brl": 468700,
+   "valor_texto": null,
+   "descricao": "Relatório da PF com sigilo levantado por André Mendonça em 16/06/2026 atribui a Ciro Nogueira o recebimento de ao menos R$ 468,7 mil em viagens, hospedagens e refeições custeadas por Vorcaro e diz que o senador atuaria no Senado para defender os interesses do banqueiro. Investigação.",
+   "resposta": "Ciro Nogueira: 'Para acusar, a criatividade é infinita. Na hora de comprovar, não conseguiram e não conseguirão.' A defesa diz que fará os esclarecimentos nos autos.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/pf-diz-que-vorcaro-e-nogueira-tinham-convergencia-de-interesses-ilicitos",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "PF diz que Vorcaro e Nogueira tinham 'convergência de interesses ilícitos'",
+     "data": "2026-06-16",
+     "papel": "sustenta",
+     "trecho": "\"o recebimento de ao menos R$ 468,7 mil em viagens, hospedagens e refeições custeadas por Daniel Vorcaro\"; \"atuaria no âmbito do Senado Federal\"; \"defender os interesses do banqueiro\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.band.com.br/politica/pf-daniel-vorcaro-dava-tratamento-privilegiado-a-ciro-nogueira",
+     "veiculo": "Band",
+     "tipo": "reportagem",
+     "titulo": "PF: Daniel Vorcaro dava tratamento privilegiado a Ciro Nogueira",
+     "data": "2026-06-16",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "R2-C04"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "fux-alcolumbre",
+   "de": "luiz-fux",
+   "para": "davi-alcolumbre",
+   "tipo": "juridica",
+   "rotulo": "Pede registros de acesso de Vorcaro ao Senado (MS 41.091)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2026-09",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "No mandado de segurança 41.091 (redistribuído após Moraes se declarar impedido), Fux deu dez dias para Alcolumbre prestar informações e fornecer os registros de entrada no Senado de oito pessoas desde 2019, entre elas Daniel Vorcaro e Viviane Barci de Moraes. No mesmo período, Zanin negou liminar para obrigar Alcolumbre a instalar a CPI do Master.",
+   "resposta": "Sem resposta registrada de Alcolumbre; o Senado havia recusado os dados com base na Lei de Acesso à Informação.",
+   "fontes": [
+    {
+     "url": "https://www.congressoemfoco.com.br/noticia/122528/fux-cobra-senado-por-registros-de-vorcaro-lulinha-e-viviane-moraes",
+     "veiculo": "Congresso em Foco",
+     "tipo": "reportagem",
+     "titulo": "Fux cobra Senado por registros de Vorcaro, Lulinha e Viviane Moraes",
+     "data": "2026-09-24",
+     "papel": "sustenta",
+     "trecho": "\"deu dez dias para o presidente do Senado, Davi Alcolumbre (União-AP), prestar informações\"; \"Entre elas estão o ex-banqueiro Daniel Vorcaro e a advogada Viviane Barci de Moraes\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.congressoemfoco.com.br/noticia/122496/zanin-nega-liminar-para-obrigar-alcolumbre-a-instalar-cpi-do-master",
+     "veiculo": "Congresso em Foco",
+     "tipo": "reportagem",
+     "titulo": "Zanin nega liminar para obrigar Alcolumbre a instalar CPI do Master",
+     "data": "2026-09-23",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "outra decisão (CPI do Master); trecho literal na 2ª rodada"
+    }
+   ],
+   "tarefas": [
+    "R2-C06"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "mendonca-flavio-inquerito",
+   "de": "andre-mendonca",
+   "para": "flavio-bolsonaro",
+   "tipo": "investigacao",
+   "rotulo": "Investigação no inquérito do filme Dark Horse (INQ 5026)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2026-07",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Mendonça autorizou, a pedido da PF e com parecer favorável da PGR, apuração sobre os repasses de Vorcaro ao filme Dark Horse e determinou procedimento investigatório sobre Flávio Bolsonaro vinculado ao INQ 5026 (lavagem, evasão de divisas e corrupção, segundo a imprensa). O sigilo caiu em setembro de 2026. Investigado, sem denúncia.",
+   "resposta": "Flávio: buscou patrocínio privado e nega irregularidades. 'Não há um centavo de dinheiro público. Pode revirar do avesso.'",
+   "fontes": [
+    {
+     "url": "https://www.bahianoticias.com.br/justica/noticia/75358-mendonca-determina-investigacao-contra-flavio-bolsonaro-em-inquerito-do-filme-dark-horse",
+     "veiculo": "Bahia Notícias",
+     "tipo": "reportagem",
+     "titulo": "Mendonça determina investigação contra Flávio Bolsonaro em inquérito do filme 'Dark Horse'",
+     "data": "2026-09-11",
+     "papel": "sustenta",
+     "trecho": "título: \"Mendonça determina investigação contra Flávio Bolsonaro em inquérito do filme 'Dark Horse'\"; \"a instauração de procedimento investigatório vinculado ao INQ 5026\"; Flávio: \"Não há um centavo de dinheiro público. Pode revirar do avesso\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.opovo.com.br/noticias/politica/2026/07/23/amp/andre-mendonca-autoriza-inquerito-sobre-repasses-para-dark-horse-filme-sobre-jair-bolsonaro.html",
+     "veiculo": "O Povo (Agência Estado)",
+     "tipo": "reportagem",
+     "titulo": "André Mendonça autoriza inquérito sobre repasses para Dark Horse",
+     "data": "2026-07-23",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    },
+    {
+     "url": "https://www.correiodamanha.com.br/politica/2026/09/318384-mendonca-abriu-inquerito-contra-flavio-bolsonaro-por-financiamento-de-dark-horse.html",
+     "veiculo": "Correio da Manhã",
+     "tipo": "reportagem",
+     "titulo": "Mendonça abriu inquérito contra Flávio Bolsonaro por financiamento de Dark Horse",
+     "data": "2026-09-11",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "R2-D02"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "brb-flavio-financiamento",
+   "de": "brb",
+   "para": "flavio-bolsonaro",
+   "tipo": "financeira",
+   "rotulo": "Financiamento de R$ 3,1 mi (2021) sob apuração da PF",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2021",
+   "periodo_fim": null,
+   "valor_brl": 3100000,
+   "valor_texto": null,
+   "descricao": "A PF apura, no inquérito BRB-Master, as condições do empréstimo de R$ 3,1 milhões do BRB a Flávio Bolsonaro para a compra de uma mansão de R$ 6 milhões no Lago Sul: contrato de 2021, 360 parcelas, taxa de 3,71% ao ano. Uma auditoria independente entregue à PF aponta supostas irregularidades; nenhuma foi comprovada.",
+   "resposta": "Flávio: 'a transação foi legal e resultou da venda do imóvel onde morava' e da participação numa loja de chocolates. O BRB não se manifestou no texto.",
+   "fontes": [
+    {
+     "url": "https://www.diariodepernambuco.com.br/politica/2026/10/11725606-pf-apura-condicoes-de-financiamento-do-brb-a-flavio-bolsonaro-para-mansao-de-rs-6-milhoes.html",
+     "veiculo": "Diario de Pernambuco",
+     "tipo": "reportagem",
+     "titulo": "PF apura condições de financiamento do BRB a Flávio Bolsonaro para mansão de R$ 6 milhões",
+     "data": "2026-10-02",
+     "papel": "sustenta",
+     "trecho": "\"A Polícia Federal investiga as circunstâncias de um empréstimo de R$ 3,1 milhões\"; \"O contrato, assinado em 2021, estabeleceu taxa de 3,71% ao ano\"; Flávio: \"a transação foi legal e resultou da venda do imóvel onde morava\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "R2-D07"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "vorcaro-marilson",
+   "de": "daniel-vorcaro",
+   "para": "marilson-roseno-da-silva",
+   "tipo": "financeira",
+   "rotulo": "'Mesada' de R$ 400 mil por informações sigilosas (relatório da PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "caso-master"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": "2026",
+   "valor_brl": null,
+   "valor_texto": "R$ 400 mil por mês",
+   "descricao": "Relatório da PF enviado a André Mendonça diz que Daniel Vorcaro pagava mesada de R$ 400 mil ao policial federal aposentado Marilson Roseno da Silva, que teria montado um sistema de vazamentos e aliciado agentes da ativa; o dinheiro seria repassado por Henrique Vorcaro, pai de Daniel. Investigação.",
+   "resposta": "A matéria não traz manifestação das defesas de Daniel Vorcaro, Henrique Vorcaro ou Marilson Roseno.",
+   "fontes": [
+    {
+     "url": "https://www.correiobraziliense.com.br/politica/2026/06/7443318-vorcaro-pagou-rs-400-mil-por-mes-a-agente-da-pf-por-informacoes-sigilosas.html",
+     "veiculo": "Correio Braziliense",
+     "tipo": "reportagem",
+     "titulo": "Vorcaro pagou R$ 400 mil por mês a agente da PF por informações sigilosas",
+     "data": "2026-06-17",
+     "papel": "sustenta",
+     "trecho": "\"pagou mesada de R$ 400 mil ao aposentado Marilson Roseno da Silva\"; \"seria repassado por Henrique Vorcaro, pai de Daniel Vorcaro\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "R2-D14"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "vorcaro-planalto",
+   "de": "daniel-vorcaro",
+   "para": "presidencia-da-republica",
+   "tipo": "institucional",
+   "rotulo": "Entradas no Planalto com lobista (01/03 e 03/04/2024)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master",
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2024-03-01",
+   "periodo_fim": "2024-04-03",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Dados da Presidência divulgados pela Veja registram entradas conjuntas de Vorcaro e de Júlio Cezar, lobista descrito como ligado ao grupo de Alexandre Padilha, no Planalto em 01/03/2024 e 03/04/2024. O conteúdo das reuniões é desconhecido; as acusações de Vorcaro sobre Padilha e Olavo Noleto vêm de proposta de delação rejeitada por PF e PGR e não viram relação.",
+   "resposta": "Padilha divulgou nota negando as acusações e pediu direito de resposta à Veja; Olavo Noleto nega irregularidades; a PF diz que Vorcaro não prestou depoimento com o conteúdo citado pela Veja.",
+   "fontes": [
+    {
+     "url": "https://www.jornalopcao.com.br/ultimas-noticias/registros-do-planalto-confirmam-reunioes-de-daniel-vorcaro-com-lobista-ligado-a-grupo-de-padilha-878516",
+     "veiculo": "Jornal Opção (cita Veja)",
+     "tipo": "reportagem",
+     "titulo": "Registros do Planalto confirmam reuniões de Daniel Vorcaro com lobista ligado a grupo de Padilha",
+     "data": "2026-10-13",
+     "papel": "sustenta",
+     "trecho": "\"Os dados da Presidência registram entradas conjuntas de Vorcaro e Júlio em 1º de março e 3 de abril de 2024.\"; \"Alexandre Padilha divulgou nota na semana anterior à publicação para negar as acusações feitas por Vorcaro.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://acritica.net/justica/pf-nega-depoimento-de-vorcaro-citado-por-veja-e-padilha-pede-direito-de-resposta",
+     "veiculo": "A Crítica (Campo Grande)",
+     "tipo": "reportagem",
+     "titulo": "PF nega depoimento de Vorcaro citado por Veja e Padilha pede direito de resposta",
+     "data": "2026-10-10",
+     "papel": "sustenta",
+     "trecho": "\"Vorcaro não prestou depoimento com o conteúdo apresentado na reportagem\"; \"Padilha solicitou à Veja a publicação de direito de resposta.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "A15",
+    "R2-B07"
+   ],
+   "tweets": [
+    "2111097327905632656",
+    "2111087250549145739",
+    "2110043273439949203"
+   ]
+  },
+  {
+   "id": "vorcaro-metropoles-textos",
+   "de": "daniel-vorcaro",
+   "para": "metropoles-marketing-e-propaganda",
+   "tipo": "midia",
+   "rotulo": "Autorizou R$ 51,9 mi e recebia textos antes da publicação (diálogos da PF)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2025",
+   "valor_brl": 51900000,
+   "valor_texto": null,
+   "descricao": "Diálogos extraídos pela PF do celular de Vorcaro (Estadão, via Mercado&Consumo) indicam que ele autorizou, em 2024 e 2025, R$ 51,9 milhões em pagamentos ao portal Metrópoles, que submetia publicações ao seu crivo. O levantamento do UOL e registros periciais da PF citados pela Revista Fórum falam de textos enviados antes da publicação e de um contrato publicitário de R$ 20 milhões.",
+   "resposta": "Metrópoles (Lilian Tahan): consultar fontes é prática com personalidades e o contrato publicitário não tem relação com a cobertura. Ao Estadão, Luiz Estevão e Lilian Tahan não se manifestaram.",
+   "fontes": [
+    {
+     "url": "https://mercadoeconsumo.com.br/16/10/2026/economia/dialogos-obtidos-pela-pf-mostram-repasse-de-r-519-mi-de-vorcaro-ao-portal-metropoles",
+     "veiculo": "Mercado&Consumo (Estadão Conteúdo)",
+     "tipo": "reportagem",
+     "titulo": "Diálogos obtidos pela PF mostram repasse de R$ 51,9 mi de Vorcaro ao portal Metrópoles",
+     "data": "2026-10-16",
+     "papel": "sustenta",
+     "trecho": "\"indicam que ele autorizou, em 2024 e 2025, R$ 51,9 milhões em pagamentos ao portal Metrópoles\"; \"submeteu publicações ao crivo de Vorcaro\"; \"não se manifestaram até o fechamento deste texto\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.gazetasp.com.br/policia/metropoles-enviava-reportagens-a-vorcaro-antes-da-publicacao-e-alterava-textos-a-pedido-do-banqueiro",
+     "veiculo": "Gazeta SP (cita UOL)",
+     "tipo": "reportagem",
+     "titulo": "Metrópoles enviava reportagens a Vorcaro antes da publicação e alterava textos a pedido do banqueiro",
+     "data": "2026-10-16",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    },
+    {
+     "url": "https://www.jb.com.br/brasil/imprensa/2026/10/1061246-vorcaro-editava-materias-do-metropoles-e-determinava-o-que-era-publicado.html",
+     "veiculo": "Jornal do Brasil (Revista Fórum)",
+     "tipo": "reportagem",
+     "titulo": "Vorcaro editava matérias do Metrópoles e determinava o que era publicado",
+     "data": "2026-10-15",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "B03",
+    "R2-D11"
+   ],
+   "tweets": [
+    "2111248927932756058",
+    "2111210602408378849",
+    "2111133230279586170",
+    "2111249671301853327"
+   ]
+  },
+  {
+   "id": "vorcaro-marcal",
+   "de": "daniel-vorcaro",
+   "para": "pablo-marcal",
+   "tipo": "midia",
+   "rotulo": "Defendeu nas redes a venda do Master ao BRB a pedido de Vorcaro (mensagens)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2025-04",
+   "periodo_fim": "2025-04",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Mensagens de 05/04/2025 reveladas pelo ICL Notícias mostram Vorcaro pedindo que a diretora de marketing do Master 'entrasse no circuito' com Pablo Marçal; segundo o ICL (via BPMoney), a pedido de Vorcaro Marçal agiu para defender que 58% do Master fossem vendidos ao BRB. Nenhum pagamento ou contrato do banco com Marçal é documentado.",
+   "resposta": "Marçal não respondeu aos pedidos de comentário. A CNN diz que Vorcaro 'nunca foi sócio da CNN Brasil ou do CNN Money'.",
+   "fontes": [
+    {
+     "url": "https://bpmoney.com.br/politica/marcal-defendeu-master-pedido-vorcaro-cnn",
+     "veiculo": "BPMoney (cita ICL Notícias)",
+     "tipo": "reportagem",
+     "titulo": "Marçal defendeu venda do Master nas redes a pedido de Vorcaro, mostram mensagens",
+     "data": "2026-10-20",
+     "papel": "sustenta",
+     "trecho": "título: \"Marçal defendeu venda do Master nas redes a pedido de Vorcaro, mostram mensagens\"; \"A pedido de Vorcaro, Marçal agiu para defender que 58% do Master fossem vendidos ao BRB\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://iclnoticias.com.br/em-audio-diretora-master-pediu-marcal-defesa",
+     "veiculo": "ICL Notícias",
+     "tipo": "reportagem",
+     "titulo": "Em áudio, diretora do Master pediu que Marçal alinhasse postagens em defesa do banco",
+     "data": "2026-10",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "B07"
+   ],
+   "tweets": [
+    "2112527119427510696",
+    "2112536093971091822",
+    "2112709116145664370"
+   ]
+  },
+  {
+   "id": "master-prioli",
+   "de": "banco-master",
+   "para": "gabriela-prioli",
+   "tipo": "contratual",
+   "rotulo": "Contrato de conteúdo citado em mensagens do banco (negado)",
+   "natureza": "alegacao",
+   "temas": [
+    "caso-master",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Mensagens atribuídas a uma pessoa da equipe de marketing do Master, extraídas pela PF e publicadas pela imprensa, dizem que 'o contrato está assinado por 12 meses' e foi fechado 'via uma agência pra não ter master'. Nenhum contrato ou peça da PF foi visto. É alegação de terceiro; Prioli nega.",
+   "resposta": "Gabriela Prioli: 'Eu não fiz absolutamente nada do que está sendo dito'; nega contrato, reunião e qualquer comunicação com o Master ou Vorcaro.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-gente/gabriela-prioli-nega-contrato-com-master-e-comunicacao-com-vorcaro",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "Gabriela Prioli nega contrato com Master e comunicação com Vorcaro",
+     "data": "2026-10-17",
+     "papel": "sustenta",
+     "trecho": "\"o contrato está assinado por 12 meses\"; \"Tanto que o contrato fechamos via uma agência pra não ter master\"; Prioli: \"Eu não fiz absolutamente nada do que está sendo dito\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.diariodepernambuco.com.br/vorcaro-aprovava-videos-de-gabriela-prioli-para-o-banco-master-diz-jornal.html",
+     "veiculo": "Diario de Pernambuco (repercute Estadão)",
+     "tipo": "reportagem",
+     "titulo": "Vorcaro aprovava vídeos de Gabriela Prioli para o Banco Master, diz jornal",
+     "data": "2026-10-16",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "B01"
+   ],
+   "tweets": [
+    "2111533760759926959",
+    "2111165897234907459"
+   ]
+  },
+  {
+   "id": "vorcaro-betbet",
+   "de": "daniel-vorcaro",
+   "para": "bet-bet",
+   "tipo": "societaria",
+   "rotulo": "30% indiretos na casa de apostas (mensagens reveladas pelo Valor)",
+   "natureza": "reportada",
+   "temas": [
+    "caso-master",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2025-02",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Mensagens entre Vorcaro e Luiz Rennó reveladas pelo Valor Econômico (via Times Brasil) indicam que Vorcaro detinha indiretamente 30% da casa de apostas Bet.Bet por meio da Bet Participações, que tinha o FIP Oracle, administrado pela Reag, entre os sócios; em 2024 discutiu-se retirar o nome dele diante da exigência da Fazenda de identificar o controlador; em fevereiro de 2025, 'Saímos da bet'. Não há documento societário aberto.",
+   "resposta": "A defesa de Vorcaro não se manifestou ao Times Brasil.",
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/vorcaro-discutiu-retirar-nome-de-participacao-em-bet-apos-fazenda-exigir-identificacao-de-controlador",
+     "veiculo": "Times Brasil (CNBC, cita Valor Econômico)",
+     "tipo": "reportagem",
+     "titulo": "Vorcaro discutiu retirar nome de participação em bet após Fazenda exigir identificação de controlador",
+     "data": "2026-09-30",
+     "papel": "sustenta",
+     "trecho": "\"Vorcaro detinha indiretamente 30% da casa de apostas por meio da Bet Participações.\"; \"Procurada pelo Times Brasil — Licenciado Exclusivo CNBC, a defesa de Daniel Vorcaro não se manifestou.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "F03"
+   ],
+   "tweets": [
+    "2106499455419891793",
+    "2112538125671043546",
+    "2045251401467502815",
+    "2072670355450138856",
+    "2112508867829489908"
+   ]
+  },
+  {
+   "id": "cathedral-flavio-voos",
+   "de": "cathedral",
+   "para": "flavio-bolsonaro",
+   "tipo": "financeira",
+   "rotulo": "Voos em jato executivo na Europa (abr-mai/2025, PF via Folha)",
+   "natureza": "reportada",
+   "temas": [
+    "cultura-e-entretenimento",
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2025-04",
+   "periodo_fim": "2025-05",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Documentos de investigação da PF citados pela Folha mostram ao menos três trechos em jato executivo contratados para Flávio Bolsonaro e Willer Tomaz por meio da Cathedral, holding na Madeira que é a única acionista da bet Rede Loto (Lisboa-Nice em 11/04/2025; Cascais-Nice e Nice-Paris em 23/05/2025). Inquérito, relator e custo não informados. A defesa de Willer diz que ele próprio pagou.",
+   "resposta": "Flávio: 'Associar essa afinidade pessoal a suposições de irregularidades é mera ilação, sem qualquer fundamento nos fatos'. Advogado de Willer e da Rede Loto: os deslocamentos foram passeios de lazer entre amigos, custeados por Willer, sem contrapartida.",
+   "fontes": [
+    {
+     "url": "https://www.bahianoticias.com.br/folha/noticia/412847-bet-de-investigado-por-fraude-do-inss-pagou-voos-de-flavio-bolsonaro-na-europa",
+     "veiculo": "Bahia Notícias (Folhapress)",
+     "tipo": "reportagem",
+     "titulo": "Bet de investigado por fraude do INSS pagou voos de Flávio Bolsonaro na Europa",
+     "data": "2026-10-16",
+     "papel": "sustenta",
+     "trecho": "\"ao menos três trechos de viagem em jato executivo foram contratados para Flávio e Willer por meio da Cathedral\"; \"Os documentos mostram uma viagem de Willer e Flávio de Lisboa a Nice, na França, em 11 de abril de 2025\"; Flávio: \"Associar essa afinidade pessoal a suposições de irregularidades é mera ilação, sem qualquer fundamento nos fatos\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.diariodepernambuco.com.br/politica/2026/10/11726788-bet-de-investigado-por-fraude-no-inss-pagou-voos-de-flavio-bolsonaro-na-europa-aponta-pf.html",
+     "veiculo": "Diario de Pernambuco (republica Folha)",
+     "tipo": "reportagem",
+     "titulo": "Bet de investigado por fraude no INSS pagou voos de Flávio Bolsonaro na Europa, aponta PF",
+     "data": "2026-10-16",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "mesma matéria da Folha; republicação, não é 2º veículo independente"
+    }
+   ],
+   "tarefas": [
+    "C03",
+    "C06",
+    "R2-P03"
+   ],
+   "tweets": [
+    "2111157085409071610",
+    "2112508867829489908"
+   ]
+  },
+  {
+   "id": "willer-cathedral",
+   "de": "willer-tomaz",
+   "para": "cathedral",
+   "tipo": "societaria",
+   "rotulo": "Sócio da Cathedral, única acionista da Rede Loto",
+   "natureza": "reportada",
+   "temas": [
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A Cathedral, holding com sede na Madeira, é a única acionista da bet Rede Loto (BestBet, licenciada pela Loterj em 2023) e tem como sócios Willer Tomaz e Jorge Dias, segundo a Folha.",
+   "resposta": "Advogado de Willer: 'A única sócia da Rede Loto é a Cathedral, e não tem participação de ninguém investigado por jogo ilegal.'",
+   "fontes": [
+    {
+     "url": "https://www.bahianoticias.com.br/folha/noticia/412847-bet-de-investigado-por-fraude-do-inss-pagou-voos-de-flavio-bolsonaro-na-europa",
+     "veiculo": "Bahia Notícias (Folhapress)",
+     "tipo": "reportagem",
+     "titulo": "Bet de investigado por fraude do INSS pagou voos de Flávio Bolsonaro na Europa",
+     "data": "2026-10-16",
+     "papel": "sustenta",
+     "trecho": "\"Única acionista da Rede Loto, a Cathedral tem como sócios Willer e Dias.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "C03",
+    "C06",
+    "R2-P03"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "pf-willer-bets",
+   "de": "pf",
+   "para": "willer-tomaz",
+   "tipo": "investigacao",
+   "rotulo": "Apura lavagem por meio de casas de apostas",
+   "natureza": "investigacao",
+   "temas": [
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": "2026",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A PF investiga se o advogado Willer Tomaz usou operações em casas de apostas para lavar dinheiro (Gazeta do Povo, 30/09/2026). Os valores de 2025 (R$ 4,8 bilhões em ganhos e R$ 4,963 bilhões em perdas) vêm de comprovante anual da Blaze juntado em ação do próprio Willer contra a plataforma.",
+   "resposta": "Willer: 'Não há que se falar em lavagem de dinheiro'; 'todas as movimentações ocorreram em sua própria conta bancária, de forma transparente e rastreável'.",
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/republica/pf-investiga-advogado-envolvido-fraude-inss-lavagem-bets",
+     "veiculo": "Gazeta do Povo",
+     "tipo": "reportagem",
+     "titulo": "PF investiga advogado envolvido na fraude do INSS por lavagem de dinheiro em bets",
+     "data": "2026-09-30",
+     "papel": "sustenta",
+     "trecho": "\"A Polícia Federal investiga se o advogado Willer Tomaz de Sousa\" \"utilizou operações em casas de apostas para lavar dinheiro.\"; \"Não há que se falar em lavagem de dinheiro\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://sbtnews.sbt.com.br/colunas/coluna-do-tulio/pf-apura-apostas-de-r-4-8-bi-de-advogado-amigo-de-flavio",
+     "veiculo": "SBT News (coluna)",
+     "tipo": "reportagem",
+     "titulo": "PF apura apostas de R$ 4,8 bi de advogado amigo de Flávio",
+     "data": "2026-09-30",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "C04"
+   ],
+   "tweets": [
+    "2105089735857152508",
+    "2105269834736959566",
+    "2112184791345053793"
+   ]
+  },
+  {
+   "id": "willer-stj",
+   "de": "willer-tomaz",
+   "para": "stj",
+   "tipo": "investigacao",
+   "rotulo": "Suspeita de receber documentos vazados do STJ (PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Segundo reportagem do UOL repercutida pela Folhapress, a PF suspeita que Willer Tomaz recebeu documentos vazados do STJ por meio do procurador aposentado Antônio Carlos Simões Soares, além de outros interlocutores. Peça específica não identificada.",
+   "resposta": "Willer nega 'categoricamente ter tido acesso irregular ou não autorizado a decisões judiciais' ou a pareceres do MPF.",
+   "fontes": [
+    {
+     "url": "https://www.bahianoticias.com.br/folha/noticia/412999-advogado-amigo-de-flavio-recebeu-documentos-vazados-do-stj-e-mpf-diz-site",
+     "veiculo": "Bahia Notícias (Folhapress, cita UOL)",
+     "tipo": "reportagem",
+     "titulo": "Advogado amigo de Flávio recebeu documentos vazados do STJ e MPF, diz site",
+     "data": "2026-10-17",
+     "papel": "sustenta",
+     "trecho": "\"os investigadores suspeitam que Tomaz recebeu documentos vazados do STJ por meio de Soares\"; nega \"categoricamente ter tido acesso irregular ou não autorizado a decisões judiciais\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "C05"
+   ],
+   "tweets": [
+    "2111526470195536199"
+   ]
+  },
+  {
+   "id": "blaze-virginia",
+   "de": "blaze",
+   "para": "virginia-fonseca",
+   "tipo": "contratual",
+   "rotulo": "Pagamentos a empresas da influenciadora (publicidade de apostas, 2025)",
+   "natureza": "reportada",
+   "temas": [
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Balancete da Blaze obtido pela Folha mostra R$ 330 milhões destinados a propaganda de caça-níqueis digitais e apostas esportivas em 2025 e pagamentos a empresas de influenciadores, entre eles Virginia Fonseca. O MPDFT pede R$ 120 milhões por danos morais coletivos à Blaze e a Virginia (A Crítica, contexto) e a PF a investiga a partir de relatório do Coaf (piauí, contexto).",
+   "resposta": "Blaze: 'suas parcerias com influenciadores são pautadas pela estrita conformidade com a legislação'. Virginia não respondeu à Folha; à Justiça, diz haver justificativas legais para todas as movimentações.",
+   "fontes": [
+    {
+     "url": "https://www.bahianoticias.com.br/folha/noticia/400986-blaze-gastou-r-330-mi-com-anuncios-em-2025-e-tem-virginia-como-principal-influenciadora-no-brasil",
+     "veiculo": "Bahia Notícias (Folhapress)",
+     "tipo": "reportagem",
+     "titulo": "Blaze gastou R$ 330 mi com anúncios em 2025 e tem Virginia como principal influenciadora no Brasil",
+     "data": "2026-07-16",
+     "papel": "sustenta",
+     "trecho": "\"O cassino online Blaze destinou R$ 330 milhões à propaganda de caça-níqueis digitais e apostas esportivas\"; \"O documento mostra pagamentos a empresas dos influenciadores Virginia Fonseca, Jon Vlogs e Renato Garcia\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://acritica.net/policia/mp-aponta-virginia-aposta-improvavel-copa-blaze",
+     "veiculo": "A Crítica",
+     "tipo": "reportagem",
+     "titulo": "MP aponta Virginia, aposta improvável na Copa e Blaze",
+     "data": "2026-07-10",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    },
+    {
+     "url": "https://www.bahianoticias.com.br/holofote/noticia/84518-virginia-fonseca-e-investigada-pela-policia-federal-por-movimentacoes-financeiras-suspeitas-diz-revista",
+     "veiculo": "Bahia Notícias (cita piauí)",
+     "tipo": "reportagem",
+     "titulo": "Virginia Fonseca é investigada pela PF por movimentações financeiras suspeitas, diz revista",
+     "data": "2026-06-02",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "C07"
+   ],
+   "tweets": [
+    "2061842024739872953",
+    "2078177423200272506",
+    "2075378142575817162",
+    "2080655161748328672"
+   ]
+  },
+  {
+   "id": "yury-jonas",
+   "de": "yury-do-paredao",
+   "para": "jonas-esticado",
+   "tipo": "financeira",
+   "rotulo": "Emendas de R$ 4,9 mi para shows do cantor, de quem é sócio",
+   "natureza": "reportada",
+   "temas": [
+    "financiamento-politico",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2025",
+   "periodo_fim": "2026",
+   "valor_brl": 4900000,
+   "valor_texto": null,
+   "descricao": "Segundo o Diário do Nordeste, o deputado federal Yury do Paredão (MDB-CE) direcionou cerca de R$ 4,9 milhões em emendas de comissão (Turismo) para eventos em cinco municípios do Ceará que contrataram Jonas Esticado (cerca de R$ 300 mil por show), por meio de escritório administrado pela mãe do deputado e que tem o próprio político como sócio, junto com o artista. Reportagem única; convênios não conferidos no Portal da Transparência.",
+   "resposta": "Yury: 'A execução dos convênios é de responsabilidade exclusiva dos municípios beneficiados'; nega destinação dirigida a um único artista.",
+   "fontes": [
+    {
+     "url": "https://diariodonordeste.verdesmares.com.br/pontopoder/deputado-yury-do-paredao-direcionou-r-49-mi-em-emendas-para-festas-com-cantor-empresariado-por-ele-1.3772308",
+     "veiculo": "Diário do Nordeste (PontoPoder)",
+     "tipo": "reportagem",
+     "titulo": "Deputado Yury do Paredão direcionou R$ 4,9 mi em emendas para festas com cantor empresariado por ele",
+     "data": "2026-06-22",
+     "papel": "sustenta",
+     "trecho": "\"O deputado federal Yury do Paredão (MDB) foi o responsável por direcionar cerca de R$ 4,9 milhões em recursos\"; \"para eventos em municípios do Ceará que contrataram o cantor Jonas Esticado\"; \"e que tem o próprio político como sócio — junto com o artista.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "C09",
+    "R2-P04"
+   ],
+   "tweets": [
+    "2068716349367492978"
+   ]
+  },
+  {
+   "id": "narco-fluxo-ryan",
+   "de": "operacao-narco-fluxo",
+   "para": "mc-ryan-sp",
+   "tipo": "investigacao",
+   "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2026-04",
+   "periodo_fim": "2026-05",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Operação da PF com mandados da 5ª Vara Federal de Santos contra suspeita de lavagem de mais de R$ 1,6 bilhão desde 2023 por meio de rifas, bets e empresas musicais; a PF aponta MC Ryan SP como líder da estrutura. Preso em 15/04/2026, teve nova preventiva decretada e foi solto pela desembargadora Sylvia Figueiredo (TRF-3) em 13/05/2026 (IstoÉ Dinheiro, contexto). Investigação: ninguém foi formalmente acusado.",
+   "resposta": "Defesa de MC Ryan: 'a absoluta integridade de MC Ryan, bem como a lisura de todas as suas transações financeiras'; diz não ter tido acesso ao procedimento, que tramita sob sigilo.",
+   "fontes": [
+    {
+     "url": "https://www.cnnbrasil.com.br/nacional/sudeste/sp/narco-fluxo-entenda-operacao-que-prendeu-mcs-poze-do-rodo-e-ryan-sp",
+     "veiculo": "CNN Brasil",
+     "tipo": "reportagem",
+     "titulo": "Narco Fluxo: entenda operação que prendeu MCs Poze do Rodo e Ryan SP",
+     "data": "2026-04-15",
+     "papel": "sustenta",
+     "trecho": "\"a prisão dos MCs de funk Poze do Rodo e Ryan SP\"; os suspeitos podem responder por \"associação cirminosa, lavagem de dinheiro e evasão de divisas\" [sic]; defesa: \"a absoluta integridade de MC Ryan, bem como a lisura de todas as suas transações financeiras\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.mpf.mp.br/o-mpf/unidades/pr-sp/noticias/operacao-narco-fluxo-prende-32-envolvidos-em-esquema-bilionario-de-lavagem-de-dinheiro",
+     "veiculo": "MPF em São Paulo",
+     "tipo": "comunicado",
+     "titulo": "Operação Narco Fluxo prende 32 envolvidos em esquema bilionário de lavagem de dinheiro",
+     "data": "2026-04-15",
+     "papel": "sustenta",
+     "trecho": "\"Os mandados foram expedidos pela 5ª Vara Federal de Santos (SP).\"; \"Estima-se que os criminosos tenham movimentado mais de R$ 1,6 bilhão desde 2023\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://istoedinheiro.com.br/desembargadora-manda-soltar-mc-ryan-sp-preso-em-operacao-contra-bets-do-pcc",
+     "veiculo": "IstoÉ Dinheiro",
+     "tipo": "reportagem",
+     "titulo": "Desembargadora manda soltar MC Ryan SP",
+     "data": "2026-05-13",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "D01",
+    "R2-P05"
+   ],
+   "tweets": [
+    "2044380971076624587",
+    "2044430578263445915",
+    "2044596054205600086",
+    "2047380970563604529",
+    "2044429826488934903",
+    "2047324977276313689",
+    "2047325106733453756",
+    "2047430670339727714",
+    "2047430984610509004",
+    "2052181265625776523",
+    "2054723401135100258",
+    "2054723971287814412",
+    "2044930828069687741"
+   ]
+  },
+  {
+   "id": "narco-fluxo-poze",
+   "de": "operacao-narco-fluxo",
+   "para": "mc-poze-do-rodo",
+   "tipo": "investigacao",
+   "rotulo": "Preso na operação (15/04/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2026-04",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "MC Poze do Rodo foi preso em casa, no Rio de Janeiro, na deflagração da Operação Narco Fluxo (15/04/2026). Investigação sobre associação criminosa, lavagem e evasão de divisas; sem acusação formal.",
+   "resposta": "Defesa de Poze: diz 'desconhecer os autos ou teor do mandado de prisão' e que 'se manifestará na Justiça para restabelecer sua liberdade'.",
+   "fontes": [
+    {
+     "url": "https://www.cnnbrasil.com.br/nacional/sudeste/sp/narco-fluxo-entenda-operacao-que-prendeu-mcs-poze-do-rodo-e-ryan-sp",
+     "veiculo": "CNN Brasil",
+     "tipo": "reportagem",
+     "titulo": "Narco Fluxo: entenda operação que prendeu MCs Poze do Rodo e Ryan SP",
+     "data": "2026-04-15",
+     "papel": "sustenta",
+     "trecho": "\"a prisão dos MCs de funk Poze do Rodo e Ryan SP\"; defesa: \"desconhecer os autos ou teor do mandado de prisão\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.mpf.mp.br/o-mpf/unidades/pr-sp/noticias/operacao-narco-fluxo-prende-32-envolvidos-em-esquema-bilionario-de-lavagem-de-dinheiro",
+     "veiculo": "MPF em São Paulo",
+     "tipo": "comunicado",
+     "titulo": "Operação Narco Fluxo prende 32 envolvidos em esquema bilionário de lavagem de dinheiro",
+     "data": "2026-04-15",
+     "papel": "sustenta",
+     "trecho": "\"Os mandados foram expedidos pela 5ª Vara Federal de Santos (SP).\"; \"Estima-se que os criminosos tenham movimentado mais de R$ 1,6 bilhão desde 2023\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "D01",
+    "R2-P05"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "narco-fluxo-choquei",
+   "de": "operacao-narco-fluxo",
+   "para": "raphael-sousa-oliveira",
+   "tipo": "investigacao",
+   "rotulo": "Preso na operação; soltura pelo STJ (23/04/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2026-04",
+   "periodo_fim": "2026-04",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Raphael Sousa Oliveira, dono da página Choquei, foi preso em 15/04/2026 na operação da PF que apura transações de R$ 1,6 bilhão (Narco Fluxo). O ministro Messod Azulay Neto, do STJ (HC 1.090.863), mandou soltá-lo em 23/04 por considerar ilegal a temporária de 30 dias. Sem acusação formal.",
+   "resposta": "Defesa: 'seu vínculo com os fatos investigados decorre, exclusivamente, da prestação de serviços publicitários'; ele 'não integra organização criminosa'.",
+   "fontes": [
+    {
+     "url": "https://www.migalhas.com.br/quentes/454487/stj-determina-soltura-do-dono-da-choquei-preso-em-operacao-da-pf",
+     "veiculo": "Migalhas",
+     "tipo": "reportagem",
+     "titulo": "STJ determina soltura do dono da Choquei, preso em operação da PF",
+     "data": "2026-04-23",
+     "papel": "sustenta",
+     "trecho": "\"Ele foi preso no último dia 15 em operação da Polícia Federal que apura supostas transações ilegais de R$ 1,6 bilhão.\"; \"Ministro Messod Azulay, do STJ, determinou nesta quinta-feira, 23, a soltura de Raphael Sousa Oliveira\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/nacional/sudeste/sp/narco-fluxo-entenda-operacao-que-prendeu-mcs-poze-do-rodo-e-ryan-sp",
+     "veiculo": "CNN Brasil",
+     "tipo": "reportagem",
+     "titulo": "Narco Fluxo: entenda operação que prendeu MCs Poze do Rodo e Ryan SP",
+     "data": "2026-04-15",
+     "papel": "sustenta",
+     "trecho": "defesa: \"seu vínculo com os fatos investigados decorre, exclusivamente, da prestação de serviços publicitários\"; \"não integra organização criminosa, não participou de qualquer esquema ilícito\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "D01",
+    "R2-P05"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "ryan-pcc",
+   "de": "mc-ryan-sp",
+   "para": "pcc",
+   "tipo": "investigacao",
+   "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2026-05",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A pedido da PF, o juiz da 5ª Vara Federal de Santos enquadrou MC Ryan SP e todos os investigados da Narco Fluxo na Lei Antifacção, citando 'organizações criminosas ultra violentas (Primeiro Comando da Capital e Comando Vermelho)'. É o vínculo apontado na investigação, tratada pelo juiz como preliminar; ninguém foi formalmente acusado.",
+   "resposta": "A defesa de MC Ryan 'não comentou sobre o enquadramento'; antes disse que os valores 'possuem origem devidamente comprovada'.",
+   "fontes": [
+    {
+     "url": "https://istoedinheiro.com.br/juiz-enquadra-mc-ryan-na-lei-antifaccao-e-aponta-vinculo-ultraviolento-com-pcc-e-cv",
+     "veiculo": "IstoÉ Dinheiro (Estadão)",
+     "tipo": "reportagem",
+     "titulo": "Juiz enquadra MC Ryan na Lei Antifacção e aponta vínculo 'ultraviolento' com PCC e CV",
+     "data": "2026-05-06",
+     "papel": "sustenta",
+     "trecho": "\"enquadrou o MC Ryan SP e todos os investigados na Operação Narco Fluxo na Lei Antifacção, a pedido da Polícia Federal\"; \"organizações criminosas ultra violentas (Primeiro Comando da Capital e Comando Vermelho)\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.metropoles.com/sao-paulo/esquema-mc-ryan-lavou-3t-de-cocaina",
+     "veiculo": "Metrópoles",
+     "tipo": "reportagem",
+     "titulo": "Esquema de MC Ryan lavou 3t de cocaína",
+     "data": "2026-04",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "D02"
+   ],
+   "tweets": [
+    "2044420862506348560",
+    "2044477513238225196",
+    "2052181123145355586"
+   ]
+  },
+  {
+   "id": "ryan-cv",
+   "de": "mc-ryan-sp",
+   "para": "comando-vermelho",
+   "tipo": "investigacao",
+   "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2026-05",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A pedido da PF, o juiz da 5ª Vara Federal de Santos enquadrou MC Ryan SP e todos os investigados da Narco Fluxo na Lei Antifacção, citando 'organizações criminosas ultra violentas (Primeiro Comando da Capital e Comando Vermelho)'. É o vínculo apontado na investigação, tratada pelo juiz como preliminar; ninguém foi formalmente acusado.",
+   "resposta": "A defesa de MC Ryan 'não comentou sobre o enquadramento'; antes disse que os valores 'possuem origem devidamente comprovada'.",
+   "fontes": [
+    {
+     "url": "https://istoedinheiro.com.br/juiz-enquadra-mc-ryan-na-lei-antifaccao-e-aponta-vinculo-ultraviolento-com-pcc-e-cv",
+     "veiculo": "IstoÉ Dinheiro (Estadão)",
+     "tipo": "reportagem",
+     "titulo": "Juiz enquadra MC Ryan na Lei Antifacção e aponta vínculo 'ultraviolento' com PCC e CV",
+     "data": "2026-05-06",
+     "papel": "sustenta",
+     "trecho": "\"enquadrou o MC Ryan SP e todos os investigados na Operação Narco Fluxo na Lei Antifacção, a pedido da Polícia Federal\"; \"organizações criminosas ultra violentas (Primeiro Comando da Capital e Comando Vermelho)\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.metropoles.com/sao-paulo/esquema-mc-ryan-lavou-3t-de-cocaina",
+     "veiculo": "Metrópoles",
+     "tipo": "reportagem",
+     "titulo": "Esquema de MC Ryan lavou 3t de cocaína",
+     "data": "2026-04",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "D02"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "ryan-deolane",
+   "de": "mc-ryan-sp",
+   "para": "deolane-bezerra",
+   "tipo": "financeira",
+   "rotulo": "R$ 430 mil de produtora ligada ao MC (PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2025-05",
+   "periodo_fim": "2025-06",
+   "valor_brl": 430000,
+   "valor_texto": null,
+   "descricao": "Na investigação da Narco Fluxo, a PF aponta que Deolane Bezerra movimentou R$ 5,3 milhões em 47 dias (14/05 a 30/06/2025) e, nesse intervalo, recebeu R$ 430 mil da produtora ligada a MC Ryan SP. Neymar e o Instituto Projeto Neymar Jr., que recebeu doação de Deolane, não são alvos.",
+   "resposta": "Deolane diz que o valor foi a venda de um carro a Ryan e que tem rendimentos declarados, notas e contratos.",
+   "fontes": [
+    {
+     "url": "https://diariodopara.com.br/noticias/brasil/pf-investiga-movimentacoes-milionarias-entre-mc-ryan-sp-deolane-e-instituto-ligado-a-neymar",
+     "veiculo": "Diário do Pará",
+     "tipo": "reportagem",
+     "titulo": "PF investiga movimentações milionárias entre MC Ryan SP, Deolane e instituto ligado a Neymar",
+     "data": "2026-04-18",
+     "papel": "sustenta",
+     "trecho": "\"Nesse intervalo, ela recebeu R$ 430 mil da produtora ligada a MC Ryan SP.\"; \"Apesar das transferências, tanto o jogador quanto a instituição social não figuram como alvos diretos da investigação.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.correio24horas.com.br/em-alta/deolane-quebra-o-silencio-sobre-deposito-de-mc-ryan-e-doacao-milionaria-ao-instituto-neymar-jr-0426",
+     "veiculo": "Jornal Correio",
+     "tipo": "reportagem",
+     "titulo": "Deolane quebra o silêncio sobre depósito de MC Ryan e doação milionária ao Instituto Neymar Jr.",
+     "data": "2026-04-20",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "versão de Deolane (venda de carro)"
+    }
+   ],
+   "tarefas": [
+    "D04"
+   ],
+   "tweets": [
+    "2045251401467502815",
+    "2045253028706418829"
+   ]
+  },
+  {
+   "id": "deolane-pcc",
+   "de": "deolane-bezerra",
+   "para": "pcc",
+   "tipo": "juridica",
+   "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2026-05",
+   "periodo_fim": "2026-06",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "O MP-SP (Gaeco) denunciou Deolane Bezerra e Marco Willians Herbas Camacho, o Marcola, líder do PCC, pelo esquema de lavagem de dinheiro e organização criminosa investigado na Operação Vérnix (transportadora); a 3ª Vara de Presidente Venceslau recebeu a denúncia em 16/06/2026. Presa em 21/05/2026, teve habeas corpus de ofício negado por Dino (STF). A denúncia NÃO a qualifica como integrante do PCC; ré não é condenada.",
+   "resposta": "Defesa de Deolane: 'reafirmando que Deolane não faz parte de nenhuma organização criminosa e tampouco cometeu qualquer crime'; o recebimento da denúncia 'é inicial e não implica culpa'. A defesa de Marcola contesta a denúncia.",
+   "fontes": [
+    {
+     "url": "https://www.cnnbrasil.com.br/nacional/brasil/deolane-e-marcola-sao-denunciados-por-esquema-de-lavagem-de-dinheiro",
+     "veiculo": "CNN Brasil",
+     "tipo": "reportagem",
+     "titulo": "Deolane e Marcola são denunciados por esquema de lavagem de dinheiro",
+     "data": "2026-06-10",
+     "papel": "sustenta",
+     "trecho": "\"O Ministério Público de São Paulo denunciou Deolane Bezerra e Marco Willians Herbas Camacho, o Marcola, líder do PCC\" \"pelo esquema de lavagem de dinheiro e organização criminosa investigado na Operação Vérnix.\"; \"reafirmando que Deolane não faz parte de nenhuma organização criminosa e tampouco cometeu qualquer crime\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/nacional/sudeste/sp/justica-torna-deolane-bezerra-re-em-investigacao-contra-marcola-e-pcc",
+     "veiculo": "CNN Brasil",
+     "tipo": "reportagem",
+     "titulo": "Justiça torna Deolane Bezerra ré em investigação contra Marcola e PCC",
+     "data": "2026-06-18",
+     "papel": "sustenta",
+     "trecho": "\"A Justiça de São Paulo aceitou a denúncia oferecida pelo Ministério Público (GAECO) e tornou ré\"; a denúncia \"foi recebida pelo Juízo da 3ª Vara da Comarca de Presidente Venceslau no dia 16 de junho.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.cnnbrasil.com.br/politica/dino-nao-ha-ilegalidade-a-concessao-de-habeas-corpus-de-oficio-a-deolane",
+     "veiculo": "CNN Brasil",
+     "tipo": "reportagem",
+     "titulo": "Dino não vê ilegalidade e nega liberdade a Deolane",
+     "data": "2026-05-24",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "D05",
+    "R2-P06"
+   ],
+   "tweets": [
+    "2057438965595046089",
+    "2060411709186040118",
+    "2059753019038658956",
+    "2067772974569242831",
+    "2093019919625470209",
+    "2078507015991603690",
+    "2058691741247574416",
+    "2057447499753734351",
+    "2057489642107052404",
+    "2057576922465329274",
+    "2067772280093167824"
+   ]
+  },
+  {
+   "id": "victory-buzeira",
+   "de": "victory-trading",
+   "para": "buzeira",
+   "tipo": "financeira",
+   "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
+   "natureza": "reportada",
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2025",
+   "valor_brl": 1300000,
+   "valor_texto": null,
+   "descricao": "Relatórios da Polícia Civil de São Paulo identificaram transferências de R$ 1,3 milhão da Victory Trading, de Victor Shimada, à Buzeira Digital, do influenciador Buzeira, em menos de um mês. Buzeira foi preso em outubro de 2025 na Operação Narco Bet (PF) e solto em agosto de 2026. O MP-SP diz não ter provas de que Shimada lave dinheiro para o PCC.",
+   "resposta": "O advogado de Buzeira anunciou habeas corpus; Shimada não se manifestou. Promotor Lincoln Gakiya: 'também não há provas de que o empresário faça lavagem de dinheiro para a facção'.",
+   "fontes": [
+    {
+     "url": "https://www.gazetasp.com.br/cotidiano/tudo-o-que-se-sabe-sobre-empresario-alvo-de-sancoes-dos-eua-e-as-ligacoes-com-corinthians-buzeira-e-investigacoes-sobre-o-pcc",
+     "veiculo": "Gazeta de S. Paulo",
+     "tipo": "reportagem",
+     "titulo": "Tudo o que se sabe sobre empresário alvo de sanções dos EUA e as ligações com Corinthians, Buzeira e investigações sobre o PCC",
+     "data": "2026-07-02",
+     "papel": "sustenta",
+     "trecho": "\"A Polícia Civil também identificou transferências da Victory Trading para a Buzeira Digital\"; \"Segundo os relatórios, foram repassados R$ 1,3 milhão em menos de um mês.\"; \"Segundo ele, também não há provas de que o empresário faça lavagem de dinheiro para a facção.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.bnewssaopaulo.com.br/amp/noticias/entretenimento/investigado-por-lavagem-de-dinheiro-do-pcc-buzeira-e-solto-apos-10-meses-na-prisao.html",
+     "veiculo": "BNews",
+     "tipo": "reportagem",
+     "titulo": "Investigado por lavagem de dinheiro do PCC, Buzeira é solto após 10 meses na prisão",
+     "data": "2026-08-17",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "D07"
+   ],
+   "tweets": [
+    "2073490745550426181",
+    "2072670355450138856",
+    "2089430561924296852",
+    "2092213672974135794"
+   ]
+  },
+  {
+   "id": "careca-victory",
+   "de": "antonio-carlos-camilo-antunes",
+   "para": "victory-trading",
+   "tipo": "financeira",
+   "rotulo": "R$ 514,5 mi dentro do esquema do Careca do INSS (CPMI)",
+   "natureza": "reportada",
+   "temas": [
+    "inss",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2023",
+   "periodo_fim": "2024",
+   "valor_brl": 514500000,
+   "valor_texto": null,
+   "descricao": "Segundo relatório da CPMI do INSS citado pela Band, a Victory Trading recebeu R$ 514,5 milhões dentro do esquema do Careca do INSS, em repasses da Wave Intermediações. A Victory foi sancionada pelo Tesouro dos EUA em julho de 2026.",
+   "resposta": "A matéria não traz manifestação de defesa.",
+   "fontes": [
+    {
+     "url": "https://www.band.com.br/noticias/jornal-da-band/ultimas/empresa-sancionada-por-elo-com-o-pcc-recebeu-r-514-mi-desviados-do-inss-202607022037",
+     "veiculo": "Band (Jornal da Band)",
+     "tipo": "reportagem",
+     "titulo": "Empresa sancionada por elo com o PCC recebeu R$ 514 mi desviados do INSS",
+     "data": "2026-07-02",
+     "papel": "sustenta",
+     "trecho": "\"recebeu R$ 514,5 milhões dentro do esquema do Careca do INSS\"; \"O relatório da CPMI aponta que a empresa recebeu repasses de outra companhia, a Wave Intermediações\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "D08"
+   ],
+   "tweets": [
+    "2072348393322471906",
+    "2072678200425980326",
+    "2074867961420984642"
+   ]
+  },
+  {
+   "id": "ofac-victory",
+   "de": "tesouro-dos-eua-ofac",
+   "para": "victory-trading",
+   "tipo": "juridica",
+   "rotulo": "Sanções do Tesouro dos EUA por suposto elo com o PCC (jul/2026)",
+   "natureza": "reportada",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2026-07",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "O OFAC, do Departamento do Tesouro dos EUA, sancionou em julho de 2026 Victor Shimada e empresas da rede dele, entre elas a Victory Trading, por suposta ligação com o PCC; a medida bloqueia bens sob jurisdição americana. O MP-SP diz não ter informações que liguem Shimada à facção.",
+   "resposta": "MP-SP (promotor Lincoln Gakiya): 'também não há provas de que o empresário faça lavagem de dinheiro para a facção'. Shimada não se manifestou.",
+   "fontes": [
+    {
+     "url": "https://www.band.com.br/noticias/jornal-da-band/ultimas/empresa-sancionada-por-elo-com-o-pcc-recebeu-r-514-mi-desviados-do-inss-202607022037",
+     "veiculo": "Band (Jornal da Band)",
+     "tipo": "reportagem",
+     "titulo": "Empresa sancionada por elo com o PCC recebeu R$ 514 mi desviados do INSS",
+     "data": "2026-07-02",
+     "papel": "sustenta",
+     "trecho": "\"A companhia foi alvo do Departamento do Tesouro americano\"; \"A medida bloqueia todos os bens e interesses dos alvos sob jurisdição dos EUA.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.gazetasp.com.br/cotidiano/tudo-o-que-se-sabe-sobre-empresario-alvo-de-sancoes-dos-eua-e-as-ligacoes-com-corinthians-buzeira-e-investigacoes-sobre-o-pcc",
+     "veiculo": "Gazeta de S. Paulo",
+     "tipo": "reportagem",
+     "titulo": "Tudo o que se sabe sobre empresário alvo de sanções dos EUA e as ligações com Corinthians, Buzeira e investigações sobre o PCC",
+     "data": "2026-07-02",
+     "papel": "sustenta",
+     "trecho": "\"O Escritório de Controle de Ativos Estrangeiros (OFAC), ligado ao Departamento do Tesouro dos EUA,\"; \"Segundo ele, também não há provas de que o empresário faça lavagem de dinheiro para a facção.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://jovempan.com.br/mundo/quem-sao-os-brasileiros-sancionados-por-trump-por-suposta-ligacao-com-o-pcc",
+     "veiculo": "Jovem Pan",
+     "tipo": "reportagem",
+     "titulo": "Quem são os brasileiros sancionados por Trump por suposta ligação com o PCC",
+     "data": "2026-07-01",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "D08"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "poncio-pf",
+   "de": "pf",
+   "para": "marcio-poncio",
+   "tipo": "investigacao",
+   "rotulo": "Preso na 5ª fase da Op. Unha e Carne (02/07/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2026-07",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A PF prendeu o pastor Márcio Poncio em 02/07/2026 na 5ª fase da Operação Unha e Carne, com ordem de Alexandre de Moraes (STF); a fase apura lavagem por organização criminosa. A operação começou investigando vazamento de informações sigilosas sobre operações contra o Comando Vermelho. O papel dele não é detalhado.",
+   "resposta": "O Poder360 não obteve resposta nem contato da defesa.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/saiba-quem-e-marcio-poncio-pastor-preso-pela-pf",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "Saiba quem é Márcio Poncio, pastor preso pela PF",
+     "data": "2026-07-02",
+     "papel": "sustenta",
+     "trecho": "\"A Polícia Federal prendeu nesta 5ª feira (2.jul.2026) o pastor Márcio Poncio durante a 5ª fase da operação Unha e Carne\"; \"A operação investigava, no início, um possível vazamento de informações sigilosas sobre operações policiais contra o CV\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "D11",
+    "F04"
+   ],
+   "tweets": [
+    "2072669386805035223"
+   ]
+  },
+  {
+   "id": "th-joias-cv",
+   "de": "th-joias",
+   "para": "comando-vermelho",
+   "tipo": "juridica",
+   "rotulo": "Réu na Justiça Federal por envolvimento com o CV (denúncia do MPF)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2025-09",
+   "periodo_fim": "2026-09",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "TH Joias, ex-deputado estadual no Rio, preso na Operação Zargun (set/2025), virou réu na Justiça Federal (TRF) após denúncia do MPF por organização criminosa, tráfico de drogas e de armas e corrupção; o MPF sustenta que o grupo mantinha conexões com o Comando Vermelho. Réu, não condenado.",
+   "resposta": "A matéria não traz manifestação da defesa; antes, ela negou 'peremptoriamente' participação em vazamento a organização criminosa (SBT News, fev/2026).",
+   "fontes": [
+    {
+     "url": "https://www.brasildefato.com.br/2026/09/12/th-joias-ex-deputado-no-rio-vira-reu-por-envolvimento-com-cv",
+     "veiculo": "Brasil de Fato (Agência Brasil)",
+     "tipo": "reportagem",
+     "titulo": "TH Joias, ex-deputado no Rio, vira réu por envolvimento com CV",
+     "data": "2026-09-12",
+     "papel": "sustenta",
+     "trecho": "\"virou réu na Justiça Federal por suspeita de envolvimento com o Comando Vermelho (CV)\"; \"Após investigações, ele foi denunciado à Justiça pelo Ministério Público Federal (MPF).\"; \"O MPF sustenta que o grupo mantinha conexões com o CV\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "E01"
+   ],
+   "tweets": [
+    "2105012368480817441",
+    "2098201503353680356"
+   ]
+  },
+  {
+   "id": "bacellar-th-joias",
+   "de": "rodrigo-bacellar",
+   "para": "th-joias",
+   "tipo": "investigacao",
+   "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2025-12",
+   "periodo_fim": "2026-08",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A PGR denunciou Rodrigo Bacellar (presidente afastado da Alerj), TH Joias e o desembargador federal Macário Ramos Júdice Neto por suposta obstrução e vazamento de investigações sobre lideranças do Comando Vermelho (Operação Zargun); a PF já os indiciara em fevereiro de 2026. Em 19/08/2026 a Primeira Turma do STF (relator Moraes) recebeu a denúncia por unanimidade e os tornou réus. Réus, não condenados.",
+   "resposta": "Defesa de Bacellar: a acusação 'está baseada em ilações e narrativas repetidamente refutadas'; 'permanece convicta da futura e justa absolvição de seu constituído'.",
+   "fontes": [
+    {
+     "url": "https://jovempan.com.br/noticias/politica/pgr-denuncia-th-joias-bacellar-e-desembargador-em-investigacao-sobre-o-cv.html",
+     "veiculo": "Jovem Pan (Estadão)",
+     "tipo": "reportagem",
+     "titulo": "PGR denuncia TH Joias, Bacellar e desembargador em investigação sobre o CV",
+     "data": "2026-03-16",
+     "papel": "sustenta",
+     "trecho": "\"A Procuradoria-Geral da República (PGR) denunciou o presidente afastado da Assembleia Legislativa do Rio, Rodrigo Bacellar\" \"o ex-deputado fluminense TH Joias, e o desembargador federal Macário Ramos Júdice Neto\" \"por suposta obstrução e vazamento de investigações que envolvem lideranças do Comando Vermelho\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.itatiaia.com.br/politica/stf-torna-bacellar-e-th-joias-reus-por-vazamento-de-informacoes",
+     "veiculo": "Itatiaia (CNN Brasil)",
+     "tipo": "reportagem",
+     "titulo": "STF torna Bacellar e TH Joias réus por vazamento de informações",
+     "data": "2026-08-19",
+     "papel": "sustenta",
+     "trecho": "\"A Primeira Turma do STF (Supremo Tribunal Federal) decidiu por unanimidade, nesta quarta-feira (19), tornar réus\"; \"Com isso, o placar chegou a 3 a 0.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.brasildefato.com.br/2026/03/16/pgr-denuncia-rodrigo-bacellar-e-th-joias-por-obstruir-investigacoes-de-grupos-criminosos",
+     "veiculo": "Brasil de Fato",
+     "tipo": "reportagem",
+     "titulo": "PGR denuncia Rodrigo Bacellar e TH Joias por obstruir investigações de grupos criminosos",
+     "data": "2026-03-16",
+     "papel": "sustenta",
+     "trecho": "cita \"obstrução de investigação ligada ao Comando Vermelho (CV)\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://sbtnews.sbt.com.br/noticia/politica/th-joias-e-rodrigo-bacellar-sao-indiciados-pela-pf-por-vazamento-de-informacoes-a-faccao",
+     "veiculo": "SBT News",
+     "tipo": "reportagem",
+     "titulo": "TH Joias e Rodrigo Bacellar são indiciados pela PF por suspeita de vazamento de informações a facção",
+     "data": "2026-02-27",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    },
+    {
+     "url": "https://www.opovo.com.br/noticias/politica/2025/12/03/rodrigo-bacellar-presidente-da-alerj-e-preso-por-suspeita-de-vazar-informacoes-de-operacao.html",
+     "veiculo": "O Povo (Estadão)",
+     "tipo": "reportagem",
+     "titulo": "Rodrigo Bacellar, presidente da Alerj, é preso por suspeita de vazar informações de operação",
+     "data": "2025-12-03",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "E02",
+    "F04",
+    "R2-P07"
+   ],
+   "tweets": [
+    "1996237424670773517",
+    "2027464863694393486",
+    "2111267206214390110",
+    "2028187180015714743",
+    "2031025046467055944",
+    "1998169370116468911",
+    "2072669386805035223"
+   ]
+  },
+  {
+   "id": "macario-th-joias",
+   "de": "macario-judice",
+   "para": "th-joias",
+   "tipo": "investigacao",
+   "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2025-12",
+   "periodo_fim": "2026-08",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A PGR denunciou Rodrigo Bacellar (presidente afastado da Alerj), TH Joias e o desembargador federal Macário Ramos Júdice Neto por suposta obstrução e vazamento de investigações sobre lideranças do Comando Vermelho (Operação Zargun); a PF já os indiciara em fevereiro de 2026. Em 19/08/2026 a Primeira Turma do STF (relator Moraes) recebeu a denúncia por unanimidade e os tornou réus. Réus, não condenados.",
+   "resposta": "Defesa de Macário Júdice: 'ilações e conjecturas'; disse que Moraes 'foi induzido ao erro' ao ordenar a prisão. TH Joias sem manifestação.",
+   "fontes": [
+    {
+     "url": "https://jovempan.com.br/noticias/politica/pgr-denuncia-th-joias-bacellar-e-desembargador-em-investigacao-sobre-o-cv.html",
+     "veiculo": "Jovem Pan (Estadão)",
+     "tipo": "reportagem",
+     "titulo": "PGR denuncia TH Joias, Bacellar e desembargador em investigação sobre o CV",
+     "data": "2026-03-16",
+     "papel": "sustenta",
+     "trecho": "\"A Procuradoria-Geral da República (PGR) denunciou o presidente afastado da Assembleia Legislativa do Rio, Rodrigo Bacellar\" \"o ex-deputado fluminense TH Joias, e o desembargador federal Macário Ramos Júdice Neto\" \"por suposta obstrução e vazamento de investigações que envolvem lideranças do Comando Vermelho\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.itatiaia.com.br/politica/stf-torna-bacellar-e-th-joias-reus-por-vazamento-de-informacoes",
+     "veiculo": "Itatiaia (CNN Brasil)",
+     "tipo": "reportagem",
+     "titulo": "STF torna Bacellar e TH Joias réus por vazamento de informações",
+     "data": "2026-08-19",
+     "papel": "sustenta",
+     "trecho": "\"A Primeira Turma do STF (Supremo Tribunal Federal) decidiu por unanimidade, nesta quarta-feira (19), tornar réus\"; \"Com isso, o placar chegou a 3 a 0.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.congressoemfoco.com.br/noticia/114929/pf-prende-desembargador-no-rj-por-vazar-dados-de-operacao-sigilosa",
+     "veiculo": "Congresso em Foco",
+     "tipo": "reportagem",
+     "titulo": "PF prende desembargador no RJ por vazar dados de operação sigilosa",
+     "data": "2025-12-16",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "E03",
+    "F04",
+    "R2-P07"
+   ],
+   "tweets": [
+    "2028187180015714743",
+    "2031025046467055944"
+   ]
+  },
+  {
+   "id": "senival-pcc",
+   "de": "senival-moura",
+   "para": "pcc",
+   "tipo": "investigacao",
+   "rotulo": "Preso na Op. Última Parada (lavagem do PCC na Transunião); solto por HC",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2026-06",
+   "periodo_fim": "2026-08",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "O vereador paulistano Senival Moura (então no PT) foi preso em 25/06/2026 na Operação Última Parada, da Polícia Civil com o MP-SP, sobre suposto esquema de lavagem de dinheiro do PCC por meio da frota de ônibus da Transunião, sobre cuja administração financeira ele teria influência. A desembargadora Carla Rahal Benedetti (TJ-SP) concedeu habeas corpus em agosto. Investigado, sem denúncia conhecida.",
+   "resposta": "Defesa: a decisão do TJ-SP 'reconheceu a inexistência de fundamentos atuais, concretos e individualizados'; ele se diz à disposição das autoridades. Pediu afastamento do PT.",
+   "fontes": [
+    {
+     "url": "https://diariodotransporte.com.br/2026/08/05/justica-manda-soltar-vereador-senival-moura-investigado-em-operacao-sobre-suposto-esquema-de-lavagem-de-dinheiro-do-pcc-na-transuniao",
+     "veiculo": "Diário do Transporte",
+     "tipo": "reportagem",
+     "titulo": "Justiça manda soltar vereador Senival Moura, investigado em operação sobre suposto esquema de lavagem de dinheiro do PCC na Transunião",
+     "data": "2026-08-05",
+     "papel": "sustenta",
+     "trecho": "título: \"Justiça manda soltar vereador Senival Moura, investigado em operação sobre suposto esquema de lavagem de dinheiro do PCC na Transunião\"; \"Senival Moura foi preso no âmbito da Operação Última Parada\"; \"A decisão foi proferida pela desembargadora Carla Rahal Benedetti, da 11ª Câmara Criminal do TJ-SP,\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.gazetasp.com.br/?p=277232",
+     "veiculo": "Gazeta de S. Paulo",
+     "tipo": "reportagem",
+     "titulo": "Quem é o vereador de SP preso em operação que mira lavagem de dinheiro do PCC em frota de ônibus",
+     "data": "2026-06-25",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "E05",
+    "R2-P08"
+   ],
+   "tweets": [
+    "2070175265301332054",
+    "2070315914390646804"
+   ]
+  },
+  {
+   "id": "uldurico-pce",
+   "de": "uldurico-junior",
+   "para": "pce",
+   "tipo": "investigacao",
+   "rotulo": "Réu por suspeita de negociar fuga de presos do PCE (Op. Duas Rosas)",
+   "natureza": "investigacao",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2024-12",
+   "periodo_fim": "2026-07",
+   "valor_brl": 2000000,
+   "valor_texto": "R$ 2 mi (suposta propina, segundo o MP-BA)",
+   "descricao": "O Gaeco do MP-BA (Operação Duas Rosas) prendeu preventivamente em 16/04/2026 o ex-deputado federal Uldurico Júnior, suspeito de ter articulado com organização criminosa a fuga de 16 presos do Conjunto Penal de Eunápolis em dezembro de 2024, entre eles 'Dadá', liderança do PCE (Primeiro Comando de Eunápolis), recebendo R$ 2 milhões. Em 23/07/2026 o juiz da 1ª Vara Criminal de Eunápolis negou liberdade provisória ao réu. Detalhes da negociação vêm de delação da ex-diretora do presídio (versão de colaboradora).",
+   "resposta": "A defesa pediu liberdade provisória, negada; o Poder360 não localizou a defesa.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-seguranca-publica/ex-deputado-e-preso-por-suspeita-de-articular-fuga-de-presos-na-ba",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "Ex-deputado é preso por suspeita de articular fuga de presos na BA",
+     "data": "2026-04-16",
+     "papel": "sustenta",
+     "trecho": "\"Ele é investigado por suspeita de ter articulado com organização criminosa a fuga de presos do Conjunto Penal de Eunápolis.\"; \"em que receberia R$ 2 milhões para facilitar a fuga.\"; \"Ednaldo Pereira de Souza, conhecido como Dadá, identificado como liderança do PCE (Primeiro Comando de Eunápolis)\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.bahianoticias.com.br/justica/noticia/75007-justica-baiana-mantem-prisao-preventiva-de-ex-deputado-uldurico-junior-relembre-historico-da-prisao",
+     "veiculo": "Bahia Notícias",
+     "tipo": "reportagem",
+     "titulo": "Justiça baiana mantém prisão preventiva de ex-deputado Uldurico Júnior",
+     "data": "2026-07-27",
+     "papel": "sustenta",
+     "trecho": "\"A decisão, do último dia 23 de julho, negou o pedido de liberdade provisória solicitado pela defesa do réu.\"; \"O autor da negativa foi o juiz Otaviano Andrade Sobrinho, da 1ª Vara Criminal de Eunápolis\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "E08",
+    "R2-P10"
+   ],
+   "tweets": [
+    "2044788625221779824"
+   ]
+  },
+  {
+   "id": "tse-cabedelo",
+   "de": "tse",
+   "para": "andre-luis-almeida-coutinho",
+   "tipo": "juridica",
+   "rotulo": "Cassação mantida por abuso de poder político e econômico (07/04/2026)",
+   "natureza": "documentada",
+   "temas": [
+    "financiamento-politico",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2026-04-07",
+   "periodo_fim": "2026-04-07",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "O TSE (relator Villas Bôas Cueva, AREspE 0600409-84.2024.6.15.0057) manteve a cassação do prefeito de Cabedelo (PB), André Luís Almeida Coutinho, e da vice, Camila Lucena, por abuso de poder político e econômico na eleição de 2024, acolhendo parecer do MP Eleitoral. A ligação com a facção 'Tropa do Amigão', braço do Comando Vermelho, é narrativa do MP Eleitoral, não do acórdão (não aberto).",
+   "resposta": "As defesas recorreram e os recursos foram negados; os argumentos não são descritos na nota.",
+   "fontes": [
+    {
+     "url": "https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/tse-acolhe-pedido-do-mp-eleitoral-e-cassa-prefeito-de-cabedelo-pb-envolvido-com-faccao-criminosa",
+     "veiculo": "MPF/PGR (Secom)",
+     "tipo": "comunicado",
+     "titulo": "TSE acolhe pedido do MP Eleitoral e cassa prefeito de Cabedelo (PB) envolvido com facção criminosa",
+     "data": "2026-04-07",
+     "papel": "sustenta",
+     "trecho": "\"manteve a cassação do prefeito de Cabedelo, André Luís Almeida Coutinho, e da vice, Camila Lucena\"; \"o relator do caso, ministro Villas Bôas Cueva, acolheu parecer do MP Eleitoral para negar os recursos\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.conjur.com.br/2026-mai-21/impacto-de-faccao-infiltrada-em-prefeitura-gera-abuso-de-poder-politico",
+     "veiculo": "Conjur",
+     "tipo": "reportagem",
+     "titulo": "Impacto eleitoral de facção infiltrada em prefeitura gera abuso de poder",
+     "data": "2026-05-21",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "E07",
+    "R2-P09"
+   ],
+   "tweets": [
+    "2042246686328651783"
+   ]
+  },
+  {
+   "id": "eua-pcc",
+   "de": "departamento-de-estado-eua",
+   "para": "pcc",
+   "tipo": "juridica",
+   "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
+   "natureza": "documentada",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2026-05-28",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "O Departamento de Estado dos EUA anunciou em 28/05/2026 a designação do PCC e do Comando Vermelho como organizações terroristas (Specially Designated Global Terrorists e lista de FTO), com vigência a partir de 05/06/2026, após publicação no Federal Register. Registro na nota oficial da Comissão de Relações Exteriores e de Defesa Nacional da Câmara (texto opinativo de parlamentar) e no Money Times.",
+   "resposta": "Itamaraty, em ofício a parlamentares (A Crítica, contexto): a classificação 'não traz ganhos concretos para a cooperação' e medidas unilaterais não devem avançar sobre a soberania nacional.",
+   "fontes": [
+    {
+     "url": "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/credn/noticias/nota-oficial-designacao-do-pcc-e-cv-como-terroristas-pelos-eua",
+     "veiculo": "Câmara dos Deputados (CREDN)",
+     "tipo": "comunicado",
+     "titulo": "Nota oficial - designação do PCC e CV como terroristas pelos EUA",
+     "data": "2026-05-28",
+     "papel": "sustenta",
+     "trecho": "\"designar como organizações terroristas o Primeiro Comando da Capital (PCC) e o Comando Vermelho (CV), na data de hoje.\"; \"com vigência a partir de 5 de junho de 2026.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.moneytimes.com.br/eua-classificam-pcc-e-cv-como-organizacoes-terroristas-medida-entra-em-vigor-em-junho-vtra",
+     "veiculo": "Money Times",
+     "tipo": "reportagem",
+     "titulo": "EUA classificam PCC e CV como organizações terroristas; medida entra em vigor em junho",
+     "data": "2026-05-29",
+     "papel": "sustenta",
+     "trecho": "\"passa a valer oficialmente em 5 de junho, após publicação no Federal Register.\"; \"Specially Designated Global Terrorists\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://acritica.net/politica/itamaraty-risco-eua-brasil",
+     "veiculo": "A Crítica (Campo Grande)",
+     "tipo": "reportagem",
+     "titulo": "Itamaraty vê risco de ação dos EUA no Brasil após PCC e CV virarem alvo de lei antiterror",
+     "data": "2026-07-06",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "R2-E09"
+   ],
+   "tweets": [
+    "2060130225749377534",
+    "2074184243530309827",
+    "2072691025353609515",
+    "2059393365095928007",
+    "2046248890723107058",
+    "2037638605493915850",
+    "1983673293602423028",
+    "1985524234941038667"
+   ]
+  },
+  {
+   "id": "eua-cv",
+   "de": "departamento-de-estado-eua",
+   "para": "comando-vermelho",
+   "tipo": "juridica",
+   "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
+   "natureza": "documentada",
+   "temas": [
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2026-05-28",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "O Departamento de Estado dos EUA anunciou em 28/05/2026 a designação do PCC e do Comando Vermelho como organizações terroristas (Specially Designated Global Terrorists e lista de FTO), com vigência a partir de 05/06/2026, após publicação no Federal Register. Registro na nota oficial da Comissão de Relações Exteriores e de Defesa Nacional da Câmara (texto opinativo de parlamentar) e no Money Times.",
+   "resposta": "Itamaraty, em ofício a parlamentares (A Crítica, contexto): a classificação 'não traz ganhos concretos para a cooperação' e medidas unilaterais não devem avançar sobre a soberania nacional.",
+   "fontes": [
+    {
+     "url": "https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/credn/noticias/nota-oficial-designacao-do-pcc-e-cv-como-terroristas-pelos-eua",
+     "veiculo": "Câmara dos Deputados (CREDN)",
+     "tipo": "comunicado",
+     "titulo": "Nota oficial - designação do PCC e CV como terroristas pelos EUA",
+     "data": "2026-05-28",
+     "papel": "sustenta",
+     "trecho": "\"designar como organizações terroristas o Primeiro Comando da Capital (PCC) e o Comando Vermelho (CV), na data de hoje.\"; \"com vigência a partir de 5 de junho de 2026.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.moneytimes.com.br/eua-classificam-pcc-e-cv-como-organizacoes-terroristas-medida-entra-em-vigor-em-junho-vtra",
+     "veiculo": "Money Times",
+     "tipo": "reportagem",
+     "titulo": "EUA classificam PCC e CV como organizações terroristas; medida entra em vigor em junho",
+     "data": "2026-05-29",
+     "papel": "sustenta",
+     "trecho": "\"passa a valer oficialmente em 5 de junho, após publicação no Federal Register.\"; \"Specially Designated Global Terrorists\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://acritica.net/politica/itamaraty-risco-eua-brasil",
+     "veiculo": "A Crítica (Campo Grande)",
+     "tipo": "reportagem",
+     "titulo": "Itamaraty vê risco de ação dos EUA no Brasil após PCC e CV virarem alvo de lei antiterror",
+     "data": "2026-07-06",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "R2-E09"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "psdb-cnm",
+   "de": "psdb",
+   "para": "cnm-aviacao",
+   "tipo": "contratual",
+   "rotulo": "R$ 551,7 mil por táxi aéreo (2022, dados do TSE)",
+   "natureza": "reportada",
+   "temas": [
+    "financiamento-politico",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2022",
+   "periodo_fim": "2022",
+   "valor_brl": 551700,
+   "valor_texto": null,
+   "descricao": "Dados do TSE citados pela Revista Oeste: em 2022 o PSDB Nacional pagou R$ 551,7 mil e o PSD de Minas Gerais R$ 555,4 mil à CNM Aviação, táxi aéreo administrado por uma pessoa que o MPF denunciou em 2023 por formação de quadrilha (Operação Flight Level, cocaína para a Europa). Pagamento de campanha por serviço; nenhum partido é investigado.",
+   "resposta": "PSDB: 'contratou, em 2022, uma empresa de táxi aéreo com CNPJ ativo, regular e com autorização para operar', sem vínculo com investigados.",
+   "fontes": [
+    {
+     "url": "https://revistaoeste.com/politica/psdb-e-psd-pagaram-r-11-mi-a-empresa-de-aliada-de-traficante-em-mg",
+     "veiculo": "Revista Oeste",
+     "tipo": "reportagem",
+     "titulo": "PSDB e PSD pagaram R$ 1,1 mi a empresa de aliada de traficante em MG",
+     "data": "2026-06-29",
+     "papel": "sustenta",
+     "trecho": "\"O PSDB Nacional pagou R$ 551,7 mil, e o PSD de Minas Gerais destinou R$ 555,4 mil à empresa.\"; \"O Ministério Público Federal (MPF) denunciou Juliana em 2023 por formação de quadrilha.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    },
+    {
+     "url": "https://www.metropoles.com/colunas/andreza-matais/taxi-aereo-investigado-por-trafico-recebeu-r-244-mil-de-campanhas",
+     "veiculo": "Metrópoles (coluna)",
+     "tipo": "reportagem",
+     "titulo": "Táxi aéreo investigado por tráfico recebeu R$ 244 mil de campanhas",
+     "data": "2026-06-20",
+     "papel": "contexto",
+     "literal": false,
+     "nota": "sem trecho literal conferido: só contexto"
+    }
+   ],
+   "tarefas": [
+    "E10"
+   ],
+   "tweets": [
+    "2071580194561724782"
+   ]
+  },
+  {
+   "id": "psd-cnm",
+   "de": "psd",
+   "para": "cnm-aviacao",
+   "tipo": "contratual",
+   "rotulo": "R$ 555,4 mil por táxi aéreo (PSD-MG, 2022, dados do TSE)",
+   "natureza": "reportada",
+   "temas": [
+    "financiamento-politico",
+    "crime-organizado"
+   ],
+   "periodo_inicio": "2022",
+   "periodo_fim": "2022",
+   "valor_brl": 555400,
+   "valor_texto": null,
+   "descricao": "Dados do TSE citados pela Revista Oeste: em 2022 o PSDB Nacional pagou R$ 551,7 mil e o PSD de Minas Gerais R$ 555,4 mil à CNM Aviação, táxi aéreo administrado por uma pessoa que o MPF denunciou em 2023 por formação de quadrilha (Operação Flight Level, cocaína para a Europa). Pagamento de campanha por serviço; nenhum partido é investigado.",
+   "resposta": "PSD: contratou 'depois de análise rigorosa do CNPJ e demais dados'; 'Não se verificou, à época, nenhuma irregularidade.'",
+   "fontes": [
+    {
+     "url": "https://revistaoeste.com/politica/psdb-e-psd-pagaram-r-11-mi-a-empresa-de-aliada-de-traficante-em-mg",
+     "veiculo": "Revista Oeste",
+     "tipo": "reportagem",
+     "titulo": "PSDB e PSD pagaram R$ 1,1 mi a empresa de aliada de traficante em MG",
+     "data": "2026-06-29",
+     "papel": "sustenta",
+     "trecho": "\"O PSDB Nacional pagou R$ 551,7 mil, e o PSD de Minas Gerais destinou R$ 555,4 mil à empresa.\"; \"O Ministério Público Federal (MPF) denunciou Juliana em 2023 por formação de quadrilha.\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "E10"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "frias-icb",
+   "de": "mario-frias",
+   "para": "instituto-conhecer-brasil",
+   "tipo": "financeira",
+   "rotulo": "Emendas sob suspeita de desvio (~R$ 2 mi; decisão de Dino)",
+   "natureza": "investigacao",
+   "temas": [
+    "financiamento-politico",
+    "caso-master"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2025",
+   "valor_brl": null,
+   "valor_texto": "~R$ 2 mi (ICB e Academia Nacional de Cultura, segundo a CGU)",
+   "descricao": "Na decisão de 10/09/2026 que retirou o sigilo da operação ligada ao filme Dark Horse, Flávio Dino diz que as diligências indicam possível desvio de recursos públicos por organização criminosa que incluiria o deputado Mario Frias, com emendas parlamentares repassadas ao Instituto Conhecer Brasil e à Academia Nacional de Cultura, presididos por Karina Gama, dona da Go Up; a CGU estima cerca de R$ 2 milhões. Investigação.",
+   "resposta": "Frias nega irregularidades (Agência Estado, 13/09/2026); a Gazeta do Povo não traz manifestação dele.",
+   "fontes": [
+    {
+     "url": "https://www.gazetadopovo.com.br/republica/dino-indicios-desvio-recursos-frias-dark-horse",
+     "veiculo": "Gazeta do Povo",
+     "tipo": "reportagem",
+     "titulo": "Dino diz haver indícios de desvio de recursos por Frias a organizações ligadas a \"Dark Horse\"",
+     "data": "2026-09-10",
+     "papel": "sustenta",
+     "trecho": "\"As diligências preliminares indicam a possível ocorrência de crimes, notadamente desvios de recursos públicos\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "R2-D04"
+   ],
+   "tweets": []
+  },
+  {
+   "id": "stf-lulinha",
+   "de": "stf",
+   "para": "lulinha",
+   "tipo": "investigacao",
+   "rotulo": "Inquéritos autorizados por Mendonça (30/07) e Dino (04/08/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2026-07",
+   "periodo_fim": "2026-08",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "André Mendonça autorizou a PF a abrir inquérito sobre suposta corrupção e tráfico de influência ligados à autorização da comercialização de cannabis medicinal em programas do Ministério da Saúde; Flávio Dino autorizou um terceiro inquérito sobre ações de aliados de Lulinha em outros órgãos federais e mandou apurar os vazamentos. Investigado, sem denúncia.",
+   "resposta": "Defesa de Lulinha: 'não irá comentar concretamente nem avaliar o grau de ilegalidade de um inquérito do qual não teve nenhum conhecimento'; reclama de vazamentos.",
+   "fontes": [
+    {
+     "url": "https://www.em.com.br/politica/2026/07/7471147-stf-autoriza-investigacao-da-pf-contra-lulinha-por-trafico-de-influencia.html",
+     "veiculo": "Estado de Minas (Folhapress)",
+     "tipo": "reportagem",
+     "titulo": "STF autoriza investigação da PF contra Lulinha por tráfico de influência",
+     "data": "2026-07-30",
+     "papel": "sustenta",
+     "trecho": "\"O ministro André Mendonça, do STF (Supremo Tribunal Federal), autorizou a Polícia Federal a abrir um inquérito\"; \"na autorização da comercialização de cannabis medicinal, em programas ligados ao Ministério da Saúde\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.opovo.com.br/noticias/politica/2026/08/04/dino-autoriza-pf-a-abrir-terceiro-inquerito-sobre-lulinha-e-tambem-manda-investigar-vazamentos.html",
+     "veiculo": "O Povo (Agência Estado)",
+     "tipo": "reportagem",
+     "titulo": "Dino autoriza PF a abrir terceiro inquérito sobre Lulinha e também manda investigar vazamentos",
+     "data": "2026-08-04",
+     "papel": "sustenta",
+     "trecho": "\"A terceira investigação tem o objetivo de apurar ações de aliados de Lulinha em outros órgãos do governo federal.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-E01"
+   ],
+   "tweets": [
+    "2082947106151559530",
+    "2084659022527963190",
+    "2084377366227214681",
+    "2111549730505609369"
+   ]
+  },
+  {
+   "id": "luchsinger-lulinha",
+   "de": "roberta-luchsinger",
+   "para": "lulinha",
+   "tipo": "financeira",
+   "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
+   "natureza": "investigacao",
+   "temas": [
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2025",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "Mensagens obtidas pela PF em telefones apreendidos na Operação Sem Desconto, citadas em relatório da PF: a lobista Roberta Luchsinger diz a Lulinha que o futuro dos dois era 'a Suíça', fala em 'minha sociedade com Fábio e Fernando' e, segundo os investigadores, pagava despesas do filho do presidente, apontado como beneficiário indireto das articulações. Investigação; sem denúncia.",
+   "resposta": "Defesa de Lulinha: não comentará 'fragmentos de informações sigilosas indevidamente divulgadas fora de seu contexto original'; nega ter recebido dinheiro. Luchsinger descreveu a relação à PF como amizade.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/lobista-disse-a-lulinha-que-o-futuro-de-ambos-era-a-suica",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "Lobista disse a Lulinha que o futuro de ambos era \"a Suíça\"",
+     "data": "2026-08-17",
+     "papel": "sustenta",
+     "trecho": "\"os 2 discutiam onde seria melhor receber e guardar dinheiro para ficar fora do radar da Receita Federal.\"; \"A conversa foi identificada pela PF em dados extraídos de telefones apreendidos durante a operação Sem Desconto\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://www.dgabc.com.br/Noticia/4342421/pf-aponta-lulinha-como-beneficiario-indireto-de-negociacoes-de-lobista-com-empresarios",
+     "veiculo": "Diário do Grande ABC (Agência Estado)",
+     "tipo": "reportagem",
+     "titulo": "Lulinha é apontado como beneficiário de negociações com lobista",
+     "data": "2026-08-21",
+     "papel": "sustenta",
+     "trecho": "\"Na minha sociedade com Fábio e Fernando.\"; \"que a lobista era responsável por pagar despesas do filho do presidente da República\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/mensagens-de-lobista-citam-grana-no-fabio-e-pagamento-de-r-268-mil-a-agencia-usada-por-lulinha",
+     "veiculo": "Times Brasil (CNBC)",
+     "tipo": "reportagem",
+     "titulo": "Mensagens de lobista citam \"grana no Fábio\" e pagamento a agência usada por Lulinha",
+     "data": "2026-09-24",
+     "papel": "sustenta",
+     "trecho": "\"Tenho almoço no cidade jardim. De lá vc pegará Uber , deixará grana no Fábio e pega o outro carro\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-E02"
+   ],
+   "tweets": [
+    "2103101519860220329",
+    "2089848625983582288",
+    "2089342767751184470",
+    "2084771370475339846",
+    "2091305376121557307",
+    "2105044063149826245",
+    "2103189203089588588",
+    "2102800211210903621",
+    "2102803719544795501",
+    "2092022908633690277",
+    "2105297770324140530",
+    "2104269351243374971"
+   ]
+  },
+  {
+   "id": "luchsinger-swedenberger",
+   "de": "roberta-luchsinger",
+   "para": "swedenberger-barbosa",
+   "tipo": "pessoal",
+   "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
+   "natureza": "reportada",
+   "temas": [
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2024-12",
+   "periodo_fim": "2024-12",
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A PF analisa mensagens de dezembro de 2024 sobre um quadro que a lobista teria dado a Swedenberger Barbosa, então secretário-executivo do Ministério da Saúde ('Excepcional!!! Muuuito obrigado', escreveu ele em 20/12/2024). O relatório da PF descreve possível núcleo para intermediar interesses privados na Saúde, incluindo um projeto de cannabis de R$ 627 milhões que não foi contratado.",
+   "resposta": "Swedenberger Barbosa: 'A informação de que recebeu o quadro não procede.' Ministério da Saúde: as iniciativas 'não tiveram encaminhamento nem repercussão na pasta'.",
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/caso-lulinha-pf-analisa-mensagens-sobre-quadro-que-lobista-teria-dado-ao-entao-no-2-da-saude",
+     "veiculo": "Times Brasil (CNBC; apuração de O Globo)",
+     "tipo": "reportagem",
+     "titulo": "Caso Lulinha: PF analisa mensagens sobre quadro que lobista teria dado ao então nº 2 da Saúde",
+     "data": "2026-08-28",
+     "papel": "sustenta",
+     "trecho": "\"Excepcional!!! Muuuito obrigado\" (Barbosa, 20/12/2024); \"A informação de que recebeu o quadro não procede\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/investigacao-sobre-lulinha-aponta-tres-tentativas-de-negocios-bilionarios-no-ministerio-da-saude",
+     "veiculo": "Times Brasil (CNBC)",
+     "tipo": "reportagem",
+     "titulo": "Investigação sobre Lulinha aponta três tentativas de negócios bilionários no Ministério da Saúde",
+     "data": "2026-08-25",
+     "papel": "sustenta",
+     "trecho": "\"Relatório da PF aponta elementos de um possível núcleo coordenado para intermediar interesses privados\"; \"O valor projetado chegava a R$ 627 milhões.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-E03"
+   ],
+   "tweets": [
+    "2086876912262025389",
+    "2093457136986521745",
+    "2103091535328010379",
+    "2092212636037345474",
+    "2092730043826876568",
+    "2094262919814955190",
+    "2090918451736887406"
+   ]
+  },
+  {
+   "id": "luchsinger-marco-aurelio",
+   "de": "roberta-luchsinger",
+   "para": "marco-aurelio-santana-ribeiro",
+   "tipo": "financeira",
+   "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
+   "natureza": "reportada",
+   "temas": [
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2024",
+   "periodo_fim": "2025",
+   "valor_brl": 9200,
+   "valor_texto": null,
+   "descricao": "Marco Aurélio Santana Ribeiro, ex-chefe de gabinete pessoal de Lula, apelidado Marcola (HOMÔNIMO: não é o líder do PCC). Segundo O Globo (via Poder360), Luchsinger quitou fatura de R$ 9,2 mil por duas joias para o Dia das Mães de 2024 a pedido dele; em inquérito sigiloso no STF, Lulinha, a lobista e ele são suspeitos de atuar pela Unigel junto à Petrobras (consultoria com success fee de R$ 25 milhões).",
+   "resposta": "Defesa de Marco Aurélio: 'limitou-se a dar encaminhamentos institucionais'. Unigel: 'nunca manteve relação contratual' com Roberta. Petrobras: nenhum diretor tratou do assunto com eles. Defesa de Luchsinger: mensagens 'provenientes de vazamentos criminosos'.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/lobista-ligada-a-lulinha-comprou-joias-para-marcola-diz-jornal",
+     "veiculo": "Poder360 (cita O Globo)",
+     "tipo": "reportagem",
+     "titulo": "Lobista ligada a Lulinha comprou joias para Marcola, diz jornal",
+     "data": "2026-08-16",
+     "papel": "sustenta",
+     "trecho": "\"Marco Aurélio Santana Ribeiro (à dir.), o Marcola, ex-chefe de Gabinete do presidente Lula\"; \"a fatura de R$ 9,2 mil foi quitada por Luchsinger\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    },
+    {
+     "url": "https://timesbrasil.com.br/brasil/lulinha-lobista-e-marcola-sao-suspeitos-de-atuar-em-favor-da-unigel-em-negociacao-com-a-petrobras",
+     "veiculo": "Times Brasil (CNBC)",
+     "tipo": "reportagem",
+     "titulo": "Lulinha, lobista e Marcola são suspeitos de atuar em favor da Unigel em negociação com a Petrobras",
+     "data": "2026-09-26",
+     "papel": "sustenta",
+     "trecho": "\"As informações aparecem em um inquérito sob sigilo no Supremo Tribunal Federal (STF)\"; \"uma consultoria que previa R$ 100 mil e mais R$ 25 milhões caso fosse obtido um financiamento\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-E04"
+   ],
+   "tweets": [
+    "2089343321562833185",
+    "2090919099874292076",
+    "2090965876237304287",
+    "2103508761872638353",
+    "2111083689577009294",
+    "2086540928475377802",
+    "2102586547421798730"
+   ]
+  },
+  {
+   "id": "quesede-luchsinger",
+   "de": "quesede-ayres",
+   "para": "roberta-luchsinger",
+   "tipo": "financeira",
+   "rotulo": "R$ 570 mil durante aval da União a empréstimo de Goiânia (comprovantes)",
+   "natureza": "reportada",
+   "temas": [
+    "trafico-de-influencia"
+   ],
+   "periodo_inicio": "2024-08",
+   "periodo_fim": "2024-09",
+   "valor_brl": 570000,
+   "valor_texto": null,
+   "descricao": "Segundo o Metrópoles (via Times Brasil), Roberta Luchsinger recebeu ao menos R$ 570 mil, em quatro valores, entre 21/08 e 04/09/2024, durante a tramitação do aval da União a um empréstimo de Goiânia (concedido em 30/08/2024); os comprovantes foram enviados pelo então secretário-executivo de Saúde do município, Quesede Ayres. O sentido e a natureza dos pagamentos não estão esclarecidos.",
+   "resposta": "Ex-prefeito Rogério Cruz: não conhece Roberta Luchsinger. Ministério da Fazenda: 'Contatos sociais não têm qualquer relação com esse rito técnico'. Ayres e Luchsinger não responderam.",
+   "fontes": [
+    {
+     "url": "https://timesbrasil.com.br/brasil/lobista-amiga-de-lulinha-recebeu-r-570-mil-durante-tramitacao-de-aval-da-uniao-a-emprestimo-de-goiania",
+     "veiculo": "Times Brasil (CNBC, cita Metrópoles)",
+     "tipo": "reportagem",
+     "titulo": "Lobista amiga de Lulinha recebeu R$ 570 mil durante tramitação de aval da União a empréstimo de Goiânia",
+     "data": "2026-09-27",
+     "papel": "sustenta",
+     "trecho": "\"Roberta Luchsinger recebeu ao menos R$ 570 mil entre 21 de agosto e 4 de setembro de 2024\"; \"A União concedeu o aval em 30 de agosto de 2024.\"",
+     "literal": true,
+     "rodada_trecho": 2,
+     "nota": "trecho literal da 2ª rodada (WebFetch, 20-21/10/2026)"
+    }
+   ],
+   "tarefas": [
+    "R2-E06"
+   ],
+   "tweets": [
+    "2103933940348404002",
+    "2104269351243374971",
+    "2102799114807255320"
+   ]
+  },
+  {
+   "id": "pf-stefanutto",
+   "de": "pf",
+   "para": "alessandro-stefanutto",
+   "tipo": "investigacao",
+   "rotulo": "Indiciado no esquema de descontos do INSS (jul/2026)",
+   "natureza": "investigacao",
+   "temas": [
+    "inss"
+   ],
+   "periodo_inicio": "2026-07",
+   "periodo_fim": null,
+   "valor_brl": null,
+   "valor_texto": null,
+   "descricao": "A PF indiciou 48 pessoas pelo esquema de descontos em aposentadorias e pensões do INSS; o relatório foi entregue ao STF em 10/07/2026. Entre os indiciados estão o ex-presidente do INSS Alessandro Stefanutto e o lobista Antônio Carlos Camilo Antunes, o Careca do INSS. Cabe à PGR denunciar ou arquivar.",
+   "resposta": "Stefanutto não se manifestou na matéria; a defesa do Careca do INSS 'ainda não vai se manifestar sobre o indiciamento'.",
+   "fontes": [
+    {
+     "url": "https://www.poder360.com.br/poder-justica/pf-indicia-careca-do-inss-e-mais-47-por-descontos-em-aposentadorias",
+     "veiculo": "Poder360",
+     "tipo": "reportagem",
+     "titulo": "PF indicia Careca do INSS e mais 47 por descontos em aposentadorias",
+     "data": "2026-07-14",
+     "papel": "sustenta",
+     "trecho": "\"A Polícia Federal indiciou 48 pessoas investigadas pelo esquema de descontos em aposentadorias\"; \"Entre os indiciados estão o ex-presidente do INSS Alessandro Stefanutto\"",
+     "literal": true,
+     "rodada_trecho": 3,
+     "nota": "conferido via WebFetch em 21/10/2026 (3ª rodada, trecho literal)"
+    }
+   ],
+   "tarefas": [
+    "R2-E11"
+   ],
+   "tweets": [
+    "2077169269851242870",
+    "2097786482928779383"
+   ]
+  }
+ ],
+ "desfechos": [
+  {
+   "tarefa": "A01",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:entre-acx",
+    "x:acx-pcc"
+   ],
+   "nota": "Fonte é o relatório da Polícia Civil-SP (Op. Saturno) via Metrópoles/JB, não PF/MP/Coaf.",
+   "tweets": [
+    "2074510365837111674"
+   ]
+  },
+  {
+   "tarefa": "A02",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Destinos do Coaf não nomeados (4 alvos da Carbono Oculto e 1 da Mafiusi); sem trecho literal conferido; relação sem 'para' identificável.",
+   "tweets": [
+    "2055323412780745043"
+   ]
+  },
+  {
+   "tarefa": "A03",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-trustee",
+    "x:trustee-mourad"
+   ],
+   "nota": "Atualizado pela 2ª rodada (R2-P01): liquidação pelo BC em 03/09/2026.",
+   "tweets": [
+    "2098779899280429555"
+   ]
+  },
+  {
+   "tarefa": "A04",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Nenhuma peça liga o Máxima a remessa de US$ 531 mi para empresa ligada a PCC/Hezbollah.",
+   "tweets": [
+    "2018321993687249167"
+   ]
+  },
+  {
+   "tarefa": "A05",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:pcc-vorcaro-protecao"
+   ],
+   "nota": "Hipótese da PF (possível mobilização), não acusação.",
+   "tweets": [
+    "2099574410889818498"
+   ]
+  },
+  {
+   "tarefa": "A06",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:beto-louco-alcolumbre"
+   ],
+   "nota": "Fato de agosto de 2024 (não 2025); mensagens vistas pelo UOL, sem documento da PF.",
+   "tweets": [
+    "1997373111130370271"
+   ]
+  },
+  {
+   "tarefa": "A07",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[220].r[0]"
+   ],
+   "nota": "Divergência contábil já coberta pela relação Havengate→Go Up do banco; o 'filme do Lula' é alegação bloqueada (ver R2-B08).",
+   "tweets": [
+    "2111557400713171214",
+    "2098589100643115249",
+    "2077772274858393741",
+    "2111531541830455461",
+    "2111258755425804462",
+    "2111972975255679303"
+   ]
+  },
+  {
+   "tarefa": "A08",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[219].r[0]"
+   ],
+   "nota": "Delação do Mineiro homologada em 09/09/2026 (R2-B01): versão do colaborador; o fato já está no banco (Entre→Havengate).",
+   "tweets": [
+    "2111519203089879512"
+   ]
+  },
+  {
+   "tarefa": "A09",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[31].r[0]"
+   ],
+   "nota": "Já no banco (A Turma); Vorcaro nega ter ordenado ataques.",
+   "tweets": [
+    "2095553413526303213",
+    "2067019290746757618",
+    "2111525503119065477"
+   ]
+  },
+  {
+   "tarefa": "A10",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:viviane-vieira-acao"
+   ],
+   "nota": "Ação de danos morais; não há relação documentada entre o escritório e o PCC.",
+   "tweets": [
+    "2033569275714195868"
+   ]
+  },
+  {
+   "tarefa": "A11",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Parecer da PGR contra o pedido de Moraes não encontrado.",
+   "tweets": [
+    "2112295585667752405"
+   ]
+  },
+  {
+   "tarefa": "A12",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Não pesquisado (cota da 1ª rodada).",
+   "tweets": [
+    "2111186501446873214"
+   ]
+  },
+  {
+   "tarefa": "A13",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Não pesquisado (cota da 1ª rodada).",
+   "tweets": [
+    "2112650984207880505"
+   ]
+  },
+  {
+   "tarefa": "A15",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-planalto"
+   ],
+   "nota": "Citação de Noleto/Padilha é alegação em proposta de delação rejeitada e não vira relação; entram só as entradas no Planalto (R2-B07).",
+   "tweets": [
+    "2111097327905632656",
+    "2111087250549145739"
+   ]
+  },
+  {
+   "tarefa": "A16",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[173].r[0]"
+   ],
+   "nota": "Master→Consult já no banco.",
+   "tweets": [
+    "2110813775570096291",
+    "2110807336852111798",
+    "2110811145128849517"
+   ]
+  },
+  {
+   "tarefa": "B01",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:master-prioli"
+   ],
+   "nota": "Alegação de terceiro (mensagens); Prioli nega.",
+   "tweets": [
+    "2111533760759926959",
+    "2111165897234907459"
+   ]
+  },
+  {
+   "tarefa": "B02",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Consultor sem cargo público e sem peça formal que o nomeie; 'prêmio' condicional sem prova de pagamento; Folha nega.",
+   "tweets": [
+    "2111246596742517068"
+   ]
+  },
+  {
+   "tarefa": "B03",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-metropoles-textos"
+   ],
+   "nota": "Acusação contra a Folha não encontrada.",
+   "tweets": [
+    "2111248927932756058",
+    "2111210602408378849",
+    "2111133230279586170",
+    "2111249671301853327"
+   ]
+  },
+  {
+   "tarefa": "B04",
+   "rodada": 1,
+   "status_pesquisa": "refutado",
+   "status": "refutado",
+   "relacoes": [],
+   "nota": "A matéria sobre a Fictor alterada a pedido de Vorcaro era do Metrópoles, não da Folha.",
+   "tweets": [
+    "2112202094530683242"
+   ]
+  },
+  {
+   "tarefa": "B05",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[301].r[0]"
+   ],
+   "nota": "Master→Globo já no banco; demissão de Kachar é contexto.",
+   "tweets": [
+    "2111262021350285709",
+    "2111112565824917987",
+    "2110844748160246172"
+   ]
+  },
+  {
+   "tarefa": "B06",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Jornalistas citados como 'controlados' por terceiro contestam; R$ 9,9 mi a Léo Dias (Coaf) sem trecho literal conferido.",
+   "tweets": [
+    "2111556651132019103",
+    "2111556057763852293"
+   ]
+  },
+  {
+   "tarefa": "B07",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-marcal"
+   ],
+   "nota": "Sem pagamento documentado a Marçal.",
+   "tweets": [
+    "2112527119427510696",
+    "2112536093971091822",
+    "2112709116145664370"
+   ]
+  },
+  {
+   "tarefa": "B08",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Mensagem de Vorcaro ('Fechei já Anitta...') sem contrato nem resposta dos citados; não conferida literalmente.",
+   "tweets": [
+    "2106499455419891793",
+    "2035031118160785809"
+   ]
+  },
+  {
+   "tarefa": "B09",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:augusto-wagner-ingressos"
+   ],
+   "nota": "Corrigido pela 2ª rodada: o relatório da PF ficou público em 30/07/2026.",
+   "tweets": [
+    "2067633267335946558"
+   ]
+  },
+  {
+   "tarefa": "C01",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Nota técnica da Fazenda e R$ 258 mi na Foggo não encontrados.",
+   "tweets": [
+    "2112538125671043546"
+   ]
+  },
+  {
+   "tarefa": "C02",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Operação de 04/08/2026 contra Willer é da frente INSS e não envolve Flávio; inquérito sobre Flávio por lavagem/evasão não encontrado.",
+   "tweets": [
+    "2112185567261741187"
+   ]
+  },
+  {
+   "tarefa": "C03",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:cathedral-flavio-voos",
+    "x:willer-cathedral"
+   ],
+   "nota": null,
+   "tweets": [
+    "2111157085409071610"
+   ]
+  },
+  {
+   "tarefa": "C04",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:pf-willer-bets"
+   ],
+   "nota": "Diálogos com concierge e saques sem reconhecimento facial não confirmados.",
+   "tweets": [
+    "2105089735857152508",
+    "2105269834736959566",
+    "2112184791345053793"
+   ]
+  },
+  {
+   "tarefa": "C05",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:willer-stj"
+   ],
+   "nota": null,
+   "tweets": [
+    "2111526470195536199"
+   ]
+  },
+  {
+   "tarefa": "C06",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:cathedral-flavio-voos",
+    "x:willer-cathedral"
+   ],
+   "nota": "A Rede Loto não é investigada 'por ligação a Flávio': o vínculo é a Cathedral, sua acionista.",
+   "tweets": [
+    "2112508867829489908"
+   ]
+  },
+  {
+   "tarefa": "C07",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:blaze-virginia"
+   ],
+   "nota": null,
+   "tweets": [
+    "2061842024739872953",
+    "2078177423200272506",
+    "2075378142575817162",
+    "2080655161748328672"
+   ]
+  },
+  {
+   "tarefa": "C08",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Ação do MP-SP sobre Marília não encontrada.",
+   "tweets": [
+    "2112350358412636364"
+   ]
+  },
+  {
+   "tarefa": "C09",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:yury-jonas"
+   ],
+   "nota": "Reportagem única; convênios não conferidos (R2-P04).",
+   "tweets": [
+    "2068716349367492978"
+   ]
+  },
+  {
+   "tarefa": "C10",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Reportagem TAB/UOL sobre R$ 13,7 mi em notas não localizada.",
+   "tweets": [
+    "2112690625283862665",
+    "2112697286996394162"
+   ]
+  },
+  {
+   "tarefa": "D01",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "confirmado",
+   "relacoes": [
+    "x:narco-fluxo-ryan",
+    "x:narco-fluxo-poze",
+    "x:narco-fluxo-choquei"
+   ],
+   "nota": "Investigação: ninguém formalmente acusado.",
+   "tweets": [
+    "2044380971076624587",
+    "2044430578263445915",
+    "2044596054205600086",
+    "2047380970563604529"
+   ]
+  },
+  {
+   "tarefa": "D02",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:ryan-pcc",
+    "x:ryan-cv"
+   ],
+   "nota": "Vínculo com PCC/CV apontado na investigação; sem acusação formal.",
+   "tweets": [
+    "2044420862506348560",
+    "2044477513238225196",
+    "2052181123145355586"
+   ]
+  },
+  {
+   "tarefa": "D03",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Restaurante Bololô não verificado.",
+   "tweets": [
+    "2059992495832907893"
+   ]
+  },
+  {
+   "tarefa": "D04",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:ryan-deolane"
+   ],
+   "nota": "Neymar e o Instituto não são alvos (ver F06).",
+   "tweets": [
+    "2045251401467502815",
+    "2045253028706418829"
+   ]
+  },
+  {
+   "tarefa": "D05",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:deolane-pcc"
+   ],
+   "nota": "Corrigido (R2-P06): denunciada por lavagem e organização criminosa; NÃO 'integrante do PCC'.",
+   "tweets": [
+    "2057438965595046089",
+    "2060411709186040118",
+    "2059753019038658956",
+    "2067772974569242831",
+    "2093019919625470209",
+    "2078507015991603690",
+    "2058691741247574416"
+   ]
+  },
+  {
+   "tarefa": "D07",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:victory-buzeira"
+   ],
+   "nota": "MP-SP diz não haver prova de lavagem para o PCC por Shimada.",
+   "tweets": [
+    "2073490745550426181",
+    "2072670355450138856",
+    "2089430561924296852",
+    "2092213672974135794"
+   ]
+  },
+  {
+   "tarefa": "D08",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:careca-victory",
+    "x:ofac-victory"
+   ],
+   "nota": "Soltura de Stella Stefanie não verificada.",
+   "tweets": [
+    "2072348393322471906",
+    "2072678200425980326",
+    "2074867961420984642"
+   ]
+  },
+  {
+   "tarefa": "D09",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Operação contra o braço financeiro do CV com Oruam e família só em listagem de busca; prisão pela PF em out/2026 não conferida; parentesco não é relação.",
+   "tweets": [
+    "2112247196993360078",
+    "2112170166935277684",
+    "2031726814633054418"
+   ]
+  },
+  {
+   "tarefa": "D10",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Não pesquisado (cota).",
+   "tweets": [
+    "2083603428610101636",
+    "2018734017047347476",
+    "2110412067630977080"
+   ]
+  },
+  {
+   "tarefa": "D11",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:poncio-pf"
+   ],
+   "nota": "Papel de Poncio na fase não detalhado.",
+   "tweets": [
+    "2072669386805035223"
+   ]
+  },
+  {
+   "tarefa": "D12",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Busca da PF a Alexandre Pires só em listagem de busca; Cariani não pesquisado.",
+   "tweets": [
+    "1996586617390191061",
+    "2102854318798025018"
+   ]
+  },
+  {
+   "tarefa": "E01",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:th-joias-cv"
+   ],
+   "nota": "Denúncia do MPF (não do MP-RJ) na Justiça Federal.",
+   "tweets": [
+    "2105012368480817441",
+    "2098201503353680356"
+   ]
+  },
+  {
+   "tarefa": "E02",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:bacellar-th-joias"
+   ],
+   "nota": "Corrigido (R2-P07): réus no STF em 19/08/2026.",
+   "tweets": [
+    "1996237424670773517",
+    "2027464863694393486",
+    "2111267206214390110"
+   ]
+  },
+  {
+   "tarefa": "E03",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:macario-th-joias"
+   ],
+   "nota": "Fabrizio Romano preso 'sob suspeita no caso' sem detalhe: não vira relação; contato com Temer não encontrado.",
+   "tweets": [
+    "2028187180015714743",
+    "2031025046467055944"
+   ]
+  },
+  {
+   "tarefa": "E04",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Ney Santos: o inquérito de 2012 sobre lavagem para o PCC foi arquivado em 19/06/2023 por falta de indícios; 'acusado pelo MP' sem peça.",
+   "tweets": [
+    "2107878538120487166"
+   ]
+  },
+  {
+   "tarefa": "E05",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:senival-pcc"
+   ],
+   "nota": null,
+   "tweets": [
+    "2070175265301332054"
+   ]
+  },
+  {
+   "tarefa": "E06",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Vereadores de Sobral presos por 'pedágio' ao CV: nenhuma reportagem aberta.",
+   "tweets": [
+    "2087342714769621121"
+   ]
+  },
+  {
+   "tarefa": "E07",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:tse-cabedelo"
+   ],
+   "nota": "Abuso de poder político e econômico; facção só na narrativa do MP Eleitoral.",
+   "tweets": [
+    "2042246686328651783"
+   ]
+  },
+  {
+   "tarefa": "E08",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "parcial",
+   "relacoes": [
+    "x:uldurico-pce"
+   ],
+   "nota": null,
+   "tweets": [
+    "2044788625221779824"
+   ]
+  },
+  {
+   "tarefa": "E09",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Salvino Oliveira solto em dois dias (base 'bastante precário' para o TJ-RJ); PTK sem peça que o ligue a facção.",
+   "tweets": [
+    "2031725748008939636",
+    "2062285805003980822"
+   ]
+  },
+  {
+   "tarefa": "E10",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:psdb-cnm",
+    "x:psd-cnm"
+   ],
+   "nota": "Pagamento por serviço; nenhum partido investigado.",
+   "tweets": [
+    "2071580194561724782"
+   ]
+  },
+  {
+   "tarefa": "E11",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Leonardo Avalanche é réu por associação criminosa, ameaça e violência política de gênero; não há acusação formal de ligação com o PCC.",
+   "tweets": [
+    "2090420324403736870",
+    "2090144647754494336"
+   ]
+  },
+  {
+   "tarefa": "E12",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Afastado de comissão partidária por parentesco com Marcinho VP; sem peça criminal (parentesco não é relação).",
+   "tweets": [
+    "2019033620762312909"
+   ]
+  },
+  {
+   "tarefa": "F01",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:entre-acx",
+    "x:acx-pcc",
+    "x:vorcaro-trustee"
+   ],
+   "nota": "Cruzamento com Carbono Oculto, Narco Fluxo e Deolane não confirmado.",
+   "tweets": [
+    "2098779899280429555",
+    "2074510365837111674",
+    "2055323412780745043",
+    "2044380971076624587"
+   ]
+  },
+  {
+   "tarefa": "F02",
+   "rodada": 1,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": "Nenhum documento liga Victory/Wave/Pixwave/Stella Stefanie a Master, Reag ou BK Bank.",
+   "tweets": [
+    "2072348393322471906",
+    "2072678200425980326",
+    "2018321993687249167",
+    "2060169419028889901"
+   ]
+  },
+  {
+   "tarefa": "F03",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-betbet"
+   ],
+   "nota": "Ponte de bets entre frentes não confirmada; só a participação de Vorcaro na Bet.Bet (Valor).",
+   "tweets": [
+    "2106499455419891793",
+    "2112538125671043546",
+    "2045251401467502815",
+    "2072670355450138856",
+    "2112508867829489908"
+   ]
+  },
+  {
+   "tarefa": "F04",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:bacellar-th-joias",
+    "x:macario-th-joias",
+    "x:poncio-pf"
+   ],
+   "nota": null,
+   "tweets": [
+    "1996237424670773517",
+    "2028187180015714743",
+    "2031025046467055944",
+    "1998169370116468911",
+    "2072669386805035223"
+   ]
+  },
+  {
+   "tarefa": "F05",
+   "rodada": 1,
+   "status_pesquisa": "parcial",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Decisões bloqueiam vínculo com facção: Kataguiri (TJDFT condenou Jones Manoel), PT × Rafael Nery (liminar), 'Marcola' homônimo (Taka); Van Hattem parcial; Renan Santos sem PCC.",
+   "tweets": [
+    "2099307581227373051",
+    "2094800969728946582",
+    "2059051282124460116",
+    "1991285211225608225",
+    "2004552059794882592"
+   ]
+  },
+  {
+   "tarefa": "F06",
+   "rodada": 1,
+   "status_pesquisa": "confirmado",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Neymar e o Instituto Projeto Neymar Jr. não são alvos (Diário do Pará); doação de Deolane não vira relação.",
+   "tweets": [
+    "2045253028706418829",
+    "2092213672974135794",
+    "2044792470471426116"
+   ]
+  },
+  {
+   "tarefa": "R2-P01",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-trustee",
+    "x:trustee-mourad"
+   ],
+   "nota": null,
+   "tweets": [
+    "2098779899280429555"
+   ]
+  },
+  {
+   "tarefa": "R2-P02",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:augusto-wagner-ingressos"
+   ],
+   "nota": "Relatório público em 30/07/2026, não 18/06.",
+   "tweets": [
+    "2067633267335946558",
+    "2067629159191306287",
+    "2067645062121447705",
+    "2083000859344957526",
+    "2082997361106694462",
+    "2083003128434032652"
+   ]
+  },
+  {
+   "tarefa": "R2-P03",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:cathedral-flavio-voos",
+    "x:willer-cathedral"
+   ],
+   "nota": "Folhapress, sem 2º veículo independente.",
+   "tweets": [
+    "2111157085409071610"
+   ]
+  },
+  {
+   "tarefa": "R2-P04",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "parcial",
+   "relacoes": [
+    "x:yury-jonas"
+   ],
+   "nota": "Não reconferido nesta rodada; vale a reportagem da 1ª.",
+   "tweets": [
+    "2068716349367492978"
+   ]
+  },
+  {
+   "tarefa": "R2-P05",
+   "rodada": 2,
+   "status_pesquisa": "confirmado",
+   "status": "confirmado",
+   "relacoes": [
+    "x:narco-fluxo-ryan",
+    "x:narco-fluxo-poze",
+    "x:narco-fluxo-choquei"
+   ],
+   "nota": "Investigação: ninguém formalmente acusado.",
+   "tweets": [
+    "2044380971076624587",
+    "2044430578263445915",
+    "2044596054205600086",
+    "2047380970563604529",
+    "2044429826488934903",
+    "2047324977276313689",
+    "2047325106733453756",
+    "2047430670339727714",
+    "2047430984610509004",
+    "2052181265625776523",
+    "2054723401135100258",
+    "2054723971287814412",
+    "2044930828069687741"
+   ]
+  },
+  {
+   "tarefa": "R2-P06",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:deolane-pcc"
+   ],
+   "nota": "Denunciada por lavagem e organização criminosa; não 'integrante do PCC'.",
+   "tweets": [
+    "2057438965595046089",
+    "2060411709186040118",
+    "2059753019038658956",
+    "2067772974569242831",
+    "2093019919625470209",
+    "2078507015991603690",
+    "2058691741247574416",
+    "2057447499753734351",
+    "2057489642107052404",
+    "2057576922465329274",
+    "2067772280093167824"
+   ]
+  },
+  {
+   "tarefa": "R2-P07",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:bacellar-th-joias",
+    "x:macario-th-joias"
+   ],
+   "nota": "Réus no STF em 19/08/2026.",
+   "tweets": [
+    "1996237424670773517",
+    "2027464863694393486",
+    "2111267206214390110"
+   ]
+  },
+  {
+   "tarefa": "R2-P08",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:senival-pcc"
+   ],
+   "nota": null,
+   "tweets": [
+    "2070175265301332054",
+    "2070315914390646804"
+   ]
+  },
+  {
+   "tarefa": "R2-P09",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:tse-cabedelo"
+   ],
+   "nota": "Facção só na narrativa do MP Eleitoral.",
+   "tweets": [
+    "2042246686328651783"
+   ]
+  },
+  {
+   "tarefa": "R2-P10",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:uldurico-pce"
+   ],
+   "nota": null,
+   "tweets": [
+    "2044788625221779824"
+   ]
+  },
+  {
+   "tarefa": "R2-P11",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Limite mantido: Neymar e o Instituto não são alvos.",
+   "tweets": [
+    "2045253028706418829",
+    "2092213672974135794",
+    "2044792470471426116"
+   ]
+  },
+  {
+   "tarefa": "R2-A01",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[70].r[0]"
+   ],
+   "nota": "Já no banco; PGR pediu nulidade do relatório.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A02",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A03",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[34].r[0]"
+   ],
+   "nota": "Contrato já no banco; 2º contrato via Viking negado pelo escritório.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A04",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:master-viviane-40mi"
+   ],
+   "nota": "O pagador é o Master (auditoria do BRB).",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A05",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[77].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A06",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Decisão do Conselho Superior do MPF: ato institucional sem ligação nova.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A07",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:toffoli-arleen"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A08",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[173].r[0]"
+   ],
+   "nota": "R$ 500 mil/mês é alegação em mensagens; Kassio e Kevin negam.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A09",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A10",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Gilmar votou contra o Master no precatório; intermediação de Chiquinho Feitosa é alegação.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A11",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:master-dalide"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A12",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[257].r[0]"
+   ],
+   "nota": "Contrato de até R$ 427 mi já no banco.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A13",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-mendonca"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A14",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Nota conjunta STF/PF: ato institucional sem ligação nova.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-A15",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[78].r[0]"
+   ],
+   "nota": "Viagem à Disney ('agrado') em depoimento; a mesada já está no banco.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-B01",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[219].r[0]"
+   ],
+   "nota": "Colaboração homologada (09/09/2026) = versão do colaborador (alegação); fato já no banco.",
+   "tweets": [
+    "2097790753409839544",
+    "2097289730438164553",
+    "2096251277189472277",
+    "2095915045595041865"
+   ]
+  },
+  {
+   "tarefa": "R2-B02",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Colaboração de Mansur não homologada: versão de parte.",
+   "tweets": [
+    "2094147115379196186",
+    "2098058902696820923"
+   ]
+  },
+  {
+   "tarefa": "R2-B03",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Rejeição das propostas de Vorcaro: governa a natureza das alegações, sem relação nova.",
+   "tweets": [
+    "2108611326931238929",
+    "2072013782243586190",
+    "2069560402690592800",
+    "2106203749274267871",
+    "2108672241646870670"
+   ]
+  },
+  {
+   "tarefa": "R2-B04",
+   "rodada": 2,
+   "status_pesquisa": "confirmado",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Propina a grupo de Wagner é alegação em proposta rejeitada; Wagner nega.",
+   "tweets": [
+    "2103504746988323112",
+    "2105416755912843681"
+   ]
+  },
+  {
+   "tarefa": "R2-B05",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Comissão de 10% a Rueda/ACM Neto é alegação em proposta rejeitada; ambos negam.",
+   "tweets": [
+    "2098034955305504946",
+    "2099264577959596071"
+   ]
+  },
+  {
+   "tarefa": "R2-B06",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[67].r[0]",
+    "E[68].r[0]"
+   ],
+   "nota": "Doações já no banco; 'propina' é alegação rejeitada.",
+   "tweets": [
+    "2095627643307901028",
+    "2105376959916322999"
+   ]
+  },
+  {
+   "tarefa": "R2-B07",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-planalto"
+   ],
+   "nota": null,
+   "tweets": [
+    "2111097327905632656",
+    "2111087250549145739",
+    "2110043273439949203"
+   ]
+  },
+  {
+   "tarefa": "R2-B08",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "contra_pista",
+   "relacoes": [],
+   "nota": "Áudio 'Instituto Lula R$ 30 mi': bloqueado (PF e PGR negam que esteja em delação; procuradores suspeitam de gravação ilegal).",
+   "tweets": [
+    "2108588426538660247",
+    "2108612121760018523",
+    "2108644977374794231",
+    "2108631666470146315",
+    "2111972975255679303",
+    "2095627643307901028"
+   ]
+  },
+  {
+   "tarefa": "R2-B09",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "PGR pede arquivamento; relatos de Vorcaro são versão de parte.",
+   "tweets": [
+    "2095278309877715021",
+    "2095630310968820204",
+    "2095288408608223389",
+    "2099306645037703670",
+    "2100020364633882797",
+    "2102464800248701326",
+    "2101002257697226821",
+    "2066984947106087281"
+   ]
+  },
+  {
+   "tarefa": "R2-C01",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[46].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C02",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[62].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C03",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:tirreno-brb"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C04",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-ciro-viagens"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C05",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[49].r[1]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C06",
+   "rodada": 2,
+   "status_pesquisa": "confirmado",
+   "status": "confirmado",
+   "relacoes": [
+    "x:fux-alcolumbre"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C07",
+   "rodada": 2,
+   "status_pesquisa": "refutado",
+   "status": "refutado",
+   "relacoes": [],
+   "nota": "Documento atribuído à PF ('não vê crime' sobre Nikolas) é falso (Aos Fatos): nada entra.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C08",
+   "rodada": 2,
+   "status_pesquisa": "confirmado",
+   "status": "confirmado",
+   "relacoes": [
+    "E[19].r[1]"
+   ],
+   "nota": "Coaf já no banco.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C09",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[236].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C10",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[30].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C11",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[53].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C12",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-C13",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D01",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[33].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D02",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:mendonca-flavio-inquerito"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D03",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[33].r[1]"
+   ],
+   "nota": "Repasse de set/2025 (Coaf via piauí) não conferido literalmente.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D04",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:frias-icb"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D05",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D06",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Notas do escritório de Flávio: trecho não conferido.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D07",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:brb-flavio-financiamento"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D08",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Voo no PP-NLR: custeio a esclarecer; trecho não conferido.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D09",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[308].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D10",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Maluhy é alvo do levantamento, não parte.",
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D11",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-metropoles-textos"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D12",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "E[302].r[0]"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D13",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-D14",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:vorcaro-marilson"
+   ],
+   "nota": null,
+   "tweets": []
+  },
+  {
+   "tarefa": "R2-E01",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:stf-lulinha"
+   ],
+   "nota": null,
+   "tweets": [
+    "2082947106151559530",
+    "2084659022527963190",
+    "2084377366227214681",
+    "2111549730505609369"
+   ]
+  },
+  {
+   "tarefa": "R2-E02",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:luchsinger-lulinha"
+   ],
+   "nota": null,
+   "tweets": [
+    "2103101519860220329",
+    "2089848625983582288",
+    "2089342767751184470",
+    "2084771370475339846",
+    "2091305376121557307",
+    "2105044063149826245",
+    "2103189203089588588",
+    "2102800211210903621",
+    "2102803719544795501",
+    "2092022908633690277",
+    "2105297770324140530",
+    "2104269351243374971"
+   ]
+  },
+  {
+   "tarefa": "R2-E03",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:luchsinger-swedenberger"
+   ],
+   "nota": null,
+   "tweets": [
+    "2086876912262025389",
+    "2093457136986521745",
+    "2103091535328010379",
+    "2092212636037345474",
+    "2092730043826876568",
+    "2094262919814955190",
+    "2090918451736887406"
+   ]
+  },
+  {
+   "tarefa": "R2-E04",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:luchsinger-marco-aurelio"
+   ],
+   "nota": "Homônimo: não é o Marcola do PCC.",
+   "tweets": [
+    "2089343321562833185",
+    "2090919099874292076",
+    "2090965876237304287",
+    "2103508761872638353",
+    "2111083689577009294",
+    "2086540928475377802",
+    "2102586547421798730"
+   ]
+  },
+  {
+   "tarefa": "R2-E05",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "3Structure: destino genérico (seis órgãos), contratos não conferidos.",
+   "tweets": [
+    "2094420186732302774",
+    "2093103064890712324",
+    "2090962666474869006"
+   ]
+  },
+  {
+   "tarefa": "R2-E06",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:quesede-luchsinger"
+   ],
+   "nota": null,
+   "tweets": [
+    "2103933940348404002",
+    "2104269351243374971",
+    "2102799114807255320"
+   ]
+  },
+  {
+   "tarefa": "R2-E07",
+   "rodada": 2,
+   "status_pesquisa": "nao_encontrado",
+   "status": "nao_encontrado",
+   "relacoes": [],
+   "nota": null,
+   "tweets": [
+    "2102019754688962573",
+    "2104529050584662141",
+    "2103103123828965721",
+    "2091174616634892695",
+    "2112304503047201067",
+    "2106371298226016521",
+    "2108609833096155303"
+   ]
+  },
+  {
+   "tarefa": "R2-E08",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Intenção declarada de delação, sem proposta formal.",
+   "tweets": [
+    "2111595842784346361",
+    "2111549730505609369",
+    "2112304503047201067"
+   ]
+  },
+  {
+   "tarefa": "R2-E09",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:eua-pcc",
+    "x:eua-cv"
+   ],
+   "nota": null,
+   "tweets": [
+    "2060130225749377534",
+    "2074184243530309827",
+    "2072691025353609515",
+    "2059393365095928007",
+    "2046248890723107058",
+    "2037638605493915850",
+    "1983673293602423028",
+    "1985524234941038667"
+   ]
+  },
+  {
+   "tarefa": "R2-E10",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "pendente",
+   "relacoes": [],
+   "nota": "Pedido da defesa de Marcola (PCC) por atendimento sem gravação: sem decisão.",
+   "tweets": [
+    "2032147067632562607",
+    "2021234164846977479",
+    "2039462695838024108",
+    "2037186646332805612",
+    "2072681071448044030",
+    "2047327409247055914",
+    "1986106744808870266"
+   ]
+  },
+  {
+   "tarefa": "R2-E11",
+   "rodada": 2,
+   "status_pesquisa": "parcial",
+   "status": "parcial",
+   "relacoes": [
+    "x:pf-stefanutto"
+   ],
+   "nota": null,
+   "tweets": [
+    "2077169269851242870",
+    "2097786482928779383"
+   ]
+  }
+ ],
+ "teia_faccoes": {
+  "descricao": "data/teia-faccoes.json (mesmo formato de data/teia.json): relações dos temas crime-organizado, cultura-e-entretenimento, financiamento-politico e trafico-de-influencia, mais as do caso-master que tocam uma entidade dessas relações que não seja o centro da teia principal (categoria 'hub': Vorcaro e o Master, que trariam a teia inteira do caso). Categorias próprias; entidade fora de `entidades` recebe a do fallback: pelo tipo, depois pela categoria da teia principal, depois o padrão.",
+  "temas": [
+   "crime-organizado",
+   "cultura-e-entretenimento",
+   "financiamento-politico",
+   "trafico-de-influencia"
+  ],
+  "cats": [
+   [
+    "fac",
+    "Facções"
+   ],
+   [
+    "mus",
+    "Música e entretenimento"
+   ],
+   [
+    "inf",
+    "Influenciadores e mídia"
+   ],
+   [
+    "pol",
+    "Política e partidos"
+   ],
+   [
+    "jus",
+    "Justiça e polícia"
+   ],
+   [
+    "bet",
+    "Bets"
+   ],
+   [
+    "din",
+    "Dinheiro e empresas"
+   ]
+  ],
+  "entidades": {
+   "pcc": "fac",
+   "comando-vermelho": "fac",
+   "pce": "fac",
+   "a-turma": "fac",
+   "mc-ryan-sp": "mus",
+   "mc-poze-do-rodo": "mus",
+   "jonas-esticado": "mus",
+   "deolane-bezerra": "inf",
+   "virginia-fonseca": "inf",
+   "buzeira": "inf",
+   "raphael-sousa-oliveira": "inf",
+   "gabriela-prioli": "inf",
+   "pablo-marcal": "inf",
+   "marcio-poncio": "inf",
+   "metropoles-marketing-e-propaganda": "inf",
+   "grupo-globo": "inf",
+   "luciano-huck": "inf",
+   "blaze": "bet",
+   "cathedral": "bet",
+   "bet-bet": "bet",
+   "willer-tomaz": "bet",
+   "pf": "jus",
+   "stf": "jus",
+   "stj": "jus",
+   "tse": "jus",
+   "luiz-fux": "jus",
+   "andre-mendonca": "jus",
+   "dias-toffoli": "jus",
+   "macario-judice": "jus",
+   "operacao-narco-fluxo": "jus",
+   "departamento-de-estado-eua": "jus",
+   "tesouro-dos-eua-ofac": "jus",
+   "marilson-roseno-da-silva": "jus",
+   "viviane-barci-de-moraes": "jus",
+   "dalide-barbosa-alves-correa": "jus",
+   "alexandre-de-moraes": "jus",
+   "flavio-bolsonaro": "pol",
+   "davi-alcolumbre": "pol",
+   "jaques-wagner": "pol",
+   "ciro-nogueira": "pol",
+   "yury-do-paredao": "pol",
+   "th-joias": "pol",
+   "rodrigo-bacellar": "pol",
+   "senival-moura": "pol",
+   "uldurico-junior": "pol",
+   "andre-luis-almeida-coutinho": "pol",
+   "mario-frias": "pol",
+   "psdb": "pol",
+   "psd": "pol",
+   "presidencia-da-republica": "pol",
+   "lulinha": "pol",
+   "roberta-luchsinger": "pol",
+   "swedenberger-barbosa": "pol",
+   "marco-aurelio-santana-ribeiro": "pol",
+   "quesede-ayres": "pol",
+   "alessandro-vieira": "pol",
+   "alessandro-stefanutto": "pol",
+   "daniel-vorcaro": "din",
+   "banco-master": "din",
+   "trustee-dtvm": "din",
+   "mohamad-hussein-mourad": "din",
+   "entre-investimentos-e-participacoes": "din",
+   "acx-itc": "din",
+   "roberto-augusto-leme-da-silva": "din",
+   "tirreno": "din",
+   "brb": "din",
+   "fip-arleen": "din",
+   "augusto-ferreira-lima": "din",
+   "victory-trading": "din",
+   "cnm-aviacao": "din",
+   "antonio-carlos-camilo-antunes": "din",
+   "instituto-conhecer-brasil": "din",
+   "istoe": "inf",
+   "rioprevidencia": "din",
+   "amprev": "din",
+   "ricardo-lewandowski": "jus"
+  },
+  "fallback_categoria_teia": {
+   "pol": "pol",
+   "jus": "jus",
+   "mid": "inf",
+   "pcc": "din",
+   "inss": "din",
+   "reag": "din",
+   "din": "din",
+   "grp": "din",
+   "hub": "din",
+   "lag": "inf",
+   "fam": "pol",
+   "adv": "jus",
+   "usi": "din"
+  },
+  "fallback_tipo": {
+   "organizacao_criminosa": "fac",
+   "operacao_policial": "jus",
+   "orgao_publico": "jus",
+   "partido": "pol",
+   "veiculo_midia": "inf",
+   "igreja": "inf",
+   "escritorio_advocacia": "jus",
+   "empresa": "din",
+   "banco": "din",
+   "fundo": "din",
+   "fundo_previdencia": "din",
+   "associacao": "din"
+  },
+  "fallback_padrao": "din"
+ }
+}

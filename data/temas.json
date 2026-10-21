@@ -10,9 +10,9 @@
    "cor": "#c0392b",
    "ordem": 1,
    "principal": true,
-   "n_relacoes": 367,
+   "n_relacoes": 390,
    "n_eventos": 215,
-   "n_entidades": 212
+   "n_entidades": 221
   },
   {
    "id": "brasil-ano-a-ano",
@@ -23,7 +23,7 @@
    "principal": true,
    "n_relacoes": 472,
    "n_eventos": 282,
-   "n_entidades": 227
+   "n_entidades": 228
   },
   {
    "id": "pares",
@@ -54,9 +54,9 @@
    "cor": "#e08214",
    "ordem": 5,
    "principal": false,
-   "n_relacoes": 17,
+   "n_relacoes": 19,
    "n_eventos": 14,
-   "n_entidades": 26
+   "n_entidades": 28
   },
   {
    "id": "pcc",
@@ -65,9 +65,9 @@
    "cor": "#252525",
    "ordem": 6,
    "principal": false,
-   "n_relacoes": 14,
+   "n_relacoes": 22,
    "n_eventos": 9,
-   "n_entidades": 25
+   "n_entidades": 31
   },
   {
    "id": "brb",
@@ -76,9 +76,9 @@
    "cor": "#1b9e77",
    "ordem": 7,
    "principal": false,
-   "n_relacoes": 29,
+   "n_relacoes": 34,
    "n_eventos": 34,
-   "n_entidades": 42
+   "n_entidades": 46
   },
   {
    "id": "precatorios",
@@ -109,9 +109,9 @@
    "cor": "#4d4d4d",
    "ordem": 10,
    "principal": false,
-   "n_relacoes": 0,
+   "n_relacoes": 27,
    "n_eventos": 0,
-   "n_entidades": 0
+   "n_entidades": 32
   },
   {
    "id": "cultura-e-entretenimento",
@@ -120,9 +120,9 @@
    "cor": "#e7298a",
    "ordem": 11,
    "principal": false,
-   "n_relacoes": 0,
+   "n_relacoes": 17,
    "n_eventos": 0,
-   "n_entidades": 0
+   "n_entidades": 23
   },
   {
    "id": "financiamento-politico",
@@ -131,20 +131,20 @@
    "cor": "#66a61e",
    "ordem": 12,
    "principal": false,
-   "n_relacoes": 0,
+   "n_relacoes": 5,
    "n_eventos": 0,
-   "n_entidades": 0
+   "n_entidades": 9
   },
   {
    "id": "trafico-de-influencia",
    "nome": "Tráfico de influência no governo",
-   "descricao": "Venda de acesso a órgãos federais: Lulinha, Roberta Luchsinger, Marcola (chefe de gabinete), 3Structure e inquéritos da PF (desde 2026).",
+   "descricao": "Venda de acesso a órgãos federais e a autoridades: Lulinha, Roberta Luchsinger, Marcola (chefe de gabinete), 3Structure e inquéritos da PF (desde 2026); e presentes, viagens e favores a autoridades apontados em investigação (pistas do X corroboradas).",
    "cor": "#7a5c99",
    "ordem": 13,
    "principal": false,
-   "n_relacoes": 0,
+   "n_relacoes": 11,
    "n_eventos": 0,
-   "n_entidades": 0
+   "n_entidades": 17
   },
   {
    "id": "a-classificar",
@@ -526,7 +526,30 @@
    364,
    365,
    366,
-   367
+   367,
+   840,
+   841,
+   842,
+   843,
+   844,
+   846,
+   847,
+   848,
+   849,
+   850,
+   851,
+   852,
+   853,
+   854,
+   855,
+   856,
+   857,
+   858,
+   859,
+   860,
+   861,
+   862,
+   890
   ],
   "brasil-ano-a-ano": [
    368,
@@ -1021,7 +1044,9 @@
    182,
    184,
    185,
-   226
+   226,
+   877,
+   896
   ],
   "pcc": [
    144,
@@ -1037,7 +1062,15 @@
    165,
    166,
    168,
-   169
+   169,
+   840,
+   841,
+   843,
+   844,
+   872,
+   875,
+   883,
+   886
   ],
   "brb": [
    44,
@@ -1068,7 +1101,12 @@
    267,
    274,
    281,
-   359
+   359,
+   847,
+   848,
+   852,
+   856,
+   860
   ],
   "precatorios": [
    43,
@@ -1103,10 +1141,74 @@
    29,
    30
   ],
-  "crime-organizado": [],
-  "cultura-e-entretenimento": [],
-  "financiamento-politico": [],
-  "trafico-de-influencia": [],
+  "crime-organizado": [
+   840,
+   841,
+   842,
+   843,
+   844,
+   845,
+   869,
+   870,
+   871,
+   872,
+   873,
+   874,
+   875,
+   876,
+   877,
+   878,
+   879,
+   880,
+   881,
+   882,
+   883,
+   884,
+   885,
+   886,
+   887,
+   888,
+   889
+  ],
+  "cultura-e-entretenimento": [
+   859,
+   860,
+   861,
+   862,
+   863,
+   864,
+   865,
+   867,
+   868,
+   869,
+   870,
+   871,
+   872,
+   873,
+   874,
+   875,
+   876
+  ],
+  "financiamento-politico": [
+   868,
+   885,
+   888,
+   889,
+   890
+  ],
+  "trafico-de-influencia": [
+   845,
+   851,
+   853,
+   858,
+   863,
+   866,
+   891,
+   892,
+   893,
+   894,
+   895
+  ],
   "a-classificar": []
  },
  "eventos": {
@@ -1770,6 +1872,7 @@
   "caso-master": [
    "a-turma",
    "acm-neto",
+   "acx-itc",
    "agro-industrial-tabu",
    "agu",
    "alessandro-stefanutto",
@@ -1798,6 +1901,7 @@
    "bcb",
    "belline-santana",
    "benedito-goncalves",
+   "bet-bet",
    "bianca-medeiros",
    "bk-bank",
    "bn-financeira",
@@ -1846,11 +1950,13 @@
    "fabio-wajngarten",
    "felipe-cancado-vorcaro",
    "fgc",
+   "fip-arleen",
    "flavio-bolsonaro",
    "flavio-dino",
    "fsw-spe",
    "gabino-kruschewsky-advogados-associados",
    "gabriel-galipolo",
+   "gabriela-prioli",
    "gaeco-mp-sp",
    "gilmar-mendes",
    "go-up-entertainment",
@@ -1874,6 +1980,7 @@
    "influenciadores-abordados",
    "inss",
    "instituto-abradecont",
+   "instituto-conhecer-brasil",
    "iprev-maceio",
    "irmaos-de-toffoli",
    "istoe",
@@ -1901,6 +2008,7 @@
    "malu-gaspar",
    "marcus-vinicius-furtado-coelho",
    "maridt-participacoes",
+   "marilson-roseno-da-silva",
    "mario-frias",
    "mario-umberto-degani",
    "mauricio-camisotti",
@@ -1920,6 +2028,7 @@
    "operacao-quasar",
    "operacao-sem-desconto",
    "otto-alencar",
+   "pablo-marcal",
    "partido-novo-diretorio-de-minas-gerais",
    "paulo-calixto",
    "paulo-gonet",
@@ -1930,6 +2039,7 @@
    "pf",
    "pl",
    "pp",
+   "presidencia-da-republica",
    "prime-aviation",
    "psb",
    "psd",
@@ -1969,6 +2079,7 @@
    "thiago-miranda",
    "tirreno",
    "trf-1",
+   "trustee-dtvm",
    "una-agroindustrial",
    "usina-cambahyba",
    "usina-cansancao-de-sinimbu",
@@ -2201,6 +2312,7 @@
    "tiao-viana",
    "tim",
    "tiririca",
+   "tse",
    "turquia",
    "uniao-brasil",
    "unibanco",
@@ -2226,6 +2338,7 @@
    "camara-dos-deputados"
   ],
   "inss": [
+   "alessandro-stefanutto",
    "andre-valadao",
    "antonio-carlos-camilo-antunes",
    "banco-master",
@@ -2251,14 +2364,18 @@
    "operacao-sem-desconto",
    "pf",
    "stf",
-   "tirreno"
+   "tirreno",
+   "victory-trading"
   ],
   "pcc": [
+   "acx-itc",
    "antonio-carlos-freixo-junior",
    "banco-master",
    "bcb",
    "bk-bank",
    "daniel-vorcaro",
+   "deolane-bezerra",
+   "departamento-de-estado-eua",
    "entre-investimentos-e-participacoes",
    "flavio-dino",
    "gaeco-mp-sp",
@@ -2266,6 +2383,7 @@
    "hans-95",
    "joao-carlos-mansur",
    "mabruk-ii",
+   "mc-ryan-sp",
    "mohamad-hussein-mourad",
    "mpf",
    "operacao-carbono-oculto",
@@ -2276,9 +2394,11 @@
    "reag-investimentos",
    "reag-trust-dtvm",
    "roberto-augusto-leme-da-silva",
+   "senival-moura",
    "stf",
    "super-empreendimentos",
-   "tcu"
+   "tcu",
+   "trustee-dtvm"
   ],
   "brb": [
    "alves-correa-verissimo-advocacia",
@@ -2291,11 +2411,13 @@
    "caio-carvalho-barros",
    "ciro-nogueira",
    "credcesta",
+   "dalide-barbosa-alves-correa",
    "daniel-lopes-monteiro",
    "daniel-vorcaro",
    "davi-alcolumbre",
    "fabio-faria",
    "fgc",
+   "flavio-bolsonaro",
    "gabriel-galipolo",
    "governo-do-distrito-federal",
    "guido-mantega",
@@ -2310,6 +2432,7 @@
    "monteiro-rusu-cameirao-e-bercht-advogados",
    "mpf",
    "operacao-compliance-zero",
+   "pablo-marcal",
    "paulo-henrique-costa",
    "pf",
    "pl",
@@ -2322,7 +2445,8 @@
    "republicanos",
    "rodrigo-fux",
    "tcu",
-   "tirreno"
+   "tirreno",
+   "viviane-barci-de-moraes"
   ],
   "precatorios": [
    "a-turma",
@@ -2381,10 +2505,95 @@
    "super-empreendimentos",
    "tarcisio-de-freitas"
   ],
-  "crime-organizado": [],
-  "cultura-e-entretenimento": [],
-  "financiamento-politico": [],
-  "trafico-de-influencia": [],
+  "crime-organizado": [
+   "acx-itc",
+   "andre-luis-almeida-coutinho",
+   "antonio-carlos-camilo-antunes",
+   "buzeira",
+   "cnm-aviacao",
+   "comando-vermelho",
+   "daniel-vorcaro",
+   "davi-alcolumbre",
+   "deolane-bezerra",
+   "departamento-de-estado-eua",
+   "entre-investimentos-e-participacoes",
+   "macario-judice",
+   "marcio-poncio",
+   "mc-poze-do-rodo",
+   "mc-ryan-sp",
+   "mohamad-hussein-mourad",
+   "operacao-narco-fluxo",
+   "pcc",
+   "pce",
+   "pf",
+   "psd",
+   "psdb",
+   "raphael-sousa-oliveira",
+   "roberto-augusto-leme-da-silva",
+   "rodrigo-bacellar",
+   "senival-moura",
+   "tesouro-dos-eua-ofac",
+   "th-joias",
+   "trustee-dtvm",
+   "tse",
+   "uldurico-junior",
+   "victory-trading"
+  ],
+  "cultura-e-entretenimento": [
+   "banco-master",
+   "bet-bet",
+   "blaze",
+   "buzeira",
+   "cathedral",
+   "comando-vermelho",
+   "daniel-vorcaro",
+   "deolane-bezerra",
+   "flavio-bolsonaro",
+   "gabriela-prioli",
+   "jonas-esticado",
+   "mc-poze-do-rodo",
+   "mc-ryan-sp",
+   "metropoles-marketing-e-propaganda",
+   "operacao-narco-fluxo",
+   "pablo-marcal",
+   "pcc",
+   "pf",
+   "raphael-sousa-oliveira",
+   "victory-trading",
+   "virginia-fonseca",
+   "willer-tomaz",
+   "yury-do-paredao"
+  ],
+  "financiamento-politico": [
+   "andre-luis-almeida-coutinho",
+   "cnm-aviacao",
+   "instituto-conhecer-brasil",
+   "jonas-esticado",
+   "mario-frias",
+   "psd",
+   "psdb",
+   "tse",
+   "yury-do-paredao"
+  ],
+  "trafico-de-influencia": [
+   "augusto-ferreira-lima",
+   "cathedral",
+   "ciro-nogueira",
+   "daniel-vorcaro",
+   "davi-alcolumbre",
+   "flavio-bolsonaro",
+   "jaques-wagner",
+   "lulinha",
+   "marco-aurelio-santana-ribeiro",
+   "presidencia-da-republica",
+   "quesede-ayres",
+   "roberta-luchsinger",
+   "roberto-augusto-leme-da-silva",
+   "stf",
+   "stj",
+   "swedenberger-barbosa",
+   "willer-tomaz"
+  ],
   "a-classificar": []
  }
 }

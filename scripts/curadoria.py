@@ -732,6 +732,12 @@ def aplicar_temas(con):
     texto_ev = {i: alias_norm(f"{r['titulo']} {r['descricao'] or ''} {r['contexto'] or ''} {r['resposta'] or ''}") for i, r in evs.items()}
     atrib = {"relacao": collections.defaultdict(dict), "evento": collections.defaultdict(dict)}  # tipo -> id -> {tema: (origem, regra)}
     stats = collections.defaultdict(lambda: {"relacao": 0, "evento": 0})
+    # relações das pistas do X (relacoes-adicionais-x.json): temas escritos à mão, antes das regras (que valem por cima, inclusive `dentro_de`)
+    ref_x = {r["origem_ref"]: i for i, r in rel.items() if (r["origem_ref"] or "").startswith("x:")}
+    for ref, ts in temas_relacoes_x().items():
+        for t in ts:
+            assert t in validos, f"relacoes-adicionais-x.json: tema inexistente {t}"
+            atrib["relacao"][ref_x[ref]][t] = ("manual", ARQ_RELACOES_X)
     ids_regra = set()
     for rg in cfg["regras"]:
         assert rg["id"] not in ids_regra, f"regra repetida: {rg['id']}"
@@ -2781,4 +2787,223 @@ def aplicar_ranking_empresa_correcoes(con, arquivo=ARQ_RANKING_CORR):
                 R["posicoes"].setdefault(a, []).append((r[0], r[2], pos[r[0]]))
             if r[3] is not None and r[3] != novo_pct:
                 R["pct"].setdefault(a, []).append((r[0], r[3], novo_pct))
+    return R
+
+
+# ======================================================================== 14. pistas do X -> teia (relacoes-adicionais-x.json)
+ARQ_RELACOES_X = "relacoes-adicionais-x.json"
+X_CONTA = "republiqueBRA"
+X_STATUS_DESFECHO = ("confirmado", "parcial", "nao_encontrado", "refutado", "contra_pista", "pendente")
+X_NATUREZAS = ("documentada", "investigacao", "reportada", "alegacao")
+X_TIPOS_RELACAO = ("financeira", "societaria", "contratual", "juridica", "investigacao", "politica", "pessoal", "familiar", "profissional",
+                   "institucional", "religiosa", "midia", "outra")
+X_TIPOS_EVIDENCIA = ("reportagem", "documento_oficial", "decisao_judicial", "processo", "comunicado", "relatorio", "dado_oficial", "outro")
+X_NOTA_TWEET = "pista (tweet de @republiqueBRA): ponto de partida da pesquisa, nunca fonte que sustenta"
+TEIA_FACCOES = "faccoes"
+
+
+def eh_tweet(url):
+    return dominio_de(url or "") in ("x.com", "twitter.com") and "/status/" in (url or "")
+
+
+def ref_relacao_x(i):
+    """origem_ref de uma relação de relacoes-adicionais-x.json."""
+    return f"x:{i}"
+
+
+def fonte_oficial_r5(tipo, url):
+    """Fonte oficial para R5 (como em classificar_natureza_r5): tipo oficial ou domínio oficial."""
+    return tipo in R5_TIPOS_OFICIAIS or fonte_oficial(url)
+
+
+def conferir_relacoes_x(con, cfg):
+    """Confere relacoes-adicionais-x.json contra o banco já carregado (antes de gravar). -> lista de erros (vazia = ok)."""
+    erros, ids = [], set()
+    temas_validos = {t["id"] for t in ler_json("temas.json", {}).get("temas", [])}
+    triagem = {str(d.get("id")) for _, d in _ler_jsonl(X_TRIAGEM)} if X_TRIAGEM.exists() else set()
+    ents = {r[0] for r in con.execute("SELECT id FROM entidade")}
+    for r in cfg.get("relacoes", []):
+        ref = f"{ARQ_RELACOES_X}: {r.get('id')}"
+        if not r.get("id") or r["id"] in ids:
+            erros.append(f"{ref}: id vazio ou repetido")
+        ids.add(r.get("id"))
+        for lado in ("de", "para"):
+            if r.get(lado) not in ents:
+                erros.append(f"{ref}: `{lado}` inexistente no banco: {r.get(lado)!r}")
+        if r.get("de") == r.get("para"):
+            erros.append(f"{ref}: de == para")
+        if r.get("tipo") not in X_TIPOS_RELACAO:
+            erros.append(f"{ref}: tipo inválido {r.get('tipo')!r}")
+        if r.get("natureza") not in X_NATUREZAS:
+            erros.append(f"{ref}: natureza inválida {r.get('natureza')!r}")
+        if not r.get("rotulo") or not r.get("descricao"):
+            erros.append(f"{ref}: rótulo e descrição são obrigatórios")
+        if not r.get("temas") or any(t not in temas_validos for t in r["temas"]):
+            erros.append(f"{ref}: temas vazios ou inexistentes em temas.json: {r.get('temas')}")
+        for c in ("periodo_inicio", "periodo_fim"):
+            if r.get(c) is not None and not re.fullmatch(r"\d{4}(-\d\d(-\d\d)?)?", str(r[c])):
+                erros.append(f"{ref}: {c} fora do formato AAAA[-MM[-DD]]: {r[c]!r}")
+        sust = [f for f in r.get("fontes", []) if f.get("papel") == "sustenta"]
+        if not sust:
+            erros.append(f"{ref}: nenhuma fonte `sustenta` (relação sem sustentação não entra: registre em `desfechos` como pendente)")
+        urls = set()
+        for f in r.get("fontes", []):
+            u = normalizar_url(f.get("url", ""))
+            if u in urls:
+                erros.append(f"{ref}: URL repetida {u}")
+            urls.add(u)
+            if f.get("papel") not in ("sustenta", "contexto", "contesta"):
+                erros.append(f"{ref}: papel inválido em {u}")
+            if f.get("tipo") not in X_TIPOS_EVIDENCIA:
+                erros.append(f"{ref}: tipo de evidência inválido {f.get('tipo')!r} em {u}")
+            if f.get("papel") == "sustenta":
+                if not (f.get("literal") is True and (f.get("trecho") or "").strip()):
+                    erros.append(f"{ref}: fonte `sustenta` sem trecho literal: {u}")
+                if eh_wiki(f.get("tipo"), u):
+                    erros.append(f"{ref}: Wikipédia não sustenta (R6): {u}")
+                if eh_tweet(u):
+                    erros.append(f"{ref}: tweet não sustenta: {u}")
+        if r.get("natureza") == "documentada" and not any(fonte_oficial_r5(f.get("tipo"), f.get("url")) for f in sust):
+            erros.append(f"{ref}: natureza `documentada` exige fonte oficial `sustenta` (R5)")
+        if r.get("natureza") == "reportada" and not any(f.get("tipo") in R5_TIPOS_IMPRENSA or fonte_oficial_r5(f.get("tipo"), f.get("url")) for f in sust):
+            erros.append(f"{ref}: natureza `reportada` exige reportagem/relatório `sustenta` (R5)")
+        for t in r.get("tweets", []):
+            if not re.fullmatch(r"\d+", str(t)) or str(t) not in triagem:
+                erros.append(f"{ref}: tweet {t!r} fora de x-triagem.jsonl")
+    for d in cfg.get("desfechos", []):
+        ref = f"{ARQ_RELACOES_X}: desfecho {d.get('tarefa')}"
+        if d.get("status") not in X_STATUS_DESFECHO:
+            erros.append(f"{ref}: status inválido {d.get('status')!r}")
+        if d.get("relacoes") and d.get("status") not in ("confirmado", "parcial"):
+            erros.append(f"{ref}: só confirmado/parcial liga relação")
+        if d.get("status") in ("confirmado", "parcial") and not d.get("relacoes"):
+            erros.append(f"{ref}: confirmado/parcial exige relação (senão é pendente)")
+        for x in d.get("relacoes", []):
+            if x.startswith("x:"):
+                if x[2:] not in ids:
+                    erros.append(f"{ref}: relação nova inexistente {x}")
+            elif not con.execute("SELECT 1 FROM relacao WHERE origem_ref=?", (x,)).fetchone():
+                erros.append(f"{ref}: relação do banco inexistente {x}")
+        for t in d.get("tweets", []):
+            if str(t) not in triagem:
+                erros.append(f"{ref}: tweet {t!r} fora de x-triagem.jsonl")
+    return erros
+
+
+def aplicar_relacoes_x(con):
+    """data/curadoria/relacoes-adicionais-x.json (à mão; pistas do X corroboradas nas rodadas 1-3): cria as relações (origem 'manual',
+    origem_ref 'x:<id>', status 'publicada'), as evidências (URL normalizada; reaproveita sem mudar veículo/tipo, só preenche título/data NULL)
+    e as ligações relacao_evidencia (ordem do arquivo; `sustenta` com trecho literal, nota e qualidade 'boa'; `contexto` sem qualidade) e o tweet
+    de origem como evidência `contexto` (tipo 'outro'). Confere tudo antes (conferir_relacoes_x) e aborta sem gravar se houver erro.
+    Roda depois das evidências adicionais e antes de R6/temas. -> dict para o relatório."""
+    cfg = ler_json(ARQ_RELACOES_X)
+    if not cfg:
+        return {"relacoes": 0}
+    erros = conferir_relacoes_x(con, cfg)
+    if erros:
+        raise SystemExit(f"{ARQ_RELACOES_X}: nada foi aplicado.\n  " + "\n  ".join(erros))
+    datas = {str(d["id"]): d.get("data") for _, d in _ler_jsonl(X_TRIAGEM)} if X_TRIAGEM.exists() else {}
+    R = {"relacoes": 0, "evid_novas": 0, "evid_reaproveitadas": 0, "sustenta": 0, "contexto": 0, "tweets": 0,
+         "por_natureza": collections.Counter()}
+    for r in cfg["relacoes"]:
+        cur = con.execute("""INSERT INTO relacao(de,para,tipo,subtipo,rotulo,descricao,natureza_id,periodo_inicio,periodo_fim,valor_brl,valor_texto,
+                             resposta,direcional,origem,origem_ref,status,criado_em,atualizado_em) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,1,'manual',?,'publicada',?,?)""",
+                          (r["de"], r["para"], r["tipo"], r.get("subtipo"), r["rotulo"], r["descricao"], r["natureza"],
+                           r.get("periodo_inicio"), r.get("periodo_fim"), r.get("valor_brl"), r.get("valor_texto"), r.get("resposta"),
+                           ref_relacao_x(r["id"]), TS_MIGRACAO, TS_MIGRACAO))
+        rid = cur.lastrowid
+        R["relacoes"] += 1
+        R["por_natureza"][r["natureza"]] += 1
+        fontes = list(r["fontes"]) + [{"url": url_post_x(X_CONTA, t), "veiculo": f"X (@{X_CONTA})", "tipo": "outro",
+                                       "titulo": f"Tweet de @{X_CONTA} {t}", "data": datas.get(str(t)), "papel": "contexto",
+                                       "nota": X_NOTA_TWEET, "_tweet": True} for t in r.get("tweets", [])]
+        for o, f in enumerate(fontes):
+            eid, nova = _evidencia_id(con, f)
+            if not nova:
+                con.execute("UPDATE evidencia SET titulo=COALESCE(titulo, ?), data=COALESCE(data, ?) WHERE id=?", (f.get("titulo"), f.get("data"), eid))
+            R["evid_novas" if nova else "evid_reaproveitadas"] += 1
+            sust = f["papel"] == "sustenta"
+            con.execute("""INSERT INTO relacao_evidencia(relacao_id,evidencia_id,papel,trecho_citado,ordem,nota,qualidade) VALUES(?,?,?,?,?,?,?)""",
+                        (rid, eid, f["papel"], f.get("trecho") if sust else None, o, f.get("nota"), "boa" if sust else None))
+            R["tweets" if f.get("_tweet") else ("sustenta" if sust else "contexto")] += 1
+    return R
+
+
+def temas_relacoes_x():
+    """origem_ref 'x:<id>' -> temas de relacoes-adicionais-x.json (atribuídos como tema manual por aplicar_temas)."""
+    cfg = ler_json(ARQ_RELACOES_X, {}) or {}
+    return {ref_relacao_x(r["id"]): list(r["temas"]) for r in cfg.get("relacoes", [])}
+
+
+def aplicar_desfecho_x(con):
+    """`desfechos` de relacoes-adicionais-x.json -> post_triagem_desfecho: para cada tarefa, cada tweet recebe um registro por relação
+    (ordem 0..n-1; sem relação, um registro com relacao_id NULL). Roda depois de aplicar_posts_x (o tweet tem de estar em post_triagem).
+    -> dict para o relatório."""
+    cfg = ler_json(ARQ_RELACOES_X, {}) or {}
+    R = {"registros": 0, "tarefas": collections.Counter(), "posts": set()}
+    for d in cfg.get("desfechos", []):
+        R["tarefas"][d["status"]] += 1
+        rels = [con.execute("SELECT id FROM relacao WHERE origem_ref=?", (x,)).fetchone()[0] for x in d.get("relacoes", [])] or [None]
+        for t in d.get("tweets", []):
+            pid = "x:" + str(t)
+            if not con.execute("SELECT 1 FROM post_triagem WHERE post_id=?", (pid,)).fetchone():
+                raise SystemExit(f"{ARQ_RELACOES_X}: desfecho {d['tarefa']}: {pid} fora de post_triagem")
+            for o, rid in enumerate(rels):
+                con.execute("INSERT INTO post_triagem_desfecho(post_id,tarefa_id,ordem,status,relacao_id,nota) VALUES(?,?,?,?,?,?)",
+                            (pid, d["tarefa"], o, d["status"], rid, d.get("nota")))
+                R["registros"] += 1
+            R["posts"].add(pid)
+    R["posts"] = len(R["posts"])
+    return R
+
+
+def selecionar_teia_faccoes(con, temas):
+    """Relações da teia de facções: (a) as que têm um dos `temas`; (b) as do caso-master que tocam uma entidade de (a) que não é o centro da teia
+    principal (categoria 'hub': Vorcaro e o Master, que ligariam a teia inteira do caso). -> [(relacao_id, motivo)] em ordem de id."""
+    marca = ",".join("?" * len(temas))
+    a = [r[0] for r in con.execute(f"SELECT DISTINCT relacao_id FROM relacao_tema WHERE tema_id IN ({marca}) ORDER BY relacao_id", list(temas))]
+    ents = set()
+    for rid in a:
+        ents |= set(con.execute("SELECT de, para FROM relacao WHERE id=?", (rid,)).fetchone())
+    ents -= {r[0] for r in con.execute("SELECT id FROM entidade WHERE categoria_id='hub'")}
+    sa = set(a)
+    b = [r[0] for r in con.execute("""SELECT r.id, r.de, r.para FROM relacao r JOIN relacao_tema t ON t.relacao_id=r.id AND t.tema_id='caso-master'
+                                      ORDER BY r.id""") if r[0] not in sa and (r[1] in ents or r[2] in ents)]
+    return sorted([(i, "tema") for i in a] + [(i, "caso-master") for i in b])
+
+
+def categoria_teia_extra(cfg, entidade_id, tipo, cat_teia):
+    """(categoria, origem) de uma entidade na teia de facções: mapa explícito; senão pelo tipo (órgão, operação, facção, partido, empresa...),
+    depois pela categoria da teia principal (pessoas), depois o padrão."""
+    if entidade_id in cfg["entidades"]:
+        return cfg["entidades"][entidade_id], "curadoria"
+    return (cfg["fallback_tipo"].get(tipo) or cfg["fallback_categoria_teia"].get(cat_teia) or cfg["fallback_padrao"]), "fallback"
+
+
+def aplicar_teia_faccoes(con):
+    """`teia_faccoes` de relacoes-adicionais-x.json -> teia_extra_categoria/_entidade/_relacao (teia 'faccoes'). Categoria da entidade: mapa
+    explícito; senão fallback pela categoria da teia principal, depois pelo tipo, depois o padrão. Roda depois dos temas. -> dict."""
+    cfg = (ler_json(ARQ_RELACOES_X, {}) or {}).get("teia_faccoes")
+    if not cfg:
+        return {"relacoes": 0}
+    for o, (cid, nome) in enumerate(cfg["cats"], 1):
+        con.execute("INSERT INTO teia_extra_categoria(teia,id,nome,ordem) VALUES(?,?,?,?)", (TEIA_FACCOES, cid, nome, o))
+    cats = {c for c, _ in cfg["cats"]}
+    sel = selecionar_teia_faccoes(con, cfg["temas"])
+    for rid, motivo in sel:
+        con.execute("INSERT INTO teia_extra_relacao(teia,relacao_id,motivo) VALUES(?,?,?)", (TEIA_FACCOES, rid, motivo))
+    ents = sorted({e for rid, _ in sel for e in con.execute("SELECT de, para FROM relacao WHERE id=?", (rid,)).fetchone()})
+    erros, R = [], {"relacoes": len(sel), "por_motivo": collections.Counter(m for _, m in sel), "entidades": len(ents), "fallback": []}
+    for e in ents:
+        tipo, cat_teia = con.execute("SELECT tipo, categoria_id FROM entidade WHERE id=?", (e,)).fetchone()
+        c, origem = categoria_teia_extra(cfg, e, tipo, cat_teia)
+        if origem == "fallback":
+            R["fallback"].append(e)
+        if c not in cats:
+            erros.append(f"{e}: categoria inexistente {c!r}")
+            continue
+        con.execute("INSERT INTO teia_extra_entidade(teia,entidade_id,categoria_id,origem) VALUES(?,?,?,?)", (TEIA_FACCOES, e, c, origem))
+    R["mapa_sem_uso"] = sorted(set(cfg["entidades"]) - set(ents))   # entidade com categoria no mapa mas fora desta teia: não é erro (só relatório)
+    if erros:
+        raise SystemExit(f"{ARQ_RELACOES_X} (teia_faccoes):\n  " + "\n  ".join(erros))
     return R

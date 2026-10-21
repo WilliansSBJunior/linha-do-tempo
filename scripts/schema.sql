@@ -531,6 +531,39 @@ CREATE TABLE post_triagem_marcador_sugerido (
   PRIMARY KEY (post_id, texto)
 ) STRICT;
 
+-- DESVIO (aditivo): desfecho de cada pista do X depois da corroboração (data/curadoria/relacoes-adicionais-x.json, `desfechos`;
+-- curadoria.aplicar_desfecho_x). Um registro por tweet × tarefa de pesquisa × relação (ordem 0..n-1; tarefa sem relação = um registro com
+-- relacao_id NULL). relacao_id aponta a relação nova (origem_ref 'x:<id>') ou a que já estava no banco ('E[i].r[j]').
+CREATE TABLE post_triagem_desfecho (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  tarefa_id TEXT NOT NULL,                       -- id da tarefa nas rodadas de pesquisa ('A01', 'R2-P05'...)
+  ordem INTEGER NOT NULL DEFAULT 0,
+  status TEXT NOT NULL CHECK (status IN ('confirmado','parcial','nao_encontrado','refutado','contra_pista','pendente')),
+  relacao_id INTEGER REFERENCES relacao(id),
+  nota TEXT,
+  PRIMARY KEY (post_id, tarefa_id, ordem),
+  CHECK (relacao_id IS NULL OR status IN ('confirmado','parcial'))
+) STRICT;
+CREATE INDEX ix_post_triagem_desfecho_rel ON post_triagem_desfecho(relacao_id);
+
+-- DESVIO (aditivo): teias derivadas (hoje só 'faccoes' -> data/teia-faccoes.json, mesmo formato de data/teia.json) com categorias próprias.
+-- Preenchidas por curadoria.aplicar_teia_faccoes (depois dos temas) a partir de `teia_faccoes` em relacoes-adicionais-x.json.
+CREATE TABLE teia_extra_categoria (
+  teia TEXT NOT NULL, id TEXT NOT NULL, nome TEXT NOT NULL, ordem INTEGER NOT NULL,
+  PRIMARY KEY (teia, id)
+) STRICT;
+CREATE TABLE teia_extra_entidade (
+  teia TEXT NOT NULL, entidade_id TEXT NOT NULL REFERENCES entidade(id), categoria_id TEXT NOT NULL,
+  origem TEXT NOT NULL CHECK (origem IN ('curadoria','fallback')),   -- 'curadoria' = mapa explícito; 'fallback' = categoria da teia principal ou tipo
+  PRIMARY KEY (teia, entidade_id),
+  FOREIGN KEY (teia, categoria_id) REFERENCES teia_extra_categoria(teia, id)
+) STRICT;
+CREATE TABLE teia_extra_relacao (
+  teia TEXT NOT NULL, relacao_id INTEGER NOT NULL REFERENCES relacao(id),
+  motivo TEXT NOT NULL CHECK (motivo IN ('tema','caso-master')),     -- 'tema' = relação de um dos temas da teia; 'caso-master' = as duas pontas já estão na teia
+  PRIMARY KEY (teia, relacao_id)
+) STRICT;
+
 -- Views --------------------------------------------------------------------------------------------------------------
 -- Compatibilidade com o modelo antigo: `video` = fontes do tipo video (somente leitura; escreva em `fonte`).
 CREATE VIEW video AS

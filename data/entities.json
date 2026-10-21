@@ -54,6 +54,7 @@
   "institucional",
   "investigacao",
   "juridica",
+  "midia",
   "pessoal",
   "politica",
   "profissional",
@@ -80,7 +81,8 @@
     "pcc",
     "brb",
     "precatorios",
-    "lagoinha"
+    "lagoinha",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -104,7 +106,10 @@
     "inss",
     "pcc",
     "brb",
-    "lagoinha"
+    "lagoinha",
+    "crime-organizado",
+    "cultura-e-entretenimento",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -123,7 +128,8 @@
    "aliases": [],
    "temas": [
     "caso-master",
-    "brb"
+    "brb",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -144,7 +150,8 @@
     "caso-master",
     "brasil-ano-a-ano",
     "inss",
-    "brb"
+    "brb",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -184,7 +191,9 @@
    "temas": [
     "caso-master",
     "brasil-ano-a-ano",
-    "brb"
+    "brb",
+    "crime-organizado",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -283,7 +292,10 @@
    "aliases": [],
    "temas": [
     "caso-master",
-    "brasil-ano-a-ano"
+    "brasil-ano-a-ano",
+    "brb",
+    "cultura-e-entretenimento",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -519,7 +531,8 @@
     "inss",
     "pcc",
     "precatorios",
-    "lagoinha"
+    "lagoinha",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -556,7 +569,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "brb"
    ]
   },
   {
@@ -885,7 +899,9 @@
     "pcc",
     "brb",
     "precatorios",
-    "lagoinha"
+    "lagoinha",
+    "crime-organizado",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -1058,7 +1074,9 @@
    ],
    "temas": [
     "caso-master",
-    "pcc"
+    "pcc",
+    "crime-organizado",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -1079,7 +1097,8 @@
    ],
    "temas": [
     "caso-master",
-    "pcc"
+    "pcc",
+    "crime-organizado"
    ]
   },
   {
@@ -1101,7 +1120,9 @@
    ],
    "temas": [
     "caso-master",
-    "pcc"
+    "pcc",
+    "crime-organizado",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -1219,7 +1240,8 @@
    ],
    "temas": [
     "caso-master",
-    "inss"
+    "inss",
+    "crime-organizado"
    ]
   },
   {
@@ -1275,7 +1297,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "inss"
    ]
   },
   {
@@ -1497,7 +1520,8 @@
    "aliases": [],
    "temas": [
     "caso-master",
-    "pcc"
+    "pcc",
+    "crime-organizado"
    ]
   },
   {
@@ -2041,7 +2065,8 @@
    "aliases": [],
    "temas": [
     "caso-master",
-    "brb"
+    "brb",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -3156,7 +3181,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "brb"
    ]
   },
   {
@@ -3329,7 +3355,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -3612,7 +3639,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "financiamento-politico"
    ]
   },
   {
@@ -3960,6 +3988,28 @@
    ]
   },
   {
+   "id": "acx-itc",
+   "nome": "ACX ITC Serviços de Tecnologia",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Empresa apontada pela Polícia Civil de SP (Operação Saturno) em esquema de lavagem ligado ao PCC; recebeu R$ 26,2 mi da Entre Investimentos.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "ACX ITC"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc",
+    "crime-organizado"
+   ]
+  },
+  {
    "id": "aecio-neves",
    "nome": "Aécio Neves",
    "tipo": "pessoa",
@@ -4158,6 +4208,25 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "andre-luis-almeida-coutinho",
+   "nome": "André Luís Almeida Coutinho",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Prefeito de Cabedelo (PB) eleito em 2024; cassação mantida pelo TSE em 07/04/2026.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "financiamento-politico"
    ]
   },
   {
@@ -4421,6 +4490,43 @@
    ]
   },
   {
+   "id": "bet-bet",
+   "nome": "Bet.Bet",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Casa de apostas; Vorcaro teria 30% indiretos via Bet Participações (mensagens reveladas pelo Valor).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
+   "id": "blaze",
+   "nome": "Blaze",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Cassino online e casa de apostas.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
    "id": "bndes",
    "nome": "BNDES",
    "tipo": "banco",
@@ -4569,6 +4675,25 @@
    ]
   },
   {
+   "id": "buzeira",
+   "nome": "Buzeira",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Influenciador; preso na Operação Narco Bet (PF, out/2025) e solto em ago/2026.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
    "id": "caixa",
    "nome": "Caixa",
    "tipo": "banco",
@@ -4677,6 +4802,27 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "cathedral",
+   "nome": "Cathedral (holding da Rede Loto)",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Holding com sede na Madeira, única acionista da bet Rede Loto (BestBet); sócios Willer Tomaz e Jorge Dias.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Cathedral"
+   ],
+   "temas": [
+    "cultura-e-entretenimento",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -4793,6 +4939,25 @@
    ]
   },
   {
+   "id": "cnm-aviacao",
+   "nome": "CNM Aviação",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Táxi aéreo de Minas Gerais; a administradora foi denunciada pelo MPF em 2023 (Operação Flight Level).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "financiamento-politico"
+   ]
+  },
+  {
    "id": "colombia",
    "nome": "Colômbia",
    "tipo": "pais",
@@ -4810,6 +4975,27 @@
    ],
    "temas": [
     "pares"
+   ]
+  },
+  {
+   "id": "comando-vermelho",
+   "nome": "Comando Vermelho (CV)",
+   "tipo": "organizacao_criminosa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Facção criminosa do Rio de Janeiro; designada organização terrorista pelos EUA em 2026.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Comando Vermelho"
+   ],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -4974,6 +5160,45 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "deolane-bezerra",
+   "nome": "Deolane Bezerra",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Advogada e influenciadora; ré por lavagem de dinheiro e organização criminosa na Operação Vérnix (MP-SP), com Marcola.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "pcc",
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
+   "id": "departamento-de-estado-eua",
+   "nome": "Departamento de Estado dos EUA",
+   "tipo": "orgao_publico",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Departamento de Estado dos Estados Unidos.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "pcc",
+    "crime-organizado"
    ]
   },
   {
@@ -5296,6 +5521,26 @@
    ]
   },
   {
+   "id": "fip-arleen",
+   "nome": "FIP Arleen",
+   "tipo": "fundo",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Fundo de investimento que recebeu R$ 35 mi de Vorcaro.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Arleen"
+   ],
+   "temas": [
+    "caso-master"
+   ]
+  },
+  {
    "id": "flavio-arns",
    "nome": "Flávio Arns",
    "tipo": "pessoa",
@@ -5331,6 +5576,25 @@
    ],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "gabriela-prioli",
+   "nome": "Gabriela Prioli",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Advogada e apresentadora.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -5611,6 +5875,25 @@
    ]
   },
   {
+   "id": "instituto-conhecer-brasil",
+   "nome": "Instituto Conhecer Brasil",
+   "tipo": "associacao",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Entidade presidida por Karina Gama (dona da Go Up); recebeu emendas de Mario Frias sob suspeita.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "financiamento-politico"
+   ]
+  },
+  {
    "id": "itau-unibanco",
    "nome": "Itaú Unibanco",
    "tipo": "banco",
@@ -5757,6 +6040,25 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "jonas-esticado",
+   "nome": "Jonas Esticado",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Cantor.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "cultura-e-entretenimento",
+    "financiamento-politico"
    ]
   },
   {
@@ -6108,6 +6410,47 @@
    ]
   },
   {
+   "id": "lulinha",
+   "nome": "Lulinha (Fábio Luís Lula da Silva)",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Filho do presidente Lula; investigado em inquéritos autorizados pelo STF (jul-ago/2026).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Fábio Luís Lula da Silva",
+    "Lulinha"
+   ],
+   "temas": [
+    "trafico-de-influencia"
+   ]
+  },
+  {
+   "id": "macario-judice",
+   "nome": "Macário Ramos Júdice Neto",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Desembargador federal do TRF-2; réu no STF por vazamento da Operação Zargun.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Macário Júdice"
+   ],
+   "temas": [
+    "crime-organizado"
+   ]
+  },
+  {
    "id": "major-vitor-hugo",
    "nome": "Major Vitor Hugo",
    "tipo": "pessoa",
@@ -6123,6 +6466,42 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "marcio-poncio",
+   "nome": "Márcio Poncio",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Pastor; preso pela PF na 5ª fase da Operação Unha e Carne (02/07/2026).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado"
+   ]
+  },
+  {
+   "id": "marco-aurelio-santana-ribeiro",
+   "nome": "Marco Aurélio Santana Ribeiro",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Ex-chefe de gabinete pessoal do presidente Lula (apelidado Marcola; homônimo, não é o líder do PCC).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "trafico-de-influencia"
    ]
   },
   {
@@ -6182,6 +6561,24 @@
    ]
   },
   {
+   "id": "marilson-roseno-da-silva",
+   "nome": "Marilson Roseno da Silva",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Policial federal aposentado; apontado em relatório da PF como receptor de mesada de Vorcaro por informações sigilosas.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "caso-master"
+   ]
+  },
+  {
    "id": "marina-silva",
    "nome": "Marina Silva",
    "tipo": "pessoa",
@@ -6197,6 +6594,45 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "mc-poze-do-rodo",
+   "nome": "MC Poze do Rodo",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Cantor de funk; preso na Operação Narco Fluxo (abr/2026).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
+   "id": "mc-ryan-sp",
+   "nome": "MC Ryan SP",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Cantor de funk; apontado pela PF como líder da estrutura investigada na Operação Narco Fluxo (sem acusação formal).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "pcc",
+    "crime-organizado",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -6423,6 +6859,25 @@
    ]
   },
   {
+   "id": "operacao-narco-fluxo",
+   "nome": "Operação Narco Fluxo",
+   "tipo": "operacao_policial",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Operação da PF (15/04/2026, 5ª Vara Federal de Santos) contra suspeita de lavagem de R$ 1,6 bi por rifas, bets e empresas musicais.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
    "id": "outros-partidos",
    "nome": "Outros partidos (bancada)",
    "tipo": "outro",
@@ -6440,6 +6895,26 @@
    ],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "pablo-marcal",
+   "nome": "Pablo Marçal",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Empresário, influenciador e político.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "brb",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -6512,6 +6987,26 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "pce",
+   "nome": "PCE (Primeiro Comando de Eunápolis)",
+   "tipo": "organizacao_criminosa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Facção criminosa de Eunápolis (BA).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Primeiro Comando de Eunápolis"
+   ],
+   "temas": [
+    "crime-organizado"
    ]
   },
   {
@@ -6738,7 +7233,9 @@
    "origem": "linha_do_tempo",
    "aliases": [],
    "temas": [
-    "brasil-ano-a-ano"
+    "caso-master",
+    "brasil-ano-a-ano",
+    "trafico-de-influencia"
    ]
   },
   {
@@ -6849,7 +7346,9 @@
    "aliases": [],
    "temas": [
     "caso-master",
-    "brasil-ano-a-ano"
+    "brasil-ano-a-ano",
+    "crime-organizado",
+    "financiamento-politico"
    ]
   },
   {
@@ -6869,7 +7368,9 @@
    "temas": [
     "caso-master",
     "brasil-ano-a-ano",
-    "brb"
+    "brb",
+    "crime-organizado",
+    "financiamento-politico"
    ]
   },
   {
@@ -6983,6 +7484,24 @@
    ]
   },
   {
+   "id": "quesede-ayres",
+   "nome": "Quesede Ayres",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Ex-secretário-executivo de Saúde de Goiânia.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "trafico-de-influencia"
+   ]
+  },
+  {
    "id": "ramez-tebet",
    "nome": "Ramez Tebet",
    "tipo": "pessoa",
@@ -7016,6 +7535,27 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "raphael-sousa-oliveira",
+   "nome": "Raphael Sousa Oliveira (Choquei)",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Dono da página Choquei; preso na Operação Narco Fluxo e solto pelo STJ (HC 1.090.863).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Raphael Sousa Oliveira"
+   ],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -7131,6 +7671,24 @@
    ]
   },
   {
+   "id": "roberta-luchsinger",
+   "nome": "Roberta Luchsinger",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Lobista; investigada em inquéritos da PF autorizados pelo STF (2026).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "trafico-de-influencia"
+   ]
+  },
+  {
    "id": "roberto-jefferson",
    "nome": "Roberto Jefferson",
    "tipo": "pessoa",
@@ -7146,6 +7704,24 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "rodrigo-bacellar",
+   "nome": "Rodrigo Bacellar",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Deputado estadual; presidente afastado da Alerj; réu no STF por vazamento da Operação Zargun.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado"
    ]
   },
   {
@@ -7458,6 +8034,25 @@
    ]
   },
   {
+   "id": "senival-moura",
+   "nome": "Senival Moura",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Vereador de São Paulo; preso na Operação Última Parada (jun/2026) e solto por habeas corpus.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "pcc",
+    "crime-organizado"
+   ]
+  },
+  {
    "id": "severino-cavalcanti",
    "nome": "Severino Cavalcanti",
    "tipo": "pessoa",
@@ -7532,6 +8127,26 @@
    ]
   },
   {
+   "id": "stj",
+   "nome": "STJ (Superior Tribunal de Justiça)",
+   "tipo": "orgao_publico",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Superior Tribunal de Justiça.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Superior Tribunal de Justiça"
+   ],
+   "temas": [
+    "trafico-de-influencia"
+   ]
+  },
+  {
    "id": "suzano",
    "nome": "Suzano",
    "tipo": "empresa",
@@ -7547,6 +8162,24 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "swedenberger-barbosa",
+   "nome": "Swedenberger Barbosa",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Ex-secretário-executivo do Ministério da Saúde.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "trafico-de-influencia"
    ]
   },
   {
@@ -7683,6 +8316,44 @@
    ]
   },
   {
+   "id": "tesouro-dos-eua-ofac",
+   "nome": "Departamento do Tesouro dos EUA (OFAC)",
+   "tipo": "orgao_publico",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Escritório de Controle de Ativos Estrangeiros (OFAC) do Departamento do Tesouro dos EUA.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "OFAC"
+   ],
+   "temas": [
+    "crime-organizado"
+   ]
+  },
+  {
+   "id": "th-joias",
+   "nome": "TH Joias",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Ex-deputado estadual no Rio de Janeiro; preso na Operação Zargun (set/2025); réu na Justiça Federal e no STF.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado"
+   ]
+  },
+  {
    "id": "tiao-viana",
    "nome": "Tião Viana",
    "tipo": "pessoa",
@@ -7739,6 +8410,50 @@
    ]
   },
   {
+   "id": "trustee-dtvm",
+   "nome": "Trustee DTVM",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Distribuidora de títulos e valores mobiliários; principal administradora dos fundos da Master Asset Management; liquidada pelo Banco Central em 03/09/2026.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Trustee Distribuidora de Títulos e Valores Mobiliários"
+   ],
+   "temas": [
+    "caso-master",
+    "pcc",
+    "crime-organizado"
+   ]
+  },
+  {
+   "id": "tse",
+   "nome": "TSE (Tribunal Superior Eleitoral)",
+   "tipo": "orgao_publico",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Tribunal Superior Eleitoral.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Tribunal Superior Eleitoral"
+   ],
+   "temas": [
+    "brasil-ano-a-ano",
+    "crime-organizado",
+    "financiamento-politico"
+   ]
+  },
+  {
    "id": "turquia",
    "nome": "Turquia",
    "tipo": "pais",
@@ -7757,6 +8472,26 @@
    "temas": [
     "brasil-ano-a-ano",
     "pares"
+   ]
+  },
+  {
+   "id": "uldurico-junior",
+   "nome": "Uldurico Júnior",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Ex-deputado federal pela Bahia; preso na Operação Duas Rosas (MP-BA, abr/2026).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Uldurico Jr."
+   ],
+   "temas": [
+    "crime-organizado"
    ]
   },
   {
@@ -7832,6 +8567,44 @@
    ]
   },
   {
+   "id": "victory-trading",
+   "nome": "Victory Trading",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Empresa de Victor Shimada; sancionada pelo OFAC (jul/2026).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "inss",
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
+   "id": "virginia-fonseca",
+   "nome": "Virginia Fonseca",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Influenciadora; principal influenciadora da Blaze no Brasil segundo a Folha.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
    "id": "waldir-maranhao",
    "nome": "Waldir Maranhão",
    "tipo": "pessoa",
@@ -7868,6 +8641,46 @@
    ]
   },
   {
+   "id": "willer-tomaz",
+   "nome": "Willer Tomaz",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Advogado; sócio da Cathedral (holding da bet Rede Loto); investigado pela PF por lavagem via casas de apostas.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Willer Tomaz de Sousa"
+   ],
+   "temas": [
+    "cultura-e-entretenimento",
+    "trafico-de-influencia"
+   ]
+  },
+  {
+   "id": "yury-do-paredao",
+   "nome": "Yury do Paredão",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Deputado federal (MDB-CE).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "cultura-e-entretenimento",
+    "financiamento-politico"
+   ]
+  },
+  {
    "id": "zeca-dirceu",
    "nome": "Zeca Dirceu",
    "tipo": "pessoa",
@@ -7892,6 +8705,8 @@
   "acm neto": "acm-neto",
   "acominas": "acominas",
   "acos villares": "acos-villares",
+  "acx itc": "acx-itc",
+  "acx itc servicos de tecnologia": "acx-itc",
   "advocacia geral da uniao": "agu",
   "aecio neves": "aecio-neves",
   "africa do sul": "africa-do-sul",
@@ -7918,6 +8733,7 @@
   "amprev": "amprev",
   "amprev amapa previdencia": "amprev",
   "andre kruschewsky": "andre-kruschewsky",
+  "andre luis almeida coutinho": "andre-luis-almeida-coutinho",
   "andre mendonca": "andre-mendonca",
   "andre moura": "andre-moura",
   "andre valadao": "andre-valadao",
@@ -7934,6 +8750,7 @@
   "arandu partners holding": "arandu-partners-holding",
   "arg": "argentina",
   "argentina": "argentina",
+  "arleen": "fip-arleen",
   "arlindo chinaglia": "arlindo-chinaglia",
   "arnaldo madeira": "arnaldo-madeira",
   "arthur lira": "arthur-lira",
@@ -7960,10 +8777,12 @@
   "belline santana": "belline-santana",
   "benedito goncalves": "benedito-goncalves",
   "beni veras": "beni-veras",
+  "bet bet": "bet-bet",
   "beto louco": "roberto-augusto-leme-da-silva",
   "bianca medeiros": "bianca-medeiros",
   "bk bank": "bk-bank",
   "bk financeira": "bn-financeira",
+  "blaze": "blaze",
   "bn financeira": "bn-financeira",
   "bn financeira bk financeira": "bn-financeira",
   "bndes": "bndes",
@@ -7980,6 +8799,7 @@
   "brf": "brf",
   "bruno araujo": "bruno-araujo",
   "btg pactual": "btg-pactual",
+  "buzeira": "buzeira",
   "caig": "usina-santa-tereza",
   "caio carvalho barros": "caio-carvalho-barros",
   "caixa": "caixa",
@@ -7992,6 +8812,8 @@
   "carlos portinho": "carlos-portinho",
   "carlos sampaio": "carlos-sampaio",
   "casas bahia": "casas-bahia",
+  "cathedral": "cathedral",
+  "cathedral holding da rede loto": "cathedral",
   "cbsf dtvm": "reag-trust-dtvm",
   "celso russomanno": "celso-russomanno",
   "cemig": "cemig",
@@ -8009,8 +8831,11 @@
   "cnj": "cnj",
   "cnj corregedoria nacional de justica": "cnj",
   "cnlf empreendimentos imobiliarios": "cnlf-empreendimentos-imobiliarios",
+  "cnm aviacao": "cnm-aviacao",
   "col": "colombia",
   "colombia": "colombia",
+  "comando vermelho": "comando-vermelho",
+  "comando vermelho cv": "comando-vermelho",
   "comissao de valores mobiliarios": "cvm",
   "companhia acucareira vale do ceara mirim": "companhia-acucareira-vale-do-ceara-mirim",
   "companhia cervejaria brahma": "brahma",
@@ -8042,6 +8867,9 @@
   "demais 14 rpps": "demais-14-rpps",
   "demais 14 rpps cajamar itaguai amazonas e outros": "demais-14-rpps",
   "demostenes torres": "demostenes-torres",
+  "deolane bezerra": "deolane-bezerra",
+  "departamento de estado dos eua": "departamento-de-estado-eua",
+  "departamento do tesouro dos eua ofac": "tesouro-dos-eua-ofac",
   "destilaria alcidia": "destilaria-alcidia",
   "destilaria alcidia grupo atvos": "destilaria-alcidia",
   "diario do centro do mundo": "diario-do-centro-do-mundo",
@@ -8082,6 +8910,7 @@
   "eunicio oliveira": "eunicio-oliveira",
   "fabiano zettel": "fabiano-zettel",
   "fabio faria": "fabio-faria",
+  "fabio luis lula da silva": "lulinha",
   "fabio wajngarten": "fabio-wajngarten",
   "fe brasil pt pcdob pv": "fe-brasil",
   "federacao brasil da esperanca pt pcdob pv": "fe-brasil",
@@ -8092,6 +8921,7 @@
   "fgc": "fgc",
   "fgc fundo garantidor de creditos": "fgc",
   "fhc": "fernando-henrique-cardoso",
+  "fip arleen": "fip-arleen",
   "flavio arns": "flavio-arns",
   "flavio bolsonaro": "flavio-bolsonaro",
   "flavio dino": "flavio-dino",
@@ -8102,6 +8932,7 @@
   "furnas centrais eletricas": "furnas",
   "gabino kruschewsky advogados associados": "gabino-kruschewsky-advogados-associados",
   "gabriel galipolo": "gabriel-galipolo",
+  "gabriela prioli": "gabriela-prioli",
   "gaeco mp sp": "gaeco-mp-sp",
   "garibaldi alves filho": "garibaldi-alves-filho",
   "geddel vieira lima": "geddel-vieira-lima",
@@ -8150,6 +8981,7 @@
   "inocencio oliveira": "inocencio-oliveira",
   "inss": "inss",
   "instituto abradecont": "instituto-abradecont",
+  "instituto conhecer brasil": "instituto-conhecer-brasil",
   "iprev maceio": "iprev-maceio",
   "irmaos de toffoli": "irmaos-de-toffoli",
   "irmaos de toffoli jose carlos e jose eugenio dias toffoli": "irmaos-de-toffoli",
@@ -8168,6 +9000,7 @@
   "joao paulo cunha": "joao-paulo-cunha",
   "jocildo lemos": "jocildo-lemos",
   "joice hasselmann": "joice-hasselmann",
+  "jonas esticado": "jonas-esticado",
   "jose alencar": "jose-alencar",
   "jose anibal": "jose-anibal",
   "jose carlos aleluia": "jose-carlos-aleluia",
@@ -8211,20 +9044,29 @@
   "luiz renno netto": "luiz-renno-netto",
   "luiz sergio": "luiz-sergio",
   "lula": "luiz-inacio-lula-da-silva",
+  "lulinha": "lulinha",
+  "lulinha fabio luis lula da silva": "lulinha",
   "mabruk ii": "mabruk-ii",
   "mabruk ii fundo": "mabruk-ii",
+  "macario judice": "macario-judice",
+  "macario ramos judice neto": "macario-judice",
   "major vitor hugo": "major-vitor-hugo",
   "malu gaspar": "malu-gaspar",
+  "marcio poncio": "marcio-poncio",
+  "marco aurelio santana ribeiro": "marco-aurelio-santana-ribeiro",
   "marco maciel": "marco-maciel",
   "marco maia": "marco-maia",
   "marcus vinicius furtado coelho": "marcus-vinicius-furtado-coelho",
   "marfrig": "marfrig",
   "marfrig alimentos": "marfrig",
   "maridt participacoes": "maridt-participacoes",
+  "marilson roseno da silva": "marilson-roseno-da-silva",
   "marina silva": "marina-silva",
   "mario frias": "mario-frias",
   "mario umberto degani": "mario-umberto-degani",
   "mauricio camisotti": "mauricio-camisotti",
+  "mc poze do rodo": "mc-poze-do-rodo",
+  "mc ryan sp": "mc-ryan-sp",
   "mdb": "mdb",
   "mendes junior": "mendes-junior",
   "metropoles marketing e propaganda": "metropoles-marketing-e-propaganda",
@@ -8248,17 +9090,20 @@
   "nubank": "easynvest",
   "odair cunha": "odair-cunha",
   "odelmo leao": "odelmo-leao",
+  "ofac": "tesouro-dos-eua-ofac",
   "ogpar": "ogpar",
   "oi": "oi",
   "omar aziz": "omar-aziz",
   "operacao carbono oculto": "operacao-carbono-oculto",
   "operacao compliance zero": "operacao-compliance-zero",
   "operacao credito oculto": "operacao-credito-oculto",
+  "operacao narco fluxo": "operacao-narco-fluxo",
   "operacao quasar": "operacao-quasar",
   "operacao sem desconto": "operacao-sem-desconto",
   "otto alencar": "otto-alencar",
   "outros": "outros-partidos",
   "outros partidos bancada": "outros-partidos",
+  "pablo marcal": "pablo-marcal",
   "partido novo diretorio de minas gerais": "partido-novo-diretorio-de-minas-gerais",
   "paulo calixto": "paulo-calixto",
   "paulo gonet": "paulo-gonet",
@@ -8270,6 +9115,7 @@
   "pcc": "pcc",
   "pcc primeiro comando da capital": "pcc",
   "pcdob": "pcdob",
+  "pce primeiro comando de eunapolis": "pce",
   "pdg realty": "pdg-realty",
   "pdt": "pdt",
   "pedrinho abrao": "pedrinho-abrao",
@@ -8298,6 +9144,7 @@
   "previdencia de itaguai": "rpps-itaguai",
   "prime aviation": "prime-aviation",
   "primeiro comando da capital": "pcc",
+  "primeiro comando de eunapolis": "pce",
   "professor luizinho": "professor-luizinho",
   "professora dorinha seabra rezende": "professora-dorinha-seabra-rezende",
   "projeto dv": "influenciadores-abordados",
@@ -8315,11 +9162,14 @@
   "quadra gestao de recursos": "quadra-gestao-de-recursos",
   "queiroga vieira queiroz e ramos advocacia": "queiroga-vieira-queiroz-e-ramos-advocacia",
   "queiroga vieira queiroz e ramos advocacia qvqr": "queiroga-vieira-queiroz-e-ramos-advocacia",
+  "quesede ayres": "quesede-ayres",
   "qvqr": "queiroga-vieira-queiroz-e-ramos-advocacia",
   "raimundo neto e silva nogueira lima": "raimundo-neto-e-silva-nogueira-lima",
   "raizen energia": "raizen-energia",
   "ramez tebet": "ramez-tebet",
   "randolfe rodrigues": "randolfe-rodrigues",
+  "raphael sousa oliveira": "raphael-sousa-oliveira",
+  "raphael sousa oliveira choquei": "raphael-sousa-oliveira",
   "reag investimentos": "reag-investimentos",
   "reag trust dtvm": "reag-trust-dtvm",
   "reag trust dtvm cbsf dtvm": "reag-trust-dtvm",
@@ -8332,12 +9182,14 @@
   "ricardo ferraco": "ricardo-ferraco",
   "ricardo lewandowski": "ricardo-lewandowski",
   "rioprevidencia": "rioprevidencia",
+  "roberta luchsinger": "roberta-luchsinger",
   "roberta rangel": "roberta-rangel",
   "roberto augusto leme da silva": "roberto-augusto-leme-da-silva",
   "roberto augusto leme da silva beto louco": "roberto-augusto-leme-da-silva",
   "roberto campos neto": "roberto-campos-neto",
   "roberto de rezende barbosa": "roberto-de-rezende-barbosa",
   "roberto jefferson": "roberto-jefferson",
+  "rodrigo bacellar": "rodrigo-bacellar",
   "rodrigo fux": "rodrigo-fux",
   "rodrigo maia": "rodrigo-maia",
   "rodrigo pacheco": "rodrigo-pacheco",
@@ -8371,6 +9223,7 @@
   "seis usinas cedidas a entre sumauma catende sao joao paraiso outeiro baixa grande": "seis-usinas-cedidas-a-entre",
   "senado": "senado-federal",
   "senado federal": "senado-federal",
+  "senival moura": "senival-moura",
   "severino cavalcanti": "severino-cavalcanti",
   "sicario": "luiz-phillipi-mourao",
   "solidariedade": "solidariedade",
@@ -8378,10 +9231,13 @@
   "souza cruz": "souza-cruz",
   "ssa fidc": "ssa-fidc",
   "stf": "stf",
+  "stj superior tribunal de justica": "stj",
   "sumauma catende sao joao paraiso outeiro baixa grande": "seis-usinas-cedidas-a-entre",
   "super empreendimentos": "super-empreendimentos",
+  "superior tribunal de justica": "stj",
   "supremo tribunal federal": "stf",
   "suzano": "suzano",
+  "swedenberger barbosa": "swedenberger-barbosa",
   "tam": "tam",
   "tam linhas aereas": "tam",
   "tarcisio de freitas": "tarcisio-de-freitas",
@@ -8394,6 +9250,7 @@
   "telemar": "telemar",
   "telesp celular participacoes": "telesp-celular-participacoes",
   "temer": "michel-temer",
+  "th joias": "th-joias",
   "thiago miranda": "thiago-miranda",
   "tiao viana": "tiao-viana",
   "tim": "tim",
@@ -8404,8 +9261,14 @@
   "trf 1 tribunal regional federal da 1a regiao": "trf-1",
   "tribunal de contas da uniao": "tcu",
   "tribunal regional federal da 1a regiao": "trf-1",
+  "tribunal superior eleitoral": "tse",
+  "trustee distribuidora de titulos e valores mobiliarios": "trustee-dtvm",
+  "trustee dtvm": "trustee-dtvm",
+  "tse tribunal superior eleitoral": "tse",
   "tur": "turquia",
   "turquia": "turquia",
+  "uldurico jr": "uldurico-junior",
+  "uldurico junior": "uldurico-junior",
   "una agroindustrial": "una-agroindustrial",
   "uniao brasil": "uniao-brasil",
   "unibanco": "unibanco",
@@ -8417,6 +9280,8 @@
   "usina santa tereza caig": "usina-santa-tereza",
   "vale": "vale",
   "valeria rodrigues linhares": "valeria-rodrigues-linhares",
+  "victory trading": "victory-trading",
+  "virginia fonseca": "virginia-fonseca",
   "viviane barci de moraes": "viviane-barci-de-moraes",
   "voiter": "banco-pleno",
   "waldir maranhao": "waldir-maranhao",
@@ -8426,7 +9291,10 @@
   "will bank": "will-financeira",
   "will financeira": "will-financeira",
   "will financeira will bank": "will-financeira",
+  "willer tomaz": "willer-tomaz",
+  "willer tomaz de sousa": "willer-tomaz",
   "xp investimentos": "xp-investimentos",
+  "yury do paredao": "yury-do-paredao",
   "zaf": "africa-do-sul",
   "zeca dirceu": "zeca-dirceu"
  }

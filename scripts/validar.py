@@ -2496,6 +2496,142 @@ def pistas_x(con, exp):
             q(con, "SELECT count(*) FROM post_triagem t JOIN post_rede p ON p.id=t.post_id WHERE t.relevancia IN ('pista','contexto')")[0][0])
 
 
+def relacoes_x(con, exp):
+    """Pistas do X -> teia (data/curadoria/relacoes-adicionais-x.json): relações novas com fonte literal, desfecho das pistas e teia-faccoes.json."""
+    secao("Pistas do X -> teia (relacoes-adicionais-x.json, post_triagem_desfecho, data/teia-faccoes.json)")
+    arq = CURADORIA / CUR.ARQ_RELACOES_X
+    if not arq.exists():
+        print(f"  info: sem data/curadoria/{CUR.ARQ_RELACOES_X}: seção pulada")
+        return
+    cfg = json.loads(arq.read_text(encoding="utf-8"))
+    esperar("conferir_relacoes_x (mesmas regras da migração) sem erros", CUR.conferir_relacoes_x(con, cfg), [])
+    rels = cfg["relacoes"]
+    no_banco = {r["origem_ref"]: r for r in q(con, "SELECT * FROM relacao WHERE origem_ref LIKE 'x:%'")}
+    esperar("relações x:<id> no banco (nº)", len(no_banco), len(rels))
+    esperar("relações x:<id> no banco == arquivo", sorted(no_banco) == sorted(CUR.ref_relacao_x(r["id"]) for r in rels), True)
+    campos = ("de", "para", "tipo", "rotulo", "descricao", "periodo_inicio", "periodo_fim", "valor_brl", "valor_texto", "resposta")
+    dif = [r["id"] for r in rels if CUR.ref_relacao_x(r["id"]) in no_banco and (
+        any(no_banco[CUR.ref_relacao_x(r["id"])][c] != r.get(c) for c in campos)
+        or no_banco[CUR.ref_relacao_x(r["id"])]["natureza_id"] != r["natureza"]
+        or no_banco[CUR.ref_relacao_x(r["id"])]["origem"] != "manual" or no_banco[CUR.ref_relacao_x(r["id"])]["status"] != "publicada")]
+    esperar("relações x: campos, natureza, origem 'manual' e status 'publicada' == arquivo", dif, [])
+    tabela("relações x: por natureza", collections.Counter(r["natureza"] for r in rels).most_common())
+    ruins = []
+    for r in rels:
+        rid = no_banco[CUR.ref_relacao_x(r["id"])]["id"]
+        lig = q(con, """SELECT e.url, e.tipo, x.papel, x.trecho_citado, x.qualidade FROM relacao_evidencia x JOIN evidencia e ON e.id=x.evidencia_id
+                        WHERE x.relacao_id=? ORDER BY x.ordem""", rid)
+        sust = [l for l in lig if l["papel"] == "sustenta"]
+        if not sust or any(not (l["trecho_citado"] or "").strip() or l["qualidade"] != "boa" for l in sust):
+            ruins.append(f"{r['id']}: sem `sustenta` com trecho literal e qualidade 'boa'")
+        if any(CUR.eh_wiki(l["tipo"], l["url"]) or CUR.eh_tweet(l["url"]) for l in sust):
+            ruins.append(f"{r['id']}: Wikipédia ou tweet como `sustenta`")
+        if r["natureza"] == "documentada" and not any(CUR.fonte_oficial_r5(l["tipo"], l["url"]) for l in sust):
+            ruins.append(f"{r['id']}: documentada sem fonte oficial (R5)")
+        esperadas = [normalizar_url(f["url"]) for f in r["fontes"]] + [CUR.url_post_x(CUR.X_CONTA, t) for t in r.get("tweets", [])]
+        if [l["url"] for l in lig] != esperadas:
+            ruins.append(f"{r['id']}: fontes ligadas != arquivo (+ tweets)")
+        tw = [l for l in lig if CUR.eh_tweet(l["url"])]
+        if any(l["papel"] != "contexto" for l in tw) or len(tw) != len(r.get("tweets", [])):
+            ruins.append(f"{r['id']}: tweet de origem fora de `contexto`")
+        tem = {x[0] for x in q(con, "SELECT tema_id FROM relacao_tema WHERE relacao_id=?", rid)}
+        if not set(r["temas"]) <= tem:
+            ruins.append(f"{r['id']}: temas do arquivo ausentes em relacao_tema")
+    esperar("relações x: fonte literal, R5/R6, tweets só contexto, temas", ruins, [])
+    n_sem_sust = q(con, """SELECT count(*) FROM relacao r WHERE r.origem_ref LIKE 'x:%' AND NOT EXISTS (SELECT 1 FROM relacao_evidencia x
+                           WHERE x.relacao_id=r.id AND x.papel='sustenta')""")[0][0]
+    esperar("relações x: sem nenhuma fonte `sustenta`", n_sem_sust, 0)
+    # entidades novas das pistas do X: criadas pela curadoria e todas ligadas a alguma relação x
+    novas = [n["id"] for n in json.loads((CURADORIA / "entidades-adicionais.json").read_text(encoding="utf-8"))["entidades"]
+             if (n.get("motivo") or "").startswith(CUR.ARQ_RELACOES_X)]
+    usadas = {e for r in rels for e in (r["de"], r["para"])}
+    esperar("entidades novas das pistas do X usadas por alguma relação x", sorted(set(novas) - usadas), [])
+    tabela("entidades novas das pistas do X por tipo", collections.Counter(
+        q(con, "SELECT tipo FROM entidade WHERE id=?", n)[0][0] for n in novas).most_common())
+    # homônimo: o ex-chefe de gabinete de Lula não pode virar o Marcola do PCC
+    esperar("homônimo Marcola: marco-aurelio-santana-ribeiro sem relação com o PCC nem alias 'Marcola'",
+            q(con, """SELECT (SELECT count(*) FROM relacao WHERE (de='marco-aurelio-santana-ribeiro' AND para='pcc') OR (de='pcc' AND para='marco-aurelio-santana-ribeiro'))
+                           + (SELECT count(*) FROM entidade_alias WHERE entidade_id='marco-aurelio-santana-ribeiro' AND alias_norm='marcola')""")[0][0], 0)
+    # desfecho das pistas
+    des = cfg["desfechos"]
+    esperado = collections.Counter()
+    for d in des:
+        for t in d.get("tweets", []):
+            esperado[(f"x:{t}", d["tarefa"])] += max(1, len(d.get("relacoes", [])))
+    real = collections.Counter({(r[0], r[1]): r[2] for r in q(con, "SELECT post_id, tarefa_id, count(*) FROM post_triagem_desfecho GROUP BY 1,2")})
+    esperar("post_triagem_desfecho: registros por (tweet, tarefa) == arquivo", real == esperado, True)
+    esperar("post_triagem_desfecho: total", sum(real.values()), sum(esperado.values()))
+    ruins = []
+    for d in des:
+        ids = [q(con, "SELECT id FROM relacao WHERE origem_ref=?", x)[0][0] for x in d.get("relacoes", [])]
+        for t in d.get("tweets", []):
+            linhas = q(con, "SELECT status, relacao_id FROM post_triagem_desfecho WHERE post_id=? AND tarefa_id=? ORDER BY ordem", f"x:{t}", d["tarefa"])
+            if [l[0] for l in linhas] != [d["status"]] * len(linhas) or [l[1] for l in linhas] != (ids or [None]):
+                ruins.append(f"{d['tarefa']}/{t}")
+    esperar("post_triagem_desfecho: status e relação == arquivo", ruins, [])
+    esperar("desfecho contra_pista/refutado/pendente/nao_encontrado ligado a relação",
+            q(con, "SELECT count(*) FROM post_triagem_desfecho WHERE relacao_id IS NOT NULL AND status NOT IN ('confirmado','parcial')")[0][0], 0)
+    tabela("tarefas por desfecho", collections.Counter(d["status"] for d in des).most_common())
+    pj = exp["pistas-x.json"]
+    itens = [i for g in pj["temas"] for i in g["itens"]]
+    unicos = {i["id"]: i for i in itens}
+    com_des = {r[0][2:] for r in q(con, """SELECT DISTINCT d.post_id FROM post_triagem_desfecho d JOIN post_triagem t ON t.post_id=d.post_id
+                                           WHERE t.relevancia IN ('pista','contexto')""")}
+    esperar("pistas-x.json: itens com `desfecho` (nº)", sum(1 for v in unicos.values() if v["desfecho"]), len(com_des))
+    esperar("pistas-x.json: itens com `desfecho` == posts pista/contexto com desfecho no banco",
+            sorted(i for i, v in unicos.items() if v["desfecho"]) == sorted(com_des), True)
+    esperar("pistas-x.json: por_desfecho == itens", pj["por_desfecho"],
+            {s: sum(1 for v in unicos.values() if v["desfecho"] and v["desfecho"]["status"] == s) for s in ex.DESFECHO_PRIORIDADE})
+    ruins = [i for i, v in unicos.items() if v["desfecho"] and (
+        (v["desfecho"]["status"] in ("confirmado", "parcial")) != (v["desfecho"]["relacao"] is not None)
+        or (v["desfecho"]["relacao"] is not None and not v["desfecho"]["fonte"]))]
+    esperar("pistas-x.json: confirmado/parcial têm relação e fonte principal; os demais não têm relação", ruins, [])
+    # teia-faccoes.json: mesmo formato de teia.json, ids existentes, nenhuma ligação sem fonte `sustenta`
+    tf, tp = exp["teia-faccoes.json"], exp["teia.json"]
+    esperar("teia-faccoes.json: mesmas chaves de topo de teia.json", list(tf), list(tp))
+    chaves_n = set().union(*(set(n) for n in tp["N"]))
+    chaves_r = [list(r) for e in tp["E"] for r in e["r"]][0]
+    esperar("teia-faccoes.json: N só com campos de teia.json", sorted(set().union(*(set(n) for n in tf["N"])) - chaves_n), [])
+    esperar("teia-faccoes.json: E[].r com os mesmos campos (e ordem) de teia.json", sorted({tuple(r) for e in tf["E"] for r in e["r"]}), [tuple(chaves_r)])
+    esperar("teia-faccoes.json: E com as chaves a, b, r", sorted({tuple(e) for e in tf["E"]}), [("a", "b", "r")])
+    cats = [c[0] for c in tf["cats"]]
+    esperar("teia-faccoes.json: categorias == pedidas", [c[1] for c in tf["cats"]],
+            ["Facções", "Música e entretenimento", "Influenciadores e mídia", "Política e partidos", "Justiça e polícia", "Bets", "Dinheiro e empresas"])
+    ent_ids = {r[0] for r in q(con, "SELECT id FROM entidade")}
+    ruins = [n["id"] for n in tf["N"] if n["id"] not in ent_ids or n["c"] not in cats]
+    esperar("teia-faccoes.json: nós com id existente e categoria da lista", ruins, [])
+    esperar("teia-faccoes.json: ids de nó únicos", len({n["id"] for n in tf["N"]}), len(tf["N"]))
+    ruins = []
+    for e in tf["E"]:
+        for r in e["r"]:
+            if tf["N"][r["a"]]["id"] != r["a_id"] or tf["N"][r["b"]]["id"] != r["b_id"] or {e["a"], e["b"]} != {r["a"], r["b"]}:
+                ruins.append(f"{r['a_id']}->{r['b_id']} {r['rot']}")
+            if not any(f["papel"] == "sustenta" for f in r["fontes"]) or any(f["papel"] == "sustenta" and (CUR.eh_wiki(f["tipo"], f["url"]) or CUR.eh_tweet(f["url"])) for f in r["fontes"]):
+                ruins.append(f"sem sustenta válida: {r['a_id']}->{r['b_id']} {r['rot']}")
+            if [ (f["url"], f["papel"]) for f in r["fontes"]] != [(f["url"], f["papel"]) for f in sorted(r["fontes"], key=ex.faixa_fonte)]:
+                ruins.append(f"ordem das fontes: {r['a_id']}->{r['b_id']}")
+    esperar("teia-faccoes.json: índices == ids, toda ligação com fonte `sustenta` (sem wiki/tweet), fontes na ordem de faixa_fonte", ruins, [])
+    esperar("teia-faccoes.json: um E por par de entidades", len({frozenset((e["a"], e["b"])) for e in tf["E"]}), len(tf["E"]))
+    usados = {i for e in tf["E"] for r in e["r"] for i in (r["a"], r["b"])}
+    esperar("teia-faccoes.json: todo nó tem ligação", sorted(set(range(len(tf["N"]))) - usados), [])
+    sel = CUR.selecionar_teia_faccoes(con, cfg["teia_faccoes"]["temas"])
+    esperar("teia_extra_relacao == regra (temas + caso-master que toca entidade da frente fora do hub)",
+            [tuple(r) for r in q(con, "SELECT relacao_id, motivo FROM teia_extra_relacao WHERE teia='faccoes' ORDER BY relacao_id")] == sel, True)
+    tabela("teia_extra_relacao por motivo", collections.Counter(m for _, m in sel).most_common())
+    esperar("teia-faccoes.json: nº de ligações == teia_extra_relacao", sum(len(e["r"]) for e in tf["E"]), len(sel))
+    temas_f = set(cfg["teia_faccoes"]["temas"])
+    ruins = [f"{r['a_id']}->{r['b_id']}" for e in tf["E"] for r in e["r"] if not (set(r["tema"]) & (temas_f | {"caso-master"}))]
+    esperar("teia-faccoes.json: toda ligação tem tema da frente ou caso-master", ruins, [])
+    ruins = []
+    for e in tf["N"]:
+        t, c = q(con, "SELECT tipo, categoria_id FROM entidade WHERE id=?", e["id"])[0]
+        if e["c"] != CUR.categoria_teia_extra(cfg["teia_faccoes"], e["id"], t, c)[0]:
+            ruins.append(e["id"])
+    esperar("teia-faccoes.json: categoria do nó == mapa/fallback da curadoria", ruins, [])
+    tabela("teia-faccoes.json", [("nós", len(tf["N"])), ("pares E", len(tf["E"])), ("ligações", sum(len(e["r"]) for e in tf["E"]))]
+           + [(f"nós em {c[1]}", sum(1 for n in tf["N"] if n["c"] == c[0])) for c in tf["cats"]])
+
+
 def marcadores_x(con, exp):
     """Marcadores das triagens do X: vocabulário (data/curadoria/x-marcadores.json) == tabela `marcador`; contagens banco == export."""
     secao("Marcadores (marcador, post_triagem_marcador, pistas-x*.json)")
@@ -2629,6 +2765,7 @@ def main():
     modelo_v2(con, exp)
     pistas_x(con, exp)
     marcadores_x(con, exp)
+    relacoes_x(con, exp)
     paginas(con, exp)
     peso_wikipedia(con, exp)
 
