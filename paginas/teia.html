@@ -21,10 +21,17 @@ window.TEIA_CFG = (function(){
     levantamento:'levantamento de 14 out 2026', nome:'Caso Master'};
   document.documentElement.classList.add('tf');
   document.title = 'Teia facções × mídia × política';
-  return {id:'faccoes', arq:'teia-faccoes.json', ns:'teiaFaccoes', y0:2021, centro:['pcc', 'comando-vermelho'], hub:'Facções no centro', outros:'Outros nomes',
+  return {id:'faccoes', arq:'teia-faccoes.json', ns:'teiaFaccoes', y0:2021, centro:['pcc', 'comando-vermelho'], hub:'Facções', outros:'Outros nomes',
     levantamento:'pistas do X corroboradas até 21 out 2026', nome:'facções, mídia e política',
-    /* as duas facções vão para o centro (categoria 'hub', como banco e controlador na teia do Master); o resto do arquivo fica como veio */
-    prep: function(txt){ var D = JSON.parse(txt), c = this.centro; D.N.forEach(function(n){ if (c.indexOf(n.id) >= 0) n.c = 'hub'; }); return JSON.stringify(D); }};
+    /* o centro é um bloco só, o grupo Facções: todas as facções do arquivo (setor 'fac' ou tipo organização criminosa) vão para a categoria 'hub';
+       PCC e CV são os nós principais (fx = 1, lado a lado), as demais ficam como satélites menores do bloco (fx = 2). O setor 'fac' deixa de existir no anel.
+       sn/sa: nome curto e sigla, para os rótulos dentro do bloco. */
+    prep: function(txt){ var D = JSON.parse(txt), c = this.centro;
+      D.N.forEach(function(n){ if (n.c !== 'fac' && n.t !== 'organizacao_criminosa' && c.indexOf(n.id) < 0) return;
+        var m = /^([A-Z]{2,6})\s*\(/.exec(n.n), p = /\(([A-Z]{2,6})\)\s*$/.exec(n.n);
+        n.c = 'hub'; n.fx = c.indexOf(n.id) >= 0 ? 1 : 2; n.sa = m ? m[1] : p ? p[1] : n.n; n.sn = m ? m[1] : n.n.replace(/\s*\([^)]*\)\s*$/, ''); });
+      D.cats = D.cats.filter(function(x){ return x[0] !== 'fac'; });
+      return JSON.stringify(D); }};
 })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +47,7 @@ img{max-width:100%}
 :root{
   --bg:#f3f4f1; --surface:#fbfbf9; --ink:#171c1a; --ink2:#4d5652; --muted:#7e8783; --line:#d8dcd6;
   --pol:#eb6834; --jus:#1baf7a; --pcc:#e87ba4; --inss:#eda100; --reag:#4a3aa7; --din:#2a78d6; --grp:#5d6661; --lag:#008300; --hub:#171c1a; --fam:#a24f9a; --adv:#7d5a36; --mid:#1590a8; --usi:#8a7d12;
-  --fac:#c2362f; --mus:#7a4fd0; --inf:#1590a8; --bet:#a87400;
+  --fac:#c2362f; --mus:#7a4fd0; --inf:#1590a8; --bet:#a87400; --prod:#b0408c;
   --warn-bg:#fff3d6; --warn-ink:#5c4300; --st-ale:#9a6a00;
   --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
@@ -48,14 +55,14 @@ img{max-width:100%}
   :root:not([data-theme="light"]){
     --bg:#111513; --surface:#181d1a; --ink:#f1f4f1; --ink2:#c1c9c4; --muted:#8a948f; --line:#2b332f;
     --pol:#d95926; --jus:#199e70; --pcc:#d55181; --inss:#c98500; --reag:#9085e9; --din:#3987e5; --grp:#9aa39e; --lag:#2f9e2f; --hub:#f1f4f1; --fam:#cf7fc7; --adv:#b48a5e; --mid:#3fb8cf; --usi:#c2b23e;
-  --fac:#e2574c; --mus:#a08af0; --inf:#3fb8cf; --bet:#e0a830;
+  --fac:#e2574c; --mus:#a08af0; --inf:#3fb8cf; --bet:#e0a830; --prod:#de7cc0;
     --warn-bg:#3a2e0c; --warn-ink:#ffe2a0; --st-ale:#e0b04a; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#111513; --surface:#181d1a; --ink:#f1f4f1; --ink2:#c1c9c4; --muted:#8a948f; --line:#2b332f;
   --pol:#d95926; --jus:#199e70; --pcc:#d55181; --inss:#c98500; --reag:#9085e9; --din:#3987e5; --grp:#9aa39e; --lag:#2f9e2f; --hub:#f1f4f1; --fam:#cf7fc7; --adv:#b48a5e; --mid:#3fb8cf; --usi:#c2b23e;
-  --fac:#e2574c; --mus:#a08af0; --inf:#3fb8cf; --bet:#e0a830;
+  --fac:#e2574c; --mus:#a08af0; --inf:#3fb8cf; --bet:#e0a830; --prod:#de7cc0;
   --warn-bg:#3a2e0c; --warn-ink:#ffe2a0; --st-ale:#e0b04a; color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -253,12 +260,28 @@ body.fs{overflow:hidden}
 .pages a:hover{border-color:var(--ink2);color:var(--ink)}
 .pages span[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .t-lag{--c:var(--lag)}.t-fam{--c:var(--fam)}.t-adv{--c:var(--adv)}.t-mid{--c:var(--mid)}.t-usi{--c:var(--usi)}
-.t-fac{--c:var(--fac)}.t-mus{--c:var(--mus)}.t-inf{--c:var(--inf)}.t-bet{--c:var(--bet)}
+.t-fac{--c:var(--fac)}.t-mus{--c:var(--mus)}.t-inf{--c:var(--inf)}.t-bet{--c:var(--bet)}.t-prod{--c:var(--prod)}
 /* teia de facções (?teia=faccoes): o que depende de fatos, notas e precatórios da teia do Master não aparece */
 html.tf .so-master{display:none!important}
 html:not(.tf) .so-faccoes{display:none!important}
 .chip.nc{border-style:solid;opacity:.8}
 #web .e.s-nc{stroke-dasharray:none;opacity:.5}
+/* teia de facções: o centro é um bloco só, o grupo Facções (PCC e CV em destaque, as demais facções menores dentro dele), na cor das facções */
+html.tf .t-hub{--c:var(--fac)}
+html.tf #web .hub .dot{fill:var(--fac)}
+#web .fblk{cursor:pointer}
+#web .fblk:focus{outline:none}
+#web .fblk .fbb{fill:color-mix(in srgb,var(--fac) 9%,var(--surface));stroke:var(--fac);stroke-width:2.5}
+#web .fblk:hover .fbb,#web .fblk:focus-visible .fbb{fill:color-mix(in srgb,var(--fac) 16%,var(--surface))}
+#web .fblk:focus-visible .fbb{stroke:var(--ink)}
+#web .fblk .fbt{font-family:var(--display);font-stretch:118%;font-weight:900;font-size:17px;letter-spacing:.08em;fill:var(--fac)}
+#web.small .fblk .fbt{font-size:15px}
+#web .fbi{color:var(--fac);fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;--icf:none;--ics:currentColor;--ice:var(--surface);--iho:0}
+#web .fblk.gone,#web .farc.gone{display:none}
+#web.focus .fblk .fbb{fill-opacity:.85}
+#web .farc{fill:none;stroke:var(--fac);stroke-opacity:.26;stroke-linecap:round;pointer-events:none}
+#web .hub.hsat text{font-size:11.5px}
+.cbtn.fixo{cursor:default}
 .dbtn{align-self:flex-start;background:var(--ink);color:var(--bg);border:1px solid var(--ink);border-radius:4px;padding:5px 12px;font-size:13px;font-weight:600;cursor:pointer}
 .dbtn:hover{opacity:.88}
 .dos{position:fixed;inset:0;z-index:70;background:var(--bg);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 16px) 20px calc(env(safe-area-inset-bottom,0px) + 40px)}
@@ -760,6 +783,23 @@ html:not(.tf) .so-faccoes{display:none!important}
 .est-grav .rsvg .agl{font-family:var(--gv-serif);font-size:calc(12.5px * var(--kv,1));fill:var(--gv-red);stroke:var(--gv-card)}
 .est-grav .rsvg .pmin circle,.est-grav .rsvg .gbd circle{fill:var(--gv-card);stroke:var(--gv-ink)}
 @media (prefers-reduced-motion: reduce){.rsvg .nd,.rsvg .ed,.rsvg .br,.rsvg .gu,.rsvg .ag{transition:none}}
+/* teia de facções: bloco central "Facções" no Radial e no Mapa mental (cartão-grupo com PCC e CV dentro) */
+html.tf .rsvg .hub .hdot{fill:var(--fac)}
+.rsvg .rblk{cursor:pointer}
+.rsvg .rblk:focus{outline:none}
+.rsvg .rblk .fbb{fill:var(--fac);fill-opacity:.08;stroke:var(--fac);stroke-width:2.6;vector-effect:non-scaling-stroke}
+.rsvg .rblk:hover .fbb,.rsvg .rblk:focus-visible .fbb{fill-opacity:.15}
+.rsvg .rblk:focus-visible .fbb{stroke:var(--ink)}
+.rsvg .rblk .fbt{font-family:var(--display);font-stretch:118%;font-weight:900;font-size:17px;letter-spacing:.08em;fill:var(--fac)}
+.rsvg .rblk .fbn{font-family:var(--mono);font-size:10.5px;fill:var(--ink2)}
+.rsvg .rblk .stripe{fill:var(--fac)}
+.rsvg .nd.hsat:not(.card0) .nm{font-size:calc(10.5px * var(--ky,1))}
+.rsvg .card0.hsat .nm{font-family:var(--body);font-size:12px;font-weight:700}
+.est-grav .rsvg .card0.hub.hsat .nm{font-size:12.5px}
+.rsvg.dim .rblk:not(.on){opacity:.45}
+.est-grav .rsvg .rblk .fbb{fill:color-mix(in srgb,var(--gv-red) 7%,var(--gv-card));fill-opacity:1;stroke:var(--gv-red);stroke-width:1.8}
+.est-grav .rsvg .rblk .fbt{font-family:var(--gv-sc);font-weight:400;font-stretch:normal;font-size:20px;fill:var(--gv-red)}
+.est-grav .rsvg .rblk .fbn{font-family:var(--gv-serif);font-style:italic;font-size:11.5px}
 </style>
 <style>
 :root{--site-max:1360px}
@@ -815,7 +855,7 @@ html.embutida .sitenav,html.embutida .sitefoot{display:none}
     </div>
     <div class="brand so-faccoes">
       <h1>Teia facções × mídia × política</h1><span class="tag">pistas do X corroboradas até 21 out 2026</span>
-      <p>PCC e Comando Vermelho no centro e, em volta, artistas, influenciadores, veículos, políticos, bets e empresas que aparecem com eles (ou com o Caso Master) em investigações e reportagens, ano a ano.</p>
+      <p>No centro, o grupo Facções (PCC e CV em destaque) e, em volta, artistas, influenciadores, veículos, políticos, bets e empresas que aparecem com eles (ou com o Caso Master) em investigações e reportagens, ano a ano.</p>
     </div>
     <nav class="xl" aria-label="Outras páginas"><span class="so-faccoes"><a href="pistas.html">Pistas do X</a></span><span class="so-faccoes"><a href="dossie-faccoes.html">Dossiê Facções, mídia e poder</a></span><span class="so-faccoes"><a href="teia.html">Teia do Caso Master</a></span><span class="so-master"><a href="teia-faccoes.html">Teia facções × mídia × política</a></span><span class="so-master"><a href="dossie.html">Master: mercado ou máquina</a></span></nav>
     <p class="warn so-master"><b>Como ler.</b> Uma ligação nesta teia não é acusação nem prova de crime: contrato, voto, reunião e doação são fatos lícitos. Cada ligação traz o que ela é (documentada, sob investigação ou revelada pela imprensa), a versão de quem foi citado e as fontes. As investigações estão em curso e, nas fontes consultadas, não há condenação criminal no caso.</p>
@@ -945,8 +985,10 @@ window.TEIA_DADOS = (TEIA_CFG.id === 'faccoes' ? fetch('../data/teia-faccoes.jso
 if (TEIA_CFG.id === 'faccoes'){
   const set = (id, k, v) => { const el = document.getElementById(id); if (el) el[k] = v; };
   set('snBack', 'href', '../index.html#teia-faccoes');
-  set('mapHelp', 'textContent', 'A teia começa recolhida: o PCC e o Comando Vermelho no centro e, no anel, um círculo por grupo (facções, música, influenciadores e mídia, política, Justiça e polícia, bets, dinheiro e empresas) com o número de nomes ligados até o ano escolhido. As linhas grossas resumem as relações de cada grupo com o centro e com os outros grupos; o número diz quantas são, e um clique abre a lista delas, cada uma com as evidências. Clique num grupo (ou no +) para abrir seus subgrupos ou seus nomes; o "−" no nome do grupo aberto, ou no caminho acima da teia, recolhe de novo. A busca abre o grupo certo e seleciona o nome. Ao selecionar um nome, o modo foco o põe no centro, com as ligações diretas num anel e as de dois passos num anel externo; Esc ou "Voltar ao anel completo" devolve a teia como estava. Os modos Radial e Mapa mental abrem nível a nível do mesmo jeito, com mais espaço para cada nome.');
-  const w = document.getElementById('web'); if (w) w.setAttribute('aria-label', 'Teia de ligações entre facções, mídia e política até o ano selecionado. Arraste para mover, use a roda ou a pinça para aproximar');
+  set('mapHelp', 'textContent', 'A teia começa recolhida. No centro, o grupo Facções (PCC e CV em destaque): um bloco só, com o PCC e o Comando Vermelho lado a lado e as demais facções do levantamento, menores, dentro dele. No anel, um círculo por grupo (música, influenciadores e mídia, política, Justiça e polícia, bets, dinheiro e empresas) com o número de nomes ligados até o ano escolhido. As linhas grossas resumem as relações de cada grupo com o bloco Facções e com os outros grupos; o número diz quantas são, e um clique abre a lista delas, cada uma com as evidências. Ao abrir um grupo, cada nome liga à facção específica (PCC, CV ou outra). Clique no bloco Facções para listar as facções e as ligações de cada uma. Clique num grupo (ou no +) para abrir seus subgrupos ou seus nomes; o "−" no nome do grupo aberto, ou no caminho acima da teia, recolhe de novo. A busca abre o grupo certo e seleciona o nome. Ao selecionar um nome, o modo foco o põe no centro, com as ligações diretas num anel e as de dois passos num anel externo; Esc ou "Voltar ao anel completo" devolve a teia como estava. Os modos Radial e Mapa mental abrem nível a nível do mesmo jeito, com mais espaço para cada nome.');
+  const w = document.getElementById('web'); if (w) w.setAttribute('aria-label', 'Teia de ligações entre facções, mídia e política até o ano selecionado; no centro, o grupo Facções, com PCC e CV em destaque. Arraste para mover, use a roda ou a pinça para aproximar');
+  const lg1 = document.querySelector('#legend .lgline');
+  if (lg1) lg1.insertAdjacentHTML('afterbegin', '<span class="t-hub" style="color:var(--ink);font-weight:600"><i class="sw" style="border-radius:3px"></i>No centro, o grupo Facções (PCC e CV em destaque); as linhas de cada grupo chegam ao bloco e, com o grupo aberto, à facção específica</span>');
 }
 /* a 2D publica aqui o que os modos Radial e Mapa mental usam (dados adaptados, ano, recorte por ano, painéis) */
 window.TEIA_PRONTA = new Promise((res, rej) => { window.__teiaPronta = res; window.TEIA_DADOS.catch(rej); });
@@ -978,6 +1020,10 @@ const IX = teiaAdaptar(D), ixOf = s => IX.get(String(s));
 const CFG = window.TEIA_CFG, FAC = CFG.id === 'faccoes';
 const H0 = IX.get(CFG.centro[0]) ?? 0, H1 = IX.get(CFG.centro[1]) ?? 1;
 const N = D.N, E = D.E, NS = 'http://www.w3.org/2000/svg';
+/* teia de facções: o centro é o bloco "Facções" (todas as facções na categoria 'hub'; PCC e CV principais, lado a lado; as demais, satélites menores do bloco).
+   Linhas agregadas de um grupo recolhido até qualquer facção viram uma linha só até o bloco ('b:fac'); nomes à vista ligam à facção específica. */
+const BLK = FAC && N.some(n => n.fx), HSAT = i => BLK && N[i].fx === 2;
+const hubU = u => !!u && u[0] === 'n' && N[+u.slice(2)].c === 'hub';
 /* régua de anos: do primeiro ano com ligação na teia (o primeiro botão junta os anteriores) até 2026 */
 const Y0 = CFG.y0, YEARS = []; for (let y = Y0; y <= 2026; y++) YEARS.push(y);
 const ylab = y => y === Y0 ? 'até ' + Y0 : String(y), inYear = e => year === Y0 ? e.y <= Y0 : e.y === year;
@@ -992,7 +1038,7 @@ const STL = {doc:'documentada', inv:'sob investigação', rep:'revelada pela imp
 E.forEach(e => e.r.forEach(r => { r.y0 = r.de ?? r.ate ?? 2026; }));
 const desde = r => r.de != null ? 'desde ' + r.de + (r.ate && r.ate !== r.de ? ' até ' + r.ate : '') : 'início não informado' + (r.ate ? ', até ' + r.ate : '');
 /* ordem dos setores no anel: Familiares entre Política e Justiça; Precatórios ao lado de Justiça */
-const CORD = FAC ? ['fac','mus','inf','pol','jus','bet','din'] : ['mid','pol','fam','jus','usi','adv','pcc','inss','reag','din','grp','lag'];
+const CORD = FAC ? ['fac','mus','prod','inf','pol','jus','bet','din'] : ['mid','pol','fam','jus','usi','adv','pcc','inss','reag','din','grp','lag'];
 const CATS = [...CORD.map(c => D.cats.find(x => x[0] === c)).filter(Boolean), ...D.cats.filter(x => !CORD.includes(x[0]))];
 const QUIET = new Set(['fam', 'adv', 'mid']);
 const catOn = Object.fromEntries(D.cats.map(c => [c[0], true])); catOn.hub = true;
@@ -1053,10 +1099,10 @@ function reps(){
   ({REP, ATT} = repsFor(openCat, openSub));
   kids = N.map(() => []); ATT.forEach((a, i) => { if (a != null) kids[a].push(i); });
 }
-const uLabel = id => id[0] === 'c' ? cname(id.slice(2)) : id[0] === 'p' ? id.slice(2).split('|')[1] : N[+id.slice(2)].n;
-const uSec = id => id[0] === 'c' ? id.slice(2) : id[0] === 'p' ? id.slice(2).split('|')[0] : N[+id.slice(2)].c;
-const uCls = id => id[0] === 'c' ? 't-' + id.slice(2) : id[0] === 'p' ? subCls(id.slice(2)) : 't-' + N[+id.slice(2)].c + pcls(+id.slice(2));
-const isGrp = id => id && id[0] !== 'n';
+const uLabel = id => id[0] === 'b' ? CATL.hub : id[0] === 'c' ? cname(id.slice(2)) : id[0] === 'p' ? id.slice(2).split('|')[1] : N[+id.slice(2)].n;
+const uSec = id => id[0] === 'b' ? 'hub' : id[0] === 'c' ? id.slice(2) : id[0] === 'p' ? id.slice(2).split('|')[0] : N[+id.slice(2)].c;
+const uCls = id => id[0] === 'b' ? 't-hub' : id[0] === 'c' ? 't-' + id.slice(2) : id[0] === 'p' ? subCls(id.slice(2)) : 't-' + N[+id.slice(2)].c + pcls(+id.slice(2));
+const isGrp = id => id && id[0] !== 'n' && id[0] !== 'b';
 
 /* ---------- elipse: o anel acompanha o formato da caixa; posições por comprimento de arco ---------- */
 const TAU = 2 * Math.PI, A0 = -Math.PI / 2, C = 1000, SLOT = 15, SW = 12;
@@ -1115,11 +1161,13 @@ function layout(){
     if (u.kind === 'node' && u.run[0] === 'p'){ const key = u.run.slice(2), pa = ptyArc[key] || (ptyArc[key] = {s1:u.s1, s2:u.s2}); pa.s1 = Math.min(pa.s1, u.s1); pa.s2 = Math.max(pa.s2, u.s2); }
   });
   /* no celular o anel é alto e estreito: banco e controlador um sobre o outro */
-  if (small){ pos[H0] = {x:C, y:C - 52, a:0}; pos[H1] = {x:C, y:C + 52, a:0}; } else { pos[H0] = {x:C - 56, y:C, a:0}; pos[H1] = {x:C + 56, y:C, a:0}; }
+  if (BLK) blkPlace();
+  else if (small){ pos[H0] = {x:C, y:C - 52, a:0}; pos[H1] = {x:C, y:C + 52, a:0}; } else { pos[H0] = {x:C - 56, y:C, a:0}; pos[H1] = {x:C + 56, y:C, a:0}; }
   N.forEach((n, i) => { if (pos[i]) return; const r = REP[i]; pos[i] = r && gpos[r] ? gpos[r] : {x:C, y:C, a:0}; });
   /* caixa do desenho: anel, rótulos dos grupos e dos nomes */
   let x0 = C - 80, x1 = C + 80, y0 = C - 50, y1 = C + 60;
   const grow = (x, y) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); };
+  if (BB){ grow(BB.x, BB.y); grow(BB.x + BB.w, BB.y + BB.h); }
   const FS = small ? 12.5 : 13, LH = FS * 1.2, nch = small ? 18 : 32, cw = small ? 7 : 6.5;
   let nvis = 0;
   units.forEach(u => {
@@ -1130,6 +1178,24 @@ function layout(){
   });
   crowd = small && nvis > 40;
   WB = [x0 - 14, y0 - 14, x1 - x0 + 28, y1 - y0 + 28];
+}
+/* bloco Facções: PCC e CV lado a lado, as demais facções numa fileira embaixo; BB = caixa que cobre o título, os pontos e os rótulos */
+let BB = null;
+const blkLab = i => small ? N[i].sa : N[i].sn;
+function blkPlace(){
+  const dx = small ? 40 : 66, sats = N.map((n, i) => i).filter(HSAT), gap = small ? 40 : 54;
+  pos[H0] = {x:C - dx, y:C + 6, a:0}; pos[H1] = {x:C + dx, y:C + 6, a:0};
+  sats.forEach((i, j) => { pos[i] = {x:C + (j - (sats.length - 1) / 2) * gap, y:C + (small ? 52 : 58), a:0}; });
+  let x0 = C - 52, x1 = C + 52, y1 = C;
+  N.forEach((n, i) => { if (n.c !== 'hub') return; const p = pos[i], sat = HSAT(i), r = sat ? 8 : 17, hw = blkLab(i).length * (sat ? 3.6 : 4.4) + 4;
+    x0 = Math.min(x0, p.x - Math.max(r, hw)); x1 = Math.max(x1, p.x + Math.max(r, hw)); y1 = Math.max(y1, p.y + r + (sat ? 16 : 20)); });
+  const top = C - (small ? 48 : 56);
+  BB = {x:x0 - 16, y:top, w:x1 - x0 + 32, h:y1 - top + 12};
+}
+/* ponto da borda do bloco na direção de P (onde chega a linha agregada de um grupo) */
+function blkEdge(P){
+  const cx = BB.x + BB.w / 2, cy = BB.y + BB.h / 2, dx = P.x - cx, dy = P.y - cy, t = Math.min(BB.w / 2 / (Math.abs(dx) || 1e-6), BB.h / 2 / (Math.abs(dy) || 1e-6));
+  return t >= 1 ? {x:cx, y:cy} : {x:cx + dx * t, y:cy + dy * t};
 }
 const pcls = i => grouped && N[i].c === 'pol' ? ' pa-' + PSLUG[N[i].p] : '';
 const f1 = v => v.toFixed(1);
@@ -1156,8 +1222,34 @@ function edgePath(e){ return route(pos[e.a], pos[e.b], N[e.a].c === 'hub', N[e.b
 
 /* ---------- construção única do desenho ---------- */
 const web = document.getElementById('web');
-const defs = el('defs', {}, web), gA = el('g', {}, web), gE = el('g', {}, web), gAg = el('g', {class:'ags'}, web), gH = el('g', {}, web), gL = el('g', {}, web), gG = el('g', {}, web), gN = el('g', {}, web);
+const defs = el('defs', {}, web), gA = el('g', {}, web), gE = el('g', {}, web), gAg = el('g', {class:'ags'}, web), gBk = el('g', {}, web), gH = el('g', {}, web), gL = el('g', {}, web), gAgL = el('g', {class:'ags'}, web), gG = el('g', {}, web), gN = el('g', {}, web);
+/* gBk e gAgL só se usam na teia de facções: o bloco Facções cobre as linhas que cruzam o miolo, e os números das linhas agregadas ficam por cima dele */
 const bgr = el('rect', {x:0, y:0, fill:'transparent', id:'bgrect'}, gA), gArc = el('g', {class:'arcs'}, gA);
+/* bloco Facções (só na teia de facções): moldura, ícone de organização criminosa e título; um clique lista as facções no painel */
+const blkG = BLK ? el('g', {class:'fblk t-hub', tabindex:0, role:'button', 'aria-label':'Grupo Facções, no centro da teia, com PCC e CV em destaque. Ver as facções e as ligações de cada uma'}, gBk) : null;
+const farc = BLK ? el('path', {class:'farc gone'}, gA) : null;
+if (blkG){
+  blkG.r = el('rect', {class:'fbb', rx:14}, blkG); blkG.ic = el('use', {class:'fbi', href:'#ti-crime'}, blkG); blkG.t = el('text', {class:'fbt'}, blkG); blkG.t.textContent = 'FACÇÕES';
+  el('title', {}, blkG).textContent = 'Grupo Facções: PCC e Comando Vermelho em destaque; as demais facções, menores, no mesmo bloco. Clique para ver as facções.';
+  blkG.addEventListener('click', ev => { ev.stopPropagation(); pick('cat:hub'); });
+  blkG.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); pick('cat:hub'); } });
+  blkG.addEventListener('mouseenter', () => focusOn('cat:hub')); blkG.addEventListener('mouseleave', () => focusOn(cur()));
+}
+function drawBlk(){
+  if (!blkG) return;
+  blkG.classList.toggle('gone', foc != null || !BB);
+  if (foc == null && BB){
+    const r = blkG.r; r.setAttribute('x', f1(BB.x)); r.setAttribute('y', f1(BB.y)); r.setAttribute('width', f1(BB.w)); r.setAttribute('height', f1(BB.h));
+    const fs = small ? 15 : 17, tw = blkG.t.getComputedTextLength() || 7 * fs * .82, iw = small ? 20 : 24, x = C - (tw + iw + 6) / 2, yb = BB.y + (small ? 25 : 30);
+    blkG.ic.setAttribute('x', f1(x)); blkG.ic.setAttribute('y', f1(yb - iw * .8)); blkG.ic.setAttribute('width', iw); blkG.ic.setAttribute('height', iw);
+    blkG.t.setAttribute('x', f1(x + iw + 6)); blkG.t.setAttribute('y', f1(yb));
+  }
+  /* no foco, uma faixa na cor das facções junta, no primeiro anel, as facções ligadas ao nome do centro */
+  const as = foc != null ? N.map((n, i) => i).filter(i => N[i].c === 'hub' && lvl[i] === 1).map(i => fpos[i].a) : [];
+  farc.classList.toggle('gone', !as.length); if (!as.length) return;
+  const pad = Math.min(.2, TAU / fTot * .3), a1 = Math.min(...as) - pad, a2 = Math.max(...as) + pad, R = fR1, pt = a => `${f1(C + R * Math.cos(a))},${f1(C + R * Math.sin(a))}`;
+  farc.setAttribute('d', `M${pt(a1)}A${f1(R)},${f1(R)} 0 ${a2 - a1 > Math.PI ? 1 : 0} 1 ${pt(a2)}`); farc.setAttribute('stroke-width', fnarrow ? 44 : 32);
+}
 let pEl = {}, gEl = {};
 function drawArcs(){
   defs.innerHTML = ''; gArc.innerHTML = ''; pEl = {}; gEl = {};
@@ -1191,12 +1283,15 @@ const eEl = E.map((e, i) => { const p = el('path', {}, gE), h = el('path', {clas
   h.addEventListener('mouseenter', () => focusOn('e:' + i)); h.addEventListener('mouseleave', () => focusOn(cur()));
   return {p, h}; });
 const iEl = IMPL.map(([f]) => el('path', {class:'e imp t-' + N[f].c}, gE));
+/* teia de facções: as linhas que chegam a uma facção passam por cima do bloco, para irem até a facção específica */
+if (BLK) E.forEach((e, i) => { if (N[e.a].c === 'hub' || N[e.b].c === 'hub') gBk.appendChild(eEl[i].p); });
 const nEl = N.map((n, i) => { const hub = n.c === 'hub', g = el('g', {tabindex:0, role:'button'}, gN);
   const hit = el('circle', {class:'hit', r:hub ? 24 : 10}, g), ringc = el('circle', {class:'ring'}, g), dot = el('circle', {class:'dot'}, g), t = el('text', {}, g);
   g.addEventListener('click', ev => { ev.stopPropagation(); pick('n:' + i); });
   g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); pick('n:' + i); } });
   g.addEventListener('mouseenter', () => focusOn('n:' + i)); g.addEventListener('mouseleave', () => focusOn(cur()));
-  return {g, dot, ringc, hit, t, hub, r:0}; });
+  /* fix: fica sempre à vista (banco e controlador; PCC e CV); as demais facções do bloco somem no ano em que não têm ligação */
+  return {g, dot, ringc, hit, t, hub, fix:hub && !HSAT(i), r:0}; });
 /* nós-grupo: um por setor e um por subgrupo; só aparecem os que estão recolhidos */
 const GIDS = [...CATS.map(([c]) => 'c:' + c), ...SUBS.filter(x => subReal(x.k)).map(x => 'p:' + x.k)];
 const gsel = id => id[0] === 'c' ? 'cat:' + id.slice(2) : 'pty:' + id.slice(2);
@@ -1231,20 +1326,24 @@ function drawGroups(){
 let AG = [], AGK = {}, agEl = {};
 function buildAG(){
   const m = new Map();
-  E.forEach((e, k) => { const rs = act[k]; if (!rs.length) return; const ua = REP[e.a], ub = REP[e.b];
+  E.forEach((e, k) => { const rs = act[k]; if (!rs.length) return; let ua = REP[e.a], ub = REP[e.b];
     if (!ua || !ub || ua === ub || (!isGrp(ua) && !isGrp(ub))) return;
+    /* teia de facções: grupo recolhido até qualquer facção = uma linha só, até o bloco Facções */
+    if (BLK){ if (hubU(ua) && isGrp(ub)) ua = 'b:fac'; else if (hubU(ub) && isGrp(ua)) ub = 'b:fac'; }
     const [u, v] = ua < ub ? [ua, ub] : [ub, ua], key = u + '~' + v;
     let g = m.get(key); if (!g){ g = {key, u, v, items:[]}; m.set(key, g); }
     rs.forEach(r => g.items.push([k, e.r.indexOf(r)])); });
   AG = [...m.values()]; AGK = Object.fromEntries(AG.map(g => [g.key, g]));
 }
-const uPt = id => id[0] === 'n' ? pos[+id.slice(2)] : gpos[id];
+const uPt = id => id[0] === 'n' ? pos[+id.slice(2)] : id[0] === 'b' ? (BB ? {x:BB.x + BB.w / 2, y:BB.y + BB.h / 2} : null) : gpos[id];
 function drawAgg(){
-  gAg.innerHTML = ''; agEl = {}; if (foc != null) return;
+  gAg.innerHTML = ''; gAgL.innerHTML = ''; agEl = {}; if (foc != null) return;
   const lines = [], labs = [];
   AG.forEach(g => { const n = g.items.length, A = uPt(g.u), B = uPt(g.v); if (!A || !B) return;
-    const h0 = 'n:' + H0, h1 = 'n:' + H1, hu = g.u === h0 || g.u === h1, hv = g.v === h0 || g.v === h1;
-    const geo = hu || hv ? bow(hu ? B : A, hu ? A : B, pos[(hu ? g.u : g.v) === h0 ? H1 : H0]) : route(A, B, false, false, false, uSec(g.u) === uSec(g.v));
+    const h0 = 'n:' + H0, h1 = 'n:' + H1; let hu = g.u === h0 || g.u === h1; const hv = g.v === h0 || g.v === h1;
+    const bu = g.u[0] === 'b', bv = g.v[0] === 'b';
+    const geo = bu || bv ? ld(bu ? B : A, blkEdge(bu ? B : A)) : hu || hv ? bow(hu ? B : A, hu ? A : B, pos[(hu ? g.u : g.v) === h0 ? H1 : H0]) : route(A, B, false, false, false, uSec(g.u) === uSec(g.v));
+    if (bu || bv){ hu = true; }
     const col = isGrp(g.u) ? uCls(g.u) : uCls(g.v), sw = Math.min(12, 1 + 1.4 * Math.sqrt(n));
     const p = el('path', {class:'ag ' + col + (hu || hv ? ' agh0' : ''), d:geo.d, 'stroke-width':f1(sw)}); lines.push(p);
     const h = el('path', {class:'agh', d:geo.d, role:'button', tabindex:-1, 'aria-label':`${n} ${n === 1 ? 'relação' : 'relações'} entre ${uLabel(g.u)} e ${uLabel(g.v)}`});
@@ -1254,15 +1353,22 @@ function drawAgg(){
     for (const x of [h, t]){ x.addEventListener('click', openIt); x.addEventListener('mouseenter', () => focusOn('a:' + g.key)); x.addEventListener('mouseleave', () => focusOn(cur())); }
     t.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); openIt(ev); } });
     lines.push(h); agEl[g.key] = {p, t}; });
-  lines.forEach(x => gAg.appendChild(x)); labs.forEach(x => gAg.appendChild(x));
+  lines.forEach(x => gAg.appendChild(x)); labs.forEach(x => (BLK ? gAgL : gAg).appendChild(x));
+  /* teia de facções: número de uma linha que cruza o miolo e cairia em cima do bloco Facções vai para o trecho mais próximo fora dele */
+  if (BLK && BB){ const inB = (X, Y) => X > BB.x - 10 && X < BB.x + BB.w + 10 && Y > BB.y - 10 && Y < BB.y + BB.h + 10;
+    for (const k in agEl){ const {p, t} = agEl[k]; if (!inB(+t.getAttribute('x'), +t.getAttribute('y'))) continue;
+      let L = 0; try { L = p.getTotalLength(); } catch (e) {} if (!L) continue;
+      out: for (let j = 1; j <= 22; j++) for (const s of [-1, 1]){ const q = p.getPointAtLength(L * Math.max(0, Math.min(1, .5 + s * j * .021)));
+        if (!inB(q.x, q.y)){ t.setAttribute('x', f1(q.x)); t.setAttribute('y', f1(q.y)); break out; } } } }
 }
 /* aplica a disposição atual (o que está aberto) a todo o desenho */
 function geomL(){
   layout(); drawArcs();
   E.forEach((e, i) => { const other = N[e.a].c === 'hub' ? e.b : e.a; eEl[i].p.setAttribute('class', 'e t-' + N[other].c + pcls(other)); });
-  N.forEach((n, i) => { const w = nEl[i], st = satOf(i) != null; w.g.setAttribute('class', `node t-${n.c}${w.hub ? ' hub' : ''}${st ? ' sat' : ''}${pcls(i)}`); });
+  N.forEach((n, i) => { const w = nEl[i], st = satOf(i) != null; w.g.setAttribute('class', `node t-${n.c}${w.hub ? ' hub' : ''}${HSAT(i) ? ' hsat' : ''}${st ? ' sat' : ''}${pcls(i)}`); });
   const cl = document.getElementById('clegend'), nsat = N.filter((n, i) => satOK(i)).length;
   cl.innerHTML = '<span class="lab">Grupos</span>' + CATS.map(([c, l]) => { const k = N.filter(n => n.c === c).length; return `<button type="button" class="cbtn t-${c}" data-cat="${c}" aria-pressed="${catOn[c]}" aria-label="${esc(l)}, ${k} ${k === 1 ? 'nome' : 'nomes'}; mostrar ou ocultar"><i class="sw"></i>${esc(cname(c))} <b>${k}</b></button>`; }).join('')
+    + (BLK ? `<span class="cbtn fixo t-hub" title="O grupo Facções fica sempre no centro"><i class="sw"></i>${esc(CATL.hub)} (centro) <b>${N.filter(n => n.c === 'hub').length}</b></span>` : '')
     + (nsat ? `<span class="satnote">${nsat} nomes (familiares, próximos e escritórios ligados) orbitam a autoridade quando ela está aberta, com linha fina até ela; enquanto ela está recolhida, contam no próprio grupo.</span>` : '');
   const lg = document.getElementById('plegend'); lg.hidden = false;
   lg.innerHTML = Object.keys(SUBORD).map(c => `<div class="sgline"><span class="lab">${esc(SUBT[c])}</span>` + SUBS.filter(x => x.c === c).map(x => `<button type="button" class="pbtn ${subCls(x.k)}" data-sub="${esc(x.k)}" aria-pressed="${subOn[x.k]}" aria-label="${esc(x.name)}, ${x.n} ${x.n === 1 ? 'nome' : 'nomes'}; mostrar ou ocultar"><i class="sw"></i>${esc(x.name)} <b>${x.n}</b></button>`).join('') + '</div>').join('');
@@ -1316,14 +1422,14 @@ function update(){
     p.classList.toggle('new', rs.some(r => r.de === year));
     const v = Math.max(0, ...rs.map(r => r.val || 0));
     p.setAttribute('stroke-width', v ? Math.max(1.2, Math.min(6, 1.2 + .95 * Math.log10(v / 1e7))).toFixed(1) : 1.2); });
-  N.forEach((n, i) => { nEl[i].g.classList.toggle('off', !deg[i] && !nEl[i].hub); nEl[i].g.setAttribute('aria-label', n.n + (deg[i] ? `, ${deg[i]} ligações até ${year}` : '')); });
+  N.forEach((n, i) => { nEl[i].g.classList.toggle('off', !deg[i] && !nEl[i].fix); nEl[i].g.setAttribute('aria-label', n.n + (deg[i] ? `, ${deg[i]} ligações até ${year}` : '')); });
   for (const p in pEl){ const on = N.some((n, i) => subKey(i) === p && deg[i]); pEl[p].halo.classList.toggle('dim', !on); pEl[p].t.classList.toggle('dim', !on); }
   for (const a in gEl) gEl[a].classList.toggle('dim', !deg[a] && !kids[a].some(f => deg[f]));
   buildAG();
-  if (sel && sel[0] === 'n' && !deg[+sel.slice(2)] && !nEl[+sel.slice(2)].hub) sel = null;
+  if (sel && sel[0] === 'n' && !deg[+sel.slice(2)] && !nEl[+sel.slice(2)].fix) sel = null;
   if (sel && sel[0] === 'e' && !act[+sel.slice(2)].length) sel = null;
   if (sel && sel[0] === 'a' && !AGK[sel.slice(2)]) sel = null;
-  if (foc != null && !deg[foc] && !nEl[foc].hub){ foc = null; trail = []; }
+  if (foc != null && !deg[foc] && !nEl[foc].fix){ foc = null; trail = []; }
   go(true); crumbs(); header(); detail(); events(); focusOn(cur()); lvbar();
   document.dispatchEvent(new CustomEvent('teia:ano', {detail:{year}}));
 }
@@ -1340,7 +1446,7 @@ function computeFocus(){
   const c = foc, box = web.parentNode; fnarrow = box.clientWidth < 600;
   const nb = new Set(), par = new Map();
   E.forEach((e, k) => { if (!act[k].length) return; if (e.a === c) nb.add(e.b); else if (e.b === c) nb.add(e.a); });
-  const live = i => (deg[i] || nEl[i].hub) && nOn(i);
+  const live = i => (deg[i] || nEl[i].fix) && nOn(i);
   IMPL.forEach(([f, a]) => { if (a === c && live(f)) nb.add(f); else if (f === c && live(a)) nb.add(a); });
   E.forEach((e, k) => { if (!act[k].length) return;
     for (const [x, y] of [[e.a, e.b], [e.b, e.a]]) if (nb.has(x) && y !== c && !nb.has(y)){ if (!par.has(y)) par.set(y, new Set()); par.get(y).add(x); } });
@@ -1376,12 +1482,12 @@ function fEdgePath(e){
 const target = i => foc != null && fpos[i] ? fpos[i] : foc != null && cpos[i] ? cpos[i] : pos[i];
 function place(i, x, y){ cpos[i] = {x, y}; nEl[i].g.setAttribute('transform', `translate(${f1(x)},${f1(y)})`); }
 function radii(){
-  N.forEach((n, i) => { const w = nEl[i], off = !deg[i] && !w.hub;
+  N.forEach((n, i) => { const w = nEl[i], off = !deg[i] && !w.fix;
     const st = foc == null && satOf(i) != null;
-    let r = w.hub ? (i === H0 ? 20 : 15) : st ? Math.min(5.5, 2.2 + Math.sqrt(deg[i])) : Math.min(11, 2.6 + 1.5 * Math.sqrt(deg[i]));
+    let r = w.hub ? (BLK ? (w.fix ? 17 : 8) : i === H0 ? 20 : 15) : st ? Math.min(5.5, 2.2 + Math.sqrt(deg[i])) : Math.min(11, 2.6 + 1.5 * Math.sqrt(deg[i]));
     if (foc === i) r = Math.max(r, fnarrow ? 18 : 14);
     w.r = off ? 0 : r; w.dot.setAttribute('r', off ? 0 : f1(r)); w.ringc.setAttribute('r', f1(r + 3));
-    w.hit.setAttribute('r', w.hub ? 24 : foc != null && fnarrow ? 16 : st ? 7 : 10); });
+    w.hit.setAttribute('r', w.hub ? (w.fix ? 24 : 14) : foc != null && fnarrow ? 16 : st ? 7 : 10); });
 }
 function nodeLabel(i){
   const w = nEl[i], n = N[i], t = w.t, L = foc != null ? lvl[i] : null, gone = foc != null ? L == null : REP[i] !== 'n:' + i;
@@ -1389,7 +1495,7 @@ function nodeLabel(i){
   if (gone) return;
   if (L === 0 || (foc == null && w.hub)){
     t.removeAttribute('transform'); t.setAttribute('text-anchor', 'middle'); t.setAttribute('x', 0);
-    t.setAttribute('y', L === 0 ? -(w.r + 10) : i === H0 ? -30 : 34); t.textContent = L === 0 ? cut(n.n, fnarrow ? 26 : 40) : n.n; return;
+    t.setAttribute('y', L === 0 ? -(w.r + 10) : BLK ? w.r + (w.fix ? 17 : 14) : i === H0 ? -30 : 34); t.textContent = L === 0 ? cut(n.n, fnarrow ? 26 : 40) : BLK ? blkLab(i) : n.n; return;
   }
   const a = foc != null ? fpos[i].a : pos[i].a, dg = a * 180 / Math.PI, flip = Math.cos(a) < -1e-6;
   t.setAttribute('transform', `rotate(${(flip ? dg + 180 : dg).toFixed(2)})`); t.setAttribute('text-anchor', flip ? 'end' : 'start');
@@ -1419,7 +1525,7 @@ function drawEdges(){
       eLab[k] = t; }
   });
   IMPL.forEach(([f, a, kind], j) => { const p = iEl[j], noE = !E.some((e, k) => act[k].length && ((e.a === f && e.b === a) || (e.a === a && e.b === f)));
-    const ringL = foc == null && satOf(f) === a && deg[f] && (deg[a] || nEl[a].hub) && noE;
+    const ringL = foc == null && satOf(f) === a && deg[f] && (deg[a] || nEl[a].fix) && noE;
     const show = ringL || (foc != null && (f === foc || a === foc) && lvl[f] != null && lvl[a] != null && noE);
     p.classList.toggle('show', !!show); p.classList.toggle('ring', !!ringL); if (!show) return;
     if (ringL){ p.setAttribute('d', `M${f1(pos[f].x)},${f1(pos[f].y)}L${f1(pos[a].x)},${f1(pos[a].y)}`); return; }
@@ -1454,7 +1560,7 @@ function go(animate){
   web.classList.toggle('fmode', foc != null); web.classList.toggle('fnarrow', foc != null && fnarrow);
   radii(); N.forEach((n, i) => nodeLabel(i));
   cancelAnimationFrame(anim); web.classList.remove('moving');
-  drawGroups();
+  drawGroups(); drawBlk();
   const from = N.map((n, i) => cpos[i] || pos[i]), to = N.map((n, i) => target(i)), v = view(), vb0 = vbCur, w0 = wCur;
   const gf = GIDS.map(id => [GEl[id].x, GEl[id].y]), gt = GIDS.map((id, j) => gpos[id] && GEl[id].vis ? [gpos[id].x, gpos[id].y] : gf[j]);
   const moved = vb0 && (to.some((b, i) => Math.abs(b.x - from[i].x) + Math.abs(b.y - from[i].y) > .5) || gt.some((b, j) => Math.abs(b[0] - gf[j][0]) + Math.abs(b[1] - gf[j][1]) > .5) || v.vb.some((x, j) => Math.abs(x - vb0[j]) > .5));
@@ -1553,8 +1659,9 @@ function detail(){
     body += `<span class="lab">${it.length} ${it.length === 1 ? 'relação' : 'relações'} até ${year} resumidas nesta linha</span>`;
     const ob = [g.u, g.v].filter(isGrp); if (ob.length) body += `<div style="display:flex;flex-wrap:wrap;gap:6px">${ob.map(u => `<button type="button" class="btn" data-lv="${esc(u)}">Abrir ${esc(uLabel(u))}</button>`).join('')}</div>`;
     body += it.map(([r, e, k, j]) => `<div class="card"><h4><button type="button" class="evgo" data-ev="${ekey(E[k])}:${j}"><span>${esc(r.rot)}</span><span class="lab">Ver evidências ›</span></button></h4><div class="who2">${[r.a, r.b].map(x => `<span class="t-${N[x].c}${pcls(x)}" style="display:inline-flex;align-items:center;gap:5px"><i class="sw"></i><button type="button" class="go" data-go="n:${N[x].id}">${esc(N[x].n)}</button></span>`).join('<span class="lab">e</span>')}</div><div class="meta"><span class="chip ${r.st}">${STL[r.st]}</span><span class="lab">${desde(r)}</span>${r.val ? `<span class="lab">${brl(r.val)}</span>` : ''}<span class="lab">${fontesTxt(nFontes(r))}</span></div></div>`).join('');
-  } else if (sel && sel[0] === 'c'){ const c = sel.slice(4); theme = c; kick = 'Grupo'; title = CATL[c];
-    body += openCat.has(c) ? `<button type="button" class="btn" data-lvx="c:${c}" style="align-self:flex-start">Recolher o grupo na teia</button>` : `<button type="button" class="btn" data-lv="c:${c}" style="align-self:flex-start">Abrir o grupo na teia</button>`;
+  } else if (sel && sel[0] === 'c'){ const c = sel.slice(4); theme = c; kick = c === 'hub' ? 'Grupo no centro da teia' : 'Grupo'; title = CATL[c];
+    if (c === 'hub') body += `<p>${BLK ? 'O PCC e o Comando Vermelho, em destaque, e as demais facções do levantamento, menores, formam um bloco só no centro. As linhas grossas de cada grupo recolhido chegam ao bloco; com o grupo aberto, cada nome liga à facção específica.' : 'Os dois nós do centro da teia.'}</p>`;
+    else body += openCat.has(c) ? `<button type="button" class="btn" data-lvx="c:${c}" style="align-self:flex-start">Recolher o grupo na teia</button>` : `<button type="button" class="btn" data-lv="c:${c}" style="align-self:flex-start">Abrir o grupo na teia</button>`;
     const ids = N.map((n, i) => i).filter(i => N[i].c === c && deg[i]).sort((a, b) => deg[b] - deg[a]);
     const row = i => `<div class="card"><div class="who2 t-${c}${pcls(i)}"><i class="sw"></i><button type="button" class="go" data-go="n:${N[i].id}">${esc(N[i].n)}</button><span class="lab">${deg[i]} ${deg[i] === 1 ? 'ligação' : 'ligações'}</span></div>${N[i].d ? `<p>${esc(N[i].d)}</p>` : ''}</div>`;
     body += `<span class="lab">${ids.length} nomes com ligação até ${year}</span>`;
@@ -1939,7 +2046,7 @@ function el(t, a, p){ const e = document.createElementNS(NS, t); if (a) for (con
 const f1 = v => (+v).toFixed(1);
 const RANK = {doc:0, inv:1, rep:2, ale:3};
 const FAC = window.TEIA_CFG && TEIA_CFG.id === 'faccoes';
-const CORD = FAC ? ['fac','mus','inf','pol','jus','bet','din'] : ['mid','pol','fam','jus','usi','adv','pcc','inss','reag','din','grp','lag'];
+const CORD = FAC ? ['fac','mus','prod','inf','pol','jus','bet','din'] : ['mid','pol','fam','jus','usi','adv','pcc','inss','reag','din','grp','lag'];
 /* ícones: [rótulo da legenda, rótulo curto do cartão] */
 const ICN = {pessoa:['pessoa com cargo público', 'cargo público'], privada:['pessoa sem cargo público (silhueta)', 'pessoa'], empresa:['empresa', 'empresa'], banco:['banco ou financeira', 'banco'],
   fundo:['fundo ou garantidor', 'fundo'], orgao:['órgão público', 'órgão público'], tribunal:['tribunal, Ministério Público ou AGU', 'Justiça'], partido:['partido', 'partido'],
@@ -2000,7 +2107,7 @@ const HELP = {
   mapa:'O Mapa mental começa recolhido, como a 2D: o banco e o controlador no centro e, em volta, um cartão por grupo, com o número de nomes ligados até o ano e as fotos ou ícones dos nomes mais ligados. As linhas grossas resumem as relações de cada grupo com o centro e com os outros grupos: o número diz quantas são, o traço é o grau de comprovação que predomina nelas, e um clique lista as relações no painel. Clique num cartão-grupo para abrir o nível seguinte (partidos, órgãos, autoridades, ou direto os nomes) e num subgrupo para abrir os nomes; o "−" no cartão aberto, ou no caminho acima do mapa, recolhe. Vários grupos podem ficar abertos, e "Abrir tudo" mostra um cartão por nome. Cada nome tem foto ou logotipo quando há imagem com origem e licença registradas, senão um ícone do tipo; familiares, próximos e escritórios ligados ficam ao lado da autoridade quando ela está aberta. Dois estilos: gravura, em sépia e cheio de rótulos, e fotográfico, limpo e em cor. A moldura do cartão diz o grau da ligação mais forte com o centro; o traço das linhas, o de cada ligação. Ao selecionar um cartão, o resto esmaece e as ligações com grupos recolhidos vão até o cartão-grupo, com o número; clique nessa linha para abrir o grupo. O painel mostra as relações, os trechos, as fontes e o crédito da imagem; Esc desfaz a seleção.'
 };
 /* na teia de facções o centro são o PCC e o CV, e não há fatos no anel dos anos */
-const helpFac = t => t.replace(/o banco e o controlador no centro/g, 'o PCC e o Comando Vermelho no centro').replace(/o anel externo também escolhe o ano e lista os fatos dele/, 'o anel externo também escolhe o ano e lista as ligações que surgem nele');
+const helpFac = t => t.replace(/o banco e o controlador no centro/g, 'no centro, o grupo Facções (PCC e CV em destaque; as demais facções, menores, no mesmo bloco)').replace(/relações de cada grupo com o centro/g, 'relações de cada grupo com o bloco Facções (com o grupo aberto, cada nome liga à facção específica)').replace(/o anel externo também escolhe o ano e lista os fatos dele/, 'o anel externo também escolhe o ano e lista as ligações que surgem nele');
 const lgs = st => `<svg class="lgs" width="28" height="6" aria-hidden="true"><line x1="1" y1="3" x2="27" y2="3" class="s-${st}"/></svg>`;
 const fgs = (st, card) => card ? `<svg class="lgs" width="22" height="16" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="13" rx="2.5" class="s-${st}"/></svg>` : `<svg class="lgs" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" class="s-${st}" style="fill:none;stroke:var(--ink2);stroke-width:2"/></svg>`;
 const ags = `<svg class="lgs" width="28" height="10" aria-hidden="true"><line x1="4" y1="5" x2="24" y2="5" style="stroke-width:6;stroke-linecap:round;opacity:.5"/></svg>`;
@@ -2026,6 +2133,10 @@ const needR = (a, w, h) => Math.min(w / Math.max(Math.abs(Math.cos(a)), 1e-3), h
 function montar(host, kind, A, ctl){
   const {D, N, E, H0, H1} = A, mapa = kind === 'mapa', P = 'tr' + kind, esc = A.esc, brl = A.brl;
   const HUB = N.map(n => n.c === 'hub'), CATL = A.CATL;
+  /* teia de facções: bloco central "Facções" (PCC e CV principais, lado a lado; as demais facções, satélites menores dentro do bloco).
+     Linha agrupada de um grupo recolhido até qualquer facção = uma linha só até o bloco ('b:fac'); nome à vista liga à facção específica. */
+  const BLK = FAC && N.some(n => n.fx), HS = N.map(n => BLK && n.fx === 2), hubU = u => !!u && u[0] === 'n' && HUB[+u.slice(2)];
+  let BB = null;
   const cats = [...CORD.map(c => D.cats.find(x => x[0] === c)).filter(Boolean), ...D.cats.filter(x => !CORD.includes(x[0]))];
   const cname = c => c === 'grp' ? 'Grupo Master' : CATL[c];
   const adj = N.map(() => []), deg0 = N.map(() => 0);
@@ -2046,9 +2157,10 @@ function montar(host, kind, A, ctl){
   <div class="rbox"><div class="lvbar rlv"><nav class="lvpath" aria-label="Grupos abertos no ${mapa ? 'mapa mental' : 'radial'}"></nav><div class="lvtools"><button type="button" class="btn" data-rall="1">Abrir tudo</button><button type="button" class="btn" data-rnone="1">Recolher tudo</button></div></div>
   <div class="rstage"><svg class="rsvg" role="group" aria-label="${mapa ? 'Mapa mental' : 'Teia radial'} ${FAC ? 'de facções, mídia e política' : 'do Caso Master'} até o ano selecionado. Arraste para mover, use a roda ou a pinça para aproximar"></svg><span class="rmsg" role="status"></span><aside class="rdraw" aria-live="polite" hidden></aside></div>
   <div class="legend rleg" role="region" aria-label="Legenda">
+    ${FAC ? `<div class="lgline"><span class="t-hub" style="color:var(--ink);font-weight:600"><i class="sw" style="border-radius:3px"></i>No centro, o grupo Facções (PCC e CV em destaque)${mapa ? ': um cartão-grupo com as facções dentro' : ''}; as linhas de cada grupo chegam ao bloco e, com o grupo aberto, à facção específica</span></div>` : ''}
     <div class="lgline"><span>${lgs('doc')}documentada</span><span>${lgs('inv')}sob investigação</span><span>${lgs('rep')}revelada pela imprensa</span><span>${lgs('ale')}alegação (em âmbar)</span></div>
     <div class="lgline"><span>${ags}linha grossa com número: as relações de um grupo recolhido com o centro, com outro grupo ou com um nome; espessura e número = quantas, traço = o grau que predomina nelas; clique para listá-las</span></div>
-    <div class="lgline"><span>${fgs('doc', mapa)}${fgs('inv', mapa)}${fgs('rep', mapa)}${fgs('ale', mapa)}moldura do ${mapa ? 'cartão de um nome' : 'ponto'}: o grau da ligação mais forte com o centro (${FAC ? 'PCC ou CV' : 'banco ou controlador'}); mais clara quando o nome não se liga direto ao centro e vale a mais forte que ele tem</span></div>
+    <div class="lgline"><span>${fgs('doc', mapa)}${fgs('inv', mapa)}${fgs('rep', mapa)}${fgs('ale', mapa)}moldura do ${mapa ? 'cartão de um nome' : 'ponto'}: o grau da ligação mais forte com o centro (${FAC ? 'uma facção do bloco Facções' : 'banco ou controlador'}); mais clara quando o nome não se liga direto ao centro e vale a mais forte que ele tem</span></div>
     <details class="lgmore"${matchMedia('(max-width:640px)').matches ? '' : ' open'}><summary>Mais sobre a leitura</summary><div>
       <span>${mapa ? 'cartão-grupo (moldura colorida, com fotos ou ícones dos nomes mais ligados)' : 'círculo grande'} = grupo ou subgrupo recolhido, com o número de nomes até o ano; clique para abrir; o "−" recolhe</span>
       <span><svg width="28" height="8" aria-hidden="true"><line class="lgbr" x1="3" y1="4" x2="25" y2="4"/></svg>ramo colorido: o grupo do nome, não uma ligação</span>
@@ -2074,10 +2186,10 @@ function montar(host, kind, A, ctl){
   try { const j = JSON.parse(sessionStorage.getItem(SKEY) || 'null'); if (j && Array.isArray(j.c)){ j.c.forEach(c => { if (byCat[c]) openCat.add(c); }); (j.p || []).forEach(k => { if (SUBN[k]) openSub.add(k); }); } } catch (e) {}
   if (/[?&]abrir=tudo\b/.test(location.search)) allOpen();
   const save = () => { try { sessionStorage.setItem(SKEY, JSON.stringify({c:[...openCat], p:[...openSub]})); } catch (e) {} };
-  const uLabel = id => id[0] === 'c' ? cname(id.slice(2)) : id[0] === 'p' ? id.slice(2).split('|')[1] : N[+id.slice(2)].n;
-  const uSec = id => id[0] === 'c' ? id.slice(2) : id[0] === 'p' ? id.slice(2).split('|')[0] : N[+id.slice(2)].c;
-  const uCls = id => id[0] === 'c' ? 't-' + id.slice(2) : id[0] === 'p' ? A.subCls(id.slice(2)) : 't-' + N[+id.slice(2)].c + pc(+id.slice(2));
-  const isGrp = id => !!id && id[0] !== 'n';
+  const uLabel = id => id[0] === 'b' ? CATL.hub : id[0] === 'c' ? cname(id.slice(2)) : id[0] === 'p' ? id.slice(2).split('|')[1] : N[+id.slice(2)].n;
+  const uSec = id => id[0] === 'b' ? 'hub' : id[0] === 'c' ? id.slice(2) : id[0] === 'p' ? id.slice(2).split('|')[0] : N[+id.slice(2)].c;
+  const uCls = id => id[0] === 'b' ? 't-hub' : id[0] === 'c' ? 't-' + id.slice(2) : id[0] === 'p' ? A.subCls(id.slice(2)) : 't-' + N[+id.slice(2)].c + pc(+id.slice(2));
+  const isGrp = id => !!id && id[0] !== 'n' && id[0] !== 'b';
   let REP = N.map(() => null), ATT = N.map(() => null), kids = N.map(() => []);
   const visN = i => HUB[i] || REP[i] === 'n:' + i;
 
@@ -2086,12 +2198,34 @@ function montar(host, kind, A, ctl){
     : {R0:250, DR:178, SP:25, PW:52, GAP:.035, RG:260, RH:[150, 150], CW:120, NX:175, NY:330};
   const pos = N.map(() => ({x:0, y:0, a:0, r:0, k:0}));
   const hx = mapa ? 96 : 46;
+  /* bloco Facções: PCC e CV lado a lado, as demais facções numa fileira embaixo; BB = caixa do bloco (título, cartões ou pontos e rótulos) */
+  function blkPlace(){
+    /* Radial no celular: os grupos ficam numa elipse estreita, então o bloco usa as siglas (PCC, CV) e fica mais estreito */
+    const sig = !mapa && narrow, lab = n => sig ? n.sa || n.n : n.sn || n.n;
+    if (!mapa) N.forEach((n, i) => { if (HUB[i] && nEl[i].ht) nEl[i].ht.textContent = lab(n); });
+    const hxb = mapa ? 84 : sig ? 40 : 60, sats = N.map((n, i) => i).filter(i => HS[i]);
+    pos[H0] = {x:-hxb, y:0, a:Math.PI, r:0, k:-1}; pos[H1] = {x:hxb, y:0, a:0, r:0, k:-1};
+    const hh = i => mapa ? (nEl[i].H || 140) / 2 : HS[i] ? 7 : 15;
+    const sy = mapa ? Math.max(hh(H0), hh(H1)) + 14 + Math.max(0, ...sats.map(hh)) : 54, gap = mapa ? 128 : 56;
+    sats.forEach((i, j) => { pos[i] = {x:(j - (sats.length - 1) / 2) * gap, y:sy, a:Math.PI / 2, r:0, k:-1}; });
+    let x0 = -40, x1 = 40, y0 = 0, y1 = 0;
+    N.forEach((n, i) => { if (!HUB[i]) return; const p = pos[i], w = mapa ? (nEl[i].W || 150) / 2 : Math.max(16, lab(n).length * (HS[i] ? 3.4 : 4) + 4), dn = mapa ? hh(i) : hh(i) + (HS[i] ? 16 : 22);
+      x0 = Math.min(x0, p.x - w); x1 = Math.max(x1, p.x + w); y0 = Math.min(y0, p.y - hh(i)); y1 = Math.max(y1, p.y + dn); });
+    const pad = mapa ? 16 : 14, tit = mapa ? 66 : 42;
+    BB = {x:x0 - pad, y:y0 - tit, w:x1 - x0 + 2 * pad, h:y1 - y0 + tit + pad};
+  }
+  /* ponto da borda do bloco na direção de P (onde chega a linha agrupada de um grupo) */
+  function blkEdge(P){
+    const cx = BB.x + BB.w / 2, cy = BB.y + BB.h / 2, dx = P.x - cx, dy = P.y - cy, t = Math.min(BB.w / 2 / (Math.abs(dx) || 1e-6), BB.h / 2 / (Math.abs(dy) || 1e-6));
+    return t >= 1 ? {x:cx, y:cy} : {x:cx + dx * t, y:cy + dy * t};
+  }
   let units = {}, ringArcs = [], Rmax = 0, Rext = 0, RL = 0, RY = 0, RW = 0, narrow = false, live = [];
   function layout(){
     ({REP, ATT} = A.repsFor(openCat, openSub));
     kids = N.map(() => []); ATT.forEach((a, i) => { if (a != null) kids[a].push(i); });
     const sw = stage.clientWidth; if (sw) narrow = sw < 640;
-    if (narrow){ pos[H0] = {x:0, y:mapa ? -86 : -40, a:-Math.PI / 2, r:0, k:-1}; pos[H1] = {x:0, y:mapa ? 86 : 40, a:Math.PI / 2, r:0, k:-1}; }
+    if (BLK) blkPlace();
+    else if (narrow){ pos[H0] = {x:0, y:mapa ? -86 : -40, a:-Math.PI / 2, r:0, k:-1}; pos[H1] = {x:0, y:mapa ? 86 : 40, a:Math.PI / 2, r:0, k:-1}; }
     else { pos[H0] = {x:-hx, y:0, a:Math.PI, r:0, k:-1}; pos[H1] = {x:hx, y:0, a:0, r:0, k:-1}; }
     units = {}; ringArcs = [];
     live = cats.map(([c]) => sec[c]).filter(s => { s.mem = s.ids.filter(i => REP[i] && ATT[i] == null); s.live = s.mem.length > 0; s.open = s.live && openCat.has(s.c); s.list = null; s.nRing = 0; return s.live; });
@@ -2110,13 +2244,14 @@ function montar(host, kind, A, ctl){
     const angles = () => { let ang = -Math.PI / 2 - (live[0] ? live[0].span / 2 : 0);
       live.forEach(s => { s.a0 = ang + G.GAP / 2; s.a1 = ang + s.span - G.GAP / 2; s.mid = (s.a0 + s.a1) / 2; ang += s.span; }); };
     live.forEach(s => { s.mid = null; }); alloc(); angles(); if (mapa && op.length){ alloc(); angles(); }
-    const ell = narrow && !op.length && cl.length > 2 ? ellT(cl.length, G.NX, G.NY) : null;
+    /* com o bloco Facções (mais largo que os dois nós do centro), a elipse do celular abre um pouco mais */
+    const NXe = BLK ? G.NX + (mapa ? 60 : 0) : G.NX, ell = narrow && !op.length && cl.length > 2 ? ellT(cl.length, NXe, G.NY) : null;
     /* espaço de cada cartão no anel: no Mapa mental os cartões são retângulos em pé, e nas diagonais precisam de mais arco e de mais distância entre anéis */
     const needU = (u, a) => mapa ? needT(a, u.bw, u.bh) : u.w;
     let ext = 0; Rmax = 0;
     live.forEach((s, j) => {
       if (!s.open){
-        const p = ell ? {x:Math.cos(ell[j]) * G.NX, y:Math.sin(ell[j]) * G.NY, a:ell[j]} : {x:Math.cos(s.mid) * G.RG, y:Math.sin(s.mid) * G.RG, a:s.mid};
+        const p = ell ? {x:Math.cos(ell[j]) * NXe, y:Math.sin(ell[j]) * G.NY, a:ell[j]} : {x:Math.cos(s.mid) * G.RG, y:Math.sin(s.mid) * G.RG, a:s.mid};
         units['c:' + s.c] = p; ext = Math.max(ext, Math.hypot(p.x, p.y) + (mapa ? 95 : 70)); return; }
       const rh = G.RH[j % 2]; s.hx = Math.cos(s.mid) * rh; s.hy = Math.sin(s.mid) * rh;
       const w = s.a1 - s.a0, rest = s.list.slice(), dr = mapa ? Math.max(G.DR, needR(s.mid, 128, 154)) : G.DR; let k = 0, r = G.R0;
@@ -2140,9 +2275,34 @@ function montar(host, kind, A, ctl){
   }
 
   const defs = el('defs', {}, svg), root = el('g', {}, svg);
-  const gBg = el('g', {}, root), gBr = el('g', {}, root), gAg = el('g', {}, root), gE = el('g', {}, root), gI = el('g', {}, root), gEH = el('g', {}, root), gAH = el('g', {}, root),
+  /* gBk só se usa na teia de facções: o bloco Facções cobre o miolo, com as linhas que chegam às facções por cima dele */
+  const gBg = el('g', {}, root), gBr = el('g', {}, root), gAg = el('g', {}, root), gE = el('g', {}, root), gI = el('g', {}, root), gBk = el('g', {}, root), gEH = el('g', {}, root), gAH = el('g', {}, root),
     gHd = el('g', {}, root), gG = el('g', {}, root), gN = el('g', {}, root), gAL = el('g', {}, root), gV = el('g', {}, root), gY = el('g', {}, root);
 
+  /* bloco Facções: no Radial, moldura e título; no Mapa mental, um cartão-grupo central (faixa, ícone de organização criminosa, título) com PCC e CV dentro */
+  let blkG = null;
+  if (BLK){
+    blkG = el('g', {class:'rblk t-hub', tabindex:0, role:'button', 'aria-label':'Grupo Facções, no centro, com PCC e CV em destaque. Ver as facções e as ligações de cada uma'}, gBk);
+    blkG.r = el('rect', {class:'fbb', rx:mapa ? 12 : 14}, blkG);
+    if (mapa) blkG.s = el('rect', {class:'stripe', height:4, rx:2}, blkG);
+    blkG.ic = el('use', {class:'ic', href:'#ti-crime'}, blkG);
+    blkG.t = el('text', {class:'fbt'}, blkG); blkG.t.textContent = 'FACÇÕES';
+    if (mapa){ blkG.n = el('text', {class:'fbn', 'text-anchor':'middle'}, blkG); blkG.n.textContent = 'PCC e CV em destaque'; }
+    el('title', {}, blkG).textContent = 'Grupo Facções: PCC e Comando Vermelho em destaque; as demais facções, menores, no mesmo bloco. Clique para ver as facções.';
+    blkG.addEventListener('click', ev => { ev.stopPropagation(); if (!moved) panelHub(); });
+    blkG.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); panelHub(); } });
+    blkG.addEventListener('mouseenter', () => hl('u:b:fac')); blkG.addEventListener('mouseleave', () => hl(sel));
+  }
+  function placeBlk(){
+    if (!blkG || !BB) return; const r = blkG.r;
+    r.setAttribute('x', f1(BB.x)); r.setAttribute('y', f1(BB.y)); r.setAttribute('width', f1(BB.w)); r.setAttribute('height', f1(BB.h));
+    if (blkG.s){ blkG.s.setAttribute('x', f1(BB.x + 10)); blkG.s.setAttribute('y', f1(BB.y + 6)); blkG.s.setAttribute('width', f1(BB.w - 20)); }
+    let tw = 0; try { tw = blkG.t.getComputedTextLength(); } catch (e) {}
+    tw = tw || 7 * 17 * .82; const iw = mapa ? 26 : 22, x = -(tw + iw + 6) / 2, yb = BB.y + (mapa ? 36 : 28);
+    blkG.ic.setAttribute('x', f1(x)); blkG.ic.setAttribute('y', f1(yb - iw * .8)); blkG.ic.setAttribute('width', iw); blkG.ic.setAttribute('height', iw);
+    blkG.t.setAttribute('x', f1(x + iw + 6)); blkG.t.setAttribute('y', f1(yb));
+    if (blkG.n){ blkG.n.setAttribute('x', 0); blkG.n.setAttribute('y', f1(yb + 17)); }
+  }
   /* ramos: tronco do centro ao grupo aberto e do grupo a cada nome ou subgrupo (estrutura, não ligação) */
   const curveOut = (x0, y0, x1, y1) => { const a0 = Math.atan2(y0, x0), a1 = Math.atan2(y1, x1), cr = (Math.hypot(x0, y0) + Math.hypot(x1, y1)) / 2;
     return `M${f1(x0)},${f1(y0)}C${f1(Math.cos(a0) * cr)},${f1(Math.sin(a0) * cr)} ${f1(Math.cos(a1) * cr)},${f1(Math.sin(a1) * cr)} ${f1(x1)},${f1(y1)}`; };
@@ -2273,8 +2433,8 @@ function montar(host, kind, A, ctl){
   }
   function dot(g, i){
     const n = N[i];
-    if (HUB[i]){ const R = i === H0 ? 17 : 13; el('circle', {class:'hit', r:28}, g); const fr = el('circle', {class:'fr', r:R + 4}, g); el('circle', {class:'hdot', r:R}, g);
-      const t = el('text', {class:'nm', 'text-anchor':'middle', y:i === H0 ? -(R + 12) : R + 22}, g); t.textContent = n.n; return {fr}; }
+    if (HUB[i]){ const R = BLK ? (HS[i] ? 7 : 15) : i === H0 ? 17 : 13; el('circle', {class:'hit', r:HS[i] ? 16 : 28}, g); const fr = el('circle', {class:'fr', r:R + 4}, g); el('circle', {class:'hdot', r:R}, g);
+      const t = el('text', {class:'nm', 'text-anchor':'middle', y:BLK ? R + (HS[i] ? 14 : 19) : i === H0 ? -(R + 12) : R + 22}, g); t.textContent = BLK ? n.sn || n.n : n.n; return {fr, ht:t}; }
     el('circle', {class:'hit', r:11}, g); const fr = el('circle', {class:'fr', r:8.6}, g); shape(n.t, g);
     const tag = vtag(n), t = el('text', {class:'nm', y:tag ? -.8 : 3.8}, g);
     let tg = null; if (tag){ tg = el('text', {class:'tg', y:9.6}, g); tg.textContent = tag; }
@@ -2289,8 +2449,10 @@ function montar(host, kind, A, ctl){
     w.t.textContent = cut(N[i].n, last ? 34 : 25);
   }
   function card(g, i){
-    const n = N[i], hub = HUB[i], Wd = hub ? 160 : 116, R = hub ? 34 : 27;
-    const nl = wrap(n.n, hub ? 20 : 17, 2), rl = n.g ? wrap(n.g, hub ? 30 : 24, 2) : [], tag = vtag(n);
+    const n = N[i], hub = HUB[i] && !HS[i], Wd = hub ? (BLK ? 150 : 160) : 116, R = hub ? 34 : 27;
+    /* no bloco Facções o cartão traz o nome curto (PCC, Comando Vermelho) e, embaixo, o nome completo */
+    const nm0 = BLK && HUB[i] && n.sn ? n.sn : n.n, g0 = n.g || (nm0 !== n.n ? n.n : '');
+    const nl = wrap(nm0, hub ? 20 : 17, 2), rl = g0 ? wrap(g0, hub ? 30 : 24, 2) : [], tag = vtag(n);
     const H = 18 + 2 * R + 12 + nl.length * 12.5 + rl.length * 10.5 + (tag ? 13 : 0) + 6, y0 = -H / 2;
     const fr = el('rect', {class:'fr', x:f1(-Wd / 2), y:f1(y0), width:Wd, height:f1(H), rx:hub ? 8 : 6}, g);
     el('rect', {class:'stripe', x:f1(-Wd / 2 + 7), y:f1(y0 + 5), width:Wd - 14, height:3.2, rx:1.6}, g);
@@ -2304,10 +2466,10 @@ function montar(host, kind, A, ctl){
     nl.forEach((l, j) => { const s = el('tspan', {x:0, y:f1(y + j * 12.5)}, t); s.textContent = l; }); y += (nl.length - 1) * 12.5 + 11.5;
     if (rl.length){ const r = el('text', {class:'rl', 'text-anchor':'middle'}, g); rl.forEach((l, j) => { const s = el('tspan', {x:0, y:f1(y + j * 10.5)}, r); s.textContent = l; }); y += rl.length * 10.5 + 1; }
     if (tag){ const tg = el('text', {class:'tg', x:0, y:f1(y + 2), 'text-anchor':'middle'}, g); tg.textContent = tag; }
-    return {fr, med, engr, R};
+    return {fr, med, engr, R, H, W:Wd};
   }
   const nEl = N.map((n, i) => {
-    const g = el('g', {class:(mapa ? 'nd card0' : 'nd') + ' t-' + n.c + pc(i) + (HUB[i] ? ' hub' : '') + ' gone', tabindex:0, role:'button', 'aria-label':n.n}, gN);
+    const g = el('g', {class:(mapa ? 'nd card0' : 'nd') + ' t-' + n.c + pc(i) + (HUB[i] ? ' hub' : '') + (HS[i] ? ' hsat' : '') + ' gone', tabindex:0, role:'button', 'aria-label':n.n}, gN);
     const tt = el('title', {}, g); tt.textContent = n.n + (n.g ? ' · ' + n.g : '');
     const w = mapa ? card(g, i) : dot(g, i);
     g.addEventListener('click', ev => { ev.stopPropagation(); if (!moved) pick(i); });
@@ -2315,6 +2477,8 @@ function montar(host, kind, A, ctl){
     g.addEventListener('mouseenter', () => hl('n:' + i)); g.addEventListener('mouseleave', () => hl(sel));
     return Object.assign({g, vis:false, cur:null}, w);
   });
+  /* teia de facções: as linhas que chegam a uma facção passam por cima do bloco, até a facção específica */
+  if (BLK) EG.forEach((w, k) => { if (HUB[E[k].a] || HUB[E[k].b]) gBk.appendChild(w.p); });
   /* fotos e logotipos do manifesto (Mapa mental): só status "baixado" e só se a imagem carregar; senão fica o ícone */
   const IMG = [], SRC = [];
   let mzT = 0;
@@ -2354,8 +2518,9 @@ function montar(host, kind, A, ctl){
   let AG = [], AGK = {}, agEl = {};
   function buildAG(){
     const m = new Map();
-    E.forEach((e, k) => { const rs = act[k]; if (!rs || !rs.length) return; const ua = REP[e.a], ub = REP[e.b];
+    E.forEach((e, k) => { const rs = act[k]; if (!rs || !rs.length) return; let ua = REP[e.a], ub = REP[e.b];
       if (!ua || !ub || ua === ub || (!isGrp(ua) && !isGrp(ub))) return;
+      if (BLK){ if (hubU(ua) && isGrp(ub)) ua = 'b:fac'; else if (hubU(ub) && isGrp(ua)) ub = 'b:fac'; }
       const [u, v] = ua < ub ? [ua, ub] : [ub, ua], key = u + '~' + v;
       let g = m.get(key); if (!g){ g = {key, u, v, items:[]}; m.set(key, g); }
       rs.forEach(r => g.items.push([k, e.r.indexOf(r)])); });
@@ -2364,7 +2529,7 @@ function montar(host, kind, A, ctl){
     AG.forEach(g => { const n = {}; g.items.forEach(([k, j]) => { const st = E[k].r[j].st; n[st] = (n[st] || 0) + 1; });
       let b = null; ['inv', 'doc', 'rep', 'ale'].forEach(s => { if (n[s] && (b == null || n[s] > n[b])) b = s; }); g.st = b || 'doc'; g.n = n; });
   }
-  const uPt = id => id[0] === 'n' ? pos[+id.slice(2)] : units[id];
+  const uPt = id => id[0] === 'n' ? pos[+id.slice(2)] : id[0] === 'b' ? (BB ? {x:BB.x + BB.w / 2, y:BB.y + BB.h / 2} : null) : units[id];
   const lerp = (A0, B0, t) => ({x:A0.x + (B0.x - A0.x) * t, y:A0.y + (B0.y - A0.y) * t});
   const qd = (A0, Q, B0) => ({d:`M${f1(A0.x)},${f1(A0.y)}Q${f1(Q.x)},${f1(Q.y)} ${f1(B0.x)},${f1(B0.y)}`, m:{x:.25 * A0.x + .5 * Q.x + .25 * B0.x, y:.25 * A0.y + .5 * Q.y + .25 * B0.y},
     at:t => ({x:(1 - t) * (1 - t) * A0.x + 2 * (1 - t) * t * Q.x + t * t * B0.x, y:(1 - t) * (1 - t) * A0.y + 2 * (1 - t) * t * Q.y + t * t * B0.y})});
@@ -2379,8 +2544,8 @@ function montar(host, kind, A, ctl){
     gAg.textContent = ''; gAH.textContent = ''; gAL.textContent = ''; agEl = {};
     const h0 = 'n:' + H0, h1 = 'n:' + H1;
     AG.forEach(g => { const n = g.items.length, Ap = uPt(g.u), Bp = uPt(g.v); if (!Ap || !Bp) return;
-      const hu = g.u === h0 || g.u === h1, hv = g.v === h0 || g.v === h1;
-      const geo = hu || hv ? bow(hu ? Bp : Ap, hu ? Ap : Bp, pos[(hu ? g.u : g.v) === h0 ? H1 : H0]) : qd(Ap, {x:(Ap.x + Bp.x) / 2 * (uSec(g.u) === uSec(g.v) ? .82 : .45), y:(Ap.y + Bp.y) / 2 * (uSec(g.u) === uSec(g.v) ? .82 : .45)}, Bp);
+      const bu = g.u[0] === 'b', bv = g.v[0] === 'b', hu = g.u === h0 || g.u === h1 || bu, hv = g.v === h0 || g.v === h1 || bv;
+      const geo = bu || bv ? (P0 => { const Q = blkEdge(P0); return qd(P0, lerp(P0, Q, .5), Q); })(bu ? Bp : Ap) : hu || hv ? bow(hu ? Bp : Ap, hu ? Ap : Bp, pos[(hu ? g.u : g.v) === h0 ? H1 : H0]) : qd(Ap, {x:(Ap.x + Bp.x) / 2 * (uSec(g.u) === uSec(g.v) ? .82 : .45), y:(Ap.y + Bp.y) / 2 * (uSec(g.u) === uSec(g.v) ? .82 : .45)}, Bp);
       const col = isGrp(g.u) ? uCls(g.u) : uCls(g.v), sw = Math.min(10, 1.2 + 1.3 * Math.sqrt(n)), x = hu || hv ? ' h0' : ' x';
       const lab = `${plural(n, 'relação', 'relações')} entre ${uLabel(g.u)} e ${uLabel(g.v)} até ${A.year}; traço: ${A.STL[g.st]}, o grau que predomina`;
       const p = el('path', {class:'ag ' + col + ' s-' + g.st + x, d:geo.d, 'stroke-width':f1(sw)}, gAg), da = agDash(g.st, sw); if (da) p.style.strokeDasharray = da;
@@ -2395,6 +2560,12 @@ function montar(host, kind, A, ctl){
       for (const z of [h, t]){ z.addEventListener('click', fn); z.addEventListener('mouseenter', () => hl('a:' + g.key)); z.addEventListener('mouseleave', () => hl(sel)); }
       t.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); fn(ev); } });
       agEl[g.key] = {p, h, t}; });
+    /* teia de facções: número de uma linha que cruza o miolo e cairia em cima do bloco vai para o trecho mais próximo fora dele */
+    if (BLK && BB){ const inB = (X, Y) => X > BB.x - 12 && X < BB.x + BB.w + 12 && Y > BB.y - 12 && Y < BB.y + BB.h + 12;
+      for (const k in agEl){ const {p, t} = agEl[k]; if (!inB(+t.getAttribute('x'), +t.getAttribute('y'))) continue;
+        let L = 0; try { L = p.getTotalLength(); } catch (e) {} if (!L) continue;
+        out: for (let j = 1; j <= 22; j++) for (const s of [-1, 1]){ const q = p.getPointAtLength(L * Math.max(0, Math.min(1, .5 + s * j * .021)));
+          if (!inB(q.x, q.y)){ t.setAttribute('x', f1(q.x)); t.setAttribute('y', f1(q.y)); break out; } } } }
   }
 
   /* ---------- estado do ano ---------- */
@@ -2454,6 +2625,7 @@ function montar(host, kind, A, ctl){
     svg.classList.toggle('dim', !!id);
     nEl.forEach((w, i) => { w.g.classList.toggle('on', onN.has(i) && visN(i)); w.g.classList.toggle('sel', sel === 'n:' + i); });
     for (const u in GW) GW[u].g.classList.toggle('on', onU.has(u));
+    if (blkG) blkG.classList.toggle('on', onU.has('b:fac') || [...onN].some(i => HUB[i]));
     EG.forEach((w, k) => { const o = onE.has(k); w.p.classList.toggle('on', o); w.h.classList.toggle('on', o); });
     brEl.forEach((b, i) => { if (b) b.classList.toggle('on', onN.has(i)); });
     for (const u in brU) brU[u].classList.toggle('on', onU.has(u));
@@ -2492,7 +2664,7 @@ function montar(host, kind, A, ctl){
     if (endAnim) endAnim();
     const oREP = REP.slice(), oUnits = units, oCur = nEl.map(w => w.vis ? w.cur : null);
     layout(); lastSig = REP.join(',');
-    N.forEach((n, i) => orient(i)); placeHeads(); buildBranches(); buildRings(); E.forEach((e, k) => edgeGeo(k)); buildImp(); placeYears();
+    N.forEach((n, i) => orient(i)); placeBlk(); placeHeads(); buildBranches(); buildRings(); E.forEach((e, k) => edgeGeo(k)); buildImp(); placeYears();
     if (sel && sel[0] === 'n' && !visN(+sel.slice(2))) sel = null;
     if (sel && sel[0] === 'e' && !(visN(E[+sel.slice(2)].a) && visN(E[+sel.slice(2)].b))) sel = null;
     refresh();
@@ -2574,7 +2746,7 @@ function montar(host, kind, A, ctl){
     if (n.d) b += `<p>${esc(n.d)}</p>`;
     b += A.valHTML(n);
     b += `<div class="acts"><button type="button" class="dbtn" data-dos="${esc(n.id)}">Abrir dossiê completo</button><button type="button" class="btn" data-rctr="${i}">Centralizar</button><button type="button" class="btn" data-r2d="${i}">Ver na teia 2D</button></div>`;
-    if (w.st) b += `<p style="font-size:12.5px">Moldura: ${w.ind ? (FAC ? 'sem ligação direta com o PCC ou o CV; a ligação mais forte que tem é ' : 'sem ligação direta com o banco ou o controlador; a ligação mais forte que tem é ') : 'a ligação mais forte com o centro é '}<b>${A.STL[w.st]}</b>.</p>`;
+    if (w.st) b += `<p style="font-size:12.5px">Moldura: ${w.ind ? (FAC ? 'sem ligação direta com as facções do centro; a ligação mais forte que tem é ' : 'sem ligação direta com o banco ou o controlador; a ligação mais forte que tem é ') : 'a ligação mais forte com o centro é '}<b>${A.STL[w.st]}</b>.</p>`;
     b += `<span class="lab">${plural(list.length, 'ligação', 'ligações')} até ${A.year}${nv ? ` · ${nv} com valor em reais` : ''}</span>` + list.map(x => relCard(x[0], x[1], i)).join('');
     const kick = esc((HUB[i] ? CATL.hub : CATL[n.c]) + ' · ' + ICN[ICO[i]][1] + (n.p && n.p !== 'Outros nomes' ? ' · ' + n.p : ''));
     openDraw(kick, n.c, n.n, b);
@@ -2606,7 +2778,14 @@ function montar(host, kind, A, ctl){
       return openDraw('Ligações do ano', 'hub', y === y0 ? 'Até ' + y0 : String(y), `<span class="lab">${plural(rs.length, 'ligação surge', 'ligações surgem')} ${y === y0 ? 'até ' + y0 : 'em ' + y}; o mapa mostra as ligações até ${y}</span>` + (rs.length ? rs.map(([r, e, k, j]) => `<div class="card"><h4><button type="button" class="evgo" data-ev="${esc(A.ekey(e))}:${j}"><span>${esc(r.rot)}</span><span class="lab">Ver evidências ›</span></button></h4><div class="meta"><span class="chip ${r.st}">${A.STL[r.st]}</span><span class="lab">${esc(N[r.a].n)} e ${esc(N[r.b].n)}</span></div></div>`).join('') : '<p>Nenhuma ligação começa neste ano nas fontes consultadas.</p>')); }
     openDraw('Linha do tempo', 'hub', y === y0 ? 'Até ' + y0 : String(y), `<span class="lab">${plural(evs.length, 'fato', 'fatos')}; o mapa mostra as ligações até ${y}</span>` + (evs.length ? evs.map(e => `<div class="ev"><time>${esc(A.fdate(e.d))}</time><div><h4>${esc(e.t)}</h4><p>${esc(e.x)}</p><div class="src">${A.srcLinks(e.f)}</div></div></div>`).join('') : '<p>Nenhum fato de grande peso registrado neste ano.</p>'));
   }
-  function render(){ if (!pan) return; const [t, v] = pan; if (t === 'n') panelN(v); else if (t === 'e') panelE(v); else if (t === 'c') panelC(v); else if (t === 'a') panelA(v); else if (t === 'y') showYear(v); }
+  /* bloco Facções: as facções do centro e quantas ligações cada uma tem até o ano */
+  function panelHub(){
+    sel = null; hl('u:b:fac'); pan = ['b', 0];
+    const ids = N.map((n, i) => i).filter(i => HUB[i]).sort((a, b) => HS[a] - HS[b] || deg[b] - deg[a]);
+    const row = i => `<div class="card"><div class="who2">${sw(i, `<span class="lab">${plural(deg[i], 'ligação', 'ligações')} até ${A.year}</span>`)}</div>${N[i].d ? `<p>${esc(N[i].d)}</p>` : ''}</div>`;
+    openDraw('Grupo no centro', 'hub', CATL.hub, '<p>O PCC e o Comando Vermelho, em destaque, e as demais facções do levantamento, menores, formam um bloco só no centro. As linhas grossas de cada grupo recolhido chegam ao bloco; com o grupo aberto, cada nome liga à facção específica.</p>' + ids.map(row).join(''));
+  }
+  function render(){ if (!pan) return; const [t, v] = pan; if (t === 'b') return panelHub(); if (t === 'n') panelN(v); else if (t === 'e') panelE(v); else if (t === 'c') panelC(v); else if (t === 'a') panelA(v); else if (t === 'y') showYear(v); }
   function pick(i){ sel = 'n:' + i; hl(sel); panelN(i); }
   function pickE(k){ sel = 'e:' + k; hl(sel); panelE(k); }
   function pickA(key){ sel = 'a:' + key; hl(sel); panelA(key); }
@@ -2632,6 +2811,7 @@ function montar(host, kind, A, ctl){
       else if (HUB[i]) add(p.x, p.y, 54, 44);
       else { add(p.x, p.y, 12, 12); const L = 16 + Math.min(N[i].n.length, 25) * 6; add(p.x + Math.cos(p.a) * L, p.y + Math.sin(p.a) * L, 6, 8); } });
     for (const id in units){ const u = units[id]; add(u.x, u.y, mapa ? 74 : 56, mapa ? 84 : 62); }
+    if (BB) add(BB.x + BB.w / 2, BB.y + BB.h / 2, BB.w / 2 + 8, BB.h / 2 + 8);
     cats.forEach(([c]) => { const s = sec[c]; if (!s.open) return; add(s.hx, s.hy, mapa ? 80 : 10, mapa ? 34 : 10);
       if (!mapa) add(Math.cos(s.mid) * RL, Math.sin(s.mid) * RL, 30, 14); });
     x0 -= 26; y0 -= 26; x1 += 26; y1 += 26;
@@ -2746,10 +2926,10 @@ return {montar, fontesGravura};
   function sendTema(){ post({teia:'tema', v: document.documentElement.getAttribute('data-theme') || ''}); }
   /* a 3D é o mesmo modelo para as duas teias: cores dos grupos da teia de facções e, nela, primeiro andar, centro, textos e links próprios */
   function tpl3d(){
-    const cores = (a, b, c, d) => `--fac:${a};--mus:${b};--inf:${c};--bet:${d}`;
-    const cl = cores('#c2362f', '#7a4fd0', '#1590a8', '#a87400'), cd = cores('#e2574c', '#a08af0', '#3fb8cf', '#e0a830');
+    const cores = (a, b, c, d, e) => `--fac:${a};--mus:${b};--inf:${c};--bet:${d};--prod:${e}`;
+    const cl = cores('#c2362f', '#7a4fd0', '#1590a8', '#a87400', '#b0408c'), cd = cores('#e2574c', '#a08af0', '#3fb8cf', '#e0a830', '#de7cc0');
     let t = TPL3D.replace('</head>', `<style>:root{${cl}}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){${cd}}}:root[data-theme="dark"]{${cd}}</style></head>`)
-      .replace("const SHORT = {pol:'Política',", "const SHORT = {fac:'Facções', mus:'Música', inf:'Mídia', bet:'Bets', pol:'Política',");
+      .replace("const SHORT = {pol:'Política',", "const SHORT = {fac:'Facções', mus:'Música', prod:'Produtoras', inf:'Mídia', bet:'Bets', pol:'Política',");
     if (!FAC) return t;
     const troca = (de, para) => { if (t.indexOf(de) < 0) throw new Error('3D: trecho não encontrado: ' + de.slice(0, 40)); t = t.split(de).join(para); };
     troca('2017', String(TEIA_CFG.y0));
@@ -2761,7 +2941,34 @@ return {montar, fontesGravura};
     troca('<a href="./teia.html">Teia 2D, com dossiês</a><a href="./dossie.html">Master: mercado ou máquina</a>',
       '<a href="./pistas.html">Pistas do X</a><a href="./dossie-faccoes.html">Facções, mídia e poder</a><a href="./teia.html">Teia do Caso Master</a>');
     troca('<b>Ninguém citado foi condenado; citação não é investigação; investigação não é culpa.</b>', '<b>Ligação não é acusação; investigado não é culpado, réu não é condenado, e pista de rede social nunca é fonte.</b>');
-    troca('o banco e o controlador no eixo', 'o PCC e o Comando Vermelho no eixo');
+    troca('o banco e o controlador no eixo', 'no eixo, o grupo Facções (PCC e CV em destaque; as demais facções, menores, no mesmo bloco)');
+    /* bloco Facções no eixo central: PCC e CV lado a lado, as demais facções menores atrás deles, todos na cor das facções, dentro de um cilindro destacado;
+       linha agrupada de um grupo recolhido até qualquer facção vai até o eixo ('b:fac') */
+    troca("const isG = id => id && id[0] !== 'n';",
+      "const FACB = N.some(n => n.fx), BLK3 = {hub:true, x:0, z:0, h:0, fa:1, c:'hub', key:'fac', n:'Facções'};\nconst isG = id => id && id[0] !== 'n' && id[0] !== 'b';");
+    troca("const uLabel = id => id[0] === 'n' ?", "const uLabel = id => id[0] === 'b' ? 'Facções' : id[0] === 'n' ?");
+    troca("const uObj = id => id[0] === 'n' ?", "const uObj = id => id[0] === 'b' ? BLK3 : id[0] === 'n' ?");
+    troca("const uSec = id => id[0] === 'n' ?", "const uSec = id => id[0] === 'b' ? 'hub' : id[0] === 'n' ?");
+    troca("const ua = REP[r.a], ub = REP[r.b]; if (ua === ub", "let ua = REP[r.a], ub = REP[r.b]; if (ua === ub");
+    troca("    const [u, v] = ua < ub ? [ua, ub] : [ub, ua], f = fl(r.de)",
+      "    if (FACB){ if (N[r.a].hub && isG(ub)) ua = 'b:fac'; else if (N[r.b].hub && isG(ua)) ub = 'b:fac'; }\n    const [u, v] = ua < ub ? [ua, ub] : [ub, ua], f = fl(r.de)");
+    troca("  N.filter(n => n.hub).forEach((n, j) => { n.bx = j ? 40 : -40; n.bz = 0; n.a = 0; });",
+      "  { const hm = N.filter(n => n.hub && n.fx !== 2).sort((a, b) => (b.id === 'pcc') - (a.id === 'pcc')), hs = N.filter(n => n.hub && n.fx === 2);\n" +
+      "    hm.forEach((n, j) => { n.bx = j ? 46 : -46; n.bz = 0; n.a = 0; }); hs.forEach((n, j) => { n.bx = (j - (hs.length - 1) / 2) * 34; n.bz = 40; n.a = 0; }); }");
+    troca("n.key = n.c === 'pol' ?", "n.key = n.hub ? 'fac' : n.c === 'pol' ?");
+    troca("[...D.cats.map(c => c[0]), 'hub'].forEach(", "[...D.cats.map(c => c[0]), 'hub', 'fac'].forEach(");
+    troca("base = n.hub ? 12 :", "base = n.hub ? (n.fx === 2 ? 7 : 12) :");
+    troca('  /* eixo central do tempo */',
+      "  /* bloco Facções: cilindro na cor das facções em volta do eixo, do chão ao ano escolhido */\n" +
+      "  if (FACB){ const RB = 80, top = hy(tyear), al = .35 + .65 * ring1;\n" +
+      "    [h0, top].forEach((hh, j) => { poly(arcPts(RB, hh, 0, TAU, 48), 49); ctx.fillStyle = alpha(COL.fac, (j ? .14 : .07) * al); ctx.fill(); ctx.strokeStyle = alpha(COL.fac, (j ? .95 : .5) * al); ctx.lineWidth = j ? 2.6 : 1.4; ctx.stroke(); });\n" +
+      "    for (let k = 0; k < 8; k++){ const a = k * TAU / 8 + .2; poly([[RB * Math.cos(a), h0, RB * Math.sin(a)], [RB * Math.cos(a), top, RB * Math.sin(a)]], 2); ctx.strokeStyle = alpha(COL.fac, .22 * al); ctx.lineWidth = 1; ctx.stroke(); } }\n" +
+      '  /* eixo central do tempo */');
+    troca('  cand.slice(0, 3).filter(c => c.pr >= 90)',
+      "  if (FACB && foc == null){ const top = hy(tyear), qs = [0, 1, 2, 3, 4, 5, 6, 7].map(k => proj([80 * Math.cos(k * TAU / 8), top, 80 * Math.sin(k * TAU / 8)])).filter(Boolean);\n" +
+      "    if (qs.length){ const x = qs.reduce((t, q) => t + q[0], 0) / qs.length, y = Math.min(...qs.map(q => q[1])) - 14; drawLab('FACÇÕES', x, y, '900 16px \"Archivo\", \"Arial Narrow\", sans-serif', COL.fac, null, 'center'); } }\n" +
+      '  cand.slice(0, 3).filter(c => c.pr >= 90)');
+    troca('`<span style="--c:var(--hub)"><i></i>Centro <b>', '`<span style="--c:var(--fac)"><i></i>Facções (centro: PCC e CV em destaque) <b>');
     troca("const EVFOOT = 'Nenhuma pessoa citada foi condenada neste caso. Citação não é investigação; investigação não é culpa.';",
       "const EVFOOT = 'Ligação não é acusação. Investigado não é culpado, réu não é condenado, e pista de rede social nunca é fonte.';");
     return t;
