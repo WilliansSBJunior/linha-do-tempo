@@ -1,0 +1,597 @@
+{
+ "versao": 1,
+ "gerado_em": "2026-10-16T00:00:00Z",
+ "descricao": "Contagens de marcadores (etiquetas finas) das triagens de tweets, por relevância (pista, contexto, coberto, descartar). `pistas-x.json` traz só pista/contexto; aqui entram todas.",
+ "triagens_com_marcador": 0,
+ "marcadores": [
+  {
+   "id": "artistas",
+   "grupo": "ator",
+   "descricao": "músicos, atores, apresentadores",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "coaf",
+   "grupo": "ator",
+   "descricao": "Coaf e relatórios de inteligência financeira",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "comando-vermelho",
+   "grupo": "ator",
+   "descricao": "Comando Vermelho",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "congresso",
+   "grupo": "ator",
+   "descricao": "Câmara, Senado, CPIs/CPMIs",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "governo-federal",
+   "grupo": "ator",
+   "descricao": "Presidência, ministérios, Fazenda",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "governos-estaduais",
+   "grupo": "ator",
+   "descricao": "governadores, secretarias, polícias estaduais",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "influenciadores",
+   "grupo": "ator",
+   "descricao": "influenciadores, streamers, youtubers",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "milicias",
+   "grupo": "ator",
+   "descricao": "milícias",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "ministerio-publico",
+   "grupo": "ator",
+   "descricao": "MPF, MPs estaduais, PGR, Gaeco",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "outras-faccoes",
+   "grupo": "ator",
+   "descricao": "TCP, BDM, PGC, Bonde dos 40, Tren de Aragua etc.",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "partidos",
+   "grupo": "ator",
+   "descricao": "partidos e dirigentes",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "pcc",
+   "grupo": "ator",
+   "descricao": "Primeiro Comando da Capital",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "pf",
+   "grupo": "ator",
+   "descricao": "Polícia Federal",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "stf",
+   "grupo": "ator",
+   "descricao": "Supremo e ministros",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "tse-tre",
+   "grupo": "ator",
+   "descricao": "Justiça eleitoral",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "veiculos-midia",
+   "grupo": "ator",
+   "descricao": "jornais, portais, emissoras, páginas",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "bets",
+   "grupo": "caso",
+   "descricao": "apostas, bets, tigrinho, rifas, MP das bets, Blaze, publicidade",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "brb",
+   "grupo": "caso",
+   "descricao": "BRB e a compra de carteiras do Master",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "carbono-oculto",
+   "grupo": "caso",
+   "descricao": "PCC nos combustíveis, Beto Louco, Quasar, Carbono Oculto",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "caso-master",
+   "grupo": "caso",
+   "descricao": "Banco Master, Vorcaro, Will Bank, liquidação, FGC",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "compliance-zero",
+   "grupo": "caso",
+   "descricao": "Operação Compliance Zero e suas fases (STF/Mendonça, PF)",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "dark-horse",
+   "grupo": "caso",
+   "descricao": "filme Dark Horse, Entre Investimentos, Go Up, Havengate",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "deolane",
+   "grupo": "caso",
+   "descricao": "Deolane Bezerra e o processo de lavagem para o PCC",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "emendas-shows",
+   "grupo": "caso",
+   "descricao": "dinheiro público (emendas, prefeituras, Rouanet) em shows de artistas",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "faccoes-terrorismo-eua",
+   "grupo": "caso",
+   "descricao": "classificação de PCC/CV como terroristas, sanções OFAC",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "inss-sem-desconto",
+   "grupo": "caso",
+   "descricao": "fraude do INSS, Careca do INSS, Operação Sem Desconto, CPMI",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "lulinha-luchsinger",
+   "grupo": "caso",
+   "descricao": "Lulinha, Roberta Luchsinger, tráfico de influência no governo",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "marcinho-vp-oruam",
+   "grupo": "caso",
+   "descricao": "família de Marcinho VP: Oruam, Márcia Gama, Hermógenes",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "megaoperacao-rio-2025",
+   "grupo": "caso",
+   "descricao": "megaoperação de 28/10/2025 nos complexos do Alemão e da Penha",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "midia-vorcaro",
+   "grupo": "caso",
+   "descricao": "Vorcaro e veículos/jornalistas/influenciadores (Metrópoles, Folha, Globo, Prioli, Marçal)",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "milicia-vorcaro",
+   "grupo": "caso",
+   "descricao": "'A Turma', Sicário, ameaças a desafetos",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "narco-fluxo",
+   "grupo": "caso",
+   "descricao": "Operação Narco Fluxo (MC Ryan SP, Poze, Choquei, GR6, Love Funk)",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "precatorios-usinas",
+   "grupo": "caso",
+   "descricao": "precatórios, usinas, Entre/AGU",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "reag-fundos",
+   "grupo": "caso",
+   "descricao": "Reag, Trustee DTVM, fundos usados pelo Master/PCC",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "th-joias-alerj",
+   "grupo": "caso",
+   "descricao": "TH Joias, Bacellar, Macário Júdice, vazamentos ao CV",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "willer-tomaz",
+   "grupo": "caso",
+   "descricao": "Willer Tomaz, Cathedral, Rede Loto/BestBet, voos",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "candidato-ficha",
+   "grupo": "eleicoes",
+   "descricao": "antecedentes/processos de candidatos",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "eleicoes-2026",
+   "grupo": "eleicoes",
+   "descricao": "campanha, debates, candidaturas de 2026",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "pesquisa-eleitoral",
+   "grupo": "eleicoes",
+   "descricao": "pesquisas de intenção de voto",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "condenacao-absolvicao",
+   "grupo": "tipo-de-fato",
+   "descricao": "sentença, condenação, absolvição, arquivamento",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "contra-pista",
+   "grupo": "tipo-de-fato",
+   "descricao": "decisão/fato que desmente associação a facção ou crime",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "declaracao-opiniao",
+   "grupo": "tipo-de-fato",
+   "descricao": "declaração, opinião, crítica, troca de farpas",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "delacao",
+   "grupo": "tipo-de-fato",
+   "descricao": "colaboração premiada",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "denuncia-indiciamento",
+   "grupo": "tipo-de-fato",
+   "descricao": "denúncia, réu, indiciamento",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "dinheiro-valor",
+   "grupo": "tipo-de-fato",
+   "descricao": "tweet traz valor em R$/US$",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "mensagens-vazadas",
+   "grupo": "tipo-de-fato",
+   "descricao": "conteúdo de celular apreendido divulgado",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "operacao-policial",
+   "grupo": "tipo-de-fato",
+   "descricao": "operação deflagrada, busca e apreensão",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "prisao",
+   "grupo": "tipo-de-fato",
+   "descricao": "prisão, mandado, foragido",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  },
+  {
+   "id": "soltura",
+   "grupo": "tipo-de-fato",
+   "descricao": "habeas corpus, revogação, soltura",
+   "n": 0,
+   "por_relevancia": {
+    "pista": 0,
+    "contexto": 0,
+    "coberto": 0,
+    "descartar": 0
+   }
+  }
+ ],
+ "sugeridos": {}
+}

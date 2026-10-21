@@ -85,7 +85,7 @@ Naturezas aceitas: `doc inv rep ale nc` · `fato_documentado alegacao opiniao` �
 **`inserir_video(video, trechos, cortes_sugeridos)`** — atalho: o mesmo código com `tipo='video'` (contrato do classificador, mais abaixo).
 **`listar_temas()`** — temas (`id, nome, descricao, principal`) com nº de relações, eventos e entidades.
 
-**`buscar_pistas(tema?, entidade?, texto?, limite=50)`** — só leitura: triagens do X (`post_triagem`, relevância `pista`/`contexto`) por prioridade e data, com `temas`, `entidades` (`id` quando resolvida no banco), `duplicata_de` e `texto` do post (null enquanto o bruto não foi coletado). Tweet é pista, nunca fonte que sustenta relação.
+**`buscar_pistas(tema?, entidade?, texto?, limite=50, marcador?, relevancia?)`** — só leitura: triagens do X (`post_triagem`, por padrão relevância `pista`/`contexto`; `relevancia` aceita `pista|contexto|coberto|descartar`) por prioridade e data. `marcador` filtra por etiqueta fina do vocabulário controlado (`data/curadoria/x-marcadores.json`; marcador inexistente devolve erro), p.ex. `marcador="eleicoes-2026", relevancia="descartar"`. Traz `temas`, `marcadores`, `entidades` (`id` quando resolvida no banco), `duplicata_de` e `texto` do post (null enquanto o bruto não foi coletado). Tweet é pista, nunca fonte que sustenta relação.
 
 **`buscar_semantica(texto, tabelas=None, limite=20, k_fts=50)`** — busca híbrida: candidatos do FTS5 (`busca_fts`, consulta OR sem stopwords, top `k_fts`) ∪ top-`k_fts`
 vetorial; reordenação por RRF (`Σ 1/(60+posição)`). `tabelas` ⊂ `trecho evidencia relacao evento entidade` (+`nota`, só FTS). Cada resultado:

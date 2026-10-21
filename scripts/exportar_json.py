@@ -2,13 +2,13 @@
 """Exporta o banco para JSON (e regenera data/dump.sql). Só lê o banco.
 
 Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, temas.json,
-violencia.json, pistas-x.json, dump.sql.
+violencia.json, pistas-x.json, pistas-x-marcadores.json, dump.sql.
 Uso: python3 scripts/exportar_json.py [--db caminho.sqlite]
 """
 import argparse
 import json
 import re
-from collections import OrderedDict, defaultdict
+from collections import Counter, OrderedDict, defaultdict
 
 from comum import DATA, DUMP, SQLITE, TS_MIGRACAO, conectar, gerar_dump
 from curadoria import R5_TIPOS_IMPRENSA, R5_TIPOS_OFICIAIS, eh_wiki, fonte_oficial
@@ -617,6 +617,9 @@ def montar_pistas_x(con):
     temas_de = defaultdict(list)
     for r in con.execute("SELECT post_id, tema_id FROM post_triagem_tema ORDER BY post_id, tema_id"):
         temas_de[r["post_id"]].append(r["tema_id"])
+    marc_de = defaultdict(list)
+    for r in con.execute("SELECT post_id, marcador_id FROM post_triagem_marcador ORDER BY post_id, marcador_id"):
+        marc_de[r["post_id"]].append(r["marcador_id"])
     itens = {}
     for t in con.execute("""SELECT * FROM post_triagem WHERE relevancia IN ('pista','contexto')
                             ORDER BY prioridade, data_post DESC, post_id DESC"""):
@@ -626,7 +629,7 @@ def montar_pistas_x(con):
             ("id", tid), ("url", p["url"] if p else f"https://x.com/{CONTA_X}/status/{tid}"), ("data", t["data_post"]),
             ("relevancia", t["relevancia"]), ("tipo", t["tipo_afirmacao"]), ("prioridade", t["prioridade"]),
             ("afirmacao", t["afirmacao"]), ("fonte_citada", t["fonte_citada"]), ("nota", t["nota"]),
-            ("temas", temas_de[pid]), ("entidades", ents[pid]),
+            ("temas", temas_de[pid]), ("marcadores", marc_de[pid]), ("entidades", ents[pid]),
             ("duplicata_de", (rels[pid]["duplicata"] or [None])[0]), ("relacionados", rels[pid]["relacionado"]),
             ("texto", p["texto"] if p else None), ("card", p["card"] if p else None)])
     grupos = []
@@ -643,7 +646,31 @@ def montar_pistas_x(con):
                       "documento antes de publicar. Só relevância `pista` e `contexto`; `coberto` e `descartar` ficam no banco (post_triagem)." % CONTA_X),
         ("contagens", OrderedDict([("triagens", sum(por_rel.values())), ("por_relevancia", OrderedDict((k, por_rel.get(k, 0)) for k in ("pista", "contexto", "coberto", "descartar"))),
                                    ("itens_exportados", len(itens)), ("com_texto", sum(i["texto"] is not None for i in itens.values()))])),
+        ("por_marcador", OrderedDict((m["id"], [i["id"] for i in itens.values() if m["id"] in i["marcadores"]])
+                                     for m in con.execute("SELECT id FROM marcador ORDER BY grupo, id")
+                                     if any(m["id"] in i["marcadores"] for i in itens.values()))),
         ("temas", grupos)])
+
+
+def montar_pistas_x_marcadores(con):
+    """Contagens por marcador e por relevância (todas, inclusive `descartar`: útil p.ex. para eleições-2026). Só ids e números, sem texto."""
+    rels = ("pista", "contexto", "coberto", "descartar")
+    cont = {r["marcador_id"]: Counter() for r in con.execute("SELECT DISTINCT marcador_id FROM post_triagem_marcador")}
+    for r in con.execute("""SELECT x.marcador_id, t.relevancia FROM post_triagem_marcador x JOIN post_triagem t ON t.post_id=x.post_id"""):
+        cont[r["marcador_id"]][r["relevancia"]] += 1
+    marcadores = []
+    for m in con.execute("SELECT id, grupo, descricao FROM marcador ORDER BY grupo, id"):
+        c = cont.get(m["id"], Counter())
+        marcadores.append(OrderedDict([("id", m["id"]), ("grupo", m["grupo"]), ("descricao", m["descricao"]), ("n", sum(c.values())),
+                                       ("por_relevancia", OrderedDict((k, c.get(k, 0)) for k in rels))]))
+    sug = Counter(r["texto"] for r in con.execute("SELECT texto FROM post_triagem_marcador_sugerido"))
+    return OrderedDict([
+        ("versao", VERSAO), ("gerado_em", TS_MIGRACAO),
+        ("descricao", "Contagens de marcadores (etiquetas finas) das triagens de tweets, por relevância (pista, contexto, coberto, descartar). "
+                      "`pistas-x.json` traz só pista/contexto; aqui entram todas."),
+        ("triagens_com_marcador", con.execute("SELECT count(DISTINCT post_id) FROM post_triagem_marcador").fetchone()[0]),
+        ("marcadores", marcadores),
+        ("sugeridos", OrderedDict(sorted(sug.items())))])
 
 
 def salvar(nome, obj):
@@ -654,7 +681,8 @@ def todos(con):
     return {"entities.json": montar_entities(con), "teia.json": montar_teia(con), "origens.json": montar_origens(con),
             "series.json": montar_series(con), "mapa_indices.json": mapa_indices(con),
             "dossie.json": montar_dossie(con), "pares.json": montar_pares(con), "temas.json": montar_temas(con),
-            "violencia.json": montar_violencia(con), "pistas-x.json": montar_pistas_x(con)}
+            "violencia.json": montar_violencia(con), "pistas-x.json": montar_pistas_x(con),
+            "pistas-x-marcadores.json": montar_pistas_x_marcadores(con)}
 
 
 def main():

@@ -511,6 +511,26 @@ CREATE TABLE post_relacionado (
   PRIMARY KEY (post_id, relacionado_id, tipo)
 ) STRICT;
 
+-- DESVIO (aditivo): marcadores = etiquetas finas (vocabulário controlado em data/curadoria/x-marcadores.json) para reaproveitar cada tweet em
+-- vários casos (Master, facções, política, bets, INSS...). Diferente de `tema` (lista curta que organiza as páginas). Marcador fora do
+-- vocabulário aborta a migração; o que ainda não existe vai em `post_triagem_marcador_sugerido` (texto livre, só para revisão).
+CREATE TABLE marcador (
+  id TEXT PRIMARY KEY,
+  grupo TEXT NOT NULL,                           -- caso | ator | eleicoes | tipo-de-fato
+  descricao TEXT NOT NULL
+) STRICT;
+CREATE TABLE post_triagem_marcador (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  marcador_id TEXT NOT NULL REFERENCES marcador(id),
+  PRIMARY KEY (post_id, marcador_id)
+) STRICT;
+CREATE INDEX ix_post_triagem_marcador ON post_triagem_marcador(marcador_id);
+CREATE TABLE post_triagem_marcador_sugerido (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  texto TEXT NOT NULL,
+  PRIMARY KEY (post_id, texto)
+) STRICT;
+
 -- Views --------------------------------------------------------------------------------------------------------------
 -- Compatibilidade com o modelo antigo: `video` = fontes do tipo video (somente leitura; escreva em `fonte`).
 CREATE VIEW video AS
@@ -24992,4 +25012,54 @@ INSERT INTO post_relacionado(post_id, relacionado_id, tipo) VALUES('x:2111248927
 INSERT INTO post_relacionado(post_id, relacionado_id, tipo) VALUES('x:2111533760759926959','x:2111165897234907459','relacionado');
 INSERT INTO post_relacionado(post_id, relacionado_id, tipo) VALUES('x:2112170166935277684','x:2112247196993360078','duplicata');
 INSERT INTO post_relacionado(post_id, relacionado_id, tipo) VALUES('x:2112536093971091822','x:2112527119427510696','duplicata');
+-- marcador (49)
+INSERT INTO marcador(id, grupo, descricao) VALUES('artistas','ator','músicos, atores, apresentadores');
+INSERT INTO marcador(id, grupo, descricao) VALUES('bets','caso','apostas, bets, tigrinho, rifas, MP das bets, Blaze, publicidade');
+INSERT INTO marcador(id, grupo, descricao) VALUES('brb','caso','BRB e a compra de carteiras do Master');
+INSERT INTO marcador(id, grupo, descricao) VALUES('candidato-ficha','eleicoes','antecedentes/processos de candidatos');
+INSERT INTO marcador(id, grupo, descricao) VALUES('carbono-oculto','caso','PCC nos combustíveis, Beto Louco, Quasar, Carbono Oculto');
+INSERT INTO marcador(id, grupo, descricao) VALUES('caso-master','caso','Banco Master, Vorcaro, Will Bank, liquidação, FGC');
+INSERT INTO marcador(id, grupo, descricao) VALUES('coaf','ator','Coaf e relatórios de inteligência financeira');
+INSERT INTO marcador(id, grupo, descricao) VALUES('comando-vermelho','ator','Comando Vermelho');
+INSERT INTO marcador(id, grupo, descricao) VALUES('compliance-zero','caso','Operação Compliance Zero e suas fases (STF/Mendonça, PF)');
+INSERT INTO marcador(id, grupo, descricao) VALUES('condenacao-absolvicao','tipo-de-fato','sentença, condenação, absolvição, arquivamento');
+INSERT INTO marcador(id, grupo, descricao) VALUES('congresso','ator','Câmara, Senado, CPIs/CPMIs');
+INSERT INTO marcador(id, grupo, descricao) VALUES('contra-pista','tipo-de-fato','decisão/fato que desmente associação a facção ou crime');
+INSERT INTO marcador(id, grupo, descricao) VALUES('dark-horse','caso','filme Dark Horse, Entre Investimentos, Go Up, Havengate');
+INSERT INTO marcador(id, grupo, descricao) VALUES('declaracao-opiniao','tipo-de-fato','declaração, opinião, crítica, troca de farpas');
+INSERT INTO marcador(id, grupo, descricao) VALUES('delacao','tipo-de-fato','colaboração premiada');
+INSERT INTO marcador(id, grupo, descricao) VALUES('denuncia-indiciamento','tipo-de-fato','denúncia, réu, indiciamento');
+INSERT INTO marcador(id, grupo, descricao) VALUES('deolane','caso','Deolane Bezerra e o processo de lavagem para o PCC');
+INSERT INTO marcador(id, grupo, descricao) VALUES('dinheiro-valor','tipo-de-fato','tweet traz valor em R$/US$');
+INSERT INTO marcador(id, grupo, descricao) VALUES('eleicoes-2026','eleicoes','campanha, debates, candidaturas de 2026');
+INSERT INTO marcador(id, grupo, descricao) VALUES('emendas-shows','caso','dinheiro público (emendas, prefeituras, Rouanet) em shows de artistas');
+INSERT INTO marcador(id, grupo, descricao) VALUES('faccoes-terrorismo-eua','caso','classificação de PCC/CV como terroristas, sanções OFAC');
+INSERT INTO marcador(id, grupo, descricao) VALUES('governo-federal','ator','Presidência, ministérios, Fazenda');
+INSERT INTO marcador(id, grupo, descricao) VALUES('governos-estaduais','ator','governadores, secretarias, polícias estaduais');
+INSERT INTO marcador(id, grupo, descricao) VALUES('influenciadores','ator','influenciadores, streamers, youtubers');
+INSERT INTO marcador(id, grupo, descricao) VALUES('inss-sem-desconto','caso','fraude do INSS, Careca do INSS, Operação Sem Desconto, CPMI');
+INSERT INTO marcador(id, grupo, descricao) VALUES('lulinha-luchsinger','caso','Lulinha, Roberta Luchsinger, tráfico de influência no governo');
+INSERT INTO marcador(id, grupo, descricao) VALUES('marcinho-vp-oruam','caso','família de Marcinho VP: Oruam, Márcia Gama, Hermógenes');
+INSERT INTO marcador(id, grupo, descricao) VALUES('megaoperacao-rio-2025','caso','megaoperação de 28/10/2025 nos complexos do Alemão e da Penha');
+INSERT INTO marcador(id, grupo, descricao) VALUES('mensagens-vazadas','tipo-de-fato','conteúdo de celular apreendido divulgado');
+INSERT INTO marcador(id, grupo, descricao) VALUES('midia-vorcaro','caso','Vorcaro e veículos/jornalistas/influenciadores (Metrópoles, Folha, Globo, Prioli, Marçal)');
+INSERT INTO marcador(id, grupo, descricao) VALUES('milicia-vorcaro','caso','''A Turma'', Sicário, ameaças a desafetos');
+INSERT INTO marcador(id, grupo, descricao) VALUES('milicias','ator','milícias');
+INSERT INTO marcador(id, grupo, descricao) VALUES('ministerio-publico','ator','MPF, MPs estaduais, PGR, Gaeco');
+INSERT INTO marcador(id, grupo, descricao) VALUES('narco-fluxo','caso','Operação Narco Fluxo (MC Ryan SP, Poze, Choquei, GR6, Love Funk)');
+INSERT INTO marcador(id, grupo, descricao) VALUES('operacao-policial','tipo-de-fato','operação deflagrada, busca e apreensão');
+INSERT INTO marcador(id, grupo, descricao) VALUES('outras-faccoes','ator','TCP, BDM, PGC, Bonde dos 40, Tren de Aragua etc.');
+INSERT INTO marcador(id, grupo, descricao) VALUES('partidos','ator','partidos e dirigentes');
+INSERT INTO marcador(id, grupo, descricao) VALUES('pcc','ator','Primeiro Comando da Capital');
+INSERT INTO marcador(id, grupo, descricao) VALUES('pesquisa-eleitoral','eleicoes','pesquisas de intenção de voto');
+INSERT INTO marcador(id, grupo, descricao) VALUES('pf','ator','Polícia Federal');
+INSERT INTO marcador(id, grupo, descricao) VALUES('precatorios-usinas','caso','precatórios, usinas, Entre/AGU');
+INSERT INTO marcador(id, grupo, descricao) VALUES('prisao','tipo-de-fato','prisão, mandado, foragido');
+INSERT INTO marcador(id, grupo, descricao) VALUES('reag-fundos','caso','Reag, Trustee DTVM, fundos usados pelo Master/PCC');
+INSERT INTO marcador(id, grupo, descricao) VALUES('soltura','tipo-de-fato','habeas corpus, revogação, soltura');
+INSERT INTO marcador(id, grupo, descricao) VALUES('stf','ator','Supremo e ministros');
+INSERT INTO marcador(id, grupo, descricao) VALUES('th-joias-alerj','caso','TH Joias, Bacellar, Macário Júdice, vazamentos ao CV');
+INSERT INTO marcador(id, grupo, descricao) VALUES('tse-tre','ator','Justiça eleitoral');
+INSERT INTO marcador(id, grupo, descricao) VALUES('veiculos-midia','ator','jornais, portais, emissoras, páginas');
+INSERT INTO marcador(id, grupo, descricao) VALUES('willer-tomaz','caso','Willer Tomaz, Cathedral, Rede Loto/BestBet, voos');
 COMMIT;

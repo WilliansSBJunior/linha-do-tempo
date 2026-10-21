@@ -775,6 +775,8 @@ def aplicar_temas(con):
 # ======================================================================== 6b. posts de redes sociais (pistas do X)
 X_RAW = RAW / "x"
 X_TRIAGEM = CURADORIA / "x-triagem.jsonl"
+X_MARCADORES = CURADORIA / "x-marcadores.json"
+X_MARCADORES_PILOTO = CURADORIA / "x-marcadores-piloto.jsonl"
 X_RELEVANCIAS = ("pista", "contexto", "coberto", "descartar")
 X_TIPOS = ("fato_atribuido", "alegacao", "opiniao")
 X_TRIADO_POR = "claude-opus-piloto"     # padrão quando a linha da triagem não traz `por`
@@ -796,12 +798,35 @@ def url_post_x(conta, tweet_id):
     return f"https://x.com/{conta}/status/{tweet_id}"
 
 
+def vocabulario_marcadores():
+    """{id: (grupo, descricao)} de data/curadoria/x-marcadores.json (`grupos` -> {grupo: {id: descricao}}). Id repetido entre grupos aborta."""
+    voc = {}
+    if not X_MARCADORES.exists():
+        return voc
+    for g, ms in json.loads(X_MARCADORES.read_text(encoding="utf-8"))["grupos"].items():
+        for m, desc in ms.items():
+            if m in voc:
+                raise SystemExit(f"x-marcadores.json: marcador {m!r} repetido")
+            voc[m] = (g, desc)
+    return voc
+
+
+def gravar_marcadores(con, pid, d):
+    for m in sorted(set(d.get("marcadores") or [])):
+        con.execute("INSERT OR IGNORE INTO post_triagem_marcador(post_id,marcador_id) VALUES(?,?)", (pid, m))
+    for t in sorted(set(x.strip() for x in d.get("marcadores_sugeridos") or [])):
+        con.execute("INSERT OR IGNORE INTO post_triagem_marcador_sugerido(post_id,texto) VALUES(?,?)", (pid, t))
+
+
 def aplicar_posts_x(con):
     """Pistas do X. (1) `data/raw/x/<conta>-*.jsonl` (congelado; uma linha por tweet: i id, d 'AAAA-MM-DDTHH:MM', q tags separadas por vírgula,
     t texto, c card, l links, v vídeo 0/1; opcional k = coletado_em) -> `post_rede`. Sem arquivo bruto a tabela fica vazia (a coleta pode estar em
     andamento). Arquivo bruto sem sha256 em hashes.txt aborta. Mesmo tweet em mais de uma linha/arquivo: vale o primeiro e as tags de busca
     se unem. (2) `data/curadoria/x-triagem.jsonl` (id, data, rel, temas, tipo, ent, afirmacao, fonte_citada, prio, dup_de, relacionados, nota;
-    opcionais por/em) -> `post_triagem` (+ `_tema`, `_entidade`, `post_relacionado`), com ou sem o post bruto (sem FK para post_rede).
+    opcionais por/em; opcionais `marcadores` e `marcadores_sugeridos`) -> `post_triagem` (+ `_tema`, `_entidade`, `_marcador`,
+    `_marcador_sugerido`, `post_relacionado`), com ou sem o post bruto (sem FK para post_rede). Marcadores: vocabulário em
+    `data/curadoria/x-marcadores.json` -> `marcador`; marcador fora dele aborta, sugerido não. `x-marcadores-piloto.jsonl` ({id, marcadores,
+    marcadores_sugeridos}) complementa linhas antigas depois da triagem; id fora da triagem aborta.
     Nome citado -> entidade só por nome/alias EXATO e único (senão `entidade_id` NULL). Tema inexistente, relevância/tipo inválidos, id não
     numérico ou id repetido abortam sem gravar nada. Tweet é pista, nunca fonte que sustenta relação: isso é conferido em validar.py."""
     hashes = {}
@@ -847,6 +872,19 @@ def aplicar_posts_x(con):
             cache[nome] = next(iter(ids)) if len(ids) == 1 else None
         return cache[nome]
 
+    voc = vocabulario_marcadores()
+    for m, (g, desc) in voc.items():
+        con.execute("INSERT INTO marcador(id,grupo,descricao) VALUES(?,?,?)", (m, g, desc))
+
+    def checar_marcadores(ref, d):
+        for chave in ("marcadores", "marcadores_sugeridos"):
+            v = d.get(chave, [])
+            if not isinstance(v, list) or not all(isinstance(x, str) and x.strip() for x in v):
+                erros.append(f"{ref}: `{chave}` deve ser lista de textos")
+        for m in d.get("marcadores") or []:
+            if isinstance(m, str) and m not in voc:
+                erros.append(f"{ref}: marcador fora do vocabulário {m!r} (use `marcadores_sugeridos` ou acrescente em x-marcadores.json)")
+
     tri, vistos = [], set()
     if X_TRIAGEM.exists():
         for n, d in _ler_jsonl(X_TRIAGEM):
@@ -871,10 +909,20 @@ def aplicar_posts_x(con):
                     erros.append(f"{ref}: tema inexistente {t!r} (acrescente em temas.json)")
             if not d.get("temas"):
                 erros.append(f"{ref}: sem temas")
+            checar_marcadores(ref, d)
             for k in [d.get("dup_de")] + list(d.get("relacionados") or []):
                 if k is not None and not re.fullmatch(r"\d+", str(k)):
                     erros.append(f"{ref}: id relacionado não numérico: {k!r}")
             tri.append(d)
+    piloto = []
+    if X_MARCADORES_PILOTO.exists():
+        for n, d in _ler_jsonl(X_MARCADORES_PILOTO):
+            ref = f"x-marcadores-piloto.jsonl:{n}"
+            i = str(d.get("id", ""))
+            if i not in vistos:
+                erros.append(f"{ref}: id {d.get('id')!r} não está em x-triagem.jsonl")
+            checar_marcadores(ref, d)
+            piloto.append((i, d))
     if erros:
         raise SystemExit("posts do X: nada foi aplicado.\n  " + "\n  ".join(erros))
     for pid in sorted(posts):
@@ -897,6 +945,7 @@ def aplicar_posts_x(con):
             con.execute("INSERT INTO post_triagem_entidade(post_id,nome,entidade_id,ordem) VALUES(?,?,?,?)", (pid, nome, ent, o))
             r["entidades"] += 1
             r["entidades_resolvidas"] += ent is not None
+        gravar_marcadores(con, pid, d)
         if d.get("dup_de") is not None:
             con.execute("INSERT INTO post_relacionado(post_id,relacionado_id,tipo) VALUES(?,?,'duplicata')", (pid, "x:" + str(d["dup_de"])))
             r["relacionados"] += 1
@@ -906,6 +955,10 @@ def aplicar_posts_x(con):
         r["triagens"] += 1
         r["por_relevancia"][d["rel"]] += 1
         r["sem_bruto"] += pid not in posts
+    for i, d in piloto:
+        gravar_marcadores(con, "x:" + i, d)
+    r["marcadores_vocabulario"] = len(voc)
+    r["marcadores_ligacoes"] = con.execute("SELECT count(*) FROM post_triagem_marcador").fetchone()[0]
     return r
 
 

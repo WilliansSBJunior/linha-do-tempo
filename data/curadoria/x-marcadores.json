@@ -1,0 +1,62 @@
+{
+  "_doc": "Vocabulário controlado de marcadores para tweets (post_triagem). Diferente de `temas` (lista curta que organiza as páginas), marcadores são etiquetas finas para reaproveitar cada tweet em vários casos. Todo tweet triado recebe 1+ marcadores, inclusive os de relevância 'contexto' e 'descartar'. Marcador fora desta lista vai em `marcadores_sugeridos` (não em `marcadores`).",
+  "grupos": {
+    "caso": {
+      "caso-master": "Banco Master, Vorcaro, Will Bank, liquidação, FGC",
+      "compliance-zero": "Operação Compliance Zero e suas fases (STF/Mendonça, PF)",
+      "reag-fundos": "Reag, Trustee DTVM, fundos usados pelo Master/PCC",
+      "brb": "BRB e a compra de carteiras do Master",
+      "dark-horse": "filme Dark Horse, Entre Investimentos, Go Up, Havengate",
+      "midia-vorcaro": "Vorcaro e veículos/jornalistas/influenciadores (Metrópoles, Folha, Globo, Prioli, Marçal)",
+      "milicia-vorcaro": "'A Turma', Sicário, ameaças a desafetos",
+      "inss-sem-desconto": "fraude do INSS, Careca do INSS, Operação Sem Desconto, CPMI",
+      "lulinha-luchsinger": "Lulinha, Roberta Luchsinger, tráfico de influência no governo",
+      "bets": "apostas, bets, tigrinho, rifas, MP das bets, Blaze, publicidade",
+      "willer-tomaz": "Willer Tomaz, Cathedral, Rede Loto/BestBet, voos",
+      "carbono-oculto": "PCC nos combustíveis, Beto Louco, Quasar, Carbono Oculto",
+      "narco-fluxo": "Operação Narco Fluxo (MC Ryan SP, Poze, Choquei, GR6, Love Funk)",
+      "deolane": "Deolane Bezerra e o processo de lavagem para o PCC",
+      "marcinho-vp-oruam": "família de Marcinho VP: Oruam, Márcia Gama, Hermógenes",
+      "th-joias-alerj": "TH Joias, Bacellar, Macário Júdice, vazamentos ao CV",
+      "megaoperacao-rio-2025": "megaoperação de 28/10/2025 nos complexos do Alemão e da Penha",
+      "faccoes-terrorismo-eua": "classificação de PCC/CV como terroristas, sanções OFAC",
+      "emendas-shows": "dinheiro público (emendas, prefeituras, Rouanet) em shows de artistas",
+      "precatorios-usinas": "precatórios, usinas, Entre/AGU"
+    },
+    "ator": {
+      "pcc": "Primeiro Comando da Capital",
+      "comando-vermelho": "Comando Vermelho",
+      "milicias": "milícias",
+      "outras-faccoes": "TCP, BDM, PGC, Bonde dos 40, Tren de Aragua etc.",
+      "stf": "Supremo e ministros",
+      "pf": "Polícia Federal",
+      "ministerio-publico": "MPF, MPs estaduais, PGR, Gaeco",
+      "coaf": "Coaf e relatórios de inteligência financeira",
+      "tse-tre": "Justiça eleitoral",
+      "congresso": "Câmara, Senado, CPIs/CPMIs",
+      "governo-federal": "Presidência, ministérios, Fazenda",
+      "governos-estaduais": "governadores, secretarias, polícias estaduais",
+      "partidos": "partidos e dirigentes",
+      "artistas": "músicos, atores, apresentadores",
+      "influenciadores": "influenciadores, streamers, youtubers",
+      "veiculos-midia": "jornais, portais, emissoras, páginas"
+    },
+    "eleicoes": {
+      "eleicoes-2026": "campanha, debates, candidaturas de 2026",
+      "pesquisa-eleitoral": "pesquisas de intenção de voto",
+      "candidato-ficha": "antecedentes/processos de candidatos"
+    },
+    "tipo-de-fato": {
+      "prisao": "prisão, mandado, foragido",
+      "soltura": "habeas corpus, revogação, soltura",
+      "denuncia-indiciamento": "denúncia, réu, indiciamento",
+      "condenacao-absolvicao": "sentença, condenação, absolvição, arquivamento",
+      "operacao-policial": "operação deflagrada, busca e apreensão",
+      "mensagens-vazadas": "conteúdo de celular apreendido divulgado",
+      "delacao": "colaboração premiada",
+      "dinheiro-valor": "tweet traz valor em R$/US$",
+      "contra-pista": "decisão/fato que desmente associação a facção ou crime",
+      "declaracao-opiniao": "declaração, opinião, crítica, troca de farpas"
+    }
+  }
+}

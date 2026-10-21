@@ -2496,6 +2496,50 @@ def pistas_x(con, exp):
             q(con, "SELECT count(*) FROM post_triagem t JOIN post_rede p ON p.id=t.post_id WHERE t.relevancia IN ('pista','contexto')")[0][0])
 
 
+def marcadores_x(con, exp):
+    """Marcadores das triagens do X: vocabulário (data/curadoria/x-marcadores.json) == tabela `marcador`; contagens banco == export."""
+    secao("Marcadores (marcador, post_triagem_marcador, pistas-x*.json)")
+    arq = CURADORIA / "x-marcadores.json"
+    banco = {r[0]: (r[1], r[2]) for r in q(con, "SELECT id, grupo, descricao FROM marcador")}
+    if arq.exists():
+        voc = {m: (g, d) for g, ms in json.loads(arq.read_text(encoding="utf-8"))["grupos"].items() for m, d in ms.items()}
+        esperar("vocabulário no banco == x-marcadores.json", banco, voc)
+    else:
+        print("  info: sem data/curadoria/x-marcadores.json (cópia parcial de data/): vocabulário não conferido com o arquivo")
+    esperar("marcadores usados que não existem no vocabulário", q(con, """SELECT count(*) FROM post_triagem_marcador x
+            WHERE NOT EXISTS (SELECT 1 FROM marcador m WHERE m.id=x.marcador_id)""")[0][0], 0)
+    esperar("ligações de marcador com triagem inexistente", q(con, """SELECT count(*) FROM post_triagem_marcador x
+            WHERE NOT EXISTS (SELECT 1 FROM post_triagem t WHERE t.post_id=x.post_id)""")[0][0], 0)
+    mj, pj = exp["pistas-x-marcadores.json"], exp["pistas-x.json"]
+    por_rel = collections.defaultdict(dict)
+    for r in q(con, """SELECT x.marcador_id, t.relevancia, count(*) FROM post_triagem_marcador x
+                       JOIN post_triagem t ON t.post_id=x.post_id GROUP BY 1,2"""):
+        por_rel[r[0]][r[1]] = r[2]
+    exportado = {m["id"]: {k: v for k, v in m["por_relevancia"].items() if v} for m in mj["marcadores"] if m["n"]}
+    esperar("contagem por marcador e relevância: pistas-x-marcadores.json == banco", exportado, dict(por_rel))
+    esperar("pistas-x-marcadores.json: n == soma das relevâncias", all(m["n"] == sum(m["por_relevancia"].values()) for m in mj["marcadores"]), True)
+    esperar("pistas-x-marcadores.json: um registro por marcador do vocabulário", sorted(m["id"] for m in mj["marcadores"]), sorted(banco))
+    no_banco = {r[0]: r[1] for r in q(con, """SELECT x.marcador_id, count(*) FROM post_triagem_marcador x JOIN post_triagem t ON t.post_id=x.post_id
+                                              WHERE t.relevancia IN ('pista','contexto') GROUP BY 1""")}
+    esperar("pistas-x.json por_marcador (ids de pista/contexto) == banco", {m: len(ids) for m, ids in pj["por_marcador"].items()}, no_banco)
+    itens = {i["id"]: i for g in pj["temas"] for i in g["itens"]}
+    esperar("pistas-x.json: `marcadores` de cada item == por_marcador",
+            sorted((m, i["id"]) for i in itens.values() for m in i["marcadores"]),
+            sorted((m, i) for m, ids in pj["por_marcador"].items() for i in ids))
+    tabela("triagens por marcador (todas as relevâncias):", [(f"{m['grupo']} / {m['id']}", m["n"]) for m in mj["marcadores"] if m["n"]])
+    n_tri = q(con, "SELECT count(*) FROM post_triagem")[0][0]
+    sem = q(con, "SELECT count(*) FROM post_triagem t WHERE NOT EXISTS (SELECT 1 FROM post_triagem_marcador x WHERE x.post_id=t.post_id)")[0][0]
+    print(f"  info : {n_tri - sem} de {n_tri} triagens com marcador ({sem} sem; aceitável enquanto o lote de marcadores não foi aplicado)")
+    sug = q(con, "SELECT texto, count(*) FROM post_triagem_marcador_sugerido GROUP BY 1 ORDER BY 2 DESC, 1")
+    esperar("pistas-x-marcadores.json: sugeridos == banco", mj["sugeridos"], {r[0]: r[1] for r in sug})
+    if sug:
+        print(f"  info : {len(sug)} marcadores sugeridos fora do vocabulário (decidir se entram em x-marcadores.json):")
+        for t, n in sug:
+            print(f"           {t}  ({n})")
+    else:
+        print("  info : nenhum marcador sugerido fora do vocabulário")
+
+
 def paginas(con, exp):
     """As páginas leem data/*.json (fetch, sem cópia embutida) e as exportações que só as páginas usam batem com o banco."""
     secao("Páginas (paginas/*.html leem data/*.json; nenhuma traz os dados embutidos)")
@@ -2584,6 +2628,7 @@ def main():
     rodada13_valores(con, exp)
     modelo_v2(con, exp)
     pistas_x(con, exp)
+    marcadores_x(con, exp)
     paginas(con, exp)
     peso_wikipedia(con, exp)
 

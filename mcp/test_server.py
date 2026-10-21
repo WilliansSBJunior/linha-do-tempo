@@ -416,6 +416,25 @@ class TestTemas(Base):
         um = S.buscar_pistas(entidade="Comando Vermelho", limite=500)
         self.assertTrue(um and all(any(e["nome"] == "Comando Vermelho" for e in p["entidades"]) for p in um))
 
+    def test_buscar_pistas_marcador_e_relevancia(self):
+        self.assertEqual(S.buscar_pistas(marcador="marcador-que-nao-existe")["ok"], False)
+        self.assertEqual(S.buscar_pistas(relevancia="xxx")["ok"], False)
+        com = self.sql("""SELECT x.marcador_id m, count(*) n FROM post_triagem_marcador x JOIN post_triagem t ON t.post_id=x.post_id
+                          WHERE t.relevancia IN ('pista','contexto') GROUP BY 1 ORDER BY 2 DESC LIMIT 1""")
+        voc = self.sql("SELECT id FROM marcador LIMIT 1")
+        self.assertTrue(voc)
+        if com:  # há triagens marcadas: o filtro devolve exatamente as do banco
+            r = S.buscar_pistas(marcador=com[0]["m"], limite=1000)
+            self.assertEqual(len(r), com[0]["n"])
+            self.assertTrue(all(com[0]["m"] in p["marcadores"] for p in r))
+        else:
+            self.assertEqual(S.buscar_pistas(marcador=voc[0]["id"]), [])
+        n = self.sql("SELECT count(*) c FROM post_triagem WHERE relevancia='descartar'")[0]["c"]
+        d = S.buscar_pistas(relevancia="descartar", limite=5000)
+        self.assertEqual(len(d), n)
+        self.assertTrue(all(p["relevancia"] == "descartar" for p in d))
+        self.assertTrue(all(isinstance(p["marcadores"], list) for p in S.buscar_pistas(limite=5)))
+
     def test_relacao_nova_herda_ou_recebe_temas(self):
         a, b = self.par_sem_relacao()
         r = S.inserir_relacao(de=a, para=b, tipo="financeira", rotulo="Teste de tema", natureza="rep")

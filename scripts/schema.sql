@@ -511,6 +511,26 @@ CREATE TABLE post_relacionado (
   PRIMARY KEY (post_id, relacionado_id, tipo)
 ) STRICT;
 
+-- DESVIO (aditivo): marcadores = etiquetas finas (vocabulário controlado em data/curadoria/x-marcadores.json) para reaproveitar cada tweet em
+-- vários casos (Master, facções, política, bets, INSS...). Diferente de `tema` (lista curta que organiza as páginas). Marcador fora do
+-- vocabulário aborta a migração; o que ainda não existe vai em `post_triagem_marcador_sugerido` (texto livre, só para revisão).
+CREATE TABLE marcador (
+  id TEXT PRIMARY KEY,
+  grupo TEXT NOT NULL,                           -- caso | ator | eleicoes | tipo-de-fato
+  descricao TEXT NOT NULL
+) STRICT;
+CREATE TABLE post_triagem_marcador (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  marcador_id TEXT NOT NULL REFERENCES marcador(id),
+  PRIMARY KEY (post_id, marcador_id)
+) STRICT;
+CREATE INDEX ix_post_triagem_marcador ON post_triagem_marcador(marcador_id);
+CREATE TABLE post_triagem_marcador_sugerido (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  texto TEXT NOT NULL,
+  PRIMARY KEY (post_id, texto)
+) STRICT;
+
 -- Views --------------------------------------------------------------------------------------------------------------
 -- Compatibilidade com o modelo antigo: `video` = fontes do tipo video (somente leitura; escreva em `fonte`).
 CREATE VIEW video AS
