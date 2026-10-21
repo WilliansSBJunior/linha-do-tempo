@@ -29,22 +29,22 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 
 | Depois (banco) | n |
 |---|---|
-| entidade | 452 |
+| entidade | 461 |
 |   da teia (N) | 198 |
-|   extras (timeline/pares) | 254 |
-| entidade_alias | 599 |
+|   extras (timeline/pares) | 263 |
+| entidade_alias | 610 |
 | relacao (origem teia, de E[].r) | 343 |
 | relacao (fam_de) | 21 |
 | relacao (lig_de) | 3 |
 | relacao (origem linha_do_tempo: mandato/filiação) | 472 |
-| relacao total | 896 |
+| relacao total | 906 |
 | evento total | 507 |
 | tema | 14 |
-| relacao_tema | 1026 |
+| relacao_tema | 1042 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
-| evidencia | 1956 |
-| relacao_evidencia | 1526 |
+| evidencia | 1976 |
+| relacao_evidencia | 1562 |
 | evento_evidencia | 3229 |
 | evento_entidade | 936 |
 | nota | 570 |
@@ -420,7 +420,7 @@ M   os eventos da teia que R1-R4 não pegam foram lidos um a um (título, descri
 - Eventos casados: 221 de 280; sem fonte: 59.
 - Ligações novas em `evento_evidencia`: 2397 (149 `sustenta`, 2248 `contexto`).
 - Sem item no bruto (o bruto não traz o primeiro ano de cada bloco de eventos): . Ficam sem fonte.
-- URLs de `evidencia` agora: 1956 (todas ligadas a alguma coisa; `validar.py` confere).
+- URLs de `evidencia` agora: 1976 (todas ligadas a alguma coisa; `validar.py` confere).
 - `ranking_empresa.receita_brl_bi`: 91 das 397 linhas da carga bruta preenchidas (a rodada 6, seção 23, acrescenta linhas sem receita). Mapeamento inequívoco = mesmo ano, mesmo lucro e mesma fonte ou nome; onde o bruto repete a empresa em dois blocos com receita nula num e valor no outro, vale o valor; conflito de dois valores diferentes: 0. As outras 306 linhas têm `receita_liquida_brl_bi` nulo no bruto.
 - `mandato.periodo_texto`: 30 mandatos de presidente da Câmara/Senado (nome + ano em `v2_pol_estrutura`/`v4_estrutura.presidencias`; textos de anos diferentes do mesmo mandato unidos por ` | `); sem correspondência: 0.
 - **Do bruto não carregado** (sem mapeamento inequívoco ou sem tabela): `lideres` (líderes de governo e de bancada por ano, `v2_pol_estrutura` e `v4_estrutura`); `legislaturas` e `senado` com bancadas e as notas de método (`camara_base`, `senado_base`); `notas` de cada ano/bloco (limites da coleta, itens 'NÃO CONFIRMADO'); `maiores_prejuizos` só entra quando a empresa já está no ranking publicado; `exportacoes_total_wits_usd_mi`; e as `fontes` dos blocos macro, setores, comércio, intl e estrutura (262 URLs únicas ainda fora de `evidencia`, porque a fonte vale para o bloco-ano inteiro e `serie` tem uma única `evidencia_id` por ponto).
@@ -581,7 +581,7 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 
 | tema | relações | eventos | entidades |
 |---|---|---|---|
-| `caso-master` (Caso Master) | 390 | 215 | 221 |
+| `caso-master` (Caso Master) | 391 | 215 | 222 |
 | `brasil-ano-a-ano` (Brasil ano a ano) | 472 | 282 | 228 |
 | `pares` (Comparação de países) | 0 | 0 | 10 |
 | `violencia` (Violência) | 0 | 10 | 1 |
@@ -590,13 +590,13 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | `brb` (BRB) | 34 | 34 | 46 |
 | `precatorios` (Precatórios) | 12 | 37 | 26 |
 | `lagoinha` (Lagoinha) | 17 | 32 | 27 |
-| `crime-organizado` (Crime organizado) | 27 | 0 | 32 |
-| `cultura-e-entretenimento` (Cultura e entretenimento) | 17 | 0 | 23 |
-| `financiamento-politico` (Financiamento político) | 5 | 0 | 9 |
+| `crime-organizado` (Crime organizado) | 32 | 0 | 37 |
+| `cultura-e-entretenimento` (Cultura e entretenimento) | 26 | 0 | 33 |
+| `financiamento-politico` (Financiamento político) | 6 | 0 | 10 |
 | `trafico-de-influencia` (Tráfico de influência no governo) | 11 | 0 | 17 |
 | `a-classificar` (A classificar) | 0 | 0 | 0 |
 
-Em mais de um tema: 118 relações, 118 eventos, 146 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).
+Em mais de um tema: 124 relações, 118 eventos, 153 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).
 
 Limites conhecidos: (a) os temas por texto (`inss`, `pcc`, `brb`, `precatorios`, `lagoinha`) marcam **citação**, não centralidade: uma relação que só menciona a CPMI do INSS como origem de um documento entra em `inss` (retirei os casos mais óbvios nas exceções); (b) `usinas` ficou de fora do `pcc-texto` (a maior parte das ocorrências é o setor sucroalcooleiro dos precatórios, não o PCC); só 'Usina Itajobi'; (c) `pares` não tem relação nem evento (só 10 países via `forum`), e `violencia` só 10 eventos: séries (`indicador`/`serie`) **não** têm tema ainda; (d) eventos novos não entram por MCP (não há ferramenta), só por migração.
 
@@ -912,7 +912,7 @@ Ligações `fraca` no banco: 2 -> 0 (as wiki rebaixadas deixam de ser `fraca` po
 
 ## 23. Rodada 6: ranking de empresas, lideranças parlamentares e fatos de 2024
 
-Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `sandra-starling`, `jose-anibal`, `pedrinho-abrao`, `odelmo-leao`, `walter-pinheiro`, `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`, `sabesp`, `marfrig`, `tim`, `hsbc-brasil`, `trustee-dtvm`, `acx-itc`, `comando-vermelho`, `pce`, `operacao-narco-fluxo`, `mc-ryan-sp`, `mc-poze-do-rodo`, `raphael-sousa-oliveira`, `deolane-bezerra`, `buzeira`, `virginia-fonseca`, `marcio-poncio`, `th-joias`, `rodrigo-bacellar`, `macario-judice`, `senival-moura`, `uldurico-junior`, `andre-luis-almeida-coutinho`, `yury-do-paredao`, `jonas-esticado`, `tse`, `stj`, `blaze`, `willer-tomaz`, `cathedral`, `bet-bet`, `gabriela-prioli`, `pablo-marcal`, `departamento-de-estado-eua`, `tesouro-dos-eua-ofac`, `victory-trading`, `cnm-aviacao`, `instituto-conhecer-brasil`, `fip-arleen`, `marilson-roseno-da-silva`, `lulinha`, `roberta-luchsinger`, `swedenberger-barbosa`, `marco-aurelio-santana-ribeiro`, `quesede-ayres`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
+Arquivos à mão: `entidades-adicionais.json` (entidades novas, criadas no mesmo ponto das `entidades_novas` do dossiê: `sandra-starling`, `jose-anibal`, `pedrinho-abrao`, `odelmo-leao`, `walter-pinheiro`, `souza-cruz`, `brahma`, `elcio-alvares`, `telesp`, `furnas`, `eletropaulo`, `cesp`, `embraer`, `klabin`, `belgo-mineira`, `aracruz`, `tam`, `sabesp`, `marfrig`, `tim`, `hsbc-brasil`, `trustee-dtvm`, `acx-itc`, `comando-vermelho`, `pce`, `operacao-narco-fluxo`, `mc-ryan-sp`, `mc-poze-do-rodo`, `raphael-sousa-oliveira`, `deolane-bezerra`, `buzeira`, `virginia-fonseca`, `marcio-poncio`, `th-joias`, `rodrigo-bacellar`, `macario-judice`, `senival-moura`, `uldurico-junior`, `andre-luis-almeida-coutinho`, `yury-do-paredao`, `jonas-esticado`, `tse`, `stj`, `blaze`, `willer-tomaz`, `cathedral`, `bet-bet`, `gabriela-prioli`, `pablo-marcal`, `departamento-de-estado-eua`, `tesouro-dos-eua-ofac`, `victory-trading`, `cnm-aviacao`, `instituto-conhecer-brasil`, `fip-arleen`, `marilson-roseno-da-silva`, `lulinha`, `roberta-luchsinger`, `swedenberger-barbosa`, `marco-aurelio-santana-ribeiro`, `quesede-ayres`, `gr6-eventos`, `love-funk`, `rodrigo-inacio-de-lima-oliveira`, `henrique-alexandre-barros-viana`, `bololo-restaurante`, `prefeitura-de-sao-paulo`, `coaf`, `karina-gama`, `oms-tecnologia`), `ranking-empresa-correcoes.json` (`curadoria.aplicar_ranking_empresa_correcoes`), `mandatos-adicionais.json` (`aplicar_mandatos_adicionais` + `ligar_fontes_mandatos_adicionais`), `eventos-adicionais.json` (`aplicar_eventos_adicionais`), `evidencias-rodada6.json` (via `ler_evidencias_adicionais`, depois das rodadas 1-5) e as correções `"rodada": 6` de `evento-correcoes.json`. Regerados: `eventos-natureza.json` (R5), `evento-entidade-auto.json` e `mandato-oficial.json` (+ `relatorio-mandatos-oficial.md`); `gerar_curadoria.py` pula `ranking_correcoes` no banco temporário porque `gerar_complementos_brasil` casa as linhas com o bruto pela posição original.
 
 ### Ranking de empresas
 

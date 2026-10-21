@@ -15,12 +15,12 @@
   "com_texto": 1159
  },
  "por_desfecho": {
-  "confirmado": 13,
+  "confirmado": 17,
   "parcial": 135,
   "refutado": 1,
   "contra_pista": 15,
-  "pendente": 42,
-  "nao_encontrado": 19
+  "pendente": 47,
+  "nao_encontrado": 21
  },
  "por_marcador": {
   "artistas": [
@@ -3652,6 +3652,7 @@
    "bet-bet",
    "blaze",
    "bn-financeira",
+   "bololo-restaurante",
    "bonnie-de-bonilha",
    "brb",
    "buzeira",
@@ -3659,6 +3660,7 @@
    "ciro-nogueira",
    "cnlf-empreendimentos-imobiliarios",
    "cnm-aviacao",
+   "coaf",
    "comando-vermelho",
    "daniel-vorcaro",
    "davi-alcolumbre",
@@ -3673,13 +3675,18 @@
    "flavio-bolsonaro",
    "gabriela-prioli",
    "gaeco-mp-sp",
+   "go-up-entertainment",
    "gold-style-fidc",
+   "gr6-eventos",
    "havengate",
+   "henrique-alexandre-barros-viana",
    "instituto-conhecer-brasil",
    "istoe",
    "jaques-wagner",
    "jocildo-lemos",
    "jonas-esticado",
+   "karina-gama",
+   "love-funk",
    "luiz-estevao",
    "luiz-fux",
    "lulinha",
@@ -3693,6 +3700,7 @@
    "mc-ryan-sp",
    "metropoles-marketing-e-propaganda",
    "mohamad-hussein-mourad",
+   "oms-tecnologia",
    "operacao-carbono-oculto",
    "operacao-credito-oculto",
    "operacao-narco-fluxo",
@@ -3701,6 +3709,7 @@
    "pcc",
    "pce",
    "pf",
+   "prefeitura-de-sao-paulo",
    "presidencia-da-republica",
    "psd",
    "psdb",
@@ -3712,6 +3721,7 @@
    "roberta-luchsinger",
    "roberto-augusto-leme-da-silva",
    "rodrigo-bacellar",
+   "rodrigo-inacio-de-lima-oliveira",
    "seis-usinas-cedidas-a-entre",
    "senival-moura",
    "stf",
@@ -4117,7 +4127,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -4127,6 +4137,12 @@
          245
         ],
         "nota": "Divergência contábil já coberta pela relação Havengate→Go Up do banco; o 'filme do Lula' é alegação bloqueada (ver R2-B08)."
+       },
+       {
+        "tarefa": "PA-12",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "Divergência contábil (US$ 12 mi x US$ 2,8 mi) só em paráfrase; relatório da PF não aberto; nenhuma peça liga Havengate a empresa do PCC."
        }
       ]
      }
@@ -6926,7 +6942,7 @@
      "entidades": [
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "PF",
@@ -6937,7 +6953,19 @@
      "relacionados": [],
      "texto": "  PF aponta indícios de uma triangulação financeira de ao menos R$ 6,1 milhões entre empresas e entidades ligadas a Karina Gama, produtora do filme \"Dark Horse\".",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "pendente",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PA-02b",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "R$ 750 mil desviados para a Go Up e triangulação de R$ 6,1 mi: não confirmados em página aberta; emendas de Pollon (R$ 1 mi) e Kicis (R$ 150 mil) foram a entidades da empresária via governo de SP, não ao filme."
+       }
+      ]
+     }
     },
     {
      "id": "2098424217926553687",
@@ -7510,7 +7538,19 @@
      "relacionados": [],
      "texto": "  EITA! PF suspeita que ao menos R$ 750 mil em recursos públicos tenham sido desviados para abastecer a produtora Go Up, responsável pelo filme Dark Horse, sobre Jair Bolsonaro (PL).",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "pendente",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PA-02b",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "R$ 750 mil desviados para a Go Up e triangulação de R$ 6,1 mi: não confirmados em página aberta; emendas de Pollon (R$ 1 mi) e Kicis (R$ 150 mil) foram a entidades da empresária via governo de SP, não ao filme."
+       }
+      ]
+     }
     },
     {
      "id": "2098096038854722011",
@@ -7544,7 +7584,29 @@
      "relacionados": [],
      "texto": "  PF aponta mais de R$ 19 milhões em movimentações consideradas atípicas nas contas da Go Up, produtora responsável pelo filme \"Dark Horse\".",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "confirmado",
+      "fonte": "https://www.itatiaia.com.br/politica/dark-horse-coaf-identifica-r-19-milhoes-atipicos-em-produtora-de-filme-sobre-bolsonaro",
+      "relacao": {
+       "id": 904,
+       "ref": "x:coaf-goup",
+       "rotulo": "R$ 19 mi em movimentação atípica (nov-dez/2025; relatório do Coaf)",
+       "de": "coaf",
+       "para": "go-up-entertainment",
+       "natureza": "investigacao",
+       "teia": "faccoes"
+      },
+      "tarefas": [
+       {
+        "tarefa": "PA-01",
+        "status": "confirmado",
+        "relacoes": [
+         904
+        ],
+        "nota": "Sigilo derrubado por Dino em 10/09/2026; quadro societário da Go Up não publicado."
+       }
+      ]
+     }
     },
     {
      "id": "2098082906765750708",
@@ -7568,7 +7630,7 @@
      "entidades": [
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "Fernando Sarney",
@@ -7623,7 +7685,19 @@
      "relacionados": [],
      "texto": "  Deputados Bia Kicis e Marcos Pollon enviaram, respectivamente, R$ 150 mil e R$ 1 milhão em emendas parlamentares para a realização do filme Dark Horse, diz PF.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "pendente",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PA-02b",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "R$ 750 mil desviados para a Go Up e triangulação de R$ 6,1 mi: não confirmados em página aberta; emendas de Pollon (R$ 1 mi) e Kicis (R$ 150 mil) foram a entidades da empresária via governo de SP, não ao filme."
+       }
+      ]
+     }
     },
     {
      "id": "2098058902696820923",
@@ -7804,7 +7878,30 @@
      "relacionados": [],
      "texto": "  Operação da PF apura o repasse de R$ 2 milhões em emendas parlamentares do deputado Mario Frias para organizações ligadas à proprietária da produtora do filme \"Dark Horse\".",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "confirmado",
+      "fonte": "https://www.gazetadopovo.com.br/republica/dino-indicios-desvio-recursos-frias-dark-horse",
+      "relacao": {
+       "id": 890,
+       "ref": "x:frias-icb",
+       "rotulo": "Emendas sob suspeita de desvio (~R$ 2 mi; decisão de Dino)",
+       "de": "mario-frias",
+       "para": "instituto-conhecer-brasil",
+       "natureza": "investigacao",
+       "teia": "faccoes"
+      },
+      "tarefas": [
+       {
+        "tarefa": "PA-02",
+        "status": "confirmado",
+        "relacoes": [
+         890,
+         905
+        ],
+        "nota": "CGU: R$ 2 mi do ICB em duas emendas de Frias; Academia Nacional de Cultura (emendas de Pollon e Kicis via governo de SP) sem trecho literal que a nomeie: fora."
+       }
+      ]
+     }
     },
     {
      "id": "2098031350599033311",
@@ -7833,7 +7930,7 @@
       },
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "Mario Frias",
@@ -10792,6 +10889,15 @@
          840
         ],
         "nota": "Cruzamento com Carbono Oculto, Narco Fluxo e Deolane não confirmado."
+       },
+       {
+        "tarefa": "PA-04",
+        "status": "parcial",
+        "relacoes": [
+         842,
+         843
+        ],
+        "nota": "Reforço do elo Entre → ACX (R$ 26,2 mi); os cinco destinos do Coaf (R$ 139 mi, Carbono Oculto e Mafiusi) seguem sem nome; Havengate sem ligação a empresa do PCC."
        }
       ]
      }
@@ -11549,6 +11655,15 @@
          840
         ],
         "nota": "Cruzamento com Carbono Oculto, Narco Fluxo e Deolane não confirmado."
+       },
+       {
+        "tarefa": "PA-04",
+        "status": "parcial",
+        "relacoes": [
+         842,
+         843
+        ],
+        "nota": "Reforço do elo Entre → ACX (R$ 26,2 mi); os cinco destinos do Coaf (R$ 139 mi, Carbono Oculto e Mafiusi) seguem sem nome; Havengate sem ligação a empresa do PCC."
        }
       ]
      }
@@ -11985,7 +12100,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -12269,7 +12384,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -18848,7 +18963,7 @@
      "entidades": [
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "Go Up",
@@ -19540,7 +19655,19 @@
      "relacionados": [],
      "texto": "  Registros de pagamentos da Go Up, produtora de \"Dark Horse\", mostram que a empresa quitou ao menos quatro faturas do cartão de crédito do deputado Mario Frias entre agosto e novembro de 2025; os valores variaram de R$ 32,6 mil a R$ 36,8 mil.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "pendente",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PA-03",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "'Sócio Mario' em anotação apreendida: o texto aberto não identifica Mario como o deputado, e Frias nega: não vira relação. Faturas de cartão pagas pela Go Up e R$ 1 mi de Marcello Lopes: páginas não abertas."
+       }
+      ]
+     }
     },
     {
      "id": "2098764319471051221",
@@ -19669,7 +19796,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -20246,7 +20373,7 @@
       },
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "PF",
@@ -20314,7 +20441,7 @@
      "entidades": [
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       }
      ],
      "duplicata_de": null,
@@ -20380,7 +20507,7 @@
      "entidades": [
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "Flávio Bolsonaro",
@@ -20432,7 +20559,19 @@
      "relacionados": [],
      "texto": "  Amigo pessoal de Flávio Bolsonaro, o publicitário Marcello Lopes fez um repasse de R$ 1 milhão à Go Up, produtora do filme \"Dark Horse\"; ele confirma o repasse e afirma que o valor se refere a um aporte que fez como “investidor”, a pedido de Mario Frias.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "pendente",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PA-03",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "'Sócio Mario' em anotação apreendida: o texto aberto não identifica Mario como o deputado, e Frias nega: não vira relação. Faturas de cartão pagas pela Go Up e R$ 1 mi de Marcello Lopes: páginas não abertas."
+       }
+      ]
+     }
     },
     {
      "id": "2098033127297810557",
@@ -20813,7 +20952,7 @@
      "entidades": [
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "PF",
@@ -23832,7 +23971,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -25005,7 +25144,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -28878,7 +29017,7 @@
      "entidades": [
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       }
      ],
      "duplicata_de": null,
@@ -38074,6 +38213,15 @@
          840
         ],
         "nota": "Cruzamento com Carbono Oculto, Narco Fluxo e Deolane não confirmado."
+       },
+       {
+        "tarefa": "PA-04",
+        "status": "parcial",
+        "relacoes": [
+         842,
+         843
+        ],
+        "nota": "Reforço do elo Entre → ACX (R$ 26,2 mi); os cinco destinos do Coaf (R$ 139 mi, Carbono Oculto e Mafiusi) seguem sem nome; Havengate sem ligação a empresa do PCC."
        }
       ]
      }
@@ -38977,15 +39125,31 @@
      "texto": "  Restaurante Bololô, ligado ao MC Ryan SP, movimentou mais de R$ 30 milhões e recebeu valores de 152 pessoas com histórico criminal.",
      "card": null,
      "desfecho": {
-      "status": "nao_encontrado",
-      "fonte": null,
-      "relacao": null,
+      "status": "parcial",
+      "fonte": "https://atarde.com.br/policia/restaurante-de-mc-ryan-teria-abrigado-esquema-ilicito-do-pcc-1386368",
+      "relacao": {
+       "id": 902,
+       "ref": "x:ryan-bololo",
+       "rotulo": "Restaurante do MC com R$ 30 mi movimentados (relatório da PF)",
+       "de": "mc-ryan-sp",
+       "para": "bololo-restaurante",
+       "natureza": "investigacao",
+       "teia": "faccoes"
+      },
       "tarefas": [
        {
         "tarefa": "D03",
         "status": "nao_encontrado",
         "relacoes": [],
         "nota": "Restaurante Bololô não verificado."
+       },
+       {
+        "tarefa": "PM-05",
+        "status": "parcial",
+        "relacoes": [
+         902
+        ],
+        "nota": "Relatório da PF via imprensa; o número de 152 pessoas com histórico criminal é de fonte única (BNews)."
        }
       ]
      }
@@ -39340,6 +39504,15 @@
          840
         ],
         "nota": "Cruzamento com Carbono Oculto, Narco Fluxo e Deolane não confirmado."
+       },
+       {
+        "tarefa": "PA-04",
+        "status": "parcial",
+        "relacoes": [
+         842,
+         843
+        ],
+        "nota": "Reforço do elo Entre → ACX (R$ 26,2 mi); os cinco destinos do Coaf (R$ 139 mi, Carbono Oculto e Mafiusi) seguem sem nome; Havengate sem ligação a empresa do PCC."
        }
       ]
      }
@@ -39702,6 +39875,23 @@
         "nota": "Investigação: ninguém formalmente acusado."
        },
        {
+        "tarefa": "PA-05",
+        "status": "confirmado",
+        "relacoes": [
+         871
+        ],
+        "nota": "PF: 'operador de mídia'; solto pelo TRF-3 em 13/05/2026; defesa: serviços publicitários. Choquei como divulgadora de bets ilegais é só a descrição da PF, sem denúncia."
+       },
+       {
+        "tarefa": "PM-07",
+        "status": "confirmado",
+        "relacoes": [
+         869,
+         870
+        ],
+        "nota": "TRF-3 revogou as preventivas de MC Ryan e Poze em 13/05/2026 ('ausência de denúncia formal até o momento'); Rato solto por HC em 11/05. Nenhuma denúncia contra produtoras localizada até 21/10/2026."
+       },
+       {
         "tarefa": "R2-P05",
         "status": "confirmado",
         "relacoes": [
@@ -40042,6 +40232,14 @@
         "nota": "Investigação: ninguém formalmente acusado."
        },
        {
+        "tarefa": "PA-05",
+        "status": "confirmado",
+        "relacoes": [
+         871
+        ],
+        "nota": "PF: 'operador de mídia'; solto pelo TRF-3 em 13/05/2026; defesa: serviços publicitários. Choquei como divulgadora de bets ilegais é só a descrição da PF, sem denúncia."
+       },
+       {
         "tarefa": "R2-P05",
         "status": "confirmado",
         "relacoes": [
@@ -40138,7 +40336,7 @@
       },
       {
        "nome": "GR6 Explode",
-       "id": null
+       "id": "gr6-eventos"
       },
       {
        "nome": "Rato (Love Funk)",
@@ -40146,7 +40344,7 @@
       },
       {
        "nome": "Love Funk",
-       "id": null
+       "id": "love-funk"
       },
       {
        "nome": "Polícia Federal",
@@ -40179,6 +40377,18 @@
          871
         ],
         "nota": "Investigação: ninguém formalmente acusado."
+       },
+       {
+        "tarefa": "PM-02",
+        "status": "parcial",
+        "relacoes": [
+         897,
+         898,
+         899,
+         900,
+         901
+        ],
+        "nota": "Produtores presos na Narco Fluxo; sem denúncia. Os R$ 150 mil da FWM Produções e Eventos à GR6 (sócio apontado como líder do PCC em Santos, morto em 2018) vêm de uma única reportagem do Metrópoles (2024), sem trecho literal: FWM fica fora (fonte única)."
        },
        {
         "tarefa": "R2-P05",
@@ -40311,6 +40521,14 @@
          873
         ],
         "nota": "Vínculo com PCC/CV apontado na investigação; sem acusação formal."
+       },
+       {
+        "tarefa": "PM-01",
+        "status": "parcial",
+        "relacoes": [
+         897
+        ],
+        "nota": "Empresas citadas só pela imprensa, sem CNPJ: Bololo Records e MC Ryan SP Produção Artística sem trecho literal (CNN em paráfrase) não entram; o uso de 'gravadoras' fica sustentado só pelas transferências da GR6 ao MC."
        }
       ]
      }
@@ -42153,7 +42371,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43402,6 +43620,15 @@
       },
       "tarefas": [
        {
+        "tarefa": "PM-07",
+        "status": "confirmado",
+        "relacoes": [
+         869,
+         870
+        ],
+        "nota": "TRF-3 revogou as preventivas de MC Ryan e Poze em 13/05/2026 ('ausência de denúncia formal até o momento'); Rato solto por HC em 11/05. Nenhuma denúncia contra produtoras localizada até 21/10/2026."
+       },
+       {
         "tarefa": "R2-P05",
         "status": "confirmado",
         "relacoes": [
@@ -43454,6 +43681,15 @@
        "teia": "faccoes"
       },
       "tarefas": [
+       {
+        "tarefa": "PM-07",
+        "status": "confirmado",
+        "relacoes": [
+         869,
+         870
+        ],
+        "nota": "TRF-3 revogou as preventivas de MC Ryan e Poze em 13/05/2026 ('ausência de denúncia formal até o momento'); Rato solto por HC em 11/05. Nenhuma denúncia contra produtoras localizada até 21/10/2026."
+       },
        {
         "tarefa": "R2-P05",
         "status": "confirmado",
@@ -47007,7 +47243,30 @@
      "relacionados": [],
      "texto": " “Eu não tenho envolvimento com facção alguma. Quero viver em paz”, diz MC Poze do Rodo após ser solto da prisão.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "confirmado",
+      "fonte": "https://www.mpf.mp.br/o-mpf/unidades/pr-sp/noticias/operacao-narco-fluxo-prende-32-envolvidos-em-esquema-bilionario-de-lavagem-de-dinheiro",
+      "relacao": {
+       "id": 869,
+       "ref": "x:narco-fluxo-ryan",
+       "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
+       "de": "operacao-narco-fluxo",
+       "para": "mc-ryan-sp",
+       "natureza": "investigacao",
+       "teia": "faccoes"
+      },
+      "tarefas": [
+       {
+        "tarefa": "PM-07",
+        "status": "confirmado",
+        "relacoes": [
+         869,
+         870
+        ],
+        "nota": "TRF-3 revogou as preventivas de MC Ryan e Poze em 13/05/2026 ('ausência de denúncia formal até o momento'); Rato solto por HC em 11/05. Nenhuma denúncia contra produtoras localizada até 21/10/2026."
+       }
+      ]
+     }
     },
     {
      "id": "2053152720366739508",
@@ -47413,7 +47672,19 @@
      "relacionados": [],
      "texto": "  Comunicado atribuído à facção Bonde do Maluco (BDM) EXIGE o cancelamento do show do MC Poze do Rodo em Lauro de Freitas, na Bahia, apontando ligação do funkeiro com o Comando Vermelho (CV), facção rival: “Estamos avisando previamente ou iremos responder à altura”.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "nao_encontrado",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PM-15",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Não pesquisado: comunicado atribuído a facção contra show (ameaça, não prova), acusação política sobre shows em prefeituras sem documento e bailes simulados em jogo on-line (não é produtora)."
+       }
+      ]
+     }
     },
     {
      "id": "2033201958689849504",
@@ -47823,7 +48094,19 @@
      "relacionados": [],
      "texto": "  Roblox é alvo de investigação da Polícia Civil do Rio de Janeiro após a descoberta de que o jogo estaria sendo usado para simular bailes funk, em cenários que imitam favelas dominadas pelo Comando Vermelho (CV).",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "nao_encontrado",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PM-15",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Não pesquisado: comunicado atribuído a facção contra show (ameaça, não prova), acusação política sobre shows em prefeituras sem documento e bailes simulados em jogo on-line (não é produtora)."
+       }
+      ]
+     }
     },
     {
      "id": "2015967613134778522",
@@ -49328,7 +49611,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49338,6 +49621,12 @@
          245
         ],
         "nota": "Divergência contábil já coberta pela relação Havengate→Go Up do banco; o 'filme do Lula' é alegação bloqueada (ver R2-B08)."
+       },
+       {
+        "tarefa": "PA-12",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "Divergência contábil (US$ 12 mi x US$ 2,8 mi) só em paráfrase; relatório da PF não aberto; nenhuma peça liga Havengate a empresa do PCC."
        }
       ]
      }
@@ -50093,6 +50382,15 @@
          840
         ],
         "nota": "Cruzamento com Carbono Oculto, Narco Fluxo e Deolane não confirmado."
+       },
+       {
+        "tarefa": "PA-04",
+        "status": "parcial",
+        "relacoes": [
+         842,
+         843
+        ],
+        "nota": "Reforço do elo Entre → ACX (R$ 26,2 mi); os cinco destinos do Coaf (R$ 139 mi, Carbono Oculto e Mafiusi) seguem sem nome; Havengate sem ligação a empresa do PCC."
        }
       ]
      }
@@ -50289,7 +50587,7 @@
      "texto": "  Emendas do deputado Yury do Paredão foram utilizadas para custear ao menos cinco shows do cantor de forró Jonas Esticado, com cachê de R$ 300 mil por apresentação; o artista é empresariado pelo próprio parlamentar.",
      "card": null,
      "desfecho": {
-      "status": "parcial",
+      "status": "confirmado",
       "fonte": "https://diariodonordeste.verdesmares.com.br/pontopoder/deputado-yury-do-paredao-direcionou-r-49-mi-em-emendas-para-festas-com-cantor-empresariado-por-ele-1.3772308",
       "relacao": {
        "id": 868,
@@ -50308,6 +50606,22 @@
          868
         ],
         "nota": "Reportagem única; convênios não conferidos (R2-P04)."
+       },
+       {
+        "tarefa": "PA-10",
+        "status": "confirmado",
+        "relacoes": [
+         868
+        ],
+        "nota": "Reforço de fonte: o deputado é sócio da empresa responsável pelos shows; sem investigação de MP/TCE."
+       },
+       {
+        "tarefa": "PM-13",
+        "status": "confirmado",
+        "relacoes": [
+         868
+        ],
+        "nota": "Conflito de interesse reportado (emendas e sociedade); sem facção."
        },
        {
         "tarefa": "R2-P04",
@@ -50625,15 +50939,31 @@
      "texto": "  Restaurante Bololô, ligado ao MC Ryan SP, movimentou mais de R$ 30 milhões e recebeu valores de 152 pessoas com histórico criminal.",
      "card": null,
      "desfecho": {
-      "status": "nao_encontrado",
-      "fonte": null,
-      "relacao": null,
+      "status": "parcial",
+      "fonte": "https://atarde.com.br/policia/restaurante-de-mc-ryan-teria-abrigado-esquema-ilicito-do-pcc-1386368",
+      "relacao": {
+       "id": 902,
+       "ref": "x:ryan-bololo",
+       "rotulo": "Restaurante do MC com R$ 30 mi movimentados (relatório da PF)",
+       "de": "mc-ryan-sp",
+       "para": "bololo-restaurante",
+       "natureza": "investigacao",
+       "teia": "faccoes"
+      },
       "tarefas": [
        {
         "tarefa": "D03",
         "status": "nao_encontrado",
         "relacoes": [],
         "nota": "Restaurante Bololô não verificado."
+       },
+       {
+        "tarefa": "PM-05",
+        "status": "parcial",
+        "relacoes": [
+         902
+        ],
+        "nota": "Relatório da PF via imprensa; o número de 152 pessoas com histórico criminal é de fonte única (BNews)."
        }
       ]
      }
@@ -50849,6 +51179,15 @@
          840
         ],
         "nota": "Cruzamento com Carbono Oculto, Narco Fluxo e Deolane não confirmado."
+       },
+       {
+        "tarefa": "PA-04",
+        "status": "parcial",
+        "relacoes": [
+         842,
+         843
+        ],
+        "nota": "Reforço do elo Entre → ACX (R$ 26,2 mi); os cinco destinos do Coaf (R$ 139 mi, Carbono Oculto e Mafiusi) seguem sem nome; Havengate sem ligação a empresa do PCC."
        }
       ]
      }
@@ -50997,6 +51336,23 @@
          871
         ],
         "nota": "Investigação: ninguém formalmente acusado."
+       },
+       {
+        "tarefa": "PA-05",
+        "status": "confirmado",
+        "relacoes": [
+         871
+        ],
+        "nota": "PF: 'operador de mídia'; solto pelo TRF-3 em 13/05/2026; defesa: serviços publicitários. Choquei como divulgadora de bets ilegais é só a descrição da PF, sem denúncia."
+       },
+       {
+        "tarefa": "PM-07",
+        "status": "confirmado",
+        "relacoes": [
+         869,
+         870
+        ],
+        "nota": "TRF-3 revogou as preventivas de MC Ryan e Poze em 13/05/2026 ('ausência de denúncia formal até o momento'); Rato solto por HC em 11/05. Nenhuma denúncia contra produtoras localizada até 21/10/2026."
        },
        {
         "tarefa": "R2-P05",
@@ -51218,6 +51574,14 @@
         "nota": "Investigação: ninguém formalmente acusado."
        },
        {
+        "tarefa": "PA-05",
+        "status": "confirmado",
+        "relacoes": [
+         871
+        ],
+        "nota": "PF: 'operador de mídia'; solto pelo TRF-3 em 13/05/2026; defesa: serviços publicitários. Choquei como divulgadora de bets ilegais é só a descrição da PF, sem denúncia."
+       },
+       {
         "tarefa": "R2-P05",
         "status": "confirmado",
         "relacoes": [
@@ -51314,7 +51678,7 @@
       },
       {
        "nome": "GR6 Explode",
-       "id": null
+       "id": "gr6-eventos"
       },
       {
        "nome": "Rato (Love Funk)",
@@ -51322,7 +51686,7 @@
       },
       {
        "nome": "Love Funk",
-       "id": null
+       "id": "love-funk"
       },
       {
        "nome": "Polícia Federal",
@@ -51355,6 +51719,18 @@
          871
         ],
         "nota": "Investigação: ninguém formalmente acusado."
+       },
+       {
+        "tarefa": "PM-02",
+        "status": "parcial",
+        "relacoes": [
+         897,
+         898,
+         899,
+         900,
+         901
+        ],
+        "nota": "Produtores presos na Narco Fluxo; sem denúncia. Os R$ 150 mil da FWM Produções e Eventos à GR6 (sócio apontado como líder do PCC em Santos, morto em 2018) vêm de uma única reportagem do Metrópoles (2024), sem trecho literal: FWM fica fora (fonte única)."
        },
        {
         "tarefa": "R2-P05",
@@ -51428,6 +51804,14 @@
          873
         ],
         "nota": "Vínculo com PCC/CV apontado na investigação; sem acusação formal."
+       },
+       {
+        "tarefa": "PM-01",
+        "status": "parcial",
+        "relacoes": [
+         897
+        ],
+        "nota": "Empresas citadas só pela imprensa, sem CNPJ: Bololo Records e MC Ryan SP Produção Artística sem trecho literal (CNN em paráfrase) não entram; o uso de 'gravadoras' fica sustentado só pelas transferências da GR6 ao MC."
        }
       ]
      }
@@ -51799,6 +52183,18 @@
         "status": "nao_encontrado",
         "relacoes": [],
         "nota": "Ação do MP-SP sobre Marília não encontrada."
+       },
+       {
+        "tarefa": "PA-09",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Marília (SP): nenhuma peça aberta. Serra do Ramalho (BA, MP-BA ao TCM): contratação pública sem produtora nomeada nem facção, fora do escopo."
+       },
+       {
+        "tarefa": "PM-14",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Ação do MP sobre os shows em Marília (SP) não localizada (já pendente em C08)."
        }
       ]
      }
@@ -52244,7 +52640,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -52700,7 +53096,7 @@
        "de": "havengate",
        "para": "go-up-entertainment",
        "natureza": "investigacao",
-       "teia": "master"
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54084,7 +54480,19 @@
      "relacionados": [],
      "texto": "  Comunicado atribuído à facção Bonde do Maluco (BDM) EXIGE o cancelamento do show do MC Poze do Rodo em Lauro de Freitas, na Bahia, apontando ligação do funkeiro com o Comando Vermelho (CV), facção rival: “Estamos avisando previamente ou iremos responder à altura”.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "nao_encontrado",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PM-15",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Não pesquisado: comunicado atribuído a facção contra show (ameaça, não prova), acusação política sobre shows em prefeituras sem documento e bailes simulados em jogo on-line (não é produtora)."
+       }
+      ]
+     }
     },
     {
      "id": "2035708748954497327",
@@ -54109,7 +54517,19 @@
      "relacionados": [],
      "texto": "  Pré-candidato à Presidência Renan Santos acusa o cantor Wesley Safadão de envolvimento em esquemas de corrupção relacionados à contratação de shows por prefeituras do Nordeste e diz que, caso eleito, irá colocá-lo “na cadeia”.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "nao_encontrado",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PM-15",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Não pesquisado: comunicado atribuído a facção contra show (ameaça, não prova), acusação política sobre shows em prefeituras sem documento e bailes simulados em jogo on-line (não é produtora)."
+       }
+      ]
+     }
     },
     {
      "id": "2021648897580683653",
@@ -54715,7 +55135,19 @@
      "relacionados": [],
      "texto": "  EITA! PF suspeita que ao menos R$ 750 mil em recursos públicos tenham sido desviados para abastecer a produtora Go Up, responsável pelo filme Dark Horse, sobre Jair Bolsonaro (PL).",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "pendente",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PA-02b",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "R$ 750 mil desviados para a Go Up e triangulação de R$ 6,1 mi: não confirmados em página aberta; emendas de Pollon (R$ 1 mi) e Kicis (R$ 150 mil) foram a entidades da empresária via governo de SP, não ao filme."
+       }
+      ]
+     }
     },
     {
      "id": "2098081074555318382",
@@ -54755,7 +55187,19 @@
      "relacionados": [],
      "texto": "  Deputados Bia Kicis e Marcos Pollon enviaram, respectivamente, R$ 150 mil e R$ 1 milhão em emendas parlamentares para a realização do filme Dark Horse, diz PF.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "pendente",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PA-02b",
+        "status": "pendente",
+        "relacoes": [],
+        "nota": "R$ 750 mil desviados para a Go Up e triangulação de R$ 6,1 mi: não confirmados em página aberta; emendas de Pollon (R$ 1 mi) e Kicis (R$ 150 mil) foram a entidades da empresária via governo de SP, não ao filme."
+       }
+      ]
+     }
     },
     {
      "id": "2098058471677563324",
@@ -54831,7 +55275,30 @@
      "relacionados": [],
      "texto": "  Operação da PF apura o repasse de R$ 2 milhões em emendas parlamentares do deputado Mario Frias para organizações ligadas à proprietária da produtora do filme \"Dark Horse\".",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "confirmado",
+      "fonte": "https://www.gazetadopovo.com.br/republica/dino-indicios-desvio-recursos-frias-dark-horse",
+      "relacao": {
+       "id": 890,
+       "ref": "x:frias-icb",
+       "rotulo": "Emendas sob suspeita de desvio (~R$ 2 mi; decisão de Dino)",
+       "de": "mario-frias",
+       "para": "instituto-conhecer-brasil",
+       "natureza": "investigacao",
+       "teia": "faccoes"
+      },
+      "tarefas": [
+       {
+        "tarefa": "PA-02",
+        "status": "confirmado",
+        "relacoes": [
+         890,
+         905
+        ],
+        "nota": "CGU: R$ 2 mi do ICB em duas emendas de Frias; Academia Nacional de Cultura (emendas de Pollon e Kicis via governo de SP) sem trecho literal que a nomeie: fora."
+       }
+      ]
+     }
     },
     {
      "id": "2098031350599033311",
@@ -54860,7 +55327,7 @@
       },
       {
        "nome": "Karina Gama",
-       "id": null
+       "id": "karina-gama"
       },
       {
        "nome": "Mario Frias",
@@ -55344,7 +55811,7 @@
      "texto": "  Emendas do deputado Yury do Paredão foram utilizadas para custear ao menos cinco shows do cantor de forró Jonas Esticado, com cachê de R$ 300 mil por apresentação; o artista é empresariado pelo próprio parlamentar.",
      "card": null,
      "desfecho": {
-      "status": "parcial",
+      "status": "confirmado",
       "fonte": "https://diariodonordeste.verdesmares.com.br/pontopoder/deputado-yury-do-paredao-direcionou-r-49-mi-em-emendas-para-festas-com-cantor-empresariado-por-ele-1.3772308",
       "relacao": {
        "id": 868,
@@ -55363,6 +55830,22 @@
          868
         ],
         "nota": "Reportagem única; convênios não conferidos (R2-P04)."
+       },
+       {
+        "tarefa": "PA-10",
+        "status": "confirmado",
+        "relacoes": [
+         868
+        ],
+        "nota": "Reforço de fonte: o deputado é sócio da empresa responsável pelos shows; sem investigação de MP/TCE."
+       },
+       {
+        "tarefa": "PM-13",
+        "status": "confirmado",
+        "relacoes": [
+         868
+        ],
+        "nota": "Conflito de interesse reportado (emendas e sociedade); sem facção."
        },
        {
         "tarefa": "R2-P04",
@@ -56102,6 +56585,18 @@
         "status": "nao_encontrado",
         "relacoes": [],
         "nota": "Ação do MP-SP sobre Marília não encontrada."
+       },
+       {
+        "tarefa": "PA-09",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Marília (SP): nenhuma peça aberta. Serra do Ramalho (BA, MP-BA ao TCM): contratação pública sem produtora nomeada nem facção, fora do escopo."
+       },
+       {
+        "tarefa": "PM-14",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Ação do MP sobre os shows em Marília (SP) não localizada (já pendente em C08)."
        }
       ]
      }
@@ -57478,7 +57973,19 @@
      "relacionados": [],
      "texto": "  Pré-candidato à Presidência Renan Santos acusa o cantor Wesley Safadão de envolvimento em esquemas de corrupção relacionados à contratação de shows por prefeituras do Nordeste e diz que, caso eleito, irá colocá-lo “na cadeia”.",
      "card": null,
-     "desfecho": null
+     "desfecho": {
+      "status": "nao_encontrado",
+      "fonte": null,
+      "relacao": null,
+      "tarefas": [
+       {
+        "tarefa": "PM-15",
+        "status": "nao_encontrado",
+        "relacoes": [],
+        "nota": "Não pesquisado: comunicado atribuído a facção contra show (ameaça, não prova), acusação política sobre shows em prefeituras sem documento e bailes simulados em jogo on-line (não é produtora)."
+       }
+      ]
+     }
     },
     {
      "id": "2004552059794882592",

@@ -2496,6 +2496,11 @@ def pistas_x(con, exp):
             q(con, "SELECT count(*) FROM post_triagem t JOIN post_rede p ON p.id=t.post_id WHERE t.relevancia IN ('pista','contexto')")[0][0])
 
 
+# produtoras (gravadoras, agências, produtoras de shows/bailes/filmes e a entidade cultural ligada a elas) que a curadoria pôs na categoria
+# 'prod' da teia de facções (pesquisa de produtoras, rodada 4 das pistas do X)
+PRODUTORAS_TEIA = {"gr6-eventos", "love-funk", "go-up-entertainment", "instituto-conhecer-brasil"}
+
+
 def relacoes_x(con, exp):
     """Pistas do X -> teia (data/curadoria/relacoes-adicionais-x.json): relações novas com fonte literal, desfecho das pistas e teia-faccoes.json."""
     secao("Pistas do X -> teia (relacoes-adicionais-x.json, post_triagem_desfecho, data/teia-faccoes.json)")
@@ -2596,7 +2601,23 @@ def relacoes_x(con, exp):
     esperar("teia-faccoes.json: E com as chaves a, b, r", sorted({tuple(e) for e in tf["E"]}), [("a", "b", "r")])
     cats = [c[0] for c in tf["cats"]]
     esperar("teia-faccoes.json: categorias == pedidas", [c[1] for c in tf["cats"]],
-            ["Facções", "Música e entretenimento", "Influenciadores e mídia", "Política e partidos", "Justiça e polícia", "Bets", "Dinheiro e empresas"])
+            ["Facções", "Música e entretenimento", "Produtoras e eventos", "Influenciadores e mídia", "Política e partidos", "Justiça e polícia",
+             "Bets", "Dinheiro e empresas"])
+    # produtoras (rodada 4): categoria só por decisão explícita da curadoria, as produtoras conhecidas nela, contrato público não vira crime,
+    # parentesco não vira relação e o que ficou fora por fonte única não entra no banco
+    esperar("teia-faccoes.json: nós em 'prod' só pelo mapa explícito da curadoria (nunca fallback)",
+            sorted(n["id"] for n in tf["N"] if n["c"] == "prod" and n["id"] not in cfg["teia_faccoes"]["entidades"]), [])
+    esperar("teia-faccoes.json: produtoras conhecidas na categoria 'prod'",
+            sorted(n["id"] for n in tf["N"] if n["id"] in PRODUTORAS_TEIA and n["c"] != "prod")
+            + sorted(PRODUTORAS_TEIA - {n["id"] for n in tf["N"]}), [])
+    esperar("relações x: contrato de órgão público sem natureza investigacao/alegacao nem tema crime-organizado/pcc",
+            [r["id"] for r in rels if r["tipo"] == "contratual" and q(con, "SELECT tipo FROM entidade WHERE id=?", r["de"])[0][0] == "orgao_publico"
+             and (r["natureza"] in ("investigacao", "alegacao") or {"crime-organizado", "pcc"} & {x[0] for x in q(
+                 con, "SELECT tema_id FROM relacao_tema WHERE relacao_id=?", no_banco[CUR.ref_relacao_x(r["id"])]["id"])})], [])
+    esperar("relações x: nenhuma de parentesco (tipo familiar)", [r["id"] for r in rels if r["tipo"] == "familiar"], [])
+    esperar("pistas de fonte única que ficaram fora (Leleco Nacional, FWM, R66 Air) sem entidade no banco",
+            [r[0] for r in q(con, "SELECT DISTINCT entidade_id FROM entidade_alias WHERE alias_norm LIKE 'leleco%' OR alias_norm LIKE 'fwm %' "
+                                  "OR alias_norm LIKE 'r66%'")], [])
     ent_ids = {r[0] for r in q(con, "SELECT id FROM entidade")}
     ruins = [n["id"] for n in tf["N"] if n["id"] not in ent_ids or n["c"] not in cats]
     esperar("teia-faccoes.json: nós com id existente e categoria da lista", ruins, [])

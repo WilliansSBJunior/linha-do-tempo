@@ -46,9 +46,9 @@
   "contra": "As pistas que tentaram ligar as frentes entre si caíram ou ficaram pendentes: veja as tarefas de cruzamento sem fonte em cada frente."
  },
  "contagem": {
-  "ligacoes": 45,
+  "ligacoes": 57,
   "contra": 7,
-  "pendencias": 16
+  "pendencias": 19
  },
  "frentes": [
   {
@@ -57,9 +57,9 @@
    "resumo": "Operação da PF sobre lavagem por meio de rifas, bets e empresas musicais, com artistas e um perfil de notícias entre os presos. O vínculo com facções é o que a investigação aponta, não acusação formal.",
    "pergunta": "A estrutura investigada usava a música como fachada para dinheiro de facção, ou artistas com negócios de rifas e apostas foram enquadrados pelo volume que movimentavam?",
    "contagem": {
-    "total": 6,
+    "total": 11,
     "doc": 0,
-    "inv": 6,
+    "inv": 11,
     "rep": 0,
     "ale": 0,
     "nc": 0
@@ -166,6 +166,15 @@
        "tipo": "reportagem",
        "titulo": "Narco Fluxo: entenda operação que prendeu MCs Poze do Rodo e Ryan SP",
        "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.cnnbrasil.com.br/nacional/sudeste/rj/justica-manda-soltar-mc-poze-do-rodo-junto-com-mc-ryan-sp",
+       "veiculo": "CNN Brasil (Thomaz Coelho)",
+       "tipo": "reportagem",
+       "titulo": "Justiça manda soltar MC Poze do Rodo junto com MC Ryan SP",
+       "data": "2026-05-13",
        "qualidade": "boa",
        "papel": "sustenta"
       },
@@ -305,14 +314,14 @@
      "de_nome": "Operação Narco Fluxo",
      "para": "mc-poze-do-rodo",
      "para_nome": "MC Poze do Rodo",
-     "rot": "Preso na operação (15/04/2026)",
-     "desc": "MC Poze do Rodo foi preso em casa, no Rio de Janeiro, na deflagração da Operação Narco Fluxo (15/04/2026). Investigação sobre associação criminosa, lavagem e evasão de divisas; sem acusação formal.",
+     "rot": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
+     "desc": "MC Poze do Rodo foi preso em casa, no Rio de Janeiro, na deflagração da Operação Narco Fluxo (15/04/2026). Em 13/05/2026 o TRF-3 estendeu a ele a revogação da preventiva concedida a MC Ryan SP, apontando 'ausência de denúncia formal até o momento' (CNN). Investigação sobre associação criminosa, lavagem e evasão de divisas; sem acusação formal.",
      "st": "inv",
      "tipo": "investigacao",
      "ano_de": 2026,
-     "ano_ate": null,
+     "ano_ate": 2026,
      "val": null,
-     "resp": "Defesa de Poze: diz 'desconhecer os autos ou teor do mandado de prisão' e que 'se manifestará na Justiça para restabelecer sua liberdade'.",
+     "resp": "Defesa de Poze: diz 'desconhecer os autos ou teor do mandado de prisão'; o pedido de extensão foi aceito. Poze, depois de solto: 'não tenho envolvimento com facção'.",
      "teia": "faccoes",
      "tema": [
       "crime-organizado",
@@ -336,6 +345,33 @@
        "data": "2026-04-15",
        "qualidade": "boa",
        "papel": "sustenta"
+      },
+      {
+       "url": "https://www.cnnbrasil.com.br/nacional/sudeste/rj/justica-manda-soltar-mc-poze-do-rodo-junto-com-mc-ryan-sp",
+       "veiculo": "CNN Brasil (Thomaz Coelho)",
+       "tipo": "reportagem",
+       "titulo": "Justiça manda soltar MC Poze do Rodo junto com MC Ryan SP",
+       "data": "2026-05-13",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2054723401135100258",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2054723401135100258",
+       "data": "2026-05-13",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2054977543137079638",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2054977543137079638",
+       "data": "2026-05-14",
+       "qualidade": null,
+       "papel": "contexto"
       }
      ]
     },
@@ -347,8 +383,8 @@
      "de_nome": "Operação Narco Fluxo",
      "para": "raphael-sousa-oliveira",
      "para_nome": "Raphael Sousa Oliveira (Choquei)",
-     "rot": "Preso na operação; soltura pelo STJ (23/04/2026)",
-     "desc": "Raphael Sousa Oliveira, dono da página Choquei, foi preso em 15/04/2026 na operação da PF que apura transações de R$ 1,6 bilhão (Narco Fluxo). O ministro Messod Azulay Neto, do STJ (HC 1.090.863), mandou soltá-lo em 23/04 por considerar ilegal a temporária de 30 dias. Sem acusação formal.",
+     "rot": "'Operador de mídia' segundo a PF; preso (15/04/2026), solto pelo STJ (23/04) e pelo TRF-3 (13/05)",
+     "desc": "Raphael Sousa Oliveira, dono da página Choquei, foi preso em 15/04/2026 na Operação Narco Fluxo, em que a PF o descreve como 'operador de mídia' do grupo (promoção de bets e rifas, gestão de crise). O ministro Messod Azulay Neto, do STJ (HC 1.090.863), mandou soltá-lo em 23/04 por considerar ilegal a temporária de 30 dias; depois de nova prisão, uma desembargadora do TRF-3 mandou soltá-lo em 13/05, por falta de elementos para manter a preventiva (Jovem Pan). Uma reportagem da Band (24/04, não aberta) diverge sobre a soltura pelo STJ. Sem acusação formal.",
      "st": "inv",
      "tipo": "investigacao",
      "ano_de": 2026,
@@ -378,6 +414,42 @@
        "data": "2026-04-15",
        "qualidade": "boa",
        "papel": "sustenta"
+      },
+      {
+       "url": "https://timesbrasil.com.br/brasil/operacao-narco-fluxo-dono-da-pagina-choquei-e-operador-de-midia-do-grupo-diz-pf",
+       "veiculo": "Times Brasil (Estadão Conteúdo)",
+       "tipo": "reportagem",
+       "titulo": "Operação Narco Fluxo: dono da página Choquei é 'operador de mídia' do grupo, diz PF",
+       "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://jovempan.com.br/brasil/desembargadora-manda-soltar-dono-da-choquei-preso-em-operacao-contra-o-pcc",
+       "veiculo": "Jovem Pan",
+       "tipo": "reportagem",
+       "titulo": "Desembargadora manda soltar dono da Choquei preso em operação contra o PCC",
+       "data": "2026-05-14",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044596054205600086",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044596054205600086",
+       "data": "2026-04-16",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2047380970563604529",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2047380970563604529",
+       "data": "2026-04-23",
+       "qualidade": null,
+       "papel": "contexto"
       }
      ]
     },
@@ -552,6 +624,269 @@
        "papel": "contexto"
       }
      ]
+    },
+    {
+     "ref": "x:gr6-ryan",
+     "id": 897,
+     "chave": false,
+     "de": "gr6-eventos",
+     "de_nome": "GR6 Eventos (GR6 Explode)",
+     "para": "mc-ryan-sp",
+     "para_nome": "MC Ryan SP",
+     "rot": "Transferências bancárias ao MC apontadas na Narco Fluxo",
+     "desc": "Segundo o Metrópoles, a investigação da Operação Narco Fluxo (PF, 15/04/2026) aponta que a GR6, produtora de Rodrigo Inácio de Lima Oliveira, fez transferências bancárias para MC Ryan SP; valores e datas não foram publicados. Em 2024, o mesmo veículo noticiou, com base em relatórios do Coaf à PF, R$ 9,6 milhões em espécie movimentados pela GR6 entre 2017 e 2021 (contexto, sem trecho literal). Investigação: nenhuma denúncia contra a produtora foi localizada até 21/10/2026.",
+     "st": "inv",
+     "tipo": "financeira",
+     "ano_de": 2026,
+     "ano_ate": null,
+     "val": null,
+     "resp": "GR6 e o sócio: 'não houve a prática de qualquer ato ilícito'; os advogados dizem que os valores 'referem-se a relações comerciais lícitas e regulares' (Metrópoles, 16/04/2026).",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.metropoles.com/sao-paulo/produtoras-funk-presos-operacao-pf",
+       "veiculo": "Metrópoles (Milena Vogado)",
+       "tipo": "reportagem",
+       "titulo": "Donos de produtoras de funk em SP são presos em operação da PF",
+       "data": "2026-04-16",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.metropoles.com/sao-paulo/pf-investiga-produtoras-funk-pcc",
+       "veiculo": "Metrópoles (Fabio Leite)",
+       "tipo": "reportagem",
+       "titulo": "PF investiga produtoras de funk",
+       "data": "2024-02-20",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044430578263445915",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044430578263445915",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044420862506348560",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044420862506348560",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:narco-fluxo-rodrigo-gr6",
+     "id": 898,
+     "chave": false,
+     "de": "operacao-narco-fluxo",
+     "de_nome": "Operação Narco Fluxo",
+     "para": "rodrigo-inacio-de-lima-oliveira",
+     "para_nome": "Rodrigo Inácio de Lima Oliveira",
+     "rot": "Dono da GR6, preso na operação (15/04/2026)",
+     "desc": "Rodrigo Inácio de Lima Oliveira, proprietário da GR6 Explode, está entre os donos de produtoras de funk presos na Operação Narco Fluxo (PF, 15/04/2026). A pesquisa não localizou a situação processual atual dele nem denúncia. Investigação.",
+     "st": "inv",
+     "tipo": "investigacao",
+     "ano_de": 2026,
+     "ano_ate": null,
+     "val": null,
+     "resp": "GR6 e o sócio: 'não houve a prática de qualquer ato ilícito'; os advogados dizem que os valores 'referem-se a relações comerciais lícitas e regulares' (Metrópoles, 16/04/2026).",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://jornaldebrasilia.com.br/noticias/brasil/operacao-da-pf-contra-mc-ryan-atinge-donos-de-produtoras-de-funk-citados-em-casos-sobre-o-pcc",
+       "veiculo": "Jornal de Brasília (Folhapress)",
+       "tipo": "reportagem",
+       "titulo": "Operação da PF contra MC Ryan atinge donos de produtoras de funk citados em casos sobre o PCC",
+       "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.metropoles.com/sao-paulo/produtoras-funk-presos-operacao-pf",
+       "veiculo": "Metrópoles (Milena Vogado)",
+       "tipo": "reportagem",
+       "titulo": "Donos de produtoras de funk em SP são presos em operação da PF",
+       "data": "2026-04-16",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044430578263445915",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044430578263445915",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:narco-fluxo-rato",
+     "id": 900,
+     "chave": false,
+     "de": "operacao-narco-fluxo",
+     "de_nome": "Operação Narco Fluxo",
+     "para": "henrique-alexandre-barros-viana",
+     "para_nome": "Henrique Alexandre Barros Viana (Rato)",
+     "rot": "Apontado como operador financeiro; preso (15/04/2026) e solto por HC do TRF-3 (11/05)",
+     "desc": "Henrique Alexandre Barros Viana, o Rato, fundador da produtora Love Funk, foi preso na Operação Narco Fluxo (PF, 15/04/2026) e é apontado como operador financeiro do esquema investigado. Foi solto por habeas corpus da 5ª Turma do TRF-3 em 11/05/2026, por 2 votos a 1, com proibição de deixar o país (O Liberal/Estadão Conteúdo, contexto, sem trecho literal). Em 2024 o Metrópoles noticiou, com base no Coaf, R$ 18,1 milhões recebidos pela Love Funk em seis meses de 2021 (contexto). A ligação com o PCC citada em reportagens vem de investigações, sem denúncia nem condenação localizadas.",
+     "st": "inv",
+     "tipo": "investigacao",
+     "ano_de": 2026,
+     "ano_ate": 2026,
+     "val": null,
+     "resp": "Defesa (Aury Lopes Jr.): Rato é inocente, não praticou crime algum e a prisão 'se mostrava totalmente arbitrária e desnecessária'.",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.metropoles.com/sao-paulo/produtoras-funk-presos-operacao-pf",
+       "veiculo": "Metrópoles (Milena Vogado)",
+       "tipo": "reportagem",
+       "titulo": "Donos de produtoras de funk em SP são presos em operação da PF",
+       "data": "2026-04-16",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://jornaldebrasilia.com.br/noticias/brasil/operacao-da-pf-contra-mc-ryan-atinge-donos-de-produtoras-de-funk-citados-em-casos-sobre-o-pcc",
+       "veiculo": "Jornal de Brasília (Folhapress)",
+       "tipo": "reportagem",
+       "titulo": "Operação da PF contra MC Ryan atinge donos de produtoras de funk citados em casos sobre o PCC",
+       "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.oliberal.com/variedades/tribunal-manda-soltar-rato-love-funk-produtor-preso-em-operacao-contra-o-pcc-1.1120072",
+       "veiculo": "O Liberal (Estadão Conteúdo)",
+       "tipo": "reportagem",
+       "titulo": "Tribunal manda soltar Rato, da Love Funk, produtor preso em operação contra o PCC",
+       "data": "2026-05-11",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://www.metropoles.com/sao-paulo/pf-investiga-produtoras-funk-pcc",
+       "veiculo": "Metrópoles (Fabio Leite)",
+       "tipo": "reportagem",
+       "titulo": "PF investiga produtoras de funk",
+       "data": "2024-02-20",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044430578263445915",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044430578263445915",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:narco-fluxo-oms",
+     "id": 906,
+     "chave": false,
+     "de": "operacao-narco-fluxo",
+     "de_nome": "Operação Narco Fluxo",
+     "para": "oms-tecnologia",
+     "para_nome": "OMS Tecnologia",
+     "rot": "Recebia o dinheiro depositado por apostadores (PF)",
+     "desc": "Segundo a PF, citada pelo Poder360, a OMS Tecnologia (também referida como YCFSHOP/OMS) era usada para receber o grande volume de Pix depositado por apostadores, sem vender o que anunciava como e-commerce. Empresa de pagamentos, não produtora. CNPJ não publicado. Investigação, sem denúncia localizada.",
+     "st": "inv",
+     "tipo": "investigacao",
+     "ano_de": 2026,
+     "ano_ate": null,
+     "val": null,
+     "resp": "Não localizada resposta da empresa; a defesa de MC Ryan diz que os valores têm origem comprovada e tributos recolhidos.",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.poder360.com.br/poder-justica/entenda-operacao-que-prendeu-mc-ryan-poze-e-choquei",
+       "veiculo": "Poder360",
+       "tipo": "reportagem",
+       "titulo": "Entenda a operação que prendeu MC Ryan, Poze e o dono da Choquei",
+       "data": "2026-04-20",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      }
+     ]
+    },
+    {
+     "ref": "x:ryan-bololo",
+     "id": 902,
+     "chave": false,
+     "de": "mc-ryan-sp",
+     "de_nome": "MC Ryan SP",
+     "para": "bololo-restaurante",
+     "para_nome": "Bololô (restaurante)",
+     "rot": "Restaurante do MC com R$ 30 mi movimentados (relatório da PF)",
+     "desc": "Relatório da PF na Narco Fluxo, divulgado pela imprensa (A Tarde, a partir do Metrópoles), aponta que o restaurante Bololô, ligado a MC Ryan SP, movimentou mais de R$ 30 milhões entre abril de 2024 e outubro de 2025, valor incompatível com o porte. O MC deixou a sociedade, que passou a uma familiar; a PF apura se ela era laranja, o que ela nega. O dado de que o restaurante recebeu valores de 152 pessoas com histórico criminal vem de um único veículo (BNews). Sem denúncia nem bloqueio específico localizados.",
+     "st": "inv",
+     "tipo": "societaria",
+     "ano_de": 2024,
+     "ano_ate": 2025,
+     "val": 30000000,
+     "resp": "Defesa de MC Ryan: o restaurante 'foi um presente' à familiar e 'todas as transações possuem origem comprovada'; a sócia nega ser laranja.",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://atarde.com.br/policia/restaurante-de-mc-ryan-teria-abrigado-esquema-ilicito-do-pcc-1386368",
+       "veiculo": "A Tarde (Franciely Gomes)",
+       "tipo": "reportagem",
+       "titulo": "Restaurante de MC Ryan teria abrigado esquema ilícito do PCC",
+       "data": "2026-04-19",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.bnewssaopaulo.com.br/noticias/policia/pf-aponta-movimentacao-suspeita-e-cita-avo-como-laranja-em-caso-ligado-a-mc-ryan-sp.html",
+       "veiculo": "BNews SP (Fernanda Montanha)",
+       "tipo": "reportagem",
+       "titulo": "PF aponta movimentação suspeita e cita avó como laranja em caso ligado a MC Ryan SP",
+       "data": "2026-04-20",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2059992495832907893",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2059992495832907893",
+       "data": "2026-05-28",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
     }
    ],
    "contra": [
@@ -585,20 +920,6 @@
     }
    ],
    "pendencias": [
-    {
-     "tarefa": "D03",
-     "status": "nao_encontrado",
-     "nota": "Restaurante Bololô não verificado.",
-     "posts": [
-      {
-       "id": "2059992495832907893",
-       "url": "https://x.com/republiqueBRA/status/2059992495832907893",
-       "data": "2026-05-28",
-       "relevancia": "pista",
-       "afirmacao": "Restaurante Bololô, ligado a MC Ryan SP, movimentou mais de R$ 30 mi e recebeu valores de 152 pessoas com histórico criminal."
-      }
-     ]
-    },
     {
      "tarefa": "D10",
      "status": "nao_encontrado",
@@ -663,6 +984,820 @@
     {
      "titulo": "Hipótese 2: enquadramento amplo",
      "texto": "O juiz tratou o vínculo com PCC e CV como preliminar ({rel:x:ryan-pcc}) e houve solturas ({rel:x:narco-fluxo-choquei}); sem denúncia, o enquadramento pode refletir o volume de dinheiro e não uma ligação direta com a facção."
+    }
+   ]
+  },
+  {
+   "id": "produtoras",
+   "titulo": "Produtoras: shows, agenciamento e filmes",
+   "resumo": "Empresas que agenciam artistas, vendem shows ou produzem filmes aparecem em duas investigações sem relação entre si: a Narco Fluxo, em que a PF aponta transferências de uma produtora a um MC e prendeu donos de produtoras, e a apuração sobre o filme Dark Horse, em que o Coaf viu movimentação atípica na produtora e a PF investiga emendas a um instituto da mesma empresária. Contratos de shows com prefeituras e emendas para shows entram como dado público ou conflito de interesse, não como crime. Até 21/10/2026 nenhuma produtora foi denunciada, e as pistas que ligavam produtoras de bailes a facções dependiam de um único veículo.",
+   "pergunta": "As produtoras foram usadas como canal para dinheiro de origem ilícita, ou aparecem nas investigações porque é por elas que passa, legalmente, o dinheiro de cachês, agenciamento e filmes?",
+   "contagem": {
+    "total": 12,
+    "doc": 0,
+    "inv": 7,
+    "rep": 5,
+    "ale": 0,
+    "nc": 0
+   },
+   "nucleo": [
+    "gr6-eventos",
+    "love-funk",
+    "go-up-entertainment",
+    "instituto-conhecer-brasil"
+   ],
+   "entidades": [
+    {
+     "id": "gr6-eventos",
+     "nome": "GR6 Eventos (GR6 Explode)",
+     "tipo": "empresa",
+     "cargo": "",
+     "d": "Produtora e agência de artistas de funk de São Paulo, de Rodrigo Inácio de Lima Oliveira; citada na Operação Narco Fluxo (PF, 2026). CNPJ não publicado nas reportagens.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "love-funk",
+     "nome": "Love Funk",
+     "tipo": "empresa",
+     "cargo": "",
+     "d": "Produtora e agência de artistas de funk fundada por Henrique Alexandre Barros Viana (Rato); nome formal Formato Funk Agenciamento Artístico Ltda., segundo reportagens (sem trecho literal conferido). CNPJ não publicado.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "go-up-entertainment",
+     "nome": "Go Up Entertainment",
+     "tipo": "empresa",
+     "cargo": "Produtora do filme Dark Horse",
+     "d": "CNPJ de dez/2021 e registro na Ancine só em 09/07/2025, após o contrato. Karina Ferreira da Gama diz que a Go Up nunca recebeu direto de Vorcaro.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "instituto-conhecer-brasil",
+     "nome": "Instituto Conhecer Brasil",
+     "tipo": "associacao",
+     "cargo": "",
+     "d": "Entidade presidida por Karina Gama (dona da Go Up); recebeu emendas de Mario Frias sob suspeita.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "mc-ryan-sp",
+     "nome": "MC Ryan SP",
+     "tipo": "pessoa",
+     "cargo": "",
+     "d": "Cantor de funk; apontado pela PF como líder da estrutura investigada na Operação Narco Fluxo (sem acusação formal).",
+     "teia": "faccoes"
+    },
+    {
+     "id": "operacao-narco-fluxo",
+     "nome": "Operação Narco Fluxo",
+     "tipo": "operacao_policial",
+     "cargo": "",
+     "d": "Operação da PF (15/04/2026, 5ª Vara Federal de Santos) contra suspeita de lavagem de R$ 1,6 bi por rifas, bets e empresas musicais.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "rodrigo-inacio-de-lima-oliveira",
+     "nome": "Rodrigo Inácio de Lima Oliveira",
+     "tipo": "pessoa",
+     "cargo": "",
+     "d": "Empresário, proprietário da produtora GR6 Explode; preso na Operação Narco Fluxo (PF, 15/04/2026). Sem denúncia localizada.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "henrique-alexandre-barros-viana",
+     "nome": "Henrique Alexandre Barros Viana (Rato)",
+     "tipo": "pessoa",
+     "cargo": "",
+     "d": "Produtor musical, fundador da Love Funk; preso na Operação Narco Fluxo (PF, 15/04/2026) e solto por habeas corpus do TRF-3 (11/05/2026). Sem denúncia localizada.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "bololo-restaurante",
+     "nome": "Bololô (restaurante)",
+     "tipo": "empresa",
+     "cargo": "",
+     "d": "Restaurante e bar ligado a MC Ryan SP, citado em relatório da PF na Operação Narco Fluxo por movimentação atípica. Não é a gravadora Bololo Records.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "prefeitura-de-sao-paulo",
+     "nome": "Prefeitura de São Paulo",
+     "tipo": "orgao_publico",
+     "cargo": "",
+     "d": "Prefeitura do município de São Paulo (SP).",
+     "teia": "faccoes"
+    },
+    {
+     "id": "coaf",
+     "nome": "Coaf (Conselho de Controle de Atividades Financeiras)",
+     "tipo": "orgao_publico",
+     "cargo": "",
+     "d": "Unidade de inteligência financeira do Brasil; comunica movimentações atípicas às autoridades.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "karina-gama",
+     "nome": "Karina Gama",
+     "tipo": "pessoa",
+     "cargo": "",
+     "d": "Empresária, apontada como dona da Go Up (produtora do filme Dark Horse) e presidente do Instituto Conhecer Brasil; alvo da operação da PF de 10/09/2026 autorizada pelo ministro Flávio Dino. Sem denúncia localizada.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "mario-frias",
+     "nome": "Mario Frias",
+     "tipo": "pessoa",
+     "cargo": "Produtor-executivo de Dark Horse",
+     "d": "Negou 'um centavo' do Master e depois falou em 'diferença de interpretação'; o Intercept mostra áudio de dez/2024 em que agradece a Vorcaro e o chama de 'irmão'.",
+     "teia": "faccoes"
+    },
+    {
+     "id": "yury-do-paredao",
+     "nome": "Yury do Paredão",
+     "tipo": "pessoa",
+     "cargo": "",
+     "d": "Deputado federal (MDB-CE).",
+     "teia": "faccoes"
+    },
+    {
+     "id": "jonas-esticado",
+     "nome": "Jonas Esticado",
+     "tipo": "pessoa",
+     "cargo": "",
+     "d": "Cantor.",
+     "teia": "faccoes"
+    }
+   ],
+   "ligacoes": [
+    {
+     "ref": "x:gr6-ryan",
+     "id": 897,
+     "chave": true,
+     "de": "gr6-eventos",
+     "de_nome": "GR6 Eventos (GR6 Explode)",
+     "para": "mc-ryan-sp",
+     "para_nome": "MC Ryan SP",
+     "rot": "Transferências bancárias ao MC apontadas na Narco Fluxo",
+     "desc": "Segundo o Metrópoles, a investigação da Operação Narco Fluxo (PF, 15/04/2026) aponta que a GR6, produtora de Rodrigo Inácio de Lima Oliveira, fez transferências bancárias para MC Ryan SP; valores e datas não foram publicados. Em 2024, o mesmo veículo noticiou, com base em relatórios do Coaf à PF, R$ 9,6 milhões em espécie movimentados pela GR6 entre 2017 e 2021 (contexto, sem trecho literal). Investigação: nenhuma denúncia contra a produtora foi localizada até 21/10/2026.",
+     "st": "inv",
+     "tipo": "financeira",
+     "ano_de": 2026,
+     "ano_ate": null,
+     "val": null,
+     "resp": "GR6 e o sócio: 'não houve a prática de qualquer ato ilícito'; os advogados dizem que os valores 'referem-se a relações comerciais lícitas e regulares' (Metrópoles, 16/04/2026).",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.metropoles.com/sao-paulo/produtoras-funk-presos-operacao-pf",
+       "veiculo": "Metrópoles (Milena Vogado)",
+       "tipo": "reportagem",
+       "titulo": "Donos de produtoras de funk em SP são presos em operação da PF",
+       "data": "2026-04-16",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.metropoles.com/sao-paulo/pf-investiga-produtoras-funk-pcc",
+       "veiculo": "Metrópoles (Fabio Leite)",
+       "tipo": "reportagem",
+       "titulo": "PF investiga produtoras de funk",
+       "data": "2024-02-20",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044430578263445915",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044430578263445915",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044420862506348560",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044420862506348560",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:narco-fluxo-rodrigo-gr6",
+     "id": 898,
+     "chave": true,
+     "de": "operacao-narco-fluxo",
+     "de_nome": "Operação Narco Fluxo",
+     "para": "rodrigo-inacio-de-lima-oliveira",
+     "para_nome": "Rodrigo Inácio de Lima Oliveira",
+     "rot": "Dono da GR6, preso na operação (15/04/2026)",
+     "desc": "Rodrigo Inácio de Lima Oliveira, proprietário da GR6 Explode, está entre os donos de produtoras de funk presos na Operação Narco Fluxo (PF, 15/04/2026). A pesquisa não localizou a situação processual atual dele nem denúncia. Investigação.",
+     "st": "inv",
+     "tipo": "investigacao",
+     "ano_de": 2026,
+     "ano_ate": null,
+     "val": null,
+     "resp": "GR6 e o sócio: 'não houve a prática de qualquer ato ilícito'; os advogados dizem que os valores 'referem-se a relações comerciais lícitas e regulares' (Metrópoles, 16/04/2026).",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://jornaldebrasilia.com.br/noticias/brasil/operacao-da-pf-contra-mc-ryan-atinge-donos-de-produtoras-de-funk-citados-em-casos-sobre-o-pcc",
+       "veiculo": "Jornal de Brasília (Folhapress)",
+       "tipo": "reportagem",
+       "titulo": "Operação da PF contra MC Ryan atinge donos de produtoras de funk citados em casos sobre o PCC",
+       "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.metropoles.com/sao-paulo/produtoras-funk-presos-operacao-pf",
+       "veiculo": "Metrópoles (Milena Vogado)",
+       "tipo": "reportagem",
+       "titulo": "Donos de produtoras de funk em SP são presos em operação da PF",
+       "data": "2026-04-16",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044430578263445915",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044430578263445915",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:narco-fluxo-rato",
+     "id": 900,
+     "chave": true,
+     "de": "operacao-narco-fluxo",
+     "de_nome": "Operação Narco Fluxo",
+     "para": "henrique-alexandre-barros-viana",
+     "para_nome": "Henrique Alexandre Barros Viana (Rato)",
+     "rot": "Apontado como operador financeiro; preso (15/04/2026) e solto por HC do TRF-3 (11/05)",
+     "desc": "Henrique Alexandre Barros Viana, o Rato, fundador da produtora Love Funk, foi preso na Operação Narco Fluxo (PF, 15/04/2026) e é apontado como operador financeiro do esquema investigado. Foi solto por habeas corpus da 5ª Turma do TRF-3 em 11/05/2026, por 2 votos a 1, com proibição de deixar o país (O Liberal/Estadão Conteúdo, contexto, sem trecho literal). Em 2024 o Metrópoles noticiou, com base no Coaf, R$ 18,1 milhões recebidos pela Love Funk em seis meses de 2021 (contexto). A ligação com o PCC citada em reportagens vem de investigações, sem denúncia nem condenação localizadas.",
+     "st": "inv",
+     "tipo": "investigacao",
+     "ano_de": 2026,
+     "ano_ate": 2026,
+     "val": null,
+     "resp": "Defesa (Aury Lopes Jr.): Rato é inocente, não praticou crime algum e a prisão 'se mostrava totalmente arbitrária e desnecessária'.",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.metropoles.com/sao-paulo/produtoras-funk-presos-operacao-pf",
+       "veiculo": "Metrópoles (Milena Vogado)",
+       "tipo": "reportagem",
+       "titulo": "Donos de produtoras de funk em SP são presos em operação da PF",
+       "data": "2026-04-16",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://jornaldebrasilia.com.br/noticias/brasil/operacao-da-pf-contra-mc-ryan-atinge-donos-de-produtoras-de-funk-citados-em-casos-sobre-o-pcc",
+       "veiculo": "Jornal de Brasília (Folhapress)",
+       "tipo": "reportagem",
+       "titulo": "Operação da PF contra MC Ryan atinge donos de produtoras de funk citados em casos sobre o PCC",
+       "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.oliberal.com/variedades/tribunal-manda-soltar-rato-love-funk-produtor-preso-em-operacao-contra-o-pcc-1.1120072",
+       "veiculo": "O Liberal (Estadão Conteúdo)",
+       "tipo": "reportagem",
+       "titulo": "Tribunal manda soltar Rato, da Love Funk, produtor preso em operação contra o PCC",
+       "data": "2026-05-11",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://www.metropoles.com/sao-paulo/pf-investiga-produtoras-funk-pcc",
+       "veiculo": "Metrópoles (Fabio Leite)",
+       "tipo": "reportagem",
+       "titulo": "PF investiga produtoras de funk",
+       "data": "2024-02-20",
+       "qualidade": null,
+       "papel": "contexto"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2044430578263445915",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2044430578263445915",
+       "data": "2026-04-15",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:ryan-bololo",
+     "id": 902,
+     "chave": true,
+     "de": "mc-ryan-sp",
+     "de_nome": "MC Ryan SP",
+     "para": "bololo-restaurante",
+     "para_nome": "Bololô (restaurante)",
+     "rot": "Restaurante do MC com R$ 30 mi movimentados (relatório da PF)",
+     "desc": "Relatório da PF na Narco Fluxo, divulgado pela imprensa (A Tarde, a partir do Metrópoles), aponta que o restaurante Bololô, ligado a MC Ryan SP, movimentou mais de R$ 30 milhões entre abril de 2024 e outubro de 2025, valor incompatível com o porte. O MC deixou a sociedade, que passou a uma familiar; a PF apura se ela era laranja, o que ela nega. O dado de que o restaurante recebeu valores de 152 pessoas com histórico criminal vem de um único veículo (BNews). Sem denúncia nem bloqueio específico localizados.",
+     "st": "inv",
+     "tipo": "societaria",
+     "ano_de": 2024,
+     "ano_ate": 2025,
+     "val": 30000000,
+     "resp": "Defesa de MC Ryan: o restaurante 'foi um presente' à familiar e 'todas as transações possuem origem comprovada'; a sócia nega ser laranja.",
+     "teia": "faccoes",
+     "tema": [
+      "crime-organizado",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://atarde.com.br/policia/restaurante-de-mc-ryan-teria-abrigado-esquema-ilicito-do-pcc-1386368",
+       "veiculo": "A Tarde (Franciely Gomes)",
+       "tipo": "reportagem",
+       "titulo": "Restaurante de MC Ryan teria abrigado esquema ilícito do PCC",
+       "data": "2026-04-19",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.bnewssaopaulo.com.br/noticias/policia/pf-aponta-movimentacao-suspeita-e-cita-avo-como-laranja-em-caso-ligado-a-mc-ryan-sp.html",
+       "veiculo": "BNews SP (Fernanda Montanha)",
+       "tipo": "reportagem",
+       "titulo": "PF aponta movimentação suspeita e cita avó como laranja em caso ligado a MC Ryan SP",
+       "data": "2026-04-20",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2059992495832907893",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2059992495832907893",
+       "data": "2026-05-28",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:prefsp-gr6",
+     "id": 903,
+     "chave": true,
+     "de": "prefeitura-de-sao-paulo",
+     "de_nome": "Prefeitura de São Paulo",
+     "para": "gr6-eventos",
+     "para_nome": "GR6 Eventos (GR6 Explode)",
+     "rot": "Shows contratados pela Secretaria de Cultura (21 shows, R$ 1,2 mi, 2023-2025; maioria com a GR6)",
+     "desc": "Levantamento da Agência Pública em planilhas da Secretaria Municipal de Cultura: a prefeitura pagou R$ 1,2 milhão por 21 shows de artistas agenciados pela Love Funk e pela GR6 entre 2023 e 2025, a maioria contratada com a GR6. A reportagem aponta indícios de direcionamento em nove notas fiscais da GR6 emitidas no mesmo dia (22/05/2023) e aval jurídico em só 5 dos 21 shows, mas não liga os shows ao esquema investigado. Contrato público, sem ilícito apontado por autoridade: não é relação criminal.",
+     "st": "rep",
+     "tipo": "contratual",
+     "ano_de": 2023,
+     "ano_ate": 2025,
+     "val": null,
+     "resp": "Prefeitura: as contratações seguiram os trâmites administrativos e antecederam a operação. A Secretaria de Cultura não respondeu.",
+     "teia": "faccoes",
+     "tema": [
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://apublica.org/2026/05/produtoras-e-mc-investigado-receberam-r-12-mi-da-prefeitura",
+       "veiculo": "Agência Pública (Amanda Audi)",
+       "tipo": "reportagem",
+       "titulo": "Produtoras e MC investigado receberam R$ 1,2 mi da prefeitura",
+       "data": "2026-05-21",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      }
+     ]
+    },
+    {
+     "ref": "x:coaf-goup",
+     "id": 904,
+     "chave": true,
+     "de": "coaf",
+     "de_nome": "Coaf (Conselho de Controle de Atividades Financeiras)",
+     "para": "go-up-entertainment",
+     "para_nome": "Go Up Entertainment",
+     "rot": "R$ 19 mi em movimentação atípica (nov-dez/2025; relatório do Coaf)",
+     "desc": "Relatório do Coaf, cujo sigilo Flávio Dino (STF) derrubou em 10/09/2026, apontou movimentação atípica de R$ 19 milhões nas contas da Go Up, produtora do filme Dark Horse, entre novembro e dezembro de 2025; no mesmo dia a PF cumpriu 49 mandados (Itatiaia) na operação sobre emendas destinadas a entidades da dona da produtora. Movimentação atípica é alerta de inteligência financeira, não prova de crime.",
+     "st": "inv",
+     "tipo": "investigacao",
+     "ano_de": 2025,
+     "ano_ate": 2025,
+     "val": 19000000,
+     "resp": "Defesa de Karina Gama (Ricardo Sayeg) classificou de 'positiva' a retirada do sigilo: 'A transparência interessa à Justiça, à sociedade e, sobretudo, à própria defesa'. As reportagens abertas não trazem resposta da Go Up.",
+     "teia": "faccoes",
+     "tema": [
+      "caso-master",
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.itatiaia.com.br/politica/dark-horse-coaf-identifica-r-19-milhoes-atipicos-em-produtora-de-filme-sobre-bolsonaro",
+       "veiculo": "Rádio Itatiaia",
+       "tipo": "reportagem",
+       "titulo": "Dark Horse: Coaf identifica R$ 19 milhões atípicos em produtora de filme sobre Bolsonaro",
+       "data": "2026-09-10",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.dgabc.com.br/Noticia/4346076",
+       "veiculo": "DGABC (Estadão Conteúdo)",
+       "tipo": "reportagem",
+       "titulo": "Coaf aponta R$ 19 milhões atípicos na produtora de Dark Horse",
+       "data": "2026-09-10",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2098096038854722011",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2098096038854722011",
+       "data": "2026-09-10",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:karina-icb",
+     "id": 905,
+     "chave": true,
+     "de": "karina-gama",
+     "de_nome": "Karina Gama",
+     "para": "instituto-conhecer-brasil",
+     "para_nome": "Instituto Conhecer Brasil",
+     "rot": "Preside o instituto que recebeu R$ 2 mi em emendas de Frias (CGU)",
+     "desc": "Karina Gama, apontada pela imprensa como dona da Go Up (produtora de Dark Horse) e alvo da operação da PF de 10/09/2026 autorizada por Flávio Dino, preside o Instituto Conhecer Brasil, que recebeu R$ 2 milhões por meio de duas emendas do deputado Mario Frias, segundo registro da CGU citado pelo Poder360 e pelo Aos Fatos. Para Dino (13/09), há 'fortes indícios de uma única organização criminosa'. Investigação em curso; a outra entidade dela citada, a Academia Nacional de Cultura, não entrou como nó (sem trecho literal que a nomeie).",
+     "st": "rep",
+     "tipo": "profissional",
+     "ano_de": 2024,
+     "ano_ate": null,
+     "val": 2000000,
+     "resp": "Defesa de Karina Gama (Ricardo Sayeg): a retirada do sigilo interessa 'sobretudo, à própria defesa'. Frias nega qualquer relação com a execução dos valores.",
+     "teia": "faccoes",
+     "tema": [
+      "cultura-e-entretenimento",
+      "financiamento-politico"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.poder360.com.br/poder-justica/dark-horse-pf-ve-frias-como-agente-central-em-esquema",
+       "veiculo": "Poder360",
+       "tipo": "reportagem",
+       "titulo": "Dark Horse: PF vê Frias como agente central em esquema",
+       "data": "2026-09-10",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.aosfatos.org/noticias/dino-dark-horse-emendas",
+       "veiculo": "Aos Fatos",
+       "tipo": "reportagem",
+       "titulo": "Dino, Dark Horse e as emendas",
+       "data": "2026-09-21",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2098033571160051937",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2098033571160051937",
+       "data": "2026-09-10",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:frias-icb",
+     "id": 890,
+     "chave": true,
+     "de": "mario-frias",
+     "de_nome": "Mario Frias",
+     "para": "instituto-conhecer-brasil",
+     "para_nome": "Instituto Conhecer Brasil",
+     "rot": "Emendas sob suspeita de desvio (~R$ 2 mi; decisão de Dino)",
+     "desc": "Na decisão de 10/09/2026 que retirou o sigilo da operação ligada ao filme Dark Horse, Flávio Dino diz que as diligências indicam possível desvio de recursos públicos por organização criminosa que incluiria o deputado Mario Frias, com emendas parlamentares repassadas ao Instituto Conhecer Brasil e à Academia Nacional de Cultura, presididos por Karina Gama, dona da Go Up; a CGU estima cerca de R$ 2 milhões. Investigação.",
+     "st": "inv",
+     "tipo": "financeira",
+     "ano_de": 2024,
+     "ano_ate": 2025,
+     "val": null,
+     "resp": "Frias nega irregularidades (Agência Estado, 13/09/2026); a Gazeta do Povo não traz manifestação dele.",
+     "teia": "faccoes",
+     "tema": [
+      "caso-master",
+      "financiamento-politico"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.gazetadopovo.com.br/republica/dino-indicios-desvio-recursos-frias-dark-horse",
+       "veiculo": "Gazeta do Povo",
+       "tipo": "reportagem",
+       "titulo": "Dino diz haver indícios de desvio de recursos por Frias a organizações ligadas a \"Dark Horse\"",
+       "data": "2026-09-10",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.poder360.com.br/poder-justica/dark-horse-pf-ve-frias-como-agente-central-em-esquema",
+       "veiculo": "Poder360",
+       "tipo": "reportagem",
+       "titulo": "Dark Horse: PF vê Frias como agente central em esquema",
+       "data": "2026-09-10",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2098033571160051937",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2098033571160051937",
+       "data": "2026-09-10",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "x:yury-jonas",
+     "id": 868,
+     "chave": true,
+     "de": "yury-do-paredao",
+     "de_nome": "Yury do Paredão",
+     "para": "jonas-esticado",
+     "para_nome": "Jonas Esticado",
+     "rot": "Emendas de R$ 4,9 mi para shows do cantor, de quem é sócio",
+     "desc": "Segundo o Diário do Nordeste, o deputado federal Yury do Paredão (MDB-CE) direcionou cerca de R$ 4,9 milhões em emendas de comissão (Turismo) para eventos em cinco municípios do Ceará que contrataram Jonas Esticado (cerca de R$ 300 mil por show), por meio de escritório administrado pela mãe do deputado e que tem o próprio político como sócio, junto com o artista. Reportagem única; convênios não conferidos no Portal da Transparência. O Metrópoles (via Revista Oeste) também registra que o deputado é sócio da empresa responsável pelas apresentações (Jonas Esticado Gravações & Edições Musicais). Conflito de interesse reportado; nenhuma investigação de MP ou TCE localizada; não há facção envolvida.",
+     "st": "rep",
+     "tipo": "financeira",
+     "ano_de": 2025,
+     "ano_ate": 2026,
+     "val": 4900000,
+     "resp": "Yury: 'A execução dos convênios é de responsabilidade exclusiva dos municípios beneficiados'; nega destinação dirigida a um único artista.",
+     "teia": "faccoes",
+     "tema": [
+      "cultura-e-entretenimento",
+      "financiamento-politico"
+     ],
+     "fontes": [
+      {
+       "url": "https://diariodonordeste.verdesmares.com.br/pontopoder/deputado-yury-do-paredao-direcionou-r-49-mi-em-emendas-para-festas-com-cantor-empresariado-por-ele-1.3772308",
+       "veiculo": "Diário do Nordeste (PontoPoder)",
+       "tipo": "reportagem",
+       "titulo": "Deputado Yury do Paredão direcionou R$ 4,9 mi em emendas para festas com cantor empresariado por ele",
+       "data": "2026-06-22",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://revistaoeste.com/politica/emendas-de-deputado-bancaram-shows-de-empresa-da-qual-e-socio",
+       "veiculo": "Revista Oeste (cita Metrópoles)",
+       "tipo": "reportagem",
+       "titulo": "Emendas de deputado bancaram shows de empresa da qual é sócio",
+       "data": "2026-06-21",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://x.com/republiqueBRA/status/2068716349367492978",
+       "veiculo": "X (@republiqueBRA)",
+       "tipo": "outro",
+       "titulo": "Tweet de @republiqueBRA 2068716349367492978",
+       "data": "2026-06-21",
+       "qualidade": null,
+       "papel": "contexto"
+      }
+     ]
+    },
+    {
+     "ref": "E[220].r[0]",
+     "id": 245,
+     "chave": false,
+     "de": "havengate",
+     "de_nome": "Havengate (fundo)",
+     "para": "go-up-entertainment",
+     "para_nome": "Go Up Entertainment",
+     "rot": "Caminho do dinheiro do filme",
+     "desc": "Caminho citado pela PF (preliminar): Entre -> fundo no Texas -> Go Up. Valores incompatíveis entre fontes: contrato de R$ 134 mi com R$ 61 mi pagos (Intercept), mais de 90% do orçamento de US$ 13 mi (Karina), pouco mais de US$ 12 mi (Flávio admitiu), R$ 2,3 mi do Master a empresa que financiou o filme (Poder360).",
+     "st": "inv",
+     "tipo": "financeira",
+     "ano_de": 2024,
+     "ano_ate": 2025,
+     "val": null,
+     "resp": "Karina Ferreira da Gama diz que a Go Up nunca recebeu direto de Vorcaro.",
+     "teia": "faccoes",
+     "tema": [
+      "caso-master"
+     ],
+     "fontes": [
+      {
+       "url": "https://www.gazetadopovo.com.br/republica/produtora-filme-bolsonaro-vorcaro-bancou-mais-90-producao",
+       "veiculo": "gazetadopovo.com.br",
+       "tipo": "reportagem",
+       "titulo": null,
+       "data": null,
+       "qualidade": null,
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://www.em.com.br/politica/2026/05/7423855-produtora-do-filme-de-bolsonaro-so-foi-registrada-apos-contrato-com-vorcaro.html",
+       "veiculo": "em.com.br",
+       "tipo": "reportagem",
+       "titulo": null,
+       "data": null,
+       "qualidade": null,
+       "papel": "sustenta"
+      }
+     ]
+    },
+    {
+     "ref": "x:rodrigo-gr6",
+     "id": 899,
+     "chave": false,
+     "de": "rodrigo-inacio-de-lima-oliveira",
+     "de_nome": "Rodrigo Inácio de Lima Oliveira",
+     "para": "gr6-eventos",
+     "para_nome": "GR6 Eventos (GR6 Explode)",
+     "rot": "Proprietário da produtora",
+     "desc": "A Folhapress (via Jornal de Brasília) identifica Rodrigo Inácio de Lima Oliveira como proprietário da GR6 Explode, produtora e agência de artistas de funk. CNPJ e quadro societário não foram publicados nas reportagens abertas.",
+     "st": "rep",
+     "tipo": "societaria",
+     "ano_de": null,
+     "ano_ate": null,
+     "val": null,
+     "resp": "GR6 e o sócio: 'não houve a prática de qualquer ato ilícito'; os advogados dizem que os valores 'referem-se a relações comerciais lícitas e regulares' (Metrópoles, 16/04/2026).",
+     "teia": "faccoes",
+     "tema": [
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://jornaldebrasilia.com.br/noticias/brasil/operacao-da-pf-contra-mc-ryan-atinge-donos-de-produtoras-de-funk-citados-em-casos-sobre-o-pcc",
+       "veiculo": "Jornal de Brasília (Folhapress)",
+       "tipo": "reportagem",
+       "titulo": "Operação da PF contra MC Ryan atinge donos de produtoras de funk citados em casos sobre o PCC",
+       "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      }
+     ]
+    },
+    {
+     "ref": "x:rato-love-funk",
+     "id": 901,
+     "chave": false,
+     "de": "henrique-alexandre-barros-viana",
+     "de_nome": "Henrique Alexandre Barros Viana (Rato)",
+     "para": "love-funk",
+     "para_nome": "Love Funk",
+     "rot": "Fundador da produtora",
+     "desc": "A Folhapress (via Jornal de Brasília) identifica Rato como fundador da Love Funk. Segundo reportagens sem trecho literal conferido, o nome formal é Formato Funk Agenciamento Artístico Ltda., registrada em nome de uma familiar, e ele não está no quadro societário (CNPJ não publicado).",
+     "st": "rep",
+     "tipo": "societaria",
+     "ano_de": null,
+     "ano_ate": null,
+     "val": null,
+     "resp": "Defesa (Aury Lopes Jr.): Rato é inocente e vai se manifestar após acesso integral à investigação.",
+     "teia": "faccoes",
+     "tema": [
+      "cultura-e-entretenimento"
+     ],
+     "fontes": [
+      {
+       "url": "https://jornaldebrasilia.com.br/noticias/brasil/operacao-da-pf-contra-mc-ryan-atinge-donos-de-produtoras-de-funk-citados-em-casos-sobre-o-pcc",
+       "veiculo": "Jornal de Brasília (Folhapress)",
+       "tipo": "reportagem",
+       "titulo": "Operação da PF contra MC Ryan atinge donos de produtoras de funk citados em casos sobre o PCC",
+       "data": "2026-04-15",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      }
+     ]
+    }
+   ],
+   "contra": [],
+   "pendencias": [
+    {
+     "tarefa": "PA-02b",
+     "status": "pendente",
+     "nota": "R$ 750 mil desviados para a Go Up e triangulação de R$ 6,1 mi: não confirmados em página aberta; emendas de Pollon (R$ 1 mi) e Kicis (R$ 150 mil) foram a entidades da empresária via governo de SP, não ao filme.",
+     "posts": [
+      {
+       "id": "2098081074555318382",
+       "url": "https://x.com/republiqueBRA/status/2098081074555318382",
+       "data": "2026-09-10",
+       "relevancia": "pista",
+       "afirmacao": "PF: Bia Kicis enviou R$ 150 mil e Marcos Pollon R$ 1 milhão em emendas para Dark Horse."
+      },
+      {
+       "id": "2098119940209320104",
+       "url": "https://x.com/republiqueBRA/status/2098119940209320104",
+       "data": "2026-09-10",
+       "relevancia": "pista",
+       "afirmacao": "PF suspeita que ao menos R$ 750 mil em recursos públicos foram desviados para a Go Up."
+      },
+      {
+       "id": "2098425216862994830",
+       "url": "https://x.com/republiqueBRA/status/2098425216862994830",
+       "data": "2026-09-11",
+       "relevancia": "pista",
+       "afirmacao": "PF aponta triangulação de ao menos R$ 6,1 milhões entre empresas e entidades ligadas a Karina Gama."
+      }
+     ]
+    },
+    {
+     "tarefa": "PA-03",
+     "status": "pendente",
+     "nota": "'Sócio Mario' em anotação apreendida: o texto aberto não identifica Mario como o deputado, e Frias nega: não vira relação. Faturas de cartão pagas pela Go Up e R$ 1 mi de Marcello Lopes: páginas não abertas.",
+     "posts": [
+      {
+       "id": "2098081829324485018",
+       "url": "https://x.com/republiqueBRA/status/2098081829324485018",
+       "data": "2026-09-10",
+       "relevancia": "pista",
+       "afirmacao": "Publicitário Marcello Lopes, amigo de Flávio, repassou R$ 1 milhão à Go Up como \"investidor\", a pedido de Mario Frias."
+      },
+      {
+       "id": "2098766018365583792",
+       "url": "https://x.com/republiqueBRA/status/2098766018365583792",
+       "data": "2026-09-12",
+       "relevancia": "pista",
+       "afirmacao": "Registros mostram que a Go Up pagou ao menos 4 faturas do cartão do deputado Mario Frias (R$ 32,6 mil a R$ 36,8 mil) entre ago e nov/2025."
+      }
+     ]
+    },
+    {
+     "tarefa": "PA-12",
+     "status": "pendente",
+     "nota": "Divergência contábil (US$ 12 mi x US$ 2,8 mi) só em paráfrase; relatório da PF não aberto; nenhuma peça liga Havengate a empresa do PCC.",
+     "posts": [
+      {
+       "id": "2111557400713171214",
+       "url": "https://x.com/republiqueBRA/status/2111557400713171214",
+       "data": "2026-10-17",
+       "relevancia": "pista",
+       "afirmacao": "PF aponta 'divergência contábil severa' na produtora de Dark Horse: mais de US$ 12 mi saíram do Brasil via fundo Havengate, só US$ 2,8 mi tiveram entrada registrada."
+      }
+     ]
+    },
+    {
+     "tarefa": "PM-14",
+     "status": "nao_encontrado",
+     "nota": "Ação do MP sobre os shows em Marília (SP) não localizada (já pendente em C08).",
+     "posts": [
+      {
+       "id": "2112350358412636364",
+       "url": "https://x.com/republiqueBRA/status/2112350358412636364",
+       "data": "2026-10-20",
+       "relevancia": "pista",
+       "afirmacao": "MP pede anulação de contrato da Prefeitura de Marília (SP) que usou R$ 1,5 mi da saúde e R$ 170 mil da educação para pagar shows de Gusttavo Lima e Maiara e Maraisa."
+      }
+     ]
+    }
+   ],
+   "pistas": {
+    "marcadores": [
+     "narco-fluxo",
+     "dark-horse",
+     "emendas-shows"
+    ],
+    "n": 112
+   },
+   "leituras": [
+    {
+     "titulo": "Hipótese 1: canal de passagem",
+     "texto": "A produtora seria o ponto em que dinheiro sob suspeita ganha forma de cachê, agenciamento ou orçamento: a PF aponta transferências da {ent:gr6-eventos} a MC Ryan SP ({rel:x:gr6-ryan}) e descreve o fundador da {ent:love-funk} como operador financeiro ({rel:x:narco-fluxo-rato}); no caso Dark Horse, o Coaf viu R$ 19 mi atípicos na produtora ({rel:x:coaf-goup}) e Dino vê indícios de desvio nas emendas ao instituto da mesma empresária ({rel:x:frias-icb})."
+    },
+    {
+     "titulo": "Hipótese 2: um setor que movimenta muito dinheiro",
+     "texto": "Shows, agenciamento e filmes movimentam valores altos e contratam com governos de forma regular ({rel:x:prefsp-gr6}). O TRF-3 soltou os presos da Narco Fluxo por 'ausência de denúncia formal' ({rel:x:narco-fluxo-ryan}); as operações Rifa Limpa (RJ) e Integration (PE), sobre rifas e apostas, não citam facção; e as produtoras de bailes ligadas a facções nas pistas (Leleco Nacional, FWM) só aparecem em uma reportagem cada, por isso ficaram fora."
     }
    ]
   },
@@ -1857,7 +2992,7 @@
      "para": "jonas-esticado",
      "para_nome": "Jonas Esticado",
      "rot": "Emendas de R$ 4,9 mi para shows do cantor, de quem é sócio",
-     "desc": "Segundo o Diário do Nordeste, o deputado federal Yury do Paredão (MDB-CE) direcionou cerca de R$ 4,9 milhões em emendas de comissão (Turismo) para eventos em cinco municípios do Ceará que contrataram Jonas Esticado (cerca de R$ 300 mil por show), por meio de escritório administrado pela mãe do deputado e que tem o próprio político como sócio, junto com o artista. Reportagem única; convênios não conferidos no Portal da Transparência.",
+     "desc": "Segundo o Diário do Nordeste, o deputado federal Yury do Paredão (MDB-CE) direcionou cerca de R$ 4,9 milhões em emendas de comissão (Turismo) para eventos em cinco municípios do Ceará que contrataram Jonas Esticado (cerca de R$ 300 mil por show), por meio de escritório administrado pela mãe do deputado e que tem o próprio político como sócio, junto com o artista. Reportagem única; convênios não conferidos no Portal da Transparência. O Metrópoles (via Revista Oeste) também registra que o deputado é sócio da empresa responsável pelas apresentações (Jonas Esticado Gravações & Edições Musicais). Conflito de interesse reportado; nenhuma investigação de MP ou TCE localizada; não há facção envolvida.",
      "st": "rep",
      "tipo": "financeira",
      "ano_de": 2025,
@@ -1876,6 +3011,15 @@
        "tipo": "reportagem",
        "titulo": "Deputado Yury do Paredão direcionou R$ 4,9 mi em emendas para festas com cantor empresariado por ele",
        "data": "2026-06-22",
+       "qualidade": "boa",
+       "papel": "sustenta"
+      },
+      {
+       "url": "https://revistaoeste.com/politica/emendas-de-deputado-bancaram-shows-de-empresa-da-qual-e-socio",
+       "veiculo": "Revista Oeste (cita Metrópoles)",
+       "tipo": "reportagem",
+       "titulo": "Emendas de deputado bancaram shows de empresa da qual é sócio",
+       "data": "2026-06-21",
        "qualidade": "boa",
        "papel": "sustenta"
       },
@@ -3993,8 +5137,48 @@
     "id": 871,
     "de": "operacao-narco-fluxo",
     "para": "raphael-sousa-oliveira",
-    "rot": "Preso na operação; soltura pelo STJ (23/04/2026)",
+    "rot": "'Operador de mídia' segundo a PF; preso (15/04/2026), solto pelo STJ (23/04) e pelo TRF-3 (13/05)",
     "st": "inv",
+    "teia": "faccoes"
+   },
+   "x:gr6-ryan": {
+    "id": 897,
+    "de": "gr6-eventos",
+    "para": "mc-ryan-sp",
+    "rot": "Transferências bancárias ao MC apontadas na Narco Fluxo",
+    "st": "inv",
+    "teia": "faccoes"
+   },
+   "x:narco-fluxo-rato": {
+    "id": 900,
+    "de": "operacao-narco-fluxo",
+    "para": "henrique-alexandre-barros-viana",
+    "rot": "Apontado como operador financeiro; preso (15/04/2026) e solto por HC do TRF-3 (11/05)",
+    "st": "inv",
+    "teia": "faccoes"
+   },
+   "x:coaf-goup": {
+    "id": 904,
+    "de": "coaf",
+    "para": "go-up-entertainment",
+    "rot": "R$ 19 mi em movimentação atípica (nov-dez/2025; relatório do Coaf)",
+    "st": "inv",
+    "teia": "faccoes"
+   },
+   "x:frias-icb": {
+    "id": 890,
+    "de": "mario-frias",
+    "para": "instituto-conhecer-brasil",
+    "rot": "Emendas sob suspeita de desvio (~R$ 2 mi; decisão de Dino)",
+    "st": "inv",
+    "teia": "faccoes"
+   },
+   "x:prefsp-gr6": {
+    "id": 903,
+    "de": "prefeitura-de-sao-paulo",
+    "para": "gr6-eventos",
+    "rot": "Shows contratados pela Secretaria de Cultura (21 shows, R$ 1,2 mi, 2023-2025; maioria com a GR6)",
+    "st": "rep",
     "teia": "faccoes"
    },
    "x:ryan-deolane": {
@@ -4137,6 +5321,14 @@
   "ent": {
    "mc-ryan-sp": {
     "nome": "MC Ryan SP",
+    "teia": "faccoes"
+   },
+   "gr6-eventos": {
+    "nome": "GR6 Eventos (GR6 Explode)",
+    "teia": "faccoes"
+   },
+   "love-funk": {
+    "nome": "Love Funk",
     "teia": "faccoes"
    },
    "comando-vermelho": {

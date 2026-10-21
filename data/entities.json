@@ -3621,7 +3621,8 @@
    "origem": "teia",
    "aliases": [],
    "temas": [
-    "caso-master"
+    "caso-master",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -4545,6 +4546,25 @@
    ]
   },
   {
+   "id": "bololo-restaurante",
+   "nome": "Bololô (restaurante)",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Restaurante e bar ligado a MC Ryan SP, citado em relatório da PF na Operação Narco Fluxo por movimentação atípica. Não é a gravadora Bololo Records.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
    "id": "bradesco",
    "nome": "Bradesco",
    "tipo": "banco",
@@ -4955,6 +4975,25 @@
    "temas": [
     "crime-organizado",
     "financiamento-politico"
+   ]
+  },
+  {
+   "id": "coaf",
+   "nome": "Coaf (Conselho de Controle de Atividades Financeiras)",
+   "tipo": "orgao_publico",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Unidade de inteligência financeira do Brasil; comunica movimentações atípicas às autoridades.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "caso-master",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -5688,6 +5727,27 @@
    ]
   },
   {
+   "id": "gr6-eventos",
+   "nome": "GR6 Eventos (GR6 Explode)",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Produtora e agência de artistas de funk de São Paulo, de Rodrigo Inácio de Lima Oliveira; citada na Operação Narco Fluxo (PF, 2026). CNPJ não publicado nas reportagens.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "GR6 Explode"
+   ],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
+   ]
+  },
+  {
    "id": "hamilton-mourao",
    "nome": "Hamilton Mourão",
    "tipo": "pessoa",
@@ -5721,6 +5781,25 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "henrique-alexandre-barros-viana",
+   "nome": "Henrique Alexandre Barros Viana (Rato)",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Produtor musical, fundador da Love Funk; preso na Operação Narco Fluxo (PF, 15/04/2026) e solto por habeas corpus do TRF-3 (11/05/2026). Sem denúncia localizada.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -5890,6 +5969,7 @@
    "aliases": [],
    "temas": [
     "caso-master",
+    "cultura-e-entretenimento",
     "financiamento-politico"
    ]
   },
@@ -6278,6 +6358,25 @@
    ]
   },
   {
+   "id": "karina-gama",
+   "nome": "Karina Gama",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Empresária, apontada como dona da Go Up (produtora do filme Dark Horse) e presidente do Instituto Conhecer Brasil; alvo da operação da PF de 10/09/2026 autorizada pelo ministro Flávio Dino. Sem denúncia localizada.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "cultura-e-entretenimento",
+    "financiamento-politico"
+   ]
+  },
+  {
    "id": "klabin",
    "nome": "Klabin",
    "tipo": "empresa",
@@ -6349,6 +6448,26 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "love-funk",
+   "nome": "Love Funk",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Produtora e agência de artistas de funk fundada por Henrique Alexandre Barros Viana (Rato); nome formal Formato Funk Agenciamento Artístico Ltda., segundo reportagens (sem trecho literal conferido). CNPJ não publicado.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [
+    "Formato Funk Agenciamento Artístico Ltda."
+   ],
+   "temas": [
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -6859,6 +6978,24 @@
    ]
   },
   {
+   "id": "oms-tecnologia",
+   "nome": "OMS Tecnologia",
+   "tipo": "empresa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Empresa que, segundo a PF na Operação Narco Fluxo, recebia o dinheiro depositado por apostadores (também referida como YCFSHOP/OMS). CNPJ não publicado.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado"
+   ]
+  },
+  {
    "id": "operacao-narco-fluxo",
    "nome": "Operação Narco Fluxo",
    "tipo": "operacao_policial",
@@ -7216,6 +7353,24 @@
    "aliases": [],
    "temas": [
     "brasil-ano-a-ano"
+   ]
+  },
+  {
+   "id": "prefeitura-de-sao-paulo",
+   "nome": "Prefeitura de São Paulo",
+   "tipo": "orgao_publico",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Prefeitura do município de São Paulo (SP).",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -7722,6 +7877,25 @@
    "aliases": [],
    "temas": [
     "crime-organizado"
+   ]
+  },
+  {
+   "id": "rodrigo-inacio-de-lima-oliveira",
+   "nome": "Rodrigo Inácio de Lima Oliveira",
+   "tipo": "pessoa",
+   "categoria": null,
+   "grupo": null,
+   "partido": null,
+   "campo": null,
+   "cargo": null,
+   "descricao": "Empresário, proprietário da produtora GR6 Explode; preso na Operação Narco Fluxo (PF, 15/04/2026). Sem denúncia localizada.",
+   "uf": null,
+   "indice_legado": null,
+   "origem": "manual",
+   "aliases": [],
+   "temas": [
+    "crime-organizado",
+    "cultura-e-entretenimento"
    ]
   },
   {
@@ -8786,6 +8960,7 @@
   "bn financeira": "bn-financeira",
   "bn financeira bk financeira": "bn-financeira",
   "bndes": "bndes",
+  "bololo restaurante": "bololo-restaurante",
   "bolsonaro": "jair-bolsonaro",
   "bonnie de bonilha": "bonnie-de-bonilha",
   "bra": "brasil",
@@ -8832,6 +9007,7 @@
   "cnj corregedoria nacional de justica": "cnj",
   "cnlf empreendimentos imobiliarios": "cnlf-empreendimentos-imobiliarios",
   "cnm aviacao": "cnm-aviacao",
+  "coaf conselho de controle de atividades financeiras": "coaf",
   "col": "colombia",
   "colombia": "colombia",
   "comando vermelho": "comando-vermelho",
@@ -8925,6 +9101,7 @@
   "flavio arns": "flavio-arns",
   "flavio bolsonaro": "flavio-bolsonaro",
   "flavio dino": "flavio-dino",
+  "formato funk agenciamento artistico ltda": "love-funk",
   "fsw spe": "fsw-spe",
   "fundo garantidor de creditos": "fgc",
   "fundos da reag": "laguz-i-e-reag-legal-claims",
@@ -8943,6 +9120,8 @@
   "gol": "gol",
   "gold style fidc": "gold-style-fidc",
   "governo do distrito federal": "governo-do-distrito-federal",
+  "gr6 eventos gr6 explode": "gr6-eventos",
+  "gr6 explode": "gr6-eventos",
   "grupo atvos": "destilaria-alcidia",
   "grupo fictor": "grupo-fictor",
   "grupo globo": "grupo-globo",
@@ -8959,6 +9138,7 @@
   "havengate": "havengate",
   "havengate fundo": "havengate",
   "heloisa helena": "heloisa-helena",
+  "henrique alexandre barros viana rato": "henrique-alexandre-barros-viana",
   "henrique eduardo alves": "henrique-eduardo-alves",
   "henrique fontana": "henrique-fontana",
   "henrique meirelles": "henrique-meirelles",
@@ -9014,6 +9194,7 @@
   "jose sarney": "jose-sarney",
   "jovair arantes": "jovair-arantes",
   "jutahy junior": "jutahy-junior",
+  "karina gama": "karina-gama",
   "kassio nunes marques": "kassio-nunes-marques",
   "kevin de carvalho marques": "kevin-de-carvalho-marques",
   "klabin": "klabin",
@@ -9029,6 +9210,7 @@
   "lewandowski advocacia": "lewandowski-advocacia",
   "light": "light",
   "lindbergh farias": "lindbergh-farias",
+  "love funk": "love-funk",
   "luciano huck": "luciano-huck",
   "luis carlos santos": "luis-carlos-santos",
   "luis eduardo": "luis-eduardo-magalhaes",
@@ -9094,6 +9276,7 @@
   "ogpar": "ogpar",
   "oi": "oi",
   "omar aziz": "omar-aziz",
+  "oms tecnologia": "oms-tecnologia",
   "operacao carbono oculto": "operacao-carbono-oculto",
   "operacao compliance zero": "operacao-compliance-zero",
   "operacao credito oculto": "operacao-credito-oculto",
@@ -9137,6 +9320,7 @@
   "pps": "pps",
   "pr": "pl",
   "prb": "republicanos",
+  "prefeitura de sao paulo": "prefeitura-de-sao-paulo",
   "presidencia da republica": "presidencia-da-republica",
   "previdencia de araras": "rpps-araras",
   "previdencia de cajamar": "rpps-cajamar",
@@ -9191,6 +9375,7 @@
   "roberto jefferson": "roberto-jefferson",
   "rodrigo bacellar": "rodrigo-bacellar",
   "rodrigo fux": "rodrigo-fux",
+  "rodrigo inacio de lima oliveira": "rodrigo-inacio-de-lima-oliveira",
   "rodrigo maia": "rodrigo-maia",
   "rodrigo pacheco": "rodrigo-pacheco",
   "rogerio marinho": "rogerio-marinho",

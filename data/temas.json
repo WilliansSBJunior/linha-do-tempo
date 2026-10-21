@@ -10,9 +10,9 @@
    "cor": "#c0392b",
    "ordem": 1,
    "principal": true,
-   "n_relacoes": 390,
+   "n_relacoes": 391,
    "n_eventos": 215,
-   "n_entidades": 221
+   "n_entidades": 222
   },
   {
    "id": "brasil-ano-a-ano",
@@ -109,9 +109,9 @@
    "cor": "#4d4d4d",
    "ordem": 10,
    "principal": false,
-   "n_relacoes": 27,
+   "n_relacoes": 32,
    "n_eventos": 0,
-   "n_entidades": 32
+   "n_entidades": 37
   },
   {
    "id": "cultura-e-entretenimento",
@@ -120,9 +120,9 @@
    "cor": "#e7298a",
    "ordem": 11,
    "principal": false,
-   "n_relacoes": 17,
+   "n_relacoes": 26,
    "n_eventos": 0,
-   "n_entidades": 23
+   "n_entidades": 33
   },
   {
    "id": "financiamento-politico",
@@ -131,9 +131,9 @@
    "cor": "#66a61e",
    "ordem": 12,
    "principal": false,
-   "n_relacoes": 5,
+   "n_relacoes": 6,
    "n_eventos": 0,
-   "n_entidades": 9
+   "n_entidades": 10
   },
   {
    "id": "trafico-de-influencia",
@@ -549,7 +549,8 @@
    860,
    861,
    862,
-   890
+   890,
+   904
   ],
   "brasil-ano-a-ano": [
    368,
@@ -1168,7 +1169,12 @@
    886,
    887,
    888,
-   889
+   889,
+   897,
+   898,
+   900,
+   902,
+   906
   ],
   "cultura-e-entretenimento": [
    859,
@@ -1187,14 +1193,24 @@
    873,
    874,
    875,
-   876
+   876,
+   897,
+   898,
+   899,
+   900,
+   901,
+   902,
+   903,
+   904,
+   905
   ],
   "financiamento-politico": [
    868,
    885,
    888,
    889,
-   890
+   890,
+   905
   ],
   "trafico-de-influencia": [
    845,
@@ -1918,6 +1934,7 @@
    "clava-forte-bank",
    "cnj",
    "cnlf-empreendimentos-imobiliarios",
+   "coaf",
    "companhia-acucareira-vale-do-ceara-mirim",
    "conafer",
    "consult-inteligencia-tributaria",
@@ -2509,6 +2526,7 @@
    "acx-itc",
    "andre-luis-almeida-coutinho",
    "antonio-carlos-camilo-antunes",
+   "bololo-restaurante",
    "buzeira",
    "cnm-aviacao",
    "comando-vermelho",
@@ -2517,11 +2535,14 @@
    "deolane-bezerra",
    "departamento-de-estado-eua",
    "entre-investimentos-e-participacoes",
+   "gr6-eventos",
+   "henrique-alexandre-barros-viana",
    "macario-judice",
    "marcio-poncio",
    "mc-poze-do-rodo",
    "mc-ryan-sp",
    "mohamad-hussein-mourad",
+   "oms-tecnologia",
    "operacao-narco-fluxo",
    "pcc",
    "pce",
@@ -2531,6 +2552,7 @@
    "raphael-sousa-oliveira",
    "roberto-augusto-leme-da-silva",
    "rodrigo-bacellar",
+   "rodrigo-inacio-de-lima-oliveira",
    "senival-moura",
    "tesouro-dos-eua-ofac",
    "th-joias",
@@ -2543,14 +2565,22 @@
    "banco-master",
    "bet-bet",
    "blaze",
+   "bololo-restaurante",
    "buzeira",
    "cathedral",
+   "coaf",
    "comando-vermelho",
    "daniel-vorcaro",
    "deolane-bezerra",
    "flavio-bolsonaro",
    "gabriela-prioli",
+   "go-up-entertainment",
+   "gr6-eventos",
+   "henrique-alexandre-barros-viana",
+   "instituto-conhecer-brasil",
    "jonas-esticado",
+   "karina-gama",
+   "love-funk",
    "mc-poze-do-rodo",
    "mc-ryan-sp",
    "metropoles-marketing-e-propaganda",
@@ -2558,7 +2588,9 @@
    "pablo-marcal",
    "pcc",
    "pf",
+   "prefeitura-de-sao-paulo",
    "raphael-sousa-oliveira",
+   "rodrigo-inacio-de-lima-oliveira",
    "victory-trading",
    "virginia-fonseca",
    "willer-tomaz",
@@ -2569,6 +2601,7 @@
    "cnm-aviacao",
    "instituto-conhecer-brasil",
    "jonas-esticado",
+   "karina-gama",
    "mario-frias",
    "psd",
    "psdb",

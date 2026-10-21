@@ -557,6 +557,78 @@
    "descricao": "Ex-secretário-executivo de Saúde de Goiânia.",
    "aliases": [],
    "motivo": "relacoes-adicionais-x.json (pistas do X, rodadas 1-3): quesede-luchsinger"
+  },
+  {
+   "id": "gr6-eventos",
+   "nome": "GR6 Eventos (GR6 Explode)",
+   "tipo": "empresa",
+   "descricao": "Produtora e agência de artistas de funk de São Paulo, de Rodrigo Inácio de Lima Oliveira; citada na Operação Narco Fluxo (PF, 2026). CNPJ não publicado nas reportagens.",
+   "aliases": ["GR6 Explode"],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): gr6-ryan, rodrigo-gr6, prefsp-gr6"
+  },
+  {
+   "id": "love-funk",
+   "nome": "Love Funk",
+   "tipo": "empresa",
+   "descricao": "Produtora e agência de artistas de funk fundada por Henrique Alexandre Barros Viana (Rato); nome formal Formato Funk Agenciamento Artístico Ltda., segundo reportagens (sem trecho literal conferido). CNPJ não publicado.",
+   "aliases": ["Formato Funk Agenciamento Artístico Ltda."],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): rato-love-funk"
+  },
+  {
+   "id": "rodrigo-inacio-de-lima-oliveira",
+   "nome": "Rodrigo Inácio de Lima Oliveira",
+   "tipo": "pessoa",
+   "descricao": "Empresário, proprietário da produtora GR6 Explode; preso na Operação Narco Fluxo (PF, 15/04/2026). Sem denúncia localizada.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): narco-fluxo-rodrigo-gr6, rodrigo-gr6"
+  },
+  {
+   "id": "henrique-alexandre-barros-viana",
+   "nome": "Henrique Alexandre Barros Viana (Rato)",
+   "tipo": "pessoa",
+   "descricao": "Produtor musical, fundador da Love Funk; preso na Operação Narco Fluxo (PF, 15/04/2026) e solto por habeas corpus do TRF-3 (11/05/2026). Sem denúncia localizada.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): narco-fluxo-rato, rato-love-funk"
+  },
+  {
+   "id": "bololo-restaurante",
+   "nome": "Bololô (restaurante)",
+   "tipo": "empresa",
+   "descricao": "Restaurante e bar ligado a MC Ryan SP, citado em relatório da PF na Operação Narco Fluxo por movimentação atípica. Não é a gravadora Bololo Records.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): ryan-bololo"
+  },
+  {
+   "id": "prefeitura-de-sao-paulo",
+   "nome": "Prefeitura de São Paulo",
+   "tipo": "orgao_publico",
+   "descricao": "Prefeitura do município de São Paulo (SP).",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): prefsp-gr6"
+  },
+  {
+   "id": "coaf",
+   "nome": "Coaf (Conselho de Controle de Atividades Financeiras)",
+   "tipo": "orgao_publico",
+   "descricao": "Unidade de inteligência financeira do Brasil; comunica movimentações atípicas às autoridades.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): coaf-goup"
+  },
+  {
+   "id": "karina-gama",
+   "nome": "Karina Gama",
+   "tipo": "pessoa",
+   "descricao": "Empresária, apontada como dona da Go Up (produtora do filme Dark Horse) e presidente do Instituto Conhecer Brasil; alvo da operação da PF de 10/09/2026 autorizada pelo ministro Flávio Dino. Sem denúncia localizada.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): karina-icb"
+  },
+  {
+   "id": "oms-tecnologia",
+   "nome": "OMS Tecnologia",
+   "tipo": "empresa",
+   "descricao": "Empresa que, segundo a PF na Operação Narco Fluxo, recebia o dinheiro depositado por apostadores (também referida como YCFSHOP/OMS). CNPJ não publicado.",
+   "aliases": [],
+   "motivo": "relacoes-adicionais-x.json (pistas do X, rodada 4, produtoras): narco-fluxo-oms"
   }
  ]
 }

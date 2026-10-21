@@ -29,12 +29,27 @@
    "nucleo": ["operacao-narco-fluxo", "mc-ryan-sp", "mc-poze-do-rodo", "raphael-sousa-oliveira"],
    "chaves": ["x:narco-fluxo-ryan", "x:narco-fluxo-poze", "x:narco-fluxo-choquei", "x:ryan-pcc", "x:ryan-cv", "x:ryan-deolane"],
    "contra": ["F06"],
-   "pendencias": ["D03", "D10", "D12"],
+   "pendencias": ["D10", "D12"],
    "marcadores": ["narco-fluxo"],
    "pergunta": "A estrutura investigada usava a música como fachada para dinheiro de facção, ou artistas com negócios de rifas e apostas foram enquadrados pelo volume que movimentavam?",
    "leituras": [
     {"titulo": "Hipótese 1: fachada", "texto": "Se a investigação confirmar o que pede a PF, as empresas musicais e as rifas seriam o meio de lavagem, e {ent:mc-ryan-sp} ocuparia o centro da estrutura ({rel:x:narco-fluxo-ryan})."},
     {"titulo": "Hipótese 2: enquadramento amplo", "texto": "O juiz tratou o vínculo com PCC e CV como preliminar ({rel:x:ryan-pcc}) e houve solturas ({rel:x:narco-fluxo-choquei}); sem denúncia, o enquadramento pode refletir o volume de dinheiro e não uma ligação direta com a facção."}
+   ]
+  },
+  {
+   "id": "produtoras",
+   "titulo": "Produtoras: shows, agenciamento e filmes",
+   "resumo": "Empresas que agenciam artistas, vendem shows ou produzem filmes aparecem em duas investigações sem relação entre si: a Narco Fluxo, em que a PF aponta transferências de uma produtora a um MC e prendeu donos de produtoras, e a apuração sobre o filme Dark Horse, em que o Coaf viu movimentação atípica na produtora e a PF investiga emendas a um instituto da mesma empresária. Contratos de shows com prefeituras e emendas para shows entram como dado público ou conflito de interesse, não como crime. Até 21/10/2026 nenhuma produtora foi denunciada, e as pistas que ligavam produtoras de bailes a facções dependiam de um único veículo.",
+   "nucleo": ["gr6-eventos", "love-funk", "go-up-entertainment", "instituto-conhecer-brasil"],
+   "chaves": ["x:gr6-ryan", "x:narco-fluxo-rodrigo-gr6", "x:narco-fluxo-rato", "x:ryan-bololo", "x:prefsp-gr6", "x:coaf-goup", "x:karina-icb", "x:frias-icb", "x:yury-jonas"],
+   "contra": [],
+   "pendencias": ["PA-02b", "PA-03", "PA-12", "PM-14"],
+   "marcadores": ["narco-fluxo", "dark-horse", "emendas-shows"],
+   "pergunta": "As produtoras foram usadas como canal para dinheiro de origem ilícita, ou aparecem nas investigações porque é por elas que passa, legalmente, o dinheiro de cachês, agenciamento e filmes?",
+   "leituras": [
+    {"titulo": "Hipótese 1: canal de passagem", "texto": "A produtora seria o ponto em que dinheiro sob suspeita ganha forma de cachê, agenciamento ou orçamento: a PF aponta transferências da {ent:gr6-eventos} a MC Ryan SP ({rel:x:gr6-ryan}) e descreve o fundador da {ent:love-funk} como operador financeiro ({rel:x:narco-fluxo-rato}); no caso Dark Horse, o Coaf viu R$ 19 mi atípicos na produtora ({rel:x:coaf-goup}) e Dino vê indícios de desvio nas emendas ao instituto da mesma empresária ({rel:x:frias-icb})."},
+    {"titulo": "Hipótese 2: um setor que movimenta muito dinheiro", "texto": "Shows, agenciamento e filmes movimentam valores altos e contratam com governos de forma regular ({rel:x:prefsp-gr6}). O TRF-3 soltou os presos da Narco Fluxo por 'ausência de denúncia formal' ({rel:x:narco-fluxo-ryan}); as operações Rifa Limpa (RJ) e Integration (PE), sobre rifas e apostas, não citam facção; e as produtoras de bailes ligadas a facções nas pistas (Leleco Nacional, FWM) só aparecem em uma reportagem cada, por isso ficaram fora."}
    ]
   },
   {
