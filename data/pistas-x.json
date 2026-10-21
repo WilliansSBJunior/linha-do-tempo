@@ -12,7 +12,7 @@
    "descartar": 6
   },
   "itens_exportados": 159,
-  "com_texto": 0
+  "com_texto": 159
  },
  "temas": [
   {
@@ -47,8 +47,8 @@
      ],
      "duplicata_de": "2112527119427510696",
      "relacionados": [],
-     "texto": null,
-     "card": null
+     "texto": "Via:",
+     "card": "Coach de Flávio Bolsonaro, Marçal defendeu Master a pedido de Vorcaro com entrevista da CNN"
     },
     {
      "id": "2112527119427510696",
@@ -88,7 +88,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens de Daniel Vorcaro com Ana Matos, então diretora de marketing do Banco Master, indicam que Pablo Marçal atuou a pedido de Vorcaro e de sua equipe de marketing na defesa da venda de 58% do banco ao BRB.",
      "card": null
     },
     {
@@ -125,7 +125,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF aponta “divergência contábil severa” nos documentos apresentados pela produtora de Dark Horse sobre recursos movimentados pelo fundo americano Havengate: mais de US$ 12 milhões teriam saído do Brasil, mas apenas US$ 2,8 milhões tiveram a entrada no país registrada.",
      "card": null
     },
     {
@@ -160,7 +160,7 @@
      "relacionados": [
       "2111165897234907459"
      ],
-     "texto": null,
+     "texto": "  Gabriela Prioli nega ter mantido relações comerciais com Daniel Vorcaro ou com o Banco Master e classifica como “mentiras” as informações de que teria firmado um contrato de 12 meses para produzir conteúdo favorável ao banco sob orientação do empresário\n\n “Eu nunca recebi",
      "card": null
     },
     {
@@ -197,7 +197,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Na sabatina do Jornal Nacional, Renata Lo Prete responde Flávio Bolsonaro sobre os patrocínios de Daniel Vorcaro na Globo e o desligamento de Frederic Kachar, ex-CEO da Editora Globo.",
      "card": null
     },
     {
@@ -236,7 +236,7 @@
      "relacionados": [
       "2111249671301853327"
      ],
-     "texto": null,
+     "texto": "  EITA! Metrópoles afirma que a Folha de S.Paulo admitiu ter recebido Daniel Vorcaro na sede do jornal e omitido a reunião a pedido do banqueiro; segundo o veículo, a reportagem “não foi segurada porque não estava pronta”.",
      "card": null
     },
     {
@@ -269,7 +269,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Daniel Vorcaro teria pago R$ 1 milhão para interferir na publicação e no conteúdo de uma reportagem sobre ele na Folha, segundo conversas entre o banqueiro e Guilherme Barros, especialista em gestão de crises.\n\nDV: “Gasta todos os seus cartuchos aí. Se você conseguir",
      "card": null
     },
     {
@@ -302,7 +302,7 @@
      ],
      "duplicata_de": "2111533760759926959",
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Gabriela Prioli gravou vídeos em defesa do Banco Master fingindo emitir opiniões espontâneas e isentas, mas atuava sob um contrato de 12 meses e seguia roteiros submetidos à aprovação de Daniel Vorcaro.",
      "card": null
     },
     {
@@ -343,7 +343,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Com negócios em várias frentes, Daniel Vorcaro planejava “fazer estrago” no mercado de bets e afirmou em mensagens estar construindo a “maior de todas” as plataformas do Brasil: “Fechei já Anitta, Gusttavo Lima, Luciano Huck e Globo”.",
      "card": null
     },
     {
@@ -376,7 +376,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF identifica transferência de R$ 10 mil em meio a uma articulação para enviar a Daniel Vorcaro, enquanto estava preso, um recado sobre uma rede de proteção relacionada ao PCC.\n\n “Ele é amigo nosso e apoia nossa quadrilha e a nossa regional em diversos sentidos”, diz uma",
      "card": null
     },
     {
@@ -417,7 +417,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF aponta que Daniel Vorcaro e empresários investigados por ligação com o PCC no setor de combustíveis usavam a mesma estrutura financeira para movimentar dinheiro e ocultar patrimônio; a conexão entre os grupos seria a Trustee DTVM e seu diretor, Artur Martins de",
      "card": null
     },
     {
@@ -450,7 +450,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Daniel Vorcaro fala pela primeira vez, em depoimento ao gabinete de André Mendonça (STF), sobre as suspeitas de comandar a milícia armada liderada por “Sicário”; o banqueiro afirmou que as ordens para agredir ou ameaçar adversários ocorreram porque estava “nervoso” e não",
      "card": null
     },
     {
@@ -488,7 +488,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Entre Investimentos, empresa que financiou o filme \"Dark Horse\", sobre Jair Bolsonaro, repassou R$ 26 milhões à ACX Tecnologia, empresa que lavava dinheiro para o PCC.",
      "card": null
     },
     {
@@ -521,7 +521,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Senador Jaques Wagner (PT), líder do governo Lula no Senado, recebeu 5 ingressos de camarote para um show de uma cantora internacional em Los Angeles, nos EUA; o custo total da aquisição, bancado por Augusto Lima, ex-sócio do Banco Master, foi de R$ 63.339.",
      "card": null
     },
     {
@@ -563,7 +563,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Empresa Entre Investimentos e Participações, usada por Daniel Vorcaro para financiar o filme “Dark Horse”, sobre Jair Bolsonaro, repassou R$ 139 milhões a empresas suspeitas de ligação com o PCC e a máfia italiana, segundo relatório do Coaf.",
      "card": null
     },
     {
@@ -594,7 +594,7 @@
      "relacionados": [
       "2106499455419891793"
      ],
-     "texto": null,
+     "texto": "  Em conversa, Daniel Vorcaro relatou uma reunião com a cantora Anitta, o irmão dela e empresários ligados ao setor de apostas esportivas:\n\n “A Anitta vai vir agora com o irmão dela. Vamos fazer uma reunião bem rápida, de no máximo uma hora/  São quatro amigos meus, sócios",
      "card": null
     },
     {
@@ -631,7 +631,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Banco Master, quando ainda se chamava Máxima, fez remessas de US$ 531 milhões para uma empresa investigada sob suspeita de lavar dinheiro para o PCC e o Hezbollah.",
      "card": null
     },
     {
@@ -665,7 +665,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Apontado pela PF como parceiro do PCC na venda de combustível adulterado e na lavagem de dinheiro, Beto Louco presenteou Davi Alcolumbre, presidente do Senado, com canetas de Mounjaro em agosto do ano passado.",
      "card": null
     },
     {
@@ -693,7 +693,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagem encontrada no celular de Daniel Vorcaro mostra Pablo Marçal perguntando ao banqueiro, em setembro de 2025, sobre a prisão de Jair Bolsonaro; a conversa indica que as mensagens temporárias desapareciam após 90 dias, sugerindo a possibilidade de diálogos anteriores.",
      "card": null
     },
     {
@@ -730,7 +730,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PGR se manifesta CONTRA o pedido do ministro Alexandre de Moraes (STF) para investigar André Mendonça por supostas irregularidades em inquéritos sobre o Banco Master e fraudes no INSS; parecer afirma que relatórios de inteligência da PF são legítimos, mas não podem ser",
      "card": null
     },
     {
@@ -763,7 +763,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Após Daniel Vorcaro demonstrar insatisfação com reportagens que citavam a Fictor, parceira do Banco Master, a Folha de S.Paulo teria apagado informações que levantavam suspeitas sobre o grupo em matéria publicada em 17 de novembro de 2025, na época do anúncio da compra do",
      "card": null
     },
     {
@@ -804,7 +804,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Daniel Vorcaro perguntou à então diretora de marketing do Banco Master, Ana Matos, quem era o “repórter maldoso mais confiável” e recebeu três nomes classificados por ela como “maldosos controlados”: Guilherme Amado, Léo Dias e Diego Escosteguy; os jornalistas afirmam que a",
      "card": null
     },
     {
@@ -836,7 +836,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Em delação premiada, o empresário Antônio Carlos Freixo Júnior, o “Mineiro”, afirmou à PF que foi vítima de uma fraude ao transferir US$ 12,3 milhões para um fundo nos EUA criado por um advogado de Eduardo Bolsonaro, pois acreditava estar investindo em empreendimentos",
      "card": null
     },
     {
@@ -864,7 +864,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  João Vaccari Neto, ex-tesoureiro do PT e preso na Lava Jato, obteve cidadania italiana e se mudou para a Itália há cerca de 3 meses, em meio às investigações do caso Banco Master, no qual é acusado de cobrar propina.",
      "card": null
     },
     {
@@ -893,7 +893,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Novas conversas de Daniel Vorcaro com um outro importante diretor de um grupo de mídia devem vir a público nos próximos dias; mensagens interceptadas pela PF indicariam que o banqueiro atuava como uma espécie de editor-chefe informal, interferindo em pautas e",
      "card": null
     },
     {
@@ -925,7 +925,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF e PGR investigam suposta rede de exploração sexual de mulheres operada por Daniel Vorcaro e apuram se o banqueiro se beneficiou dela para obter acesso e influência sobre políticos, autoridades e empresários, além de suspeitas de que teria autorizado o recrutamento e o",
      "card": null
     },
     {
@@ -954,7 +954,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens de Daniel Vorcaro indicam que ele teria encomendado certificados internacionais de vacinação contra a febre amarela adulterados para a atriz Monique Alfradique.",
      "card": null
     },
     {
@@ -987,7 +987,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Influenciadora Ana Ribeiro relata ter descoberto apenas agora, em 2026, que seu perfil no Instagram foi DERRUBADO em 2023 por “Sicário”, a mando de Daniel Vorcaro, após ela repercutir a festa do banqueiro na boate Madame Satã.",
      "card": null
     },
     {
@@ -1028,7 +1028,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Em troca de mensagens com Daniel Vorcaro, em outubro de 2025, Flávio Bolsonaro convidou o banqueiro para um jantar com o ator Jim Caviezel e o diretor de cinema Cyrus Nowrasteh, que integravam a equipe do filme \"Dark Horse\".",
      "card": null
     },
     {
@@ -1070,7 +1070,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Presidente do TSE, Kassio Nunes Marques, determina a EXCLUSÃO de um vídeo publicado pelo influenciador Thiago dos Reis, pré-candidato a deputado federal pelo PT, que vinculava Flávio Bolsonaro a uma investigação da Polícia Civil sobre a produtora de \"Dark Horse\" e associava",
      "card": null
     },
     {
@@ -1103,7 +1103,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Daniel Vorcaro pediu que sua milícia privada simulasse um flagrante de drogas e acionasse um \"amigo da Interpol\" contra o ex-jogador da NBA e DJ Rony Seikaly, ex-marido de sua então namorada Martha Graeff.",
      "card": null
     },
     {
@@ -1140,7 +1140,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " “Se os EUA classificam o PCC como organização terrorista, eles podem dizer que todas as instituições financeiras que comercializaram os fundos da Reag ou títulos do Banco Master também serão sancionadas”, alertou o promotor Lincoln Gakiya, citando que essas instituições são",
      "card": null
     },
     {
@@ -1181,7 +1181,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Escritório de advocacia Barci de Moraes, da família do ministro Alexandre de Moraes (STF), entrará com uma ação de indenização contra o senador Alessandro Vieira, relator da CPI do Crime Organizado, por fazer relação entre recursos do PCC e o escritório, que foi contratado",
      "card": null
     },
     {
@@ -1214,7 +1214,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens extraídas pela PF mostram que Roberto Justus passou 2024 e 2025 insistindo para ter Daniel Vorcaro como sócio da SteelCorp, mas foi deixado no vácuo em diversas ocasiões.",
      "card": null
     },
     {
@@ -1251,7 +1251,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens extraídas pela PF mostram Ana Matos, diretora de marketing do extinto Banco Master, organizando uma reunião com o apresentador do Jornal da Band, Eduardo Oinegue: “Estou na recepção aguardando o Oinegue, que chega em 10 min”.",
      "card": null
     },
     {
@@ -1276,7 +1276,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Bet ilegal “Vorcaro777” usa nome e imagem de Daniel Vorcaro para divulgar o jogo do tigrinho e oferecer bônus em reais.",
      "card": null
     }
    ]
@@ -1315,7 +1315,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF abre nova investigação sobre o advogado Willer Tomaz, alvo de buscas na operação sobre desvios no INSS, com foco em possível lavagem de dinheiro por meio de apostas em bets; em 2025, ele registrou R$ 4,8 bilhões em ganhos e quase R$ 5 bilhões em perdas em jogos de",
      "card": null
     },
     {
@@ -1344,7 +1344,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Empresa sancionada pelos EUA por suposto envolvimento com o PCC recebeu R$ 514 milhões de uma firma suspeita de integrar a rede de lavagem de dinheiro usada pelo Careca do INSS.",
      "card": null
     },
     {
@@ -1376,7 +1376,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MPF determina a abertura de inquérito para apurar o suposto vazamento, pelo diretor-geral da PF, Andrei Rodrigues, de informações sigilosas sobre a operação que investiga desvios no INSS.",
      "card": null
     },
     {
@@ -1413,7 +1413,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PGR se manifesta CONTRA o pedido do ministro Alexandre de Moraes (STF) para investigar André Mendonça por supostas irregularidades em inquéritos sobre o Banco Master e fraudes no INSS; parecer afirma que relatórios de inteligência da PF são legítimos, mas não podem ser",
      "card": null
     }
    ]
@@ -1468,7 +1468,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Advogado Willer Tomaz foi o maior apostador pessoa física do país em 2025, com R$ 258 milhões depositados na Foggo, dona da Blaze, segundo nota técnica do Ministério da Fazenda; ele é investigado pela PF por suspeita de lavagem de dinheiro e de participação societária",
      "card": null
     },
     {
@@ -1509,7 +1509,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF apreendeu cofres com joias, pilhas e sacolas de dinheiro durante operação contra o monopólio de internet do Comando Vermelho (CV) em favelas do Rio de Janeiro, que resultou na prisão de Márcia Gama, mãe de Oruam, e Lucas Santos Nepomuceno, irmão do cantor.",
      "card": null
     },
     {
@@ -1542,7 +1542,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  STF abre inquérito para apurar suspeitas de lavagem de dinheiro envolvendo o advogado Willer Tomaz, empresas ligadas a ele e Flávio Bolsonaro; a investigação, iniciada na 1ª instância no Rio Grande do Sul, apura possíveis crimes de lavagem de dinheiro e evasão de divisas,",
      "card": null
     },
     {
@@ -1583,7 +1583,7 @@
      ],
      "duplicata_de": "2112247196993360078",
      "relacionados": [],
-     "texto": null,
+     "texto": " ATENÇÃO: Márcia Gama, mãe de Oruam, é PRESA pela PF em operação contra o monopólio de internet do Comando Vermelho (CV) em favelas do Rio de Janeiro; Lucas Santos Nepomuceno, irmão do cantor, também foi detido.",
      "card": null
     },
     {
@@ -1612,7 +1612,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ex-prefeito de Embu das Artes (SP), Ney Santos, acusado de suposto envolvimento com o PCC, foi eleito deputado federal com mais de 118 mil votos.",
      "card": null
     },
     {
@@ -1642,7 +1642,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF abre nova investigação sobre o advogado Willer Tomaz, alvo de buscas na operação sobre desvios no INSS, com foco em possível lavagem de dinheiro por meio de apostas em bets; em 2025, ele registrou R$ 4,8 bilhões em ganhos e quase R$ 5 bilhões em perdas em jogos de",
      "card": null
     },
     {
@@ -1675,7 +1675,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça do Rio de Janeiro torna réus o ex-deputado estadual TH Joias e seus ex-assessores por associação para o tráfico de drogas; segundo denúncia do MP, eles teriam se associado ao Comando Vermelho (CV) para cometer o crime desde outubro de 2023.",
      "card": null
     },
     {
@@ -1704,7 +1704,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Alexandre Pires é alvo de busca e apreensão em operação da PF que investiga suposto esquema de lavagem de dinheiro envolvendo a venda de cassiterita extraída da Terra Yanomami; em 2023, a PF apontou que o cantor recebeu quase R$ 1,4 milhão de uma mineradora ligada ao",
      "card": null
     },
     {
@@ -1737,7 +1737,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF identifica transferência de R$ 10 mil em meio a uma articulação para enviar a Daniel Vorcaro, enquanto estava preso, um recado sobre uma rede de proteção relacionada ao PCC.\n\n “Ele é amigo nosso e apoia nossa quadrilha e a nossa regional em diversos sentidos”, diz uma",
      "card": null
     },
     {
@@ -1778,7 +1778,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF aponta que Daniel Vorcaro e empresários investigados por ligação com o PCC no setor de combustíveis usavam a mesma estrutura financeira para movimentar dinheiro e ocultar patrimônio; a conexão entre os grupos seria a Trustee DTVM e seu diretor, Artur Martins de",
      "card": null
     },
     {
@@ -1809,7 +1809,7 @@
      "relacionados": [
       "2105012368480817441"
      ],
-     "texto": null,
+     "texto": "  Justiça torna réu o ex-deputado estadual TH Joias e outros cinco acusados de envolvimento em um esquema de corrupção, tráfico de drogas e contrabando ligado ao Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -1842,7 +1842,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Daniel Vorcaro fala pela primeira vez, em depoimento ao gabinete de André Mendonça (STF), sobre as suspeitas de comandar a milícia armada liderada por “Sicário”; o banqueiro afirmou que as ordens para agredir ou ameaçar adversários ocorreram porque estava “nervoso” e não",
      "card": null
     },
     {
@@ -1871,7 +1871,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça MANTÉM a prisão preventiva de Deolane Bezerra e de outros réus da operação que investiga um esquema de lavagem de dinheiro ligado ao PCC.",
      "card": null
     },
     {
@@ -1904,7 +1904,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Leonardo Avalanche, presidente do PRTB e candidato a vice na chapa de Pablo Marçal, é RÉU por associação criminosa, ameaça, violência política de gênero e manipulação de sistema público de informações; uma testemunha que trabalhava para ele está sob proteção da PF",
      "card": null
     },
     {
@@ -1933,7 +1933,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Três vereadores de Sobral (CE) são presos em investigação sobre o suposto pagamento de \"pedágio\" ao Comando Vermelho (CV) para realizar campanha eleitoral em áreas dominadas pela organização criminosa.",
      "card": null
     },
     {
@@ -1958,7 +1958,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Justiça REVOGA a prisão preventiva de Oruam por tentativa de homicídio, mas o cantor segue foragido devido a outro mandado de prisão, expedido em investigação por suposta lavagem de dinheiro.",
      "card": null
     },
     {
@@ -1996,7 +1996,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Entre Investimentos, empresa que financiou o filme \"Dark Horse\", sobre Jair Bolsonaro, repassou R$ 26 milhões à ACX Tecnologia, empresa que lavava dinheiro para o PCC.",
      "card": null
     },
     {
@@ -2025,7 +2025,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Empresa sancionada pelos EUA por suposto envolvimento com o PCC recebeu R$ 514 milhões de uma firma suspeita de integrar a rede de lavagem de dinheiro usada pelo Careca do INSS.",
      "card": null
     },
     {
@@ -2066,7 +2066,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Alvo de sanções dos EUA, o empresário Victor Shimada é citado em investigações da Polícia Civil e do MP sobre um esquema que conecta o caso VaideBet, o Corinthians, empresas citadas em apurações sobre o PCC e transferências ao influenciador Buzeira.",
      "card": null
     },
     {
@@ -2104,7 +2104,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Pastor Márcio Poncio é PRESO em operação da PF no Rio de Janeiro; a ação é um desdobramento da investigação sobre um esquema de vazamento de informações sigilosas de operações policiais para o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -2144,7 +2144,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: EUA anunciam sanções contra dois cidadãos brasileiros e três empresas brasileiras por supostos vínculos com o PCC; as empresas citadas são Victory Trading e Wave, do setor de serviços financeiros, e Pixwave, do setor de construção.",
      "card": null
     },
     {
@@ -2185,7 +2185,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PSDB Nacional e PSD de Minas Gerais pagaram ao menos R$ 1,1 milhão à empresa de táxi aéreo CNM Aviação, pertencente a uma mulher denunciada pelo MPF por integrar a quadrilha de Karine Campos, considerada a maior traficante de cocaína do Brasil.",
      "card": null
     },
     {
@@ -2222,7 +2222,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Relatório do inquérito que apura a participação do vereador Senival Moura (PT), de São Paulo (SP), em um suposto esquema de lavagem de dinheiro para o PCC diz que ele foi responsável por abrir as portas da empresa de ônibus Transunião para a facção.",
      "card": null
     },
     {
@@ -2255,7 +2255,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça de São Paulo ACEITA denúncia contra a influenciadora Deolane Bezerra, acusada de lavar dinheiro para o PCC.",
      "card": null
     },
     {
@@ -2284,7 +2284,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Virginia Fonseca é alvo de investigação da PF que busca apurar a legalidade de operações financeiras envolvendo a influenciadora e empresas ligadas a ela, bem como a origem dos recursos movimentados e a eventual prática de crimes financeiros, fiscais e de lavagem de",
      "card": null
     },
     {
@@ -2321,7 +2321,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Polícia Civil indicia Deolane Bezerra, o líder do PCC Marcola e mais cinco suspeitos pelos crimes de organização criminosa e lavagem de dinheiro.",
      "card": null
     },
     {
@@ -2350,7 +2350,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Restaurante Bololô, ligado ao MC Ryan SP, movimentou mais de R$ 30 milhões e recebeu valores de 152 pessoas com histórico criminal.",
      "card": null
     },
     {
@@ -2379,7 +2379,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Defesa de Marcola diz que o chefe do PCC não conhece Deolane Bezerra e ficou indignado com a nova decretação de prisão contra ele na operação sobre lavagem de dinheiro da facção.",
      "card": null
     },
     {
@@ -2411,7 +2411,7 @@
       "2057489642107052404",
       "2057576922465329274"
      ],
-     "texto": null,
+     "texto": "  Deolane Bezerra é PRESA em operação na qual é suspeita de lavagem de dinheiro do PCC; a Justiça bloqueou R$ 27 milhões em bens da influenciadora.",
      "card": null
     },
     {
@@ -2453,7 +2453,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Empresa Entre Investimentos e Participações, usada por Daniel Vorcaro para financiar o filme “Dark Horse”, sobre Jair Bolsonaro, repassou R$ 139 milhões a empresas suspeitas de ligação com o PCC e a máfia italiana, segundo relatório do Coaf.",
      "card": null
     },
     {
@@ -2498,7 +2498,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Juiz enquadra Raphael Sousa Oliveira, dono da Choquei, na Lei Antifacção, a pedido da PF, e afirma que os alvos da investigação na Operação Narco Fluxo são descritos pelos federais como envolvidos com “organizações criminosas ultraviolentas”, como o PCC e o Comando Vermelho",
      "card": null
     },
     {
@@ -2539,7 +2539,7 @@
       "2054723971287814412",
       "2054977543137079638"
      ],
-     "texto": null,
+     "texto": "  STJ aponta “flagrante ilegalidade” na decretação da prisão temporária de MC Ryan SP ao determinar sua soltura, beneficiando também o MC Poze do Rodo e o dono da Choquei, Raphael Sousa Oliveira.",
      "card": null
     },
     {
@@ -2576,7 +2576,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF suspeita de transferências financeiras entre MC Ryan SP, Deolane Bezerra e o Instituto Neymar Jr.; a advogada e influenciadora atuaria como uma “conta de passagem” e teria doado dinheiro à ONG do jogador em uma estratégia de “limpeza de imagem”, segundo a investigação.",
      "card": null
     },
     {
@@ -2605,7 +2605,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF investiga a advogada e influenciadora Deolane Bezerra por suspeita de lavagem de dinheiro com bets ilegais, rifas clandestinas e tráfico de drogas em um esquema com funkeiros e influenciadores que teria movimentado ao menos R$ 1,6 bilhão.",
      "card": null
     },
     {
@@ -2638,7 +2638,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ex-deputado federal Uldurico Jr. é PRESO preventivamente, suspeito de negociar o recebimento de R$ 2 milhões para facilitar a fuga de 16 presos do Conjunto Penal de Eunápolis (BA); entre os fugitivos está “Dada”, apontado como chefe do PCE, facção ligada ao Comando Vermelho",
      "card": null
     },
     {
@@ -2671,7 +2671,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Perfil da Choquei publica post sobre a prisão dos funkeiros MC Ryan SP e MC Poze do Rodo, mas APAGA após o próprio dono da página, Raphael Sousa Oliveira, também ser preso, alvo da mesma operação da PF.",
      "card": null
     },
     {
@@ -2700,7 +2700,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Rede chefiada pelo funkeiro MC Ryan SP “lavou” lucro do tráfico de mais de três toneladas de coc*ína, diz PF.",
      "card": null
     },
     {
@@ -2741,7 +2741,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Rodrigo GR6, da “GR6 Explode”, e “Rato”, da “Love Funk”, empresários e produtores de funk, também são alvos da operação da PF contra organização criminosa acusada de lavagem de dinheiro e de realizar transações ilegais de mais de R$ 1,6 bilhão.",
      "card": null
     },
     {
@@ -2774,7 +2774,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF aponta o fukeiro MC Ryan SP como líder de um esquema que utilizava gravadoras e a indústria do entretenimento para lavar dinheiro; autoridades citam vínculo estrutural do esquema com o PCC.",
      "card": null
     },
     {
@@ -2811,7 +2811,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: MC Poze do Rodo e MC Ryan SP são PRESOS pela PF, alvos de operação contra uma organização criminosa acusada de lavagem de dinheiro e de realizar transações ilegais de mais de R$ 1,6 bilhão.",
      "card": null
     },
     {
@@ -2852,7 +2852,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  TSE cassa o mandato do prefeito de Cabedelo (PB), André Luís Almeida Coutinho, e da vice, Camila Lucena, acusados de compra de votos, coação de eleitores e uso da máquina pública para beneficiar candidatos apoiados pela Tropa do Amigão, ligada ao Comando Vermelho.",
      "card": null
     },
     {
@@ -2893,7 +2893,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Polícia considera FORAGIDA Márcia Gama, esposa de Marcinho VP e mãe de Oruam, após ela não ser localizada durante operação que visa desarticular a estrutura nacional do Comando Vermelho (CV); outro foragido é Landerson Lucas dos Santos, sobrinho do traficante.",
      "card": null
     },
     {
@@ -2922,7 +2922,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Vereador Salvino Oliveira, do Rio de Janeiro (RJ), é preso em operação contra o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -2963,7 +2963,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Desembargador Macário Judice, preso pela PF, tentou contatar Michel Temer para interceder junto ao ministro Alexandre de Moraes (STF); ele é investigado por vazar a operação contra TH Joias, ex-deputado estadual apontado como operador financeiro do Comando Vermelho (CV) no",
      "card": null
     },
     {
@@ -3004,7 +3004,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF indicia o presidente afastado da Alerj Rodrigo Bacellar e o ex-deputado estadual TH Joias por ligação com o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -3041,7 +3041,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Banco Master, quando ainda se chamava Máxima, fez remessas de US$ 531 milhões para uma empresa investigada sob suspeita de lavar dinheiro para o PCC e o Hezbollah.",
      "card": null
     },
     {
@@ -3075,7 +3075,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Apontado pela PF como parceiro do PCC na venda de combustível adulterado e na lavagem de dinheiro, Beto Louco presenteou Davi Alcolumbre, presidente do Senado, com canetas de Mounjaro em agosto do ano passado.",
      "card": null
     },
     {
@@ -3104,7 +3104,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  STF forma maioria para REJEITAR o recurso do influenciador fitness Renato Cariani, que tenta travar e anular um processo no qual é réu por supostos crimes de tráfico, associação para o tráfico e lavagem de dinheiro.",
      "card": null
     },
     {
@@ -3145,7 +3145,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: PF prende o presidente da Assembleia Legislativa do Rio de Janeiro (Alerj), Rodrigo Bacellar, por suspeita de vazar informações da operação que prendeu o deputado TH Joias, apontado como braço político do Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -3182,7 +3182,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Investigação da PF aponta que o advogado Willer Tomaz recebia minutas de decisões do STJ e de manifestações do MPF antes da publicação.",
      "card": null
     },
     {
@@ -3207,7 +3207,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Livre, Oruam viaja à Holanda para participar de show do rapper americano Young Thug; o brasileiro embarcou sem tornozeleira eletrônica porque ainda não havia sido formalmente intimado a usar o equipamento.",
      "card": null
     },
     {
@@ -3236,7 +3236,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Diálogos entre Willer Tomaz e o concierge da Blaze indicam que ambos combinavam práticas proibidas pela regulamentação federal das bets; a plataforma autorizou o advogado a sacar dinheiro sem reconhecimento facial e sugerido apostas com criptomoedas para movimentar valores",
      "card": null
     },
     {
@@ -3264,7 +3264,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Promotores, policiais e auditores fiscais cumprem operações em 32 locais de 11 cidades, seis estados e no DF contra um esquema de lavagem de dinheiro ligado à máfia dos combustíveis, acusada de ter conexões com o PCC; entre os 40 alvos estão Humberto Tupinambá,",
      "card": null
     },
     {
@@ -3301,7 +3301,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Juíza determina que Manuela d’Ávila remova posts com fake news que associam o empresário Rui Denardin, doador da campanha de Marcel van Hattem, à lavagem de dinheiro para o PCC.",
      "card": null
     },
     {
@@ -3338,7 +3338,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Dias Toffoli (TSE) rejeita notícia de inelegibilidade que alegava suposto vínculo entre Renan Santos e o PCC e determina o envio do caso ao MP Eleitoral para avaliar possível má-fé do autor da denúncia.",
      "card": null
     },
     {
@@ -3375,7 +3375,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  David Corrêa, o “DVD”, jogador do Vasco da Gama, e Hayner, do Vila Nova, são alvos de busca e apreensão em investigação sobre tráfico interestadual de drogas e armas.",
      "card": null
     },
     {
@@ -3403,7 +3403,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  GRAVE! Advogado suspeito de ligação com o PCC teria ameaçado de morte um juiz durante audiência sobre integrantes da facção; o magistrado ameaçado é o mesmo que decretou a prisão de Deolane Bezerra há 3 meses.",
      "card": null
     },
     {
@@ -3436,7 +3436,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Colar avaliado em cerca de R$ 2 milhões, dado pelo influenciador Buzeira a Neymar Jr., chamou a atenção da Polícia Civil e ajudou a iniciar as investigações que levaram à identificação de uma rede suspeita de receptação de joias de ouro roubadas em São Paulo.",
      "card": null
     },
     {
@@ -3469,7 +3469,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Presidenciável Pablo Marçal diz que não há processo contra seu vice, Leonardo Avalanche, por suposta ligação com o PCC, mas afirma que não “põe a mão no fogo” por ele: “Não estou pondo a mão no fogo. Se tiver que responder a alguma coisa, que responda.”",
      "card": null
     },
     {
@@ -3494,7 +3494,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça concede habeas corpus, e o influenciador Buzeira deve deixar a prisão após 10 meses preso.",
      "card": null
     },
     {
@@ -3523,7 +3523,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Polícia Civil identifica que o ass*ssinato da influenciadora Ulissias Marcelli e de seu marido foi executado por integrantes de uma facção criminosa após o casal vender drogas sintéticas compradas de um fornecedor não autorizado pelo grupo que atua em Porto Seguro (BA).",
      "card": null
     },
     {
@@ -3552,7 +3552,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Tribunal de Justiça de São Paulo NEGA, por unanimidade, novo pedido de habeas corpus de Deolane Bezerra, e a influenciadora segue PRESA.",
      "card": null
     },
     {
@@ -3594,7 +3594,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Presidente do TSE, Kassio Nunes Marques, determina a EXCLUSÃO de um vídeo publicado pelo influenciador Thiago dos Reis, pré-candidato a deputado federal pelo PT, que vinculava Flávio Bolsonaro a uma investigação da Polícia Civil sobre a produtora de \"Dark Horse\" e associava",
      "card": null
     },
     {
@@ -3630,7 +3630,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Operação deflagrada no Rio de Janeiro investiga ligações entre as principais facções criminosas do Brasil, como PCC, CV e TCP, com a Al-Qaeda; organização criminosa que atuava como \"prestadora de serviços\" do crime teria movimentado mais de R$ 100 milhões provenientes",
      "card": null
     },
     {
@@ -3658,7 +3658,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça determina a soltura de todos os investigados presos em operação contra um esquema de lavagem de dinheiro para o PCC que movimentou R$ 10 bilhões, incluindo Stella Stefanie, a primeira brasileira alvo de sanções diretas dos EUA por ligações com a facção.",
      "card": null
     },
     {
@@ -3687,7 +3687,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Influenciador Buzeira, PRESO em 2025 sob suspeita de lavar dinheiro para o PCC, lucrou R$ 8 milhões em 2025 com a criptomoeda de Donald Trump em 24 horas.",
      "card": null
     },
     {
@@ -3720,7 +3720,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Após ser alvo de mandados de busca e apreensão, Deolane Bezerra teria usado a amizade com policiais ligados ao PCC para intimidar a delegada Maria Corsato, responsável por uma das investigações contra a advogada.",
      "card": null
     },
     {
@@ -3745,7 +3745,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MC Negão Original é PRESO em Avaré (SP) durante operação que investiga uma organização criminosa especializada em golpes virtuais.",
      "card": null
     },
     {
@@ -3778,7 +3778,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Daniel Vorcaro pediu que sua milícia privada simulasse um flagrante de drogas e acionasse um \"amigo da Interpol\" contra o ex-jogador da NBA e DJ Rony Seikaly, ex-marido de sua então namorada Martha Graeff.",
      "card": null
     },
     {
@@ -3811,7 +3811,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Alexandre de Moraes (STF) e a PF preparam novas ofensivas no âmbito da investigação que apura a relação entre autoridades e milícias do Rio de Janeiro com integrantes do Comando Vermelho (CV); as apurações avançaram e devem resultar em novas operações nos próximos",
      "card": null
     },
     {
@@ -3847,7 +3847,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  OFICIAL: EUA oficializam a classificação das facções criminosas PCC e Comando Vermelho (CV) como terroristas.",
      "card": null
     },
     {
@@ -3877,7 +3877,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Patrick Almeida, conhecido como PTK, pré-candidato a deputado federal por Alagoas, é preso em operação contra o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -3914,7 +3914,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " “Se os EUA classificam o PCC como organização terrorista, eles podem dizer que todas as instituições financeiras que comercializaram os fundos da Reag ou títulos do Banco Master também serão sancionadas”, alertou o promotor Lincoln Gakiya, citando que essas instituições são",
      "card": null
     },
     {
@@ -3947,7 +3947,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Flávio Dino (STF) diz não ver “manifesta ilegalidade” na prisão preventiva de Deolane Bezerra e nega liberdade à influenciadora.",
      "card": null
     },
     {
@@ -3983,7 +3983,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça Militar determina a reabertura das investigações sobre o vazamento de áudio sigiloso entregue ao PCC por R$ 5 milhões; gravação registra conversa de 6 de outubro de 2021 entre o promotor Lincoln Gakiya, um policial penal e PMs no quartel da ROTA.",
      "card": null
     },
     {
@@ -4012,7 +4012,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Decisão liminar do ministro Alexandre de Moraes (STF) sobre relatórios do Coaf está sendo usada para tentar ANULAR investigações sobre envolvimento com milícia, contrabando e exploração ilegal de jogos de azar, como o “Tigrinho”.",
      "card": null
     },
     {
@@ -4042,7 +4042,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Influenciadora Eliana Franco, pré-candidata a deputada estadual pelo PSD no Amazonas, já foi presa pelos crimes de tráfico de drogas e associação para o tráfico.",
      "card": null
     },
     {
@@ -4083,7 +4083,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Escritório de advocacia Barci de Moraes, da família do ministro Alexandre de Moraes (STF), entrará com uma ação de indenização contra o senador Alessandro Vieira, relator da CPI do Crime Organizado, por fazer relação entre recursos do PCC e o escritório, que foi contratado",
      "card": null
     },
     {
@@ -4120,7 +4120,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF cumpre mandado de prisão contra o delegado federal Fabrizio Romano sob suspeita no caso envolvendo o ex-deputado estadual TH Joias, ligado ao Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -4147,7 +4147,7 @@
      "relacionados": [
       "2070206592713146645"
      ],
-     "texto": null,
+     "texto": "  Funkeiro MC Negão Original é alvo de mandado de prisão temporária em operação contra organização criminosa suspeita de aplicar golpes digitais e lavar dinheiro.",
      "card": null
     },
     {
@@ -4176,7 +4176,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Prints de conversas obtidos pela Polícia Civil mostram como suspeitos de integrar o “núcleo político” ligado ao Comando Vermelho (CV) trocavam informações sobre pagamentos e decisões judiciais no estado.",
      "card": null
     },
     {
@@ -4220,7 +4220,7 @@
      "relacionados": [
       "2019164249159881132"
      ],
-     "texto": null,
+     "texto": "  Empresário Cristiano Santos Hermógenes, irmão de Marcinho VP, pai de Oruam e líder do Comando Vermelho (CV), assume a presidência do PSDB em Belford Roxo (RJ).",
      "card": null
     },
     {
@@ -4245,7 +4245,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça manda PRENDER novamente Oruam por descumprimento de medidas cautelares; decisão aponta que o cantor teria violado a tornozeleira eletrônica 22 VEZES.",
      "card": null
     },
     {
@@ -4277,7 +4277,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça ABSOLVE Marcola, apontado pelas autoridades como líder do PCC, no processo considerado pelo MP de São Paulo a maior ação penal da história contra a facção.",
      "card": null
     },
     {
@@ -4306,7 +4306,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Interceptações de diálogos pela PF revelam que o Comando Vermelho (CV) tentou influenciar o policiamento ostensivo, negociar pagamentos de propina, solicitar o resgate de carros roubados e até realizar um encontro presencial com o secretário de Defesa do Consumidor para",
      "card": null
     },
     {
@@ -4339,7 +4339,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Oruam critica megaoperação contra o Comando Vermelho (CV), do qual seu pai, Marcinho VP, é um dos líderes, e afirma que ele, seu pai e os bandidos são “reflexos da sociedade”.",
      "card": null
     },
     {
@@ -4364,7 +4364,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Influenciadora Melissa Said, autodeclarada “ervoafetiva” e conhecida por produzir conteúdo sobre o uso de maconha, é PRESA em Salvador (BA) e apontada como articuladora de um grupo criminoso envolvido no tráfico de drogas.",
      "card": null
     },
     {
@@ -4389,7 +4389,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Na Europa, Oruam publica stories chorando após saber da prisão de sua mãe, Márcia Gama, e de seu irmão, Lucas Santos Nepomuceno, em operação da PF contra o monopólio de internet do Comando Vermelho (CV) em favelas do Rio de Janeiro (RJ).",
      "card": null
     },
     {
@@ -4413,7 +4413,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Duas lojas de provedores de internet são vandalizadas por membros do Comando Vermelho (CV) em Alcântaras, no Ceará, e têm as fachadas pichadas com ameaças: “Vocês têm 24h para sair ou vamos queimar tudo”.",
      "card": null
     },
     {
@@ -4441,7 +4441,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Em ato com Renan Santos, David Pirajá, presidente do Partido Missão na Bahia, defende a realização de chacinas em favelas de Salvador (BA): “A gente tem de entrar nessas favelas e fazer um banho de sangue com todo mundo do Comando Vermelho.”",
      "card": null
     },
     {
@@ -4473,7 +4473,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Após pedido de Donald Trump, 14 países latino-americanos e caribenhos que integram o Escudo das Américas anunciam ação conjunta contra 24 organizações classificadas pelos EUA como terroristas; A lista inclui o PCC e o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -4506,7 +4506,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Tarcísio de Freitas exonera Carlos Alberto da Cunha da função de delegado da Polícia Civil; deputado youtuber teve a expulsão proposta ao menos duas vezes pela cúpula da corporação por supostamente inventar a prisão de um chefe do PCC e por chamar superiores de “ratos” e",
      "card": null
     },
     {
@@ -4535,7 +4535,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Renan Santos lança o Marco da Desfavelização no Jardim Panorama, em São Paulo (SP); segundo relato, a equipe do presidenciável teria recebido um “salve” do PCC 20 minutos antes da agenda, proibindo a entrada na comunidade.",
      "card": null
     },
     {
@@ -4567,7 +4567,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Criminosos do PCC e do Comando Vermelho (CV) usam programas do governo Lula como isca para aplicar golpes, diz TCU; facções criam sites falsos que imitam o Desenrola e o Voa Brasil para enganar milhares de pessoas, que acabam transferindo dinheiro diretamente aos",
      "card": null
     },
     {
@@ -4595,7 +4595,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Estudo da Firjan revela que o crime organizado no Rio de Janeiro está expandindo seu controle para além do tráfico de drogas, afetando a economia formal em cerca de R$ 21,4 bilhões por ano; milícias e facções, como o Comando Vermelho (CV), dominam a distribuição de produtos",
      "card": null
     },
     {
@@ -4623,7 +4623,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Narcotraficante “Hulk”, apontado como o “cérebro” operacional e financeiro do PCC na Europa, é solto em Portugal devido a um “vazio legal”; embora a extradição para o Brasil tenha sido autorizada, o pedido de asilo apresentado pelo traficante bloqueou o processo e levou à",
      "card": null
     },
     {
@@ -4652,7 +4652,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Dez dias antes de ser presa, Deolane Bezerra teve um pedido de censura a uma reportagem do SBT sobre sua suposta ligação com o PCC negado.",
      "card": null
     },
     {
@@ -4684,7 +4684,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça CONDENA o comunista Jones Manoel a indenizar o deputado Kim Kataguiri em R$ 30 mil por associá-lo ao PCC, acusá-lo de suposta corrupção e vinculá-lo a ideologias nazistas e fascistas.",
      "card": null
     },
     {
@@ -4708,7 +4708,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Comando Vermelho (CV) tem financiado o envio de faccionados para a guerra na Ucrânia com o objetivo de aprender técnicas de combate e o uso de drones para transporte de armas e drogas.",
      "card": null
     },
     {
@@ -4753,7 +4753,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Pré-candidato à Presidência Renan Santos critica Neymar Jr. e questiona suposto “envolvimento direto e recorrente com pessoas ligadas ao tráfico de drogas”, citando Oruam, MC Ryan SP, Buzeira, TH Jóias, entre outros:\n\n “Tava na hora de você, que inspira muitos jovens,",
      "card": null
     },
     {
@@ -4786,7 +4786,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Comunicado atribuído à facção Bonde do Maluco (BDM) EXIGE o cancelamento do show do MC Poze do Rodo em Lauro de Freitas, na Bahia, apontando ligação do funkeiro com o Comando Vermelho (CV), facção rival: “Estamos avisando previamente ou iremos responder à altura”.",
      "card": null
     },
     {
@@ -4810,7 +4810,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Polícia Civil e MP realizam operação contra o Comando Vermelho (CV) em Rio Claro (SP); são cumpridos 19 mandados de prisão e 26 de busca e apreensão, além do bloqueio de 12 imóveis e R$ 33,6 milhões em contas bancárias.",
      "card": null
     },
     {
@@ -4838,7 +4838,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Polícia Civil de São Paulo reintegra agentes afastados da corporação após serem presos, acusados de cobrar R$ 1 milhão em propina para engavetar uma investigação que envolvia um integrante do PCC.",
      "card": null
     },
     {
@@ -4867,7 +4867,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Comando Vermelho (CV) determina, por meio de um “salve”, que sedes e lojas das torcidas organizadas do Fortaleza e do Ceará permaneçam fechadas, além de querer proibir o uso de camisas e bandeiras das organizadas em estádios e locais públicos.",
      "card": null
     },
     {
@@ -4895,7 +4895,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  CNJ aplica PUNIÇÃO MÁXIMA de aposentadoria compulsória a desembargador que autorizou, em 2020, a prisão domiciliar ao “Pigmeu”, chefe do PCC condenado a 126 anos de prisão.",
      "card": null
     },
     {
@@ -4927,7 +4927,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Delegada Layla Lima Ayub, recém-empossada na Polícia Civil de São Paulo, é PRESA por suspeita de manter vínculos com o PCC.",
      "card": null
     },
     {
@@ -4960,7 +4960,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça CONDENA o prefeito de Diadema (SP), Taka Yamauchi, a quase 7 meses de prisão, em regime aberto, por difamação e injúria eleitoral contra o chefe do gabinete pessoal de Lula, o cientista político conhecido como Marcola, ao associá-lo ao líder do PCC.",
      "card": null
     },
     {
@@ -4992,7 +4992,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF prende sargento do BOPE suspeitos de vazarem informações para o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -5016,7 +5016,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Polícia apura o envolvimento de 49 empresas, de padarias a lojas de carros e fintechs, em um esquema de lavagem de dinheiro do PCC.",
      "card": null
     },
     {
@@ -5045,7 +5045,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça dá decisão favorável ao PT e determina que o pastor evangélico e influenciador Rafael Nery EXCLUA um vídeo publicado no dia da megaoperação no Rio de Janeiro, no qual afirma que o partido é “o grande patrocinador do Comando Vermelho e do PCC”.",
      "card": null
     },
     {
@@ -5074,7 +5074,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Deputado Kim Kataguiri apresenta emenda ao PL Antifacção para incluir a “Lei Anti-Oruam” no texto, visando CRIMINALIZAR a “apologia pública de facção criminosa”, inclusive em obras de cunho artístico.",
      "card": null
     },
     {
@@ -5103,7 +5103,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Novas fases da Operação Contenção devem mirar os braços financeiros e políticos do Comando Vermelho (CV) no Rio de Janeiro (RJ); investigações em andamento apuram possíveis conexões da facção com políticos e empresários.",
      "card": null
     },
     {
@@ -5128,7 +5128,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Políticos que pedem votos em regiões do Complexo do Chapadão, no Rio de Janeiro (RJ), usam material de campanha verde por ser a cor “autorizada” pelo Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -5164,7 +5164,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ONG Instituto Anjos da Liberdade, presidida pela advogada Flávia Fróes, que defende o líder do Comando Vermelho, Marcinho VP, participará de uma reunião com o ministro Alexandre de Moraes (STF) sobre a megaoperação contra o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -5201,7 +5201,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Líder do Comando Vermelho (CV), Marcinho VP, recorre ao STF para obter autorização de entrevista ao apresentador Roberto Cabrini, da Record.",
      "card": null
     },
     {
@@ -5229,7 +5229,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Uso de drones pelo Comando Vermelho (CV) já era monitorado pela polícia; um militar da Marinha ajudou a facção a adaptar os equipamentos para lançar explosivos.",
      "card": null
     },
     {
@@ -5257,7 +5257,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MP de São Paulo confirma a atuação do PCC no mercado de agrotóxicos falsificados, um esquema criminoso que movimenta quase R$ 21 bilhões por ano no Brasil.",
      "card": null
     }
    ]
@@ -5312,7 +5312,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Advogado Willer Tomaz foi o maior apostador pessoa física do país em 2025, com R$ 258 milhões depositados na Foggo, dona da Blaze, segundo nota técnica do Ministério da Fazenda; ele é investigado pela PF por suspeita de lavagem de dinheiro e de participação societária",
      "card": null
     },
     {
@@ -5353,7 +5353,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens de Daniel Vorcaro com Ana Matos, então diretora de marketing do Banco Master, indicam que Pablo Marçal atuou a pedido de Vorcaro e de sua equipe de marketing na defesa da venda de 58% do banco ao BRB.",
      "card": null
     },
     {
@@ -5394,7 +5394,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF apreendeu cofres com joias, pilhas e sacolas de dinheiro durante operação contra o monopólio de internet do Comando Vermelho (CV) em favelas do Rio de Janeiro, que resultou na prisão de Márcia Gama, mãe de Oruam, e Lucas Santos Nepomuceno, irmão do cantor.",
      "card": null
     },
     {
@@ -5435,7 +5435,7 @@
      ],
      "duplicata_de": "2112247196993360078",
      "relacionados": [],
-     "texto": null,
+     "texto": " ATENÇÃO: Márcia Gama, mãe de Oruam, é PRESA pela PF em operação contra o monopólio de internet do Comando Vermelho (CV) em favelas do Rio de Janeiro; Lucas Santos Nepomuceno, irmão do cantor, também foi detido.",
      "card": null
     },
     {
@@ -5472,7 +5472,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF aponta “divergência contábil severa” nos documentos apresentados pela produtora de Dark Horse sobre recursos movimentados pelo fundo americano Havengate: mais de US$ 12 milhões teriam saído do Brasil, mas apenas US$ 2,8 milhões tiveram a entrada no país registrada.",
      "card": null
     },
     {
@@ -5507,7 +5507,7 @@
      "relacionados": [
       "2111165897234907459"
      ],
-     "texto": null,
+     "texto": "  Gabriela Prioli nega ter mantido relações comerciais com Daniel Vorcaro ou com o Banco Master e classifica como “mentiras” as informações de que teria firmado um contrato de 12 meses para produzir conteúdo favorável ao banco sob orientação do empresário\n\n “Eu nunca recebi",
      "card": null
     },
     {
@@ -5544,7 +5544,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Na sabatina do Jornal Nacional, Renata Lo Prete responde Flávio Bolsonaro sobre os patrocínios de Daniel Vorcaro na Globo e o desligamento de Frederic Kachar, ex-CEO da Editora Globo.",
      "card": null
     },
     {
@@ -5583,7 +5583,7 @@
      "relacionados": [
       "2111249671301853327"
      ],
-     "texto": null,
+     "texto": "  EITA! Metrópoles afirma que a Folha de S.Paulo admitiu ter recebido Daniel Vorcaro na sede do jornal e omitido a reunião a pedido do banqueiro; segundo o veículo, a reportagem “não foi segurada porque não estava pronta”.",
      "card": null
     },
     {
@@ -5616,7 +5616,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Daniel Vorcaro teria pago R$ 1 milhão para interferir na publicação e no conteúdo de uma reportagem sobre ele na Folha, segundo conversas entre o banqueiro e Guilherme Barros, especialista em gestão de crises.\n\nDV: “Gasta todos os seus cartuchos aí. Se você conseguir",
      "card": null
     },
     {
@@ -5649,7 +5649,7 @@
      ],
      "duplicata_de": "2111533760759926959",
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Gabriela Prioli gravou vídeos em defesa do Banco Master fingindo emitir opiniões espontâneas e isentas, mas atuava sob um contrato de 12 meses e seguia roteiros submetidos à aprovação de Daniel Vorcaro.",
      "card": null
     },
     {
@@ -5682,7 +5682,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Holding do ramo de bets de propriedade do advogado Willer Tomaz pagou voos entre Portugal e França em 2025 para Flávio Bolsonaro segundo investigação da PF.",
      "card": null
     },
     {
@@ -5723,7 +5723,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Com negócios em várias frentes, Daniel Vorcaro planejava “fazer estrago” no mercado de bets e afirmou em mensagens estar construindo a “maior de todas” as plataformas do Brasil: “Fechei já Anitta, Gusttavo Lima, Luciano Huck e Globo”.",
      "card": null
     },
     {
@@ -5753,7 +5753,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF abre nova investigação sobre o advogado Willer Tomaz, alvo de buscas na operação sobre desvios no INSS, com foco em possível lavagem de dinheiro por meio de apostas em bets; em 2025, ele registrou R$ 4,8 bilhões em ganhos e quase R$ 5 bilhões em perdas em jogos de",
      "card": null
     },
     {
@@ -5782,7 +5782,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Alexandre Pires é alvo de busca e apreensão em operação da PF que investiga suposto esquema de lavagem de dinheiro envolvendo a venda de cassiterita extraída da Terra Yanomami; em 2023, a PF apontou que o cantor recebeu quase R$ 1,4 milhão de uma mineradora ligada ao",
      "card": null
     },
     {
@@ -5811,7 +5811,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça MANTÉM a prisão preventiva de Deolane Bezerra e de outros réus da operação que investiga um esquema de lavagem de dinheiro ligado ao PCC.",
      "card": null
     },
     {
@@ -5836,7 +5836,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Justiça REVOGA a prisão preventiva de Oruam por tentativa de homicídio, mas o cantor segue foragido devido a outro mandado de prisão, expedido em investigação por suposta lavagem de dinheiro.",
      "card": null
     },
     {
@@ -5874,7 +5874,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Entre Investimentos, empresa que financiou o filme \"Dark Horse\", sobre Jair Bolsonaro, repassou R$ 26 milhões à ACX Tecnologia, empresa que lavava dinheiro para o PCC.",
      "card": null
     },
     {
@@ -5915,7 +5915,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Alvo de sanções dos EUA, o empresário Victor Shimada é citado em investigações da Polícia Civil e do MP sobre um esquema que conecta o caso VaideBet, o Corinthians, empresas citadas em apurações sobre o PCC e transferências ao influenciador Buzeira.",
      "card": null
     },
     {
@@ -5953,7 +5953,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Pastor Márcio Poncio é PRESO em operação da PF no Rio de Janeiro; a ação é um desdobramento da investigação sobre um esquema de vazamento de informações sigilosas de operações policiais para o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -5982,7 +5982,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Emendas do deputado Yury do Paredão foram utilizadas para custear ao menos cinco shows do cantor de forró Jonas Esticado, com cachê de R$ 300 mil por apresentação; o artista é empresariado pelo próprio parlamentar.",
      "card": null
     },
     {
@@ -6015,7 +6015,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça de São Paulo ACEITA denúncia contra a influenciadora Deolane Bezerra, acusada de lavar dinheiro para o PCC.",
      "card": null
     },
     {
@@ -6048,7 +6048,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Senador Jaques Wagner (PT), líder do governo Lula no Senado, recebeu 5 ingressos de camarote para um show de uma cantora internacional em Los Angeles, nos EUA; o custo total da aquisição, bancado por Augusto Lima, ex-sócio do Banco Master, foi de R$ 63.339.",
      "card": null
     },
     {
@@ -6077,7 +6077,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Virginia Fonseca é alvo de investigação da PF que busca apurar a legalidade de operações financeiras envolvendo a influenciadora e empresas ligadas a ela, bem como a origem dos recursos movimentados e a eventual prática de crimes financeiros, fiscais e de lavagem de",
      "card": null
     },
     {
@@ -6114,7 +6114,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Polícia Civil indicia Deolane Bezerra, o líder do PCC Marcola e mais cinco suspeitos pelos crimes de organização criminosa e lavagem de dinheiro.",
      "card": null
     },
     {
@@ -6143,7 +6143,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Restaurante Bololô, ligado ao MC Ryan SP, movimentou mais de R$ 30 milhões e recebeu valores de 152 pessoas com histórico criminal.",
      "card": null
     },
     {
@@ -6172,7 +6172,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Defesa de Marcola diz que o chefe do PCC não conhece Deolane Bezerra e ficou indignado com a nova decretação de prisão contra ele na operação sobre lavagem de dinheiro da facção.",
      "card": null
     },
     {
@@ -6204,7 +6204,7 @@
       "2057489642107052404",
       "2057576922465329274"
      ],
-     "texto": null,
+     "texto": "  Deolane Bezerra é PRESA em operação na qual é suspeita de lavagem de dinheiro do PCC; a Justiça bloqueou R$ 27 milhões em bens da influenciadora.",
      "card": null
     },
     {
@@ -6246,7 +6246,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Empresa Entre Investimentos e Participações, usada por Daniel Vorcaro para financiar o filme “Dark Horse”, sobre Jair Bolsonaro, repassou R$ 139 milhões a empresas suspeitas de ligação com o PCC e a máfia italiana, segundo relatório do Coaf.",
      "card": null
     },
     {
@@ -6291,7 +6291,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Juiz enquadra Raphael Sousa Oliveira, dono da Choquei, na Lei Antifacção, a pedido da PF, e afirma que os alvos da investigação na Operação Narco Fluxo são descritos pelos federais como envolvidos com “organizações criminosas ultraviolentas”, como o PCC e o Comando Vermelho",
      "card": null
     },
     {
@@ -6332,7 +6332,7 @@
       "2054723971287814412",
       "2054977543137079638"
      ],
-     "texto": null,
+     "texto": "  STJ aponta “flagrante ilegalidade” na decretação da prisão temporária de MC Ryan SP ao determinar sua soltura, beneficiando também o MC Poze do Rodo e o dono da Choquei, Raphael Sousa Oliveira.",
      "card": null
     },
     {
@@ -6369,7 +6369,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF suspeita de transferências financeiras entre MC Ryan SP, Deolane Bezerra e o Instituto Neymar Jr.; a advogada e influenciadora atuaria como uma “conta de passagem” e teria doado dinheiro à ONG do jogador em uma estratégia de “limpeza de imagem”, segundo a investigação.",
      "card": null
     },
     {
@@ -6398,7 +6398,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF investiga a advogada e influenciadora Deolane Bezerra por suspeita de lavagem de dinheiro com bets ilegais, rifas clandestinas e tráfico de drogas em um esquema com funkeiros e influenciadores que teria movimentado ao menos R$ 1,6 bilhão.",
      "card": null
     },
     {
@@ -6431,7 +6431,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Perfil da Choquei publica post sobre a prisão dos funkeiros MC Ryan SP e MC Poze do Rodo, mas APAGA após o próprio dono da página, Raphael Sousa Oliveira, também ser preso, alvo da mesma operação da PF.",
      "card": null
     },
     {
@@ -6460,7 +6460,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Rede chefiada pelo funkeiro MC Ryan SP “lavou” lucro do tráfico de mais de três toneladas de coc*ína, diz PF.",
      "card": null
     },
     {
@@ -6501,7 +6501,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Rodrigo GR6, da “GR6 Explode”, e “Rato”, da “Love Funk”, empresários e produtores de funk, também são alvos da operação da PF contra organização criminosa acusada de lavagem de dinheiro e de realizar transações ilegais de mais de R$ 1,6 bilhão.",
      "card": null
     },
     {
@@ -6534,7 +6534,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF aponta o fukeiro MC Ryan SP como líder de um esquema que utilizava gravadoras e a indústria do entretenimento para lavar dinheiro; autoridades citam vínculo estrutural do esquema com o PCC.",
      "card": null
     },
     {
@@ -6571,7 +6571,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: MC Poze do Rodo e MC Ryan SP são PRESOS pela PF, alvos de operação contra uma organização criminosa acusada de lavagem de dinheiro e de realizar transações ilegais de mais de R$ 1,6 bilhão.",
      "card": null
     },
     {
@@ -6602,7 +6602,7 @@
      "relacionados": [
       "2106499455419891793"
      ],
-     "texto": null,
+     "texto": "  Em conversa, Daniel Vorcaro relatou uma reunião com a cantora Anitta, o irmão dela e empresários ligados ao setor de apostas esportivas:\n\n “A Anitta vai vir agora com o irmão dela. Vamos fazer uma reunião bem rápida, de no máximo uma hora/  São quatro amigos meus, sócios",
      "card": null
     },
     {
@@ -6643,7 +6643,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Polícia considera FORAGIDA Márcia Gama, esposa de Marcinho VP e mãe de Oruam, após ela não ser localizada durante operação que visa desarticular a estrutura nacional do Comando Vermelho (CV); outro foragido é Landerson Lucas dos Santos, sobrinho do traficante.",
      "card": null
     },
     {
@@ -6672,7 +6672,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  STF forma maioria para REJEITAR o recurso do influenciador fitness Renato Cariani, que tenta travar e anular um processo no qual é réu por supostos crimes de tráfico, associação para o tráfico e lavagem de dinheiro.",
      "card": null
     },
     {
@@ -6705,7 +6705,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Pioneira na compra de licença para operar bets no Brasil, a Rede Loto, ligada a Flávio Bolsonaro por um inquérito da PF, pagou R$ 5 milhões para atuar no Rio de Janeiro, lançou três casas de apostas e anunciou a incorporação de uma quarta, mas encerrou as operações pouco",
      "card": null
     },
     {
@@ -6742,7 +6742,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MP pede à Justiça a ANULAÇÃO de contrato da Prefeitura de Marília (SP) que utilizou verbas remanejadas da saúde e da educação para pagar shows de Gusttavo Lima e Maiara e Maraisa; ação aponta a retirada de R$ 1,5 milhão da saúde e R$ 170 mil da educação.",
      "card": null
     },
     {
@@ -6775,7 +6775,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Após Daniel Vorcaro demonstrar insatisfação com reportagens que citavam a Fictor, parceira do Banco Master, a Folha de S.Paulo teria apagado informações que levantavam suspeitas sobre o grupo em matéria publicada em 17 de novembro de 2025, na época do anúncio da compra do",
      "card": null
     },
     {
@@ -6816,7 +6816,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Daniel Vorcaro perguntou à então diretora de marketing do Banco Master, Ana Matos, quem era o “repórter maldoso mais confiável” e recebeu três nomes classificados por ela como “maldosos controlados”: Guilherme Amado, Léo Dias e Diego Escosteguy; os jornalistas afirmam que a",
      "card": null
     },
     {
@@ -6845,7 +6845,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Novas conversas de Daniel Vorcaro com um outro importante diretor de um grupo de mídia devem vir a público nos próximos dias; mensagens interceptadas pela PF indicariam que o banqueiro atuava como uma espécie de editor-chefe informal, interferindo em pautas e",
      "card": null
     },
     {
@@ -6870,7 +6870,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Livre, Oruam viaja à Holanda para participar de show do rapper americano Young Thug; o brasileiro embarcou sem tornozeleira eletrônica porque ainda não havia sido formalmente intimado a usar o equipamento.",
      "card": null
     },
     {
@@ -6899,7 +6899,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Diálogos entre Willer Tomaz e o concierge da Blaze indicam que ambos combinavam práticas proibidas pela regulamentação federal das bets; a plataforma autorizou o advogado a sacar dinheiro sem reconhecimento facial e sugerido apostas com criptomoedas para movimentar valores",
      "card": null
     },
     {
@@ -6928,7 +6928,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens de Daniel Vorcaro indicam que ele teria encomendado certificados internacionais de vacinação contra a febre amarela adulterados para a atriz Monique Alfradique.",
      "card": null
     },
     {
@@ -6961,7 +6961,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Influenciadora Ana Ribeiro relata ter descoberto apenas agora, em 2026, que seu perfil no Instagram foi DERRUBADO em 2023 por “Sicário”, a mando de Daniel Vorcaro, após ela repercutir a festa do banqueiro na boate Madame Satã.",
      "card": null
     },
     {
@@ -7002,7 +7002,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Em troca de mensagens com Daniel Vorcaro, em outubro de 2025, Flávio Bolsonaro convidou o banqueiro para um jantar com o ator Jim Caviezel e o diretor de cinema Cyrus Nowrasteh, que integravam a equipe do filme \"Dark Horse\".",
      "card": null
     },
     {
@@ -7039,7 +7039,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  David Corrêa, o “DVD”, jogador do Vasco da Gama, e Hayner, do Vila Nova, são alvos de busca e apreensão em investigação sobre tráfico interestadual de drogas e armas.",
      "card": null
     },
     {
@@ -7072,7 +7072,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Colar avaliado em cerca de R$ 2 milhões, dado pelo influenciador Buzeira a Neymar Jr., chamou a atenção da Polícia Civil e ajudou a iniciar as investigações que levaram à identificação de uma rede suspeita de receptação de joias de ouro roubadas em São Paulo.",
      "card": null
     },
     {
@@ -7097,7 +7097,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça concede habeas corpus, e o influenciador Buzeira deve deixar a prisão após 10 meses preso.",
      "card": null
     },
     {
@@ -7126,7 +7126,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Polícia Civil identifica que o ass*ssinato da influenciadora Ulissias Marcelli e de seu marido foi executado por integrantes de uma facção criminosa após o casal vender drogas sintéticas compradas de um fornecedor não autorizado pelo grupo que atua em Porto Seguro (BA).",
      "card": null
     },
     {
@@ -7158,7 +7158,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministério da Fazenda MULTA a Blaze em R$ 2,3 milhões por exibir anúncios no canal do YouTube do influenciador João Caetano, voltado para crianças e adolescentes.",
      "card": null
     },
     {
@@ -7187,7 +7187,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Tribunal de Justiça de São Paulo NEGA, por unanimidade, novo pedido de habeas corpus de Deolane Bezerra, e a influenciadora segue PRESA.",
      "card": null
     },
     {
@@ -7215,7 +7215,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Blaze gastou R$ 330 milhões com publicidade de bets e apostas esportivas entre janeiro e novembro de 2025 e tem Virginia Fonseca como sua principal influenciadora no Brasil.",
      "card": null
     },
     {
@@ -7257,7 +7257,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Presidente do TSE, Kassio Nunes Marques, determina a EXCLUSÃO de um vídeo publicado pelo influenciador Thiago dos Reis, pré-candidato a deputado federal pelo PT, que vinculava Flávio Bolsonaro a uma investigação da Polícia Civil sobre a produtora de \"Dark Horse\" e associava",
      "card": null
     },
     {
@@ -7289,7 +7289,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Influenciadora Virginia Fonseca induziu o público a fazer uma aposta equivocada na partida em Cabo Verde contra a Argentina, pela Copa do Mundo, no site da Blaze, diz MP.",
      "card": null
     },
     {
@@ -7318,7 +7318,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Influenciador Buzeira, PRESO em 2025 sob suspeita de lavar dinheiro para o PCC, lucrou R$ 8 milhões em 2025 com a criptomoeda de Donald Trump em 24 horas.",
      "card": null
     },
     {
@@ -7351,7 +7351,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Após ser alvo de mandados de busca e apreensão, Deolane Bezerra teria usado a amizade com policiais ligados ao PCC para intimidar a delegada Maria Corsato, responsável por uma das investigações contra a advogada.",
      "card": null
     },
     {
@@ -7376,7 +7376,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MC Negão Original é PRESO em Avaré (SP) durante operação que investiga uma organização criminosa especializada em golpes virtuais.",
      "card": null
     },
     {
@@ -7406,7 +7406,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Patrick Almeida, conhecido como PTK, pré-candidato a deputado federal por Alagoas, é preso em operação contra o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -7439,7 +7439,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Flávio Dino (STF) diz não ver “manifesta ilegalidade” na prisão preventiva de Deolane Bezerra e nega liberdade à influenciadora.",
      "card": null
     },
     {
@@ -7468,7 +7468,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Decisão liminar do ministro Alexandre de Moraes (STF) sobre relatórios do Coaf está sendo usada para tentar ANULAR investigações sobre envolvimento com milícia, contrabando e exploração ilegal de jogos de azar, como o “Tigrinho”.",
      "card": null
     },
     {
@@ -7498,7 +7498,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Influenciadora Eliana Franco, pré-candidata a deputada estadual pelo PSD no Amazonas, já foi presa pelos crimes de tráfico de drogas e associação para o tráfico.",
      "card": null
     },
     {
@@ -7525,7 +7525,7 @@
      "relacionados": [
       "2070206592713146645"
      ],
-     "texto": null,
+     "texto": "  Funkeiro MC Negão Original é alvo de mandado de prisão temporária em operação contra organização criminosa suspeita de aplicar golpes digitais e lavar dinheiro.",
      "card": null
     },
     {
@@ -7569,7 +7569,7 @@
      "relacionados": [
       "2019164249159881132"
      ],
-     "texto": null,
+     "texto": "  Empresário Cristiano Santos Hermógenes, irmão de Marcinho VP, pai de Oruam e líder do Comando Vermelho (CV), assume a presidência do PSDB em Belford Roxo (RJ).",
      "card": null
     },
     {
@@ -7594,7 +7594,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça manda PRENDER novamente Oruam por descumprimento de medidas cautelares; decisão aponta que o cantor teria violado a tornozeleira eletrônica 22 VEZES.",
      "card": null
     },
     {
@@ -7627,7 +7627,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Oruam critica megaoperação contra o Comando Vermelho (CV), do qual seu pai, Marcinho VP, é um dos líderes, e afirma que ele, seu pai e os bandidos são “reflexos da sociedade”.",
      "card": null
     },
     {
@@ -7652,7 +7652,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Influenciadora Melissa Said, autodeclarada “ervoafetiva” e conhecida por produzir conteúdo sobre o uso de maconha, é PRESA em Salvador (BA) e apontada como articuladora de um grupo criminoso envolvido no tráfico de drogas.",
      "card": null
     },
     {
@@ -7689,7 +7689,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Ricardo Villas Bôas Cueva (TSE) determina a abertura de investigação contra Flávio Bolsonaro, seu candidato a vice, Alfredo Gaspar, Nikolas Ferreira e Pablo Marçal por suspeita de uso indevido dos meios de comunicação social e abuso de poder econômico e político.",
      "card": null
     },
     {
@@ -7722,7 +7722,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens extraídas pela PF mostram que Roberto Justus passou 2024 e 2025 insistindo para ter Daniel Vorcaro como sócio da SteelCorp, mas foi deixado no vácuo em diversas ocasiões.",
      "card": null
     },
     {
@@ -7747,7 +7747,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Na Europa, Oruam publica stories chorando após saber da prisão de sua mãe, Márcia Gama, e de seu irmão, Lucas Santos Nepomuceno, em operação da PF contra o monopólio de internet do Comando Vermelho (CV) em favelas do Rio de Janeiro (RJ).",
      "card": null
     },
     {
@@ -7784,7 +7784,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Mensagens extraídas pela PF mostram Ana Matos, diretora de marketing do extinto Banco Master, organizando uma reunião com o apresentador do Jornal da Band, Eduardo Oinegue: “Estou na recepção aguardando o Oinegue, que chega em 10 min”.",
      "card": null
     },
     {
@@ -7809,7 +7809,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Bet ilegal “Vorcaro777” usa nome e imagem de Daniel Vorcaro para divulgar o jogo do tigrinho e oferecer bônus em reais.",
      "card": null
     },
     {
@@ -7837,7 +7837,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Proibição das bets pelo governo Lula afeta o BTG Pactual, que se tornou o banco das maiores casas de apostas do país; a instituição de André Esteves concedia crédito, fornecia contas-correntes e prestava outros serviços a 14 empresas autorizadas, responsáveis por 70% do",
      "card": null
     },
     {
@@ -7861,7 +7861,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça manda prender a ex-vereadora Verônica Costa, conhecida como “Mãe Loira do Funk”; ela foi condenada a mais de 10 anos e 8 meses de prisão por torturar o ex-marido, Márcio Costa, em 2011.",
      "card": null
     },
     {
@@ -7894,7 +7894,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Tarcísio de Freitas exonera Carlos Alberto da Cunha da função de delegado da Polícia Civil; deputado youtuber teve a expulsão proposta ao menos duas vezes pela cúpula da corporação por supostamente inventar a prisão de um chefe do PCC e por chamar superiores de “ratos” e",
      "card": null
     },
     {
@@ -7923,7 +7923,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PSD oficializa MC Gui como candidato a deputado federal por São Paulo.",
      "card": null
     },
     {
@@ -7947,7 +7947,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Artista mais ouvido do Brasil no Spotify, MC Ryan SP é condenado por violação de direitos autorais após não creditar Lucas Vieira Jozimba como autor de 34 músicas atribuídas ao cantor.",
      "card": null
     },
     {
@@ -7979,7 +7979,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Homem entra com processo por danos materiais e morais contra os influenciadores Carlinhos Maia, Virginia Fonseca e Deolane Bezerra por perder mais de R$ 100 mil a partir de divulgações de bets nas redes sociais das celebridades.",
      "card": null
     },
     {
@@ -8012,7 +8012,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MPF abre inquérito para investigar se recursos da Lei Rouanet foram utilizados para pagar apresentação da cantora e ministra da Cultura do governo Lula, Margareth Menezes, durante o Carnaval de Salvador (BA).",
      "card": null
     },
     {
@@ -8040,7 +8040,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  VISH! Sindicato que representa os servidores do Banco Central (BC) contratou a atriz Luana Piovani por R$ 300 mil para gravar um vídeo contrário à PEC que concede autonomia financeira e administrativa à instituição.",
      "card": null
     },
     {
@@ -8068,7 +8068,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Senacon, do Ministério da Justiça, abre investigação preliminar sobre a CazéTV para apurar a veiculação de publicidade de bets durante as transmissões da Copa do Mundo.",
      "card": null
     },
     {
@@ -8097,7 +8097,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Dez dias antes de ser presa, Deolane Bezerra teve um pedido de censura a uma reportagem do SBT sobre sua suposta ligação com o PCC negado.",
      "card": null
     },
     {
@@ -8142,7 +8142,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Pré-candidato à Presidência Renan Santos critica Neymar Jr. e questiona suposto “envolvimento direto e recorrente com pessoas ligadas ao tráfico de drogas”, citando Oruam, MC Ryan SP, Buzeira, TH Jóias, entre outros:\n\n “Tava na hora de você, que inspira muitos jovens,",
      "card": null
     },
     {
@@ -8175,7 +8175,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Comunicado atribuído à facção Bonde do Maluco (BDM) EXIGE o cancelamento do show do MC Poze do Rodo em Lauro de Freitas, na Bahia, apontando ligação do funkeiro com o Comando Vermelho (CV), facção rival: “Estamos avisando previamente ou iremos responder à altura”.",
      "card": null
     },
     {
@@ -8204,7 +8204,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Comando Vermelho (CV) determina, por meio de um “salve”, que sedes e lojas das torcidas organizadas do Fortaleza e do Ceará permaneçam fechadas, além de querer proibir o uso de camisas e bandeiras das organizadas em estádios e locais públicos.",
      "card": null
     },
     {
@@ -8233,7 +8233,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Deputado Kim Kataguiri apresenta emenda ao PL Antifacção para incluir a “Lei Anti-Oruam” no texto, visando CRIMINALIZAR a “apologia pública de facção criminosa”, inclusive em obras de cunho artístico.",
      "card": null
     },
     {
@@ -8270,7 +8270,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Líder do Comando Vermelho (CV), Marcinho VP, recorre ao STF para obter autorização de entrevista ao apresentador Roberto Cabrini, da Record.",
      "card": null
     }
    ]
@@ -8325,7 +8325,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Advogado Willer Tomaz foi o maior apostador pessoa física do país em 2025, com R$ 258 milhões depositados na Foggo, dona da Blaze, segundo nota técnica do Ministério da Fazenda; ele é investigado pela PF por suspeita de lavagem de dinheiro e de participação societária",
      "card": null
     },
     {
@@ -8358,7 +8358,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  STF abre inquérito para apurar suspeitas de lavagem de dinheiro envolvendo o advogado Willer Tomaz, empresas ligadas a ele e Flávio Bolsonaro; a investigação, iniciada na 1ª instância no Rio Grande do Sul, apura possíveis crimes de lavagem de dinheiro e evasão de divisas,",
      "card": null
     },
     {
@@ -8391,7 +8391,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Holding do ramo de bets de propriedade do advogado Willer Tomaz pagou voos entre Portugal e França em 2025 para Flávio Bolsonaro segundo investigação da PF.",
      "card": null
     },
     {
@@ -8420,7 +8420,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ex-prefeito de Embu das Artes (SP), Ney Santos, acusado de suposto envolvimento com o PCC, foi eleito deputado federal com mais de 118 mil votos.",
      "card": null
     },
     {
@@ -8453,7 +8453,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça do Rio de Janeiro torna réus o ex-deputado estadual TH Joias e seus ex-assessores por associação para o tráfico de drogas; segundo denúncia do MP, eles teriam se associado ao Comando Vermelho (CV) para cometer o crime desde outubro de 2023.",
      "card": null
     },
     {
@@ -8484,7 +8484,7 @@
      "relacionados": [
       "2105012368480817441"
      ],
-     "texto": null,
+     "texto": "  Justiça torna réu o ex-deputado estadual TH Joias e outros cinco acusados de envolvimento em um esquema de corrupção, tráfico de drogas e contrabando ligado ao Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -8517,7 +8517,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: Leonardo Avalanche, presidente do PRTB e candidato a vice na chapa de Pablo Marçal, é RÉU por associação criminosa, ameaça, violência política de gênero e manipulação de sistema público de informações; uma testemunha que trabalhava para ele está sob proteção da PF",
      "card": null
     },
     {
@@ -8546,7 +8546,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Três vereadores de Sobral (CE) são presos em investigação sobre o suposto pagamento de \"pedágio\" ao Comando Vermelho (CV) para realizar campanha eleitoral em áreas dominadas pela organização criminosa.",
      "card": null
     },
     {
@@ -8584,7 +8584,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Pastor Márcio Poncio é PRESO em operação da PF no Rio de Janeiro; a ação é um desdobramento da investigação sobre um esquema de vazamento de informações sigilosas de operações policiais para o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -8625,7 +8625,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PSDB Nacional e PSD de Minas Gerais pagaram ao menos R$ 1,1 milhão à empresa de táxi aéreo CNM Aviação, pertencente a uma mulher denunciada pelo MPF por integrar a quadrilha de Karine Campos, considerada a maior traficante de cocaína do Brasil.",
      "card": null
     },
     {
@@ -8662,7 +8662,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  EITA! Relatório do inquérito que apura a participação do vereador Senival Moura (PT), de São Paulo (SP), em um suposto esquema de lavagem de dinheiro para o PCC diz que ele foi responsável por abrir as portas da empresa de ônibus Transunião para a facção.",
      "card": null
     },
     {
@@ -8691,7 +8691,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Emendas do deputado Yury do Paredão foram utilizadas para custear ao menos cinco shows do cantor de forró Jonas Esticado, com cachê de R$ 300 mil por apresentação; o artista é empresariado pelo próprio parlamentar.",
      "card": null
     },
     {
@@ -8724,7 +8724,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ex-deputado federal Uldurico Jr. é PRESO preventivamente, suspeito de negociar o recebimento de R$ 2 milhões para facilitar a fuga de 16 presos do Conjunto Penal de Eunápolis (BA); entre os fugitivos está “Dada”, apontado como chefe do PCE, facção ligada ao Comando Vermelho",
      "card": null
     },
     {
@@ -8765,7 +8765,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  TSE cassa o mandato do prefeito de Cabedelo (PB), André Luís Almeida Coutinho, e da vice, Camila Lucena, acusados de compra de votos, coação de eleitores e uso da máquina pública para beneficiar candidatos apoiados pela Tropa do Amigão, ligada ao Comando Vermelho.",
      "card": null
     },
     {
@@ -8794,7 +8794,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Vereador Salvino Oliveira, do Rio de Janeiro (RJ), é preso em operação contra o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -8835,7 +8835,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Desembargador Macário Judice, preso pela PF, tentou contatar Michel Temer para interceder junto ao ministro Alexandre de Moraes (STF); ele é investigado por vazar a operação contra TH Joias, ex-deputado estadual apontado como operador financeiro do Comando Vermelho (CV) no",
      "card": null
     },
     {
@@ -8876,7 +8876,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF indicia o presidente afastado da Alerj Rodrigo Bacellar e o ex-deputado estadual TH Joias por ligação com o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -8910,7 +8910,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Apontado pela PF como parceiro do PCC na venda de combustível adulterado e na lavagem de dinheiro, Beto Louco presenteou Davi Alcolumbre, presidente do Senado, com canetas de Mounjaro em agosto do ano passado.",
      "card": null
     },
     {
@@ -8951,7 +8951,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  ATENÇÃO: PF prende o presidente da Assembleia Legislativa do Rio de Janeiro (Alerj), Rodrigo Bacellar, por suspeita de vazar informações da operação que prendeu o deputado TH Joias, apontado como braço político do Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -8984,7 +8984,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Pioneira na compra de licença para operar bets no Brasil, a Rede Loto, ligada a Flávio Bolsonaro por um inquérito da PF, pagou R$ 5 milhões para atuar no Rio de Janeiro, lançou três casas de apostas e anunciou a incorporação de uma quarta, mas encerrou as operações pouco",
      "card": null
     },
     {
@@ -9021,7 +9021,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MP pede à Justiça a ANULAÇÃO de contrato da Prefeitura de Marília (SP) que utilizou verbas remanejadas da saúde e da educação para pagar shows de Gusttavo Lima e Maiara e Maraisa; ação aponta a retirada de R$ 1,5 milhão da saúde e R$ 170 mil da educação.",
      "card": null
     },
     {
@@ -9058,7 +9058,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Investigação da PF aponta que o advogado Willer Tomaz recebia minutas de decisões do STJ e de manifestações do MPF antes da publicação.",
      "card": null
     },
     {
@@ -9095,7 +9095,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Juíza determina que Manuela d’Ávila remova posts com fake news que associam o empresário Rui Denardin, doador da campanha de Marcel van Hattem, à lavagem de dinheiro para o PCC.",
      "card": null
     },
     {
@@ -9132,7 +9132,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Dias Toffoli (TSE) rejeita notícia de inelegibilidade que alegava suposto vínculo entre Renan Santos e o PCC e determina o envio do caso ao MP Eleitoral para avaliar possível má-fé do autor da denúncia.",
      "card": null
     },
     {
@@ -9165,7 +9165,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Presidenciável Pablo Marçal diz que não há processo contra seu vice, Leonardo Avalanche, por suposta ligação com o PCC, mas afirma que não “põe a mão no fogo” por ele: “Não estou pondo a mão no fogo. Se tiver que responder a alguma coisa, que responda.”",
      "card": null
     },
     {
@@ -9198,7 +9198,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Alexandre de Moraes (STF) e a PF preparam novas ofensivas no âmbito da investigação que apura a relação entre autoridades e milícias do Rio de Janeiro com integrantes do Comando Vermelho (CV); as apurações avançaram e devem resultar em novas operações nos próximos",
      "card": null
     },
     {
@@ -9228,7 +9228,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Patrick Almeida, conhecido como PTK, pré-candidato a deputado federal por Alagoas, é preso em operação contra o Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -9258,7 +9258,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": " Influenciadora Eliana Franco, pré-candidata a deputada estadual pelo PSD no Amazonas, já foi presa pelos crimes de tráfico de drogas e associação para o tráfico.",
      "card": null
     },
     {
@@ -9295,7 +9295,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PF cumpre mandado de prisão contra o delegado federal Fabrizio Romano sob suspeita no caso envolvendo o ex-deputado estadual TH Joias, ligado ao Comando Vermelho (CV).",
      "card": null
     },
     {
@@ -9324,7 +9324,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Prints de conversas obtidos pela Polícia Civil mostram como suspeitos de integrar o “núcleo político” ligado ao Comando Vermelho (CV) trocavam informações sobre pagamentos e decisões judiciais no estado.",
      "card": null
     },
     {
@@ -9368,7 +9368,7 @@
      "relacionados": [
       "2019164249159881132"
      ],
-     "texto": null,
+     "texto": "  Empresário Cristiano Santos Hermógenes, irmão de Marcinho VP, pai de Oruam e líder do Comando Vermelho (CV), assume a presidência do PSDB em Belford Roxo (RJ).",
      "card": null
     },
     {
@@ -9397,7 +9397,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Interceptações de diálogos pela PF revelam que o Comando Vermelho (CV) tentou influenciar o policiamento ostensivo, negociar pagamentos de propina, solicitar o resgate de carros roubados e até realizar um encontro presencial com o secretário de Defesa do Consumidor para",
      "card": null
     },
     {
@@ -9434,7 +9434,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Ministro Ricardo Villas Bôas Cueva (TSE) determina a abertura de investigação contra Flávio Bolsonaro, seu candidato a vice, Alfredo Gaspar, Nikolas Ferreira e Pablo Marçal por suspeita de uso indevido dos meios de comunicação social e abuso de poder econômico e político.",
      "card": null
     },
     {
@@ -9463,7 +9463,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Renan Santos lança o Marco da Desfavelização no Jardim Panorama, em São Paulo (SP); segundo relato, a equipe do presidenciável teria recebido um “salve” do PCC 20 minutos antes da agenda, proibindo a entrada na comunidade.",
      "card": null
     },
     {
@@ -9492,7 +9492,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  PSD oficializa MC Gui como candidato a deputado federal por São Paulo.",
      "card": null
     },
     {
@@ -9525,7 +9525,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  MPF abre inquérito para investigar se recursos da Lei Rouanet foram utilizados para pagar apresentação da cantora e ministra da Cultura do governo Lula, Margareth Menezes, durante o Carnaval de Salvador (BA).",
      "card": null
     },
     {
@@ -9558,7 +9558,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça CONDENA o prefeito de Diadema (SP), Taka Yamauchi, a quase 7 meses de prisão, em regime aberto, por difamação e injúria eleitoral contra o chefe do gabinete pessoal de Lula, o cientista político conhecido como Marcola, ao associá-lo ao líder do PCC.",
      "card": null
     },
     {
@@ -9587,7 +9587,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Justiça dá decisão favorável ao PT e determina que o pastor evangélico e influenciador Rafael Nery EXCLUA um vídeo publicado no dia da megaoperação no Rio de Janeiro, no qual afirma que o partido é “o grande patrocinador do Comando Vermelho e do PCC”.",
      "card": null
     },
     {
@@ -9616,7 +9616,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Novas fases da Operação Contenção devem mirar os braços financeiros e políticos do Comando Vermelho (CV) no Rio de Janeiro (RJ); investigações em andamento apuram possíveis conexões da facção com políticos e empresários.",
      "card": null
     },
     {
@@ -9641,7 +9641,7 @@
      ],
      "duplicata_de": null,
      "relacionados": [],
-     "texto": null,
+     "texto": "  Políticos que pedem votos em regiões do Complexo do Chapadão, no Rio de Janeiro (RJ), usam material de campanha verde por ser a cor “autorizada” pelo Comando Vermelho (CV).",
      "card": null
     }
    ]

@@ -54,7 +54,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | mandato | 324 |
 | bancada | 634 |
 | entidade_valor | 60 |
-| post_rede | 0 |
+| post_rede | 2126 |
 | post_triagem | 169 |
 
 Eventos por canal:
