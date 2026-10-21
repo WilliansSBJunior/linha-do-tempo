@@ -16,7 +16,7 @@
 :root{
   color-scheme:light;
   --bg:#f3f5f1; --surface:#fbfcfa; --ink:#14201b; --ink2:#4c5a53; --muted:#6f7d76; --line:#d9dfd8;
-  --accent:#2a78d6; --case:#eb6834;
+  --accent:#2a78d6; --case:#eb6834; --fac:#c2362f;
   --display:"Archivo","Arial Narrow",Arial,sans-serif;
   --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -26,13 +26,13 @@
   :root:not([data-theme="light"]){
     color-scheme:dark;
     --bg:#111613; --surface:#181e1a; --ink:#f2f5f1; --ink2:#c0c9c2; --muted:#8a968f; --line:#2b342e;
-    --accent:#3987e5; --case:#d95926;
+    --accent:#3987e5; --case:#d95926; --fac:#e2574c;
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
   --bg:#111613; --surface:#181e1a; --ink:#f2f5f1; --ink2:#c0c9c2; --muted:#8a968f; --line:#2b342e;
-  --accent:#3987e5; --case:#d95926;
+  --accent:#3987e5; --case:#d95926; --fac:#e2574c;
 }
 *{box-sizing:border-box}
 html{scroll-padding-top:calc(var(--menu-h) + 1px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
@@ -60,6 +60,7 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
 .mlist .grp{display:flex;align-items:center;gap:2px;margin-left:8px;padding-left:10px;border-left:2px solid var(--case)}
 .mlist .grp-l{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-right:4px;white-space:nowrap}
 .mlist .grp.on .grp-l{color:var(--ink)}
+.mlist .grp.fac{border-left-color:var(--fac)}
 .tema{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink2);border-radius:4px;padding:4px 9px;font:inherit;font-size:12.5px;cursor:pointer;white-space:nowrap}
 .tema:hover{color:var(--ink)}
 
@@ -92,6 +93,11 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
 .estudo ol{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px}
 .estudo ol a{text-decoration:none;border-bottom:1px solid var(--line)}
 .estudo ol a:hover{border-bottom-color:var(--ink)}
+/* separador da frente Facções, mídia e poder: mesmo bloco, outra cor */
+.estudo.faccoes{border-top-color:var(--fac)}
+.estudo.faccoes .kicker{color:var(--fac)}
+.estudo .avulsas{font-size:13.5px}
+.estudo .avulsas a{color:var(--ink)}
 
 /* rodapé */
 .foot{background:var(--surface);color:var(--ink2);font-size:13.5px;line-height:1.55}
@@ -119,13 +125,13 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
   <div class="in">
     <p class="kicker">Projeto · levantamento até 14 out 2026</p>
     <h1>Linha do tempo política do Brasil</h1>
-    <p class="lede">O Brasil de 1995 a 2025, ano a ano: economia, empresas, Congresso e cenário internacional; o país frente a nove emergentes de porte parecido; o ritmo dos homicídios; e, como estudo de caso aprofundado, o Caso Banco Master.</p>
+    <p class="lede">O Brasil de 1995 a 2025, ano a ano: economia, empresas, Congresso e cenário internacional; o país frente a nove emergentes de porte parecido; o ritmo dos homicídios; e, como estudos de caso aprofundados, o Caso Banco Master e a frente <a href="#faccoes">Facções, mídia e poder</a>.</p>
   </div>
 </header>
 
 <nav class="menu" id="menu" aria-label="Seções">
   <div class="in menu-in">
-    <ul class="mlist" id="mlist"><li><a href="#linha-do-tempo" data-sec="linha-do-tempo">Linha do tempo</a></li><li><a href="#pares" data-sec="pares">Frente aos pares</a></li><li><a href="#violencia" data-sec="violencia">Violência</a></li><li class="grp"><span class="grp-l">Caso Master</span><a href="#origens" data-sec="origens">Origens</a><a href="#dossie" data-sec="dossie">Dossiê</a><a href="#teia" data-sec="teia">Teia</a></li></ul>
+    <ul class="mlist" id="mlist"><li><a href="#linha-do-tempo" data-sec="linha-do-tempo">Linha do tempo</a></li><li><a href="#pares" data-sec="pares">Frente aos pares</a></li><li><a href="#violencia" data-sec="violencia">Violência</a></li><li class="grp" data-grp="master"><span class="grp-l">Caso Master</span><a href="#origens" data-sec="origens">Origens</a><a href="#dossie" data-sec="dossie">Dossiê</a><a href="#teia" data-sec="teia">Teia</a></li><li class="grp fac" data-grp="faccoes"><span class="grp-l">Facções</span><a href="#pistas" data-sec="pistas">Pistas</a><a href="#dossie-faccoes" data-sec="dossie-faccoes">Dossiê</a><a href="#teia-faccoes" data-sec="teia-faccoes">Teia</a></li></ul>
     <button type="button" class="tema" id="tema" title="Tema de cores"><span class="tl">Tema: </span><span id="temaN">automático</span></button>
   </div>
 </nav>
@@ -163,6 +169,27 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
   <div class="in sec-h"><span class="num">06</span><h2 id="t-teia">Caso Master · Teia</h2><span class="sub">Teia do Caso Master</span><a class="so" href="paginas/teia.html">Abrir sozinha ↗</a></div>
   <div class="slot"><div class="ph"><p class="ph-t">Teia do Caso Master</p><p class="ph-d">O Banco Master, seu controlador e quem se ligou a eles, ano a ano, em 2D ou em 3D, com o grau de comprovação, a versão dos citados e as fontes de cada ligação.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/teia.html">abra a página</a>.</noscript></p></div></div>
 </section>
+<section class="estudo faccoes" id="faccoes" aria-labelledby="t-faccoes">
+  <div class="in">
+    <p class="kicker">Nova frente</p>
+    <h2 id="t-faccoes">Facções, mídia e poder</h2>
+    <p>O que liga facções como o PCC e o Comando Vermelho a artistas, influenciadores, veículos, casas de apostas e políticos, e o que é só proximidade. Começa em pistas de uma conta do X, triadas e pesquisadas uma a uma: pista de rede social nunca é fonte, e só vira ligação o que uma reportagem, decisão ou documento aberto sustenta, com trecho literal. Cada ligação traz o grau de comprovação, a versão de quem foi citado e as fontes; investigado não é culpado, e réu não é condenado.</p>
+    <ol><li><a href="#pistas">7 · Pistas do X</a></li><li><a href="#dossie-faccoes">8 · Dossiê</a></li><li><a href="#teia-faccoes">9 · Teia 2D | 3D</a></li></ol>
+    <p class="avulsas">Páginas próprias: <a href="paginas/pistas.html">Pistas do X</a> · <a href="paginas/dossie-faccoes.html">Facções, mídia e poder</a> · <a href="paginas/teia-faccoes.html">Teia facções × mídia × política</a></p>
+  </div>
+</section>
+<section class="sec" id="pistas" aria-labelledby="t-pistas">
+  <div class="in sec-h"><span class="num">07</span><h2 id="t-pistas">Facções · Pistas do X</h2><span class="sub">Pistas do X: do post à fonte</span><a class="so" href="paginas/pistas.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Pistas do X: do post à fonte</p><p class="ph-d">Cada post triado, com a afirmação normalizada, quem a atribui e o desfecho da pesquisa: confirmado, parcial, refutado, contra-pista, pendente ou não encontrado, com a fonte e a ligação na teia.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/pistas.html">abra a página</a>.</noscript></p></div></div>
+</section>
+<section class="sec" id="dossie-faccoes" aria-labelledby="t-dossie-faccoes">
+  <div class="in sec-h"><span class="num">08</span><h2 id="t-dossie-faccoes">Facções · Dossiê</h2><span class="sub">Facções, mídia e poder</span><a class="so" href="paginas/dossie-faccoes.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Facções, mídia e poder</p><p class="ph-d">Oito frentes, do Narco Fluxo ao Master na mídia: o que está documentado, investigado ou só reportado, as ligações-chave, as contra-pistas e a pergunta em aberto, com duas leituras lado a lado.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/dossie-faccoes.html">abra a página</a>.</noscript></p></div></div>
+</section>
+<section class="sec" id="teia-faccoes" aria-labelledby="t-teia-faccoes">
+  <div class="in sec-h"><span class="num">09</span><h2 id="t-teia-faccoes">Facções · Teia</h2><span class="sub">Teia facções × mídia × política</span><a class="so" href="paginas/teia-faccoes.html">Abrir sozinha ↗</a></div>
+  <div class="slot"><div class="ph"><p class="ph-t">Teia facções × mídia × política</p><p class="ph-d">PCC e Comando Vermelho no centro e quem aparece com eles em investigações e reportagens, ano a ano, em 2D, 3D, radial ou mapa mental, com o grau de comprovação e as fontes de cada ligação.</p><p class="ph-s">Carregando a seção… <noscript>Sem JavaScript: <a href="paginas/teia-faccoes.html">abra a página</a>.</noscript></p></div></div>
+</section>
 </main>
 
 <footer class="foot">
@@ -174,7 +201,7 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
     </div>
     <div>
       <h2>Seções</h2>
-      <ol><li><a href="#linha-do-tempo">Brasil ano a ano</a></li><li><a href="#pares">Brasil frente aos pares</a></li><li><a href="#violencia">Ritmo da violência</a></li><li><a href="#origens">Do Máxima ao Master: as origens</a> <small>(Caso Master)</small></li><li><a href="#dossie">Master: mercado ou máquina</a> <small>(Caso Master)</small></li><li><a href="#teia">Teia do Caso Master</a> <small>(Caso Master)</small></li></ol>
+      <ol><li><a href="#linha-do-tempo">Brasil ano a ano</a></li><li><a href="#pares">Brasil frente aos pares</a></li><li><a href="#violencia">Ritmo da violência</a></li><li><a href="#origens">Do Máxima ao Master: as origens</a> <small>(Caso Master)</small></li><li><a href="#dossie">Master: mercado ou máquina</a> <small>(Caso Master)</small></li><li><a href="#teia">Teia do Caso Master</a> <small>(Caso Master)</small></li><li><a href="#pistas">Pistas do X</a> <small>(Facções)</small></li><li><a href="#dossie-faccoes">Facções, mídia e poder</a> <small>(Facções)</small></li><li><a href="#teia-faccoes">Teia facções × mídia × política</a> <small>(Facções)</small></li></ol>
     </div>
   </div>
 </footer>
@@ -182,12 +209,13 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
 <script>
 (function(){
   'use strict';
-  var SEC = [{"id": "linha-do-tempo", "arq": "brasil-ano-a-ano.html", "titulo": "Brasil ano a ano", "master": false}, {"id": "pares", "arq": "pares.html", "titulo": "Brasil frente aos pares", "master": false}, {"id": "violencia", "arq": "violencia.html", "titulo": "Ritmo da violência", "master": false}, {"id": "origens", "arq": "origens.html", "titulo": "Do Máxima ao Master: as origens", "master": true}, {"id": "dossie", "arq": "dossie.html", "titulo": "Master: mercado ou máquina", "master": true}, {"id": "teia", "arq": "teia.html", "titulo": "Teia do Caso Master", "master": true}];
+  var SEC = [{"id": "linha-do-tempo", "arq": "brasil-ano-a-ano.html", "titulo": "Brasil ano a ano", "master": false}, {"id": "pares", "arq": "pares.html", "titulo": "Brasil frente aos pares", "master": false}, {"id": "violencia", "arq": "violencia.html", "titulo": "Ritmo da violência", "master": false}, {"id": "origens", "arq": "origens.html", "titulo": "Do Máxima ao Master: as origens", "master": true}, {"id": "dossie", "arq": "dossie.html", "titulo": "Master: mercado ou máquina", "master": true}, {"id": "teia", "arq": "teia.html", "titulo": "Teia do Caso Master", "master": true}, {"id": "pistas", "arq": "pistas.html", "titulo": "Pistas do X", "grupo": "faccoes"}, {"id": "dossie-faccoes", "arq": "dossie-faccoes.html", "titulo": "Facções, mídia e poder", "grupo": "faccoes"}, {"id": "teia-faccoes", "arq": "teia.html", "q": "teia=faccoes", "titulo": "Teia facções × mídia × política", "grupo": "faccoes"}];
   var ALIAS = {'teia-3d': 'teia', 'teia-2d': 'teia'};
   var d = document, de = d.documentElement, menu = d.getElementById('menu');
   var ids = SEC.map(function (s) { return s.id; });
   var byId = {}; SEC.forEach(function (s) { byId[s.id] = s; });
   var frames = {};           /* id -> {f: iframe, slot, ok, h, vista} */
+  var fragPend = {};         /* id -> hash a entregar à filha quando ela for criada (link de outra filha) */
   var alvo = null, alvoAte = 0;
 
   /* ---------- tema ---------- */
@@ -210,14 +238,14 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
 
   /* ---------- carregamento sob demanda ---------- */
   function post(fr, m){ try { if (fr.f.contentWindow) fr.f.contentWindow.postMessage(m, '*'); } catch (e) {} }
-  function carrega(id, sub){
+  function carrega(id, sub, frag){
     if (frames[id]) return frames[id];
     var s = byId[id], sec = d.getElementById(id), slot = sec.querySelector('.slot');
-    var q = [];
+    var q = s.q ? [s.q] : [];
     if (tema !== 'auto') q.push('tema=' + tema);
     if (sub === 'teia-3d') q.push('modo=3d');
     var f = d.createElement('iframe');
-    f.src = 'paginas/' + s.arq + (q.length ? '?' + q.join('&') : '');
+    f.src = 'paginas/' + s.arq + (q.length ? '?' + q.join('&') : '') + (frag ? '#' + frag : '');
     f.title = s.titulo;
     f.setAttribute('scrolling', 'no');
     f.setAttribute('allow', 'fullscreen');
@@ -255,6 +283,9 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
       scrollTo({top: Math.max(0, top), behavior: m.suave && !reduz() ? 'smooth' : 'auto'});
     }
     else if (m.pagina === 'ir' && typeof m.hash === 'string'){
+      /* frag: o resto do link (#d=..., #r=..., filtros das pistas), repassado à filha de destino */
+      var frag = typeof m.frag === 'string' && m.frag ? m.frag : null, alvoFr = frames[ALIAS[m.hash] || m.hash];
+      if (frag && alvoFr) post(alvoFr, {pagina: 'hash', hash: frag}); else if (frag) fragPend[ALIAS[m.hash] || m.hash] = frag;
       if (location.hash === '#' + m.hash) irPara(m.hash); else location.hash = m.hash;
     }
   });
@@ -279,14 +310,14 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
 
   /* ---------- menu: seção ativa ---------- */
   var links = {}; Array.prototype.forEach.call(d.querySelectorAll('#mlist a[data-sec]'), function (a) { links[a.getAttribute('data-sec')] = a; });
-  var grp = d.querySelector('#mlist .grp'), atual = null, mlist = d.getElementById('mlist');
+  var grps = d.querySelectorAll('#mlist .grp[data-grp]'), atual = null, mlist = d.getElementById('mlist');
   function ativa(){
     var linha = menu.offsetHeight + innerHeight * 0.3, cur = null;
     for (var i = 0; i < ids.length; i++){ if (d.getElementById(ids[i]).getBoundingClientRect().top <= linha) cur = ids[i]; }
     if (cur === atual) return;
     atual = cur;
     for (var k in links){ if (k === cur) links[k].setAttribute('aria-current', 'true'); else links[k].removeAttribute('aria-current'); }
-    if (grp) grp.classList.toggle('on', !!cur && byId[cur].master);
+    Array.prototype.forEach.call(grps, function (g) { var k = g.getAttribute('data-grp'); g.classList.toggle('on', !!cur && (k === 'master' ? !!byId[cur].master : byId[cur].grupo === k)); });
     var a = cur && links[cur];
     if (a && mlist.scrollWidth > mlist.clientWidth){
       var l = a.offsetLeft - mlist.offsetLeft, w = a.offsetWidth;
@@ -297,11 +328,16 @@ h1{margin:0;font-family:var(--display);font-stretch:112%;font-weight:800;font-si
   addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(tick); }, {passive: true});
   addEventListener('resize', function(){ if (!raf) raf = requestAnimationFrame(function(){ raf = 0; vistas(true); ativa(); }); });
 
-  /* ---------- âncoras: #linha-do-tempo ... #teia (e #teia-3d) ---------- */
+  /* ---------- âncoras: #linha-do-tempo ... #teia (e #teia-3d), #pistas, #dossie-faccoes, #teia-faccoes ---------- */
   function irPara(h){
-    var id = ALIAS[h] || h; if (!byId[id]) return false;
+    var id = ALIAS[h] || h;
+    if (!byId[id]){
+      /* separadores dos estudos de caso (#caso-master, #faccoes): mesma ancoragem, que resiste às filhas que crescem acima */
+      var es = d.getElementById(id); if (!es || !es.classList.contains('estudo')) return false;
+      alvo = id; alvoAte = Date.now() + 6000; es.scrollIntoView({block: 'start'}); return true;
+    }
     var fr = frames[id];
-    if (!fr) carrega(id, h !== id ? h : null);
+    if (!fr){ carrega(id, h !== id ? h : null, fragPend[id] || null); delete fragPend[id]; }
     else if (h !== id) post(fr, {pagina: 'hash', hash: h});
     alvo = id; alvoAte = Date.now() + 6000;
     d.getElementById(id).scrollIntoView({block: 'start'});

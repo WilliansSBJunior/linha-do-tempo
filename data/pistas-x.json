@@ -7,12 +7,12 @@
   "triagens": 2126,
   "por_relevancia": {
    "pista": 567,
-   "contexto": 593,
+   "contexto": 592,
    "coberto": 7,
-   "descartar": 959
+   "descartar": 960
   },
-  "itens_exportados": 1160,
-  "com_texto": 1160
+  "itens_exportados": 1159,
+  "com_texto": 1159
  },
  "por_desfecho": {
   "confirmado": 13,
@@ -499,7 +499,6 @@
    "2112630651182551086",
    "2112243348798869582",
    "2109273898626035952",
-   "2106172126088630748",
    "2095561141468418414",
    "2090963232961732634",
    "2076820802494746774",
@@ -1909,7 +1908,6 @@
    "2106367838126739540",
    "2106356253828288935",
    "2106184397351469237",
-   "2106172126088630748",
    "2106061170968858642",
    "2106059121212469345",
    "2105397764284612999",
@@ -3640,13 +3638,304 @@
    "1998169370116468911"
   ]
  },
+ "entidades_na_teia": {
+  "faccoes": [
+   "acx-itc",
+   "agro-industrial-tabu",
+   "agu",
+   "amprev",
+   "andre-luis-almeida-coutinho",
+   "andre-mendonca",
+   "antonio-carlos-camilo-antunes",
+   "augusto-ferreira-lima",
+   "banco-master",
+   "bet-bet",
+   "blaze",
+   "bn-financeira",
+   "bonnie-de-bonilha",
+   "brb",
+   "buzeira",
+   "cathedral",
+   "ciro-nogueira",
+   "cnlf-empreendimentos-imobiliarios",
+   "cnm-aviacao",
+   "comando-vermelho",
+   "daniel-vorcaro",
+   "davi-alcolumbre",
+   "deolane-bezerra",
+   "departamento-de-estado-eua",
+   "edson-fachin",
+   "eduardo-bolsonaro",
+   "eduardo-sodre-martins",
+   "efb-regimes-especiais-de-empresas",
+   "entre-investimentos-e-participacoes",
+   "felipe-cancado-vorcaro",
+   "flavio-bolsonaro",
+   "gabriela-prioli",
+   "gaeco-mp-sp",
+   "gold-style-fidc",
+   "havengate",
+   "instituto-conhecer-brasil",
+   "istoe",
+   "jaques-wagner",
+   "jocildo-lemos",
+   "jonas-esticado",
+   "luiz-estevao",
+   "luiz-fux",
+   "lulinha",
+   "mabruk-ii",
+   "macario-judice",
+   "marcio-poncio",
+   "marco-aurelio-santana-ribeiro",
+   "mario-frias",
+   "mauricio-camisotti",
+   "mc-poze-do-rodo",
+   "mc-ryan-sp",
+   "metropoles-marketing-e-propaganda",
+   "mohamad-hussein-mourad",
+   "operacao-carbono-oculto",
+   "operacao-credito-oculto",
+   "operacao-narco-fluxo",
+   "operacao-quasar",
+   "pablo-marcal",
+   "pcc",
+   "pce",
+   "pf",
+   "presidencia-da-republica",
+   "psd",
+   "psdb",
+   "quesede-ayres",
+   "raimundo-neto-e-silva-nogueira-lima",
+   "raphael-sousa-oliveira",
+   "ricardo-lewandowski",
+   "rioprevidencia",
+   "roberta-luchsinger",
+   "roberto-augusto-leme-da-silva",
+   "rodrigo-bacellar",
+   "seis-usinas-cedidas-a-entre",
+   "senival-moura",
+   "stf",
+   "stj",
+   "swedenberger-barbosa",
+   "tesouro-dos-eua-ofac",
+   "th-joias",
+   "trustee-dtvm",
+   "tse",
+   "uldurico-junior",
+   "victory-trading",
+   "virginia-fonseca",
+   "will-financeira",
+   "willer-tomaz",
+   "yury-do-paredao"
+  ],
+  "master": [
+   "a-turma",
+   "acm-neto",
+   "agro-industrial-tabu",
+   "agu",
+   "alessandro-stefanutto",
+   "alessandro-vieira",
+   "alexandre-de-moraes",
+   "alves-correa-verissimo-advocacia",
+   "amazonita",
+   "amazonprev",
+   "amprev",
+   "andre-kruschewsky",
+   "andre-mendonca",
+   "andre-valadao",
+   "antonio-carlos-camilo-antunes",
+   "antonio-carlos-freixo-junior",
+   "antonio-rueda",
+   "aparecidaprev",
+   "arandu-partners-holding",
+   "aster-petroleo",
+   "astralo-95",
+   "augusto-ferreira-lima",
+   "banco-letsbank",
+   "banco-master",
+   "banco-maxima",
+   "banco-pleno",
+   "bancos-associados-ao-fgc",
+   "bcb",
+   "belline-santana",
+   "benedito-goncalves",
+   "bianca-medeiros",
+   "bk-bank",
+   "bn-financeira",
+   "bonnie-de-bonilha",
+   "brb",
+   "btg-pactual",
+   "caio-carvalho-barros",
+   "camilla-ramos",
+   "cezinha-de-madureira",
+   "chiquinho-feitosa",
+   "ciro-nogueira",
+   "ciro-soares",
+   "claudio-castro",
+   "clava-forte-bank",
+   "cnj",
+   "cnlf-empreendimentos-imobiliarios",
+   "companhia-acucareira-vale-do-ceara-mirim",
+   "conafer",
+   "consult-inteligencia-tributaria",
+   "cpi-do-crime-organizado",
+   "cpmi-do-inss",
+   "credcesta",
+   "cvm",
+   "dalide-barbosa-alves-correa",
+   "daniel-lopes-monteiro",
+   "daniel-vorcaro",
+   "davi-alcolumbre",
+   "demais-14-rpps",
+   "destilaria-alcidia",
+   "diario-do-centro-do-mundo",
+   "dias-toffoli",
+   "diego-escosteguy",
+   "dublin-fidc",
+   "easynvest",
+   "edson-fachin",
+   "eduardo-bolsonaro",
+   "eduardo-sodre-martins",
+   "efb-regimes-especiais-de-empresas",
+   "enrique-de-abreu-lewandowski",
+   "entre-investimentos-e-participacoes",
+   "estados-e-municipios",
+   "etc-participacoes",
+   "eugenio-kruschewsky",
+   "fabiano-zettel",
+   "fabio-faria",
+   "fabio-wajngarten",
+   "felipe-cancado-vorcaro",
+   "fgc",
+   "flavio-bolsonaro",
+   "flavio-dino",
+   "fsw-spe",
+   "gabino-kruschewsky-advogados-associados",
+   "gabriel-galipolo",
+   "gaeco-mp-sp",
+   "gilmar-mendes",
+   "go-up-entertainment",
+   "gold-style-fidc",
+   "governo-do-distrito-federal",
+   "grupo-fictor",
+   "grupo-globo",
+   "grupo-massa-ratinho",
+   "grupo-multipar",
+   "grupo-voto",
+   "guido-mantega",
+   "hans-95",
+   "hans-ii",
+   "havengate",
+   "henrique-meirelles",
+   "henrique-vorcaro",
+   "hugo-motta",
+   "ibaneis-advocacia",
+   "ibaneis-rocha",
+   "igreja-batista-da-lagoinha",
+   "influenciadores-abordados",
+   "inss",
+   "instituto-abradecont",
+   "iprev-maceio",
+   "irmaos-de-toffoli",
+   "istoe",
+   "jair-bolsonaro",
+   "jaques-wagner",
+   "joao-carlos-mansur",
+   "jocildo-lemos",
+   "kassio-nunes-marques",
+   "kevin-de-carvalho-marques",
+   "lagoinha-belvedere",
+   "laguz-i-e-reag-legal-claims",
+   "leo-dias-comunicacao-e-jornalismo",
+   "leo-serrano-giunchetti",
+   "lewandowski-advocacia",
+   "luciano-huck",
+   "luis-roberto-irmao-de-paulo-sergio-neves-de-souza",
+   "luiz-bacci",
+   "luiz-estevao",
+   "luiz-fux",
+   "luiz-inacio-lula-da-silva",
+   "luiz-phillipi-mourao",
+   "luiz-renno-netto",
+   "mabruk-ii",
+   "malu-gaspar",
+   "marcus-vinicius-furtado-coelho",
+   "maridt-participacoes",
+   "mario-frias",
+   "mario-umberto-degani",
+   "mauricio-camisotti",
+   "metropoles-marketing-e-propaganda",
+   "michel-temer",
+   "ministerio-da-previdencia-social",
+   "mohamad-hussein-mourad",
+   "monteiro-rusu-cameirao-e-bercht-advogados",
+   "mpf",
+   "nelson-tanure",
+   "newton-ramos",
+   "nikolas-ferreira",
+   "operacao-carbono-oculto",
+   "operacao-compliance-zero",
+   "operacao-credito-oculto",
+   "operacao-quasar",
+   "operacao-sem-desconto",
+   "otto-alencar",
+   "partido-novo-diretorio-de-minas-gerais",
+   "paulo-calixto",
+   "paulo-gonet",
+   "paulo-henrique-costa",
+   "paulo-sergio-neves-de-souza",
+   "pcc",
+   "pedro-gonet-branco",
+   "pf",
+   "prime-aviation",
+   "quadra-gestao-de-recursos",
+   "queiroga-vieira-queiroz-e-ramos-advocacia",
+   "raimundo-neto-e-silva-nogueira-lima",
+   "raizen-energia",
+   "reag-investimentos",
+   "reag-trust-dtvm",
+   "rede-super",
+   "ricardo-lewandowski",
+   "rioprevidencia",
+   "roberta-rangel",
+   "roberto-augusto-leme-da-silva",
+   "roberto-campos-neto",
+   "roberto-de-rezende-barbosa",
+   "rodrigo-fux",
+   "ronaldo-bento",
+   "rui-costa",
+   "sao-roque-prev",
+   "saul-dutra-sabba",
+   "sefer",
+   "seis-usinas-cedidas-a-entre",
+   "ssa-fidc",
+   "stf",
+   "super-empreendimentos",
+   "tarcisio-de-freitas",
+   "tcu",
+   "thiago-miranda",
+   "tirreno",
+   "trf-1",
+   "una-agroindustrial",
+   "usina-cambahyba",
+   "usina-cansancao-de-sinimbu",
+   "usina-capricho",
+   "usina-santa-tereza",
+   "valeria-rodrigues-linhares",
+   "viviane-barci-de-moraes",
+   "walfrido-warde",
+   "warde-advogados",
+   "will-financeira",
+   "xp-investimentos"
+  ]
+ },
  "temas": [
   {
    "id": "caso-master",
    "nome": "Caso Master",
-   "n": 693,
+   "n": 692,
    "n_pista": 400,
-   "n_contexto": 293,
+   "n_contexto": 292,
    "itens": [
     {
      "id": "2112536093971091822",
@@ -3690,7 +3979,8 @@
        "rotulo": "Defendeu nas redes a venda do Master ao BRB a pedido de Vorcaro (mensagens)",
        "de": "daniel-vorcaro",
        "para": "pablo-marcal",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -3760,7 +4050,8 @@
        "rotulo": "Defendeu nas redes a venda do Master ao BRB a pedido de Vorcaro (mensagens)",
        "de": "daniel-vorcaro",
        "para": "pablo-marcal",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -3825,7 +4116,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -3888,7 +4180,8 @@
        "rotulo": "Contrato de conteúdo citado em mensagens do banco (negado)",
        "de": "banco-master",
        "para": "gabriela-prioli",
-       "natureza": "alegacao"
+       "natureza": "alegacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -3952,7 +4245,8 @@
        "rotulo": "Summit Brasil-EUA (Nova York, 15/05/2024) e Domingão",
        "de": "banco-master",
        "para": "grupo-globo",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -4018,7 +4312,8 @@
        "rotulo": "Autorizou R$ 51,9 mi e recebia textos antes da publicação (diálogos da PF)",
        "de": "daniel-vorcaro",
        "para": "metropoles-marketing-e-propaganda",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -4132,7 +4427,8 @@
        "rotulo": "Contrato de conteúdo citado em mensagens do banco (negado)",
        "de": "banco-master",
        "para": "gabriela-prioli",
-       "natureza": "alegacao"
+       "natureza": "alegacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -4190,7 +4486,8 @@
        "rotulo": "Autorizou R$ 51,9 mi e recebia textos antes da publicação (diálogos da PF)",
        "de": "daniel-vorcaro",
        "para": "metropoles-marketing-e-propaganda",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -4343,7 +4640,8 @@
        "rotulo": "Entradas no Planalto com lobista (01/03 e 03/04/2024)",
        "de": "daniel-vorcaro",
        "para": "presidencia-da-republica",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -4604,7 +4902,8 @@
        "rotulo": "30% indiretos na casa de apostas (mensagens reveladas pelo Valor)",
        "de": "daniel-vorcaro",
        "para": "bet-bet",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -4917,7 +5216,8 @@
        "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
        "de": "roberta-luchsinger",
        "para": "marco-aurelio-santana-ribeiro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -5084,7 +5384,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -5219,7 +5520,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -5871,7 +6173,8 @@
        "rotulo": "Possível apoio na custódia (hipótese da PF)",
        "de": "pcc",
        "para": "daniel-vorcaro",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -6070,7 +6373,8 @@
        "rotulo": "Beneficiário final das operações da Trustee (relatório da PF)",
        "de": "daniel-vorcaro",
        "para": "trustee-dtvm",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -7587,7 +7891,8 @@
        "rotulo": "US$ 12,3 mi enviados (fev. a set/2025)",
        "de": "entre-investimentos-e-participacoes",
        "para": "havengate",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -7804,7 +8109,8 @@
        "rotulo": "US$ 12,3 mi enviados (fev. a set/2025)",
        "de": "entre-investimentos-e-participacoes",
        "para": "havengate",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -7863,7 +8169,8 @@
        "rotulo": "US$ 12,3 mi enviados (fev. a set/2025)",
        "de": "entre-investimentos-e-participacoes",
        "para": "havengate",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -7921,7 +8228,8 @@
        "rotulo": "US$ 12,3 mi enviados (fev. a set/2025)",
        "de": "entre-investimentos-e-participacoes",
        "para": "havengate",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -8056,7 +8364,8 @@
        "rotulo": "Doação de R$ 3 mi (campanha 2022)",
        "de": "fabiano-zettel",
        "para": "jair-bolsonaro",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -8124,7 +8433,8 @@
        "rotulo": "Suposta milícia privada",
        "de": "a-turma",
        "para": "daniel-vorcaro",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -10460,7 +10770,8 @@
        "rotulo": "R$ 26,2 mi (fev-abr/2025, relatório da Polícia Civil-SP)",
        "de": "entre-investimentos-e-participacoes",
        "para": "acx-itc",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -10817,7 +11128,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -10883,7 +11195,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -11217,7 +11530,8 @@
        "rotulo": "R$ 26,2 mi (fev-abr/2025, relatório da Polícia Civil-SP)",
        "de": "entre-investimentos-e-participacoes",
        "para": "acx-itc",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -11440,7 +11754,8 @@
        "rotulo": "Teria dado canetas de Mounjaro (ago/2024, mensagens)",
        "de": "roberto-augusto-leme-da-silva",
        "para": "davi-alcolumbre",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -11496,7 +11811,8 @@
        "rotulo": "Defendeu nas redes a venda do Master ao BRB a pedido de Vorcaro (mensagens)",
        "de": "daniel-vorcaro",
        "para": "pablo-marcal",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -11668,7 +11984,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -11788,7 +12105,8 @@
        "rotulo": "Suposta milícia privada",
        "de": "a-turma",
        "para": "daniel-vorcaro",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -11848,7 +12166,8 @@
        "rotulo": "US$ 12,3 mi enviados (fev. a set/2025)",
        "de": "entre-investimentos-e-participacoes",
        "para": "havengate",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -11949,7 +12268,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -12007,7 +12327,8 @@
        "rotulo": "Autorizou R$ 51,9 mi e recebia textos antes da publicação (diálogos da PF)",
        "de": "daniel-vorcaro",
        "para": "metropoles-marketing-e-propaganda",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -12154,7 +12475,8 @@
        "rotulo": "Entradas no Planalto com lobista (01/03 e 03/04/2024)",
        "de": "daniel-vorcaro",
        "para": "presidencia-da-republica",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -12268,7 +12590,8 @@
        "rotulo": "Entradas no Planalto com lobista (01/03 e 03/04/2024)",
        "de": "daniel-vorcaro",
        "para": "presidencia-da-republica",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -12390,7 +12713,8 @@
        "rotulo": "R$ 6,6 mi do Master (e R$ 11,3 mi da JBS)",
        "de": "banco-master",
        "para": "consult-inteligencia-tributaria",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -12446,7 +12770,8 @@
        "rotulo": "R$ 6,6 mi do Master (e R$ 11,3 mi da JBS)",
        "de": "banco-master",
        "para": "consult-inteligencia-tributaria",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -14634,7 +14959,8 @@
        "rotulo": "Doação de R$ 3 mi (campanha 2022)",
        "de": "fabiano-zettel",
        "para": "jair-bolsonaro",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -14767,7 +15093,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -14862,7 +15189,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -14998,7 +15326,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -15125,7 +15454,8 @@
        "rotulo": "R$ 570 mil durante aval da União a empréstimo de Goiânia (comprovantes)",
        "de": "quesede-ayres",
        "para": "roberta-luchsinger",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -15393,7 +15723,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -15778,7 +16109,8 @@
        "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
        "de": "roberta-luchsinger",
        "para": "swedenberger-barbosa",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -15945,7 +16277,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -16005,7 +16338,8 @@
        "rotulo": "R$ 570 mil durante aval da União a empréstimo de Goiânia (comprovantes)",
        "de": "quesede-ayres",
        "para": "roberta-luchsinger",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -16111,7 +16445,8 @@
        "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
        "de": "roberta-luchsinger",
        "para": "marco-aurelio-santana-ribeiro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -19333,7 +19668,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -22988,7 +23324,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -23042,7 +23379,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -23096,7 +23434,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -23492,7 +23831,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -23953,7 +24293,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -24158,7 +24499,8 @@
        "rotulo": "Suposta milícia privada",
        "de": "a-turma",
        "para": "daniel-vorcaro",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -24362,7 +24704,8 @@
        "rotulo": "Ação por danos morais (R$ 60 mil) por fala sobre o PCC",
        "de": "viviane-barci-de-moraes",
        "para": "alessandro-vieira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": null
       },
       "tarefas": [
        {
@@ -24661,7 +25004,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -24753,7 +25097,8 @@
        "rotulo": "Autorizou R$ 51,9 mi e recebia textos antes da publicação (diálogos da PF)",
        "de": "daniel-vorcaro",
        "para": "metropoles-marketing-e-propaganda",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -25605,39 +25950,6 @@
      "duplicata_de": null,
      "relacionados": [],
      "texto": "  Em mensagens de dezembro de 2024, Luciano Huck convidou Daniel Vorcaro para comer pizza em sua casa, na companhia de Ronaldo Fenômeno, e sugeriu articular a candidatura do ex-jogador à presidência da CBF; o banqueiro não respondeu.",
-     "card": null,
-     "desfecho": null
-    },
-    {
-     "id": "2106172126088630748",
-     "url": "https://x.com/republiqueBRA/status/2106172126088630748",
-     "data": "2026-10-02",
-     "relevancia": "contexto",
-     "tipo": "alegacao",
-     "prioridade": 3,
-     "afirmacao": "vida privada — não entra",
-     "fonte_citada": null,
-     "nota": null,
-     "temas": [
-      "caso-master"
-     ],
-     "marcadores": [
-      "caso-master",
-      "influenciadores"
-     ],
-     "entidades": [
-      {
-       "nome": "Yasmin Brunet",
-       "id": null
-      },
-      {
-       "nome": "Daniel Vorcaro",
-       "id": "daniel-vorcaro"
-      }
-     ],
-     "duplicata_de": null,
-     "relacionados": [],
-     "texto": "  “Baile da Sereia”, festa de aniversário de 36 anos de Yasmin Brunet, realizada em 2024 no Hotel Rosewood, em São Paulo, teria custado R$ 1,5 milhão e sido bancado por Daniel Vorcaro.",
      "card": null,
      "desfecho": null
     },
@@ -31875,7 +32187,8 @@
        "rotulo": "Apura lavagem por meio de casas de apostas",
        "de": "pf",
        "para": "willer-tomaz",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -31934,7 +32247,8 @@
        "rotulo": "Indiciado no esquema de descontos do INSS (jul/2026)",
        "de": "pf",
        "para": "alessandro-stefanutto",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": null
       },
       "tarefas": [
        {
@@ -32044,7 +32358,8 @@
        "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
        "de": "roberta-luchsinger",
        "para": "swedenberger-barbosa",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -32104,7 +32419,8 @@
        "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
        "de": "roberta-luchsinger",
        "para": "swedenberger-barbosa",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -32159,7 +32475,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -32290,7 +32607,8 @@
        "rotulo": "Inquéritos autorizados por Mendonça (30/07) e Dino (04/08/2026)",
        "de": "stf",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -32349,7 +32667,8 @@
        "rotulo": "Indiciado no esquema de descontos do INSS (jul/2026)",
        "de": "pf",
        "para": "alessandro-stefanutto",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": null
       },
       "tarefas": [
        {
@@ -32406,7 +32725,8 @@
        "rotulo": "R$ 514,5 mi dentro do esquema do Careca do INSS (CPMI)",
        "de": "antonio-carlos-camilo-antunes",
        "para": "victory-trading",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -32729,7 +33049,8 @@
        "rotulo": "Inquéritos autorizados por Mendonça (30/07) e Dino (04/08/2026)",
        "de": "stf",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -32801,7 +33122,8 @@
        "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
        "de": "roberta-luchsinger",
        "para": "marco-aurelio-santana-ribeiro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -33159,7 +33481,8 @@
        "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
        "de": "roberta-luchsinger",
        "para": "swedenberger-barbosa",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -33909,7 +34232,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -33966,7 +34290,8 @@
        "rotulo": "Preso na Op. Última Parada (lavagem do PCC na Transunião); solto por HC",
        "de": "senival-moura",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -34052,7 +34377,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -34103,7 +34429,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -34527,7 +34854,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -34650,7 +34978,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -34932,7 +35261,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -35740,7 +36070,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -36488,7 +36819,8 @@
        "rotulo": "Doação de R$ 3 mi (campanha 2022)",
        "de": "fabiano-zettel",
        "para": "jair-bolsonaro",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -36730,7 +37062,8 @@
        "rotulo": "30% indiretos na casa de apostas (mensagens reveladas pelo Valor)",
        "de": "daniel-vorcaro",
        "para": "bet-bet",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37016,7 +37349,8 @@
        "rotulo": "Apura lavagem por meio de casas de apostas",
        "de": "pf",
        "para": "willer-tomaz",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37077,7 +37411,8 @@
        "rotulo": "Réu na Justiça Federal por envolvimento com o CV (denúncia do MPF)",
        "de": "th-joias",
        "para": "comando-vermelho",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37228,7 +37563,8 @@
        "rotulo": "Possível apoio na custódia (hipótese da PF)",
        "de": "pcc",
        "para": "daniel-vorcaro",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37298,7 +37634,8 @@
        "rotulo": "Beneficiário final das operações da Trustee (relatório da PF)",
        "de": "daniel-vorcaro",
        "para": "trustee-dtvm",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37376,7 +37713,8 @@
        "rotulo": "Réu na Justiça Federal por envolvimento com o CV (denúncia do MPF)",
        "de": "th-joias",
        "para": "comando-vermelho",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37437,7 +37775,8 @@
        "rotulo": "Suposta milícia privada",
        "de": "a-turma",
        "para": "daniel-vorcaro",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -37494,7 +37833,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37712,7 +38052,8 @@
        "rotulo": "R$ 26,2 mi (fev-abr/2025, relatório da Polícia Civil-SP)",
        "de": "entre-investimentos-e-participacoes",
        "para": "acx-itc",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37783,7 +38124,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37893,7 +38235,8 @@
        "rotulo": "R$ 514,5 mi dentro do esquema do Careca do INSS (CPMI)",
        "de": "antonio-carlos-camilo-antunes",
        "para": "victory-trading",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -37970,7 +38313,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38045,7 +38389,8 @@
        "rotulo": "Preso na 5ª fase da Op. Unha e Carne (02/07/2026)",
        "de": "pf",
        "para": "marcio-poncio",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38121,7 +38466,8 @@
        "rotulo": "R$ 514,5 mi dentro do esquema do Careca do INSS (CPMI)",
        "de": "antonio-carlos-camilo-antunes",
        "para": "victory-trading",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38197,7 +38543,8 @@
        "rotulo": "R$ 551,7 mil por táxi aéreo (2022, dados do TSE)",
        "de": "psdb",
        "para": "cnm-aviacao",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38254,7 +38601,8 @@
        "rotulo": "Preso na Op. Última Parada (lavagem do PCC na Transunião); solto por HC",
        "de": "senival-moura",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38318,7 +38666,8 @@
        "rotulo": "Preso na Op. Última Parada (lavagem do PCC na Transunião); solto por HC",
        "de": "senival-moura",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38387,7 +38736,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38452,7 +38802,8 @@
        "rotulo": "Pagamentos a empresas da influenciadora (publicidade de apostas, 2025)",
        "de": "blaze",
        "para": "virginia-fonseca",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38516,7 +38867,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38575,7 +38927,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38679,7 +39032,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38773,7 +39127,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38824,7 +39179,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38885,7 +39241,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -38964,7 +39321,8 @@
        "rotulo": "R$ 26,2 mi (fev-abr/2025, relatório da Polícia Civil-SP)",
        "de": "entre-investimentos-e-participacoes",
        "para": "acx-itc",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39046,7 +39404,8 @@
        "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
        "de": "mc-ryan-sp",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39104,7 +39463,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39197,7 +39557,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39254,7 +39615,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39325,7 +39687,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39453,7 +39816,8 @@
        "rotulo": "R$ 430 mil de produtora ligada ao MC (PF)",
        "de": "mc-ryan-sp",
        "para": "deolane-bezerra",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39523,7 +39887,8 @@
        "rotulo": "R$ 430 mil de produtora ligada ao MC (PF)",
        "de": "mc-ryan-sp",
        "para": "deolane-bezerra",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39592,7 +39957,8 @@
        "rotulo": "Réu por suspeita de negociar fuga de presos do PCE (Op. Duas Rosas)",
        "de": "uldurico-junior",
        "para": "pce",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39661,7 +40027,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39729,7 +40096,8 @@
        "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
        "de": "mc-ryan-sp",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39798,7 +40166,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39866,7 +40235,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39929,7 +40299,8 @@
        "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
        "de": "mc-ryan-sp",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -39995,7 +40366,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -40086,7 +40458,8 @@
        "rotulo": "Cassação mantida por abuso de poder político e econômico (07/04/2026)",
        "de": "tse",
        "para": "andre-luis-almeida-coutinho",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -40459,7 +40832,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "macario-judice",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -40538,7 +40912,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "rodrigo-bacellar",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -40672,7 +41047,8 @@
        "rotulo": "Teria dado canetas de Mounjaro (ago/2024, mensagens)",
        "de": "roberto-augusto-leme-da-silva",
        "para": "davi-alcolumbre",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -40790,7 +41166,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "rodrigo-bacellar",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -40963,7 +41340,8 @@
        "rotulo": "Suspeita de receber documentos vazados do STJ (PF)",
        "de": "willer-tomaz",
        "para": "stj",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -41062,7 +41440,8 @@
        "rotulo": "Apura lavagem por meio de casas de apostas",
        "de": "pf",
        "para": "willer-tomaz",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -41446,7 +41825,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -41561,7 +41941,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -41692,7 +42073,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -41770,7 +42152,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -41870,7 +42253,8 @@
        "rotulo": "R$ 514,5 mi dentro do esquema do Careca do INSS (CPMI)",
        "de": "antonio-carlos-camilo-antunes",
        "para": "victory-trading",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -41927,7 +42311,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -42122,7 +42507,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -42182,7 +42568,8 @@
        "rotulo": "Suposta milícia privada",
        "de": "a-turma",
        "para": "daniel-vorcaro",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -42739,7 +43126,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -42800,7 +43188,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -42928,7 +43317,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43007,7 +43397,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43059,7 +43450,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43322,7 +43714,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43378,7 +43771,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43531,7 +43925,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43611,7 +44006,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43737,7 +44133,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -43838,7 +44235,8 @@
        "rotulo": "Ação por danos morais (R$ 60 mil) por fala sobre o PCC",
        "de": "viviane-barci-de-moraes",
        "para": "alessandro-vieira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": null
       },
       "tarefas": [
        {
@@ -44032,7 +44430,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "macario-judice",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -44662,7 +45061,8 @@
        "rotulo": "Designado organização terrorista (28/05/2026; vigência em 05/06)",
        "de": "departamento-de-estado-eua",
        "para": "pcc",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -47660,7 +48060,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "rodrigo-bacellar",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -48661,7 +49062,8 @@
        "rotulo": "30% indiretos na casa de apostas (mensagens reveladas pelo Valor)",
        "de": "daniel-vorcaro",
        "para": "bet-bet",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -48737,7 +49139,8 @@
        "rotulo": "Defendeu nas redes a venda do Master ao BRB a pedido de Vorcaro (mensagens)",
        "de": "daniel-vorcaro",
        "para": "pablo-marcal",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -48924,7 +49327,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -48987,7 +49391,8 @@
        "rotulo": "Contrato de conteúdo citado em mensagens do banco (negado)",
        "de": "banco-master",
        "para": "gabriela-prioli",
-       "natureza": "alegacao"
+       "natureza": "alegacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49051,7 +49456,8 @@
        "rotulo": "Summit Brasil-EUA (Nova York, 15/05/2024) e Domingão",
        "de": "banco-master",
        "para": "grupo-globo",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -49117,7 +49523,8 @@
        "rotulo": "Autorizou R$ 51,9 mi e recebia textos antes da publicação (diálogos da PF)",
        "de": "daniel-vorcaro",
        "para": "metropoles-marketing-e-propaganda",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49231,7 +49638,8 @@
        "rotulo": "Contrato de conteúdo citado em mensagens do banco (negado)",
        "de": "banco-master",
        "para": "gabriela-prioli",
-       "natureza": "alegacao"
+       "natureza": "alegacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49292,7 +49700,8 @@
        "rotulo": "Voos em jato executivo na Europa (abr-mai/2025, PF via Folha)",
        "de": "cathedral",
        "para": "flavio-bolsonaro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49372,7 +49781,8 @@
        "rotulo": "30% indiretos na casa de apostas (mensagens reveladas pelo Valor)",
        "de": "daniel-vorcaro",
        "para": "bet-bet",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49437,7 +49847,8 @@
        "rotulo": "Apura lavagem por meio de casas de apostas",
        "de": "pf",
        "para": "willer-tomaz",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49542,7 +49953,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49659,7 +50071,8 @@
        "rotulo": "R$ 26,2 mi (fev-abr/2025, relatório da Polícia Civil-SP)",
        "de": "entre-investimentos-e-participacoes",
        "para": "acx-itc",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49740,7 +50153,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49815,7 +50229,8 @@
        "rotulo": "Preso na 5ª fase da Op. Unha e Carne (02/07/2026)",
        "de": "pf",
        "para": "marcio-poncio",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49882,7 +50297,8 @@
        "rotulo": "Emendas de R$ 4,9 mi para shows do cantor, de quem é sócio",
        "de": "yury-do-paredao",
        "para": "jonas-esticado",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -49951,7 +50367,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50020,7 +50437,8 @@
        "rotulo": "Ingressos de R$ 63,3 mil e 74 ligações (relatório da PF)",
        "de": "augusto-ferreira-lima",
        "para": "jaques-wagner",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50085,7 +50503,8 @@
        "rotulo": "Pagamentos a empresas da influenciadora (publicidade de apostas, 2025)",
        "de": "blaze",
        "para": "virginia-fonseca",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50149,7 +50568,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50260,7 +50680,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50329,7 +50750,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50408,7 +50830,8 @@
        "rotulo": "R$ 26,2 mi (fev-abr/2025, relatório da Polícia Civil-SP)",
        "de": "entre-investimentos-e-participacoes",
        "para": "acx-itc",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50490,7 +50913,8 @@
        "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
        "de": "mc-ryan-sp",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50560,7 +50984,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50637,7 +51062,8 @@
        "rotulo": "R$ 430 mil de produtora ligada ao MC (PF)",
        "de": "mc-ryan-sp",
        "para": "deolane-bezerra",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50707,7 +51133,8 @@
        "rotulo": "R$ 430 mil de produtora ligada ao MC (PF)",
        "de": "mc-ryan-sp",
        "para": "deolane-bezerra",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50776,7 +51203,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50844,7 +51272,8 @@
        "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
        "de": "mc-ryan-sp",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50913,7 +51342,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -50986,7 +51416,8 @@
        "rotulo": "Juiz aplica a Lei Antifacção citando PCC e CV (investigação)",
        "de": "mc-ryan-sp",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -51052,7 +51483,8 @@
        "rotulo": "Preso na operação (15/04/2026); solto pelo TRF-3 (13/05)",
        "de": "operacao-narco-fluxo",
        "para": "mc-ryan-sp",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -51291,7 +51723,8 @@
        "rotulo": "Voos em jato executivo na Europa (abr-mai/2025, PF via Folha)",
        "de": "cathedral",
        "para": "flavio-bolsonaro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -51526,7 +51959,8 @@
        "rotulo": "Autorizou R$ 51,9 mi e recebia textos antes da publicação (diálogos da PF)",
        "de": "daniel-vorcaro",
        "para": "metropoles-marketing-e-propaganda",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -51665,7 +52099,8 @@
        "rotulo": "Apura lavagem por meio de casas de apostas",
        "de": "pf",
        "para": "willer-tomaz",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -51808,7 +52243,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -51911,7 +52347,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -51974,7 +52411,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -52069,7 +52507,8 @@
        "rotulo": "Pagamentos a empresas da influenciadora (publicidade de apostas, 2025)",
        "de": "blaze",
        "para": "virginia-fonseca",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -52125,7 +52564,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -52188,7 +52628,8 @@
        "rotulo": "Pagamentos a empresas da influenciadora (publicidade de apostas, 2025)",
        "de": "blaze",
        "para": "virginia-fonseca",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -52258,7 +52699,8 @@
        "rotulo": "Caminho do dinheiro do filme",
        "de": "havengate",
        "para": "go-up-entertainment",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -52317,7 +52759,8 @@
        "rotulo": "Pagamentos a empresas da influenciadora (publicidade de apostas, 2025)",
        "de": "blaze",
        "para": "virginia-fonseca",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -52373,7 +52816,8 @@
        "rotulo": "R$ 1,3 mi à Buzeira Digital em menos de um mês (Polícia Civil)",
        "de": "victory-trading",
        "para": "buzeira",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -52553,7 +52997,8 @@
        "rotulo": "Ré com Marcola por lavagem e organização criminosa (Op. Vérnix, 16/06/2026)",
        "de": "deolane-bezerra",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -53878,7 +54323,8 @@
        "rotulo": "30% indiretos na casa de apostas (mensagens reveladas pelo Valor)",
        "de": "daniel-vorcaro",
        "para": "bet-bet",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -53997,7 +54443,8 @@
        "rotulo": "Voos em jato executivo na Europa (abr-mai/2025, PF via Folha)",
        "de": "cathedral",
        "para": "flavio-bolsonaro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54115,7 +54562,8 @@
        "rotulo": "Réu na Justiça Federal por envolvimento com o CV (denúncia do MPF)",
        "de": "th-joias",
        "para": "comando-vermelho",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54214,7 +54662,8 @@
        "rotulo": "Réu na Justiça Federal por envolvimento com o CV (denúncia do MPF)",
        "de": "th-joias",
        "para": "comando-vermelho",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54470,7 +54919,8 @@
        "rotulo": "Doação de R$ 3 mi (campanha 2022)",
        "de": "fabiano-zettel",
        "para": "jair-bolsonaro",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -54645,7 +55095,8 @@
        "rotulo": "Preso na 5ª fase da Op. Unha e Carne (02/07/2026)",
        "de": "pf",
        "para": "marcio-poncio",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54724,7 +55175,8 @@
        "rotulo": "R$ 551,7 mil por táxi aéreo (2022, dados do TSE)",
        "de": "psdb",
        "para": "cnm-aviacao",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54834,7 +55286,8 @@
        "rotulo": "Preso na Op. Última Parada (lavagem do PCC na Transunião); solto por HC",
        "de": "senival-moura",
        "para": "pcc",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54899,7 +55352,8 @@
        "rotulo": "Emendas de R$ 4,9 mi para shows do cantor, de quem é sócio",
        "de": "yury-do-paredao",
        "para": "jonas-esticado",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -54968,7 +55422,8 @@
        "rotulo": "Réu por suspeita de negociar fuga de presos do PCE (Op. Duas Rosas)",
        "de": "uldurico-junior",
        "para": "pce",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55045,7 +55500,8 @@
        "rotulo": "Cassação mantida por abuso de poder político e econômico (07/04/2026)",
        "de": "tse",
        "para": "andre-luis-almeida-coutinho",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55171,7 +55627,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "macario-judice",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55250,7 +55707,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "rodrigo-bacellar",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55322,7 +55780,8 @@
        "rotulo": "Teria dado canetas de Mounjaro (ago/2024, mensagens)",
        "de": "roberto-augusto-leme-da-silva",
        "para": "davi-alcolumbre",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55393,7 +55852,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "rodrigo-bacellar",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55566,7 +56026,8 @@
        "rotulo": "Voos em jato executivo na Europa (abr-mai/2025, PF via Folha)",
        "de": "cathedral",
        "para": "flavio-bolsonaro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55695,7 +56156,8 @@
        "rotulo": "Apura lavagem por meio de casas de apostas",
        "de": "pf",
        "para": "willer-tomaz",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55760,7 +56222,8 @@
        "rotulo": "Suspeita de receber documentos vazados do STJ (PF)",
        "de": "willer-tomaz",
        "para": "stj",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -55968,7 +56431,8 @@
        "rotulo": "Doação de R$ 3 mi (campanha 2022)",
        "de": "fabiano-zettel",
        "para": "jair-bolsonaro",
-       "natureza": "documentada"
+       "natureza": "documentada",
+       "teia": "master"
       },
       "tarefas": [
        {
@@ -56475,7 +56939,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "macario-judice",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -56819,7 +57284,8 @@
        "rotulo": "Réus no STF por vazamento da Op. Zargun (19/08/2026)",
        "de": "rodrigo-bacellar",
        "para": "th-joias",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57236,7 +57702,8 @@
        "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
        "de": "roberta-luchsinger",
        "para": "swedenberger-barbosa",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57290,7 +57757,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57399,7 +57867,8 @@
        "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
        "de": "roberta-luchsinger",
        "para": "marco-aurelio-santana-ribeiro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57454,7 +57923,8 @@
        "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
        "de": "roberta-luchsinger",
        "para": "swedenberger-barbosa",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57547,7 +58017,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57646,7 +58117,8 @@
        "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
        "de": "roberta-luchsinger",
        "para": "marco-aurelio-santana-ribeiro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57701,7 +58173,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57791,7 +58264,8 @@
        "rotulo": "Pagava despesas e citava 'sociedade' (mensagens obtidas pela PF)",
        "de": "roberta-luchsinger",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -57847,7 +58321,8 @@
        "rotulo": "Inquéritos autorizados por Mendonça (30/07) e Dino (04/08/2026)",
        "de": "stf",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -58134,7 +58609,8 @@
        "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
        "de": "roberta-luchsinger",
        "para": "marco-aurelio-santana-ribeiro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -58340,7 +58816,8 @@
        "rotulo": "Quadro dado ao então nº 2 da Saúde (mensagens; ele nega)",
        "de": "roberta-luchsinger",
        "para": "swedenberger-barbosa",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -58426,7 +58903,8 @@
        "rotulo": "Pagou fatura de joias (R$ 9,2 mil); suspeitos no caso Unigel",
        "de": "roberta-luchsinger",
        "para": "marco-aurelio-santana-ribeiro",
-       "natureza": "reportada"
+       "natureza": "reportada",
+       "teia": "faccoes"
       },
       "tarefas": [
        {
@@ -58619,7 +59097,8 @@
        "rotulo": "Inquéritos autorizados por Mendonça (30/07) e Dino (04/08/2026)",
        "de": "stf",
        "para": "lulinha",
-       "natureza": "investigacao"
+       "natureza": "investigacao",
+       "teia": "faccoes"
       },
       "tarefas": [
        {

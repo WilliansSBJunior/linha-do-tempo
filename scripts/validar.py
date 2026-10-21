@@ -2710,6 +2710,120 @@ def paginas(con, exp):
                       AND s.indicador_id <> 'violencia.homicidios' AND COALESCE(s.obs,'') <> 'RACE_RATES'""")[0][0])
 
 
+PAGINAS_FACCOES = {"pistas.html": ["pistas-x-marcadores.json", "pistas-x.json"], "dossie-faccoes.html": ["dossie-faccoes.json"]}
+VIDA_PRIVADA = re.compile(r"vida privada", re.I)
+
+
+def faccoes_midia(con, exp):
+    """Facções, mídia e poder: vida privada fora do export, campos aditivos de pistas-x.json (teia da relação, nós das teias), o dossiê
+    (data/curadoria/dossie-faccoes.json -> data/dossie-faccoes.json: todo id e todo token {rel:..}/{ent:..} existe e está numa teia) e as
+    páginas novas (pistas.html, dossie-faccoes.html, teia-faccoes.html e teia.html?teia=faccoes)."""
+    secao("Facções, mídia e poder (pistas.html, dossie-faccoes.json, teia.html?teia=faccoes)")
+    # vida privada: o tweet nem entra no export (a triagem que diz "vida privada" não pode ser pista/contexto)
+    esperar("triagens de vida privada como pista/contexto", [r[0] for r in q(con, """SELECT post_id FROM post_triagem WHERE relevancia IN ('pista','contexto')
+            AND (lower(afirmacao) LIKE '%vida privada%' OR lower(COALESCE(nota,'')) LIKE '%vida privada%')""")], [])
+    pj = exp["pistas-x.json"]
+    itens = {i["id"]: i for g in pj["temas"] for i in g["itens"]}
+    esperar("pistas-x.json: itens de vida privada", sorted(i for i, v in itens.items() if VIDA_PRIVADA.search((v["afirmacao"] or "") + " " + (v["nota"] or ""))), [])
+    # relacao.teia e entidades_na_teia batem com as duas teias exportadas
+    tf, tp = exp["teia-faccoes.json"], exp["teia.json"]
+    esperar("pistas-x.json: entidades_na_teia.faccoes == nós de teia-faccoes.json", pj["entidades_na_teia"]["faccoes"] == sorted(n["id"] for n in tf["N"]), True)
+    esperar("pistas-x.json: entidades_na_teia.master == nós de teia.json", pj["entidades_na_teia"]["master"] == sorted(n["id"] for n in tp["N"]), True)
+    par_f = {frozenset((r["a_id"], r["b_id"])) for e in tf["E"] for r in e["r"]}
+    par_m = {frozenset((r["a_id"], r["b_id"])) for e in tp["E"] for r in e["r"]}
+    ruins = []
+    for i, v in itens.items():
+        rel = (v["desfecho"] or {}).get("relacao")
+        if not rel:
+            continue
+        par = frozenset((rel["de"], rel["para"]))
+        if rel["teia"] not in (None, "faccoes", "master") or (rel["teia"] == "faccoes" and par not in par_f) or (rel["teia"] == "master" and par not in par_m):
+            ruins.append(i)
+        if rel["teia"] is None and (par in par_f or q(con, "SELECT origem_ref LIKE 'E[%' FROM relacao WHERE id=?", rel["id"])[0][0]):
+            ruins.append(i)
+    esperar("pistas-x.json: desfecho.relacao.teia aponta a teia em que o par aparece", ruins, [])
+    # dossiê de facções
+    arq = ex.CUR_DOSSIE_FACCOES
+    if not arq.exists():
+        print("  info: sem data/curadoria/dossie-faccoes.json (cópia parcial de data/): dossiê de facções não conferido")
+    else:
+        cur = json.loads(arq.read_text(encoding="utf-8"))
+        dj = exp["dossie-faccoes.json"]
+        ents = {r[0] for r in q(con, "SELECT id FROM entidade")}
+        pub = {r[0]: r[1] for r in q(con, "SELECT origem_ref, id FROM relacao WHERE origem_ref IS NOT NULL AND status='publicada'")}
+        teia_de = ex.teia_da_relacao(con)
+        marc = {r[0] for r in q(con, "SELECT id FROM marcador")}
+        fr = cur["frentes"]
+        esperar("dossiê de facções: ids de frente únicos", len({f["id"] for f in fr}), len(fr))
+        esperar("dossiê de facções: entidades do núcleo inexistentes", sorted({s for f in fr for s in f["nucleo"]} - ents), [])
+        esperar("dossiê de facções: relações-chave inexistentes (origem_ref publicada)", sorted({x for f in fr for x in f["chaves"]} - set(pub)), [])
+        esperar("dossiê de facções: relações-chave fora das duas teias (sem link)", sorted(x for f in fr for x in f["chaves"] if teia_de.get(pub[x]) is None), [])
+        tokens = [(onde, k, v) for onde, t in ex.textos_dossie_faccoes(cur) for k, v, _ in ex.TOKEN_DOSSIE.findall(t)]
+        esperar("dossiê de facções: textos citam ligação inexistente", sorted({f"{o}: {v}" for o, k, v in tokens if k == "rel" and v not in pub}), [])
+        esperar("dossiê de facções: textos citam ligação fora das duas teias", sorted({f"{o}: {v}" for o, k, v in tokens if k == "rel" and v in pub and teia_de.get(pub[v]) is None}), [])
+        esperar("dossiê de facções: textos citam entidade inexistente", sorted({f"{o}: {v}" for o, k, v in tokens if k == "ent" and v not in ents}), [])
+        soltos = [o for o, t in ex.textos_dossie_faccoes(cur) if re.search(r"\{(?:rel|ent)\b|\{[a-z]+:", ex.TOKEN_DOSSIE.sub("", t))]
+        esperar("dossiê de facções: tokens malformados nos textos", soltos, [])
+        st_tar = collections.defaultdict(set)
+        for r in q(con, "SELECT tarefa_id, status FROM post_triagem_desfecho"):
+            st_tar[r[0]].add(r[1])
+        esperar("dossiê de facções: contra-pistas que não são contra_pista/refutado no banco",
+                sorted(t for f in fr for t in f["contra"] if not st_tar.get(t) or not st_tar[t] <= {"contra_pista", "refutado"}), [])
+        esperar("dossiê de facções: pendências que não são pendente/nao_encontrado no banco",
+                sorted(t for f in fr for t in f["pendencias"] if not st_tar.get(t) or not st_tar[t] <= {"pendente", "nao_encontrado"}), [])
+        esperar("dossiê de facções: marcadores fora do vocabulário", sorted({m for f in fr for m in f["marcadores"]} - marc), [])
+        esperar("dossiê de facções: duas leituras por frente, com título e texto",
+                [f["id"] for f in fr if len(f["leituras"]) != 2 or not all(x["titulo"].strip() and x["texto"].strip() for x in f["leituras"])], [])
+        esperar("dossiê de facções: legenda de status == doc/inv/rep/ale/nc", list(cur["meta"]["status"]), ["doc", "inv", "rep", "ale", "nc"])
+        # export: ligações = chaves + relações publicadas que tocam o núcleo; contagem por natureza recontada no banco
+        st_inv = {r[0]: r[1] for r in q(con, "SELECT natureza_id, codigo_externo FROM natureza_mapa WHERE sistema='teia'")}
+        ruins = []
+        for f, fe in zip(fr, dj["frentes"]):
+            ids = {pub[x] for x in f["chaves"]}
+            if f["nucleo"]:
+                ph = ",".join("?" * len(f["nucleo"]))
+                ids |= {r[0] for r in q(con, f"SELECT id FROM relacao WHERE status='publicada' AND (de IN ({ph}) OR para IN ({ph}))", *f["nucleo"], *f["nucleo"])}
+            if fe["id"] != f["id"] or sorted(x["id"] for x in fe["ligacoes"]) != sorted(ids):
+                ruins.append(f"{f['id']}: ligações != chaves + núcleo")
+                continue
+            nat = collections.Counter(st_inv[q(con, "SELECT natureza_id FROM relacao WHERE id=?", i)[0][0]] for i in ids)
+            if fe["contagem"] != {"total": len(ids), **{s: nat.get(s, 0) for s in ("doc", "inv", "rep", "ale", "nc")}}:
+                ruins.append(f"{f['id']}: contagem por natureza != banco")
+            if [x["ref"] for x in fe["ligacoes"] if x["chave"]] != f["chaves"]:
+                ruins.append(f"{f['id']}: chaves fora da ordem da curadoria")
+            if any(x["teia"] != teia_de.get(x["id"]) for x in fe["ligacoes"]):
+                ruins.append(f"{f['id']}: teia da ligação != teia_da_relacao")
+            if [t["tarefa"] for t in fe["contra"]] != f["contra"] or [t["tarefa"] for t in fe["pendencias"]] != f["pendencias"]:
+                ruins.append(f"{f['id']}: contra-pistas/pendências != curadoria")
+            if any(VIDA_PRIVADA.search(p["afirmacao"] or "") for t in fe["contra"] + fe["pendencias"] for p in t["posts"]):
+                ruins.append(f"{f['id']}: post de vida privada")
+        esperar("dossiê de facções: frentes do export == curadoria + banco", ruins, [])
+        esperar("dossiê de facções: refs == tokens dos textos",
+                (sorted(dj["refs"]["rel"]), sorted(dj["refs"]["ent"])),
+                (sorted({v for _, k, v in tokens if k == "rel"}), sorted({v for _, k, v in tokens if k == "ent"})))
+        tabela("dossiê de facções: ligações por frente", [(f["id"], f["contagem"]["total"]) for f in dj["frentes"]])
+    # páginas
+    pdir = DATA.parent / "paginas"
+    if not pdir.is_dir():
+        print("  info: sem paginas/ ao lado de data/; conferência do HTML pulada")
+        return
+    pede = lambda h: sorted(set(re.findall(r"fetch\(\s*['\"]\.\./data/([a-z_\-]+\.json)['\"]", h)))
+    for pag, arqs in PAGINAS_FACCOES.items():
+        h = (pdir / pag).read_text(encoding="utf-8")
+        esperar(f"{pag}: marcadores de dados embutidos", [m for m in MARCADORES_EMBUTIDOS if re.search(m, h)], [])
+        esperar(f"{pag}: arquivos pedidos com fetch", pede(h), arqs)
+        esperar(f"{pag}: arquivos exportados por exportar_json.py", [a for a in arqs if a not in exp], [])
+        esperar(f"{pag}: usa comum.js", '<script src="comum.js"></script>' in h, True)
+        esperar(f"{pag}: tamanho < 100 KB (sem dados)", len(h.encode("utf-8")) < 100_000, True)
+    t = (pdir / "teia.html").read_text(encoding="utf-8")
+    esperar("teia.html: pede teia.json e teia-faccoes.json (?teia=faccoes)", pede(t), ["teia-faccoes.json", "teia.json"])
+    tf_h = (pdir / "teia-faccoes.html").read_text(encoding="utf-8")
+    esperar("teia-faccoes.html: entrada curta que leva a teia.html?teia=faccoes", "teia.html?teia=faccoes" in tf_h and len(tf_h.encode("utf-8")) < 10_000, True)
+    idx = (DATA.parent / "index.html").read_text(encoding="utf-8")
+    esperar("index.html: bloco 'Facções, mídia e poder' com as três páginas",
+            ["Facções, mídia e poder" in idx] + [p in idx for p in ("paginas/pistas.html", "paginas/dossie-faccoes.html", "paginas/teia-faccoes.html")], [True] * 4)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=str(SQLITE))
@@ -2767,6 +2881,7 @@ def main():
     marcadores_x(con, exp)
     relacoes_x(con, exp)
     paginas(con, exp)
+    faccoes_midia(con, exp)
     peso_wikipedia(con, exp)
 
     secao("Arquivos exportados em disco")

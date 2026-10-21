@@ -95,9 +95,9 @@
    "n": 151,
    "por_relevancia": {
     "pista": 29,
-    "contexto": 12,
+    "contexto": 11,
     "coberto": 0,
-    "descartar": 110
+    "descartar": 111
    }
   },
   {
@@ -263,9 +263,9 @@
    "n": 491,
    "por_relevancia": {
     "pista": 282,
-    "contexto": 151,
+    "contexto": 150,
     "coberto": 5,
-    "descartar": 53
+    "descartar": 54
    }
   },
   {

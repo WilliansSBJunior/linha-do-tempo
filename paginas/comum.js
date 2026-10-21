@@ -24,7 +24,8 @@
   function post(m) { try { P.postMessage(m, '*'); } catch (e) {} }
 
   var SEC = { 'brasil-ano-a-ano.html': 'linha-do-tempo', 'pares.html': 'pares', 'violencia.html': 'violencia',
-              'origens.html': 'origens', 'dossie.html': 'dossie', 'teia.html': 'teia' };
+              'origens.html': 'origens', 'dossie.html': 'dossie', 'teia.html': 'teia',
+              'pistas.html': 'pistas', 'dossie-faccoes.html': 'dossie-faccoes', 'teia-faccoes.html': 'teia-faccoes' };
   var SUB = { 'teia-3d': 1, 'teia-2d': 1 };
 
   /* ---- altura ---- */
@@ -116,13 +117,16 @@
     var dir = location.pathname.replace(/[^/]*$/, '');
     if (!SEC[f] || u.pathname !== dir + f) return null;
     var sub = u.hash.slice(1);
-    return SUB[sub] ? sub : SEC[f];
+    if (SUB[sub]) return sub;
+    /* teia.html?teia=faccoes é a seção da teia de facções; o resto do hash (#d=..., #r=..., filtros das pistas) segue para a filha */
+    var s = f === 'teia.html' && /[?&]teia=faccoes\b/.test(u.search) ? 'teia-faccoes' : SEC[f];
+    return sub ? s + '|' + sub : s;
   }
   function relinkar() {
     var as = d.querySelectorAll('a[href]');
     for (var i = 0; i < as.length; i++) {
       var a = as[i], s = destino(a);
-      if (s) { a.setAttribute('href', '../index.html#' + s); a.setAttribute('target', '_top'); a.setAttribute('data-secao', s); }
+      if (s) { a.setAttribute('href', '../index.html#' + s.split('|')[0]); a.setAttribute('target', '_top'); a.setAttribute('data-secao', s); }
     }
   }
   addEventListener('click', function (e) {
@@ -130,7 +134,7 @@
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a) return;
     var s = a.getAttribute('data-secao') || destino(a);
-    if (s) { e.preventDefault(); post({ pagina: 'ir', hash: s }); return; }
+    if (s) { e.preventDefault(); var p = s.split('|'); post({ pagina: 'ir', hash: p[0], frag: p.slice(1).join('|') || undefined }); return; }
     var h = a.getAttribute('href');
     if (h && h.charAt(0) === '#' && h.length > 1) {
       var el = d.getElementById(decodeURIComponent(h.slice(1)));

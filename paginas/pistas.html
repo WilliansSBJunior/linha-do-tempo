@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pistas do X</title>
+<meta name="description" content="Pistas do X: cada post triado da conta @republiqueBRA, com a afirmação normalizada, quem a atribui, o desfecho da pesquisa (confirmado, parcial, refutado, contra-pista, pendente, não encontrado), a fonte e a ligação na teia. Post de rede social é pista, nunca fonte.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23171c1a'/%3E%3Cpath d='M9 9h14M9 15h10M9 21h12' stroke='%23f3f4f1' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='21' r='3' fill='%23c2362f'/%3E%3C/svg%3E">
+<script src="comum.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root{color-scheme:light;box-sizing:border-box}
+body{margin:0;padding:0;padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]:not([hidden=until-found i]){display:none!important}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: abertura com o método em três frases e o placar dos desfechos; contra-pistas em destaque; filtros; lista paginada de cartões.
+   Família visual do dossiê e da teia do Caso Master (mesmos tokens, tipografia e dois temas). */
+:root{
+  --bg:#f3f4f1; --surface:#fbfbf9; --tint:#eceee8; --ink:#171c1a; --ink2:#4d5652; --muted:#7e8783; --line:#d8dcd6;
+  --ok:#14805e; --part:#2a6fc4; --ref:#b3261e; --contra:#7a3fb0; --pend:#9a6700; --nf:#6c7570;
+  --warn-bg:#fff3d6; --warn-ink:#5c4300;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111513; --surface:#181d1a; --tint:#1d2320; --ink:#f1f4f1; --ink2:#c1c9c4; --muted:#8a948f; --line:#2b332f;
+    --ok:#3cc493; --part:#5b9bea; --ref:#f07468; --contra:#b98ef0; --pend:#e0a830; --nf:#9aa39e;
+    --warn-bg:#3a2e0c; --warn-ink:#ffe2a0; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111513; --surface:#181d1a; --tint:#1d2320; --ink:#f1f4f1; --ink2:#c1c9c4; --muted:#8a948f; --line:#2b332f;
+  --ok:#3cc493; --part:#5b9bea; --ref:#f07468; --contra:#b98ef0; --pend:#e0a830; --nf:#9aa39e;
+  --warn-bg:#3a2e0c; --warn-ink:#ffe2a0; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+ul,ol{padding-left:18px}
+a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--muted)}
+a:hover{text-decoration-color:var(--ink)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:22px 56px;display:flex;flex-direction:column;gap:36px}
+section{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sec-h{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px}
+.sec-h h2{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:21px;line-height:1.15;text-wrap:balance}
+.sec-h p{color:var(--ink2);font-size:14px;max-width:80ch}
+
+/* abertura */
+.pages{display:flex;flex-wrap:wrap;gap:4px 6px;font-size:12.5px}
+.pages a,.pages span{border:1px solid var(--line);border-radius:3px;padding:2px 9px;text-decoration:none;color:var(--ink2)}
+.pages a:hover{border-color:var(--ink2);color:var(--ink)}
+.pages span[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+.brand h1{font-family:var(--display);font-stretch:118%;font-weight:900;font-size:clamp(28px,5vw,42px);line-height:1.02;letter-spacing:-.01em}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line);padding:2px 7px;border-radius:3px;white-space:nowrap}
+.metodo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.metodo li{list-style:none;padding:12px 16px 14px 0;font-size:14.5px;color:var(--ink2);min-width:0}
+.metodo li+li{padding-left:16px;border-left:1px solid var(--line)}
+.metodo b{display:block;font-family:var(--display);font-stretch:106%;font-size:16px;color:var(--ink);margin-bottom:3px}
+@media (max-width:760px){.metodo{grid-template-columns:minmax(0,1fr)}.metodo li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}}
+.metodo-ol{padding:0;margin:0}
+.warn{background:var(--warn-bg);color:var(--warn-ink);border-radius:5px;padding:10px 14px;font-size:13.5px;max-width:110ch}
+.warn b{font-weight:600}
+.placar{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,165px),1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.placar>div{padding:10px 12px 10px 0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.placar .v{font-family:var(--display);font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+.placar .s{font-size:12.5px;color:var(--ink2)}
+
+/* selo de desfecho: cor, forma e texto (nunca só cor) */
+.selo{--c:var(--nf);display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;line-height:1;border:1.5px solid var(--c);border-radius:3px;padding:4px 7px 3px;color:var(--ink);background:var(--surface);white-space:nowrap}
+.selo i{font-style:normal;font-size:12px;line-height:1;color:var(--c);width:12px;text-align:center}
+.selo.confirmado{--c:var(--ok);background:var(--ok);color:var(--bg)}.selo.confirmado i{color:var(--bg)}
+.selo.parcial{--c:var(--part)}
+.selo.refutado{--c:var(--ref);border-width:2px}
+.selo.contra_pista{--c:var(--contra);border-style:double;border-width:3px;padding:3px 6px 2px}
+.selo.pendente{--c:var(--pend);border-style:dashed}
+.selo.nao_encontrado{--c:var(--nf);border-style:dotted}
+.selo.sem{--c:var(--line);color:var(--ink2)}
+
+/* contra-pistas */
+.contras{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:12px}
+.contra{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--contra);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.contra.refutado{border-left-color:var(--ref)}
+.contra h3{font-size:15px;font-weight:600;line-height:1.35}
+.contra p{font-size:13.5px;color:var(--ink2)}
+.contra .why{color:var(--ink)}
+.contra .acts{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px}
+
+/* filtros */
+.filters{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px}
+.frow{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.fgrp{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.fgrp>.lab{margin-right:2px}
+.fb{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:4px 10px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.fb:hover{border-color:var(--ink2)}
+.fb[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fb .n{font-family:var(--mono);font-size:11px;opacity:.75}
+.fb.sf{padding:2px 3px;border-color:transparent;background:none}
+.fb.sf[aria-pressed="false"] .selo{opacity:.35}
+.fb.sf[aria-pressed="true"]{background:none;border-color:var(--ink2)}
+.q{flex:1 1 260px;min-width:0;max-width:520px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:6px 10px;font-size:14px}
+select{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:5px 8px;font-size:13.5px;max-width:100%;min-width:0}
+.fsel{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 220px;max-width:360px}
+.count{font-size:13px;color:var(--ink2)}
+.count b{color:var(--ink);font-variant-numeric:tabular-nums}
+.limpa{margin-left:auto}
+
+/* cartões */
+.lista{display:flex;flex-direction:column;gap:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:12px 14px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.card.contra_pista,.card.refutado{border-left:4px solid var(--contra)}
+.card.refutado{border-left-color:var(--ref)}
+.card .top{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.card time{font-family:var(--mono);font-size:12px;color:var(--ink);font-variant-numeric:tabular-nums}
+.card h3{font-size:15px;font-weight:600;line-height:1.4;overflow-wrap:anywhere}
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:1px 6px;color:var(--ink2);white-space:nowrap}
+.chip.pista{border-color:var(--ink2);color:var(--ink)}
+.attr{font-size:13px;color:var(--ink2)}
+.attr b{font-weight:600;color:var(--ink)}
+.ents{display:flex;flex-wrap:wrap;gap:4px 6px;font-size:12.5px}
+.ents a,.ents span{border:1px solid var(--line);border-radius:12px;padding:1px 9px;text-decoration:none;color:var(--ink2);background:var(--bg)}
+.ents a:hover{border-color:var(--ink2);color:var(--ink)}
+.ents a::after{content:" ›";color:var(--muted)}
+.des{border-top:1px solid var(--line);padding-top:7px;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+.des .rel{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.des .rel b{font-weight:600}
+.des .nota{color:var(--ink2)}
+.des .why{color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px}
+.links a{color:var(--ink2);overflow-wrap:anywhere}
+.ext::after{content:" ↗";font-size:11px}
+details.orig{font-size:12.5px;color:var(--ink2)}
+details.orig summary{cursor:pointer;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+details.orig p{margin-top:4px;white-space:pre-line;overflow-wrap:anywhere}
+.empty{font-size:14px;color:var(--muted);text-align:center;padding:24px;background:var(--surface);border:1px dashed var(--line);border-radius:6px}
+.pag{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center}
+.pag button{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:4px 10px;font-size:13px;cursor:pointer;min-width:36px}
+.pag button[aria-current="page"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pag button:disabled{opacity:.4;cursor:default}
+.pag .gap{color:var(--muted)}
+.dload{margin:0;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink2);font-size:13.5px}
+.dload.err{color:var(--ink);border-color:var(--ink2)}
+footer{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--ink2)}
+</style>
+<style>
+:root{--site-max:1180px}
+/* Site: barra de volta e rodapé (só quando a página abre sozinha) */
+.sitenav{background:var(--surface);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.sitenav-in{max-width:var(--site-max,1360px);margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
+.sn-back{font-size:13.5px;text-decoration:none;color:var(--ink);font-weight:600;white-space:nowrap}
+.sn-back:hover{text-decoration:underline}
+.sn-brand{font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sitefoot{border-top:1px solid var(--line);background:var(--surface);color:var(--ink2);font-size:13px;line-height:1.55}
+.sitefoot-in{max-width:var(--site-max,1360px);margin:0 auto;padding:18px 16px 28px;display:flex;flex-direction:column;gap:8px}
+.sitefoot b{color:var(--ink);font-weight:600}
+.sitefoot p{margin:0;max-width:110ch}
+html.embutida{overflow:hidden}
+html.embutida .sitenav,html.embutida .sitefoot{display:none}
+</style>
+</head>
+<body>
+<nav class="sitenav" aria-label="Projeto"><div class="sitenav-in"><a class="sn-back" href="../index.html#pistas">← Página completa</a><span class="sn-brand">Linha do tempo política do Brasil</span></div></nav>
+<div class="wrap">
+  <p class="dload" id="dload" role="status">Carregando as pistas (data/pistas-x.json)…</p>
+  <section id="abertura">
+    <nav class="pages" aria-label="Páginas da frente Facções, mídia e poder"><span aria-current="page">Pistas do X</span><a href="dossie-faccoes.html">Facções, mídia e poder</a><a href="teia-faccoes.html">Teia facções × mídia × política</a><a href="teia.html">Teia do Caso Master</a></nav>
+    <div class="brand"><h1>Pistas do X</h1><span class="tag" id="tag">@republiqueBRA</span></div>
+    <ol class="metodo metodo-ol" aria-label="Método em três passos">
+      <li><b>O post é pista.</b>Cada post da conta indica onde procurar; nenhum deles é fonte, e nenhum sustenta ligação na teia.</li>
+      <li><b>Triagem e corroboração.</b><span id="mTri">Todos os posts coletados foram triados</span> por relevância, tema, marcadores e nomes citados, e as pistas com fato verificável foram pesquisadas em reportagens, decisões e documentos abertos.</li>
+      <li><b>Só fonte com trecho vira ligação.</b>Entrou na teia apenas o que uma fonte aberta sustenta com trecho literal conferido; o resto fica aqui, com o desfecho da pesquisa e as contra-pistas.</li>
+    </ol>
+    <p class="warn"><b>Antes de ler.</b> A lista mostra a afirmação de cada post como foi normalizada na triagem, não um fato. Posts sobre vida privada sem interesse público ficaram fora desta exportação. O desfecho diz o que a pesquisa achou: “confirmado” e “parcial” levam à fonte e à ligação na teia; “refutado” e “contra-pista” explicam por que a afirmação não se sustenta. Investigado não é culpado, e réu não é condenado.</p>
+    <div class="placar" id="placar" aria-label="Pistas por desfecho"></div>
+  </section>
+
+  <section id="contra">
+    <div class="sec-h"><h2>Contra-pistas e refutações</h2><p>Afirmações da conta que a pesquisa desmentiu, ou decisões que bloqueiam a associação de alguém a uma facção. Ficam registradas para que a ligação não entre por outro caminho.</p></div>
+    <div class="contras" id="contras"></div>
+  </section>
+
+  <section id="lista">
+    <div class="sec-h"><h2>Todas as pistas</h2><p>Filtre por marcador, tema, desfecho, prioridade ou texto. O endereço da página guarda os filtros.</p></div>
+    <div class="filters" role="group" aria-label="Filtros das pistas">
+      <div class="frow">
+        <input type="search" class="q" id="q" placeholder="Buscar texto ou nome (ex.: Deolane, Trustee, Narco Fluxo)" aria-label="Buscar no texto, na afirmação ou nos nomes citados" autocomplete="off" enterkeyhint="search">
+        <span class="count" id="count" role="status" aria-live="polite"></span>
+        <button type="button" class="fb limpa" id="limpa">Limpar filtros</button>
+      </div>
+      <div class="frow">
+        <label class="fsel"><span class="lab">Marcador</span><select id="fMarc"></select></label>
+        <label class="fsel"><span class="lab">Tema</span><select id="fTema"></select></label>
+      </div>
+      <div class="frow">
+        <div class="fgrp" id="fDes"><span class="lab">Desfecho</span></div>
+      </div>
+      <div class="frow">
+        <div class="fgrp" id="fPri"><span class="lab">Prioridade</span></div>
+        <div class="fgrp" id="fRel"><span class="lab">Relevância</span></div>
+      </div>
+    </div>
+    <nav class="pag" id="pagTop" aria-label="Páginas da lista"></nav>
+    <div class="lista" id="cards"></div>
+    <nav class="pag" id="pagBot" aria-label="Páginas da lista"></nav>
+  </section>
+
+  <footer>
+    <p id="fBase"></p>
+  </footer>
+</div>
+<script>
+(function(){
+'use strict';
+/* dados: ../data/pistas-x.json (pistas e contexto, com desfecho) e ../data/pistas-x-marcadores.json (vocabulário de marcadores por grupo), exportados do banco */
+Promise.all([
+  fetch('../data/pistas-x.json', {cache:'no-cache'}).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status + ' ao pedir data/pistas-x.json'); return r.json(); }),
+  fetch('../data/pistas-x-marcadores.json', {cache:'no-cache'}).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status + ' ao pedir data/pistas-x-marcadores.json'); return r.json(); })
+]).then(([P, M]) => { iniciar(P, M); aviso(null); }).catch(err => { aviso(err); try { console.error(err); } catch (e) {} });
+function aviso(err){
+  const el = document.getElementById('dload'); if (!el) return;
+  if (!err){ el.remove(); return; }
+  el.classList.add('err'); el.setAttribute('role', 'alert');
+  el.textContent = 'Não foi possível carregar as pistas. ' + (location.protocol === 'file:' ? 'Aberta direto do disco (file://), a página não consegue ler data/pistas-x.json: abra pelo site ou por um servidor local (python3 -m http.server na pasta do projeto). ' : 'Recarregue a página; se persistir, o arquivo pode estar fora do ar. ') + 'Detalhe: ' + (err && err.message || err);
+}
+
+function iniciar(P, M){
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const MES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const fdate = d => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || ''); return m ? `${+m[3]} ${MES[+m[2] - 1]} ${m[1]}` : (d || ''); };
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return 'fonte'; } };
+const plural = (n, a, b) => `${n.toLocaleString('pt-BR')} ${n === 1 ? a : b}`;
+
+/* desfecho: rótulo, símbolo e explicação (o selo traz cor, forma e texto) */
+const DES = {
+  confirmado:['Confirmado', '✓', 'a fonte sustenta a afirmação; virou ligação na teia'],
+  parcial:['Parcial', '◐', 'parte se sustenta; a ligação entrou com o que a fonte diz'],
+  refutado:['Refutado', '✕', 'a pesquisa desmentiu a afirmação'],
+  contra_pista:['Contra-pista', '⊘', 'decisão ou fato que desmente a associação'],
+  pendente:['Pendente', '…', 'há indício, mas sem fonte suficiente para virar ligação'],
+  nao_encontrado:['Não encontrado', '?', 'nenhuma fonte aberta achada'],
+  sem:['Não pesquisado', '·', 'a pista ainda não entrou numa rodada de pesquisa']
+};
+const DORD = ['confirmado', 'parcial', 'refutado', 'contra_pista', 'pendente', 'nao_encontrado', 'sem'];
+const selo = k => `<span class="selo ${k}" title="${esc(DES[k][0] + ': ' + DES[k][2])}"><i aria-hidden="true">${DES[k][1]}</i>${esc(DES[k][0])}</span>`;
+const desOf = it => it.desfecho ? it.desfecho.status : 'sem';
+
+/* um item por post (o mesmo post aparece em vários temas no arquivo) */
+const ITENS = [], VISTO = new Set(), TEMAS = P.temas.map(t => [t.id, t.nome]);
+P.temas.forEach(t => t.itens.forEach(it => { if (!VISTO.has(it.id)){ VISTO.add(it.id); ITENS.push(it); } }));
+ITENS.sort((a, b) => (b.data || '').localeCompare(a.data || '') || b.id.localeCompare(a.id));
+ITENS.forEach(it => { it._q = norm([it.afirmacao, it.texto, it.card, it.fonte_citada, it.nota, ...(it.entidades || []).map(e => e.nome + ' ' + (e.id || '')),
+  it.desfecho && it.desfecho.relacao ? it.desfecho.relacao.rotulo : '', ...(it.desfecho ? it.desfecho.tarefas.map(t => t.nota || '') : [])].join(' ')); });
+const NA_TEIA = {faccoes:new Set((P.entidades_na_teia || {}).faccoes || []), master:new Set((P.entidades_na_teia || {}).master || [])};
+const teiaEnt = id => NA_TEIA.faccoes.has(id) ? `teia.html?teia=faccoes#d=${encodeURIComponent(id)}` : NA_TEIA.master.has(id) ? `teia.html#d=${encodeURIComponent(id)}` : null;
+const teiaRel = r => r && r.teia ? (r.teia === 'faccoes' ? 'teia.html?teia=faccoes' : 'teia.html') + '#r=' + encodeURIComponent(r.de + '~' + r.para) : null;
+const MGRP = {caso:'Casos', ator:'Atores', eleicoes:'Eleições', 'tipo-de-fato':'Tipo de fato'};
+const MARC = M.marcadores.filter(m => (m.por_relevancia.pista + m.por_relevancia.contexto) > 0);
+
+/* abertura */
+const c = P.contagens;
+$('tag').textContent = '@' + P.conta + ' · ' + plural(c.triagens, 'post triado', 'posts triados');
+$('mTri').textContent = `Os ${c.triagens.toLocaleString('pt-BR')} posts coletados foram triados (${c.por_relevancia.pista} pistas, ${c.por_relevancia.contexto} de contexto, ${c.por_relevancia.coberto} já cobertos, ${c.por_relevancia.descartar} descartados)`;
+const nDes = k => ITENS.filter(it => desOf(it) === k).length;
+$('placar').innerHTML = `<div><span class="lab">Nesta lista</span><span class="v">${ITENS.length.toLocaleString('pt-BR')}</span><span class="s">pistas e posts de contexto</span></div>` +
+  DORD.map(k => `<div>${selo(k)}<span class="v">${nDes(k)}</span><span class="s">${esc(DES[k][2])}</span></div>`).join('');
+$('fBase').textContent = `Conta @${P.conta}, posts de out/2025 a out/2026. Exportação do banco do projeto: ${ITENS.length} posts de relevância pista ou contexto; os ${c.por_relevancia.coberto + c.por_relevancia.descartar} cobertos ou descartados ficam só no banco.`;
+
+/* contra-pistas e refutações, uma por tarefa de pesquisa, com a explicação */
+const TAREFAS = new Map();
+ITENS.forEach(it => (it.desfecho ? it.desfecho.tarefas : []).forEach(t => { if (t.status !== 'contra_pista' && t.status !== 'refutado') return;
+  const x = TAREFAS.get(t.tarefa) || {t, itens:[]}; x.itens.push(it); TAREFAS.set(t.tarefa, x); }));
+$('contras').innerHTML = [...TAREFAS.values()].map(({t, itens}) => `<article class="contra ${t.status}"><div>${selo(t.status)}</div>
+  <h3>${esc(itens[0].afirmacao)}</h3><p class="why"><b>Por quê:</b> ${esc(t.nota || DES[t.status][2])}</p>
+  <div class="acts">${itens.map(it => `<a class="ext" href="${esc(it.url)}" target="_blank" rel="noopener">post de ${esc(fdate(it.data))}</a>`).join('')}<a href="#" data-contra="${esc(t.tarefa)}">ver ${itens.length === 1 ? 'o post' : 'os ' + itens.length + ' posts'} na lista</a></div></article>`).join('')
+  || '<p class="empty">Nenhuma contra-pista registrada.</p>';
+
+/* estado dos filtros (no endereço: #m=…&t=…&d=…&p=…&r=…&q=…&pg=…) */
+const F = {m:'', t:'', d:new Set(), p:new Set(), r:new Set(), q:'', pg:1, tarefa:''};
+function lerHash(){
+  const h = new URLSearchParams(location.hash.slice(1));
+  F.m = h.get('m') || ''; F.t = h.get('t') || ''; F.q = h.get('q') || ''; F.tarefa = h.get('tarefa') || '';
+  F.d = new Set((h.get('d') || '').split(',').filter(k => DES[k])); F.p = new Set((h.get('p') || '').split(',').filter(Boolean));
+  F.r = new Set((h.get('r') || '').split(',').filter(Boolean)); F.pg = Math.max(1, +h.get('pg') || 1);
+  if (F.m && !MARC.some(m => m.id === F.m)) F.m = ''; if (F.t && !TEMAS.some(t => t[0] === F.t)) F.t = '';
+}
+function gravarHash(){
+  const h = new URLSearchParams();
+  if (F.m) h.set('m', F.m); if (F.t) h.set('t', F.t); if (F.d.size) h.set('d', [...F.d].join(',')); if (F.p.size) h.set('p', [...F.p].join(','));
+  if (F.r.size) h.set('r', [...F.r].join(',')); if (F.q) h.set('q', F.q); if (F.tarefa) h.set('tarefa', F.tarefa); if (F.pg > 1) h.set('pg', F.pg);
+  const s = h.toString();
+  try { history.replaceState(null, '', location.pathname + location.search + (s ? '#' + s : '')); } catch (e) {}
+}
+/* cada filtro conta o que sobraria se só ele mudasse */
+const passa = (it, sem) => (sem === 'm' || !F.m || it.marcadores.includes(F.m)) && (sem === 't' || !F.t || it.temas.includes(F.t))
+  && (sem === 'd' || !F.d.size || F.d.has(desOf(it))) && (sem === 'p' || !F.p.size || F.p.has(String(it.prioridade)))
+  && (sem === 'r' || !F.r.size || F.r.has(it.relevancia)) && (sem === 'q' || !F.q || termos().every(w => it._q.includes(w)))
+  && (!F.tarefa || (it.desfecho && it.desfecho.tarefas.some(t => t.tarefa === F.tarefa)));
+let termosC = null, termosQ = null;
+const termos = () => { if (termosQ !== F.q){ termosQ = F.q; termosC = norm(F.q).split(/\s+/).filter(Boolean); } return termosC; };
+
+function montarFiltros(){
+  const base = ITENS.filter(it => passa(it, 'm')), nM = {}; base.forEach(it => it.marcadores.forEach(m => { nM[m] = (nM[m] || 0) + 1; }));
+  $('fMarc').innerHTML = `<option value="">Todos os marcadores</option>` + Object.keys(MGRP).map(g => `<optgroup label="${esc(MGRP[g])}">${MARC.filter(m => m.grupo === g).map(m =>
+    `<option value="${esc(m.id)}"${F.m === m.id ? ' selected' : ''}>${esc(m.id)}: ${esc(m.descricao)} (${nM[m.id] || 0})</option>`).join('')}</optgroup>`).join('');
+  const bt = ITENS.filter(it => passa(it, 't')), nT = {}; bt.forEach(it => it.temas.forEach(t => { nT[t] = (nT[t] || 0) + 1; }));
+  $('fTema').innerHTML = `<option value="">Todos os temas</option>` + TEMAS.map(([id, nome]) => `<option value="${esc(id)}"${F.t === id ? ' selected' : ''}>${esc(nome)} (${nT[id] || 0})</option>`).join('');
+  const bd = ITENS.filter(it => passa(it, 'd')), bp = ITENS.filter(it => passa(it, 'p')), br = ITENS.filter(it => passa(it, 'r'));
+  $('fDes').innerHTML = '<span class="lab">Desfecho</span>' + DORD.map(k => `<button type="button" class="fb sf" data-d="${k}" aria-pressed="${F.d.has(k)}" aria-label="${esc(DES[k][0])}: ${bd.filter(it => desOf(it) === k).length}">${selo(k)}<span class="n">${bd.filter(it => desOf(it) === k).length}</span></button>`).join('');
+  $('fPri').innerHTML = '<span class="lab">Prioridade</span>' + ['1', '2', '3'].map(k => `<button type="button" class="fb" data-p="${k}" aria-pressed="${F.p.has(k)}">${k === '1' ? '1 · alta' : k === '2' ? '2 · média' : '3 · baixa'} <span class="n">${bp.filter(it => String(it.prioridade) === k).length}</span></button>`).join('');
+  $('fRel').innerHTML = '<span class="lab">Relevância</span>' + [['pista', 'Pista'], ['contexto', 'Contexto']].map(([k, l]) => `<button type="button" class="fb" data-r="${k}" aria-pressed="${F.r.has(k)}">${l} <span class="n">${br.filter(it => it.relevancia === k).length}</span></button>`).join('');
+  if ($('q').value !== F.q) $('q').value = F.q;
+}
+
+const POR_PAG = 25;
+function cartao(it){
+  const d = it.desfecho, k = desOf(it), rel = d && d.relacao, tl = teiaRel(rel);
+  const ents = (it.entidades || []).map(e => { const u = e.id && teiaEnt(e.id); return u ? `<a href="${esc(u)}" title="Ver ${esc(e.nome)} na teia">${esc(e.nome)}</a>` : `<span>${esc(e.nome)}</span>`; }).join('');
+  let h = `<article class="card ${k}"><div class="top"><time datetime="${esc(it.data)}">${esc(fdate(it.data))}</time>${selo(k)}<span class="chip ${esc(it.relevancia)}">${esc(it.relevancia)}</span><span class="chip">prioridade ${esc(it.prioridade)}</span></div>`;
+  h += `<h3>${esc(it.afirmacao)}</h3>`;
+  h += `<p class="attr"><b>Quem a atribui:</b> ${esc(it.fonte_citada || 'o próprio post, sem fonte citada')}${it.tipo ? ` · ${it.tipo === 'fato_atribuido' ? 'fato atribuído a uma fonte' : it.tipo === 'alegacao' ? 'alegação' : 'opinião'}` : ''}</p>`;
+  if (ents) h += `<div class="ents" aria-label="Nomes citados">${ents}</div>`;
+  if (d){
+    h += `<div class="des">`;
+    if (rel) h += `<div class="rel"><span class="lab">Ligação na teia</span><b>${esc(rel.rotulo)}</b>${tl ? `<a href="${esc(tl)}">ver na ${rel.teia === 'faccoes' ? 'teia de facções' : 'teia do Caso Master'} ›</a>` : ''}</div>`;
+    const notas = d.tarefas.filter(t => t.nota).map(t => `<span${t.status === 'contra_pista' || t.status === 'refutado' ? ' class="why"' : ''}>${t.status === 'contra_pista' || t.status === 'refutado' ? '<b>Por quê:</b> ' : ''}${esc(t.nota)}</span>`);
+    if (notas.length) h += `<p class="nota">${notas.join(' ')}</p>`;
+    h += `<div class="links">${d.fonte ? `<a class="ext" href="${esc(d.fonte)}" target="_blank" rel="noopener">fonte que ${k === 'confirmado' ? 'confirmou' : 'sustenta a ligação'}: ${esc(host(d.fonte))}</a>` : ''}<span class="lab">pesquisa ${esc(d.tarefas.map(t => t.tarefa).join(', '))}</span></div></div>`;
+  }
+  h += `<div class="links"><a class="ext" href="${esc(it.url)}" target="_blank" rel="noopener">ver o post no X (pista, não fonte)</a>${it.duplicata_de ? `<span class="lab">repete o post ${esc(it.duplicata_de)}</span>` : ''}</div>`;
+  if (it.texto || it.card) h += `<details class="orig"><summary>Texto do post</summary><p>${esc((it.texto || '').trim())}${it.card ? `\n[link: ${esc(it.card)}]` : ''}</p></details>`;
+  return h + '</article>';
+}
+function pager(n, el){
+  const tot = Math.max(1, Math.ceil(n / POR_PAG)); if (tot === 1){ el.innerHTML = ''; return; }
+  const pg = F.pg, nums = [...new Set([1, 2, pg - 1, pg, pg + 1, tot - 1, tot])].filter(x => x >= 1 && x <= tot).sort((a, b) => a - b);
+  let h = `<button type="button" data-pg="${pg - 1}"${pg === 1 ? ' disabled' : ''} aria-label="Página anterior">‹</button>`, last = 0;
+  nums.forEach(x => { if (x - last > 1) h += '<span class="gap">…</span>'; h += `<button type="button" data-pg="${x}"${x === pg ? ' aria-current="page"' : ''}>${x}</button>`; last = x; });
+  el.innerHTML = h + `<button type="button" data-pg="${pg + 1}"${pg === tot ? ' disabled' : ''} aria-label="Próxima página">›</button>`;
+}
+function render(){
+  const vis = ITENS.filter(it => passa(it));
+  const tot = Math.max(1, Math.ceil(vis.length / POR_PAG)); if (F.pg > tot) F.pg = tot;
+  const ini = (F.pg - 1) * POR_PAG, pagina = vis.slice(ini, ini + POR_PAG);
+  const ativos = [F.m, F.t, F.q, F.tarefa].filter(Boolean).length + F.d.size + F.p.size + F.r.size;
+  $('count').innerHTML = `<b>${vis.length.toLocaleString('pt-BR')}</b> de ${ITENS.length.toLocaleString('pt-BR')} posts${vis.length ? ` · ${ini + 1}–${ini + pagina.length}` : ''}${F.tarefa ? ` · pesquisa ${esc(F.tarefa)}` : ''}`;
+  $('limpa').disabled = !ativos;
+  $('cards').innerHTML = pagina.map(cartao).join('') || '<p class="empty">Nenhum post com esses filtros.</p>';
+  pager(vis.length, $('pagTop')); pager(vis.length, $('pagBot'));
+  montarFiltros(); gravarHash();
+}
+function topoLista(){ const el = $('lista'); window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 8}); }
+const muda = fn => { fn(); F.pg = 1; render(); };
+$('fMarc').addEventListener('change', e => muda(() => { F.m = e.target.value; }));
+$('fTema').addEventListener('change', e => muda(() => { F.t = e.target.value; }));
+let qt = 0; $('q').addEventListener('input', e => { clearTimeout(qt); qt = setTimeout(() => muda(() => { F.q = e.target.value.trim(); }), 160); });
+const alterna = (set, k) => { if (set.has(k)) set.delete(k); else set.add(k); };
+document.querySelector('.filters').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.d) muda(() => alterna(F.d, b.dataset.d));
+  else if (b.dataset.p) muda(() => alterna(F.p, b.dataset.p));
+  else if (b.dataset.r) muda(() => alterna(F.r, b.dataset.r));
+  else if (b.id === 'limpa') muda(() => { F.m = F.t = F.q = F.tarefa = ''; F.d.clear(); F.p.clear(); F.r.clear(); });
+});
+['pagTop', 'pagBot'].forEach(id => $(id).addEventListener('click', e => { const b = e.target.closest('[data-pg]'); if (!b || b.disabled) return; F.pg = +b.dataset.pg; render(); topoLista(); }));
+$('contras').addEventListener('click', e => { const a = e.target.closest('[data-contra]'); if (!a) return; e.preventDefault();
+  F.m = F.t = F.q = ''; F.d.clear(); F.p.clear(); F.r.clear(); F.tarefa = a.dataset.contra; F.pg = 1; render(); topoLista(); });
+addEventListener('hashchange', () => { lerHash(); render(); });
+lerHash(); render();
+}
+})();
+</script>
+<footer class="sitefoot"><div class="sitefoot-in"><p><b>Pistas do X.</b> Posts de rede social são ponto de partida, nunca fonte: nenhuma ligação da teia se apoia neles. Só pista e contexto entram aqui; posts já cobertos ou descartados (inclusive os de vida privada) ficam só no banco.</p><p><b>Como ler.</b> A afirmação é a do post, normalizada na triagem; o desfecho é o da pesquisa. Investigado não é culpado, réu não é condenado, e aparecer perto de uma facção não faz de ninguém integrante dela.</p></div></footer>
+</body>
+</html>

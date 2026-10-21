@@ -1,0 +1,146 @@
+{
+ "_doc": "Curadoria de TEXTO do dossiê 'Facções, mídia e poder' (paginas/dossie-faccoes.html). Só títulos, enquadramento, perguntas e as duas leituras (hipóteses). Todo fato vem do banco: exportar_json.py (montar_dossie_faccoes) monta data/dossie-faccoes.json a partir daqui + relacao/relacao_evidencia/entidade/post_triagem_desfecho/post_triagem_marcador. Por frente: `nucleo` = entidades cujas relações publicadas formam a frente (contagem por natureza e lista de ligações); `chaves` = relações em destaque (origem_ref, a mesma referência de relacoes-adicionais-x.json: 'x:<id>' ou 'E[i].r[j]'); `contra` = tarefas de pesquisa com desfecho contra_pista/refutado; `pendencias` = tarefas pendente/nao_encontrado; `marcadores` = marcadores das pistas do X (link para paginas/pistas.html). Nos textos, {rel:<origem_ref>} ou {rel:<origem_ref>|rótulo} vira link para a ligação na teia e {ent:<id>} ou {ent:<id>|rótulo} para o dossiê do nome; validar.py confere que todo id e toda referência existem e que nenhum texto cita ligação inexistente. Leituras são hipóteses, nunca conclusão.",
+ "meta": {
+  "titulo": "Facções, mídia e poder",
+  "data_base": "21/10/2026",
+  "pergunta": "Quando uma facção aparece perto de um artista, de um influenciador, de um veículo ou de um político, o que é ligação documentada e o que é só proximidade?",
+  "resposta": "Por frente, a página separa o que está documentado, o que está sob investigação e o que é só reportagem ou alegação; mostra as ligações-chave, as pistas que caíram e a pergunta que continua aberta. As duas leituras de cada frente são hipóteses de trabalho, lado a lado, e nenhuma delas é conclusão.",
+  "aviso": "Tudo aqui vem do banco do projeto: relações com fonte aberta e trecho literal, conferidas em rodadas de pesquisa a partir de pistas de uma conta do X. Pista de rede social nunca é fonte. Nenhum documento original (inquérito, denúncia, decisão) foi lido na íntegra. Investigado não é culpado, réu não é condenado, e o critério é o ato documentado, nunca o gênero musical, o bairro ou a estética de quem é citado.",
+  "status": {
+   "doc": "Documentado: ato oficial, decisão ou dado público",
+   "inv": "Sob investigação: inquérito, denúncia ou ação em curso, sem julgamento",
+   "rep": "Só reportagem, em geral sobre documento ou mensagem vazada",
+   "ale": "Alegação de parte, sem corroboração",
+   "nc": "Vínculo de parentesco ou registro, sem grau atribuído"
+  },
+  "paginas": [["Teia facções × mídia × política", "./teia.html?teia=faccoes"], ["Pistas do X", "./pistas.html"], ["Teia do Caso Master", "./teia.html"], ["Master: mercado ou máquina", "./dossie.html"]]
+ },
+ "leituras": {
+  "intro": "Duas maneiras de ler o conjunto das frentes. São hipóteses para orientar a próxima rodada de pesquisa; o banco ainda não permite escolher entre elas.",
+  "a": {"titulo": "Leitura A: casos isolados", "texto": "Cada frente seria um caso próprio, com investigação própria: a Narco Fluxo em Santos ({rel:x:ryan-pcc|enquadramento na Lei Antifacção}), a Operação Vérnix ({rel:x:deolane-pcc}), a Zargun no Rio ({rel:x:bacellar-th-joias}). O que parece rede seria a soma de manchetes sobre facções, celebridades e políticos no mesmo ano, e a ponte entre elas só existiria quando uma autoridade a apontasse."},
+  "b": {"titulo": "Leitura B: canais em comum", "texto": "As frentes dividiriam canais financeiros: casas de apostas, fintechs e fundos que aparecem em mais de uma investigação. Os pontos de contato no banco são poucos e vêm de relatórios policiais citados pela imprensa, como {rel:x:vorcaro-trustee|a Trustee 'nos dois lados'} e {rel:x:entre-acx|a Entre pagando a ACX}, que a polícia liga ao PCC ({rel:x:acx-pcc}). Nenhuma peça aberta mostra um mesmo operador ligando o Master, o funk e as bets."},
+  "contra": "As pistas que tentaram ligar as frentes entre si caíram ou ficaram pendentes: veja as tarefas de cruzamento sem fonte em cada frente."
+ },
+ "frentes": [
+  {
+   "id": "narco-fluxo",
+   "titulo": "Narco Fluxo: funk e PCC",
+   "resumo": "Operação da PF sobre lavagem por meio de rifas, bets e empresas musicais, com artistas e um perfil de notícias entre os presos. O vínculo com facções é o que a investigação aponta, não acusação formal.",
+   "nucleo": ["operacao-narco-fluxo", "mc-ryan-sp", "mc-poze-do-rodo", "raphael-sousa-oliveira"],
+   "chaves": ["x:narco-fluxo-ryan", "x:narco-fluxo-poze", "x:narco-fluxo-choquei", "x:ryan-pcc", "x:ryan-cv", "x:ryan-deolane"],
+   "contra": ["F06"],
+   "pendencias": ["D03", "D10", "D12"],
+   "marcadores": ["narco-fluxo"],
+   "pergunta": "A estrutura investigada usava a música como fachada para dinheiro de facção, ou artistas com negócios de rifas e apostas foram enquadrados pelo volume que movimentavam?",
+   "leituras": [
+    {"titulo": "Hipótese 1: fachada", "texto": "Se a investigação confirmar o que pede a PF, as empresas musicais e as rifas seriam o meio de lavagem, e {ent:mc-ryan-sp} ocuparia o centro da estrutura ({rel:x:narco-fluxo-ryan})."},
+    {"titulo": "Hipótese 2: enquadramento amplo", "texto": "O juiz tratou o vínculo com PCC e CV como preliminar ({rel:x:ryan-pcc}) e houve solturas ({rel:x:narco-fluxo-choquei}); sem denúncia, o enquadramento pode refletir o volume de dinheiro e não uma ligação direta com a facção."}
+   ]
+  },
+  {
+   "id": "deolane",
+   "titulo": "Deolane e influenciadores de rifas e bets",
+   "resumo": "Influenciadora denunciada com o líder do PCC por lavagem e organização criminosa, e influenciadores que receberam de empresas sob suspeita. A denúncia não a qualifica como integrante da facção.",
+   "nucleo": ["deolane-bezerra", "buzeira"],
+   "chaves": ["x:deolane-pcc", "x:ryan-deolane", "x:victory-buzeira"],
+   "contra": ["F06", "R2-P11"],
+   "pendencias": [],
+   "marcadores": ["deolane"],
+   "pergunta": "O dinheiro que passou por influenciadores era da facção ou de negócios próprios de rifas e apostas que cruzaram com investigados?",
+   "leituras": [
+    {"titulo": "Hipótese 1: conta de passagem", "texto": "A denúncia da Operação Vérnix ({rel:x:deolane-pcc}) e os repasses apontados pela PF ({rel:x:ryan-deolane}) seriam peças de um mesmo circuito de lavagem."},
+    {"titulo": "Hipótese 2: negócios que se cruzam", "texto": "A defesa explica os repasses como venda de bem e rendimentos declarados, e o MP-SP diz não ter prova de lavagem para o PCC em outro elo ({rel:x:victory-buzeira}); seriam negócios de influenciadores que cruzaram com investigados."}
+   ]
+  },
+  {
+   "id": "marcinho-vp",
+   "titulo": "Família de Marcinho VP",
+   "resumo": "A frente reúne pistas sobre parentes do chefe do Comando Vermelho. Nenhuma virou ligação: parentesco não é relação, e as operações citadas só apareceram em listagens de busca.",
+   "nucleo": [],
+   "chaves": [],
+   "contra": [],
+   "pendencias": ["D09", "E12"],
+   "marcadores": ["marcinho-vp-oruam"],
+   "pergunta": "Há alguma peça formal que nomeie parentes por atos próprios, ou só a menção ao sobrenome?",
+   "leituras": [
+    {"titulo": "Hipótese 1: braço financeiro", "texto": "As pistas falam de operação contra um braço financeiro do {ent:comando-vermelho} com parentes do chefe; se uma peça formal os nomear por atos próprios, a frente ganha ligações."},
+    {"titulo": "Hipótese 2: sobrenome", "texto": "Sem peça formal, o que existe é parentesco e exposição pública; a regra do projeto impede que isso vire ligação."}
+   ]
+  },
+  {
+   "id": "th-joias-alerj",
+   "titulo": "TH Joias, Bacellar e a Alerj × CV",
+   "resumo": "Um ex-deputado réu por ligação com o Comando Vermelho e, no STF, réus pelo vazamento da operação que o prendeu, entre eles o presidente afastado da Alerj e um desembargador federal.",
+   "nucleo": ["th-joias", "rodrigo-bacellar", "macario-judice"],
+   "chaves": ["x:th-joias-cv", "x:bacellar-th-joias", "x:macario-th-joias"],
+   "contra": [],
+   "pendencias": [],
+   "marcadores": ["th-joias-alerj"],
+   "pergunta": "O vazamento da Operação Zargun foi um ato isolado de proteção a um aliado ou indica acesso regular de uma facção a informação sigilosa?",
+   "leituras": [
+    {"titulo": "Hipótese 1: proteção pontual", "texto": "A denúncia trata de um vazamento específico ({rel:x:bacellar-th-joias}); a ligação com a facção estaria em {ent:th-joias}, réu por isso ({rel:x:th-joias-cv})."},
+    {"titulo": "Hipótese 2: acesso regular", "texto": "Com um desembargador entre os réus ({rel:x:macario-th-joias}), o caso indicaria um canal de informação entre a facção e o poder no Rio, o que só a instrução do processo pode mostrar."}
+   ]
+  },
+  {
+   "id": "politicos-faccoes",
+   "titulo": "Políticos e vereadores × facções",
+   "resumo": "Casos em que um mandato aparece numa investigação sobre facção, ao lado de decisões que desmentem associações feitas por adversários. A justiça eleitoral, os partidos e as emendas entram como dado público, não como acusação.",
+   "nucleo": ["senival-moura", "uldurico-junior", "andre-luis-almeida-coutinho", "cnm-aviacao", "yury-do-paredao"],
+   "chaves": ["x:senival-pcc", "x:uldurico-pce", "x:tse-cabedelo", "x:psdb-cnm", "x:psd-cnm", "x:yury-jonas"],
+   "contra": ["E04", "E09", "E11", "F05"],
+   "pendencias": ["E06"],
+   "marcadores": ["partidos", "tse-tre", "emendas-shows"],
+   "pergunta": "Os casos documentados mostram facções escolhendo candidatos, ou mandatos isolados que se envolveram com investigados?",
+   "leituras": [
+    {"titulo": "Hipótese 1: captura local", "texto": "Em municípios e câmaras, a facção buscaria proteção ou negócios por meio de um mandato: a investigação sobre {ent:senival-moura} ({rel:x:senival-pcc}) e a narrativa do MP Eleitoral em Cabedelo ({rel:x:tse-cabedelo}) seriam exemplos."},
+    {"titulo": "Hipótese 2: casos isolados e acusações de campanha", "texto": "As contra-pistas mostram arquivamentos e decisões que bloqueiam a associação a facções; pagamentos de partidos a um táxi aéreo ({rel:x:psdb-cnm}) são serviço contratado, sem partido investigado."}
+   ]
+  },
+  {
+   "id": "bets-willer-flavio",
+   "titulo": "Bets, Willer Tomaz e Flávio Bolsonaro",
+   "resumo": "Um advogado sócio da holding de uma bet, voos pagos por ela a um senador, investigações da PF sobre o advogado e casas de apostas ligadas a influenciadores e ao controlador do Master.",
+   "nucleo": ["willer-tomaz", "cathedral", "bet-bet", "blaze", "virginia-fonseca"],
+   "chaves": ["x:willer-cathedral", "x:cathedral-flavio-voos", "x:pf-willer-bets", "x:willer-stj", "x:vorcaro-betbet", "x:blaze-virginia"],
+   "contra": [],
+   "pendencias": ["C01", "C02", "C08", "C10"],
+   "marcadores": ["willer-tomaz", "bets"],
+   "pergunta": "As bets funcionam como ponte entre dinheiro sob suspeita, influenciadores e políticos, ou cada caso é uma relação comercial separada?",
+   "leituras": [
+    {"titulo": "Hipótese 1: ponte", "texto": "A mesma holding paga voos a um senador ({rel:x:cathedral-flavio-voos}) e tem como sócio um advogado investigado por lavagem com apostas ({rel:x:pf-willer-bets}); somada à participação indireta de Vorcaro numa bet ({rel:x:vorcaro-betbet}), as apostas seriam um canal comum."},
+    {"titulo": "Hipótese 2: amizade e publicidade", "texto": "Os citados falam em viagens de lazer pagas pelo amigo e em contratos de publicidade ({rel:x:blaze-virginia}); o inquérito sobre Flávio por lavagem não foi encontrado, e a ponte entre as bets das frentes não foi confirmada."}
+   ]
+  },
+  {
+   "id": "master-crime",
+   "titulo": "Master × crime organizado",
+   "resumo": "Os pontos de contato entre o caso Master e investigações sobre o PCC: uma administradora de fundos 'nos dois lados', repasses da financiadora do filme Dark Horse a uma empresa apontada em esquema de lavagem e uma hipótese da PF sobre apoio na custódia.",
+   "nucleo": ["trustee-dtvm", "acx-itc", "roberto-augusto-leme-da-silva"],
+   "chaves": ["x:vorcaro-trustee", "x:trustee-mourad", "x:entre-acx", "x:acx-pcc", "E[148].r[0]", "x:pcc-vorcaro-protecao", "x:beto-louco-alcolumbre"],
+   "contra": [],
+   "pendencias": ["A02", "A04", "F02"],
+   "marcadores": ["reag-fundos", "carbono-oculto"],
+   "pergunta": "O Master usou a mesma estrutura financeira de investigados do PCC por conveniência de mercado, ou havia relação entre os operadores?",
+   "leituras": [
+    {"titulo": "Hipótese 1: infraestrutura compartilhada", "texto": "Administradoras e fintechs atenderiam clientes diversos; {ent:trustee-dtvm} servir ao Master e ao núcleo investigado ({rel:x:trustee-mourad}) mostraria um mercado de serviços financeiros frouxo, não uma aliança."},
+    {"titulo": "Hipótese 2: operadores em comum", "texto": "O relatório da PF aponta Vorcaro como beneficiário final das operações ({rel:x:vorcaro-trustee}) e o ministro da Fazenda ligou o dinheiro da Entre a facções ({rel:E[148].r[0]}); se as investigações convergirem, o contato seria mais que coincidência de prestador."}
+   ]
+  },
+  {
+   "id": "master-midia",
+   "titulo": "Master × mídia",
+   "resumo": "Pagamentos do banco a portais e apresentadores, mensagens sobre controle de textos antes da publicação, influenciadores contratados e o grupo de investigação de jornalistas atribuído a um colaborador de Vorcaro.",
+   "nucleo": ["metropoles-marketing-e-propaganda", "gabriela-prioli", "pablo-marcal", "grupo-globo", "luciano-huck", "thiago-miranda", "leo-dias-comunicacao-e-jornalismo"],
+   "chaves": ["x:vorcaro-metropoles-textos", "E[297].r[0]", "E[306].r[0]", "E[301].r[0]", "E[302].r[0]", "x:master-prioli", "x:vorcaro-marcal", "E[308].r[0]"],
+   "contra": ["B04"],
+   "pendencias": ["B02", "B06", "B08"],
+   "marcadores": ["midia-vorcaro", "veiculos-midia"],
+   "pergunta": "O dinheiro do Master comprou cobertura, ou comprou publicidade e patrocínio que os veículos tratam como negócio separado da redação?",
+   "leituras": [
+    {"titulo": "Hipótese 1: influência editorial", "texto": "Diálogos extraídos pela PF falam de textos submetidos a Vorcaro antes da publicação ({rel:x:vorcaro-metropoles-textos}), e a PF investiga ofertas a influenciadores e o monitoramento de jornalistas ({rel:E[308].r[0]})."},
+    {"titulo": "Hipótese 2: publicidade e patrocínio", "texto": "Os veículos e apresentadores citados descrevem contratos de patrocínio e publicidade, com nota e imposto ({rel:E[302].r[0]}), e negam direcionamento; uma das alegações sobre contrato é negada pela citada ({rel:x:master-prioli})."}
+   ]
+  }
+ ]
+}
