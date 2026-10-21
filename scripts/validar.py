@@ -2424,6 +2424,78 @@ MARCADORES_EMBUTIDOS = [r'<script type="application/json"', r"(?m)^\s*(const|var
                         r"(?m)^\s*var (DATA|MARCOS)\s*=\s*\[\s*\{", r"\"homicidios\":\s*\d", r"\"years\":\s*\[1995"]
 
 
+def pistas_x(con, exp):
+    """Pistas do X: post_rede/post_triagem (curadoria.aplicar_posts_x) e data/pistas-x.json. Tweet é pista, nunca fonte que sustenta."""
+    secao("Pistas do X (post_rede, post_triagem*, data/pistas-x.json)")
+    arq = CURADORIA / "x-triagem.jsonl"
+    tri = [json.loads(l) for l in arq.read_text(encoding="utf-8").splitlines() if l.strip()] if arq.exists() else []
+    if not arq.exists():
+        print("  info: sem data/curadoria/x-triagem.jsonl (cópia parcial de data/): contagens contra o arquivo puladas")
+    pj = exp["pistas-x.json"]
+    # contagens por relevância (arquivo == banco == pistas-x.json) e por tema (pista/contexto)
+    esperar("triagens no banco == linhas de x-triagem.jsonl", q(con, "SELECT count(*) FROM post_triagem")[0][0], len(tri)) if arq.exists() else None
+    por_rel = {r[0]: r[1] for r in q(con, "SELECT relevancia, count(*) FROM post_triagem GROUP BY relevancia")}
+    tabela("triagens por relevância:", sorted(por_rel.items()))
+    if arq.exists():
+        for rel in ("pista", "contexto", "coberto", "descartar"):
+            esperar(f"relevância {rel}: banco == arquivo", por_rel.get(rel, 0), sum(1 for d in tri if d["rel"] == rel))
+    for rel in ("pista", "contexto", "coberto", "descartar"):
+        esperar(f"relevância {rel}: pistas-x.json == banco", pj["contagens"]["por_relevancia"][rel], por_rel.get(rel, 0))
+    por_tema = collections.Counter((t, d["rel"]) for d in tri for t in set(d["temas"]) if d["rel"] in ("pista", "contexto"))
+    no_banco = collections.Counter({(r[0], r[1]): r[2] for r in q(con, """SELECT x.tema_id, t.relevancia, count(*) FROM post_triagem_tema x
+        JOIN post_triagem t ON t.post_id=x.post_id WHERE t.relevancia IN ('pista','contexto') GROUP BY 1,2""")})
+    exportado = collections.Counter({(g["id"], rel): g["n_" + rel] for g in pj["temas"] for rel in ("pista", "contexto") if g["n_" + rel]})
+    tabela("pista/contexto por tema:", [(f"{t} / {rel}", n) for (t, rel), n in sorted(no_banco.items())])
+    if arq.exists():
+        esperar("contagem por tema e relevância: banco == arquivo", dict(no_banco), dict(por_tema))
+    esperar("contagem por tema e relevância: pistas-x.json == banco", dict(exportado), dict(no_banco))
+    esperar("pistas-x.json: itens por tema somam n", all(g["n"] == len(g["itens"]) == g["n_pista"] + g["n_contexto"] for g in pj["temas"]), True)
+    # temas válidos, ids numéricos, duplicatas
+    esperar("post_triagem_tema com tema inexistente", q(con, "SELECT count(*) FROM post_triagem_tema x WHERE NOT EXISTS (SELECT 1 FROM tema t WHERE t.id=x.tema_id)")[0][0], 0)
+    esperar("triagem sem nenhum tema", q(con, "SELECT count(*) FROM post_triagem t WHERE NOT EXISTS (SELECT 1 FROM post_triagem_tema x WHERE x.post_id=t.post_id)")[0][0], 0)
+    esperar("ids de post não numéricos (post_triagem, post_rede, post_relacionado)",
+            q(con, """SELECT (SELECT count(*) FROM post_triagem WHERE post_id NOT GLOB 'x:[0-9]*' OR substr(post_id,3) GLOB '*[^0-9]*')
+                    + (SELECT count(*) FROM post_rede WHERE id NOT GLOB 'x:[0-9]*' OR substr(id,3) GLOB '*[^0-9]*')
+                    + (SELECT count(*) FROM post_relacionado WHERE relacionado_id NOT GLOB 'x:[0-9]*' OR substr(relacionado_id,3) GLOB '*[^0-9]*')""")[0][0], 0)
+    esperar("duplicatas que apontam para id fora da triagem", q(con, """SELECT count(*) FROM post_relacionado r WHERE r.tipo='duplicata'
+            AND NOT EXISTS (SELECT 1 FROM post_triagem t WHERE t.post_id=r.relacionado_id)""")[0][0], 0)
+    esperar("duplicata de si mesma", q(con, "SELECT count(*) FROM post_relacionado WHERE post_id=relacionado_id")[0][0], 0)
+    esperar("post com mais de uma duplicata_de", q(con, "SELECT count(*) FROM (SELECT post_id FROM post_relacionado WHERE tipo='duplicata' GROUP BY post_id HAVING count(*)>1)")[0][0], 0)
+    n_rel_fora = q(con, """SELECT count(*) FROM post_relacionado r WHERE r.tipo='relacionado' AND NOT EXISTS (SELECT 1 FROM post_triagem t WHERE t.post_id=r.relacionado_id)""")[0][0]
+    print(f"  info : {n_rel_fora} ligações `relacionado` apontam para posts fora da triagem (permitido: post ainda não triado/coletado)")
+    # entidades: entidade_id só quando o nome é exato e único no banco; o resto fica NULL
+    ruins = 0
+    for r in q(con, "SELECT post_id, nome, entidade_id FROM post_triagem_entidade"):
+        ids = {x[0] for x in q(con, "SELECT id FROM entidade WHERE nome=? UNION SELECT entidade_id FROM entidade_alias WHERE alias=?", r["nome"], r["nome"])}
+        ruins += (r["entidade_id"] is not None) != (len(ids) == 1) or (r["entidade_id"] is not None and r["entidade_id"] not in ids)
+    esperar("entidades citadas: entidade_id == resolução exata por nome/alias", ruins, 0)
+    n_ent, n_res = q(con, "SELECT count(*), count(entidade_id) FROM post_triagem_entidade")[0]
+    print(f"  info : {n_res} de {n_ent} menções de entidade resolvidas no banco")
+    # tweet é pista: nenhuma triagem `pista` pode ser evidência `sustenta` (relação ou evento)
+    for tb, col in (("relacao_evidencia", "relacao_id"), ("evento_evidencia", "evento_id")):
+        viol = q(con, f"""SELECT t.post_id, x.{col} FROM post_triagem t JOIN evidencia e ON (e.url LIKE 'https://x.com/%/status/' || substr(t.post_id,3)
+                 OR e.url LIKE 'https://twitter.com/%/status/' || substr(t.post_id,3) OR e.url LIKE 'https://x.com/%/status/' || substr(t.post_id,3) || '?%')
+                 JOIN {tb} x ON x.evidencia_id=e.id AND x.papel='sustenta' WHERE t.relevancia='pista'""")
+        esperar(f"posts `pista` ligados como `sustenta` em {tb}", len(viol), 0)
+    n_x = q(con, """SELECT count(*) FROM relacao_evidencia x JOIN evidencia e ON e.id=x.evidencia_id WHERE x.papel='sustenta'
+                    AND (e.url LIKE 'https://x.com/%/status/%' OR e.url LIKE 'https://twitter.com/%/status/%')""")[0][0]
+    esperar("tweets (qualquer triagem) como `sustenta` de relação", n_x, 0)
+    # bruto: congelado e coerente
+    hashes = {l.split()[1] for l in (RAW / "hashes.txt").read_text().splitlines() if l.strip()}
+    brutos = sorted(p.relative_to(RAW).as_posix() for p in (RAW / "x").glob("*-*.jsonl")) if (RAW / "x").is_dir() else []
+    esperar("data/raw/x/*.jsonl todos com sha256 em hashes.txt", [b for b in brutos if b not in hashes], [])
+    esperar("post_rede.arquivo_bruto aponta para arquivo existente", q(con, "SELECT count(DISTINCT arquivo_bruto) FROM post_rede")[0][0] <= len(brutos), True)
+    esperar("post_rede: links e consultas são JSON de lista", sum(1 for r in q(con, "SELECT links, consultas FROM post_rede")
+            if not (isinstance(json.loads(r[0]), list) and isinstance(json.loads(r[1]), list))), 0)
+    esperar("post_rede.url == https://x.com/<conta>/status/<id>", q(con, "SELECT count(*) FROM post_rede WHERE url <> 'https://x.com/' || conta || '/status/' || substr(id,3)")[0][0], 0)
+    n_post = q(con, "SELECT count(*) FROM post_rede")[0][0]
+    sem = q(con, "SELECT count(*) FROM post_triagem t WHERE NOT EXISTS (SELECT 1 FROM post_rede p WHERE p.id=t.post_id)")[0][0]
+    n_tri = q(con, "SELECT count(*) FROM post_triagem")[0][0]
+    print(f"  {'aviso' if sem else 'info '}: {sem} de {n_tri} triagens sem post bruto em post_rede ({n_post} posts brutos, {len(brutos)} arquivo(s) em data/raw/x/)")
+    esperar("pistas-x.json: itens com texto == itens cujo post existe", pj["contagens"]["com_texto"],
+            q(con, "SELECT count(*) FROM post_triagem t JOIN post_rede p ON p.id=t.post_id WHERE t.relevancia IN ('pista','contexto')")[0][0])
+
+
 def paginas(con, exp):
     """As páginas leem data/*.json (fetch, sem cópia embutida) e as exportações que só as páginas usam batem com o banco."""
     secao("Páginas (paginas/*.html leem data/*.json; nenhuma traz os dados embutidos)")
@@ -2511,6 +2583,7 @@ def main():
     valores(con, exp)
     rodada13_valores(con, exp)
     modelo_v2(con, exp)
+    pistas_x(con, exp)
     paginas(con, exp)
     peso_wikipedia(con, exp)
 

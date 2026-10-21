@@ -1108,6 +1108,39 @@ def listar_temas_core():
                 for t in con.execute("SELECT * FROM tema ORDER BY ordem, id")]
 
 
+def buscar_pistas_core(tema=None, entidade=None, texto=None, limite=50):
+    """Só leitura: triagens do X de relevância pista/contexto (post_triagem). Tweet é pista, nunca fonte que sustenta relação."""
+    with leitura() as con:
+        if tema and not con.execute("SELECT 1 FROM tema WHERE id=?", (tema,)).fetchone():
+            raise Rejeitado({"ok": False, "erro": f"tema inexistente: {tema!r} (veja listar_temas)"})
+        ent_ids = set()
+        if entidade:
+            ent_ids = {r[0] for r in con.execute("SELECT id FROM entidade WHERE id=? UNION SELECT entidade_id FROM entidade_alias WHERE alias_norm=?",
+                                                 (entidade, alias_norm(entidade)))}
+        termos = alias_norm(texto).split() if texto else []
+        out = []
+        for t in con.execute("""SELECT t.*, p.texto AS texto_post, p.url AS url_post FROM post_triagem t LEFT JOIN post_rede p ON p.id=t.post_id
+                                WHERE t.relevancia IN ('pista','contexto') ORDER BY t.prioridade, t.data_post DESC, t.post_id DESC"""):
+            pid = t["post_id"]
+            temas = [r[0] for r in con.execute("SELECT tema_id FROM post_triagem_tema WHERE post_id=? ORDER BY tema_id", (pid,))]
+            ents = [{"nome": r["nome"], "id": r["entidade_id"]} for r in con.execute(
+                "SELECT nome, entidade_id FROM post_triagem_entidade WHERE post_id=? ORDER BY ordem", (pid,))]
+            if tema and tema not in temas:
+                continue
+            if entidade and not any((e["id"] in ent_ids) or alias_norm(e["nome"]) == alias_norm(entidade) for e in ents):
+                continue
+            if termos:
+                corpo = alias_norm(" ".join(x or "" for x in (t["afirmacao"], t["nota"], t["fonte_citada"], t["texto_post"], " ".join(e["nome"] for e in ents))))
+                if not all(w in corpo for w in termos):
+                    continue
+            dup = con.execute("SELECT relacionado_id FROM post_relacionado WHERE post_id=? AND tipo='duplicata'", (pid,)).fetchone()
+            out.append({"id": pid[2:], "url": t["url_post"] or f"https://x.com/republiqueBRA/status/{pid[2:]}", "data": t["data_post"],
+                        "relevancia": t["relevancia"], "tipo": t["tipo_afirmacao"], "prioridade": t["prioridade"], "afirmacao": t["afirmacao"],
+                        "fonte_citada": t["fonte_citada"], "nota": t["nota"], "temas": temas, "entidades": ents,
+                        "duplicata_de": dup[0][2:] if dup else None, "texto": t["texto_post"]})
+        return out[:max(1, limite)]
+
+
 def exportar_core():
     """Dump + exportar_json + validar. Só faz sentido com o banco/dumps reais (os scripts gravam em data/)."""
     with _trava_thread:
@@ -1230,6 +1263,18 @@ def resumo_banco() -> dict:
     return resumo_banco_core()
 
 
+def buscar_pistas(tema: str | None = None, entidade: str | None = None, texto: str | None = None, limite: int = 50) -> list[dict] | dict:
+    """Só leitura. Pistas do X triadas (relevância `pista`/`contexto`; tabelas post_triagem*), da mais prioritária (1) para a menos, e da mais nova
+    para a mais antiga. `tema`: slug (listar_temas). `entidade`: id, nome ou alias (casa o id resolvido ou o nome citado). `texto`: palavras (todas,
+    sem acento/caixa) na afirmação, nota, fonte citada, nome citado ou texto do post. Tweet é PISTA, nunca fonte que sustenta relação: confirme
+    em reportagem/documento e só então use inserir_relacao (o tweet entra, no máximo, como evidência de `contexto`).
+    Retorna: id (do tweet), url, data, relevancia, tipo, prioridade, afirmacao, fonte_citada, nota, temas, entidades [{nome, id|null}], duplicata_de, texto (null sem bruto)."""
+    try:
+        return buscar_pistas_core(tema, entidade, texto, limite)
+    except Rejeitado as r:
+        return r.payload
+
+
 def exportar() -> dict:
     """Roda scripts/exportar_json.py (JSONs + dump) e scripts/validar.py e devolve a saída. Commit no git continua manual."""
     return exportar_core()
@@ -1241,7 +1286,7 @@ def criar_servidor():
         "use buscar_entidade antes de inserir (e listar_temas para os temas). Relações novas entram com status 'revisar'. "
         "inserir_fonte grava qualquer tipo de fonte (vídeo, reportagem, documento...); inserir_video é o atalho para vídeos."))
     for f in (buscar_entidade, buscar_relacoes, buscar_trechos, buscar_semantica, relacoes_similares, inserir_relacao, inserir_fonte,
-              inserir_video, listar_temas, resumo_banco, exportar):
+              inserir_video, listar_temas, buscar_pistas, resumo_banco, exportar):
         srv.tool()(f)
     return srv
 

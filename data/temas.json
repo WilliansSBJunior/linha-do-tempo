@@ -103,6 +103,39 @@
    "n_entidades": 27
   },
   {
+   "id": "crime-organizado",
+   "nome": "Crime organizado",
+   "descricao": "Guarda-chuva de facções e milícias (PCC, CV, milícias do RJ): operações, lavagem, infiltração. O tema `pcc` continua para o braço financeiro do PCC; este agrupa as pistas do X e o que não cabe só no PCC.",
+   "cor": "#4d4d4d",
+   "ordem": 10,
+   "principal": false,
+   "n_relacoes": 0,
+   "n_eventos": 0,
+   "n_entidades": 0
+  },
+  {
+   "id": "cultura-e-entretenimento",
+   "nome": "Cultura e entretenimento",
+   "descricao": "Artistas, influenciadores, bets e mídia de entretenimento quando cruzam com política, crime ou dinheiro.",
+   "cor": "#e7298a",
+   "ordem": 11,
+   "principal": false,
+   "n_relacoes": 0,
+   "n_eventos": 0,
+   "n_entidades": 0
+  },
+  {
+   "id": "financiamento-politico",
+   "nome": "Financiamento político",
+   "descricao": "Doações, caixa dois, emendas e fundos que financiam campanhas e mandatos; entra só o que é investigado ou documentado.",
+   "cor": "#66a61e",
+   "ordem": 12,
+   "principal": false,
+   "n_relacoes": 0,
+   "n_eventos": 0,
+   "n_entidades": 0
+  },
+  {
    "id": "a-classificar",
    "nome": "A classificar",
    "descricao": "Caixa de entrada: registros sem tema atribuído por regra (o MCP usa quando não consegue inferir). Revisar.",
@@ -1059,6 +1092,9 @@
    29,
    30
   ],
+  "crime-organizado": [],
+  "cultura-e-entretenimento": [],
+  "financiamento-politico": [],
   "a-classificar": []
  },
  "eventos": {
@@ -1712,6 +1748,9 @@
    "vol3",
    "vol7"
   ],
+  "crime-organizado": [],
+  "cultura-e-entretenimento": [],
+  "financiamento-politico": [],
   "a-classificar": []
  },
  "entidades": {
@@ -2329,6 +2368,9 @@
    "super-empreendimentos",
    "tarcisio-de-freitas"
   ],
+  "crime-organizado": [],
+  "cultura-e-entretenimento": [],
+  "financiamento-politico": [],
   "a-classificar": []
  }
 }

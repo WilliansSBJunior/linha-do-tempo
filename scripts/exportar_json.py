@@ -2,7 +2,7 @@
 """Exporta o banco para JSON (e regenera data/dump.sql). Só lê o banco.
 
 Gera em data/: entities.json, teia.json, origens.json, series.json, mapa_indices.json, dossie.json, pares.json, temas.json,
-violencia.json, dump.sql.
+violencia.json, pistas-x.json, dump.sql.
 Uso: python3 scripts/exportar_json.py [--db caminho.sqlite]
 """
 import argparse
@@ -602,6 +602,50 @@ def montar_temas(con):
                         ("entidades", OrderedDict((t["id"], ent[t["id"]]) for t in temas))])
 
 
+CONTA_X = "republiqueBRA"
+
+
+def montar_pistas_x(con):
+    """Pistas do X (post_triagem de relevância `pista` e `contexto`) agrupadas por tema. Um post com vários temas aparece em cada um.
+    Pista não é fonte: é ponto de partida para checar em reportagem/documento. Itens: prioridade, depois data (mais nova primeiro)."""
+    posts = {r["id"]: r for r in con.execute("SELECT * FROM post_rede")}
+    ents, rels = defaultdict(list), defaultdict(lambda: defaultdict(list))
+    for r in con.execute("SELECT post_id, nome, entidade_id FROM post_triagem_entidade ORDER BY post_id, ordem"):
+        ents[r["post_id"]].append(OrderedDict([("nome", r["nome"]), ("id", r["entidade_id"])]))
+    for r in con.execute("SELECT post_id, relacionado_id, tipo FROM post_relacionado ORDER BY post_id, tipo, relacionado_id"):
+        rels[r["post_id"]][r["tipo"]].append(r["relacionado_id"][2:])
+    temas_de = defaultdict(list)
+    for r in con.execute("SELECT post_id, tema_id FROM post_triagem_tema ORDER BY post_id, tema_id"):
+        temas_de[r["post_id"]].append(r["tema_id"])
+    itens = {}
+    for t in con.execute("""SELECT * FROM post_triagem WHERE relevancia IN ('pista','contexto')
+                            ORDER BY prioridade, data_post DESC, post_id DESC"""):
+        pid, tid = t["post_id"], t["post_id"][2:]
+        p = posts.get(pid)
+        itens[pid] = OrderedDict([
+            ("id", tid), ("url", p["url"] if p else f"https://x.com/{CONTA_X}/status/{tid}"), ("data", t["data_post"]),
+            ("relevancia", t["relevancia"]), ("tipo", t["tipo_afirmacao"]), ("prioridade", t["prioridade"]),
+            ("afirmacao", t["afirmacao"]), ("fonte_citada", t["fonte_citada"]), ("nota", t["nota"]),
+            ("temas", temas_de[pid]), ("entidades", ents[pid]),
+            ("duplicata_de", (rels[pid]["duplicata"] or [None])[0]), ("relacionados", rels[pid]["relacionado"]),
+            ("texto", p["texto"] if p else None), ("card", p["card"] if p else None)])
+    grupos = []
+    for tm in con.execute("SELECT id, nome FROM tema ORDER BY ordem, id"):
+        lista = [itens[pid] for pid in itens if tm["id"] in temas_de[pid]]
+        if lista:
+            grupos.append(OrderedDict([("id", tm["id"]), ("nome", tm["nome"]), ("n", len(lista)),
+                                       ("n_pista", sum(i["relevancia"] == "pista" for i in lista)),
+                                       ("n_contexto", sum(i["relevancia"] == "contexto" for i in lista)), ("itens", lista)]))
+    por_rel = {r[0]: r[1] for r in con.execute("SELECT relevancia, count(*) FROM post_triagem GROUP BY relevancia")}
+    return OrderedDict([
+        ("versao", VERSAO), ("gerado_em", TS_MIGRACAO), ("conta", CONTA_X),
+        ("descricao", "Pistas coletadas da conta @%s no X e triadas. Tweet é PISTA, nunca fonte que sustenta relação: confirme em reportagem ou "
+                      "documento antes de publicar. Só relevância `pista` e `contexto`; `coberto` e `descartar` ficam no banco (post_triagem)." % CONTA_X),
+        ("contagens", OrderedDict([("triagens", sum(por_rel.values())), ("por_relevancia", OrderedDict((k, por_rel.get(k, 0)) for k in ("pista", "contexto", "coberto", "descartar"))),
+                                   ("itens_exportados", len(itens)), ("com_texto", sum(i["texto"] is not None for i in itens.values()))])),
+        ("temas", grupos)])
+
+
 def salvar(nome, obj):
     (DATA / nome).write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
@@ -610,7 +654,7 @@ def todos(con):
     return {"entities.json": montar_entities(con), "teia.json": montar_teia(con), "origens.json": montar_origens(con),
             "series.json": montar_series(con), "mapa_indices.json": mapa_indices(con),
             "dossie.json": montar_dossie(con), "pares.json": montar_pares(con), "temas.json": montar_temas(con),
-            "violencia.json": montar_violencia(con)}
+            "violencia.json": montar_violencia(con), "pistas-x.json": montar_pistas_x(con)}
 
 
 def main():

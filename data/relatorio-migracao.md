@@ -39,7 +39,7 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | relacao (origem linha_do_tempo: mandato/filiação) | 472 |
 | relacao total | 839 |
 | evento total | 507 |
-| tema | 10 |
+| tema | 13 |
 | relacao_tema | 928 |
 | evento_tema | 633 |
 | fonte (era video) | 0 |
@@ -54,6 +54,8 @@ Gerado por `scripts/migrar.py` (timestamp fixo 2026-10-16T00:00:00Z). Fonte: `da
 | mandato | 324 |
 | bancada | 634 |
 | entidade_valor | 60 |
+| post_rede | 0 |
+| post_triagem | 169 |
 
 Eventos por canal:
 
@@ -586,6 +588,9 @@ Contagens por tema (entidades vêm da view; um registro pode estar em vários te
 | `brb` (BRB) | 29 | 34 | 42 |
 | `precatorios` (Precatórios) | 12 | 37 | 26 |
 | `lagoinha` (Lagoinha) | 17 | 32 | 27 |
+| `crime-organizado` (Crime organizado) | 0 | 0 | 0 |
+| `cultura-e-entretenimento` (Cultura e entretenimento) | 0 | 0 | 0 |
+| `financiamento-politico` (Financiamento político) | 0 | 0 | 0 |
 | `a-classificar` (A classificar) | 0 | 0 | 0 |
 
 Em mais de um tema: 84 relações, 118 eventos, 117 entidades. Registros no tema-caixa `a-classificar`: 0 relações, 0 eventos (o MCP usa esse tema quando não consegue inferir; `validar.py` avisa se houver algum).

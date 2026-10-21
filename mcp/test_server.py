@@ -395,9 +395,26 @@ class TestFonte(Base):
 class TestTemas(Base):
     def test_listar_temas(self):
         ts = {t["id"]: t for t in S.listar_temas()}
-        self.assertEqual(set(ts), {"caso-master", "brasil-ano-a-ano", "pares", "violencia", "inss", "pcc", "brb", "precatorios", "lagoinha", "a-classificar"})
+        self.assertEqual(set(ts), {"caso-master", "brasil-ano-a-ano", "pares", "violencia", "inss", "pcc", "brb", "precatorios", "lagoinha", "a-classificar",
+                                   "crime-organizado", "cultura-e-entretenimento", "financiamento-politico"})
         self.assertGreater(ts["caso-master"]["n_relacoes"], 300)
         self.assertGreater(ts["brasil-ano-a-ano"]["n_eventos"], 200)
+
+    def test_buscar_pistas(self):
+        todas = S.buscar_pistas(limite=500)
+        n = self.sql("SELECT count(*) c FROM post_triagem WHERE relevancia IN ('pista','contexto')")[0]["c"]
+        self.assertEqual(len(todas), n)
+        self.assertGreater(n, 100)
+        self.assertEqual([p["prioridade"] for p in todas], sorted(p["prioridade"] for p in todas))
+        cv = S.buscar_pistas(tema="crime-organizado", limite=500)
+        self.assertTrue(cv and all("crime-organizado" in p["temas"] for p in cv))
+        self.assertTrue(all(p["url"].startswith("https://x.com/republiqueBRA/status/") for p in cv))
+        oruam = S.buscar_pistas(texto="oruam")
+        self.assertTrue(oruam and all(p["relevancia"] in ("pista", "contexto") for p in oruam))
+        self.assertEqual(S.buscar_pistas(tema="tema-que-nao-existe")["ok"], False)
+        self.assertEqual(S.buscar_pistas(texto="zzzxxyyqq"), [])
+        um = S.buscar_pistas(entidade="Comando Vermelho", limite=500)
+        self.assertTrue(um and all(any(e["nome"] == "Comando Vermelho" for e in p["entidades"]) for p in um))
 
     def test_relacao_nova_herda_ou_recebe_temas(self):
         a, b = self.par_sem_relacao()
@@ -410,7 +427,7 @@ class TestTemas(Base):
         ruim = S.inserir_relacao(de=a, para=b, tipo="financeira", rotulo="Teste de tema", natureza="rep", temas=["inss", "tema-que-nao-existe"])
         self.assertFalse(ruim["ok"])
         self.assertIn("tema-que-nao-existe", ruim["erro"])
-        self.assertEqual(self.n("tema"), 10)
+        self.assertEqual(self.n("tema"), 13)
         ok = S.inserir_relacao(de=a, para=b, tipo="financeira", rotulo="Teste de tema", natureza="rep", temas=["inss"])
         self.assertEqual(ok["acao"], "atualizada")
         self.assertEqual(set(ok["temas"]), set(r["temas"]) | {"inss"})
@@ -589,7 +606,7 @@ class TestExtras(Base):
         r = S.resumo_banco()
         self.assertGreater(r["entidade"], 300)
         self.assertIn("publicada", r["relacao_por_status"])
-        self.assertEqual(r["tema"], 10)
+        self.assertEqual(r["tema"], 13)
         self.assertIn("linha_do_tempo", r["relacao_por_origem"])
         self.assertIn("fonte_por_tipo", r)
 

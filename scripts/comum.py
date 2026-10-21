@@ -22,7 +22,7 @@ TABELAS = ["meta", "categoria", "entidade", "entidade_alias", "evidencia", "rela
            "corte", "corte_trecho", "relacao_corte", "nota", "nota_entidade", "indicador", "serie",
            "ranking_empresa", "ranking_evidencia", "mandato", "bancada", "aresta_legado",
            "dossie_par", "dossie_par_evidencia", "previdencia_ente", "pagamento", "indicio_maquina", "limite", "forum",
-           "entidade_valor"]
+           "entidade_valor", "post_rede", "post_triagem", "post_triagem_tema", "post_triagem_entidade", "post_relacionado"]
 TABELAS_NO_SCHEMA = {"natureza", "natureza_mapa"}
 
 

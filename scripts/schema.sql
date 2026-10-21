@@ -457,6 +457,60 @@ CREATE TABLE entidade_valor (
 CREATE UNIQUE INDEX ux_entidade_valor_principal ON entidade_valor(entidade_id) WHERE principal = 1;
 CREATE UNIQUE INDEX ux_entidade_valor_ordem ON entidade_valor(entidade_id, ordem);
 
+-- DESVIO (aditivo): posts de redes sociais coletados como PISTAS (nunca fonte que sustenta relação) e a triagem deles.
+-- Entrada: data/raw/x/<conta>-*.jsonl (congelado, sha256 em hashes.txt) -> post_rede; data/curadoria/x-triagem.jsonl -> post_triagem*.
+-- (curadoria.aplicar_posts_x). Regra do projeto: tweet é pista; quando corroborado por reportagem/documento, a relação entra pelo fluxo
+-- normal e o post entra só como evidência de papel `contexto`. validar.py (seção "Pistas do X") proíbe pista como `sustenta`.
+CREATE TABLE post_rede (
+  id TEXT PRIMARY KEY CHECK (id GLOB '[a-z]:[0-9]*'),   -- 'x:<id do tweet>'
+  plataforma TEXT NOT NULL CHECK (plataforma IN ('x')),
+  conta TEXT NOT NULL,                           -- sem '@'
+  url TEXT NOT NULL,                             -- https://x.com/<conta>/status/<id>
+  publicado_em TEXT NOT NULL,                    -- 'AAAA-MM-DDTHH:MM'
+  texto TEXT NOT NULL,
+  card TEXT,                                     -- título/descrição do card de link, quando houver
+  links TEXT NOT NULL DEFAULT '[]',              -- JSON: lista de URLs do tweet
+  tem_video INTEGER NOT NULL DEFAULT 0 CHECK (tem_video IN (0,1)),
+  consultas TEXT NOT NULL DEFAULT '[]',          -- JSON: tags das buscas que trouxeram o post (ex. ["master","faccoes"])
+  arquivo_bruto TEXT NOT NULL,                   -- caminho relativo a data/raw (ex. 'x/republiqueBRA-2026-10.jsonl')
+  coletado_em TEXT                               -- opcional (campo `k` do bruto); NULL quando o bruto não diz
+) STRICT;
+CREATE INDEX ix_post_rede_data ON post_rede(publicado_em);
+-- Sem FK para post_rede de propósito: a triagem pode existir antes do bruto completo (validar.py lista as triagens sem post bruto).
+CREATE TABLE post_triagem (
+  post_id TEXT PRIMARY KEY CHECK (post_id GLOB 'x:[0-9]*' AND post_id NOT GLOB 'x:*[^0-9]*'),
+  data_post TEXT NOT NULL,                       -- data do post como na triagem (AAAA-MM-DD)
+  relevancia TEXT NOT NULL CHECK (relevancia IN ('pista','contexto','coberto','descartar')),
+  tipo_afirmacao TEXT NOT NULL CHECK (tipo_afirmacao IN ('fato_atribuido','alegacao','opiniao')),
+  afirmacao TEXT NOT NULL,                       -- frase normalizada
+  fonte_citada TEXT,                             -- o que o tweet diz ser a fonte ("PF (operação)", "Folha"...)
+  prioridade INTEGER NOT NULL CHECK (prioridade BETWEEN 1 AND 3),
+  nota TEXT,
+  triado_por TEXT NOT NULL,                      -- ex. 'claude-opus-piloto'
+  triado_em TEXT NOT NULL
+) STRICT;
+CREATE INDEX ix_post_triagem_rel ON post_triagem(relevancia);
+CREATE TABLE post_triagem_tema (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  tema_id TEXT NOT NULL REFERENCES tema(id),
+  PRIMARY KEY (post_id, tema_id)
+) STRICT;
+CREATE INDEX ix_post_triagem_tema ON post_triagem_tema(tema_id);
+CREATE TABLE post_triagem_entidade (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  nome TEXT NOT NULL,                            -- nome citado, como na triagem
+  entidade_id TEXT REFERENCES entidade(id),      -- NULL quando o nome não casa, exato, com um único nome/alias do banco (nada de adivinhar)
+  ordem INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (post_id, nome)
+) STRICT;
+CREATE INDEX ix_post_triagem_ent ON post_triagem_entidade(entidade_id);
+CREATE TABLE post_relacionado (
+  post_id TEXT NOT NULL REFERENCES post_triagem(post_id) ON DELETE CASCADE,
+  relacionado_id TEXT NOT NULL,                  -- 'x:<id>'; sem FK: pode apontar para post ainda não triado/coletado
+  tipo TEXT NOT NULL CHECK (tipo IN ('duplicata','relacionado')),
+  PRIMARY KEY (post_id, relacionado_id, tipo)
+) STRICT;
+
 -- Views --------------------------------------------------------------------------------------------------------------
 -- Compatibilidade com o modelo antigo: `video` = fontes do tipo video (somente leitura; escreva em `fonte`).
 CREATE VIEW video AS

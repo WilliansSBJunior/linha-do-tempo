@@ -69,6 +69,27 @@
    "ordem": 9
   },
   {
+   "id": "crime-organizado",
+   "nome": "Crime organizado",
+   "descricao": "Guarda-chuva de facções e milícias (PCC, CV, milícias do RJ): operações, lavagem, infiltração. O tema `pcc` continua para o braço financeiro do PCC; este agrupa as pistas do X e o que não cabe só no PCC.",
+   "cor": "#4d4d4d",
+   "ordem": 10
+  },
+  {
+   "id": "cultura-e-entretenimento",
+   "nome": "Cultura e entretenimento",
+   "descricao": "Artistas, influenciadores, bets e mídia de entretenimento quando cruzam com política, crime ou dinheiro.",
+   "cor": "#e7298a",
+   "ordem": 11
+  },
+  {
+   "id": "financiamento-politico",
+   "nome": "Financiamento político",
+   "descricao": "Doações, caixa dois, emendas e fundos que financiam campanhas e mandatos; entra só o que é investigado ou documentado.",
+   "cor": "#66a61e",
+   "ordem": 12
+  },
+  {
    "id": "a-classificar",
    "nome": "A classificar",
    "descricao": "Caixa de entrada: registros sem tema atribuído por regra (o MCP usa quando não consegue inferir). Revisar.",

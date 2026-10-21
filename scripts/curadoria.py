@@ -772,6 +772,143 @@ def aplicar_temas(con):
     return {"regras": cfg["regras"], "por_regra": {k: dict(v) for k, v in stats.items()}, "excecoes": n_exc, "fallback": n_fallback}
 
 
+# ======================================================================== 6b. posts de redes sociais (pistas do X)
+X_RAW = RAW / "x"
+X_TRIAGEM = CURADORIA / "x-triagem.jsonl"
+X_RELEVANCIAS = ("pista", "contexto", "coberto", "descartar")
+X_TIPOS = ("fato_atribuido", "alegacao", "opiniao")
+X_TRIADO_POR = "claude-opus-piloto"     # padrão quando a linha da triagem não traz `por`
+X_TRIADO_EM = "2026-10-20"              # idem `em` (data fixa: o banco é reproduzível byte a byte)
+
+
+def _ler_jsonl(caminho):
+    out = []
+    for n, linha in enumerate(caminho.read_text(encoding="utf-8").splitlines(), 1):
+        if linha.strip():
+            try:
+                out.append((n, json.loads(linha)))
+            except ValueError as e:
+                raise SystemExit(f"{caminho.name}:{n}: JSON inválido ({e})")
+    return out
+
+
+def url_post_x(conta, tweet_id):
+    return f"https://x.com/{conta}/status/{tweet_id}"
+
+
+def aplicar_posts_x(con):
+    """Pistas do X. (1) `data/raw/x/<conta>-*.jsonl` (congelado; uma linha por tweet: i id, d 'AAAA-MM-DDTHH:MM', q tags separadas por vírgula,
+    t texto, c card, l links, v vídeo 0/1; opcional k = coletado_em) -> `post_rede`. Sem arquivo bruto a tabela fica vazia (a coleta pode estar em
+    andamento). Arquivo bruto sem sha256 em hashes.txt aborta. Mesmo tweet em mais de uma linha/arquivo: vale o primeiro e as tags de busca
+    se unem. (2) `data/curadoria/x-triagem.jsonl` (id, data, rel, temas, tipo, ent, afirmacao, fonte_citada, prio, dup_de, relacionados, nota;
+    opcionais por/em) -> `post_triagem` (+ `_tema`, `_entidade`, `post_relacionado`), com ou sem o post bruto (sem FK para post_rede).
+    Nome citado -> entidade só por nome/alias EXATO e único (senão `entidade_id` NULL). Tema inexistente, relevância/tipo inválidos, id não
+    numérico ou id repetido abortam sem gravar nada. Tweet é pista, nunca fonte que sustenta relação: isso é conferido em validar.py."""
+    hashes = {}
+    for linha in (RAW / "hashes.txt").read_text().splitlines():
+        h, n = linha.split()
+        hashes[n] = h
+    r = {"arquivos": [], "posts": 0, "triagens": 0, "sem_bruto": 0, "por_relevancia": collections.Counter(), "entidades": 0,
+         "entidades_resolvidas": 0, "relacionados": 0}
+    erros, posts = [], {}
+    for arq in sorted(X_RAW.glob("*-*.jsonl")) if X_RAW.is_dir() else []:
+        rel = arq.relative_to(RAW).as_posix()
+        if rel not in hashes:
+            erros.append(f"data/raw/{rel}: sem sha256 em data/raw/hashes.txt (o bruto é congelado)")
+            continue
+        conta = arq.name.split("-")[0]
+        r["arquivos"].append(rel)
+        for n, d in _ler_jsonl(arq):
+            ref = f"{arq.name}:{n}"
+            i = str(d.get("i", ""))
+            if not re.fullmatch(r"\d+", i):
+                erros.append(f"{ref}: id `i` não numérico: {d.get('i')!r}")
+                continue
+            if not re.fullmatch(r"\d{4}-\d\d-\d\dT\d\d:\d\d", str(d.get("d", ""))) or not d.get("t"):
+                erros.append(f"{ref}: `d` ('AAAA-MM-DDTHH:MM') e `t` são obrigatórios")
+                continue
+            tags = [t.strip() for t in (d.get("q") or "").split(",") if t.strip()]
+            links = d.get("l") or []
+            if isinstance(links, str):
+                links = [links]
+            if f"x:{i}" in posts:
+                for t in tags:
+                    if t not in posts[f"x:{i}"]["tags"]:
+                        posts[f"x:{i}"]["tags"].append(t)
+                continue
+            posts[f"x:{i}"] = {"conta": conta, "i": i, "d": d["d"], "t": d["t"], "c": d.get("c") or None, "l": links,
+                               "v": int(bool(d.get("v"))), "tags": tags, "arq": rel, "k": d.get("k") or None}
+    temas = {x[0] for x in con.execute("SELECT id FROM tema")}
+    cache = {}
+
+    def resolver(nome):
+        if nome not in cache:
+            ids = {x[0] for x in con.execute("SELECT id FROM entidade WHERE nome=? UNION SELECT entidade_id FROM entidade_alias WHERE alias=?", (nome, nome))}
+            cache[nome] = next(iter(ids)) if len(ids) == 1 else None
+        return cache[nome]
+
+    tri, vistos = [], set()
+    if X_TRIAGEM.exists():
+        for n, d in _ler_jsonl(X_TRIAGEM):
+            ref = f"x-triagem.jsonl:{n}"
+            i = str(d.get("id", ""))
+            if not re.fullmatch(r"\d+", i):
+                erros.append(f"{ref}: id não numérico: {d.get('id')!r}")
+                continue
+            if i in vistos:
+                erros.append(f"{ref}: id {i} repetido")
+            vistos.add(i)
+            if d.get("rel") not in X_RELEVANCIAS:
+                erros.append(f"{ref}: rel inválido {d.get('rel')!r}")
+            if d.get("tipo") not in X_TIPOS:
+                erros.append(f"{ref}: tipo inválido {d.get('tipo')!r}")
+            if not isinstance(d.get("prio"), int) or not 1 <= d["prio"] <= 3:
+                erros.append(f"{ref}: prio deve ser 1-3")
+            if not d.get("afirmacao") or not re.fullmatch(r"\d{4}-\d\d-\d\d", str(d.get("data", ""))):
+                erros.append(f"{ref}: `afirmacao` e `data` (AAAA-MM-DD) são obrigatórias")
+            for t in d.get("temas") or []:
+                if t not in temas:
+                    erros.append(f"{ref}: tema inexistente {t!r} (acrescente em temas.json)")
+            if not d.get("temas"):
+                erros.append(f"{ref}: sem temas")
+            for k in [d.get("dup_de")] + list(d.get("relacionados") or []):
+                if k is not None and not re.fullmatch(r"\d+", str(k)):
+                    erros.append(f"{ref}: id relacionado não numérico: {k!r}")
+            tri.append(d)
+    if erros:
+        raise SystemExit("posts do X: nada foi aplicado.\n  " + "\n  ".join(erros))
+    for pid in sorted(posts):
+        p = posts[pid]
+        con.execute("""INSERT INTO post_rede(id,plataforma,conta,url,publicado_em,texto,card,links,tem_video,consultas,arquivo_bruto,coletado_em)
+                       VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
+                    (pid, "x", p["conta"], url_post_x(p["conta"], p["i"]), p["d"], p["t"], p["c"], json.dumps(p["l"], ensure_ascii=False),
+                     p["v"], json.dumps(p["tags"], ensure_ascii=False), p["arq"], p["k"]))
+    r["posts"] = len(posts)
+    for d in sorted(tri, key=lambda x: x["id"]):
+        pid = "x:" + str(d["id"])
+        con.execute("""INSERT INTO post_triagem(post_id,data_post,relevancia,tipo_afirmacao,afirmacao,fonte_citada,prioridade,nota,triado_por,triado_em)
+                       VALUES(?,?,?,?,?,?,?,?,?,?)""",
+                    (pid, d["data"], d["rel"], d["tipo"], d["afirmacao"], d.get("fonte_citada") or None, d["prio"], d.get("nota") or None,
+                     d.get("por") or X_TRIADO_POR, d.get("em") or X_TRIADO_EM))
+        for t in sorted(set(d["temas"])):
+            con.execute("INSERT INTO post_triagem_tema(post_id,tema_id) VALUES(?,?)", (pid, t))
+        for o, nome in enumerate(dict.fromkeys(d.get("ent") or [])):
+            ent = resolver(nome)
+            con.execute("INSERT INTO post_triagem_entidade(post_id,nome,entidade_id,ordem) VALUES(?,?,?,?)", (pid, nome, ent, o))
+            r["entidades"] += 1
+            r["entidades_resolvidas"] += ent is not None
+        if d.get("dup_de") is not None:
+            con.execute("INSERT INTO post_relacionado(post_id,relacionado_id,tipo) VALUES(?,?,'duplicata')", (pid, "x:" + str(d["dup_de"])))
+            r["relacionados"] += 1
+        for k in sorted(set(str(x) for x in d.get("relacionados") or [])):
+            con.execute("INSERT OR IGNORE INTO post_relacionado(post_id,relacionado_id,tipo) VALUES(?,?,'relacionado')", (pid, "x:" + k))
+            r["relacionados"] += 1
+        r["triagens"] += 1
+        r["por_relevancia"][d["rel"]] += 1
+        r["sem_bruto"] += pid not in posts
+    return r
+
+
 # ======================================================================== 7. mandato oficial (data/raw/oficial/ -> data/curadoria/mandato-oficial.json)
 OFICIAL = RAW / "oficial"
 RELATORIO_MANDATO_OFICIAL = DATA / "relatorio-mandatos-oficial.md"

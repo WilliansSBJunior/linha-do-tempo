@@ -821,6 +821,7 @@ def main(destino=SQLITE, pular=(), escrever=True):
     R["evid_qualidade"] = curadoria.aplicar_evidencia_qualidade(con)   # à mão; revisão do critério 'fraca'; depois de tudo que grava qualidade
     R["peso_wiki"] = curadoria.aplicar_peso_wikipedia(con)   # R6 (regras-fontes.json): wiki nunca 'sustenta'; depois de todas as funções de evidência
     R["temas"] = curadoria.aplicar_temas(con)                  # por último: precisa de todas as relações e ligações evento-entidade
+    R["posts_x"] = curadoria.aplicar_posts_x(con)              # pistas do X (bruto data/raw/x + data/curadoria/x-triagem.jsonl); precisa de tema e entidade/alias
 
     # ================================================================ META, FTS, DUMP
     meta = {"schema_versao": "2", "migrado_em": TS_MIGRACAO, "migrar_py": "scripts/migrar.py"}
@@ -1511,7 +1512,8 @@ def escrever_relatorio(con, antes, R, VARIANTES, dup_na_mesma, sem_natureza, map
         ("evento_evidencia", "SELECT count(*) FROM evento_evidencia"), ("evento_entidade", "SELECT count(*) FROM evento_entidade"),
         ("nota", "SELECT count(*) FROM nota"), ("indicador", "SELECT count(*) FROM indicador"), ("serie", "SELECT count(*) FROM serie"),
         ("ranking_empresa", "SELECT count(*) FROM ranking_empresa"), ("mandato", "SELECT count(*) FROM mandato"),
-        ("bancada", "SELECT count(*) FROM bancada"), ("entidade_valor", "SELECT count(*) FROM entidade_valor")]
+        ("bancada", "SELECT count(*) FROM bancada"), ("entidade_valor", "SELECT count(*) FROM entidade_valor"),
+        ("post_rede", "SELECT count(*) FROM post_rede"), ("post_triagem", "SELECT count(*) FROM post_triagem")]
     w("| Depois (banco) | n |\n|---|---|")
     for k, s in depois:
         w(f"| {k} | {q(s)[0][0]} |")
